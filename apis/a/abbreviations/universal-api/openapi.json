@@ -1,0 +1,525 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Abbreviations Universal API",
+    "version": "0.0.2",
+    "description": "Search classified acronyms, abbreviations, and initialisms from Abbreviations.com using the STANDS4 Abbreviations API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/abbreviations/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/abbreviations/latest/actions/lookup-abbreviation": {
+      "get": {
+        "operationId": "abbreviations.lookup-abbreviation",
+        "summary": "Lookup Abbreviation",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/abbreviations/latest/actions/lookup-abbreviation"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "description": "The abbreviation or acronym to search for, such as `asap`.",
+            "schema": {
+              "type": "string",
+              "description": "The abbreviation or acronym to search for, such as `asap`.",
+              "example": "asap"
+            }
+          },
+          {
+            "name": "categoryid",
+            "in": "query",
+            "required": false,
+            "description": "Optional STANDS4 category id to search within, such as `MEDICAL`.",
+            "schema": {
+              "type": "string",
+              "description": "Optional STANDS4 category id to search within, such as `MEDICAL`.",
+              "example": "MEDICAL",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "required": false,
+            "description": "Sort order: popularity, alphabetical, or category.",
+            "schema": {
+              "type": "string",
+              "description": "Sort order: popularity, alphabetical, or category.",
+              "enum": [
+                "a",
+                "c",
+                "p"
+              ],
+              "default": "p"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "category": {
+                            "type": "string",
+                            "description": "STANDS4 category code for this result."
+                          },
+                          "categoryname": {
+                            "type": "string",
+                            "description": "Display name for the result category."
+                          },
+                          "definition": {
+                            "type": "string",
+                            "description": "The definition found for the term."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "STANDS4 result identifier."
+                          },
+                          "score": {
+                            "type": "string",
+                            "description": "STANDS4 relevance or rating score returned as a string."
+                          },
+                          "term": {
+                            "type": "string",
+                            "description": "The abbreviation or term for this result."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/abbreviations/latest/actions/reverse-lookup-abbreviation": {
+      "get": {
+        "operationId": "abbreviations.reverse-lookup-abbreviation",
+        "summary": "Reverse Lookup Abbreviation",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/abbreviations/latest/actions/reverse-lookup-abbreviation"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "description": "The full term or phrase to reverse-search for abbreviation matches, such as `As Soon As Possible`.",
+            "schema": {
+              "type": "string",
+              "description": "The full term or phrase to reverse-search for abbreviation matches, such as `As Soon As Possible`.",
+              "example": "As Soon As Possible"
+            }
+          },
+          {
+            "name": "categoryid",
+            "in": "query",
+            "required": false,
+            "description": "Optional STANDS4 category id to search within, such as `MEDICAL`.",
+            "schema": {
+              "type": "string",
+              "description": "Optional STANDS4 category id to search within, such as `MEDICAL`.",
+              "example": "MEDICAL",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "required": false,
+            "description": "Sort order: popularity, alphabetical, or category.",
+            "schema": {
+              "type": "string",
+              "description": "Sort order: popularity, alphabetical, or category.",
+              "enum": [
+                "a",
+                "c",
+                "p"
+              ],
+              "default": "p"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "category": {
+                            "type": "string",
+                            "description": "STANDS4 category code for this result."
+                          },
+                          "categoryname": {
+                            "type": "string",
+                            "description": "Display name for the result category."
+                          },
+                          "definition": {
+                            "type": "string",
+                            "description": "The definition found for the term."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "STANDS4 result identifier."
+                          },
+                          "score": {
+                            "type": "string",
+                            "description": "STANDS4 relevance or rating score returned as a string."
+                          },
+                          "term": {
+                            "type": "string",
+                            "description": "The abbreviation or term for this result."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

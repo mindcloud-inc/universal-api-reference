@@ -1,0 +1,10 @@
+# List Analysis with Blip
+
+Retrieves recent analysis from Blip.
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `/commands`
+- **Base URL:** `https://ae2bd556-b116-4f7a-a0d3-30a54ef5b9d7.http.msging.net`
+- **Official documentation:** [List Analysis](https://docs.blip.ai/#get-the-last-10-analysis)

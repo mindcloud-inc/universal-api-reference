@@ -1,0 +1,20 @@
+# Create Coupon with Swell
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `/coupons`
+- **Base URL:** `https://api.swell.store`
+- **Official documentation:** [Create Coupon](https://developers.swell.is/backend-api/coupons/create-a-coupon)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `codes[]` | body | `array<object>` | no | Coupon code definitions. |
+| `discounts[]` | body | `array<object>` | yes | Coupon discount rules. |
+| `name` | body | `string` | no | The coupon name. |
+| `active` | body | `boolean` | no | Whether the coupon is active. |
+| `date_expired` | body | `date` | no | The coupon expiration timestamp. |
+| `description` | body | `string` | no | The coupon description. |
+| `multi_codes` | body | `boolean` | no | Whether the coupon supports multiple codes. |

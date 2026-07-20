@@ -1,0 +1,529 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Free Dictionary Universal API",
+    "version": "0.0.6",
+    "description": "Free Dictionary wraps the public Free Dictionary API so you can look up English word definitions, phonetics, origins, examples, synonyms, and antonyms."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/freeDictionary/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/freeDictionary/latest/actions/get-word-entries": {
+      "get": {
+        "operationId": "freeDictionary.get-word-entries",
+        "summary": "Get Word Entries",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/freeDictionary/latest/actions/get-word-entries"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": true,
+            "description": "Supported language code for the dictionary lookup. Upstream source supports hi, en, en_GB, en_US, es, fr, ja, cs, nl, sk, ru, de, it, ko, pt-BR, ar, and tr.",
+            "schema": {
+              "type": "string",
+              "description": "Supported language code for the dictionary lookup. Upstream source supports hi, en, en_GB, en_US, es, fr, ja, cs, nl, sk, ru, de, it, ko, pt-BR, ar, and tr."
+            }
+          },
+          {
+            "name": "word",
+            "in": "query",
+            "required": true,
+            "description": "The English word to look up.",
+            "schema": {
+              "type": "string",
+              "description": "The English word to look up.",
+              "example": "example: hello"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "Optional comma-separated expansions. Use `example` to include full examples arrays in the response where available.",
+            "schema": {
+              "type": "string",
+              "description": "Optional comma-separated expansions. Use `example` to include full examples arrays in the response where available."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "license": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "License metadata for the dictionary content when provided."
+                          },
+                          "meanings": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Definitions grouped by part of speech, including examples and synonyms."
+                          },
+                          "origin": {
+                            "type": "string",
+                            "description": "The etymological origin when present."
+                          },
+                          "phonetic": {
+                            "type": "string",
+                            "description": "A primary phonetic spelling when the API provides one."
+                          },
+                          "phonetics": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Pronunciation variants, audio links, and licensing details."
+                          },
+                          "sourceUrls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Source dictionary pages for the returned entries."
+                          },
+                          "word": {
+                            "type": "string",
+                            "description": "The requested English word."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/freeDictionary/latest/actions/get-word-entries-legacy-v1": {
+      "get": {
+        "operationId": "freeDictionary.get-word-entries-legacy-v1",
+        "summary": "Get Word Entries (Legacy v1)",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/freeDictionary/latest/actions/get-word-entries-legacy-v1"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": true,
+            "description": "Supported language code for the dictionary lookup. Upstream source supports hi, en, en_GB, en_US, es, fr, ja, cs, nl, sk, ru, de, it, ko, pt-BR, ar, and tr.",
+            "schema": {
+              "type": "string",
+              "description": "Supported language code for the dictionary lookup. Upstream source supports hi, en, en_GB, en_US, es, fr, ja, cs, nl, sk, ru, de, it, ko, pt-BR, ar, and tr."
+            }
+          },
+          {
+            "name": "word",
+            "in": "query",
+            "required": true,
+            "description": "The English word to look up.",
+            "schema": {
+              "type": "string",
+              "description": "The English word to look up."
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "description": "Optional comma-separated expansions. Use `example` to include full examples arrays in the response where available.",
+            "schema": {
+              "type": "string",
+              "description": "Optional comma-separated expansions. Use `example` to include full examples arrays in the response where available."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "license": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "License metadata for the dictionary content when provided."
+                          },
+                          "meaning": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Definitions grouped by part of speech under the legacy v1 response contract."
+                          },
+                          "phonetics": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Pronunciation variants, audio links, and licensing details."
+                          },
+                          "sourceUrls": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Source dictionary pages for the returned entries."
+                          },
+                          "word": {
+                            "type": "string",
+                            "description": "The requested English word."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

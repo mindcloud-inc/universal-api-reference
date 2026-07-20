@@ -1,0 +1,74 @@
+# Brand.dev: Prefetch Brand Data for a Domain
+
+Prefetches brand data in Brand.dev for a domain.
+
+```
+POST https://connect.mindcloud.co/v1/universal/branddev/latest/actions/prefetch-brand-data-for-a-domain
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Brand.dev `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/branddev/latest/actions/prefetch-brand-data-for-a-domain" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "domain": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/branddev/latest/actions/prefetch-brand-data-for-a-domain', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "domain": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `domain` | string | yes | Domain name to prefetch brand data for. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "domain": "string",
+      "message": "string",
+      "status": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `domain` | string |  |
+| `message` | string |  |
+| `status` | string |  |
+
+## Native endpoint
+
+Through the native Brand.dev API, this operation is `POST /brand/prefetch` (base URL `https://api.brand.dev/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/prefetch-brand-data-for-a-domain.md) for the provider-specific parameters and requirements.
+

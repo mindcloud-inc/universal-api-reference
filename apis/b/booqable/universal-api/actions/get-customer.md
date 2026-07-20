@@ -1,0 +1,98 @@
+# Booqable: Get Customer
+
+Retrieves a customer from Booqable.
+
+```
+GET https://connect.mindcloud.co/v1/universal/booqable/latest/actions/get-customer
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Booqable `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/booqable/latest/actions/get-customer?connectionId=$CONNECTION_ID&id=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "id": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/booqable/latest/actions/get-customer?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | yes | Customer ID. |
+| `fields.customers` | string | no | Comma-separated customer fields to include instead of the default field set. |
+| `include` | string | no | Comma-separated relationships to sideload. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "attributes": {
+        "archived": true,
+        "createdAt": "2026-05-07T12:00:00.000Z",
+        "depositType": "string",
+        "depositValue": 1,
+        "discountPercentage": 1,
+        "email": "ava@example.com",
+        "legalType": "string",
+        "name": "Ava Chen",
+        "number": 1,
+        "orderCount": 1,
+        "properties": {},
+        "tagList": [
+          "string"
+        ],
+        "updatedAt": "2026-05-07T12:00:00.000Z"
+      },
+      "id": "string",
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `attributes.archived` | boolean | Whether the customer is archived. |
+| `attributes.createdAt` | date | When the customer was created. |
+| `attributes.depositType` | string | Default deposit type. |
+| `attributes.depositValue` | number | Default deposit value. |
+| `attributes.discountPercentage` | number | Default discount percentage. |
+| `attributes.email` | string | Customer email address. |
+| `attributes.legalType` | string | Customer legal type. |
+| `attributes.name` | string | Customer name. |
+| `attributes.number` | number | Customer number. |
+| `attributes.orderCount` | number | Number of orders. |
+| `attributes.properties` | object | Custom properties. |
+| `attributes.tagList` | array<string> | Customer tags. |
+| `attributes.updatedAt` | date | When the customer was last updated. |
+| `id` | string | Customer ID. |
+| `type` | string | Resource type. |
+
+## Native endpoint
+
+Through the native Booqable API, this operation is `GET /customers/:id` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-customer.md) for the provider-specific parameters and requirements.
+

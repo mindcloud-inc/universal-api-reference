@@ -1,0 +1,104 @@
+# Zoho Webinar: Get Recording
+
+Retrieves recording details from Zoho Webinar.
+
+```
+GET https://connect.mindcloud.co/v1/universal/zohoWebinar/latest/actions/get-recording
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Zoho Webinar `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/zohoWebinar/latest/actions/get-recording?connectionId=$CONNECTION_ID&organizationId=%7B%7Bcredentials.organizationId%7D%7D&webinarKey=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "organizationId": "{{credentials.organizationId}}",
+  "webinarKey": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/zohoWebinar/latest/actions/get-recording?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `organizationId` | string | yes | Default: `{{credentials.organizationId}}`. |
+| `webinarKey` | string | yes |  |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "creatorZuid": 1,
+      "downloadUrl": "https://example.com",
+      "duration": 1,
+      "endTime": "string",
+      "endTimeMillis": "string",
+      "erecordingId": "string",
+      "fileSize": "string",
+      "isSummaryGenerated": true,
+      "isTranscriptGenerated": true,
+      "playUrl": "https://example.com",
+      "processingState": "string",
+      "resourceName": "Ava Chen",
+      "shareOption": 1,
+      "shareUrl": "https://example.com",
+      "startTime": "string",
+      "startTimeMillis": "string",
+      "status": "string",
+      "summaryDownloadUrl": "https://example.com",
+      "transcriptionDownloadUrl": "https://example.com",
+      "uploadedTime": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `creatorZuid` | number |  |
+| `downloadUrl` | string |  |
+| `duration` | number |  |
+| `endTime` | string |  |
+| `endTimeMillis` | string |  |
+| `erecordingId` | string |  |
+| `fileSize` | string |  |
+| `isSummaryGenerated` | boolean |  |
+| `isTranscriptGenerated` | boolean |  |
+| `playUrl` | string |  |
+| `processingState` | string |  |
+| `resourceName` | string |  |
+| `shareOption` | number |  |
+| `shareUrl` | string |  |
+| `startTime` | string |  |
+| `startTimeMillis` | string |  |
+| `status` | string |  |
+| `summaryDownloadUrl` | string |  |
+| `transcriptionDownloadUrl` | string |  |
+| `uploadedTime` | number |  |
+
+## Native endpoint
+
+Through the native Zoho Webinar API, this operation is `GET /api/v2/:organizationId/recordings/:webinarKey.json` (base URL `https://webinar.zoho.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-recording.md) for the provider-specific parameters and requirements.
+

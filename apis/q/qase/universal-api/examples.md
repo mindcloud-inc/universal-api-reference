@@ -1,0 +1,96 @@
+# Qase Universal API Examples
+
+These examples use the MindCloud API key and Qase connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
+
+## List Projects
+
+Retrieves projects from Qase.
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/qase/latest/actions/list-projects?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/qase/latest/actions/list-projects?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "code": "string",
+      "counts": {},
+      "title": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+See the full [List Projects action reference](actions/list-projects.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/qase/latest/actions/list-projects).
+
+## Create test cases in bulk
+
+Creates multiple test cases in Qase.
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/qase/latest/actions/bulk" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "code": "string",
+  "cases[]": [
+    "string"
+  ]
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/qase/latest/actions/bulk', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "code": "string",
+    "cases[]": ["string"]
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "ids": [
+        1
+      ]
+    }
+  ],
+  "meta": {}
+}
+```
+
+See the full [Create test cases in bulk action reference](actions/bulk.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/qase/latest/actions/bulk).

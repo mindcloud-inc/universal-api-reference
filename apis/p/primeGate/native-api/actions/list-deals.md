@@ -1,0 +1,16 @@
+# List Deals with PrimeGate
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `deal/get`
+- **Base URL:** `https://api.primegate.io/v2`
+- **Official documentation:** [List Deals](https://www.primegate.io/support/metody-dlya-polucheniya-spiska-sushchnostey)
+
+## Parameters
+
+| Parameter | Location | Type | Required |
+| --- | --- | --- | --- |
+| `limit` | body | `number` | no |
+| `offset` | body | `number` | no |
+| `select` | body | `string` | no |

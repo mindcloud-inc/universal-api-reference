@@ -1,0 +1,72 @@
+# eSign Genie: Deactivate Webhook Channel
+
+Deactivates a webhook channel in eSign Genie.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/eSignGenie/latest/actions/deactivate-webhook-channel
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a eSign Genie `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/eSignGenie/latest/actions/deactivate-webhook-channel" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "channelId": 1
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/eSignGenie/latest/actions/deactivate-webhook-channel', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "channelId": 1
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `channelId` | number | yes | The Foxit eSign webhook channel ID to deactivate. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "result": "string",
+      "templatesList": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `result` | string |  |
+| `templatesList` | string |  |
+
+## Native endpoint
+
+Through the native eSign Genie API, this operation is `GET /webhook/channeldeactivate` (base URL `https://na1.foxitesign.foxit.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/deactivate-webhook-channel.md) for the provider-specific parameters and requirements.
+

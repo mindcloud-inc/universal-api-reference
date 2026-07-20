@@ -1,0 +1,1540 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Sprintful Universal API",
+    "version": "0.0.3",
+    "description": "Manage booking pages, availability, and bookings in Sprintful"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/sprintful/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/sprintful/latest/actions/get-availability": {
+      "get": {
+        "operationId": "sprintful.get-availability",
+        "summary": "Get Availability",
+        "description": "Retrieves booking page availability from Sprintful.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sprintful/latest/actions/get-availability"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "required": true,
+            "description": "The Sprintful booking page slug.",
+            "schema": {
+              "type": "string",
+              "description": "The Sprintful booking page slug.",
+              "default": "sample-page"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "description": "Availability window start date. Sprintful format: DD-MM-YYY.",
+            "schema": {
+              "type": "string",
+              "description": "Availability window start date. Sprintful format: DD-MM-YYY.",
+              "default": "27-03-2026"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": false,
+            "description": "Availability window end date. Sprintful format: DD-MM-YYY.",
+            "schema": {
+              "type": "string",
+              "description": "Availability window end date. Sprintful format: DD-MM-YYY.",
+              "default": "03-04-2026"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Sprintful availability for the requested page.",
+                            "properties": {
+                              "appointments": {
+                                "type": "object",
+                                "properties": {
+                                  "capacity": {
+                                    "type": "number",
+                                    "description": "Appointment capacity."
+                                  },
+                                  "duration": {
+                                    "type": "number",
+                                    "description": "Appointment duration in minutes."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Appointment name."
+                                  },
+                                  "slots": {
+                                    "type": "object",
+                                    "properties": {
+                                      "available": {
+                                        "type": "boolean",
+                                        "description": "Whether the slot can be booked."
+                                      },
+                                      "availableSeatsCount": {
+                                        "type": "number",
+                                        "description": "Remaining seat count for the slot."
+                                      },
+                                      "from": {
+                                        "type": "string",
+                                        "description": "Slot start timestamp."
+                                      },
+                                      "to": {
+                                        "type": "string",
+                                        "description": "Slot end timestamp."
+                                      },
+                                      "unavailableReason": {
+                                        "type": "string",
+                                        "description": "Reason the slot is unavailable when Sprintful provides one."
+                                      }
+                                    },
+                                    "additionalProperties": false,
+                                    "description": "Availability slots for the appointment."
+                                  }
+                                },
+                                "additionalProperties": false,
+                                "description": "Appointment types and their available slots."
+                              },
+                              "timezone": {
+                                "type": "string",
+                                "description": "Timezone used for availability calculations."
+                              }
+                            }
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the Sprintful request succeeded."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sprintful/latest/actions/get-booking": {
+      "get": {
+        "operationId": "sprintful.get-booking",
+        "summary": "Get Booking",
+        "description": "Retrieves a booking event from Sprintful.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sprintful/latest/actions/get-booking"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "The Sprintful booking identifier.",
+            "schema": {
+              "type": "string",
+              "description": "The Sprintful booking identifier.",
+              "default": "sample-booking"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "The requested Sprintful booking.",
+                            "properties": {
+                              "appointmentName": {
+                                "type": "string",
+                                "description": "Appointment name."
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "description": "Booking creation timestamp."
+                              },
+                              "end": {
+                                "type": "string",
+                                "description": "Booking end timestamp."
+                              },
+                              "form": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                "description": "Booking form submission values."
+                              },
+                              "id": {
+                                "type": "string",
+                                "description": "The booking identifier."
+                              },
+                              "location": {
+                                "type": "string",
+                                "description": "Appointment location."
+                              },
+                              "pageSlug": {
+                                "type": "string",
+                                "description": "The associated booking page slug."
+                              },
+                              "pageUrl": {
+                                "type": "string",
+                                "description": "The associated booking page URL."
+                              },
+                              "start": {
+                                "type": "string",
+                                "description": "Booking start timestamp."
+                              },
+                              "subPageNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Assigned sub-page names for team bookings."
+                              },
+                              "subPageSlugs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Assigned sub-page slugs for team bookings."
+                              },
+                              "url": {
+                                "type": "string",
+                                "description": "The booking URL."
+                              },
+                              "visitorEmail": {
+                                "type": "string",
+                                "description": "Visitor email."
+                              },
+                              "visitorName": {
+                                "type": "string",
+                                "description": "Visitor name."
+                              },
+                              "visitorTimezone": {
+                                "type": "string",
+                                "description": "Visitor timezone."
+                              }
+                            }
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the Sprintful request succeeded."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sprintful/latest/actions/get-current-user": {
+      "get": {
+        "operationId": "sprintful.get-current-user",
+        "summary": "Get Current User",
+        "description": "Retrieves the current user from Sprintful.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sprintful/latest/actions/get-current-user"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "The current Sprintful user profile.",
+                            "properties": {
+                              "email": {
+                                "type": "string",
+                                "description": "The Sprintful user email address."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "The Sprintful user display name."
+                              }
+                            }
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the Sprintful request succeeded."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sprintful/latest/actions/get-page": {
+      "get": {
+        "operationId": "sprintful.get-page",
+        "summary": "Get Page",
+        "description": "Retrieves a booking page from Sprintful.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sprintful/latest/actions/get-page"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "required": true,
+            "description": "The Sprintful booking page slug.",
+            "schema": {
+              "type": "string",
+              "description": "The Sprintful booking page slug.",
+              "default": "sample-page"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "The requested Sprintful booking page.",
+                            "properties": {
+                              "bookingsCount": {
+                                "type": "number",
+                                "description": "Number of bookings associated with the page."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "The booking page name."
+                              },
+                              "slug": {
+                                "type": "string",
+                                "description": "The booking page slug."
+                              }
+                            }
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the Sprintful request succeeded."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sprintful/latest/actions/list-bookings": {
+      "get": {
+        "operationId": "sprintful.list-bookings",
+        "summary": "List Bookings",
+        "description": "Retrieves booking events available in Sprintful.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sprintful/latest/actions/list-bookings"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of bookings to return. Sprintful defaults to 50.",
+            "schema": {
+              "type": "string",
+              "description": "Maximum number of bookings to return. Sprintful defaults to 50."
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of bookings to skip before returning results.",
+            "schema": {
+              "type": "string",
+              "description": "Number of bookings to skip before returning results."
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "description": "Filter bookings starting on or after this date. Sprintful format: DD-MM-YYY.",
+            "schema": {
+              "type": "string",
+              "description": "Filter bookings starting on or after this date. Sprintful format: DD-MM-YYY."
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": false,
+            "description": "Filter bookings ending on or before this date. Sprintful format: DD-MM-YYY.",
+            "schema": {
+              "type": "string",
+              "description": "Filter bookings ending on or before this date. Sprintful format: DD-MM-YYY."
+            }
+          },
+          {
+            "name": "pageSlug",
+            "in": "query",
+            "required": false,
+            "description": "Only return bookings for a specific page slug.",
+            "schema": {
+              "type": "string",
+              "description": "Only return bookings for a specific page slug."
+            }
+          },
+          {
+            "name": "excludePageSlug",
+            "in": "query",
+            "required": false,
+            "description": "Exclude bookings for a specific page slug.",
+            "schema": {
+              "type": "string",
+              "description": "Exclude bookings for a specific page slug."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "appointmentName": {
+                                "type": "string",
+                                "description": "Appointment name."
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "description": "Booking creation timestamp."
+                              },
+                              "end": {
+                                "type": "string",
+                                "description": "Booking end timestamp."
+                              },
+                              "form": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                "description": "Booking form submission values."
+                              },
+                              "id": {
+                                "type": "string",
+                                "description": "The booking identifier."
+                              },
+                              "location": {
+                                "type": "string",
+                                "description": "Appointment location."
+                              },
+                              "pageSlug": {
+                                "type": "string",
+                                "description": "The associated booking page slug."
+                              },
+                              "pageUrl": {
+                                "type": "string",
+                                "description": "The associated booking page URL."
+                              },
+                              "start": {
+                                "type": "string",
+                                "description": "Booking start timestamp."
+                              },
+                              "subPageNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Assigned sub-page names for team bookings."
+                              },
+                              "subPageSlugs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Assigned sub-page slugs for team bookings."
+                              },
+                              "url": {
+                                "type": "string",
+                                "description": "The booking URL."
+                              },
+                              "visitorEmail": {
+                                "type": "string",
+                                "description": "Visitor email."
+                              },
+                              "visitorName": {
+                                "type": "string",
+                                "description": "Visitor name."
+                              },
+                              "visitorTimezone": {
+                                "type": "string",
+                                "description": "Visitor timezone."
+                              }
+                            },
+                            "additionalProperties": false,
+                            "description": "Bookings returned by Sprintful."
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the Sprintful request succeeded."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sprintful/latest/actions/list-pages": {
+      "get": {
+        "operationId": "sprintful.list-pages",
+        "summary": "List Pages",
+        "description": "Retrieves booking pages available in Sprintful.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sprintful/latest/actions/list-pages"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "bookingsCount": {
+                                "type": "number",
+                                "description": "Number of bookings associated with the page."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "The booking page name."
+                              },
+                              "slug": {
+                                "type": "string",
+                                "description": "The booking page slug."
+                              }
+                            },
+                            "additionalProperties": false,
+                            "description": "Booking pages available in Sprintful."
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the Sprintful request succeeded."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

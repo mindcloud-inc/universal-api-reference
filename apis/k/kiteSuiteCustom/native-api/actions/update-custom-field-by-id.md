@@ -1,0 +1,14 @@
+# Update custom Field by Id with Kite Suite
+
+## Endpoint
+
+- **Method:** `PATCH`
+- **Path:** `/api/v1/custom-field/:id`
+- **Base URL:** `https://api.kitesuite.com`
+- **Official documentation:** [Update custom Field by Id](https://api.kitesuite.com/swagger/)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | yes | Update custom field ID |

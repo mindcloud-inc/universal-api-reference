@@ -1,0 +1,8 @@
+# Get mqtt credentials for user with 2Smart Cloud
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/users/mqtt`
+- **Base URL:** `https://cloud.2smart.com/robot/v1`
+- **Official documentation:** [Get mqtt credentials for user](https://cloud.2smart.com/swagger/)

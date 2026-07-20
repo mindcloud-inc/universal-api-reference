@@ -1,0 +1,15 @@
+# Build upload with 2Smart Cloud
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `/vendor/builds`
+- **Base URL:** `https://cloud.2smart.com/robot/v1`
+- **Official documentation:** [Build upload](https://cloud.2smart.com/swagger/)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `product_version_id` | query | `number` | yes | Id of a product version for which build is uploading |
+| `file` | body | `string` | yes | — |

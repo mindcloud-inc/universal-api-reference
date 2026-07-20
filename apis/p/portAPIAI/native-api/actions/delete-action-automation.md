@@ -1,0 +1,16 @@
+# Delete Action Automation with Port API AI
+
+Deletes an action automation from Port.
+
+## Endpoint
+
+- **Method:** `DELETE`
+- **Path:** `/actions/:action_identifier`
+- **Base URL:** `https://api.port.io/v1`
+- **Official documentation:** [Delete Action Automation](https://docs.port.io/api-reference/delete-an-action-automation)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `action_identifier` | path | `string` | yes | The action identifier. |

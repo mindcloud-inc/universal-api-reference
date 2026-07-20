@@ -1,0 +1,2523 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Botmother Universal API",
+    "version": "0.0.7",
+    "description": "Trigger Botmother external events to launch a configured bot screen or message for platform users, Botmother users, or everyone."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/botmother/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/botmother/latest/actions/trigger-external-event-for-botmother-users": {
+      "post": {
+        "operationId": "botmother.trigger-external-event-for-botmother-users",
+        "summary": "Trigger External Event For Botmother Users",
+        "description": "Triggers an external event in Botmother for users by bm_id.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/botmother/latest/actions/trigger-external-event-for-botmother-users"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "usersBm[]",
+                  "data"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "usersBm[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Botmother bm_id values to trigger."
+                  },
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional JSON payload copied into last_request.",
+                    "default": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "limits": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Botmother queue limit summary returned with the request.",
+                            "properties": {
+                              "exceeded": {
+                                "type": "boolean",
+                                "description": "Whether Botmother reports that queue limits were exceeded."
+                              },
+                              "queued": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Number of events queued in each Botmother queue tier.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Count queued in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Count queued in the small Botmother processing queue."
+                                  }
+                                }
+                              },
+                              "remained": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Remaining Botmother queue capacity after this request.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the small Botmother processing queue."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "payload": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "__v": {
+                                  "type": "number",
+                                  "description": "Botmother internal version number for the queued event record."
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "description": "Botmother external event record id."
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother created the queued event record."
+                                },
+                                "errorCount": {
+                                  "type": "number",
+                                  "description": "Number of delivery errors currently recorded for the queued event."
+                                },
+                                "errorsSet": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "description": "Provider-reported event processing errors, when present."
+                                  }
+                                },
+                                "partitionsWasCreated": {
+                                  "type": "boolean",
+                                  "description": "Whether Botmother created queue partitions for the event."
+                                },
+                                "processedCount": {
+                                  "type": "number",
+                                  "description": "Number of deliveries processed so far for the queued event."
+                                },
+                                "queryOptions": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Resolved audience filters used by Botmother for this event.",
+                                  "properties": {
+                                    "botId": {
+                                      "type": "string",
+                                      "description": "Botmother bot id that owns the external event."
+                                    },
+                                    "exclusiveTags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Excluded Botmother audience tags."
+                                      }
+                                    },
+                                    "platformIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved channel-specific platform user ids included in the event audience."
+                                      }
+                                    },
+                                    "platforms": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Target platforms resolved by Botmother."
+                                      }
+                                    },
+                                    "storeIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved Botmother user ids included in the event audience."
+                                      }
+                                    },
+                                    "tags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Included Botmother audience tags."
+                                      }
+                                    }
+                                  }
+                                },
+                                "sendData": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Event delivery payload Botmother will send to the matching users.",
+                                  "properties": {
+                                    "attachments": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "additionalProperties": true
+                                        },
+                                        "description": "Attachment objects included in the outgoing event, when present."
+                                      }
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "additionalProperties": true,
+                                      "description": "Custom data payload Botmother will place into last_request."
+                                    },
+                                    "formatedMessage": {
+                                      "type": "string",
+                                      "description": "Botmother-formatted message body, when returned by the provider."
+                                    },
+                                    "message": {
+                                      "type": "string",
+                                      "description": "Message body used by the event when the target type sends a message."
+                                    },
+                                    "screen": {
+                                      "type": "string",
+                                      "description": "Target Botmother screen name configured for the event."
+                                    },
+                                    "stopDialog": {
+                                      "type": "boolean",
+                                      "description": "Whether Botmother will close the current dialog before delivering the event."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Configured Botmother target type for the event, such as screen."
+                                    }
+                                  }
+                                },
+                                "shard": {
+                                  "type": "string",
+                                  "description": "Botmother internal shard identifier for the queued event."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Current Botmother processing status for the queued event."
+                                },
+                                "successCount": {
+                                  "type": "number",
+                                  "description": "Number of successful deliveries currently recorded for the queued event."
+                                },
+                                "totalCount": {
+                                  "type": "number",
+                                  "description": "Total number of matching audience records considered by Botmother."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Botmother record type returned for the queued event."
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother last updated the queued event record."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "result": {
+                            "type": "boolean",
+                            "description": "True when Botmother accepts the external event request."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/botmother/latest/actions/trigger-external-event-for-botmother-users-and-close-dialogs": {
+      "post": {
+        "operationId": "botmother.trigger-external-event-for-botmother-users-and-close-dialogs",
+        "summary": "Trigger External Event For Botmother Users And Close Dialogs",
+        "description": "Triggers an external event in Botmother for users by bm_id and closes chats.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/botmother/latest/actions/trigger-external-event-for-botmother-users-and-close-dialogs"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "usersBm[]",
+                  "data"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "usersBm[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Botmother bm_id values to trigger."
+                  },
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional JSON payload copied into last_request.",
+                    "default": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "limits": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Botmother queue limit summary returned with the request.",
+                            "properties": {
+                              "exceeded": {
+                                "type": "boolean",
+                                "description": "Whether Botmother reports that queue limits were exceeded."
+                              },
+                              "queued": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Number of events queued in each Botmother queue tier.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Count queued in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Count queued in the small Botmother processing queue."
+                                  }
+                                }
+                              },
+                              "remained": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Remaining Botmother queue capacity after this request.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the small Botmother processing queue."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "payload": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "__v": {
+                                  "type": "number",
+                                  "description": "Botmother internal version number for the queued event record."
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "description": "Botmother external event record id."
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother created the queued event record."
+                                },
+                                "errorCount": {
+                                  "type": "number",
+                                  "description": "Number of delivery errors currently recorded for the queued event."
+                                },
+                                "errorsSet": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "description": "Provider-reported event processing errors, when present."
+                                  }
+                                },
+                                "partitionsWasCreated": {
+                                  "type": "boolean",
+                                  "description": "Whether Botmother created queue partitions for the event."
+                                },
+                                "processedCount": {
+                                  "type": "number",
+                                  "description": "Number of deliveries processed so far for the queued event."
+                                },
+                                "queryOptions": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Resolved audience filters used by Botmother for this event.",
+                                  "properties": {
+                                    "botId": {
+                                      "type": "string",
+                                      "description": "Botmother bot id that owns the external event."
+                                    },
+                                    "exclusiveTags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Excluded Botmother audience tags."
+                                      }
+                                    },
+                                    "platformIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved channel-specific platform user ids included in the event audience."
+                                      }
+                                    },
+                                    "platforms": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Target platforms resolved by Botmother."
+                                      }
+                                    },
+                                    "storeIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved Botmother user ids included in the event audience."
+                                      }
+                                    },
+                                    "tags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Included Botmother audience tags."
+                                      }
+                                    }
+                                  }
+                                },
+                                "sendData": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Event delivery payload Botmother will send to the matching users.",
+                                  "properties": {
+                                    "attachments": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "additionalProperties": true
+                                        },
+                                        "description": "Attachment objects included in the outgoing event, when present."
+                                      }
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "additionalProperties": true,
+                                      "description": "Custom data payload Botmother will place into last_request."
+                                    },
+                                    "formatedMessage": {
+                                      "type": "string",
+                                      "description": "Botmother-formatted message body, when returned by the provider."
+                                    },
+                                    "message": {
+                                      "type": "string",
+                                      "description": "Message body used by the event when the target type sends a message."
+                                    },
+                                    "screen": {
+                                      "type": "string",
+                                      "description": "Target Botmother screen name configured for the event."
+                                    },
+                                    "stopDialog": {
+                                      "type": "boolean",
+                                      "description": "Whether Botmother will close the current dialog before delivering the event."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Configured Botmother target type for the event, such as screen."
+                                    }
+                                  }
+                                },
+                                "shard": {
+                                  "type": "string",
+                                  "description": "Botmother internal shard identifier for the queued event."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Current Botmother processing status for the queued event."
+                                },
+                                "successCount": {
+                                  "type": "number",
+                                  "description": "Number of successful deliveries currently recorded for the queued event."
+                                },
+                                "totalCount": {
+                                  "type": "number",
+                                  "description": "Total number of matching audience records considered by Botmother."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Botmother record type returned for the queued event."
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother last updated the queued event record."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "result": {
+                            "type": "boolean",
+                            "description": "True when Botmother accepts the external event request."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/botmother/latest/actions/trigger-external-event-for-everyone": {
+      "post": {
+        "operationId": "botmother.trigger-external-event-for-everyone",
+        "summary": "Trigger External Event For Everyone",
+        "description": "Triggers an external event in Botmother for all users.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/botmother/latest/actions/trigger-external-event-for-everyone"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "data"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional JSON payload copied into last_request.",
+                    "default": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "limits": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Botmother queue limit summary returned with the request.",
+                            "properties": {
+                              "exceeded": {
+                                "type": "boolean",
+                                "description": "Whether Botmother reports that queue limits were exceeded."
+                              },
+                              "queued": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Number of events queued in each Botmother queue tier.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Count queued in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Count queued in the small Botmother processing queue."
+                                  }
+                                }
+                              },
+                              "remained": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Remaining Botmother queue capacity after this request.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the small Botmother processing queue."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "payload": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "__v": {
+                                  "type": "number",
+                                  "description": "Botmother internal version number for the queued event record."
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "description": "Botmother external event record id."
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother created the queued event record."
+                                },
+                                "errorCount": {
+                                  "type": "number",
+                                  "description": "Number of delivery errors currently recorded for the queued event."
+                                },
+                                "errorsSet": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "description": "Provider-reported event processing errors, when present."
+                                  }
+                                },
+                                "partitionsWasCreated": {
+                                  "type": "boolean",
+                                  "description": "Whether Botmother created queue partitions for the event."
+                                },
+                                "processedCount": {
+                                  "type": "number",
+                                  "description": "Number of deliveries processed so far for the queued event."
+                                },
+                                "queryOptions": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Resolved audience filters used by Botmother for this event.",
+                                  "properties": {
+                                    "botId": {
+                                      "type": "string",
+                                      "description": "Botmother bot id that owns the external event."
+                                    },
+                                    "exclusiveTags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Excluded Botmother audience tags."
+                                      }
+                                    },
+                                    "platformIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved channel-specific platform user ids included in the event audience."
+                                      }
+                                    },
+                                    "platforms": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Target platforms resolved by Botmother."
+                                      }
+                                    },
+                                    "storeIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved Botmother user ids included in the event audience."
+                                      }
+                                    },
+                                    "tags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Included Botmother audience tags."
+                                      }
+                                    }
+                                  }
+                                },
+                                "sendData": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Event delivery payload Botmother will send to the matching users.",
+                                  "properties": {
+                                    "attachments": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "additionalProperties": true
+                                        },
+                                        "description": "Attachment objects included in the outgoing event, when present."
+                                      }
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "additionalProperties": true,
+                                      "description": "Custom data payload Botmother will place into last_request."
+                                    },
+                                    "formatedMessage": {
+                                      "type": "string",
+                                      "description": "Botmother-formatted message body, when returned by the provider."
+                                    },
+                                    "message": {
+                                      "type": "string",
+                                      "description": "Message body used by the event when the target type sends a message."
+                                    },
+                                    "screen": {
+                                      "type": "string",
+                                      "description": "Target Botmother screen name configured for the event."
+                                    },
+                                    "stopDialog": {
+                                      "type": "boolean",
+                                      "description": "Whether Botmother will close the current dialog before delivering the event."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Configured Botmother target type for the event, such as screen."
+                                    }
+                                  }
+                                },
+                                "shard": {
+                                  "type": "string",
+                                  "description": "Botmother internal shard identifier for the queued event."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Current Botmother processing status for the queued event."
+                                },
+                                "successCount": {
+                                  "type": "number",
+                                  "description": "Number of successful deliveries currently recorded for the queued event."
+                                },
+                                "totalCount": {
+                                  "type": "number",
+                                  "description": "Total number of matching audience records considered by Botmother."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Botmother record type returned for the queued event."
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother last updated the queued event record."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "result": {
+                            "type": "boolean",
+                            "description": "True when Botmother accepts the external event request."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/botmother/latest/actions/trigger-external-event-for-everyone-and-close-dialogs": {
+      "post": {
+        "operationId": "botmother.trigger-external-event-for-everyone-and-close-dialogs",
+        "summary": "Trigger External Event For Everyone And Close Dialogs",
+        "description": "Triggers an external event in Botmother for all users and closes chats.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/botmother/latest/actions/trigger-external-event-for-everyone-and-close-dialogs"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "data"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional JSON payload copied into last_request.",
+                    "default": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "limits": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Botmother queue limit summary returned with the request.",
+                            "properties": {
+                              "exceeded": {
+                                "type": "boolean",
+                                "description": "Whether Botmother reports that queue limits were exceeded."
+                              },
+                              "queued": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Number of events queued in each Botmother queue tier.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Count queued in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Count queued in the small Botmother processing queue."
+                                  }
+                                }
+                              },
+                              "remained": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Remaining Botmother queue capacity after this request.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the small Botmother processing queue."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "payload": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "__v": {
+                                  "type": "number",
+                                  "description": "Botmother internal version number for the queued event record."
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "description": "Botmother external event record id."
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother created the queued event record."
+                                },
+                                "errorCount": {
+                                  "type": "number",
+                                  "description": "Number of delivery errors currently recorded for the queued event."
+                                },
+                                "errorsSet": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "description": "Provider-reported event processing errors, when present."
+                                  }
+                                },
+                                "partitionsWasCreated": {
+                                  "type": "boolean",
+                                  "description": "Whether Botmother created queue partitions for the event."
+                                },
+                                "processedCount": {
+                                  "type": "number",
+                                  "description": "Number of deliveries processed so far for the queued event."
+                                },
+                                "queryOptions": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Resolved audience filters used by Botmother for this event.",
+                                  "properties": {
+                                    "botId": {
+                                      "type": "string",
+                                      "description": "Botmother bot id that owns the external event."
+                                    },
+                                    "exclusiveTags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Excluded Botmother audience tags."
+                                      }
+                                    },
+                                    "platformIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved channel-specific platform user ids included in the event audience."
+                                      }
+                                    },
+                                    "platforms": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Target platforms resolved by Botmother."
+                                      }
+                                    },
+                                    "storeIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved Botmother user ids included in the event audience."
+                                      }
+                                    },
+                                    "tags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Included Botmother audience tags."
+                                      }
+                                    }
+                                  }
+                                },
+                                "sendData": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Event delivery payload Botmother will send to the matching users.",
+                                  "properties": {
+                                    "attachments": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "additionalProperties": true
+                                        },
+                                        "description": "Attachment objects included in the outgoing event, when present."
+                                      }
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "additionalProperties": true,
+                                      "description": "Custom data payload Botmother will place into last_request."
+                                    },
+                                    "formatedMessage": {
+                                      "type": "string",
+                                      "description": "Botmother-formatted message body, when returned by the provider."
+                                    },
+                                    "message": {
+                                      "type": "string",
+                                      "description": "Message body used by the event when the target type sends a message."
+                                    },
+                                    "screen": {
+                                      "type": "string",
+                                      "description": "Target Botmother screen name configured for the event."
+                                    },
+                                    "stopDialog": {
+                                      "type": "boolean",
+                                      "description": "Whether Botmother will close the current dialog before delivering the event."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Configured Botmother target type for the event, such as screen."
+                                    }
+                                  }
+                                },
+                                "shard": {
+                                  "type": "string",
+                                  "description": "Botmother internal shard identifier for the queued event."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Current Botmother processing status for the queued event."
+                                },
+                                "successCount": {
+                                  "type": "number",
+                                  "description": "Number of successful deliveries currently recorded for the queued event."
+                                },
+                                "totalCount": {
+                                  "type": "number",
+                                  "description": "Total number of matching audience records considered by Botmother."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Botmother record type returned for the queued event."
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother last updated the queued event record."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "result": {
+                            "type": "boolean",
+                            "description": "True when Botmother accepts the external event request."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/botmother/latest/actions/trigger-external-event-for-platform-users": {
+      "post": {
+        "operationId": "botmother.trigger-external-event-for-platform-users",
+        "summary": "Trigger External Event For Platform Users",
+        "description": "Triggers an external event in Botmother for platform users.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/botmother/latest/actions/trigger-external-event-for-platform-users"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "platform",
+                  "users[]",
+                  "data"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "platform": {
+                    "type": "string",
+                    "description": "Target platform: tg, fb, viber, vk, or any."
+                  },
+                  "users[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Platform user IDs to trigger."
+                  },
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional JSON payload copied into last_request.",
+                    "default": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "limits": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Botmother queue limit summary returned with the request.",
+                            "properties": {
+                              "exceeded": {
+                                "type": "boolean",
+                                "description": "Whether Botmother reports that queue limits were exceeded."
+                              },
+                              "queued": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Number of events queued in each Botmother queue tier.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Count queued in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Count queued in the small Botmother processing queue."
+                                  }
+                                }
+                              },
+                              "remained": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Remaining Botmother queue capacity after this request.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the small Botmother processing queue."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "payload": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "__v": {
+                                  "type": "number",
+                                  "description": "Botmother internal version number for the queued event record."
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "description": "Botmother external event record id."
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother created the queued event record."
+                                },
+                                "errorCount": {
+                                  "type": "number",
+                                  "description": "Number of delivery errors currently recorded for the queued event."
+                                },
+                                "errorsSet": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "description": "Provider-reported event processing errors, when present."
+                                  }
+                                },
+                                "partitionsWasCreated": {
+                                  "type": "boolean",
+                                  "description": "Whether Botmother created queue partitions for the event."
+                                },
+                                "processedCount": {
+                                  "type": "number",
+                                  "description": "Number of deliveries processed so far for the queued event."
+                                },
+                                "queryOptions": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Resolved audience filters used by Botmother for this event.",
+                                  "properties": {
+                                    "botId": {
+                                      "type": "string",
+                                      "description": "Botmother bot id that owns the external event."
+                                    },
+                                    "exclusiveTags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Excluded Botmother audience tags."
+                                      }
+                                    },
+                                    "platformIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved channel-specific platform user ids included in the event audience."
+                                      }
+                                    },
+                                    "platforms": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Target platforms resolved by Botmother."
+                                      }
+                                    },
+                                    "storeIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved Botmother user ids included in the event audience."
+                                      }
+                                    },
+                                    "tags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Included Botmother audience tags."
+                                      }
+                                    }
+                                  }
+                                },
+                                "sendData": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Event delivery payload Botmother will send to the matching users.",
+                                  "properties": {
+                                    "attachments": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "additionalProperties": true
+                                        },
+                                        "description": "Attachment objects included in the outgoing event, when present."
+                                      }
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "additionalProperties": true,
+                                      "description": "Custom data payload Botmother will place into last_request."
+                                    },
+                                    "formatedMessage": {
+                                      "type": "string",
+                                      "description": "Botmother-formatted message body, when returned by the provider."
+                                    },
+                                    "message": {
+                                      "type": "string",
+                                      "description": "Message body used by the event when the target type sends a message."
+                                    },
+                                    "screen": {
+                                      "type": "string",
+                                      "description": "Target Botmother screen name configured for the event."
+                                    },
+                                    "stopDialog": {
+                                      "type": "boolean",
+                                      "description": "Whether Botmother will close the current dialog before delivering the event."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Configured Botmother target type for the event, such as screen."
+                                    }
+                                  }
+                                },
+                                "shard": {
+                                  "type": "string",
+                                  "description": "Botmother internal shard identifier for the queued event."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Current Botmother processing status for the queued event."
+                                },
+                                "successCount": {
+                                  "type": "number",
+                                  "description": "Number of successful deliveries currently recorded for the queued event."
+                                },
+                                "totalCount": {
+                                  "type": "number",
+                                  "description": "Total number of matching audience records considered by Botmother."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Botmother record type returned for the queued event."
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother last updated the queued event record."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "result": {
+                            "type": "boolean",
+                            "description": "True when Botmother accepts the external event request."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/botmother/latest/actions/trigger-external-event-for-platform-users-and-close-dialogs": {
+      "post": {
+        "operationId": "botmother.trigger-external-event-for-platform-users-and-close-dialogs",
+        "summary": "Trigger External Event For Platform Users And Close Dialogs",
+        "description": "Triggers an external event in Botmother for platform users and closes chats.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/botmother/latest/actions/trigger-external-event-for-platform-users-and-close-dialogs"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "platform",
+                  "users[]",
+                  "data"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "platform": {
+                    "type": "string",
+                    "description": "Target platform: tg, fb, viber, vk, or any."
+                  },
+                  "users[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Platform user IDs to trigger."
+                  },
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional JSON payload copied into last_request.",
+                    "default": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "limits": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Botmother queue limit summary returned with the request.",
+                            "properties": {
+                              "exceeded": {
+                                "type": "boolean",
+                                "description": "Whether Botmother reports that queue limits were exceeded."
+                              },
+                              "queued": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Number of events queued in each Botmother queue tier.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Count queued in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Count queued in the small Botmother processing queue."
+                                  }
+                                }
+                              },
+                              "remained": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Remaining Botmother queue capacity after this request.",
+                                "properties": {
+                                  "big": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the big Botmother processing queue."
+                                  },
+                                  "small": {
+                                    "type": "number",
+                                    "description": "Remaining capacity in the small Botmother processing queue."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "payload": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "__v": {
+                                  "type": "number",
+                                  "description": "Botmother internal version number for the queued event record."
+                                },
+                                "_id": {
+                                  "type": "string",
+                                  "description": "Botmother external event record id."
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother created the queued event record."
+                                },
+                                "errorCount": {
+                                  "type": "number",
+                                  "description": "Number of delivery errors currently recorded for the queued event."
+                                },
+                                "errorsSet": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "description": "Provider-reported event processing errors, when present."
+                                  }
+                                },
+                                "partitionsWasCreated": {
+                                  "type": "boolean",
+                                  "description": "Whether Botmother created queue partitions for the event."
+                                },
+                                "processedCount": {
+                                  "type": "number",
+                                  "description": "Number of deliveries processed so far for the queued event."
+                                },
+                                "queryOptions": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Resolved audience filters used by Botmother for this event.",
+                                  "properties": {
+                                    "botId": {
+                                      "type": "string",
+                                      "description": "Botmother bot id that owns the external event."
+                                    },
+                                    "exclusiveTags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Excluded Botmother audience tags."
+                                      }
+                                    },
+                                    "platformIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved channel-specific platform user ids included in the event audience."
+                                      }
+                                    },
+                                    "platforms": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Target platforms resolved by Botmother."
+                                      }
+                                    },
+                                    "storeIds": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Resolved Botmother user ids included in the event audience."
+                                      }
+                                    },
+                                    "tags": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "description": "Included Botmother audience tags."
+                                      }
+                                    }
+                                  }
+                                },
+                                "sendData": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Event delivery payload Botmother will send to the matching users.",
+                                  "properties": {
+                                    "attachments": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "additionalProperties": true
+                                        },
+                                        "description": "Attachment objects included in the outgoing event, when present."
+                                      }
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "additionalProperties": true,
+                                      "description": "Custom data payload Botmother will place into last_request."
+                                    },
+                                    "formatedMessage": {
+                                      "type": "string",
+                                      "description": "Botmother-formatted message body, when returned by the provider."
+                                    },
+                                    "message": {
+                                      "type": "string",
+                                      "description": "Message body used by the event when the target type sends a message."
+                                    },
+                                    "screen": {
+                                      "type": "string",
+                                      "description": "Target Botmother screen name configured for the event."
+                                    },
+                                    "stopDialog": {
+                                      "type": "boolean",
+                                      "description": "Whether Botmother will close the current dialog before delivering the event."
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Configured Botmother target type for the event, such as screen."
+                                    }
+                                  }
+                                },
+                                "shard": {
+                                  "type": "string",
+                                  "description": "Botmother internal shard identifier for the queued event."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Current Botmother processing status for the queued event."
+                                },
+                                "successCount": {
+                                  "type": "number",
+                                  "description": "Number of successful deliveries currently recorded for the queued event."
+                                },
+                                "totalCount": {
+                                  "type": "number",
+                                  "description": "Total number of matching audience records considered by Botmother."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Botmother record type returned for the queued event."
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "description": "Timestamp when Botmother last updated the queued event record."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "result": {
+                            "type": "boolean",
+                            "description": "True when Botmother accepts the external event request."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

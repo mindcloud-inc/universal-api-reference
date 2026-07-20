@@ -1,0 +1,58 @@
+# CoachAccountable: Update Invoice
+
+Updates an invoice in CoachAccountable.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/coachAccountable/latest/actions/update-invoice
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a CoachAccountable `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/coachAccountable/latest/actions/update-invoice" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "invoiceId": 1
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/coachAccountable/latest/actions/update-invoice', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "invoiceId": 1
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `invoiceId` | number | yes | The ID of the Invoice to be updated. Invoice Number also accepted when prefixed with a "#", e.g. "#1005". |
+| `dateOf` | date | no | A new date of the Invoice, if it is to be changed. |
+| `number` | string | no | A new number for the Invoice, if it is to be changed. |
+| `taxRate` | number | no | A percentage-based rate of tax to be applied, e.g. 7.5 means apply a 7.5% tax. |
+| `lineItemSet` | string | no | A newline-separated list of items. An item is comprised of the item label followed by a double colon followed by the price. For example: "One month of coaching::400" |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native CoachAccountable API returns.
+
+## Native endpoint
+
+Through the native CoachAccountable API, this operation is `POST /` (base URL `https://www.coachaccountable.com/API`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-invoice.md) for the provider-specific parameters and requirements.
+

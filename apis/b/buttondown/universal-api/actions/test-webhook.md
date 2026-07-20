@@ -1,0 +1,54 @@
+# Buttondown: Test Webhook
+
+Sends a test event to a Buttondown webhook.
+
+```
+POST https://connect.mindcloud.co/v1/universal/buttondown/latest/actions/test-webhook
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Buttondown `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/buttondown/latest/actions/test-webhook" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "id": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/buttondown/latest/actions/test-webhook', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "id": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | yes | Webhook ID. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Buttondown API returns.
+
+## Native endpoint
+
+Through the native Buttondown API, this operation is `POST /webhooks/:id/test` (base URL `https://api.buttondown.com/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/test-webhook.md) for the provider-specific parameters and requirements.
+

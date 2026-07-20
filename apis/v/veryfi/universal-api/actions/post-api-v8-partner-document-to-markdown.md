@@ -1,0 +1,105 @@
+# Veryfi: Convert a Document to Markdown
+
+Creates a new markdown document in Veryfi.
+
+```
+POST https://connect.mindcloud.co/v1/universal/veryfi/latest/actions/post-api-v8-partner-document-to-markdown
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Veryfi `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/veryfi/latest/actions/post-api-v8-partner-document-to-markdown" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/veryfi/latest/actions/post-api-v8-partner-document-to-markdown', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `externalId` | string | no | External reference ID for tracking. |
+| `packagePath` | string | no | Possible values: non-empty A path to a file in an S3 bucket, e.g. 'some/receipt.jpg |
+| `bucket` | string | no | Possible values: non-empty An S3 bucket for 'package_path', e.g. 'documents'. |
+| `fileData` | string | no | Possible values: non-empty Used to upload a document via base64 encoded string, could be raw or data URI scheme . This is the least effective way to upload a document for processing. See file_urls or uploading zip files . |
+| `fileUrl` | string | no | Possible values: non-empty A URL to a publicly accessible document to be sent to Veryfi for processing. |
+| `fileUrls[]` | array<string> | no | Possible values: non-empty An array of URLs to publicly accessible documents to be sent to Veryfi for processing. |
+| `fileName` | string | no | Possible values: non-empty An optional filename. Useful to determine file type. |
+| `details` | boolean | no | A field used to determine whether or not to return bounding boxes along with markdown. |
+| `documentType` | string | no | Default value: document Type of document being converted (e.g., 'receipt', 'invoice', 'contract'). |
+| `tags[]` | array<string> | no | Tags to attach to the document. |
+| `maxPagesToProcess` | number | no | Possible values: >= 1 and <= 50 Default value: 50 Limit processing to number of pages. |
+| `file` | string | no | A binary file. Submitting zipped documents through this parameter is the fastest way to process any document. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "created": "string",
+      "document_type": "string",
+      "external_id": "string",
+      "id": 1,
+      "img_url": "https://example.com",
+      "markdown": "string",
+      "md_storage_path": "string",
+      "pages": [
+        {}
+      ],
+      "pdf_url": "https://example.com",
+      "status": "string",
+      "tags": [
+        "string"
+      ],
+      "updated": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `created` | string |  |
+| `document_type` | string |  |
+| `external_id` | string |  |
+| `id` | number |  |
+| `img_url` | string |  |
+| `markdown` | string |  |
+| `md_storage_path` | string |  |
+| `pages` | array<object> |  |
+| `pdf_url` | string |  |
+| `status` | string |  |
+| `tags` | array<string> |  |
+| `updated` | string |  |
+
+## Native endpoint
+
+Through the native Veryfi API, this operation is `POST /api/v8/partner/document-to-markdown` (base URL `https://api.veryfi.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/post-api-v8-partner-document-to-markdown.md) for the provider-specific parameters and requirements.
+

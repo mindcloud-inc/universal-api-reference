@@ -1,0 +1,619 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Forecast Universal API",
+    "version": "0.0.4",
+    "description": "Generate demand and time-series forecasts with ForecastAPI"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/forecast/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/forecast/latest/actions/generate-forecast": {
+      "get": {
+        "operationId": "forecast.generate-forecast",
+        "summary": "Generate Forecast",
+        "description": "Generates forecasts in Forecast.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/forecast/latest/actions/generate-forecast"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "description": "Unique identifier for the data series, such as a SKU or product ID.",
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier for the data series, such as a SKU or product ID.",
+              "default": "SKU-12345"
+            }
+          },
+          {
+            "name": "data",
+            "in": "query",
+            "required": true,
+            "description": "Time series datapoints to forecast from.",
+            "schema": {
+              "type": "string",
+              "description": "Time series datapoints to forecast from."
+            }
+          },
+          {
+            "name": "periods",
+            "in": "query",
+            "required": true,
+            "description": "Number of forecast periods to generate.",
+            "schema": {
+              "type": "number",
+              "description": "Number of forecast periods to generate.",
+              "default": 6
+            }
+          },
+          {
+            "name": "frequency",
+            "in": "query",
+            "required": true,
+            "description": "Data frequency: D, W, M, Q, Y, or H.",
+            "schema": {
+              "type": "string",
+              "description": "Data frequency: D, W, M, Q, Y, or H.",
+              "default": "M"
+            }
+          },
+          {
+            "name": "dataType",
+            "in": "query",
+            "required": false,
+            "description": "Optional data type for optimized model selection.",
+            "schema": {
+              "type": "string",
+              "description": "Optional data type for optimized model selection.",
+              "default": "sales"
+            }
+          },
+          {
+            "name": "confidenceLevel",
+            "in": "query",
+            "required": false,
+            "description": "Optional confidence level for forecast intervals.",
+            "schema": {
+              "type": "number",
+              "description": "Optional confidence level for forecast intervals.",
+              "default": 0.95
+            }
+          },
+          {
+            "name": "data[].date",
+            "in": "query",
+            "required": true,
+            "description": "Date for one datapoint in YYYY-MM-DD format, for example 2024-01-01.",
+            "schema": {
+              "type": "string",
+              "description": "Date for one datapoint in YYYY-MM-DD format, for example 2024-01-01.",
+              "default": "2024-01-01"
+            }
+          },
+          {
+            "name": "data[].value",
+            "in": "query",
+            "required": true,
+            "description": "Numeric value for one datapoint.",
+            "schema": {
+              "type": "number",
+              "description": "Numeric value for one datapoint.",
+              "default": 120
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Forecasted date for the period."
+                          },
+                          "forecast": {
+                            "type": "number",
+                            "description": "Predicted value for the forecast period."
+                          },
+                          "lower": {
+                            "type": "number",
+                            "description": "Lower confidence bound for the forecast."
+                          },
+                          "period": {
+                            "type": "number",
+                            "description": "Relative forecast period index."
+                          },
+                          "upper": {
+                            "type": "number",
+                            "description": "Upper confidence bound for the forecast."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/forecast/latest/actions/generate-traffic-forecast": {
+      "get": {
+        "operationId": "forecast.generate-traffic-forecast",
+        "summary": "Generate Traffic Forecast",
+        "description": "Generates traffic forecasts in Forecast.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/forecast/latest/actions/generate-traffic-forecast"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "traffic-series-1"
+            }
+          },
+          {
+            "name": "data",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "periods",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "default": 6
+            }
+          },
+          {
+            "name": "frequency",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "D"
+            }
+          },
+          {
+            "name": "trafficSettings.currentCapacity",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "default": 2200
+            }
+          },
+          {
+            "name": "trafficSettings.baselineTraffic",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "default": 1500
+            }
+          },
+          {
+            "name": "dataType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "traffic"
+            }
+          },
+          {
+            "name": "confidenceLevel",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "default": 0.95
+            }
+          },
+          {
+            "name": "data[].date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "2024-01-01"
+            }
+          },
+          {
+            "name": "data[].value",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "default": 1200
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Forecasted date for the traffic period."
+                          },
+                          "forecast": {
+                            "type": "number",
+                            "description": "Predicted traffic value for the forecast period."
+                          },
+                          "lower": {
+                            "type": "number",
+                            "description": "Lower confidence bound for the traffic forecast."
+                          },
+                          "period": {
+                            "type": "number",
+                            "description": "Relative forecast period index."
+                          },
+                          "upper": {
+                            "type": "number",
+                            "description": "Upper confidence bound for the traffic forecast."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

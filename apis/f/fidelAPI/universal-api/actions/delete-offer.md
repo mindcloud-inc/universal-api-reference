@@ -1,0 +1,48 @@
+# Fidel API: Delete Offer
+
+Deletes an existing offer from Fidel API.
+
+```
+DELETE https://connect.mindcloud.co/v1/universal/fidelAPI/latest/actions/delete-offer
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Fidel API `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/fidelAPI/latest/actions/delete-offer?connectionId=$CONNECTION_ID&offerId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "offerId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/fidelAPI/latest/actions/delete-offer?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `offerId` | string | yes |  |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Fidel API API returns.
+
+## Native endpoint
+
+Through the native Fidel API API, this operation is `DELETE /offers/:offerId` (base URL `https://api.fidel.uk/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/delete-offer.md) for the provider-specific parameters and requirements.
+

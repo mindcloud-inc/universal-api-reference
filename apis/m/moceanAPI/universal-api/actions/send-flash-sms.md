@@ -1,0 +1,89 @@
+# Mocean API: Send Flash SMS
+
+
+
+```
+POST https://connect.mindcloud.co/v1/universal/moceanAPI/latest/actions/send-flash-sms
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Mocean API `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/moceanAPI/latest/actions/send-flash-sms" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "recipient": "string",
+  "sender": "string",
+  "text": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/moceanAPI/latest/actions/send-flash-sms', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "recipient": "string",
+    "sender": "string",
+    "text": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `recipient` | string | yes | Recipient phone number with country code. |
+| `sender` | string | yes | SMS sender ID. |
+| `text` | string | yes | Flash SMS message text. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "errMsg": "string",
+      "messages": [
+        {
+          "errMsg": "string",
+          "msgid": "string",
+          "receiver": "string",
+          "status": 1
+        }
+      ]
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `errMsg` | string |  |
+| `messages` | array<object> |  |
+| `messages[].errMsg` | string |  |
+| `messages[].msgid` | string |  |
+| `messages[].receiver` | string |  |
+| `messages[].status` | number |  |
+
+## Native endpoint
+
+Through the native Mocean API API, this operation is `POST /rest/2/sms?mocean-resp-format=json&mocean-mclass=1&mocean-alt-dcs=1` (base URL `https://rest.moceanapi.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/send-flash-sms.md) for the provider-specific parameters and requirements.
+

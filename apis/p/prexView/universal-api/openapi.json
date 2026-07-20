@@ -1,0 +1,521 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "PrexView Universal API",
+    "version": "0.0.7",
+    "description": "Transform XML or JSON into PDFs, HTML, PNGs, or JPGs"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/prexView/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/prexView/latest/actions/create-document-from-json": {
+      "post": {
+        "operationId": "prexView.create-document-from-json",
+        "summary": "Create document from JSON",
+        "description": "Creates a document in PrexView from JSON data.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/prexView/latest/actions/create-document-from-json"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "json",
+                  "template",
+                  "output"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "json": {
+                    "type": "string",
+                    "description": "JSON data to transform into the selected output format.",
+                    "example": "Paste JSON data"
+                  },
+                  "template": {
+                    "type": "string",
+                    "description": "PrexView template name to use for document creation.",
+                    "example": "invoice-customer-{{Data.customer}}"
+                  },
+                  "output": {
+                    "type": "string",
+                    "description": "Document format to create: html, pdf, png, or jpg.",
+                    "enum": [
+                      "HTML",
+                      "JPG",
+                      "PDF",
+                      "PNG"
+                    ],
+                    "default": "pdf"
+                  },
+                  "templateBackup": {
+                    "type": "string",
+                    "description": "Backup template name to use when the main template is unavailable.",
+                    "example": "fallback-template",
+                    "x-mindcloud-advanced": true
+                  },
+                  "note": {
+                    "type": "string",
+                    "description": "Optional metadata note for the transaction, up to 500 characters.",
+                    "example": "Document: Invoice Customer: {{Data.customer}}",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string",
+                            "description": "Rendered document content returned by PrexView."
+                          },
+                          "contentType": {
+                            "type": "string",
+                            "description": "MIME type of the rendered document."
+                          },
+                          "rateLimitLimit": {
+                            "type": "number",
+                            "description": "Total transaction limit from X-RateLimit-Limit."
+                          },
+                          "rateLimitRemaining": {
+                            "type": "number",
+                            "description": "Remaining transactions from X-RateLimit-Remaining."
+                          },
+                          "rateLimitReset": {
+                            "type": "number",
+                            "description": "Unix timestamp when transaction quota resets."
+                          },
+                          "transactionId": {
+                            "type": "string",
+                            "description": "PrexView transaction ID from the x-transaction-id response header."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/prexView/latest/actions/create-document-from-xml": {
+      "post": {
+        "operationId": "prexView.create-document-from-xml",
+        "summary": "Create document from XML",
+        "description": "Creates a document in PrexView from XML data.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/prexView/latest/actions/create-document-from-xml"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "xml",
+                  "template",
+                  "output"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "xml": {
+                    "type": "string",
+                    "description": "XML data to transform into the selected output format.",
+                    "example": "<hello>World</hello>"
+                  },
+                  "template": {
+                    "type": "string",
+                    "description": "PrexView template name to use for document creation.",
+                    "example": "invoice-customer-{{Data._customer}}"
+                  },
+                  "output": {
+                    "type": "string",
+                    "description": "Document format to create: html, pdf, png, or jpg.",
+                    "enum": [
+                      "HTML",
+                      "JPG",
+                      "PDF",
+                      "PNG"
+                    ],
+                    "default": "pdf"
+                  },
+                  "templateBackup": {
+                    "type": "string",
+                    "description": "Backup template name to use when the main template is unavailable.",
+                    "example": "fallback-template",
+                    "x-mindcloud-advanced": true
+                  },
+                  "note": {
+                    "type": "string",
+                    "description": "Optional metadata note for the transaction, up to 500 characters.",
+                    "example": "Document: Invoice Customer: {{Data._customer}}",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string",
+                            "description": "Rendered document content returned by PrexView."
+                          },
+                          "contentType": {
+                            "type": "string",
+                            "description": "MIME type of the rendered document."
+                          },
+                          "rateLimitLimit": {
+                            "type": "number",
+                            "description": "Total transaction limit from X-RateLimit-Limit."
+                          },
+                          "rateLimitRemaining": {
+                            "type": "number",
+                            "description": "Remaining transactions from X-RateLimit-Remaining."
+                          },
+                          "rateLimitReset": {
+                            "type": "number",
+                            "description": "Unix timestamp when transaction quota resets."
+                          },
+                          "transactionId": {
+                            "type": "string",
+                            "description": "PrexView transaction ID from the x-transaction-id response header."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Search All with Companies House
+
+Finds companies, officers, and disqualified officers in Companies House.
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/search`
+- **Base URL:** `https://api.company-information.service.gov.uk`
+- **Official documentation:** [Search All](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference/search-all)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `q` | query | `string` | yes | The search term. |

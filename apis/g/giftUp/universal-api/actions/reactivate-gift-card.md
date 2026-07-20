@@ -1,0 +1,57 @@
+# Gift Up: Reactivate Gift Card
+
+
+
+```
+PUT https://connect.mindcloud.co/v1/universal/giftUp/latest/actions/reactivate-gift-card
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Gift Up `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/giftUp/latest/actions/reactivate-gift-card" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "code": "UQEZL"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/giftUp/latest/actions/reactivate-gift-card', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "code": "UQEZL"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `code` | string | yes | Example: `UQEZL`. |
+| `reason` | string | no |  |
+| `locationId` | string | no |  |
+| `metadata` | object | no |  |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Gift Up API returns.
+
+## Native endpoint
+
+Through the native Gift Up API, this operation is `POST /gift-cards/:code/reactivate` (base URL `https://api.giftup.app`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/reactivate-gift-card.md) for the provider-specific parameters and requirements.
+

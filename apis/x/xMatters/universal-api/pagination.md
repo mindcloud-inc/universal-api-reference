@@ -1,0 +1,75 @@
+# xMatters Universal API Pagination
+
+Paginated list actions accept `limit` and `offset` as query parameters. MindCloud translates them into whatever pagination model xMatters expects, so the request shape stays the same even when the native API uses pages or cursors.
+
+| Parameter | Description |
+| --- | --- |
+| `limit` | Maximum number of records to return |
+| `offset` | Number of records to skip |
+
+Start with `offset=0`, add `limit` to the offset after each page, and stop when a page returns fewer rows than requested.
+
+## Example
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/xMatters/latest/actions/get-a-group-s-recipients?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+## xMatters actions that support pagination
+
+- [Get a group's recipients](actions/get-a-group-s-recipients.md)
+- [Get a group's supervisors](actions/get-a-group-s-supervisors.md)
+- [Get a person's devices](actions/get-a-person-s-devices.md)
+- [Get a person's groups](actions/get-a-person-s-groups.md)
+- [Get a person's supervisors](actions/get-a-person-s-supervisors.md)
+- [Get changes](actions/get-changes.md)
+- [Get communication plans](actions/get-communication-plans.md)
+- [Get conference bridges](actions/get-conference-bridges.md)
+- [Get deleted shift occurrences](actions/get-deleted-shift-occurrences.md)
+- [Get device names](actions/get-device-names.md)
+- [Get device types](actions/get-device-types.md)
+- [Get devices](actions/get-devices.md)
+- [Get event annotations](actions/get-event-annotations.md)
+- [Get event audit information](actions/get-event-audit-information.md)
+- [Get events](actions/get-events.md)
+- [Get form response options](actions/get-form-response-options.md)
+- [Get form sections](actions/get-form-sections.md)
+- [Get forms](actions/get-forms.md)
+- [Get forms in a plan](actions/get-forms-in-a-plan.md)
+- [Get group license quotas](actions/get-group-license-quotas.md)
+- [Get group members](actions/get-group-members.md)
+- [Get groups](actions/get-groups.md)
+- [Get import job messages](actions/get-import-job-messages.md)
+- [Get import jobs](actions/get-import-jobs.md)
+- [Get incidents](actions/get-incidents.md)
+- [Get integration logs](actions/get-integration-logs.md)
+- [Get integrations](actions/get-integrations.md)
+- [Get members in a shift](actions/get-members-in-a-shift.md)
+- [Get on-call summary](actions/get-on-call-summary.md)
+- [Get People](actions/get-people.md)
+- [Get plan constants](actions/get-plan-constants.md)
+- [Get plan endpoints](actions/get-plan-endpoints.md)
+- [Get plan properties](actions/get-plan-properties.md)
+- [Get roles](actions/get-roles.md)
+- [Get scenario sender permissions](actions/get-scenario-sender-permissions.md)
+- [Get scenarios](actions/get-scenarios.md)
+- [Get scenarios in a form](actions/get-scenarios-in-a-form.md)
+- [Get scheduled messages](actions/get-scheduled-messages.md)
+- [Get service dependencies](actions/get-service-dependencies.md)
+- [Get services](actions/get-services.md)
+- [Get shared libraries](actions/get-shared-libraries.md)
+- [Get shift occurrences](actions/get-shift-occurrences.md)
+- [Get shifts](actions/get-shifts.md)
+- [Get signals](actions/get-signals.md)
+- [Get sites](actions/get-sites.md)
+- [Get subscribers](actions/get-subscribers.md)
+- [Get subscription forms](actions/get-subscription-forms.md)
+- [Get subscription forms in a plan](actions/get-subscription-forms-in-a-plan.md)
+- [Get subscription share permissions](actions/get-subscription-share-permissions.md)
+- [Get subscriptions](actions/get-subscriptions.md)
+- [Get suppressed events](actions/get-suppressed-events.md)
+- [Get temporary absences](actions/get-temporary-absences.md)
+- [Get user delivery data](actions/get-user-delivery-data.md)
+- [Get user license quotas](actions/get-user-license-quotas.md)
+- [Get who is on call](actions/get-who-is-on-call.md)

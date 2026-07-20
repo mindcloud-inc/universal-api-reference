@@ -1,0 +1,18 @@
+# Update a Business Card with Veryfi
+
+Updates an existing business card in Veryfi.
+
+## Endpoint
+
+- **Method:** `PUT`
+- **Path:** `/api/v8/partner/business-cards/:document_id`
+- **Base URL:** `https://api.veryfi.com`
+- **Official documentation:** [Update a Business Card](https://docs.veryfi.com/api/business-cards/update-a-business-card/)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `document_id` | path | `string` | yes | — |
+| `external_id` | body | `string` | no | Possible values: non-empty Deprecated 2025-01-09, use meta.external_id instead. |
+| `meta` | body | `string` | no | Possible values: non-empty Possible values: non-empty Default value: `` |

@@ -1,0 +1,57 @@
+# Bookoly: Create Video
+
+Creates a new video in Bookoly.
+
+```
+POST https://connect.mindcloud.co/v1/universal/bookoly/latest/actions/create-video
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Bookoly `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/bookoly/latest/actions/create-video" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "video": {}
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/bookoly/latest/actions/create-video', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "video": {}
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `video` | object | yes | Video creation payload from the Bookoly v2 docs. |
+| `speech` | object | no | Optional speech payload from the Bookoly v2 docs. |
+| `subtitle` | object | no | Optional subtitle payload from the Bookoly v2 docs. |
+| `audio` | object | no | Optional audio payload from the Bookoly v2 docs. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Bookoly API returns.
+
+## Native endpoint
+
+Through the native Bookoly API, this operation is `POST https://bookoly.com/api/v2/generate-a-video` (base URL `https://bookoly.com/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-video.md) for the provider-specific parameters and requirements.
+

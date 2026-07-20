@@ -1,0 +1,65 @@
+# Checkmk: List Pending Changes
+
+Retrieves pending change records from Checkmk.
+
+```
+GET https://connect.mindcloud.co/v1/universal/checkmk/latest/actions/list-pending-changes
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Checkmk `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/checkmk/latest/actions/list-pending-changes?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/checkmk/latest/actions/list-pending-changes?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "actionName": "Ava Chen",
+      "id": "string",
+      "text": "string",
+      "time": "2026-05-07T12:00:00.000Z",
+      "userId": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `actionName` | string |  |
+| `id` | string |  |
+| `text` | string |  |
+| `time` | date |  |
+| `userId` | string |  |
+
+## Native endpoint
+
+Through the native Checkmk API, this operation is `GET /domain-types/activation_run/collections/pending_changes` (base URL `{{credentials.apiUrl}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-pending-changes.md) for the provider-specific parameters and requirements.
+

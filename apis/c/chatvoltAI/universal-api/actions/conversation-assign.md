@@ -1,0 +1,77 @@
+# Chatvolt AI: Assign to User
+
+Assigns a conversation to a user in Chatvolt AI.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/chatvoltAI/latest/actions/conversation-assign
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Chatvolt AI `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/chatvoltAI/latest/actions/conversation-assign" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "conversationId": "string",
+  "email": "ava@example.com"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/chatvoltAI/latest/actions/conversation-assign', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "conversationId": "string",
+    "email": "ava@example.com"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `conversationId` | string | yes | ID of the conversation to be assigned. |
+| `email` | string | yes | Email of the user to whom the conversation will be assigned. |
+| `id` | string | no | ID of the user to whom the conversation will be assigned. |
+| `membershipId` | string | no | ID of the membership to whom the conversation will be assigned. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "message": "string",
+      "success": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `message` | string | Message. |
+| `success` | boolean | Success. |
+
+## Native endpoint
+
+Through the native Chatvolt AI API, this operation is `POST /conversations/{conversationId}/assign` (base URL `https://api.chatvolt.ai`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/conversation-assign.md) for the provider-specific parameters and requirements.
+

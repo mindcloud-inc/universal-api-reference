@@ -1,0 +1,1809 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "SAIA EDI Universal API",
+    "version": "0.0.2",
+    "description": "Saia LTL Freight XML API integration for shipment lookup, pickup scheduling, and bill-of-lading workflows using Saia Developer Portal API-key authentication."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/sAIAEDI/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/sAIAEDI/latest/actions/create-bill-of-lading": {
+      "post": {
+        "operationId": "sAIAEDI.create-bill-of-lading",
+        "summary": "Create Bill of Lading",
+        "description": "Creates a bill of lading in SAIA EDI.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sAIAEDI/latest/actions/create-bill-of-lading"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "ShipmentDate",
+                  "BillingTerms",
+                  "PrintRates",
+                  "Customs",
+                  "VICS",
+                  "Shipper",
+                  "Consignee",
+                  "Details"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "ShipmentDate": {
+                    "type": "string",
+                    "description": "Shipment date in YYYY-MM-DD format."
+                  },
+                  "BillingTerms": {
+                    "type": "string",
+                    "description": "Billing terms: Prepaid or Collect."
+                  },
+                  "PrintRates": {
+                    "type": "string",
+                    "description": "Print rates flag: Y or N."
+                  },
+                  "Customs": {
+                    "type": "string",
+                    "description": "Customs flag: Y or N."
+                  },
+                  "VICS": {
+                    "type": "string",
+                    "description": "VICS standard bill of lading flag: Y or N."
+                  },
+                  "Shipper": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Shipper object containing ContactName, Address1, City, State, and Zipcode."
+                  },
+                  "Consignee": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Consignee object containing ContactName, Address1, City, State, and Zipcode."
+                  },
+                  "Details": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Details object containing one or more DetailItem commodity entries."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Barcode": {
+                            "type": "string",
+                            "description": "Barcode value or payload when returned."
+                          },
+                          "CheckDigit": {
+                            "type": "string",
+                            "description": "Check digit for the returned PRO number."
+                          },
+                          "Code": {
+                            "type": "string",
+                            "description": "Saia error code; blank indicates no documented error."
+                          },
+                          "Element": {
+                            "type": "string",
+                            "description": "Element associated with an error when available."
+                          },
+                          "Fault": {
+                            "type": "string",
+                            "description": "Fault classification returned by Saia."
+                          },
+                          "HTML": {
+                            "type": "string",
+                            "description": "HTML document payload when returned."
+                          },
+                          "Message": {
+                            "type": "string",
+                            "description": "Error or status message."
+                          },
+                          "PDF": {
+                            "type": "string",
+                            "description": "PDF document payload or URL when returned."
+                          },
+                          "ProNumber": {
+                            "type": "string",
+                            "description": "Created bill-of-lading PRO number when returned."
+                          },
+                          "TestMode": {
+                            "type": "string",
+                            "description": "Y or N test-mode flag echoed by Saia."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sAIAEDI/latest/actions/create-pickup-request": {
+      "post": {
+        "operationId": "sAIAEDI.create-pickup-request",
+        "summary": "Create Pickup Request",
+        "description": "Creates a pickup request in SAIA EDI.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sAIAEDI/latest/actions/create-pickup-request"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "AccountNumber",
+                  "PickupDate",
+                  "ReadyTime",
+                  "CloseTime",
+                  "TotalPieces",
+                  "TotalWeight"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "AccountNumber": {
+                    "type": "string",
+                    "description": "Saia account number for pickup."
+                  },
+                  "PickupDate": {
+                    "type": "string",
+                    "description": "Pickup date in YYYY-MM-DD format."
+                  },
+                  "ReadyTime": {
+                    "type": "string",
+                    "description": "Ready time in HH:MM:SS format."
+                  },
+                  "CloseTime": {
+                    "type": "string",
+                    "description": "Close time in HH:MM:SS format."
+                  },
+                  "TotalPieces": {
+                    "type": "string",
+                    "description": "Total pieces for pickup."
+                  },
+                  "TotalWeight": {
+                    "type": "string",
+                    "description": "Total shipment weight."
+                  },
+                  "CompanyName": {
+                    "type": "string",
+                    "description": "Pickup location company name."
+                  },
+                  "Street": {
+                    "type": "string",
+                    "description": "Pickup street address."
+                  },
+                  "City": {
+                    "type": "string",
+                    "description": "Pickup city."
+                  },
+                  "State": {
+                    "type": "string",
+                    "description": "Pickup state abbreviation."
+                  },
+                  "Zipcode": {
+                    "type": "string",
+                    "description": "Pickup ZIP code."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Code": {
+                            "type": "string",
+                            "description": "Saia error code; blank indicates no documented error."
+                          },
+                          "Element": {
+                            "type": "string",
+                            "description": "Element associated with an error when available."
+                          },
+                          "Fault": {
+                            "type": "string",
+                            "description": "Fault classification returned by Saia."
+                          },
+                          "Message": {
+                            "type": "string",
+                            "description": "Error or status message."
+                          },
+                          "NextBusinessDate": {
+                            "type": "string",
+                            "description": "Next available business date when returned."
+                          },
+                          "PickupNumber": {
+                            "type": "string",
+                            "description": "Pickup confirmation number when returned by Saia."
+                          },
+                          "PickupTerminal": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Terminal details associated with the pickup request."
+                          },
+                          "TestMode": {
+                            "type": "string",
+                            "description": "Y or N test-mode flag echoed by Saia."
+                          },
+                          "TotalPieces": {
+                            "type": "number",
+                            "description": "Total pickup piece count."
+                          },
+                          "TotalWeight": {
+                            "type": "number",
+                            "description": "Total pickup weight."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sAIAEDI/latest/actions/get-shipment-by-bill-of-lading-number": {
+      "get": {
+        "operationId": "sAIAEDI.get-shipment-by-bill-of-lading-number",
+        "summary": "Get Shipment by Bill of Lading Number",
+        "description": "Retrieves a shipment from SAIA EDI by bill of lading number.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sAIAEDI/latest/actions/get-shipment-by-bill-of-lading-number"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "BLNumber",
+            "in": "query",
+            "required": true,
+            "description": "Customer bill of lading number.",
+            "schema": {
+              "type": "string",
+              "description": "Customer bill of lading number."
+            }
+          },
+          {
+            "name": "OriginZipcode",
+            "in": "query",
+            "required": true,
+            "description": "Origin ZIP code for the shipment lookup.",
+            "schema": {
+              "type": "string",
+              "description": "Origin ZIP code for the shipment lookup."
+            }
+          },
+          {
+            "name": "DestinationZipcode",
+            "in": "query",
+            "required": true,
+            "description": "Destination ZIP code for the shipment lookup.",
+            "schema": {
+              "type": "string",
+              "description": "Destination ZIP code for the shipment lookup."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Accessorials": {
+                            "type": "string",
+                            "description": "Accessorial indicator or details."
+                          },
+                          "ActualDeliveryDays": {
+                            "type": "number",
+                            "description": "Actual delivery days."
+                          },
+                          "Appointment": {
+                            "type": "string",
+                            "description": "Appointment indicator."
+                          },
+                          "BillingTerms": {
+                            "type": "string",
+                            "description": "Billing terms."
+                          },
+                          "BLNumber": {
+                            "type": "string",
+                            "description": "Bill of lading number."
+                          },
+                          "CargoControlNumber": {
+                            "type": "string",
+                            "description": "Cargo control number."
+                          },
+                          "CODAmount": {
+                            "type": "number",
+                            "description": "COD amount."
+                          },
+                          "Code": {
+                            "type": "string",
+                            "description": "Saia error code; blank indicates no documented error."
+                          },
+                          "Consignee": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Consignee account and address details."
+                          },
+                          "CurrentStatus": {
+                            "type": "string",
+                            "description": "Current shipment status."
+                          },
+                          "DeliveryAppointmentDateTime": {
+                            "type": "string",
+                            "description": "Scheduled delivery appointment date/time."
+                          },
+                          "DeliveryDateTime": {
+                            "type": "string",
+                            "description": "Delivery date/time."
+                          },
+                          "DeliveryDateTimeArrive": {
+                            "type": "string",
+                            "description": "Delivery arrival date/time."
+                          },
+                          "DeliveryDateTimeDepart": {
+                            "type": "string",
+                            "description": "Delivery departure date/time."
+                          },
+                          "DestinationTerminal": {
+                            "type": "string",
+                            "description": "Destination terminal."
+                          },
+                          "Details": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipment detail lines when returned."
+                          },
+                          "DiscountAmount": {
+                            "type": "number",
+                            "description": "Discount amount."
+                          },
+                          "DriverNumber": {
+                            "type": "string",
+                            "description": "Driver number when returned."
+                          },
+                          "Element": {
+                            "type": "string",
+                            "description": "Element associated with an error when available."
+                          },
+                          "ExpectedDeliveryDate": {
+                            "type": "string",
+                            "description": "Expected delivery date."
+                          },
+                          "Fault": {
+                            "type": "string",
+                            "description": "Fault classification returned by Saia."
+                          },
+                          "FreightCharges": {
+                            "type": "number",
+                            "description": "Freight charges."
+                          },
+                          "FromPartner": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Origin EDI partner details."
+                          },
+                          "Hazardous": {
+                            "type": "string",
+                            "description": "Hazardous-material indicator."
+                          },
+                          "History": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipment history entries when returned."
+                          },
+                          "LatePickup": {
+                            "type": "string",
+                            "description": "Late pickup indicator when returned."
+                          },
+                          "MailTo": {
+                            "type": "string",
+                            "description": "Mail-to value when returned."
+                          },
+                          "MasterProNumber": {
+                            "type": "string",
+                            "description": "Master PRO number when applicable."
+                          },
+                          "Message": {
+                            "type": "string",
+                            "description": "Error or status message."
+                          },
+                          "NetCharges": {
+                            "type": "number",
+                            "description": "Net charges."
+                          },
+                          "OnTime": {
+                            "type": "string",
+                            "description": "On-time indicator when returned."
+                          },
+                          "OriginTerminal": {
+                            "type": "string",
+                            "description": "Origin terminal."
+                          },
+                          "PickupDateTime": {
+                            "type": "string",
+                            "description": "Pickup date/time."
+                          },
+                          "Pieces": {
+                            "type": "number",
+                            "description": "Piece count."
+                          },
+                          "PONumber": {
+                            "type": "string",
+                            "description": "Purchase order number."
+                          },
+                          "ProNumber": {
+                            "type": "string",
+                            "description": "Saia PRO number."
+                          },
+                          "Rates": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Rate details when returned."
+                          },
+                          "ReferenceNumber": {
+                            "type": "string",
+                            "description": "Additional shipment reference number."
+                          },
+                          "Shipper": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipper account and address details."
+                          },
+                          "ShipperNumber": {
+                            "type": "string",
+                            "description": "Shipper reference number."
+                          },
+                          "ShippingWeight": {
+                            "type": "number",
+                            "description": "Shipment weight."
+                          },
+                          "Signature": {
+                            "type": "string",
+                            "description": "Delivery signature."
+                          },
+                          "StandardServiceDays": {
+                            "type": "number",
+                            "description": "Standard service days."
+                          },
+                          "Tariff": {
+                            "type": "string",
+                            "description": "Tariff value."
+                          },
+                          "TestMode": {
+                            "type": "string",
+                            "description": "Y or N test-mode flag echoed by Saia."
+                          },
+                          "ThirdParty": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Third-party billing account and address details."
+                          },
+                          "ToPartner": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Destination EDI partner details."
+                          },
+                          "TrailerNumber": {
+                            "type": "string",
+                            "description": "Trailer number when returned."
+                          },
+                          "WeightedAverageFreightClass": {
+                            "type": "number",
+                            "description": "Weighted average freight class."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sAIAEDI/latest/actions/get-shipment-by-po-number": {
+      "get": {
+        "operationId": "sAIAEDI.get-shipment-by-po-number",
+        "summary": "Get Shipment by PO Number",
+        "description": "Retrieves a shipment from SAIA EDI by PO number.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sAIAEDI/latest/actions/get-shipment-by-po-number"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PONumber",
+            "in": "query",
+            "required": true,
+            "description": "Customer purchase order number.",
+            "schema": {
+              "type": "string",
+              "description": "Customer purchase order number."
+            }
+          },
+          {
+            "name": "OriginZipcode",
+            "in": "query",
+            "required": true,
+            "description": "Origin ZIP code for the shipment lookup.",
+            "schema": {
+              "type": "string",
+              "description": "Origin ZIP code for the shipment lookup."
+            }
+          },
+          {
+            "name": "DestinationZipcode",
+            "in": "query",
+            "required": true,
+            "description": "Destination ZIP code for the shipment lookup.",
+            "schema": {
+              "type": "string",
+              "description": "Destination ZIP code for the shipment lookup."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Accessorials": {
+                            "type": "string",
+                            "description": "Accessorial indicator or details."
+                          },
+                          "ActualDeliveryDays": {
+                            "type": "number",
+                            "description": "Actual delivery days."
+                          },
+                          "Appointment": {
+                            "type": "string",
+                            "description": "Appointment indicator."
+                          },
+                          "BillingTerms": {
+                            "type": "string",
+                            "description": "Billing terms."
+                          },
+                          "BLNumber": {
+                            "type": "string",
+                            "description": "Bill of lading number."
+                          },
+                          "CargoControlNumber": {
+                            "type": "string",
+                            "description": "Cargo control number."
+                          },
+                          "CODAmount": {
+                            "type": "number",
+                            "description": "COD amount."
+                          },
+                          "Code": {
+                            "type": "string",
+                            "description": "Saia error code; blank indicates no documented error."
+                          },
+                          "Consignee": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Consignee account and address details."
+                          },
+                          "CurrentStatus": {
+                            "type": "string",
+                            "description": "Current shipment status."
+                          },
+                          "DeliveryAppointmentDateTime": {
+                            "type": "string",
+                            "description": "Scheduled delivery appointment date/time."
+                          },
+                          "DeliveryDateTime": {
+                            "type": "string",
+                            "description": "Delivery date/time."
+                          },
+                          "DeliveryDateTimeArrive": {
+                            "type": "string",
+                            "description": "Delivery arrival date/time."
+                          },
+                          "DeliveryDateTimeDepart": {
+                            "type": "string",
+                            "description": "Delivery departure date/time."
+                          },
+                          "DestinationTerminal": {
+                            "type": "string",
+                            "description": "Destination terminal."
+                          },
+                          "Details": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipment detail lines when returned."
+                          },
+                          "DiscountAmount": {
+                            "type": "number",
+                            "description": "Discount amount."
+                          },
+                          "DriverNumber": {
+                            "type": "string",
+                            "description": "Driver number when returned."
+                          },
+                          "Element": {
+                            "type": "string",
+                            "description": "Element associated with an error when available."
+                          },
+                          "ExpectedDeliveryDate": {
+                            "type": "string",
+                            "description": "Expected delivery date."
+                          },
+                          "Fault": {
+                            "type": "string",
+                            "description": "Fault classification returned by Saia."
+                          },
+                          "FreightCharges": {
+                            "type": "number",
+                            "description": "Freight charges."
+                          },
+                          "FromPartner": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Origin EDI partner details."
+                          },
+                          "Hazardous": {
+                            "type": "string",
+                            "description": "Hazardous-material indicator."
+                          },
+                          "History": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipment history entries when returned."
+                          },
+                          "LatePickup": {
+                            "type": "string",
+                            "description": "Late pickup indicator when returned."
+                          },
+                          "MailTo": {
+                            "type": "string",
+                            "description": "Mail-to value when returned."
+                          },
+                          "MasterProNumber": {
+                            "type": "string",
+                            "description": "Master PRO number when applicable."
+                          },
+                          "Message": {
+                            "type": "string",
+                            "description": "Error or status message."
+                          },
+                          "NetCharges": {
+                            "type": "number",
+                            "description": "Net charges."
+                          },
+                          "OnTime": {
+                            "type": "string",
+                            "description": "On-time indicator when returned."
+                          },
+                          "OriginTerminal": {
+                            "type": "string",
+                            "description": "Origin terminal."
+                          },
+                          "PickupDateTime": {
+                            "type": "string",
+                            "description": "Pickup date/time."
+                          },
+                          "Pieces": {
+                            "type": "number",
+                            "description": "Piece count."
+                          },
+                          "PONumber": {
+                            "type": "string",
+                            "description": "Purchase order number."
+                          },
+                          "ProNumber": {
+                            "type": "string",
+                            "description": "Saia PRO number."
+                          },
+                          "Rates": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Rate details when returned."
+                          },
+                          "ReferenceNumber": {
+                            "type": "string",
+                            "description": "Additional shipment reference number."
+                          },
+                          "Shipper": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipper account and address details."
+                          },
+                          "ShipperNumber": {
+                            "type": "string",
+                            "description": "Shipper reference number."
+                          },
+                          "ShippingWeight": {
+                            "type": "number",
+                            "description": "Shipment weight."
+                          },
+                          "Signature": {
+                            "type": "string",
+                            "description": "Delivery signature."
+                          },
+                          "StandardServiceDays": {
+                            "type": "number",
+                            "description": "Standard service days."
+                          },
+                          "Tariff": {
+                            "type": "string",
+                            "description": "Tariff value."
+                          },
+                          "TestMode": {
+                            "type": "string",
+                            "description": "Y or N test-mode flag echoed by Saia."
+                          },
+                          "ThirdParty": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Third-party billing account and address details."
+                          },
+                          "ToPartner": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Destination EDI partner details."
+                          },
+                          "TrailerNumber": {
+                            "type": "string",
+                            "description": "Trailer number when returned."
+                          },
+                          "WeightedAverageFreightClass": {
+                            "type": "number",
+                            "description": "Weighted average freight class."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sAIAEDI/latest/actions/get-shipment-by-pro-number": {
+      "get": {
+        "operationId": "sAIAEDI.get-shipment-by-pro-number",
+        "summary": "Get Shipment by PRO Number",
+        "description": "Retrieves a shipment from SAIA EDI by PRO number.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sAIAEDI/latest/actions/get-shipment-by-pro-number"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ProNumber",
+            "in": "query",
+            "required": true,
+            "description": "Saia PRO number to trace.",
+            "schema": {
+              "type": "string",
+              "description": "Saia PRO number to trace."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Accessorials": {
+                            "type": "string",
+                            "description": "Accessorial indicator or details."
+                          },
+                          "ActualDeliveryDays": {
+                            "type": "number",
+                            "description": "Actual delivery days."
+                          },
+                          "Appointment": {
+                            "type": "string",
+                            "description": "Appointment indicator."
+                          },
+                          "BillingTerms": {
+                            "type": "string",
+                            "description": "Billing terms."
+                          },
+                          "BLNumber": {
+                            "type": "string",
+                            "description": "Bill of lading number."
+                          },
+                          "CargoControlNumber": {
+                            "type": "string",
+                            "description": "Cargo control number."
+                          },
+                          "CODAmount": {
+                            "type": "number",
+                            "description": "COD amount."
+                          },
+                          "Code": {
+                            "type": "string",
+                            "description": "Saia error code; blank indicates no documented error."
+                          },
+                          "Consignee": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Consignee account and address details."
+                          },
+                          "CurrentStatus": {
+                            "type": "string",
+                            "description": "Current shipment status."
+                          },
+                          "DeliveryAppointmentDateTime": {
+                            "type": "string",
+                            "description": "Scheduled delivery appointment date/time."
+                          },
+                          "DeliveryDateTime": {
+                            "type": "string",
+                            "description": "Delivery date/time."
+                          },
+                          "DeliveryDateTimeArrive": {
+                            "type": "string",
+                            "description": "Delivery arrival date/time."
+                          },
+                          "DeliveryDateTimeDepart": {
+                            "type": "string",
+                            "description": "Delivery departure date/time."
+                          },
+                          "DestinationTerminal": {
+                            "type": "string",
+                            "description": "Destination terminal."
+                          },
+                          "Details": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipment detail lines when returned."
+                          },
+                          "DiscountAmount": {
+                            "type": "number",
+                            "description": "Discount amount."
+                          },
+                          "DriverNumber": {
+                            "type": "string",
+                            "description": "Driver number when returned."
+                          },
+                          "Element": {
+                            "type": "string",
+                            "description": "Element associated with an error when available."
+                          },
+                          "ExpectedDeliveryDate": {
+                            "type": "string",
+                            "description": "Expected delivery date."
+                          },
+                          "Fault": {
+                            "type": "string",
+                            "description": "Fault classification returned by Saia."
+                          },
+                          "FreightCharges": {
+                            "type": "number",
+                            "description": "Freight charges."
+                          },
+                          "FromPartner": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Origin EDI partner details."
+                          },
+                          "Hazardous": {
+                            "type": "string",
+                            "description": "Hazardous-material indicator."
+                          },
+                          "History": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipment history entries when returned."
+                          },
+                          "LatePickup": {
+                            "type": "string",
+                            "description": "Late pickup indicator when returned."
+                          },
+                          "MailTo": {
+                            "type": "string",
+                            "description": "Mail-to value when returned."
+                          },
+                          "MasterProNumber": {
+                            "type": "string",
+                            "description": "Master PRO number when applicable."
+                          },
+                          "Message": {
+                            "type": "string",
+                            "description": "Error or status message."
+                          },
+                          "NetCharges": {
+                            "type": "number",
+                            "description": "Net charges."
+                          },
+                          "OnTime": {
+                            "type": "string",
+                            "description": "On-time indicator when returned."
+                          },
+                          "OriginTerminal": {
+                            "type": "string",
+                            "description": "Origin terminal."
+                          },
+                          "PickupDateTime": {
+                            "type": "string",
+                            "description": "Pickup date/time."
+                          },
+                          "Pieces": {
+                            "type": "number",
+                            "description": "Piece count."
+                          },
+                          "PONumber": {
+                            "type": "string",
+                            "description": "Purchase order number."
+                          },
+                          "ProNumber": {
+                            "type": "string",
+                            "description": "Saia PRO number."
+                          },
+                          "Rates": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Rate details when returned."
+                          },
+                          "ReferenceNumber": {
+                            "type": "string",
+                            "description": "Additional shipment reference number."
+                          },
+                          "Shipper": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Shipper account and address details."
+                          },
+                          "ShipperNumber": {
+                            "type": "string",
+                            "description": "Shipper reference number."
+                          },
+                          "ShippingWeight": {
+                            "type": "number",
+                            "description": "Shipment weight."
+                          },
+                          "Signature": {
+                            "type": "string",
+                            "description": "Delivery signature."
+                          },
+                          "StandardServiceDays": {
+                            "type": "number",
+                            "description": "Standard service days."
+                          },
+                          "Tariff": {
+                            "type": "string",
+                            "description": "Tariff value."
+                          },
+                          "TestMode": {
+                            "type": "string",
+                            "description": "Y or N test-mode flag echoed by Saia."
+                          },
+                          "ThirdParty": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Third-party billing account and address details."
+                          },
+                          "ToPartner": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Destination EDI partner details."
+                          },
+                          "TrailerNumber": {
+                            "type": "string",
+                            "description": "Trailer number when returned."
+                          },
+                          "WeightedAverageFreightClass": {
+                            "type": "number",
+                            "description": "Weighted average freight class."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

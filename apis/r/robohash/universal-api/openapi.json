@@ -1,0 +1,324 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Robohash Universal API",
+    "version": "0.0.3",
+    "description": "Robohash generates deterministic avatar images from text using a public URL-based HTTP service, with optional image format, size, robot set, background, Gravatar, and extension-handling parameters."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/robohash/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/robohash/latest/actions/generate-image": {
+      "get": {
+        "operationId": "robohash.generate-image",
+        "summary": "Generate Image",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/robohash/latest/actions/generate-image"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "description": "Text value used to deterministically generate the Robohash image.",
+            "schema": {
+              "type": "string",
+              "description": "Text value used to deterministically generate the Robohash image.",
+              "example": "user@example.com"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Image file extension documented by Robohash, such as png or jpg.",
+            "schema": {
+              "type": "string",
+              "description": "Image file extension documented by Robohash, such as png or jpg.",
+              "enum": [
+                "bmp",
+                "jpg",
+                "png"
+              ],
+              "default": "png"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "description": "Optional image dimensions in WIDTHxHEIGHT format, for example 200x200.",
+            "schema": {
+              "type": "string",
+              "description": "Optional image dimensions in WIDTHxHEIGHT format, for example 200x200.",
+              "example": "200x200"
+            }
+          },
+          {
+            "name": "set",
+            "in": "query",
+            "required": false,
+            "description": "Optional image set. Official public docs list set1 through set5 and any; the README also documents set6 in the robosets table.",
+            "schema": {
+              "type": "string",
+              "description": "Optional image set. Official public docs list set1 through set5 and any; the README also documents set6 in the robosets table.",
+              "enum": [
+                "any",
+                "set1",
+                "set2",
+                "set3",
+                "set4",
+                "set5"
+              ]
+            }
+          },
+          {
+            "name": "bgset",
+            "in": "query",
+            "required": false,
+            "description": "Optional background set. Official public docs list bg1, bg2, or any.",
+            "schema": {
+              "type": "string",
+              "description": "Optional background set. Official public docs list bg1, bg2, or any.",
+              "enum": [
+                "any",
+                "bg1",
+                "bg2"
+              ]
+            }
+          },
+          {
+            "name": "gravatar",
+            "in": "query",
+            "required": false,
+            "description": "Optional Gravatar behavior. Use yes for an email value, or hashed for a pre-hashed email value.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Gravatar behavior. Use yes for an email value, or hashed for a pre-hashed email value.",
+              "enum": [
+                "hashed",
+                "yes"
+              ],
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "ignoreext",
+            "in": "query",
+            "required": false,
+            "description": "Set to false when the extension should be included in the hashed text value.",
+            "schema": {
+              "type": "boolean",
+              "description": "Set to false when the extension should be included in the hashed text value.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "description": "Binary image bytes returned by Robohash for the generated image."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Runtime buffer type returned for the generated image response."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

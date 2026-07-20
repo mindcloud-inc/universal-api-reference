@@ -1,0 +1,539 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Tax ID Pro Universal API",
+    "version": "0.0.3",
+    "description": "Validate individual, entity, and VAT tax identification numbers across more than 100 countries using the Tax ID Pro API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/taxIDPro/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/taxIDPro/latest/actions/batch-validate-tax-ids": {
+      "post": {
+        "operationId": "taxIDPro.batch-validate-tax-ids",
+        "summary": "Batch Validate Tax IDs",
+        "description": "Creates batch tax ID validations in Tax ID Pro.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/taxIDPro/latest/actions/batch-validate-tax-ids"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "validations[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "validations[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Array of tax ID validation objects. Each item must include reference_id, country, and tin; type is optional and may be individual, entity, or vat."
+                  },
+                  "isIrs": {
+                    "type": "boolean",
+                    "description": "Set true when country values use IRS country codes instead of ISO country codes.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "country_name": {
+                            "type": "string",
+                            "description": "Country name for the tax ID format that was evaluated, when returned."
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "Item-level error code for unsupported country/type combinations or other item issues; null when absent."
+                          },
+                          "format_name": {
+                            "type": "string",
+                            "description": "Name of the tax ID format that matched or was evaluated."
+                          },
+                          "is_valid": {
+                            "type": "boolean",
+                            "description": "Whether the tax ID is valid for the requested country and type."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Validation guidance when the tax ID is invalid; null when valid or unsupported."
+                          },
+                          "reference_id": {
+                            "type": "string",
+                            "description": "Caller-provided identifier used to match each response row to its request item."
+                          },
+                          "tin_compact": {
+                            "type": "string",
+                            "description": "Validated tax ID value in compact form when valid; null when unavailable."
+                          },
+                          "tin_standard": {
+                            "type": "string",
+                            "description": "Validated tax ID value in standard display format when valid; null when unavailable."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/taxIDPro/latest/actions/validate-tax-id": {
+      "get": {
+        "operationId": "taxIDPro.validate-tax-id",
+        "summary": "Validate Tax ID",
+        "description": "Retrieves a tax ID validation from Tax ID Pro.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/taxIDPro/latest/actions/validate-tax-id"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": true,
+            "description": "Two-letter country code as defined in the ISO standard. Use IRS country codes only when Is IRS is true.",
+            "schema": {
+              "type": "string",
+              "description": "Two-letter country code as defined in the ISO standard. Use IRS country codes only when Is IRS is true."
+            }
+          },
+          {
+            "name": "tin",
+            "in": "query",
+            "required": true,
+            "description": "Tax ID number. It may contain numbers, letters, dots, dashes, or slashes when those separators match the tax ID format being tested.",
+            "schema": {
+              "type": "string",
+              "description": "Tax ID number. It may contain numbers, letters, dots, dashes, or slashes when those separators match the tax ID format being tested."
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Optional tax ID type. Use individual, entity, or vat; omit to test all available types for the country.",
+            "schema": {
+              "type": "string",
+              "description": "Optional tax ID type. Use individual, entity, or vat; omit to test all available types for the country.",
+              "enum": [
+                "0",
+                "1",
+                "2"
+              ]
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "description": "Optional language tag for the message property. Use auto for the language most appropriate for the country, or one of the documented locales.",
+            "schema": {
+              "type": "string",
+              "description": "Optional language tag for the message property. Use auto for the language most appropriate for the country, or one of the documented locales.",
+              "enum": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "isIrs",
+            "in": "query",
+            "required": false,
+            "description": "Set true when country uses IRS country codes instead of ISO country codes.",
+            "schema": {
+              "type": "boolean",
+              "description": "Set true when country uses IRS country codes instead of ISO country codes.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "country_name": {
+                            "type": "string",
+                            "description": "Country name for the tax ID format that was evaluated."
+                          },
+                          "format_name": {
+                            "type": "string",
+                            "description": "Name of the tax ID format that matched or was evaluated."
+                          },
+                          "is_valid": {
+                            "type": "boolean",
+                            "description": "Whether the provided tax ID is valid for the requested country and type."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Validation guidance when the tax ID is invalid; null when valid."
+                          },
+                          "tin_compact": {
+                            "type": "string",
+                            "description": "Validated tax ID value in compact form when valid; null when unavailable."
+                          },
+                          "tin_standard": {
+                            "type": "string",
+                            "description": "Validated tax ID value in standard display format when valid; null when unavailable."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+# DatoCMS: List Record Versions
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/datoCMS/latest/actions/list-record-versions
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a DatoCMS `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/datoCMS/latest/actions/list-record-versions?connectionId=$CONNECTION_ID&limit=25&offset=0&itemId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0',
+  "itemId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/datoCMS/latest/actions/list-record-versions?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `itemId` | string | yes |  |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `nested` | boolean | no | Return full nested block payloads instead of IDs. Example: `true`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "attributes": {
+        "summary": "string",
+        "title": "string"
+      },
+      "id": "string",
+      "meta": {
+        "createdAt": "2026-05-07T12:00:00.000Z",
+        "isCurrent": true,
+        "isPublished": true,
+        "isValid": true
+      },
+      "relationships": {
+        "editor": {
+          "data": {
+            "id": "string",
+            "type": "string"
+          }
+        },
+        "item": {
+          "data": {
+            "id": "string",
+            "type": "string"
+          }
+        },
+        "itemType": {
+          "data": {
+            "id": "string",
+            "type": "string"
+          }
+        }
+      },
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `attributes.summary` | string |  |
+| `attributes.title` | string |  |
+| `id` | string |  |
+| `meta.createdAt` | date |  |
+| `meta.isCurrent` | boolean |  |
+| `meta.isPublished` | boolean |  |
+| `meta.isValid` | boolean |  |
+| `relationships.editor.data.id` | string |  |
+| `relationships.editor.data.type` | string |  |
+| `relationships.item.data.id` | string |  |
+| `relationships.item.data.type` | string |  |
+| `relationships.itemType.data.id` | string |  |
+| `relationships.itemType.data.type` | string |  |
+| `type` | string |  |
+
+## Native endpoint
+
+Through the native DatoCMS API, this operation is `GET /items/:item_id/versions` (base URL `https://site-api.datocms.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-record-versions.md) for the provider-specific parameters and requirements.
+

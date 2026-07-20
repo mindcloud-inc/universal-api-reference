@@ -1,0 +1,46 @@
+# Backendless: Move File Or Folder
+
+Moves a file or folder in Backendless.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/backendless/latest/actions/move-file-or-folder
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Backendless `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/backendless/latest/actions/move-file-or-folder" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/backendless/latest/actions/move-file-or-folder', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Backendless API returns.
+
+## Native endpoint
+
+Through the native Backendless API, this operation is `PUT /{{credentials.applicationId}}/{{credentials.apiKey}}/files/move` (base URL `{{credentials.apiUrl}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/move-file-or-folder.md) for the provider-specific parameters and requirements.
+

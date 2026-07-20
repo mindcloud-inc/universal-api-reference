@@ -1,0 +1,291 @@
+# Veryfi: Update a Document
+
+Updates an existing document in Veryfi.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/veryfi/latest/actions/put-api-v8-partner-documents-document-id
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Veryfi `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/veryfi/latest/actions/put-api-v8-partner-documents-document-id" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "documentId": "string",
+  "value": true,
+  "boundingRegion[]": [
+    1
+  ],
+  "score": 1,
+  "lineItems[]": [
+    {}
+  ],
+  "taxLines[]": [
+    {}
+  ],
+  "vendor": "string",
+  "billTo": "string",
+  "shipTo": "string",
+  "payment": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/veryfi/latest/actions/put-api-v8-partner-documents-document-id', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "documentId": "string",
+    "value": true,
+    "boundingRegion[]": [1],
+    "score": 1,
+    "lineItems[]": [{}],
+    "taxLines[]": [{}],
+    "vendor": "string",
+    "billTo": "string",
+    "shipTo": "string",
+    "payment": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `documentId` | string | yes |  |
+| `isBillable` | boolean | no | The value indicating if the document is billable. This parameter is helpful in expense management use cases. |
+| `isApproved` | boolean | no | A user-defined flag that can be assigned to the Document object. This parameter is helpful in expense management use cases. |
+| `isDuplicate` | boolean | no | The value indicating whether or not this Document has been identified as a duplicate of another Document on your account. |
+| `value` | boolean | yes | This parameter is used in the Expense Management application. The value is true if the document has a refund or credit note. boolean |
+| `boundingRegion[]` | array<number> | yes | The unique identifier of the customer assigned by the vendor. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer |
+| `score` | number | yes | The country code of a document, e.g. where it was issued or where the vendor provides services string Possible values: <= 1 The score shows how confident the model is that the predicted value belongs to the field. See confidence scores explained for more information. Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer Possible values: <= 1 The score which shows how confident the model in recognizing value symbols. See confidence scores explained for more information. Possible values: [ 0 , 90 , 180 , 270 ] The angle of rotation of the document in degrees. Possible values: [ GR , NU , SR , GH , BJ , SA , KN , JO , NZ , AO , JP , ID , LV , OM , SB , HU , BN , SK , LI , SM , AN , AE , IQ , MG , RO , ZW , KY , UG , CA , NF , TN , GG , TG , KG , LY , PA , BO , KM , BS , GE , QA , NI , MW , CL , GU , VN , NO , AG , BL , PR , SZ , AT , DE , IL , FM , UM , LR , KH , KW , LC , TC , LB , BR , CV , LA , VU , CR , IR , SC , LS , GQ , ST , CX , IO , BM , ML , PM , TK , LT , PF , ME , MQ , MA , FJ , PG , KI , PH , SJ , BV , DZ , CK , PY , HT , VG , EC , SH , CF , CG , GI , DO , HN , GY , BI , AM , KP , MX , NC , AU , SV , CI , GF , NE , WS , TF , MF , SG , WF , CC , BH , DK , IN , CD , GM , MV , MZ , GW , TH , AW , VC , YE , GS , BF , MO , MM , CH , VA , ET , SY , PK , RW , TW , LK , CY , SL , BG , IT , JE , AD , NR , TZ , RS , TJ , GB , UZ , AI , ZA , MY , BZ , MD , RU , CZ , ER , HK , VE , AX , IE , ZM , NL , BD , RE , SD , BB , EH , AS , CN , MC , JM , FO , FR , MP , SI , BW , DJ , US , BE , KZ , PS , GD , AR , GP , TD , AZ , NP , TL , GT , BY , VI , MR , EE , CM , HM , MH , KR , GL , SN , PL , DM , CU , PT , IS , AF , BT , MT , GN , CO , KE , MN , SE , MK , MS , TT , UY , AL , PE , UA , LU , HR , PW , TR , EG , TO , YT , TM , IM , PN , ES , TV , AQ , NA , MU , BA , FK , GA , NG , FI , SO ] |
+| `exchRate` | number | no | The exchange rate is calculated by dividing the amount of the currency found on the document by your account's default currency . The exchange rate will be 1 if the document's currency matches your account's default currency or Veryfi cannot find a currency on the document. |
+| `externalId` | string | no | A custom identification value. Use this if you would like to assign your own ID to documents. This parameter is useful when mapping this document to a service or resource outside Veryfi. |
+| `notes` | string | no | A user-defined text field that can be used to add any additional document-level information. |
+| `status` | string | no | Possible values: [ processed , reviewed , archived ] The value indicating the document's status. |
+| `lineItems[]` | array<object> | yes | A list of the products or services purchased or ordered on the submitted document. The category is taken from the line item with the same SKU and/or description. Otherwise from the root category field. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The country of manufacture, production, design, or brand origin where the product comes from. string Possible values: <= 1 The score shows how confident the model is that the predicted value belongs to the field. See confidence scores explained for more information. Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer Possible values: <= 1 The score which shows how confident the model in recognizing value symbols. See confidence scores explained for more information. Possible values: [ 0 , 90 , 180 , 270 ] The angle of rotation of the document in degrees. Possible values: [ GR , NU , SR , GH , BJ , SA , KN , JO , NZ , AO , JP , ID , LV , OM , SB , HU , BN , SK , LI , SM , AN , AE , IQ , MG , RO , ZW , KY , UG , CA , NF , TN , GG , TG , KG , LY , PA , BO , KM , BS , GE , QA , NI , MW , CL , GU , VN , NO , AG , BL , PR , SZ , AT , DE , IL , FM , UM , LR , KH , KW , LC , TC , LB , BR , CV , LA , VU , CR , IR , SC , LS , GQ , ST , CX , IO , BM , ML , PM , TK , LT , PF , ME , MQ , MA , FJ , PG , KI , PH , SJ , BV , DZ , CK , PY , HT , VG , EC , SH , CF , CG , GI , DO , HN , GY , BI , AM , KP , MX , NC , AU , SV , CI , GF , NE , WS , TF , MF , SG , WF , CC , BH , DK , IN , CD , GM , MV , MZ , GW , TH , AW , VC , YE , GS , BF , MO , MM , CH , VA , ET , SY , PK , RW , TW , LK , CY , SL , BG , IT , JE , AD , NR , TZ , RS , TJ , GB , UZ , AI , ZA , MY , BZ , MD , RU , CZ , ER , HK , VE , AX , IE , ZM , NL , BD , RE , SD , BB , EH , AS , CN , MC , JM , FO , FR , MP , SI , BW , DJ , US , BE , KZ , PS , GD , AR , GP , TD , AZ , NP , TL , GT , BY , VI , MR , EE , CM , HM , MH , KR , GL , SN , PL , DM , CU , PT , IS , AF , BT , MT , GN , CO , KE , MN , SE , MK , MS , TT , UY , AL , PE , UA , LU , HR , PW , TR , EG , TO , YT , TM , IM , PN , ES , TV , AQ , NA , MU , BA , FK , GA , NG , FI , SO ] The date found on the document and associated with the line item in ISO 8601 format . string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The product or service's extracted name or description excluding date and price. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The lower price after discount. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The discount percentage that was applied to the line item. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The amount deducted from the total price for the line item. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer A service end date identified for the line item in ISO 8601 format . string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The item text including dates, weight, etc. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The line item total before deductions. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The Harmonized System Nomenclature (HSN) found for the line item. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The value indicating the position of where the line item appears on the document. The batch or lot number for the line item. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The line item total after deductions. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The line item description with expanded words string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The unit price for the line item. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer Line item extra product info Possible values: non-empty Possible values: non-empty Possible values: non-empty The amount or number of units for the line item. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer A grouping indicated by formatted text on the receipt or invoice. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The Stock Keeping Unit (SKU) is the unique code associated with the product for the line item. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer A service start date identified for the line item in ISO 8601 format . string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer Possible values: non-empty A user-defined list of identifiers that help to categorize or flag particular types of line items. The classification of goods and services for tax purposes for the line item. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The name of the manufacturer of the product for the line item. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The percent at which the individual or corporation is taxed for the line item. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The amount at which the individual or corporation is taxed for the product on this line item. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer Possible values: non-empty and <= 1000 characters The complete text returned for the line item, including prices, dates, etc. The total price for this line item. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer Total charges and credits before tip and tax, if applicable. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The classification of the product. The line type predicted by Veryfi, e.g. food . string Possible values: [ room , tax , parking , service , fee , delivery , product , food , alcohol , tobacco , transportation , fuel , refund , discount , payment , giftcard , donation , toll , lottery ] The unit of measurement for this line item. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The Universal Product Code (UPC) , European Article Number (EAN) , or Global Trade Item Number (GTIN) found for the line item on this document will be placed in this field. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The weight of the item for the line item. Usually found on logistic invoices. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer A user-defined dictionary that contains all the custom fields generated by applying specific rules and regular expressions to the extracted data. |
+| `taxLines[]` | array<object> | yes | A detailed breakdown of tax elements usually found in a tax table. The base amount of the tax applied. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The name of the sales tax type. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The tax rate (percentage) applied to the base amount. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The total amount of tax charged for this particular tax line item. If the document has multiple taxes on it those taxes will be returned in the list inside the taxes field. Note there are a couple of countries in the world that have 3 decimal places after the dot. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The tax identification code. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The base amount + tax amount. number Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The arrangement of tax lines in relation to each other. |
+| `vendor` | string | yes | An object containing a detailed breakdown of vendor elements. An Australian Business Number (ABN) is a unique 11-digit number that identifies a business to the government and community and found on the document. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The currency of the vendor bank account if indicated. Provides the ability to support multiple bank accounts for bill pay use cases, e.g., a separate bank account for you to pay in Euros and a separate to pay in US Dollars. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: [ FJD , JMD , AUD , RSD , VEF , JEP , ILS , CZK , USD , SHP , BZD , HKD , CLP , HTG , BRL , HNL , MNT , NOK , SZL , EEK , DOP , MYR , SYP , IMP , THB , ZAR , HRK , EGP , MXN , BHD , IDR , LRD , TRL , TRY , CHF , MVR , BBD , SVC , ALL , BMD , UAH , EUR , YER , GBP , XCD , AWG , KPW , PHP , UZS , VND , OMR , KZT , PLN , MUR , TVD , UYU , PEN , MKD , BSD , KHR , GHC , KYD , HUF , KRW , IQD , NGN , SAR , GTQ , ZWD , BND , ISK , GEL , CAD , SOS , LAK , ARS , UGX , BWP , RUB , TWD , LTL , LKR , CRC , GGP , PYG , BGN , FKP , SCR , AED , QAR , AZN , IRR , NAD , SBD , DKK , AMD , GNF , GYD , LBP , LVL , TTD , SRD , KWD , MZN , NPR , CUP , INR , BAM , NZD , SEK , MOP , PKR , CNY , NIO , JPY , AFN , KGS , SGD , ANG , BYR , LSL , BOB , GIP , RON , COP , PAB ] Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The vendor's bank account number. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The address of the vendor. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The name of the bank. Could be part of invoice remittance information. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The bank routing number. Could be part of invoice remittance information. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The Society for Worldwide Interbank Financial Telecommunication (SWIFT) code is part of the ISO 9362 standards for sending money internationally. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The vendor identification code in a payment system. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The country code belonging to a vendor string Possible values: <= 1 The score shows how confident the model is that the predicted value belongs to the field. See confidence scores explained for more information. Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer Possible values: <= 1 The score which shows how confident the model in recognizing value symbols. See confidence scores explained for more information. Possible values: [ 0 , 90 , 180 , 270 ] The angle of rotation of the document in degrees. Possible values: [ GR , NU , SR , GH , BJ , SA , KN , JO , NZ , AO , JP , ID , LV , OM , SB , HU , BN , SK , LI , SM , AN , AE , IQ , MG , RO , ZW , KY , UG , CA , NF , TN , GG , TG , KG , LY , PA , BO , KM , BS , GE , QA , NI , MW , CL , GU , VN , NO , AG , BL , PR , SZ , AT , DE , IL , FM , UM , LR , KH , KW , LC , TC , LB , BR , CV , LA , VU , CR , IR , SC , LS , GQ , ST , CX , IO , BM , ML , PM , TK , LT , PF , ME , MQ , MA , FJ , PG , KI , PH , SJ , BV , DZ , CK , PY , HT , VG , EC , SH , CF , CG , GI , DO , HN , GY , BI , AM , KP , MX , NC , AU , SV , CI , GF , NE , WS , TF , MF , SG , WF , CC , BH , DK , IN , CD , GM , MV , MZ , GW , TH , AW , VC , YE , GS , BF , MO , MM , CH , VA , ET , SY , PK , RW , TW , LK , CY , SL , BG , IT , JE , AD , NR , TZ , RS , TJ , GB , UZ , AI , ZA , MY , BZ , MD , RU , CZ , ER , HK , VE , AX , IE , ZM , NL , BD , RE , SD , BB , EH , AS , CN , MC , JM , FO , FR , MP , SI , BW , DJ , US , BE , KZ , PS , GD , AR , GP , TD , AZ , NP , TL , GT , BY , VI , MR , EE , CM , HM , MH , KR , GL , SN , PL , DM , CU , PT , IS , AF , BT , MT , GN , CO , KE , MN , SE , MK , MS , TT , UY , AL , PE , UA , LU , HR , PW , TR , EG , TO , YT , TM , IM , PN , ES , TV , AQ , NA , MU , BA , FK , GA , NG , FI , SO ] The vendor's email address. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The fax number of the vendor. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The International Bank Account Number (IBAN) is a standard international numbering system developed to identify an overseas bank account. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The normalized name of the vendor. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The phone number of the vendor. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The raw vendor address exactly as found on the document. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The raw vendor name exactly as found on the document. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The vendor registration number. In the U.S., this would be the Employer Identification Number (EIN) . Does not include VAT (Europe) or EIN (US), which are recorded as vat_number . string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The unique identification number for the order and set by the vendor. Typically found on invoices. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The value-added tax identification number (VAT) for this vendor and found on the document. VAT numbers can be found on European invoices. For United States invoices, the Employer Identification Number (EIN) of the vendor. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The vendor's website address (URL). string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer |
+| `billTo` | string | yes | An object that describes a person or business that is billed for the amount found on the document. The name of the individual or business string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The address of the individual or business string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The value-added tax identification number (VAT) for the payer and found on the document. VAT numbers can be found on European invoices. For United States invoices, the Employer Identification Number (EIN) of the payer. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer |
+| `shipTo` | string | yes | An object that represents the information about a person or business receiving an order. The name of the individual or business string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: non-empty The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The address of the individual or business string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer |
+| `customFields` | object | no | A user-defined dictionary that contains all the custom fields generated by applying specific rules and regular expressions to the extracted data. |
+| `payment` | string | yes | An object that represents detailed information about the payment method related to this document. The terms on when and how to pay for goods or services. Typically found on invoices. string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer string Possible values: >= 8 , <= 8 An array containing (x,y) coordinates in the format [x1,y1,x2,y2,x3,y3,x4,y4]` for skewed images and handwritten fields. The bounding region is more precise than bounding box, otherwise it's the same. Possible values: >= 4 characters The value to update Possible values: >= 5 , <= 5 An array containing relative coordinates in the format [page_number,x1,y1,x2,y2] for the extracted field from img_url before any rotation. number integer The payment type found on the document. string Possible values: [ none , visa , master_card , cash , american_express , interac , other , maestro , discover , bancontact , girocard , paypal , applepay , bancomat , giftcard , bankaxept , octopus , check , card , mada , waon , jcb , bank-to-bank_transfer_bacs , wechat , pix , alipay , unionpay , googlepay , rupay , bpay , shopeepay , mir , diners_club , paypay ] |
+| `tags[]` | array<string> | no | Possible values: non-empty A user-defined list of identifiers that help to categorize or flag particular types of documents. The Document object can have multiple tags. You can create tags by API or in Hub . |
+| `meta` | string | no | Changes to the fraud decision or types Possible values: [ fraud , not fraud , unknown ] The review decision for the document Possible values: [ other , handwritten characters , digital tampering , generated document , ai generated , LCD photo , screenshot , not a document , duplicate , high velocity , fraudulent pdf , invalid qr data ] What kind of fraud type Fraud detection results Possible values: [ green , yellow , red ] Color from Fraud Detector: green means legitimate, yellow means review needed and red means fraud Possible values: Value must match regular expression ^(total_quantity\|vendor_reg_number\|vendor_web\|order_date\|end_date\|subtotal\|start_time\|bill_to_email\|tax_base\|vendor_bank_address\|raw_vendor_name\|guest_count\|tax_code\|bill_to_phone_number\|invoice_number\|tax\|card_number\|vendor_email\|tax_name\|store_number\|reference\|delivery_note_number\|total\|end_time\|bill_to_reg_number\|vendor_address\|summary_name\|vat_number\|insurance\|charge_total\|biller_code\|date\|so_number\|date_formats\|bill_to_address\|vendor_bank_number\|fax_number\|document_title\|total_currency_code\|previous_balance\|terms\|hsn\|bill_to_name\|account_number\|license_plate_number\|rounding\|vending_person_number\|tracking_number\|balance\|ship_to_name\|vendor_bank_swift\|delivery_date\|time\|vendor_bank_name\|due_date\|charge_name\|tip\|abn_number\|start_date\|vendor_iban\|summary_total\|vending_person\|ship_date\|total_weight\|incoterms\|final_balance\|ship_to_address\|vin_number\|total_in_words\|phone_number\|delivery\|bill_to_vat_number\|discount\|vendor_account_number\|cashback\|country_code\|vendor_account_currency\|po_number\|vendor_logo_name\|tax_rate\|line_items\.\d{1,4}\.(?:end_date\|subtotal\|total\|coo\|hsn\|upc\|weight\|tax_code\|taxes\|lot\|discount\|description\|balance\|tax\|section\|full_description\|discount_rate\|sku\|quantity\|unit_of_measure\|price\|discount_price\|mnf\|date\|text_v2\|tax_rate\|start_date)\|tax_breakdown\.\d{1,4}\.(?:tax\|tax_inclusive\|tax_base\|tax_name\|tax_code\|tax_rate)\|summary\.\d{1,4}\.(?:summary_total\|summary_name)\|bank_breakdown\.\d{1,4}\.(?:vendor_bank_swift\|vendor_bank_number\|vendor_bank_addresses\|vendor_bank_name\|vendor_bank_numbers\|vendor_bank_names\|vendor_bank_address\|vendor_account_currency\|vendor_iban\|vendor_account_number))$ List of fields which were digitally tampered. Does not work with the parameter boost_mode set to true . Possible values: Value must match regular expression ^(total_quantity\|vendor_reg_number\|vendor_web\|order_date\|end_date\|subtotal\|start_time\|bill_to_email\|tax_base\|vendor_bank_address\|raw_vendor_name\|guest_count\|tax_code\|bill_to_phone_number\|invoice_number\|tax\|card_number\|vendor_email\|tax_name\|store_number\|reference\|delivery_note_number\|total\|end_time\|bill_to_reg_number\|vendor_address\|summary_name\|vat_number\|insurance\|charge_total\|biller_code\|date\|so_number\|date_formats\|bill_to_address\|vendor_bank_number\|fax_number\|document_title\|total_currency_code\|previous_balance\|terms\|hsn\|bill_to_name\|account_number\|license_plate_number\|rounding\|vending_person_number\|tracking_number\|balance\|ship_to_name\|vendor_bank_swift\|delivery_date\|time\|vendor_bank_name\|due_date\|charge_name\|tip\|abn_number\|start_date\|vendor_iban\|summary_total\|vending_person\|ship_date\|total_weight\|incoterms\|final_balance\|ship_to_address\|vin_number\|total_in_words\|phone_number\|delivery\|bill_to_vat_number\|discount\|vendor_account_number\|cashback\|country_code\|vendor_account_currency\|po_number\|vendor_logo_name\|tax_rate\|line_items\.\d{1,4}\.(?:end_date\|subtotal\|total\|coo\|hsn\|upc\|weight\|tax_code\|taxes\|lot\|discount\|description\|balance\|tax\|section\|full_description\|discount_rate\|sku\|quantity\|unit_of_measure\|price\|discount_price\|mnf\|date\|text_v2\|tax_rate\|start_date)\|tax_breakdown\.\d{1,4}\.(?:tax\|tax_inclusive\|tax_base\|tax_name\|tax_code\|tax_rate)\|summary\.\d{1,4}\.(?:summary_total\|summary_name)\|bank_breakdown\.\d{1,4}\.(?:vendor_bank_swift\|vendor_bank_number\|vendor_bank_addresses\|vendor_bank_name\|vendor_bank_numbers\|vendor_bank_names\|vendor_bank_address\|vendor_account_currency\|vendor_iban\|vendor_account_number))$ List of fields which were handwritten. Does not work with the parameter boost_mode set to true . |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "account_number": "string",
+      "accounting_entry_type": "string",
+      "balance": 1,
+      "barcodes": [
+        {}
+      ],
+      "bill_to": "string",
+      "cashback": "string",
+      "category": "string",
+      "country_code": "string",
+      "created_date": "string",
+      "currency_code": "string",
+      "custom_fields": "string",
+      "date": "string",
+      "default_category": "string",
+      "delivery_date": "string",
+      "delivery_note_number": "string",
+      "discount": 1,
+      "document_reference_number": "string",
+      "document_title": "string",
+      "document_type": "string",
+      "due_date": "string",
+      "duplicate_of": 1,
+      "exch_rate": 1,
+      "external_id": "string",
+      "final_balance": 1,
+      "guest_count": "string",
+      "id": 1,
+      "img_blur": true,
+      "img_file_name": "Ava Chen",
+      "img_thumbnail_url": "https://example.com",
+      "img_url": "https://example.com",
+      "incoterms": "string",
+      "insurance": 1,
+      "invoice_number": "string",
+      "is_approved": true,
+      "is_blurry": [
+        true
+      ],
+      "is_document": true,
+      "is_duplicate": true,
+      "is_money_in": true,
+      "is_transaction": true,
+      "license_plate_number": "string",
+      "line_items": [
+        {}
+      ],
+      "meta": "string",
+      "model": "string",
+      "notes": "string",
+      "ocr_text": "string",
+      "order_date": "string",
+      "payment": "string",
+      "payment_links": [
+        "https://example.com"
+      ],
+      "pdf_url": "https://example.com",
+      "previous_balance": 1,
+      "purchase_order_number": "string",
+      "reference_number": "string",
+      "rounding": 1,
+      "server_name": "Ava Chen",
+      "service_end_date": "string",
+      "service_start_date": "string",
+      "ship_date": "string",
+      "ship_to": "string",
+      "shipping": 1,
+      "status": "string",
+      "store_number": "string",
+      "subtotal": 1,
+      "tags": [
+        {}
+      ],
+      "tax": 1,
+      "tax_lines": [
+        {}
+      ],
+      "tip": 1,
+      "total": 1,
+      "total_pages": 1,
+      "total_quantity": 1,
+      "total_weight": "string",
+      "tracking_number": "string",
+      "tracking_numbers": [
+        {}
+      ],
+      "updated_date": "string",
+      "vending_person": "string",
+      "vending_person_number": "string",
+      "vendor": "string",
+      "vendors": [
+        {}
+      ],
+      "vin_number": "string",
+      "warnings": [
+        "string"
+      ],
+      "weights": [
+        {}
+      ]
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `account_number` | string |  |
+| `accounting_entry_type` | string |  |
+| `balance` | number |  |
+| `barcodes` | array<object> |  |
+| `bill_to` | string |  |
+| `cashback` | string |  |
+| `category` | string |  |
+| `country_code` | string |  |
+| `created_date` | string |  |
+| `currency_code` | string |  |
+| `custom_fields` | string |  |
+| `date` | string |  |
+| `default_category` | string |  |
+| `delivery_date` | string |  |
+| `delivery_note_number` | string |  |
+| `discount` | number |  |
+| `document_reference_number` | string |  |
+| `document_title` | string |  |
+| `document_type` | string |  |
+| `due_date` | string |  |
+| `duplicate_of` | number |  |
+| `exch_rate` | number |  |
+| `external_id` | string |  |
+| `final_balance` | number |  |
+| `guest_count` | string |  |
+| `id` | number |  |
+| `img_blur` | boolean |  |
+| `img_file_name` | string |  |
+| `img_thumbnail_url` | string |  |
+| `img_url` | string |  |
+| `incoterms` | string |  |
+| `insurance` | number |  |
+| `invoice_number` | string |  |
+| `is_approved` | boolean |  |
+| `is_blurry` | array<boolean> |  |
+| `is_document` | boolean |  |
+| `is_duplicate` | boolean |  |
+| `is_money_in` | boolean |  |
+| `is_transaction` | boolean |  |
+| `license_plate_number` | string |  |
+| `line_items` | array<object> |  |
+| `meta` | string |  |
+| `model` | string |  |
+| `notes` | string |  |
+| `ocr_text` | string |  |
+| `order_date` | string |  |
+| `payment` | string |  |
+| `payment_links` | array<string> |  |
+| `pdf_url` | string |  |
+| `previous_balance` | number |  |
+| `purchase_order_number` | string |  |
+| `reference_number` | string |  |
+| `rounding` | number |  |
+| `server_name` | string |  |
+| `service_end_date` | string |  |
+| `service_start_date` | string |  |
+| `ship_date` | string |  |
+| `ship_to` | string |  |
+| `shipping` | number |  |
+| `status` | string |  |
+| `store_number` | string |  |
+| `subtotal` | number |  |
+| `tags` | array<object> |  |
+| `tax` | number |  |
+| `tax_lines` | array<object> |  |
+| `tip` | number |  |
+| `total` | number |  |
+| `total_pages` | number |  |
+| `total_quantity` | number |  |
+| `total_weight` | string |  |
+| `tracking_number` | string |  |
+| `tracking_numbers` | array<object> |  |
+| `updated_date` | string |  |
+| `vending_person` | string |  |
+| `vending_person_number` | string |  |
+| `vendor` | string |  |
+| `vendors` | array<object> |  |
+| `vin_number` | string |  |
+| `warnings` | array<string> |  |
+| `weights` | array<object> |  |
+
+## Native endpoint
+
+Through the native Veryfi API, this operation is `PUT /api/v8/partner/documents/:document_id` (base URL `https://api.veryfi.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/put-api-v8-partner-documents-document-id.md) for the provider-specific parameters and requirements.
+

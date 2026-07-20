@@ -1,0 +1,59 @@
+# SurveyMethods Universal API Examples
+
+These examples use the MindCloud API key and SurveyMethods connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
+
+## List Surveys
+
+
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/surveyMethods/latest/actions/list-surveys?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/surveyMethods/latest/actions/list-surveys?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "pages": [
+        {
+          "number": 1,
+          "surveys": [
+            {
+              "closed_date": "2026-05-07T12:00:00.000Z",
+              "code": "string",
+              "created_date": "2026-05-07T12:00:00.000Z",
+              "latest_launch_date": "2026-05-07T12:00:00.000Z",
+              "status": "string",
+              "title": "string",
+              "web_launch_url": "https://example.com"
+            }
+          ]
+        }
+      ],
+      "rowcount": 1,
+      "status": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+See the full [List Surveys action reference](actions/list-surveys.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/surveyMethods/latest/actions/list-surveys).

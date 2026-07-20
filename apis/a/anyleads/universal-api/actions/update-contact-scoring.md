@@ -1,0 +1,57 @@
+# Anyleads: Update Contact Scoring
+
+Updates an existing contact's scoring in Anyleads.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/anyleads/latest/actions/update-contact-scoring
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Anyleads `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/anyleads/latest/actions/update-contact-scoring" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "email": "ava@example.com",
+  "score": 1
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/anyleads/latest/actions/update-contact-scoring', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "email": "ava@example.com",
+    "score": 1
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `email` | string | yes | Contact email used to identify the record whose score should change. |
+| `score` | number | yes | New score value for the contact. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Anyleads API returns.
+
+## Native endpoint
+
+Through the native Anyleads API, this operation is `POST /api-product/incoming-webhook/update-a-contact-scoring` (base URL `https://myapiconnect.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-contact-scoring.md) for the provider-specific parameters and requirements.
+

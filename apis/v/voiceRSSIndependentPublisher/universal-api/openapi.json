@@ -1,0 +1,277 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "VoiceRSS (Independent Publisher) Universal API",
+    "version": "0.0.2",
+    "description": "Convert text into speech audio with VoiceRSS"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/voiceRSSIndependentPublisher/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/voiceRSSIndependentPublisher/latest/actions/convert-text-to-speech": {
+      "post": {
+        "operationId": "voiceRSSIndependentPublisher.convert-text-to-speech",
+        "summary": "Convert Text to Speech",
+        "description": "Creates speech audio from text in VoiceRSS.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/voiceRSSIndependentPublisher/latest/actions/convert-text-to-speech"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "language",
+                  "source_text"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "language": {
+                    "type": "string",
+                    "description": "Text language code, such as `en-us`.",
+                    "example": "en-us"
+                  },
+                  "source_text": {
+                    "type": "string",
+                    "description": "Text to convert to speech. VoiceRSS limits this to 100KB.",
+                    "example": "Hello, world!"
+                  },
+                  "voice": {
+                    "type": "string",
+                    "description": "Optional VoiceRSS voice name. Default depends on the selected language.",
+                    "example": "Linda"
+                  },
+                  "rate": {
+                    "type": "number",
+                    "description": "Speech rate from -10 through 10. Default is 0.",
+                    "default": 0
+                  },
+                  "codec": {
+                    "type": "string",
+                    "description": "Audio codec. Defaults to WAV when omitted.",
+                    "enum": [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4"
+                    ],
+                    "default": "MP3"
+                  },
+                  "format": {
+                    "type": "string",
+                    "description": "Audio format. Defaults to 8khz_8bit_mono when omitted.",
+                    "default": "16khz_16bit_stereo",
+                    "x-mindcloud-advanced": true
+                  },
+                  "ssml": {
+                    "type": "boolean",
+                    "description": "Whether source text uses SSML format.",
+                    "default": false,
+                    "x-mindcloud-advanced": true
+                  },
+                  "base64_output": {
+                    "type": "boolean",
+                    "description": "Return audio as a Base64 string instead of binary audio data.",
+                    "default": true,
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "audioContent": {
+                            "type": "string",
+                            "description": "Base64-encoded audio content when Base64 Output is enabled, or the raw audio text payload returned by VoiceRSS."
+                          },
+                          "contentLength": {
+                            "type": "number",
+                            "description": "Length of the returned audio content string after mapper normalization."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

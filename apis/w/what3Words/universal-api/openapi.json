@@ -1,0 +1,1354 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "What3Words Universal API",
+    "version": "0.0.2",
+    "description": "Convert between what3words addresses and geographic coordinates, suggest valid three-word addresses, inspect grid sections, and list supported address languages."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/what3Words/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/what3Words/latest/actions/convert-coordinates-to-what3words-address": {
+      "get": {
+        "operationId": "what3Words.convert-coordinates-to-what3words-address",
+        "summary": "Convert Coordinates to what3words Address",
+        "description": "Retrieves a what3words address from coordinates.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/what3Words/latest/actions/convert-coordinates-to-what3words-address"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "coordinates",
+            "in": "query",
+            "required": true,
+            "description": "Latitude and longitude separated by a comma, for example 51.521251,-0.203586.",
+            "schema": {
+              "type": "string",
+              "description": "Latitude and longitude separated by a comma, for example 51.521251,-0.203586.",
+              "example": "51.521251,-0.203586"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Supported what3words language code. Defaults to English when omitted.",
+            "schema": {
+              "type": "string",
+              "description": "Supported what3words language code. Defaults to English when omitted.",
+              "example": "en",
+              "default": "en"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Response format: json or geojson.",
+            "schema": {
+              "type": "string",
+              "description": "Response format: json or geojson.",
+              "enum": [
+                "geojson",
+                "json"
+              ],
+              "example": "json",
+              "default": "json",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "description": "Optional locale or script-specific code such as mn_la, zh_tr, or oo_la.",
+            "schema": {
+              "type": "string",
+              "description": "Optional locale or script-specific code such as mn_la, zh_tr, or oo_la.",
+              "example": "mn_la",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "coordinates": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Latitude and longitude of the square center."
+                          },
+                          "country": {
+                            "type": "string",
+                            "description": "ISO 3166-1 alpha-2 country code."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Language code of the returned address."
+                          },
+                          "locale": {
+                            "type": "string",
+                            "description": "Locale of the returned address, when applicable."
+                          },
+                          "map": {
+                            "type": "string",
+                            "description": "URL to view the address on the what3words map."
+                          },
+                          "nearestPlace": {
+                            "type": "string",
+                            "description": "Nearest place to the what3words address."
+                          },
+                          "square": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Bounds of the 3m x 3m square."
+                          },
+                          "words": {
+                            "type": "string",
+                            "description": "The what3words address."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/what3Words/latest/actions/convert-what3words-address-to-coordinates": {
+      "get": {
+        "operationId": "what3Words.convert-what3words-address-to-coordinates",
+        "summary": "Convert what3words Address to Coordinates",
+        "description": "Retrieves coordinates from a what3words address.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/what3Words/latest/actions/convert-what3words-address-to-coordinates"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "words",
+            "in": "query",
+            "required": true,
+            "description": "The what3words address, such as filled.count.soap or ///filled.count.soap.",
+            "schema": {
+              "type": "string",
+              "description": "The what3words address, such as filled.count.soap or ///filled.count.soap.",
+              "example": "filled.count.soap"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Response format: json or geojson.",
+            "schema": {
+              "type": "string",
+              "description": "Response format: json or geojson.",
+              "enum": [
+                "geojson",
+                "json"
+              ],
+              "example": "json",
+              "default": "json",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "coordinates": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Latitude and longitude of the square center."
+                          },
+                          "country": {
+                            "type": "string",
+                            "description": "ISO 3166-1 alpha-2 country code."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Language code of the returned address."
+                          },
+                          "locale": {
+                            "type": "string",
+                            "description": "Locale of the returned address, when applicable."
+                          },
+                          "map": {
+                            "type": "string",
+                            "description": "URL to view the address on the what3words map."
+                          },
+                          "nearestPlace": {
+                            "type": "string",
+                            "description": "Nearest place to the what3words address."
+                          },
+                          "square": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Bounds of the 3m x 3m square."
+                          },
+                          "words": {
+                            "type": "string",
+                            "description": "The what3words address."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/what3Words/latest/actions/get-what3words-grid-section": {
+      "get": {
+        "operationId": "what3Words.get-what3words-grid-section",
+        "summary": "Get what3words Grid Section",
+        "description": "Retrieves a what3words grid section by bounding box.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/what3Words/latest/actions/get-what3words-grid-section"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "boundingBox",
+            "in": "query",
+            "required": true,
+            "description": "Bounding box as south,west,north,east. The box must not exceed 4 km corner-to-corner.",
+            "schema": {
+              "type": "string",
+              "description": "Bounding box as south,west,north,east. The box must not exceed 4 km corner-to-corner.",
+              "example": "52.207988,0.116126,52.208867,0.117540"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Response format: json or geojson.",
+            "schema": {
+              "type": "string",
+              "description": "Response format: json or geojson.",
+              "enum": [
+                "geojson",
+                "json"
+              ],
+              "example": "json",
+              "default": "json",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "lines": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Grid line segments for the requested bounding box."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/what3Words/latest/actions/list-available-what3words-languages": {
+      "get": {
+        "operationId": "what3Words.list-available-what3words-languages",
+        "summary": "List Available what3words Languages",
+        "description": "Lists available what3words languages for 3 word addresses.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/what3Words/latest/actions/list-available-what3words-languages"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "what3words language or locale code."
+                          },
+                          "locales": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Available locale variants for the language, when applicable."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "English language name."
+                          },
+                          "nativeName": {
+                            "type": "string",
+                            "description": "Language name in its native script."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/what3Words/latest/actions/suggest-what3words-addresses": {
+      "get": {
+        "operationId": "what3Words.suggest-what3words-addresses",
+        "summary": "Suggest what3words Addresses",
+        "description": "Finds suggested what3words addresses from text input.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/what3Words/latest/actions/suggest-what3words-addresses"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "input",
+            "in": "query",
+            "required": true,
+            "description": "Full or partial what3words address. At minimum, use the first two complete words plus one character from the third word.",
+            "schema": {
+              "type": "string",
+              "description": "Full or partial what3words address. At minimum, use the first two complete words plus one character from the third word.",
+              "example": "filled.count.s"
+            }
+          },
+          {
+            "name": "focus",
+            "in": "query",
+            "required": false,
+            "description": "Latitude and longitude used to prioritize nearby suggestions, for example 51.521251,-0.203586.",
+            "schema": {
+              "type": "string",
+              "description": "Latitude and longitude used to prioritize nearby suggestions, for example 51.521251,-0.203586.",
+              "example": "51.521251,-0.203586"
+            }
+          },
+          {
+            "name": "nResults",
+            "in": "query",
+            "required": false,
+            "description": "Number of suggestions to return. Values over 100 are truncated to 100.",
+            "schema": {
+              "type": "number",
+              "description": "Number of suggestions to return. Values over 100 are truncated to 100.",
+              "example": 3,
+              "default": 3
+            }
+          },
+          {
+            "name": "nFocusResults",
+            "in": "query",
+            "required": false,
+            "description": "Number of top suggestions strongly biased toward the focus coordinate.",
+            "schema": {
+              "type": "number",
+              "description": "Number of top suggestions strongly biased toward the focus coordinate.",
+              "example": 3,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "clipToCountry",
+            "in": "query",
+            "required": false,
+            "description": "Restrict suggestions to comma-separated ISO 3166-1 alpha-2 country codes, for example GB,US.",
+            "schema": {
+              "type": "string",
+              "description": "Restrict suggestions to comma-separated ISO 3166-1 alpha-2 country codes, for example GB,US.",
+              "example": "GB,US",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "clipToCircle",
+            "in": "query",
+            "required": false,
+            "description": "Restrict suggestions to latitude,longitude,kilometres, for example 51.4243877,-0.3474524,10.",
+            "schema": {
+              "type": "string",
+              "description": "Restrict suggestions to latitude,longitude,kilometres, for example 51.4243877,-0.3474524,10.",
+              "example": "51.4243877,-0.3474524,10",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "clipToBoundingBox",
+            "in": "query",
+            "required": false,
+            "description": "Restrict suggestions to southwest latitude, southwest longitude, northeast latitude, northeast longitude.",
+            "schema": {
+              "type": "string",
+              "description": "Restrict suggestions to southwest latitude, southwest longitude, northeast latitude, northeast longitude.",
+              "example": "51.515900,-0.212517,51.527649,-0.191746",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "clipToPolygon",
+            "in": "query",
+            "required": false,
+            "description": "Restrict suggestions to a closed polygon of comma-separated latitude/longitude pairs, up to 25 pairs.",
+            "schema": {
+              "type": "string",
+              "description": "Restrict suggestions to a closed polygon of comma-separated latitude/longitude pairs, up to 25 pairs.",
+              "example": "51.521,-0.343,52.6,2.3324,54.234,8.343,51.521,-0.343",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Preferred language or locale to guide autosuggest. Required for voice input modes.",
+            "schema": {
+              "type": "string",
+              "description": "Preferred language or locale to guide autosuggest. Required for voice input modes.",
+              "example": "en",
+              "default": "en"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "description": "Optional locale or script-specific code. If language is also provided, both values must match.",
+            "schema": {
+              "type": "string",
+              "description": "Optional locale or script-specific code. If language is also provided, both values must match.",
+              "example": "mn_la",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "inputType",
+            "in": "query",
+            "required": false,
+            "description": "Input mode. Text is the default; voice modes require language.",
+            "schema": {
+              "type": "string",
+              "description": "Input mode. Text is the default; voice modes require language.",
+              "enum": [
+                "generic-voice",
+                "nmdp-asr",
+                "speechmatics",
+                "text",
+                "vin-big-data",
+                "vocon-hybrid"
+              ],
+              "example": "text",
+              "default": "text",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "preferLand",
+            "in": "query",
+            "required": false,
+            "description": "Prefer land-based suggestions. Enabled by default by what3words.",
+            "schema": {
+              "type": "boolean",
+              "description": "Prefer land-based suggestions. Enabled by default by what3words.",
+              "example": true,
+              "default": true,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Response format: json or geojson.",
+            "schema": {
+              "type": "string",
+              "description": "Response format: json or geojson.",
+              "enum": [
+                "geojson",
+                "json"
+              ],
+              "example": "json",
+              "default": "json",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "country": {
+                            "type": "string",
+                            "description": "ISO 3166-1 alpha-2 country code for the suggestion."
+                          },
+                          "distanceToFocusKm": {
+                            "type": "number",
+                            "description": "Distance in kilometers from the focus coordinate, when focus is supplied."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Language code for the suggestion."
+                          },
+                          "locale": {
+                            "type": "string",
+                            "description": "Locale for the suggestion, when applicable."
+                          },
+                          "nearestPlace": {
+                            "type": "string",
+                            "description": "Nearest place for the suggested address."
+                          },
+                          "rank": {
+                            "type": "number",
+                            "description": "Relative rank of the suggestion."
+                          },
+                          "words": {
+                            "type": "string",
+                            "description": "Suggested what3words address."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

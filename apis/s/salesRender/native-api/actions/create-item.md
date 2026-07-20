@@ -1,0 +1,17 @@
+# Create Item with SalesRender
+
+Creates a new item in SalesRender.
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `:companyId/CRM`
+- **Base URL:** `https://de.backend.salesrender.com/companies`
+- **Official documentation:** [Create Item](https://wiki.salesrender.com/en/home/plugin/api)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `query` | body | `string` | yes | GraphQL mutation to execute. |
+| `variables` | body | `object` | no | GraphQL variables object. Set `input` to a valid AddItemInput payload. |

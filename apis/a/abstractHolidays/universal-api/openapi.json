@@ -1,0 +1,313 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Abstract Holidays Universal API",
+    "version": "0.0.3",
+    "description": "Retrieve public, local, religious, and other holidays for a country using Abstract's Public Holidays API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/abstractHolidays/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/abstractHolidays/latest/actions/get-holidays": {
+      "get": {
+        "operationId": "abstractHolidays.get-holidays",
+        "summary": "Get Holidays",
+        "description": "Retrieves holidays from Abstract Holidays for a country and date.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/abstractHolidays/latest/actions/get-holidays"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": true,
+            "description": "Two-letter ISO 3166-1 alpha-2 country code, such as US or SG.",
+            "schema": {
+              "type": "string",
+              "description": "Two-letter ISO 3166-1 alpha-2 country code, such as US or SG.",
+              "example": "US",
+              "default": "US"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": false,
+            "description": "Four-digit year to retrieve holidays for. Required for Abstract free-plan connections and for month/day queries; paid plans may support defaulting for broader lookups.",
+            "schema": {
+              "type": "string",
+              "description": "Four-digit year to retrieve holidays for. Required for Abstract free-plan connections and for month/day queries; paid plans may support defaulting for broader lookups.",
+              "example": "2026",
+              "default": "2026"
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "required": false,
+            "description": "Month to retrieve, formatted as 01-12. Required for Abstract free-plan individual-day lookups and whenever Day is provided.",
+            "schema": {
+              "type": "string",
+              "description": "Month to retrieve, formatted as 01-12. Required for Abstract free-plan individual-day lookups and whenever Day is provided.",
+              "example": "01",
+              "default": "01"
+            }
+          },
+          {
+            "name": "day",
+            "in": "query",
+            "required": false,
+            "description": "Day of month to retrieve, formatted as 01-31. Use with Year and Month for the current verified free-plan lookup path.",
+            "schema": {
+              "type": "string",
+              "description": "Day of month to retrieve, formatted as 01-31. Use with Year and Month for the current verified free-plan lookup path.",
+              "example": "01",
+              "default": "01"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "country": {
+                            "type": "string",
+                            "description": "Two-letter country code."
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "Holiday date as returned by Abstract, commonly MM/DD/YYYY."
+                          },
+                          "date_day": {
+                            "type": "string",
+                            "description": "Holiday day of month."
+                          },
+                          "date_month": {
+                            "type": "string",
+                            "description": "Holiday month."
+                          },
+                          "date_year": {
+                            "type": "string",
+                            "description": "Holiday year."
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Holiday description when provided."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Language code or label for the localized holiday name when provided."
+                          },
+                          "location": {
+                            "type": "string",
+                            "description": "Country or local jurisdiction where the holiday applies."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Holiday name."
+                          },
+                          "name_local": {
+                            "type": "string",
+                            "description": "Holiday name in the local language when provided."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Holiday type, such as National."
+                          },
+                          "week_day": {
+                            "type": "string",
+                            "description": "Day of the week."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

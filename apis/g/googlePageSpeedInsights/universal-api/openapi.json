@@ -1,0 +1,430 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Google PageSpeed Insights Universal API",
+    "version": "0.0.3",
+    "description": "Analyze web page performance with Google PageSpeed Insights and Lighthouse data, including performance, accessibility, best practices, and SEO results."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/googlePageSpeedInsights/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/googlePageSpeedInsights/latest/actions/analyze-page-speed": {
+      "get": {
+        "operationId": "googlePageSpeedInsights.analyze-page-speed",
+        "summary": "Analyze Page Speed",
+        "description": "Retrieves a Google PageSpeed Insights report for a URL.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googlePageSpeedInsights/latest/actions/analyze-page-speed"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "Required. The URL to fetch and analyze.",
+            "schema": {
+              "type": "string",
+              "description": "Required. The URL to fetch and analyze.",
+              "example": "https://web.dev/"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Lighthouse category to run. If none are given, Google runs Performance by default.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ACCESSIBILITY",
+                  "BEST_PRACTICES",
+                  "CATEGORY_UNSPECIFIED",
+                  "PERFORMANCE",
+                  "SEO"
+                ]
+              },
+              "description": "Lighthouse category to run. If none are given, Google runs Performance by default."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "strategy",
+            "in": "query",
+            "required": false,
+            "description": "Analysis strategy to use. Desktop is the default.",
+            "schema": {
+              "type": "string",
+              "description": "Analysis strategy to use. Desktop is the default.",
+              "enum": [
+                "DESKTOP",
+                "MOBILE",
+                "STRATEGY_UNSPECIFIED"
+              ],
+              "example": "DESKTOP",
+              "default": "DESKTOP"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "description": "Locale used to localize formatted results.",
+            "schema": {
+              "type": "string",
+              "description": "Locale used to localize formatted results.",
+              "example": "en-US"
+            }
+          },
+          {
+            "name": "utmCampaign",
+            "in": "query",
+            "required": false,
+            "description": "Campaign name for analytics.",
+            "schema": {
+              "type": "string",
+              "description": "Campaign name for analytics.",
+              "example": "weekly-report",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "utmSource",
+            "in": "query",
+            "required": false,
+            "description": "Campaign source for analytics.",
+            "schema": {
+              "type": "string",
+              "description": "Campaign source for analytics.",
+              "example": "mindcloud",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "analysisUTCTimestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "UTC timestamp of the analysis."
+                          },
+                          "captchaResult": {
+                            "type": "string",
+                            "description": "Captcha verification result."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "Canonicalized and final URL for the analyzed document."
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "Kind of PageSpeed result."
+                          },
+                          "lighthouseResult": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Lighthouse audit result object for the analyzed URL.",
+                            "properties": {
+                              "categories": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Lighthouse category results keyed by category.",
+                                "properties": {
+                                  "accessibility": {
+                                    "type": "object",
+                                    "properties": {
+                                      "score": {
+                                        "type": "number",
+                                        "description": "Accessibility category score when that category is requested."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  },
+                                  "best-practices": {
+                                    "type": "object",
+                                    "properties": {
+                                      "score": {
+                                        "type": "number",
+                                        "description": "Best practices category score when that category is requested."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  },
+                                  "performance": {
+                                    "type": "object",
+                                    "properties": {
+                                      "score": {
+                                        "type": "number",
+                                        "description": "Performance category score when the performance category is present."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  },
+                                  "seo": {
+                                    "type": "object",
+                                    "properties": {
+                                      "score": {
+                                        "type": "number",
+                                        "description": "SEO category score when that category is requested."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                }
+                              },
+                              "fetchTime": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Fetch timestamp recorded by Lighthouse."
+                              },
+                              "finalDisplayedUrl": {
+                                "type": "string",
+                                "description": "Displayed final URL."
+                              },
+                              "finalUrl": {
+                                "type": "string",
+                                "description": "Final URL after redirects."
+                              },
+                              "lighthouseVersion": {
+                                "type": "string",
+                                "description": "Lighthouse version used for the run."
+                              },
+                              "requestedUrl": {
+                                "type": "string",
+                                "description": "URL requested for analysis."
+                              },
+                              "runtimeError": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Runtime error details when Lighthouse could not complete normally."
+                              },
+                              "userAgent": {
+                                "type": "string",
+                                "description": "User agent used by Lighthouse."
+                              }
+                            }
+                          },
+                          "loadingExperience": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Field data metrics for the analyzed page URL.",
+                            "properties": {
+                              "overall_category": {
+                                "type": "string",
+                                "description": "Overall field-data loading category for the page URL."
+                              }
+                            }
+                          },
+                          "originLoadingExperience": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Aggregated field data metrics for the page origin.",
+                            "properties": {
+                              "overall_category": {
+                                "type": "string",
+                                "description": "Overall field-data loading category for the origin."
+                              }
+                            }
+                          },
+                          "version": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "PageSpeed version information."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

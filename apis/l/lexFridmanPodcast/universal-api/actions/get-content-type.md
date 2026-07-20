@@ -1,0 +1,86 @@
+# Lex Fridman Podcast: Get Content Type
+
+Retrieves a content type from Lex Fridman Podcast.
+
+```
+GET https://connect.mindcloud.co/v1/universal/lexFridmanPodcast/latest/actions/get-content-type
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Lex Fridman Podcast `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/lexFridmanPodcast/latest/actions/get-content-type?connectionId=$CONNECTION_ID&type=post" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "type": "post"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/lexFridmanPodcast/latest/actions/get-content-type?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `type` | string | yes | The content type slug. Default: `post`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "description": "string",
+      "hasArchive": true,
+      "hierarchical": true,
+      "name": "Ava Chen",
+      "restBase": "string",
+      "restNamespace": "Ava Chen",
+      "slug": "string",
+      "taxonomies": [
+        "string"
+      ],
+      "template": [
+        {}
+      ],
+      "templateLock": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `description` | string |  |
+| `hasArchive` | boolean |  |
+| `hierarchical` | boolean |  |
+| `name` | string |  |
+| `restBase` | string |  |
+| `restNamespace` | string |  |
+| `slug` | string |  |
+| `taxonomies` | array<string> |  |
+| `template` | array<object> |  |
+| `templateLock` | boolean |  |
+
+## Native endpoint
+
+Through the native Lex Fridman Podcast API, this operation is `GET /wp-json/wp/v2/types/:type` (base URL `https://lexfridman.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-content-type.md) for the provider-specific parameters and requirements.
+

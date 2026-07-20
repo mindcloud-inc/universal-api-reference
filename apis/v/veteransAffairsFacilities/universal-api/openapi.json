@@ -1,0 +1,2458 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Veterans Affairs Facilities Universal API",
+    "version": "0.0.4",
+    "description": "Find Department of Veterans Affairs facilities, facility IDs, contact details, addresses, available services, and drive-time nearby health facilities from the VA Facilities API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/veteransAffairsFacilities/latest/actions/find-nearby-facilities-by-coordinates": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.find-nearby-facilities-by-coordinates",
+        "summary": "Find Nearby Facilities by Coordinates",
+        "description": "Finds nearby VA facilities by coordinates and drive time.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/find-nearby-facilities-by-coordinates"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "description": "Latitude in WGS84 decimal degrees.",
+            "schema": {
+              "type": "number",
+              "description": "Latitude in WGS84 decimal degrees."
+            }
+          },
+          {
+            "name": "long",
+            "in": "query",
+            "required": true,
+            "description": "Longitude in WGS84 decimal degrees. Current VA sandbox runtime expects the query key long.",
+            "schema": {
+              "type": "number",
+              "description": "Longitude in WGS84 decimal degrees. Current VA sandbox runtime expects the query key long."
+            }
+          },
+          {
+            "name": "driveTime",
+            "in": "query",
+            "required": false,
+            "description": "Maximum drive time in minutes.",
+            "schema": {
+              "type": "string",
+              "description": "Maximum drive time in minutes.",
+              "enum": [
+                "10",
+                "20",
+                "30",
+                "40",
+                "50",
+                "60",
+                "70",
+                "80",
+                "90"
+              ],
+              "default": "30"
+            }
+          },
+          {
+            "name": "services[]",
+            "in": "query",
+            "required": false,
+            "description": "Optional VA service identifiers to filter by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional VA service identifiers to filter by.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "maxTime": {
+                                "type": "number",
+                                "description": "Upper end of the matching drive-time band in minutes."
+                              },
+                              "minTime": {
+                                "type": "number",
+                                "description": "Lower end of the matching drive-time band in minutes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "JSON API resource type."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/veteransAffairsFacilities/latest/actions/get-facilities-by-ids": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.get-facilities-by-ids",
+        "summary": "Get Facilities by IDs",
+        "description": "Retrieves VA facilities by facility IDs.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/get-facilities-by-ids"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated facility IDs to retrieve, such as vha_688,vha_570.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated facility IDs to retrieve, such as vha_688,vha_570."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "physical": {
+                                    "type": "object",
+                                    "properties": {
+                                      "city": {
+                                        "type": "string",
+                                        "description": "City."
+                                      },
+                                      "state": {
+                                        "type": "string",
+                                        "description": "State."
+                                      },
+                                      "zip": {
+                                        "type": "string",
+                                        "description": "ZIP code."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "classification": {
+                                "type": "string",
+                                "description": "Facility classification."
+                              },
+                              "facilityType": {
+                                "type": "string",
+                                "description": "VA facility type."
+                              },
+                              "lat": {
+                                "type": "number",
+                                "description": "Latitude."
+                              },
+                              "long": {
+                                "type": "number",
+                                "description": "Longitude."
+                              },
+                              "mobile": {
+                                "type": "boolean",
+                                "description": "Whether the facility is mobile."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Facility name."
+                              },
+                              "phone": {
+                                "type": "object",
+                                "properties": {
+                                  "main": {
+                                    "type": "string",
+                                    "description": "Main phone number."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "website": {
+                                "type": "string",
+                                "description": "VA.gov facility page URL."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "JSON API resource type."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/veteransAffairsFacilities/latest/actions/get-facility": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.get-facility",
+        "summary": "Get Facility",
+        "description": "Retrieves a VA facility by ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/get-facility"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "facilityId",
+            "in": "query",
+            "required": true,
+            "description": "Facility ID in the form prefix_station, such as vha_688.",
+            "schema": {
+              "type": "string",
+              "description": "Facility ID in the form prefix_station, such as vha_688."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "physical": {
+                                    "type": "object",
+                                    "properties": {
+                                      "address1": {
+                                        "type": "string",
+                                        "description": "Street address."
+                                      },
+                                      "city": {
+                                        "type": "string",
+                                        "description": "City."
+                                      },
+                                      "state": {
+                                        "type": "string",
+                                        "description": "State."
+                                      },
+                                      "zip": {
+                                        "type": "string",
+                                        "description": "ZIP code."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "classification": {
+                                "type": "string",
+                                "description": "Facility classification."
+                              },
+                              "facilityType": {
+                                "type": "string",
+                                "description": "VA facility type."
+                              },
+                              "hours": {
+                                "type": "object",
+                                "properties": {
+                                  "friday": {
+                                    "type": "string",
+                                    "description": "Friday hours."
+                                  },
+                                  "monday": {
+                                    "type": "string",
+                                    "description": "Monday hours."
+                                  },
+                                  "saturday": {
+                                    "type": "string",
+                                    "description": "Saturday hours."
+                                  },
+                                  "sunday": {
+                                    "type": "string",
+                                    "description": "Sunday hours."
+                                  },
+                                  "thursday": {
+                                    "type": "string",
+                                    "description": "Thursday hours."
+                                  },
+                                  "tuesday": {
+                                    "type": "string",
+                                    "description": "Tuesday hours."
+                                  },
+                                  "wednesday": {
+                                    "type": "string",
+                                    "description": "Wednesday hours."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "lat": {
+                                "type": "number",
+                                "description": "Facility latitude."
+                              },
+                              "long": {
+                                "type": "number",
+                                "description": "Facility longitude."
+                              },
+                              "mobile": {
+                                "type": "boolean",
+                                "description": "Whether the facility is mobile."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Facility name."
+                              },
+                              "phone": {
+                                "type": "object",
+                                "properties": {
+                                  "fax": {
+                                    "type": "string",
+                                    "description": "Fax number."
+                                  },
+                                  "main": {
+                                    "type": "string",
+                                    "description": "Main phone number."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "services": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                "description": "Available service records."
+                              },
+                              "timeZone": {
+                                "type": "string",
+                                "description": "Facility time zone."
+                              },
+                              "website": {
+                                "type": "string",
+                                "description": "VA.gov facility page URL."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "JSON API resource type."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/veteransAffairsFacilities/latest/actions/list-facility-ids": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.list-facility-ids",
+        "summary": "List Facility IDs",
+        "description": "Retrieves VA facility IDs by facility type.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/list-facility-ids"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Optional facility type filter.",
+            "schema": {
+              "type": "string",
+              "description": "Optional facility type filter.",
+              "enum": [
+                "benefits",
+                "cemetery",
+                "health",
+                "vet_center"
+              ]
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/veteransAffairsFacilities/latest/actions/search-facilities-by-bounding-box": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.search-facilities-by-bounding-box",
+        "summary": "Search Facilities by Bounding Box",
+        "description": "Finds VA facilities in a bounding box.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/search-facilities-by-bounding-box"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bbox[]",
+            "in": "query",
+            "required": true,
+            "description": "Four bounding-box numbers as west longitude, south latitude, east longitude, north latitude.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Four bounding-box numbers as west longitude, south latitude, east longitude, north latitude."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Optional facility type filter.",
+            "schema": {
+              "type": "string",
+              "description": "Optional facility type filter.",
+              "enum": [
+                "benefits",
+                "cemetery",
+                "health",
+                "vet_center"
+              ]
+            }
+          },
+          {
+            "name": "mobile",
+            "in": "query",
+            "required": false,
+            "description": "When true, only return mobile facilities.",
+            "schema": {
+              "type": "boolean",
+              "description": "When true, only return mobile facilities."
+            }
+          },
+          {
+            "name": "services[]",
+            "in": "query",
+            "required": false,
+            "description": "Optional VA service identifiers to filter by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional VA service identifiers to filter by.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "physical": {
+                                    "type": "object",
+                                    "properties": {
+                                      "city": {
+                                        "type": "string",
+                                        "description": "City."
+                                      },
+                                      "state": {
+                                        "type": "string",
+                                        "description": "State."
+                                      },
+                                      "zip": {
+                                        "type": "string",
+                                        "description": "ZIP code."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "classification": {
+                                "type": "string",
+                                "description": "Facility classification."
+                              },
+                              "facilityType": {
+                                "type": "string",
+                                "description": "VA facility type."
+                              },
+                              "lat": {
+                                "type": "number",
+                                "description": "Latitude."
+                              },
+                              "long": {
+                                "type": "number",
+                                "description": "Longitude."
+                              },
+                              "mobile": {
+                                "type": "boolean",
+                                "description": "Whether the facility is mobile."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Facility name."
+                              },
+                              "phone": {
+                                "type": "object",
+                                "properties": {
+                                  "main": {
+                                    "type": "string",
+                                    "description": "Main phone number."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "website": {
+                                "type": "string",
+                                "description": "VA.gov facility page URL."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "JSON API resource type."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/veteransAffairsFacilities/latest/actions/search-facilities-by-coordinates": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.search-facilities-by-coordinates",
+        "summary": "Search Facilities by Coordinates",
+        "description": "Finds VA facilities near latitude and longitude coordinates.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/search-facilities-by-coordinates"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "description": "Latitude in WGS84 decimal degrees.",
+            "schema": {
+              "type": "number",
+              "description": "Latitude in WGS84 decimal degrees."
+            }
+          },
+          {
+            "name": "long",
+            "in": "query",
+            "required": true,
+            "description": "Longitude in WGS84 decimal degrees.",
+            "schema": {
+              "type": "number",
+              "description": "Longitude in WGS84 decimal degrees."
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Optional facility type filter.",
+            "schema": {
+              "type": "string",
+              "description": "Optional facility type filter.",
+              "enum": [
+                "benefits",
+                "cemetery",
+                "health",
+                "vet_center"
+              ]
+            }
+          },
+          {
+            "name": "mobile",
+            "in": "query",
+            "required": false,
+            "description": "When true, only return mobile facilities.",
+            "schema": {
+              "type": "boolean",
+              "description": "When true, only return mobile facilities."
+            }
+          },
+          {
+            "name": "services[]",
+            "in": "query",
+            "required": false,
+            "description": "Optional VA service identifiers to filter by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional VA service identifiers to filter by.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "physical": {
+                                    "type": "object",
+                                    "properties": {
+                                      "city": {
+                                        "type": "string",
+                                        "description": "City."
+                                      },
+                                      "state": {
+                                        "type": "string",
+                                        "description": "State."
+                                      },
+                                      "zip": {
+                                        "type": "string",
+                                        "description": "ZIP code."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "classification": {
+                                "type": "string",
+                                "description": "Facility classification."
+                              },
+                              "facilityType": {
+                                "type": "string",
+                                "description": "VA facility type."
+                              },
+                              "lat": {
+                                "type": "number",
+                                "description": "Latitude."
+                              },
+                              "long": {
+                                "type": "number",
+                                "description": "Longitude."
+                              },
+                              "mobile": {
+                                "type": "boolean",
+                                "description": "Whether the facility is mobile."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Facility name."
+                              },
+                              "phone": {
+                                "type": "object",
+                                "properties": {
+                                  "main": {
+                                    "type": "string",
+                                    "description": "Main phone number."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "website": {
+                                "type": "string",
+                                "description": "VA.gov facility page URL."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "JSON API resource type."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/veteransAffairsFacilities/latest/actions/search-facilities-by-state": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.search-facilities-by-state",
+        "summary": "Search Facilities by State",
+        "description": "Finds VA facilities in a state.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/search-facilities-by-state"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "description": "Two-letter state code to search within.",
+            "schema": {
+              "type": "string",
+              "description": "Two-letter state code to search within."
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Optional facility type filter.",
+            "schema": {
+              "type": "string",
+              "description": "Optional facility type filter.",
+              "enum": [
+                "benefits",
+                "cemetery",
+                "health",
+                "vet_center"
+              ]
+            }
+          },
+          {
+            "name": "mobile",
+            "in": "query",
+            "required": false,
+            "description": "When true, only return mobile facilities.",
+            "schema": {
+              "type": "boolean",
+              "description": "When true, only return mobile facilities."
+            }
+          },
+          {
+            "name": "services[]",
+            "in": "query",
+            "required": false,
+            "description": "Optional VA service identifiers to filter by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional VA service identifiers to filter by.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "physical": {
+                                    "type": "object",
+                                    "properties": {
+                                      "city": {
+                                        "type": "string",
+                                        "description": "City."
+                                      },
+                                      "state": {
+                                        "type": "string",
+                                        "description": "State."
+                                      },
+                                      "zip": {
+                                        "type": "string",
+                                        "description": "ZIP code."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "classification": {
+                                "type": "string",
+                                "description": "Facility classification."
+                              },
+                              "facilityType": {
+                                "type": "string",
+                                "description": "VA facility type."
+                              },
+                              "lat": {
+                                "type": "number",
+                                "description": "Latitude."
+                              },
+                              "long": {
+                                "type": "number",
+                                "description": "Longitude."
+                              },
+                              "mobile": {
+                                "type": "boolean",
+                                "description": "Whether the facility is mobile."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Facility name."
+                              },
+                              "phone": {
+                                "type": "object",
+                                "properties": {
+                                  "main": {
+                                    "type": "string",
+                                    "description": "Main phone number."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "website": {
+                                "type": "string",
+                                "description": "VA.gov facility page URL."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "JSON API resource type."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/veteransAffairsFacilities/latest/actions/search-facilities-by-zip-code": {
+      "get": {
+        "operationId": "veteransAffairsFacilities.search-facilities-by-zip-code",
+        "summary": "Search Facilities by ZIP Code",
+        "description": "Finds VA facilities near a ZIP code.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/veteransAffairsFacilities/latest/actions/search-facilities-by-zip-code"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "required": true,
+            "description": "Five-digit or ZIP+4 code to search near.",
+            "schema": {
+              "type": "string",
+              "description": "Five-digit or ZIP+4 code to search near."
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Optional facility type filter.",
+            "schema": {
+              "type": "string",
+              "description": "Optional facility type filter.",
+              "enum": [
+                "benefits",
+                "cemetery",
+                "health",
+                "vet_center"
+              ]
+            }
+          },
+          {
+            "name": "mobile",
+            "in": "query",
+            "required": false,
+            "description": "When true, only return mobile facilities.",
+            "schema": {
+              "type": "boolean",
+              "description": "When true, only return mobile facilities."
+            }
+          },
+          {
+            "name": "services[]",
+            "in": "query",
+            "required": false,
+            "description": "Optional VA service identifiers to filter by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Optional VA service identifiers to filter by.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "properties": {
+                                  "physical": {
+                                    "type": "object",
+                                    "properties": {
+                                      "city": {
+                                        "type": "string",
+                                        "description": "City."
+                                      },
+                                      "state": {
+                                        "type": "string",
+                                        "description": "State."
+                                      },
+                                      "zip": {
+                                        "type": "string",
+                                        "description": "ZIP code."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "classification": {
+                                "type": "string",
+                                "description": "Facility classification."
+                              },
+                              "facilityType": {
+                                "type": "string",
+                                "description": "VA facility type."
+                              },
+                              "lat": {
+                                "type": "number",
+                                "description": "Latitude."
+                              },
+                              "long": {
+                                "type": "number",
+                                "description": "Longitude."
+                              },
+                              "mobile": {
+                                "type": "boolean",
+                                "description": "Whether the facility is mobile."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Facility name."
+                              },
+                              "phone": {
+                                "type": "object",
+                                "properties": {
+                                  "main": {
+                                    "type": "string",
+                                    "description": "Main phone number."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "website": {
+                                "type": "string",
+                                "description": "VA.gov facility page URL."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "VA facility ID."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "JSON API resource type."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

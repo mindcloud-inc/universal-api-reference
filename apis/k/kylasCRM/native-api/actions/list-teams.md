@@ -1,0 +1,8 @@
+# List Teams with Kylas CRM
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/teams`
+- **Base URL:** `https://api.kylas.io/v1`
+- **Official documentation:** [List Teams](https://www.postman.com/kylasqa/kylas-apis/documentation/awdync1/kylas-apis-public)

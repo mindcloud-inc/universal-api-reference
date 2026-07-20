@@ -1,0 +1,76 @@
+# Assembly.com: Retrieve Company
+
+Retrieves a company from Assembly.com by ID.
+
+```
+GET https://connect.mindcloud.co/v1/universal/assemblycom/latest/actions/retrieve-company
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Assembly.com `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/assemblycom/latest/actions/retrieve-company?connectionId=$CONNECTION_ID&id=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "id": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/assemblycom/latest/actions/retrieve-company?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | yes | The unique ID of the company to retrieve |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "fallbackColor": "string",
+      "iconImageUrl": "https://example.com",
+      "id": "string",
+      "isPlaceholder": true,
+      "name": "Ava Chen",
+      "object": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `createdAt` | date |  |
+| `fallbackColor` | string |  |
+| `iconImageUrl` | string |  |
+| `id` | string |  |
+| `isPlaceholder` | boolean |  |
+| `name` | string |  |
+| `object` | string |  |
+
+## Native endpoint
+
+Through the native Assembly.com API, this operation is `GET /companies/:id` (base URL `https://api.assembly.com/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/retrieve-company.md) for the provider-specific parameters and requirements.
+

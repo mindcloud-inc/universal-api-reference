@@ -1,0 +1,50 @@
+# Easymailing: Get Custom Field
+
+Retrieves a custom field from Easymailing.
+
+```
+GET https://connect.mindcloud.co/v1/universal/easymailing/latest/actions/get-custom-field
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Easymailing `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/easymailing/latest/actions/get-custom-field?connectionId=$CONNECTION_ID&audienceUuid=string&uuid=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "audienceUuid": "string",
+  "uuid": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/easymailing/latest/actions/get-custom-field?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `audienceUuid` | string | yes | Audience UUID. |
+| `uuid` | string | yes | Custom field UUID. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Easymailing API returns.
+
+## Native endpoint
+
+Through the native Easymailing API, this operation is `GET /audiences/{{audienceUuid}}/list_fields/{{uuid}}` (base URL `https://api.easymailing.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-custom-field.md) for the provider-specific parameters and requirements.
+

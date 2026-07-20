@@ -1,0 +1,1049 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Emailable Universal API",
+    "version": "0.0.6",
+    "description": "Email verification platform for validating individual and batch email addresses and checking account credit availability."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/emailable/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/emailable/latest/actions/create-verification-batch": {
+      "post": {
+        "operationId": "emailable.create-verification-batch",
+        "summary": "Create Verification Batch",
+        "description": "Creates an email verification batch in Emailable.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/emailable/latest/actions/create-verification-batch"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "emails"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "emails": {
+                    "type": "string",
+                    "description": "One or more email addresses to verify in the batch. Pass multiple values separated by `,`.",
+                    "example": "alice@example.com"
+                  },
+                  "callbackUrl": {
+                    "type": "string",
+                    "description": "Optional URL that receives the completed batch result via HTTP POST.",
+                    "example": "https://example.com/webhooks/emailable",
+                    "x-mindcloud-advanced": true
+                  },
+                  "retries": {
+                    "type": "boolean",
+                    "description": "Leave enabled to retry certain mail-server responses for better accuracy.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "responseFields": {
+                    "type": "string",
+                    "description": "Optional list of per-email response fields to include in the batch result. Pass multiple values separated by `,`.",
+                    "example": "email,state,score",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The Emailable batch identifier for the newly created verification batch."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Confirmation message returned after the batch is created."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/emailable/latest/actions/get-account-info": {
+      "get": {
+        "operationId": "emailable.get-account-info",
+        "summary": "Get Account Info",
+        "description": "Retrieves account information from Emailable.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/emailable/latest/actions/get-account-info"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "availableCredits": {
+                            "type": "number",
+                            "description": "The number of verification credits currently available."
+                          },
+                          "ownerEmail": {
+                            "type": "string",
+                            "description": "The email address that owns the Emailable account."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/emailable/latest/actions/get-batch-status": {
+      "get": {
+        "operationId": "emailable.get-batch-status",
+        "summary": "Get Batch Status",
+        "description": "Retrieves the status of a batch from Emailable.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/emailable/latest/actions/get-batch-status"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "batchId",
+            "in": "query",
+            "required": true,
+            "description": "The batch ID returned when you created the verification batch.",
+            "schema": {
+              "type": "string",
+              "description": "The batch ID returned when you created the verification batch.",
+              "example": "5cf6dd30093f96d2ac34bb0a"
+            }
+          },
+          {
+            "name": "partial",
+            "in": "query",
+            "required": false,
+            "description": "Set to true to include partial results while a batch of up to 1,000 emails is still verifying.",
+            "schema": {
+              "type": "boolean",
+              "description": "Set to true to include partial results while a batch of up to 1,000 emails is still verifying.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "emails": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "email": {
+                                  "type": "string"
+                                },
+                                "score": {
+                                  "type": "number"
+                                },
+                                "state": {
+                                  "type": "string"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "reasonCounts": {
+                            "type": "object",
+                            "properties": {
+                              "acceptedEmail": {
+                                "type": "number"
+                              },
+                              "invalidDomain": {
+                                "type": "number"
+                              },
+                              "invalidEmail": {
+                                "type": "number"
+                              },
+                              "invalidSmtp": {
+                                "type": "number"
+                              },
+                              "lowDeliverability": {
+                                "type": "number"
+                              },
+                              "lowQuality": {
+                                "type": "number"
+                              },
+                              "noConnect": {
+                                "type": "number"
+                              },
+                              "rejectedEmail": {
+                                "type": "number"
+                              },
+                              "timeout": {
+                                "type": "number"
+                              },
+                              "unavailableSmtp": {
+                                "type": "number"
+                              },
+                              "unexpectedError": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "totalCounts": {
+                            "type": "object",
+                            "properties": {
+                              "deliverable": {
+                                "type": "number"
+                              },
+                              "duplicate": {
+                                "type": "number"
+                              },
+                              "processed": {
+                                "type": "number"
+                              },
+                              "risky": {
+                                "type": "number"
+                              },
+                              "total": {
+                                "type": "number"
+                              },
+                              "undeliverable": {
+                                "type": "number"
+                              },
+                              "unknown": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/emailable/latest/actions/verify-email": {
+      "get": {
+        "operationId": "emailable.verify-email",
+        "summary": "Verify Email",
+        "description": "Verifies an email address in Emailable.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/emailable/latest/actions/verify-email"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "description": "The email address you want Emailable to verify.",
+            "schema": {
+              "type": "string",
+              "description": "The email address you want Emailable to verify.",
+              "example": "john.smith@example.com"
+            }
+          },
+          {
+            "name": "smtp",
+            "in": "query",
+            "required": false,
+            "description": "Set to false to skip the SMTP step and get a faster, less accurate response.",
+            "schema": {
+              "type": "boolean",
+              "description": "Set to false to skip the SMTP step and get a faster, less accurate response.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "acceptAll",
+            "in": "query",
+            "required": false,
+            "description": "Set to true to perform an accept-all mailbox check.",
+            "schema": {
+              "type": "boolean",
+              "description": "Set to true to perform an accept-all mailbox check.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "required": false,
+            "description": "How many seconds to wait before Emailable returns a 249 retry-later response. Minimum 2, maximum 10.",
+            "schema": {
+              "type": "number",
+              "description": "How many seconds to wait before Emailable returns a 249 retry-later response. Minimum 2, maximum 10.",
+              "example": 5,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "acceptAll": {
+                            "type": "boolean",
+                            "description": "Whether the domain appears to accept all recipient addresses."
+                          },
+                          "didYouMean": {
+                            "type": "string",
+                            "description": "A suggested corrected email address when Emailable detects a likely typo."
+                          },
+                          "disposable": {
+                            "type": "boolean",
+                            "description": "Whether the address belongs to a disposable email provider."
+                          },
+                          "domain": {
+                            "type": "string",
+                            "description": "The domain portion of the verified email address."
+                          },
+                          "duration": {
+                            "type": "number",
+                            "description": "How long the verification took, in seconds."
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The email address that was verified."
+                          },
+                          "firstName": {
+                            "type": "string",
+                            "description": "The inferred first name associated with the email address."
+                          },
+                          "free": {
+                            "type": "boolean",
+                            "description": "Whether the address belongs to a free email provider."
+                          },
+                          "fullName": {
+                            "type": "string",
+                            "description": "The inferred full name associated with the email address."
+                          },
+                          "gender": {
+                            "type": "string",
+                            "description": "The inferred gender associated with the email address."
+                          },
+                          "lastName": {
+                            "type": "string",
+                            "description": "The inferred last name associated with the email address."
+                          },
+                          "mailboxFull": {
+                            "type": "boolean",
+                            "description": "Whether the mailbox appears to be full."
+                          },
+                          "mxRecord": {
+                            "type": "string",
+                            "description": "The MX record Emailable resolved for the domain."
+                          },
+                          "noReply": {
+                            "type": "boolean",
+                            "description": "Whether the address appears to be a no-reply mailbox."
+                          },
+                          "reason": {
+                            "type": "string",
+                            "description": "The primary reason Emailable assigned the verification outcome."
+                          },
+                          "role": {
+                            "type": "boolean",
+                            "description": "Whether the address appears to be a role-based inbox."
+                          },
+                          "score": {
+                            "type": "number",
+                            "description": "Emailable's quality score for the email address."
+                          },
+                          "smtpProvider": {
+                            "type": "string",
+                            "description": "The SMTP provider Emailable detected for the address."
+                          },
+                          "state": {
+                            "type": "string",
+                            "description": "The overall verification state returned by Emailable."
+                          },
+                          "tag": {
+                            "type": "string",
+                            "description": "The optional Emailable tag value associated with the verification."
+                          },
+                          "user": {
+                            "type": "string",
+                            "description": "The local-part user portion of the email address."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

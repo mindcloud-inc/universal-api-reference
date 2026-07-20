@@ -1,0 +1,181 @@
+# Cheddar: List Customers
+
+Retrieves customer billing records from Cheddar.
+
+```
+GET https://connect.mindcloud.co/v1/universal/cheddar/latest/actions/list-customers
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Cheddar `connectionId` ([setup](../authentication.md)).
+
+This action also supports [sorting](../sorting.md) (`sort`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/cheddar/latest/actions/list-customers?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/cheddar/latest/actions/list-customers?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `search` | string | no | Text search across customer name, company, email, and the last four digits of the credit card. |
+| `subscriptionStatus` | string | no | Filter customers by subscription status: activeOnly or canceledOnly. |
+| `planCode` | list<string> | no | Filter customers by one or more pricing plan codes. Accepts multiple values as an array. |
+| `createdAfterDate` | date | no | Return customers created on or after this YYYY-MM-DD date. |
+| `createdBeforeDate` | date | no | Return customers created on or before this YYYY-MM-DD date. |
+| `canceledAfterDate` | date | no | Return customers canceled on or after this YYYY-MM-DD date. |
+| `canceledBeforeDate` | date | no | Return customers canceled on or before this YYYY-MM-DD date. |
+| `transactedAfterDate` | date | no | Return customers with transactions on or after this YYYY-MM-DD date. |
+| `transactedBeforeDate` | date | no | Return customers with transactions on or before this YYYY-MM-DD date. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "customers": [
+        {
+          "code": "string",
+          "company": "string",
+          "createdDatetime": "2026-05-07T12:00:00.000Z",
+          "email": "ava@example.com",
+          "firstName": "Ava",
+          "gatewayToken": "string",
+          "id": "string",
+          "lastName": "Chen",
+          "modifiedDatetime": "2026-05-07T12:00:00.000Z",
+          "notes": "string",
+          "subscriptions": [
+            {
+              "canceledDatetime": "2026-05-07T12:00:00.000Z",
+              "ccExpirationDate": "2026-05-07T12:00:00.000Z",
+              "ccFirstName": "Ava",
+              "ccLastFour": "string",
+              "ccLastName": "Chen",
+              "ccType": "string",
+              "createdDatetime": "2026-05-07T12:00:00.000Z",
+              "gatewayToken": "string",
+              "id": "string",
+              "invoices": [
+                {
+                  "billingDatetime": "2026-05-07T12:00:00.000Z",
+                  "charges": [
+                    {
+                      "code": "string",
+                      "description": "string",
+                      "eachAmount": 1,
+                      "id": "string",
+                      "quantity": 1
+                    }
+                  ],
+                  "createdDatetime": "2026-05-07T12:00:00.000Z",
+                  "id": "string",
+                  "number": "string",
+                  "transactions": [
+                    {
+                      "amount": 1,
+                      "id": "string",
+                      "response": "string",
+                      "transactedDatetime": "2026-05-07T12:00:00.000Z"
+                    }
+                  ],
+                  "type": "string"
+                }
+              ],
+              "plans": [
+                {
+                  "code": "string",
+                  "description": "string",
+                  "id": "string",
+                  "isActive": true,
+                  "isFree": true,
+                  "name": "Ava Chen",
+                  "trialDays": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `customers` | array<object> |  |
+| `customers[].code` | string |  |
+| `customers[].company` | string |  |
+| `customers[].createdDatetime` | date |  |
+| `customers[].email` | string |  |
+| `customers[].firstName` | string |  |
+| `customers[].gatewayToken` | string |  |
+| `customers[].id` | string |  |
+| `customers[].lastName` | string |  |
+| `customers[].modifiedDatetime` | date |  |
+| `customers[].notes` | string |  |
+| `customers[].subscriptions` | array<object> |  |
+| `customers[].subscriptions[].canceledDatetime` | date |  |
+| `customers[].subscriptions[].ccExpirationDate` | date |  |
+| `customers[].subscriptions[].ccFirstName` | string |  |
+| `customers[].subscriptions[].ccLastFour` | string |  |
+| `customers[].subscriptions[].ccLastName` | string |  |
+| `customers[].subscriptions[].ccType` | string |  |
+| `customers[].subscriptions[].createdDatetime` | date |  |
+| `customers[].subscriptions[].gatewayToken` | string |  |
+| `customers[].subscriptions[].id` | string |  |
+| `customers[].subscriptions[].invoices` | array<object> |  |
+| `customers[].subscriptions[].invoices[].billingDatetime` | date |  |
+| `customers[].subscriptions[].invoices[].charges` | array<object> |  |
+| `customers[].subscriptions[].invoices[].charges[].code` | string |  |
+| `customers[].subscriptions[].invoices[].charges[].description` | string |  |
+| `customers[].subscriptions[].invoices[].charges[].eachAmount` | number |  |
+| `customers[].subscriptions[].invoices[].charges[].id` | string |  |
+| `customers[].subscriptions[].invoices[].charges[].quantity` | number |  |
+| `customers[].subscriptions[].invoices[].createdDatetime` | date |  |
+| `customers[].subscriptions[].invoices[].id` | string |  |
+| `customers[].subscriptions[].invoices[].number` | string |  |
+| `customers[].subscriptions[].invoices[].transactions` | array<object> |  |
+| `customers[].subscriptions[].invoices[].transactions[].amount` | number |  |
+| `customers[].subscriptions[].invoices[].transactions[].id` | string |  |
+| `customers[].subscriptions[].invoices[].transactions[].response` | string |  |
+| `customers[].subscriptions[].invoices[].transactions[].transactedDatetime` | date |  |
+| `customers[].subscriptions[].invoices[].type` | string |  |
+| `customers[].subscriptions[].plans` | array<object> |  |
+| `customers[].subscriptions[].plans[].code` | string |  |
+| `customers[].subscriptions[].plans[].description` | string |  |
+| `customers[].subscriptions[].plans[].id` | string |  |
+| `customers[].subscriptions[].plans[].isActive` | boolean |  |
+| `customers[].subscriptions[].plans[].isFree` | boolean |  |
+| `customers[].subscriptions[].plans[].name` | string |  |
+| `customers[].subscriptions[].plans[].trialDays` | number |  |
+
+## Native endpoint
+
+Through the native Cheddar API, this operation is `GET /customers/get/productCode/{{credentials.productCode}}` (base URL `https://getcheddar.com/xml`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-customers.md) for the provider-specific parameters and requirements.
+

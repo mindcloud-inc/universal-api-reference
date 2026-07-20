@@ -1,0 +1,297 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Pdfless Universal API",
+    "version": "0.0.5",
+    "description": "Generate PDFs from templates and JSON data"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/pdfless/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/pdfless/latest/actions/generate-pdf": {
+      "post": {
+        "operationId": "pdfless.generate-pdf",
+        "summary": "Generate PDF",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/pdfless/latest/actions/generate-pdf"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "templateId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "templateId": {
+                    "type": "string",
+                    "description": "Unique identifier of the template used to generate the PDF."
+                  },
+                  "referenceId": {
+                    "type": "string",
+                    "description": "Identifier that matches a reference in the caller system."
+                  },
+                  "payload": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Data in JSON format."
+                  },
+                  "encryptionUserPassword": {
+                    "type": "string",
+                    "description": "Password required to open the generated document.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionOwnerPassword": {
+                    "type": "string",
+                    "description": "Permission password used to restrict document functionality.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionAllowPrinting": {
+                    "type": "boolean",
+                    "description": "Allow users to print the document.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionAllowModifying": {
+                    "type": "boolean",
+                    "description": "Allow users to modify the document.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionAllowModifyAnnotations": {
+                    "type": "boolean",
+                    "description": "Allow users to modify document annotations.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionAllowContentCopying": {
+                    "type": "boolean",
+                    "description": "Allow users to copy document content.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionAllowScreenreaders": {
+                    "type": "boolean",
+                    "description": "Allow screenreaders to access document content.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionAllowFormFilling": {
+                    "type": "boolean",
+                    "description": "Allow users to fill document forms.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "encryptionAllowDocumentAssembly": {
+                    "type": "boolean",
+                    "description": "Allow cross-document assembly operations.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp when the PDF was created."
+                          },
+                          "downloadUrl": {
+                            "type": "string",
+                            "description": "Temporary URL of the generated PDF."
+                          },
+                          "expires": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp when the download URL expires."
+                          },
+                          "referenceId": {
+                            "type": "string",
+                            "description": "Reference identifier supplied in the request."
+                          },
+                          "templateId": {
+                            "type": "string",
+                            "description": "Unique identifier of the template used to generate the PDF."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

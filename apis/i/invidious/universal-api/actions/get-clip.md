@@ -1,0 +1,70 @@
+# Invidious: Get Clip
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/invidious/latest/actions/get-clip
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Invidious `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/invidious/latest/actions/get-clip?connectionId=$CONNECTION_ID&id=clip-id" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "id": "clip-id"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/invidious/latest/actions/get-clip?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | yes | Clip ID. Example: `clip-id`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "author": "string",
+      "clipId": "string",
+      "title": "string",
+      "videoId": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `author` | string |  |
+| `clipId` | string |  |
+| `title` | string |  |
+| `videoId` | string |  |
+
+## Native endpoint
+
+Through the native Invidious API, this operation is `GET /clips` (base URL `{{credentials.instanceUrl}}/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-clip.md) for the provider-specific parameters and requirements.
+

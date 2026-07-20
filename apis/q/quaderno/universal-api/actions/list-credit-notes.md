@@ -1,0 +1,220 @@
+# Quaderno: List Credit Notes
+
+Retrieves credit notes from Quaderno.
+
+```
+GET https://connect.mindcloud.co/v1/universal/quaderno/latest/actions/list-credit-notes
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Quaderno `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/quaderno/latest/actions/list-credit-notes?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/quaderno/latest/actions/list-credit-notes?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `q` | string | no | Search text to filter credit notes. Example: `C-00001`. |
+| `date` | date | no | Date filter for credit notes. Example: `2026-03-19`. |
+| `state` | string | no | State selector for credit notes. Example: `paid`. |
+| `processorId` | string | no | Payment processor ID selector for credit notes. Example: `proc_123`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "blocked": true,
+      "city": {},
+      "contact": {
+        "createdAt": 1,
+        "email": "ava@example.com",
+        "fullName": "Ava Chen",
+        "id": 1,
+        "kind": "string",
+        "language": "string",
+        "notes": "string",
+        "permalink": "https://example.com",
+        "phone1": {},
+        "processor": {},
+        "processorId": {},
+        "taxId": {},
+        "taxStatus": "string",
+        "web": {}
+      },
+      "country": "string",
+      "createdAt": 1,
+      "currency": "string",
+      "deliveryState": {},
+      "discountCents": 1,
+      "dueDate": {},
+      "id": 1,
+      "issueDate": "string",
+      "items": [
+        {
+          "description": "string",
+          "discountCents": 1,
+          "grossAmountCents": 1,
+          "id": 1,
+          "quantity": 1,
+          "reference": {},
+          "subtotalCents": 1,
+          "tax1Country": {},
+          "tax1Name": {},
+          "tax1Rate": {},
+          "tax1Region": {},
+          "tax1TransactionType": "string",
+          "tax2Country": {},
+          "tax2Name": {},
+          "tax2Rate": {},
+          "tax2Region": {},
+          "tax2TransactionType": "string",
+          "unitPriceCents": 1
+        }
+      ],
+      "notes": {},
+      "number": "string",
+      "paymentDetails": {},
+      "payments": [
+        {
+          "amountCents": 1,
+          "date": "string",
+          "id": 1,
+          "paymentMethod": "string",
+          "processor": {},
+          "processorId": {},
+          "url": "https://example.com"
+        }
+      ],
+      "pdf": "string",
+      "permalink": "https://example.com",
+      "poNumber": {},
+      "postalCode": {},
+      "processor": {},
+      "processorId": {},
+      "region": {},
+      "relatedDocument": {
+        "id": 1,
+        "type": "string"
+      },
+      "secureId": "string",
+      "state": "string",
+      "streetLine1": {},
+      "streetLine2": {},
+      "subject": {},
+      "subtotalCents": 1,
+      "taxId": {},
+      "totalCents": 1,
+      "url": "https://example.com",
+      "verificationCode": {},
+      "verificationPermalink": {}
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `blocked` | boolean |  |
+| `city` | object |  |
+| `contact.createdAt` | number |  |
+| `contact.email` | string |  |
+| `contact.fullName` | string |  |
+| `contact.id` | number |  |
+| `contact.kind` | string |  |
+| `contact.language` | string |  |
+| `contact.notes` | string |  |
+| `contact.permalink` | string |  |
+| `contact.phone1` | object |  |
+| `contact.processor` | object |  |
+| `contact.processorId` | object |  |
+| `contact.taxId` | object |  |
+| `contact.taxStatus` | string |  |
+| `contact.web` | object |  |
+| `country` | string |  |
+| `createdAt` | number |  |
+| `currency` | string |  |
+| `deliveryState` | object |  |
+| `discountCents` | number |  |
+| `dueDate` | object |  |
+| `id` | number |  |
+| `issueDate` | string |  |
+| `items[].description` | string |  |
+| `items[].discountCents` | number |  |
+| `items[].grossAmountCents` | number |  |
+| `items[].id` | number |  |
+| `items[].quantity` | number |  |
+| `items[].reference` | object |  |
+| `items[].subtotalCents` | number |  |
+| `items[].tax1Country` | object |  |
+| `items[].tax1Name` | object |  |
+| `items[].tax1Rate` | object |  |
+| `items[].tax1Region` | object |  |
+| `items[].tax1TransactionType` | string |  |
+| `items[].tax2Country` | object |  |
+| `items[].tax2Name` | object |  |
+| `items[].tax2Rate` | object |  |
+| `items[].tax2Region` | object |  |
+| `items[].tax2TransactionType` | string |  |
+| `items[].unitPriceCents` | number |  |
+| `notes` | object |  |
+| `number` | string |  |
+| `paymentDetails` | object |  |
+| `payments[].amountCents` | number |  |
+| `payments[].date` | string |  |
+| `payments[].id` | number |  |
+| `payments[].paymentMethod` | string |  |
+| `payments[].processor` | object |  |
+| `payments[].processorId` | object |  |
+| `payments[].url` | string |  |
+| `pdf` | string |  |
+| `permalink` | string |  |
+| `poNumber` | object |  |
+| `postalCode` | object |  |
+| `processor` | object |  |
+| `processorId` | object |  |
+| `region` | object |  |
+| `relatedDocument.id` | number |  |
+| `relatedDocument.type` | string |  |
+| `secureId` | string |  |
+| `state` | string |  |
+| `streetLine1` | object |  |
+| `streetLine2` | object |  |
+| `subject` | object |  |
+| `subtotalCents` | number |  |
+| `taxId` | object |  |
+| `totalCents` | number |  |
+| `url` | string |  |
+| `verificationCode` | object |  |
+| `verificationPermalink` | object |  |
+
+## Native endpoint
+
+Through the native Quaderno API, this operation is `GET /credits` (base URL `https://sandbox-quadernoapp.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-credit-notes.md) for the provider-specific parameters and requirements.
+

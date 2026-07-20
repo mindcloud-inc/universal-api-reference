@@ -1,0 +1,261 @@
+# Loyverse: Create Sales Receipt
+
+Creates a new sales receipt in Loyverse.
+
+```
+POST https://connect.mindcloud.co/v1/universal/loyverse/latest/actions/create-sales-receipt
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Loyverse `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/loyverse/latest/actions/create-sales-receipt" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "storeId": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/loyverse/latest/actions/create-sales-receipt', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "storeId": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `storeId` | string | yes | The store id associated with the receipt |
+| `employeeId` | string | no | The employee id associated with the receipt |
+| `order` | string | no | The order name or number associated with the receipt |
+| `customerId` | string | no | The customer id associated with the receipt |
+| `source` | string | no | The name of the the source this receipt comes from. By default it is the name of the application that created the receipt. For receipts created from Loyverse mobile point of sale application the value is "point of sale". |
+| `receiptDate` | date | no | By default, it matches the created_at value. You can set receipt_date to the date and time in the past when the receipt was created in another system. This value is used in Loyverse back-office reports. |
+| `totalDiscounts[]` | array<object> | no | The list of all discounts applied in the receipt. Discounts can be applied in two scopes, RECEIPT or LINE_ITEM. For discount with LINE_ITEM level you must reference to corresponding discount in every line item where this discount is applied. For discounts with RECEIPT level, line_discount for every line item will be generated automatically. |
+| `note` | string | no | The receipt's note |
+| `lineItems[]` | array<object> | no | The line items included in the receipt |
+| `payments[]` | array<object> | no | The list of payments. There is a restriction that only one payment can be applied to receipt when using POST request. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "cancelledAt": "2026-05-07T12:00:00.000Z",
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "customerId": "string",
+      "diningOption": "string",
+      "employeeId": "string",
+      "lineItems": [
+        {
+          "cost": 1,
+          "costTotal": 1,
+          "grossTotalMoney": 1,
+          "id": "string",
+          "itemId": "string",
+          "itemName": "Ava Chen",
+          "lineDiscounts": [
+            {
+              "id": "string",
+              "moneyAmount": 1,
+              "name": "Ava Chen",
+              "percentage": 1,
+              "type": "string"
+            }
+          ],
+          "lineModifiers": [
+            {
+              "id": "string",
+              "modifierOptionId": "string",
+              "moneyAmount": 1,
+              "name": "Ava Chen",
+              "option": "string",
+              "price": 1
+            }
+          ],
+          "lineNote": "string",
+          "lineTaxes": [
+            {
+              "id": "string",
+              "moneyAmount": 1,
+              "name": "Ava Chen",
+              "rate": 1,
+              "type": "string"
+            }
+          ],
+          "price": 1,
+          "quantity": 1,
+          "sku": "string",
+          "totalDiscount": 1,
+          "totalMoney": 1,
+          "variantId": "string",
+          "variantName": "Ava Chen"
+        }
+      ],
+      "note": "string",
+      "order": "string",
+      "payments": [
+        {
+          "moneyAmount": 1,
+          "name": "Ava Chen",
+          "paidAt": "2026-05-07T12:00:00.000Z",
+          "paymentDetails": {
+            "authorizationCode": "string",
+            "cardCompany": "string",
+            "cardNumber": "string",
+            "entryMethod": "string",
+            "referenceId": "string"
+          },
+          "paymentTypeId": "string",
+          "type": "string"
+        }
+      ],
+      "pointsBalance": 1,
+      "pointsDeducted": 1,
+      "pointsEarned": 1,
+      "posDeviceId": "string",
+      "receiptDate": "2026-05-07T12:00:00.000Z",
+      "receiptNumber": "string",
+      "receiptType": "string",
+      "refundFor": "string",
+      "source": "string",
+      "storeId": "string",
+      "surcharge": 1,
+      "tip": 1,
+      "totalDiscount": 1,
+      "totalDiscounts": [
+        {
+          "id": "string",
+          "moneyAmount": 1,
+          "name": "Ava Chen",
+          "percentage": 1,
+          "type": "string"
+        }
+      ],
+      "totalMoney": 1,
+      "totalTax": 1,
+      "totalTaxes": [
+        {
+          "id": "string",
+          "moneyAmount": 1,
+          "name": "Ava Chen",
+          "rate": 1,
+          "type": "string"
+        }
+      ],
+      "updatedAt": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `cancelledAt` | date | The time when this receipt was cancelled |
+| `createdAt` | date | The autogenerated date and time when the receipt was created in Loyverse. |
+| `customerId` | string | The customer id associated with the receipt |
+| `diningOption` | string | The dining option selected for the receipt |
+| `employeeId` | string | The employee id associated with the receipt |
+| `lineItems` | array<object> | The line items included in the receipt |
+| `lineItems[].cost` | number | The cost of the single item at the moment of transaction |
+| `lineItems[].costTotal` | number | The total cost for this line item at the moment of transaction |
+| `lineItems[].grossTotalMoney` | number | The total money amount for this line item including modifiers. It doesn't include discounts and taxes which type is ADDED. |
+| `lineItems[].id` | string | The unique id that identifies this line item in the receipt |
+| `lineItems[].itemId` | string | The item id for this line item |
+| `lineItems[].itemName` | string | The item name |
+| `lineItems[].lineDiscounts` | array<object> | The list of discounts applied to the line item |
+| `lineItems[].lineDiscounts[].id` | string | The discount id |
+| `lineItems[].lineDiscounts[].moneyAmount` | number | The money amount of this discount for the line item. The value is always positive. |
+| `lineItems[].lineDiscounts[].name` | string | The discount name |
+| `lineItems[].lineDiscounts[].percentage` | number | The percentage of the discount. For example value 10.55 corresponds to a percentage of 10.55%. The value is not set for amount based discounts. |
+| `lineItems[].lineDiscounts[].type` | string | The discount type |
+| `lineItems[].lineModifiers` | array<object> | The list of modifiers applied to the line item |
+| `lineItems[].lineModifiers[].id` | string | The modifier id |
+| `lineItems[].lineModifiers[].modifierOptionId` | string | The modifier option id applied to the line item |
+| `lineItems[].lineModifiers[].moneyAmount` | number | The total money amount of the modifier applied to the line item. It is equal to the price of the modifier option multiplied by the line item's quantity |
+| `lineItems[].lineModifiers[].name` | string | The modifier name |
+| `lineItems[].lineModifiers[].option` | string | The name of the modifier option applied to the line item |
+| `lineItems[].lineModifiers[].price` | number | The base price of a single modifier option |
+| `lineItems[].lineNote` | string | The line item note |
+| `lineItems[].lineTaxes` | array<object> | The list of taxes applied to the line item |
+| `lineItems[].lineTaxes[].id` | string | The tax id |
+| `lineItems[].lineTaxes[].moneyAmount` | number | The money amount of this tax for the line item |
+| `lineItems[].lineTaxes[].name` | string | The tax name |
+| `lineItems[].lineTaxes[].rate` | number | The rate of the tax. For example, a value of "5.255" corresponds to a percentage of 5.255% |
+| `lineItems[].lineTaxes[].type` | string |  |
+| `lineItems[].price` | number | The price of the one item. It includes taxes which type is INCLUDED. It doesn't include modifiers, discounts and taxes which type is ADDED. |
+| `lineItems[].quantity` | number | The number of items that were purchased (or refunded in case of refund) |
+| `lineItems[].sku` | string | The variant sku |
+| `lineItems[].totalDiscount` | number | The total discount amount applied to the line item. The value is always positive. |
+| `lineItems[].totalMoney` | number | The total money amount for this line item after applying discounts and all taxes for this line item |
+| `lineItems[].variantId` | string | The variant id for this line item |
+| `lineItems[].variantName` | string | The variant name (for example XL / Red) |
+| `note` | string | The receipt's note |
+| `order` | string | The order name or number associated with this receipt |
+| `payments` | array<object> | The list of receipt payments |
+| `payments[].moneyAmount` | number | The total money amount of this payment (including tips and surcharge) |
+| `payments[].name` | string | The name of the payment type |
+| `payments[].paidAt` | date | The time when this payment was created |
+| `payments[].paymentDetails` | object | The payment details for integrated payment types |
+| `payments[].paymentDetails.authorizationCode` | string | The authorization code associated with the transaction |
+| `payments[].paymentDetails.cardCompany` | string | The credit card company (if available) |
+| `payments[].paymentDetails.cardNumber` | string | The masked credit card number |
+| `payments[].paymentDetails.entryMethod` | string | The entry method of the credit card on the terminal (if available) |
+| `payments[].paymentDetails.referenceId` | string | An id attached to the transaction by the gateway |
+| `payments[].paymentTypeId` | string |  |
+| `payments[].type` | string |  |
+| `pointsBalance` | number | The customer's points balance after transaction |
+| `pointsDeducted` | number | The total amount of points deducted from customer's points balance (in case of refund). The value is always positive. |
+| `pointsEarned` | number | The total amount of points added to customer's points balance |
+| `posDeviceId` | string | The POS id where the receipt was paid |
+| `receiptDate` | date | By default, it matches the created_at value. You can set receipt_date to the value that is equal to the date and time in the past when the receipt was created in another system. |
+| `receiptNumber` | string | The internal identifier for the receipt. It is unique. |
+| `receiptType` | string | The type of the receipt |
+| `refundFor` | string | The number of a different sales receipt that is associated with this refund. (Only for refund receipts) |
+| `source` | string | The name of the the source this receipt comes from. By default it is the name of the application that created the receipt. For receipts created from Loyverse mobile point of sale application the value is "point of sale". |
+| `storeId` | string | The store id where the receipt was paid |
+| `surcharge` | number | The total surcharge money amount for the receipt |
+| `tip` | number | The total tip money amount for the receipt |
+| `totalDiscount` | number | The total amount of all discounts applied in the receipt (including discount by points). The value is always positive. |
+| `totalDiscounts` | array<object> | The list of discounts and it's amounts applied to the receipt. |
+| `totalDiscounts[].id` | string | The discount id |
+| `totalDiscounts[].moneyAmount` | number | The total money amount of this discount for the receipt. The value is always positive. |
+| `totalDiscounts[].name` | string | The discount name |
+| `totalDiscounts[].percentage` | number | The percentage of the discount. For example value 10.55 corresponds to a percentage of 10.55%. The value is not set for amount based discounts. |
+| `totalDiscounts[].type` | string | The type of the applied discount |
+| `totalMoney` | number | The total money amount paid by customer (or returned to customer in case of refund). The value includes discounts, taxes, surcharges and tips. The money amount format depends on country of account registration  (for example for Japan there is no decimals in money amounts) |
+| `totalTax` | number | The total amount of all taxes (VAT and sales tax) applied in the receipt |
+| `totalTaxes` | array<object> | An array of tax line objects |
+| `totalTaxes[].id` | string | The tax id |
+| `totalTaxes[].moneyAmount` | number | The total tax amount applied for the receipt |
+| `totalTaxes[].name` | string |  |
+| `totalTaxes[].rate` | number | The tax rate. For example, a value of 5.255 corresponds to a percentage of 5.255% |
+| `totalTaxes[].type` | string | The tax type |
+| `updatedAt` | date | The date and time when the receipt was updated. |
+
+## Native endpoint
+
+Through the native Loyverse API, this operation is `POST /receipts` (base URL `https://api.loyverse.com/v1.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-sales-receipt.md) for the provider-specific parameters and requirements.
+

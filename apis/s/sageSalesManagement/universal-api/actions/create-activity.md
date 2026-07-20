@@ -1,0 +1,81 @@
+# Sage Sales Management: Create Activity
+
+Creates an activity in Sage Sales Management.
+
+```
+POST https://connect.mindcloud.co/v1/universal/sageSalesManagement/latest/actions/create-activity
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Sage Sales Management `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/sageSalesManagement/latest/actions/create-activity" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "date": "string",
+  "salesRepId": 1,
+  "accountId": 1,
+  "typeId": 1
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/sageSalesManagement/latest/actions/create-activity', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "date": "string",
+    "salesRepId": 1,
+    "accountId": 1,
+    "typeId": 1
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `date` | string | yes | Activity date |
+| `salesRepId` | number | yes | Sales representative identifier required by ForceManager when creating an activity. |
+| `accountId` | number | yes | Account identifier required by ForceManager when creating an activity. |
+| `typeId` | number | yes | Activity type identifier required by ForceManager when creating an activity. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "Message": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `id` | number | Created entity ID |
+| `Message` | string | Mutation result message |
+
+## Native endpoint
+
+Through the native Sage Sales Management API, this operation is `POST /activities` (base URL `https://api.forcemanager.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-activity.md) for the provider-specific parameters and requirements.
+

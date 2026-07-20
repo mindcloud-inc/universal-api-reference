@@ -1,0 +1,19 @@
+# Get Trending Tokens with OpenSea
+
+Retrieves trending tokens from OpenSea.
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/api/v2/tokens/trending`
+- **Base URL:** `https://api.opensea.io`
+- **Official documentation:** [Get Trending Tokens](https://docs.opensea.io/reference/get_trending_tokens)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `limit` | query | `number` | no | Number of results to return (default: 20, max: 100) |
+| `chains[]` | query | `array<string>` | no | Filter by blockchain(s) Send multiple values as a string separated by `,`. |
+| `chains[]` | query | `array<string>` | no | Filter by blockchain(s) Send multiple values as a string separated by `,`. |
+| `cursor` | query | `string` | no | Pagination cursor for next page |

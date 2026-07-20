@@ -1,0 +1,91 @@
+# Agent Mail: List Threads
+
+Retrieves threads from AgentMail for the authenticated account.
+
+```
+GET https://connect.mindcloud.co/v1/universal/agentMail/latest/actions/list-threads
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Agent Mail `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/agentMail/latest/actions/list-threads?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0'
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/agentMail/latest/actions/list-threads?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "created_at": "2026-05-07T12:00:00.000Z",
+      "inbox_id": "string",
+      "labels": [
+        "string"
+      ],
+      "last_message_id": "string",
+      "message_count": 1,
+      "preview": "string",
+      "recipients": [
+        "string"
+      ],
+      "senders": [
+        "string"
+      ],
+      "size": 1,
+      "subject": "string",
+      "thread_id": "string",
+      "timestamp": "2026-05-07T12:00:00.000Z",
+      "updated_at": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `created_at` | date | Creation timestamp. |
+| `inbox_id` | string | The ID of the inbox. |
+| `labels` | array<string> | Labels on the thread. |
+| `last_message_id` | string | ID of the last message in the thread. |
+| `message_count` | number | Number of messages in the thread. |
+| `preview` | string | Preview of the last message. |
+| `recipients` | array<string> | Thread recipient addresses. |
+| `senders` | array<string> | Thread sender addresses. |
+| `size` | number | Thread size in bytes. |
+| `subject` | string | Thread subject. |
+| `thread_id` | string | ID of the thread. |
+| `timestamp` | date | Timestamp of the last sent or received message. |
+| `updated_at` | date | Last update timestamp. |
+
+## Native endpoint
+
+Through the native Agent Mail API, this operation is `GET /threads` (base URL `https://api.agentmail.to/v0`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-threads.md) for the provider-specific parameters and requirements.
+

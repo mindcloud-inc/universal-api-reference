@@ -1,0 +1,83 @@
+# Parallel Web Systems: Retrieve Task Run Result
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/parallelWebSystems/latest/actions/retrieve-task-run-result
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Parallel Web Systems `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/parallelWebSystems/latest/actions/retrieve-task-run-result?connectionId=$CONNECTION_ID&runId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "runId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/parallelWebSystems/latest/actions/retrieve-task-run-result?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `runId` | string | yes | The Parallel task run ID. |
+| `timeout` | number | no | Maximum seconds to wait for the task run result. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "result": "string",
+      "run": {
+        "created_at": "2026-05-07T12:00:00.000Z",
+        "interaction_id": "string",
+        "is_active": true,
+        "modified_at": "2026-05-07T12:00:00.000Z",
+        "processor": "string",
+        "run_id": "string",
+        "status": "string",
+        "taskgroup_id": "string"
+      }
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `result` | string | Task run result payload. |
+| `run.created_at` | date | Task run creation timestamp. |
+| `run.interaction_id` | string | Associated interaction identifier. |
+| `run.is_active` | boolean | Whether the run is still active. |
+| `run.modified_at` | date | Last task run update timestamp. |
+| `run.processor` | string | Processor used for the run. |
+| `run.run_id` | string | Parallel task run identifier. |
+| `run.status` | string | Task run status. |
+| `run.taskgroup_id` | string | Parent task group identifier. |
+
+## Native endpoint
+
+Through the native Parallel Web Systems API, this operation is `GET /v1/tasks/runs/:run_id/result` (base URL `https://api.parallel.ai`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/retrieve-task-run-result.md) for the provider-specific parameters and requirements.
+

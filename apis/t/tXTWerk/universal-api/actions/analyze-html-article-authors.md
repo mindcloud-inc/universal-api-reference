@@ -1,0 +1,66 @@
+# TXT Werk: Analyze HTML Article Authors
+
+Retrieves article authors from HTML in TXT Werk.
+
+```
+GET https://connect.mindcloud.co/v1/universal/tXTWerk/latest/actions/analyze-html-article-authors
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a TXT Werk `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/tXTWerk/latest/actions/analyze-html-article-authors?connectionId=$CONNECTION_ID&htmlFile=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "htmlFile": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/tXTWerk/latest/actions/analyze-html-article-authors?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `htmlFile` | file | yes | HTML article content file. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "language": "string",
+      "timestamp": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `language` | string |  |
+| `timestamp` | number |  |
+
+## Native endpoint
+
+Through the native TXT Werk API, this operation is `POST /rest/txt/analyzer` (base URL `https://api.txtwerk.de`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/analyze-html-article-authors.md) for the provider-specific parameters and requirements.
+

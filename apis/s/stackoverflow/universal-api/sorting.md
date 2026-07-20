@@ -1,0 +1,46 @@
+# Stackoverflow Universal API Sorting
+
+Sortable list actions accept a `sort` query parameter containing a comma-separated list of fields. Prefix a field with `-` for descending order.
+
+`sort=-createdAt,name` sorts by newest first, then by name in ascending order. MindCloud translates this into the sorting format Stackoverflow expects, and each action page lists the fields available to sort.
+
+## Stackoverflow actions that support sorting
+
+- [Advanced Search Questions](actions/advanced-search-questions.md)
+- [Get Answers](actions/get-answers.md)
+- [Get Badges](actions/get-badges.md)
+- [Get Collectives](actions/get-collectives.md)
+- [Get Comments](actions/get-comments.md)
+- [Get Posts](actions/get-posts.md)
+- [Get Questions](actions/get-questions.md)
+- [Get Tag Info](actions/get-tag-info.md)
+- [Get Users](actions/get-users.md)
+- [List Answer Comments](actions/list-answer-comments.md)
+- [List Answers](actions/list-answers.md)
+- [List Badges](actions/list-badges.md)
+- [List Badges By Name](actions/list-badges-by-name.md)
+- [List Badges By Tag](actions/list-badges-by-tag.md)
+- [List Collective Answers](actions/list-collective-answers.md)
+- [List Collectives](actions/list-collectives.md)
+- [List Comments](actions/list-comments.md)
+- [List Comments By User To User](actions/list-comments-by-user-to-user.md)
+- [List Elected Moderators](actions/list-elected-moderators.md)
+- [List Featured Questions](actions/list-featured-questions.md)
+- [List Linked Questions](actions/list-linked-questions.md)
+- [List Post Comments](actions/list-post-comments.md)
+- [List Posts](actions/list-posts.md)
+- [List Question Answers](actions/list-question-answers.md)
+- [List Question Comments](actions/list-question-comments.md)
+- [List Questions](actions/list-questions.md)
+- [List Related Questions](actions/list-related-questions.md)
+- [List Tag Synonyms](actions/list-tag-synonyms.md)
+- [List Tags](actions/list-tags.md)
+- [List Unanswered Questions](actions/list-unanswered-questions.md)
+- [List User Answers](actions/list-user-answers.md)
+- [List User Badges](actions/list-user-badges.md)
+- [List User Comments](actions/list-user-comments.md)
+- [List User Favorites](actions/list-user-favorites.md)
+- [List User Questions](actions/list-user-questions.md)
+- [List Users](actions/list-users.md)
+- [Search Question Excerpts](actions/search-question-excerpts.md)
+- [Search Questions](actions/search-questions.md)

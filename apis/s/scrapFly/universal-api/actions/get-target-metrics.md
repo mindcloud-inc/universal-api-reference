@@ -1,0 +1,48 @@
+# ScrapFly: Get Target Metrics
+
+Retrieves target monitoring metrics from ScrapFly.
+
+```
+GET https://connect.mindcloud.co/v1/universal/scrapFly/latest/actions/get-target-metrics
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a ScrapFly `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/scrapFly/latest/actions/get-target-metrics?connectionId=$CONNECTION_ID&domain=httpbin.dev" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "domain": "httpbin.dev"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/scrapFly/latest/actions/get-target-metrics?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `domain` | string | yes | Target domain to retrieve monitoring metrics for. Example: `httpbin.dev`. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native ScrapFly API returns.
+
+## Native endpoint
+
+Through the native ScrapFly API, this operation is `GET /scrape/monitoring/metrics/target` (base URL `https://api.scrapfly.io`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-target-metrics.md) for the provider-specific parameters and requirements.
+

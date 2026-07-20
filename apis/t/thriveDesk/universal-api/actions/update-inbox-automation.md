@@ -1,0 +1,81 @@
+# ThriveDesk: Update Inbox Automation
+
+
+
+```
+PUT https://connect.mindcloud.co/v1/universal/thriveDesk/latest/actions/update-inbox-automation
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a ThriveDesk `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/thriveDesk/latest/actions/update-inbox-automation" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "automationId": "string",
+  "inboxId": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/thriveDesk/latest/actions/update-inbox-automation', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "automationId": "string",
+    "inboxId": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `automationId` | string | yes | The automation ID. |
+| `inboxId` | string | yes | The inbox ID. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "data": {},
+      "id": "string",
+      "message": "string",
+      "name": "Ava Chen",
+      "status": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `data` | object | Raw response payload. |
+| `id` | string | Automation identifier when returned. |
+| `message` | string | Provider response message when returned. |
+| `name` | string | Automation name when returned. |
+| `status` | string | Automation status when returned. |
+
+## Native endpoint
+
+Through the native ThriveDesk API, this operation is `POST /v1/inboxes/{{inboxId}}/automations/{{automationId}}` (base URL `https://api.thrivedesk.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-inbox-automation.md) for the provider-specific parameters and requirements.
+

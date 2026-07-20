@@ -1,0 +1,3023 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "PostHog Universal API",
+    "version": "0.0.33",
+    "description": "Analyze product usage, replay sessions, run experiments, and capture events."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/postHog/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/postHog/latest/actions/add-or-invite-members": {
+      "post": {
+        "operationId": "postHog.add-or-invite-members",
+        "summary": "Add or Invite Members",
+        "description": "Creates an organization invite in PostHog.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/add-or-invite-members"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "organizationId",
+                  "targetEmail"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "organizationId": {
+                    "type": "string",
+                    "description": "UUID of the organization.",
+                    "example": "0196354e-4380-0000-cc07-8aa6be2ca63f"
+                  },
+                  "targetEmail": {
+                    "type": "string",
+                    "description": "Email address to invite.",
+                    "example": "teammate@example.com"
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "description": "First name of the invited user.",
+                    "example": "Alex"
+                  },
+                  "level": {
+                    "type": "string",
+                    "description": "Organization membership level (1 member, 8 administrator, 15 owner).",
+                    "enum": [
+                      "1",
+                      "15",
+                      "8"
+                    ]
+                  },
+                  "private_project_access[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "List of private project access entries (team/project IDs with access levels).",
+                    "x-mindcloud-advanced": true
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "Optional invitation message.",
+                    "example": "Welcome to our PostHog workspace."
+                  },
+                  "sendEmail": {
+                    "type": "boolean",
+                    "description": "Whether to send the invite email.",
+                    "default": true
+                  },
+                  "combinePendingInvites": {
+                    "type": "boolean",
+                    "description": "Whether to combine with existing pending invites for the same email.",
+                    "default": false,
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Invite creation timestamp."
+                          },
+                          "createdBy": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "User who created the invite."
+                          },
+                          "emailingAttemptMade": {
+                            "type": "boolean",
+                            "description": "Whether email delivery was attempted."
+                          },
+                          "firstName": {
+                            "type": "string",
+                            "description": "First name sent with invite."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "Organization invite UUID."
+                          },
+                          "isExpired": {
+                            "type": "boolean",
+                            "description": "Whether invite has expired."
+                          },
+                          "level": {
+                            "type": "number",
+                            "description": "Organization membership level."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Optional invite message."
+                          },
+                          "privateProjectAccess": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Private project access mapping attached to invite."
+                          },
+                          "targetEmail": {
+                            "type": "string",
+                            "description": "Email being invited."
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Invite update timestamp."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/postHog/latest/actions/get-session-recording": {
+      "get": {
+        "operationId": "postHog.get-session-recording",
+        "summary": "Get Session Recording",
+        "description": "Retrieves a session recording from a PostHog project.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/get-session-recording"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "project_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "activeSeconds": {
+                            "type": "number"
+                          },
+                          "activityScore": {
+                            "type": "number"
+                          },
+                          "clickCount": {
+                            "type": "number"
+                          },
+                          "consoleErrorCount": {
+                            "type": "number"
+                          },
+                          "consoleLogCount": {
+                            "type": "number"
+                          },
+                          "consoleWarnCount": {
+                            "type": "number"
+                          },
+                          "distinctId": {
+                            "type": "string"
+                          },
+                          "endTime": {
+                            "type": "string"
+                          },
+                          "expiryTime": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "inactiveSeconds": {
+                            "type": "number"
+                          },
+                          "keypressCount": {
+                            "type": "number"
+                          },
+                          "mouseActivityCount": {
+                            "type": "number"
+                          },
+                          "ongoing": {
+                            "type": "boolean"
+                          },
+                          "person": {
+                            "type": "object",
+                            "properties": {
+                              "createdAt": {
+                                "type": "string"
+                              },
+                              "distinctIds": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "id": {
+                                "type": "number"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "properties": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "uuid": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "recordingDuration": {
+                            "type": "number"
+                          },
+                          "recordingTtl": {
+                            "type": "number"
+                          },
+                          "retentionPeriodDays": {
+                            "type": "number"
+                          },
+                          "snapshotLibrary": {
+                            "type": "string"
+                          },
+                          "snapshotSource": {
+                            "type": "string"
+                          },
+                          "startTime": {
+                            "type": "string"
+                          },
+                          "startUrl": {
+                            "type": "string"
+                          },
+                          "viewed": {
+                            "type": "boolean"
+                          },
+                          "viewers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/postHog/latest/actions/list-activity-log": {
+      "get": {
+        "operationId": "postHog.list-activity-log",
+        "summary": "List Activity Log",
+        "description": "Retrieves activity log entries from a PostHog project.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/list-activity-log"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "project_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "activity": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string"
+                          },
+                          "detail": {
+                            "type": "object",
+                            "properties": {
+                              "changes": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "action": {
+                                      "type": "string"
+                                    },
+                                    "after": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "before": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    "field": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "context": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "shortId": {
+                                "type": "string"
+                              },
+                              "trigger": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "type": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "isSystem": {
+                            "type": "boolean"
+                          },
+                          "itemId": {
+                            "type": "string"
+                          },
+                          "organizationId": {
+                            "type": "string"
+                          },
+                          "scope": {
+                            "type": "string"
+                          },
+                          "unread": {
+                            "type": "boolean"
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "distinctId": {
+                                "type": "string"
+                              },
+                              "email": {
+                                "type": "string"
+                              },
+                              "firstName": {
+                                "type": "string"
+                              },
+                              "hedgehogConfig": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "id": {
+                                "type": "number"
+                              },
+                              "isEmailVerified": {
+                                "type": "boolean"
+                              },
+                              "lastName": {
+                                "type": "string"
+                              },
+                              "roleAtOrganization": {
+                                "type": "string"
+                              },
+                              "uuid": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "wasImpersonated": {
+                            "type": "boolean"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/postHog/latest/actions/list-organizations": {
+      "get": {
+        "operationId": "postHog.list-organizations",
+        "summary": "List Organizations",
+        "description": "Retrieves organizations from PostHog.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/list-organizations"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "member_count": {
+                            "type": "number"
+                          },
+                          "membership_level": {
+                            "type": "number"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/postHog/latest/actions/list-persons": {
+      "get": {
+        "operationId": "postHog.list-persons",
+        "summary": "List Persons",
+        "description": "Retrieves persons from a PostHog project.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/list-persons"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "project_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "properties[].key",
+            "in": "query",
+            "required": false,
+            "description": "Key of the property you're filtering on. For example email or $current_url",
+            "schema": {
+              "type": "string",
+              "description": "Key of the property you're filtering on. For example email or $current_url"
+            }
+          },
+          {
+            "name": "properties[].value",
+            "in": "query",
+            "required": false,
+            "description": "Value of your filter. For example test@example.com or https://example.com/test/. Can be an array for an OR query, like [\"test@example.com\",\"ok@example.com\"]",
+            "schema": {
+              "type": "string",
+              "description": "Value of your filter. For example test@example.com or https://example.com/test/. Can be an array for an OR query, like [\"test@example.com\",\"ok@example.com\"]"
+            }
+          },
+          {
+            "name": "properties[].operator",
+            "in": "query",
+            "required": false,
+            "description": "Default: exact",
+            "schema": {
+              "type": "string",
+              "description": "Default: exact",
+              "default": "exact"
+            }
+          },
+          {
+            "name": "properties[].type",
+            "in": "query",
+            "required": false,
+            "description": "Default: event",
+            "schema": {
+              "type": "string",
+              "description": "Default: event",
+              "default": "event"
+            }
+          },
+          {
+            "name": "createdAtFrom",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "distinctId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "properties[]",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {}
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "createdAt": {
+                            "type": "string"
+                          },
+                          "distinctIds": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "isIdentified": {
+                            "type": "boolean"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "properties": {
+                            "type": "object",
+                            "properties": {
+                              "$browser": {
+                                "type": "string"
+                              },
+                              "$browserVersion": {
+                                "type": "number"
+                              },
+                              "$creatorEventUuid": {
+                                "type": "string"
+                              },
+                              "$currentUrl": {
+                                "type": "string"
+                              },
+                              "$deviceType": {
+                                "type": "string"
+                              },
+                              "$geoipAccuracyRadius": {
+                                "type": "number"
+                              },
+                              "$geoipCityConfidence": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$geoipCityName": {
+                                "type": "string"
+                              },
+                              "$geoipContinentCode": {
+                                "type": "string"
+                              },
+                              "$geoipContinentName": {
+                                "type": "string"
+                              },
+                              "$geoipCountryCode": {
+                                "type": "string"
+                              },
+                              "$geoipCountryName": {
+                                "type": "string"
+                              },
+                              "$geoipLatitude": {
+                                "type": "number"
+                              },
+                              "$geoipLongitude": {
+                                "type": "number"
+                              },
+                              "$geoipPostalCode": {
+                                "type": "string"
+                              },
+                              "$geoipSubdivision1Code": {
+                                "type": "string"
+                              },
+                              "$geoipSubdivision1Name": {
+                                "type": "string"
+                              },
+                              "$geoipSubdivision2Code": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$geoipSubdivision2Name": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$geoipTimeZone": {
+                                "type": "string"
+                              },
+                              "$host": {
+                                "type": "string"
+                              },
+                              "$initialBrowser": {
+                                "type": "string"
+                              },
+                              "$initialBrowserVersion": {
+                                "type": "number"
+                              },
+                              "$initialCurrentUrl": {
+                                "type": "string"
+                              },
+                              "$initialDclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialDeviceType": {
+                                "type": "string"
+                              },
+                              "$initialEpik": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialFbclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGadSource": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGbraid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGclsrc": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGeoipAccuracyRadius": {
+                                "type": "number"
+                              },
+                              "$initialGeoipCityConfidence": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGeoipCityName": {
+                                "type": "string"
+                              },
+                              "$initialGeoipContinentCode": {
+                                "type": "string"
+                              },
+                              "$initialGeoipContinentName": {
+                                "type": "string"
+                              },
+                              "$initialGeoipCountryCode": {
+                                "type": "string"
+                              },
+                              "$initialGeoipCountryName": {
+                                "type": "string"
+                              },
+                              "$initialGeoipLatitude": {
+                                "type": "number"
+                              },
+                              "$initialGeoipLongitude": {
+                                "type": "number"
+                              },
+                              "$initialGeoipPostalCode": {
+                                "type": "string"
+                              },
+                              "$initialGeoipSubdivision1Code": {
+                                "type": "string"
+                              },
+                              "$initialGeoipSubdivision1Name": {
+                                "type": "string"
+                              },
+                              "$initialGeoipSubdivision2Code": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGeoipSubdivision2Name": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialGeoipTimeZone": {
+                                "type": "string"
+                              },
+                              "$initialHost": {
+                                "type": "string"
+                              },
+                              "$initialIgshid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialIrclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialKx": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialLiFatId": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialMcCid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialMsclkid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialOs": {
+                                "type": "string"
+                              },
+                              "$initialOsVersion": {
+                                "type": "string"
+                              },
+                              "$initialPathname": {
+                                "type": "string"
+                              },
+                              "$initialQclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialRawUserAgent": {
+                                "type": "string"
+                              },
+                              "$initialRdtCid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialReferrer": {
+                                "type": "string"
+                              },
+                              "$initialReferringDomain": {
+                                "type": "string"
+                              },
+                              "$initialSccid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialScreenHeight": {
+                                "type": "number"
+                              },
+                              "$initialScreenWidth": {
+                                "type": "number"
+                              },
+                              "$initialTtclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialTwclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialUtmCampaign": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialUtmContent": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialUtmMedium": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialUtmSource": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialUtmTerm": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$initialViewportHeight": {
+                                "type": "number"
+                              },
+                              "$initialViewportWidth": {
+                                "type": "number"
+                              },
+                              "$initialWbraid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "$os": {
+                                "type": "string"
+                              },
+                              "$osVersion": {
+                                "type": "string"
+                              },
+                              "$pathname": {
+                                "type": "string"
+                              },
+                              "$rawUserAgent": {
+                                "type": "string"
+                              },
+                              "$referrer": {
+                                "type": "string"
+                              },
+                              "$referringDomain": {
+                                "type": "string"
+                              },
+                              "$screenHeight": {
+                                "type": "number"
+                              },
+                              "$screenWidth": {
+                                "type": "number"
+                              },
+                              "$viewportHeight": {
+                                "type": "number"
+                              },
+                              "$viewportWidth": {
+                                "type": "number"
+                              },
+                              "companyId": {
+                                "type": "string"
+                              },
+                              "dclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "email": {
+                                "type": "string"
+                              },
+                              "epik": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "fbclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "gadSource": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "gbraid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "gclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "gclsrc": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "igshid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "irclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "Kx": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "liFatId": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "mcCid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "msclkid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "qclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "rdtCid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "sccid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "ttclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "twclid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "username": {
+                                "type": "string"
+                              },
+                              "utmCampaign": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "utmContent": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "utmMedium": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "utmSource": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "utmTerm": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "wbraid": {
+                                "type": "object",
+                                "additionalProperties": true
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "uuid": {
+                            "type": "string"
+                          },
+                          "valueAtDataPoint": {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/postHog/latest/actions/list-projects": {
+      "get": {
+        "operationId": "postHog.list-projects",
+        "summary": "List Projects",
+        "description": "Retrieves projects from a PostHog organization.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/list-projects"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "accessControl": {
+                            "type": "boolean"
+                          },
+                          "apiToken": {
+                            "type": "string"
+                          },
+                          "completedSnippetOnboarding": {
+                            "type": "boolean"
+                          },
+                          "hasCompletedOnboardingFor": {
+                            "type": "object",
+                            "properties": {
+                              "productAnalytics": {
+                                "type": "boolean"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "number"
+                          },
+                          "ingestedEvent": {
+                            "type": "boolean"
+                          },
+                          "isDemo": {
+                            "type": "boolean"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "organization": {
+                            "type": "string"
+                          },
+                          "timezone": {
+                            "type": "string"
+                          },
+                          "uuid": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/postHog/latest/actions/list-session-recordings": {
+      "get": {
+        "operationId": "postHog.list-session-recordings",
+        "summary": "List Session Recordings",
+        "description": "Retrieves session recordings from a PostHog project.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/list-session-recordings"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "projectId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "activeSeconds": {
+                            "type": "number"
+                          },
+                          "activityScore": {
+                            "type": "number"
+                          },
+                          "clickCount": {
+                            "type": "number"
+                          },
+                          "consoleErrorCount": {
+                            "type": "number"
+                          },
+                          "consoleLogCount": {
+                            "type": "number"
+                          },
+                          "consoleWarnCount": {
+                            "type": "number"
+                          },
+                          "distinctId": {
+                            "type": "string"
+                          },
+                          "endTime": {
+                            "type": "string"
+                          },
+                          "expiryTime": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "inactiveSeconds": {
+                            "type": "number"
+                          },
+                          "keypressCount": {
+                            "type": "number"
+                          },
+                          "mouseActivityCount": {
+                            "type": "number"
+                          },
+                          "ongoing": {
+                            "type": "boolean"
+                          },
+                          "person": {
+                            "type": "object",
+                            "properties": {
+                              "createdAt": {
+                                "type": "string"
+                              },
+                              "distinctIds": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "id": {
+                                "type": "number"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "properties": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "uuid": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "recordingDuration": {
+                            "type": "number"
+                          },
+                          "recordingTtl": {
+                            "type": "number"
+                          },
+                          "retentionPeriodDays": {
+                            "type": "number"
+                          },
+                          "snapshotLibrary": {
+                            "type": "string"
+                          },
+                          "snapshotSource": {
+                            "type": "string"
+                          },
+                          "startTime": {
+                            "type": "string"
+                          },
+                          "startUrl": {
+                            "type": "string"
+                          },
+                          "viewed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/postHog/latest/actions/query": {
+      "get": {
+        "operationId": "postHog.query",
+        "summary": "Query",
+        "description": "Retrieves query results from a PostHog project.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/postHog/latest/actions/query"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "query.qry",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          {
+            "name": "query.kind",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "HogQLQuery"
+            }
+          },
+          {
+            "name": "async",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "projectId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "147474"
+            }
+          },
+          {
+            "name": "refresh",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_kx": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$browser": {
+                            "type": "string"
+                          },
+                          "$browser_version": {
+                            "type": "number"
+                          },
+                          "$creator_event_uuid": {
+                            "type": "string"
+                          },
+                          "$current_url": {
+                            "type": "string"
+                          },
+                          "$device_type": {
+                            "type": "string"
+                          },
+                          "$geoip_accuracy_radius": {
+                            "type": "number"
+                          },
+                          "$geoip_city_confidence": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$geoip_city_name": {
+                            "type": "string"
+                          },
+                          "$geoip_continent_code": {
+                            "type": "string"
+                          },
+                          "$geoip_continent_name": {
+                            "type": "string"
+                          },
+                          "$geoip_country_code": {
+                            "type": "string"
+                          },
+                          "$geoip_country_name": {
+                            "type": "string"
+                          },
+                          "$geoip_latitude": {
+                            "type": "number"
+                          },
+                          "$geoip_longitude": {
+                            "type": "number"
+                          },
+                          "$geoip_postal_code": {
+                            "type": "string"
+                          },
+                          "$geoip_subdivision_1_code": {
+                            "type": "string"
+                          },
+                          "$geoip_subdivision_1_name": {
+                            "type": "string"
+                          },
+                          "$geoip_subdivision_2_code": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$geoip_subdivision_2_name": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$geoip_time_zone": {
+                            "type": "string"
+                          },
+                          "$host": {
+                            "type": "string"
+                          },
+                          "$initial__kx": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_browser": {
+                            "type": "string"
+                          },
+                          "$initial_browser_version": {
+                            "type": "number"
+                          },
+                          "$initial_current_url": {
+                            "type": "string"
+                          },
+                          "$initial_dclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_device_type": {
+                            "type": "string"
+                          },
+                          "$initial_epik": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_fbclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_gad_source": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_gbraid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_gclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_gclsrc": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_geoip_accuracy_radius": {
+                            "type": "number"
+                          },
+                          "$initial_geoip_city_confidence": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_geoip_city_name": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_continent_code": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_continent_name": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_country_code": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_country_name": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_latitude": {
+                            "type": "number"
+                          },
+                          "$initial_geoip_longitude": {
+                            "type": "number"
+                          },
+                          "$initial_geoip_postal_code": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_subdivision_1_code": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_subdivision_1_name": {
+                            "type": "string"
+                          },
+                          "$initial_geoip_subdivision_2_code": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_geoip_subdivision_2_name": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_geoip_time_zone": {
+                            "type": "string"
+                          },
+                          "$initial_host": {
+                            "type": "string"
+                          },
+                          "$initial_igshid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_irclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_li_fat_id": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_mc_cid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_msclkid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_os": {
+                            "type": "string"
+                          },
+                          "$initial_os_version": {
+                            "type": "string"
+                          },
+                          "$initial_pathname": {
+                            "type": "string"
+                          },
+                          "$initial_qclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_raw_user_agent": {
+                            "type": "string"
+                          },
+                          "$initial_rdt_cid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_referrer": {
+                            "type": "string"
+                          },
+                          "$initial_referring_domain": {
+                            "type": "string"
+                          },
+                          "$initial_sccid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_screen_height": {
+                            "type": "number"
+                          },
+                          "$initial_screen_width": {
+                            "type": "number"
+                          },
+                          "$initial_ttclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_twclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_utm_campaign": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_utm_content": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_utm_medium": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_utm_source": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_utm_term": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$initial_viewport_height": {
+                            "type": "number"
+                          },
+                          "$initial_viewport_width": {
+                            "type": "number"
+                          },
+                          "$initial_wbraid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "$os": {
+                            "type": "string"
+                          },
+                          "$os_version": {
+                            "type": "string"
+                          },
+                          "$pathname": {
+                            "type": "string"
+                          },
+                          "$raw_user_agent": {
+                            "type": "string"
+                          },
+                          "$referrer": {
+                            "type": "string"
+                          },
+                          "$referring_domain": {
+                            "type": "string"
+                          },
+                          "$screen_height": {
+                            "type": "number"
+                          },
+                          "$screen_width": {
+                            "type": "number"
+                          },
+                          "$viewport_height": {
+                            "type": "number"
+                          },
+                          "$viewport_width": {
+                            "type": "number"
+                          },
+                          "$virt_initial_channel_type": {
+                            "type": "string"
+                          },
+                          "$virt_initial_referring_domain_type": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "companyId": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "dclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "epik": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "fbclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "gad_source": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "gbraid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "gclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "gclsrc": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "igshid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "irclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "is_identified": {
+                            "type": "number"
+                          },
+                          "li_fat_id": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "mc_cid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "msclkid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "qclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "rdt_cid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "sccid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "ttclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "twclid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "username": {
+                            "type": "string"
+                          },
+                          "utm_campaign": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "utm_content": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "utm_medium": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "utm_source": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "utm_term": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "wbraid": {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

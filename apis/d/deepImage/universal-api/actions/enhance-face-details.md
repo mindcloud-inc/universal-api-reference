@@ -1,0 +1,84 @@
+# DeepImage: Enhance Face Details
+
+Creates an image with enhanced face details in DeepImage.
+
+```
+POST https://connect.mindcloud.co/v1/universal/deepImage/latest/actions/enhance-face-details
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a DeepImage `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/deepImage/latest/actions/enhance-face-details" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "url": "https://example.com"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/deepImage/latest/actions/enhance-face-details', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "url": "https://example.com"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `url` | string | yes | Public URL of the source image whose faces should be enhanced. |
+| `face_enhance_parameters.type` | string | no | Face enhancement model. Use beautify-real or beautify. Default: `beautify-real`. |
+| `face_enhance_parameters.level` | number | no | Face enhancement level from 0.0 to 1.0. Default: `1`. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `face_enhance_parameters.smoothing_level` | number | no | Additional skin smoothing level from 0.0 to 1.0. Default: `0`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "job": "string",
+      "queue": 1,
+      "result_url": "https://example.com",
+      "status": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `job` | string | DeepImage processing job identifier. |
+| `queue` | number | Queue position when DeepImage reports it. |
+| `result_url` | string | URL of the processed image when available. |
+| `status` | string | Processing status returned by DeepImage. |
+
+## Native endpoint
+
+Through the native DeepImage API, this operation is `POST /rest_api/process_result` (base URL `https://deep-image.ai`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/enhance-face-details.md) for the provider-specific parameters and requirements.
+

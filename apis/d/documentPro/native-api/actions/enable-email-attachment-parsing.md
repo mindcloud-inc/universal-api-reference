@@ -1,0 +1,16 @@
+# Enable Email Attachment Parsing with DocumentPro
+
+Enables email attachment parsing for a DocumentPro workflow.
+
+## Endpoint
+
+- **Method:** `PUT`
+- **Path:** `/v1/templates/:template_id`
+- **Base URL:** `https://api.documentpro.ai`
+- **Official documentation:** [Enable Email Attachment Parsing](https://docs.documentpro.ai/docs/using-api/manage-workflows/update-workflow)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `template_id` | path | `string` | yes | The workflow template_id. |

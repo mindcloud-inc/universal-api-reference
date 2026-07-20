@@ -1,0 +1,822 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "ValidaCFDI Universal API",
+    "version": "0.0.4",
+    "description": "Validate CFDIs, extract invoice data, and verify supplier risk"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/validaCFDI/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/validaCFDI/latest/actions/test-api-connection": {
+      "get": {
+        "operationId": "validaCFDI.test-api-connection",
+        "summary": "Test API Connection",
+        "description": "Tests the API connection in ValidaCFDI.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/validaCFDI/latest/actions/test-api-connection"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "authenticated": {
+                            "type": "boolean"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "fullName": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "planTier": {
+                            "type": "string"
+                          },
+                          "userId": {
+                            "type": "number"
+                          },
+                          "validationsRemaining": {
+                            "type": "number"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/validaCFDI/latest/actions/validate-cfdi-by-uuid": {
+      "get": {
+        "operationId": "validaCFDI.validate-cfdi-by-uuid",
+        "summary": "Validate CFDI by UUID",
+        "description": "Validates a CFDI by UUID in ValidaCFDI.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/validaCFDI/latest/actions/validate-cfdi-by-uuid"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "uuid",
+            "in": "query",
+            "required": true,
+            "description": "CFDI UUID to validate.",
+            "schema": {
+              "type": "string",
+              "description": "CFDI UUID to validate."
+            }
+          },
+          {
+            "name": "rfcEmisor",
+            "in": "query",
+            "required": true,
+            "description": "RFC of the CFDI issuer.",
+            "schema": {
+              "type": "string",
+              "description": "RFC of the CFDI issuer."
+            }
+          },
+          {
+            "name": "rfcReceptor",
+            "in": "query",
+            "required": true,
+            "description": "RFC of the CFDI receiver.",
+            "schema": {
+              "type": "string",
+              "description": "RFC of the CFDI receiver."
+            }
+          },
+          {
+            "name": "total",
+            "in": "query",
+            "required": true,
+            "description": "Total invoice amount for validation.",
+            "schema": {
+              "type": "number",
+              "description": "Total invoice amount for validation."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "cfdiData": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Structured CFDI validation details.",
+                            "properties": {
+                              "codigoEstatus": {
+                                "type": "string",
+                                "description": "Provider status code and message."
+                              },
+                              "esCancelable": {
+                                "type": "string",
+                                "description": "Whether the CFDI can be cancelled."
+                              },
+                              "estadoCancelacion": {
+                                "type": "string",
+                                "description": "Cancellation status when available."
+                              },
+                              "estadoCfdi": {
+                                "type": "string",
+                                "description": "SAT CFDI status."
+                              },
+                              "rfcEmisor": {
+                                "type": "string",
+                                "description": "RFC of the invoice issuer from successful validation payloads."
+                              },
+                              "rfcReceptor": {
+                                "type": "string",
+                                "description": "RFC of the invoice receiver from successful validation payloads."
+                              },
+                              "total": {
+                                "type": "number",
+                                "description": "Invoice total from successful validation payloads."
+                              },
+                              "uuid": {
+                                "type": "string",
+                                "description": "CFDI UUID that was validated."
+                              }
+                            }
+                          },
+                          "errors": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Validation errors when the CFDI could not be confirmed."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Validation status returned by the provider."
+                          },
+                          "valid": {
+                            "type": "boolean",
+                            "description": "Whether the CFDI validation succeeded."
+                          },
+                          "validationTimestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp of the validation result."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/validaCFDI/latest/actions/validate-cfdi-from-pdf": {
+      "get": {
+        "operationId": "validaCFDI.validate-cfdi-from-pdf",
+        "summary": "Validate CFDI from PDF",
+        "description": "Validates a CFDI from a PDF in ValidaCFDI.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/validaCFDI/latest/actions/validate-cfdi-from-pdf"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "file",
+            "in": "query",
+            "required": true,
+            "description": "PDF invoice file to validate and extract.",
+            "schema": {
+              "type": "string",
+              "description": "PDF invoice file to validate and extract."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "efosCheck": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "EFOS risk check result when available."
+                          },
+                          "errors": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Errors returned during PDF processing."
+                          },
+                          "extractionData": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Structured data extracted from the PDF.",
+                            "properties": {
+                              "customerName": {
+                                "type": "string",
+                                "description": "Extracted customer name when present."
+                              },
+                              "extractionWarnings": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Warnings raised during OCR extraction."
+                              },
+                              "invoiceDate": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Extracted invoice date when present."
+                              },
+                              "lineItems": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                "description": "Extracted line items when identified."
+                              },
+                              "ocrConfidence": {
+                                "type": "number",
+                                "description": "OCR confidence score for the extraction."
+                              },
+                              "rfcEmisor": {
+                                "type": "string",
+                                "description": "Extracted issuer RFC when present."
+                              },
+                              "rfcReceptor": {
+                                "type": "string",
+                                "description": "Extracted receiver RFC when present."
+                              },
+                              "supplierName": {
+                                "type": "string",
+                                "description": "Extracted supplier name."
+                              },
+                              "total": {
+                                "type": "number",
+                                "description": "Extracted invoice total when present."
+                              },
+                              "uuid": {
+                                "type": "string",
+                                "description": "Extracted CFDI UUID when present."
+                              }
+                            }
+                          },
+                          "extractionSuccess": {
+                            "type": "boolean",
+                            "description": "Whether PDF extraction completed successfully."
+                          },
+                          "overallStatus": {
+                            "type": "string",
+                            "description": "Overall extraction and validation status."
+                          },
+                          "processingTimeMs": {
+                            "type": "number",
+                            "description": "Time spent processing the PDF in milliseconds."
+                          },
+                          "timestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp of the PDF processing result."
+                          },
+                          "validationPerformed": {
+                            "type": "boolean",
+                            "description": "Whether a CFDI validation step was performed after extraction."
+                          },
+                          "validationResult": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Nested validation result when validation is performed."
+                          },
+                          "verificationSuggestions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Suggested follow-up checks when available."
+                          },
+                          "warnings": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Warnings returned during PDF processing."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

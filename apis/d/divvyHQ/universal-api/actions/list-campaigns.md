@@ -1,0 +1,93 @@
+# DivvyHQ: List Campaigns
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/divvyHQ/latest/actions/list-campaigns
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a DivvyHQ `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [sorting](../sorting.md) (`sort`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/divvyHQ/latest/actions/list-campaigns?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0'
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/divvyHQ/latest/actions/list-campaigns?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "accessLevel": "string",
+      "account": 1,
+      "alwaysInline": true,
+      "calendars": [
+        1
+      ],
+      "campaignType": 1,
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "createdBy": 1,
+      "description": "string",
+      "end": "2026-05-07T12:00:00.000Z",
+      "hasAttachments": true,
+      "id": 1,
+      "isArchived": true,
+      "name": "Ava Chen",
+      "nextActiveTask": {},
+      "priority": 1,
+      "start": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `accessLevel` | string | The access level for the campaign. |
+| `account` | number | The Divvy account id. |
+| `alwaysInline` | boolean | Whether the campaign is always inline. |
+| `calendars` | array<number> | The linked calendar ids. |
+| `campaignType` | number | The campaign type id. |
+| `createdAt` | date | When the campaign was created. |
+| `createdBy` | number | The creator member id. |
+| `description` | string | The campaign description. |
+| `end` | date | The campaign end date. |
+| `hasAttachments` | boolean | Whether the campaign has attachments. |
+| `id` | number | The campaign id. |
+| `isArchived` | boolean | Whether the campaign is archived. |
+| `name` | string | The campaign name. |
+| `nextActiveTask` | object | The next active production task. |
+| `priority` | number | The campaign priority. |
+| `start` | date | The campaign start date. |
+
+## Native endpoint
+
+Through the native DivvyHQ API, this operation is `GET /campaigns/` (base URL `https://app.divvyhq.com/api/2.0`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-campaigns.md) for the provider-specific parameters and requirements.
+

@@ -1,0 +1,129 @@
+# Bexio: List Quotes
+
+Retrieves quotes from Bexio.
+
+```
+GET https://connect.mindcloud.co/v1/universal/bexio/latest/actions/list-quotes
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Bexio `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [sorting](../sorting.md) (`sort`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/bexio/latest/actions/list-quotes?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0'
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/bexio/latest/actions/list-quotes?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "apiReference": "string",
+      "bankAccountId": 1,
+      "contactAddress": "string",
+      "contactId": 1,
+      "contactSubId": {},
+      "currencyId": 1,
+      "deliveryAddress": "string",
+      "deliveryAddressType": 1,
+      "documentNr": "string",
+      "footer": "string",
+      "header": "string",
+      "id": 1,
+      "isValidFrom": "2026-05-07T12:00:00.000Z",
+      "isValidUntil": "2026-05-07T12:00:00.000Z",
+      "kbItemStatusId": 1,
+      "kbTermsOfPaymentTemplateId": {},
+      "languageId": 1,
+      "logopaperId": 1,
+      "mwstIsNet": true,
+      "mwstType": 1,
+      "networkLink": "https://example.com",
+      "paymentTypeId": 1,
+      "projectId": {},
+      "showPositionTaxes": true,
+      "showTotal": true,
+      "templateSlug": "string",
+      "title": "string",
+      "total": "string",
+      "totalGross": "string",
+      "totalNet": "string",
+      "totalRoundingDifference": 1,
+      "totalTaxes": "string",
+      "updatedAt": "2026-05-07T12:00:00.000Z",
+      "userId": 1,
+      "viewedByClientAt": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `apiReference` | string |  |
+| `bankAccountId` | number |  |
+| `contactAddress` | string |  |
+| `contactId` | number |  |
+| `contactSubId` | object |  |
+| `currencyId` | number |  |
+| `deliveryAddress` | string |  |
+| `deliveryAddressType` | number |  |
+| `documentNr` | string |  |
+| `footer` | string |  |
+| `header` | string |  |
+| `id` | number |  |
+| `isValidFrom` | date |  |
+| `isValidUntil` | date |  |
+| `kbItemStatusId` | number |  |
+| `kbTermsOfPaymentTemplateId` | object |  |
+| `languageId` | number |  |
+| `logopaperId` | number |  |
+| `mwstIsNet` | boolean |  |
+| `mwstType` | number |  |
+| `networkLink` | string |  |
+| `paymentTypeId` | number |  |
+| `projectId` | object |  |
+| `showPositionTaxes` | boolean |  |
+| `showTotal` | boolean |  |
+| `templateSlug` | string |  |
+| `title` | string |  |
+| `total` | string |  |
+| `totalGross` | string |  |
+| `totalNet` | string |  |
+| `totalRoundingDifference` | number |  |
+| `totalTaxes` | string |  |
+| `updatedAt` | date |  |
+| `userId` | number |  |
+| `viewedByClientAt` | date |  |
+
+## Native endpoint
+
+Through the native Bexio API, this operation is `GET /2.0/kb_offer` (base URL `https://api.bexio.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-quotes.md) for the provider-specific parameters and requirements.
+

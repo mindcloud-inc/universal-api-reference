@@ -1,0 +1,1426 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Winston AI Universal API",
+    "version": "0.0.6",
+    "description": "Detect AI text, plagiarism, facts, images, and text similarity"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/winstonAI/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/winstonAI/latest/actions/check-facts": {
+      "get": {
+        "operationId": "winstonAI.check-facts",
+        "summary": "Check Facts",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/winstonAI/latest/actions/check-facts"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "description": "The text to fact-check.",
+            "schema": {
+              "type": "string",
+              "description": "The text to fact-check.",
+              "example": "Paste at least 300 characters of text to fact-check"
+            }
+          },
+          {
+            "name": "file",
+            "in": "query",
+            "required": false,
+            "description": "A public PDF, DOC, or DOCX URL to fact-check instead of raw text.",
+            "schema": {
+              "type": "string",
+              "description": "A public PDF, DOC, or DOCX URL to fact-check instead of raw text.",
+              "example": "https://example.com/file.pdf",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "website",
+            "in": "query",
+            "required": false,
+            "description": "A public website URL to fact-check instead of raw text.",
+            "schema": {
+              "type": "string",
+              "description": "A public website URL to fact-check instead of raw text.",
+              "example": "https://example.com/article",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Two-letter language code, or auto for auto-detection.",
+            "schema": {
+              "type": "string",
+              "description": "Two-letter language code, or auto for auto-detection.",
+              "example": "auto",
+              "default": "auto"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "claims": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Extracted claims and their fact-check results."
+                          },
+                          "claimsCount": {
+                            "type": "number",
+                            "description": "Number of claims extracted from the text."
+                          },
+                          "creditsRemaining": {
+                            "type": "number",
+                            "description": "Remaining Winston AI credits after the request."
+                          },
+                          "creditsUsed": {
+                            "type": "number",
+                            "description": "Credits consumed by the fact-check request."
+                          },
+                          "input": {
+                            "type": "string",
+                            "description": "Input mode used by the request."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Detected or specified language code."
+                          },
+                          "score": {
+                            "type": "number",
+                            "description": "Overall factual-accuracy score for the input text."
+                          },
+                          "sentences": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Sentences extracted from the analyzed text."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "HTTP status code returned by Winston AI."
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "Original text analyzed by the fact checker."
+                          },
+                          "wordCount": {
+                            "type": "number",
+                            "description": "Word count of the analyzed input."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/winstonAI/latest/actions/check-plagiarism": {
+      "get": {
+        "operationId": "winstonAI.check-plagiarism",
+        "summary": "Check Plagiarism",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/winstonAI/latest/actions/check-plagiarism"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "description": "The text to scan for plagiarism.",
+            "schema": {
+              "type": "string",
+              "description": "The text to scan for plagiarism.",
+              "example": "Paste at least 100 characters of text to scan"
+            }
+          },
+          {
+            "name": "file",
+            "in": "query",
+            "required": false,
+            "description": "A public PDF, DOC, or DOCX URL to scan instead of raw text.",
+            "schema": {
+              "type": "string",
+              "description": "A public PDF, DOC, or DOCX URL to scan instead of raw text.",
+              "example": "https://example.com/file.pdf",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "website",
+            "in": "query",
+            "required": false,
+            "description": "A public website URL to scan instead of raw text.",
+            "schema": {
+              "type": "string",
+              "description": "A public website URL to scan instead of raw text.",
+              "example": "https://example.com/article",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "excludedSources[]",
+            "in": "query",
+            "required": false,
+            "description": "Domains or URLs to exclude from the plagiarism score.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Domains or URLs to exclude from the plagiarism score.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Two-letter language code, or auto for auto-detection.",
+            "schema": {
+              "type": "string",
+              "description": "Two-letter language code, or auto for auto-detection.",
+              "example": "auto",
+              "default": "auto"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Country code to guide the scan context.",
+            "schema": {
+              "type": "string",
+              "description": "Country code to guide the scan context.",
+              "example": "us",
+              "default": "us"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attackDetected": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Indicators for zero-width-space and homoglyph attacks."
+                          },
+                          "citations": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Detected citations in the provided text."
+                          },
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining Winston AI credits after the scan."
+                          },
+                          "credits_used": {
+                            "type": "number",
+                            "description": "Credits consumed by the scan."
+                          },
+                          "indexes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Plagiarism sequence ranges found in the input text."
+                          },
+                          "result": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Overall plagiarism scan summary metrics."
+                          },
+                          "scanInformation": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Metadata about the plagiarism scan request."
+                          },
+                          "similarWords": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Similar words identified in the input text."
+                          },
+                          "sources": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Matched sources found during the scan."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "HTTP status code returned by Winston AI."
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "Input text used for the plagiarism scan."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/winstonAI/latest/actions/compare-text": {
+      "get": {
+        "operationId": "winstonAI.compare-text",
+        "summary": "Compare Text",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/winstonAI/latest/actions/compare-text"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "firstText",
+            "in": "query",
+            "required": true,
+            "description": "The first text to compare.",
+            "schema": {
+              "type": "string",
+              "description": "The first text to compare.",
+              "example": "Text to compare against the second input"
+            }
+          },
+          {
+            "name": "secondText",
+            "in": "query",
+            "required": true,
+            "description": "The second text to compare.",
+            "schema": {
+              "type": "string",
+              "description": "The second text to compare.",
+              "example": "Second text to compare"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining Winston AI credits after the request."
+                          },
+                          "credits_used": {
+                            "type": "number",
+                            "description": "Credits consumed by the comparison request."
+                          },
+                          "first_text": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Similarity details for the first text."
+                          },
+                          "second_text": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Similarity details for the second text."
+                          },
+                          "similarity_score": {
+                            "type": "number",
+                            "description": "Overall similarity score between the two texts."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "HTTP status code returned by Winston AI."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/winstonAI/latest/actions/detect-ai-image": {
+      "get": {
+        "operationId": "winstonAI.detect-ai-image",
+        "summary": "Detect AI Image",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/winstonAI/latest/actions/detect-ai-image"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "Public image URL to scan for AI generation signals.",
+            "schema": {
+              "type": "string",
+              "description": "Public image URL to scan for AI generation signals.",
+              "example": "https://example.com/image.jpg"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "description": "The Winston AI image model version to use.",
+            "schema": {
+              "type": "string",
+              "description": "The Winston AI image model version to use.",
+              "example": "latest"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ai_probability": {
+                            "type": "number",
+                            "description": "Probability that the image was created by AI."
+                          },
+                          "ai_watermark_detected": {
+                            "type": "boolean",
+                            "description": "Whether an AI watermark was detected."
+                          },
+                          "ai_watermark_issuers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Detected AI watermark issuers."
+                          },
+                          "c2pa": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "C2PA provenance metadata when present."
+                          },
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining Winston AI credits after the scan."
+                          },
+                          "credits_used": {
+                            "type": "number",
+                            "description": "Credits consumed by the image scan."
+                          },
+                          "exif": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Extracted EXIF and related image metadata."
+                          },
+                          "human_probability": {
+                            "type": "number",
+                            "description": "Probability that the image was created by a human."
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Technical image metadata such as dimensions and format."
+                          },
+                          "mime_type": {
+                            "type": "string",
+                            "description": "Mime type of the analyzed image."
+                          },
+                          "score": {
+                            "type": "number",
+                            "description": "Human-likelihood score for the scanned image."
+                          },
+                          "version": {
+                            "type": "string",
+                            "description": "Image model version used for the prediction."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/winstonAI/latest/actions/detect-ai-text": {
+      "get": {
+        "operationId": "winstonAI.detect-ai-text",
+        "summary": "Detect AI Text",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/winstonAI/latest/actions/detect-ai-text"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "description": "The text to scan for AI-generated content.",
+            "schema": {
+              "type": "string",
+              "description": "The text to scan for AI-generated content.",
+              "example": "Paste at least 300 characters of text to scan"
+            }
+          },
+          {
+            "name": "file",
+            "in": "query",
+            "required": false,
+            "description": "A public PDF, DOC, or DOCX URL to scan instead of raw text.",
+            "schema": {
+              "type": "string",
+              "description": "A public PDF, DOC, or DOCX URL to scan instead of raw text.",
+              "example": "https://example.com/file.pdf",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "website",
+            "in": "query",
+            "required": false,
+            "description": "A public website URL to scan instead of raw text.",
+            "schema": {
+              "type": "string",
+              "description": "A public website URL to scan instead of raw text.",
+              "example": "https://example.com/article",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "description": "The Winston AI model version to use.",
+            "schema": {
+              "type": "string",
+              "description": "The Winston AI model version to use.",
+              "example": "latest"
+            }
+          },
+          {
+            "name": "sentences",
+            "in": "query",
+            "required": false,
+            "description": "Include per-sentence scores in the response.",
+            "schema": {
+              "type": "boolean",
+              "description": "Include per-sentence scores in the response.",
+              "default": true
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Two-letter language code, or auto for auto-detection.",
+            "schema": {
+              "type": "string",
+              "description": "Two-letter language code, or auto for auto-detection.",
+              "example": "auto",
+              "default": "auto"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attack_detected": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Indicators for zero-width-space and homoglyph attacks."
+                          },
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining Winston AI credits after the scan."
+                          },
+                          "credits_used": {
+                            "type": "number",
+                            "description": "Credits consumed by the scan."
+                          },
+                          "input": {
+                            "type": "string",
+                            "description": "Input mode used by the scan, such as text, file, or website."
+                          },
+                          "language": {
+                            "type": "string",
+                            "description": "Detected language code."
+                          },
+                          "length": {
+                            "type": "number",
+                            "description": "Length of the processed input text."
+                          },
+                          "readability_score": {
+                            "type": "number",
+                            "description": "Readability score for the processed text."
+                          },
+                          "score": {
+                            "type": "number",
+                            "description": "Human-written score returned by Winston AI."
+                          },
+                          "sentences": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Per-sentence scoring details when sentence output is enabled."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "HTTP status code returned by Winston AI."
+                          },
+                          "version": {
+                            "type": "string",
+                            "description": "Model version used for the prediction."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

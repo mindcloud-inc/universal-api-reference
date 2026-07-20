@@ -1,0 +1,127 @@
+# Process Plan: List Messages for Me
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/processPlan/latest/actions/list-messages-for-me
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Process Plan `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/processPlan/latest/actions/list-messages-for-me?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/processPlan/latest/actions/list-messages-for-me?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "message_list": [
+        {
+          "msg_acc_id": "string",
+          "msg_created_date_local": "2026-05-07T12:00:00.000Z",
+          "msg_created_usr_id": "string",
+          "msg_has_fl": true,
+          "msg_id": "string",
+          "msg_ih_id": "string",
+          "msg_ih_obj": {
+            "ih_created_date_local": "2026-05-07T12:00:00.000Z",
+            "ih_id": "string",
+            "ih_instance_description": "string",
+            "ih_personal_task": true,
+            "ih_progress_percentage": 1,
+            "ih_test_mode": true,
+            "ih_th_id": "string",
+            "ih_th_obj": {
+              "th_icon_name": "Ava Chen",
+              "th_id": "string",
+              "th_name": "Ava Chen"
+            }
+          },
+          "msg_modified_date_local": "2026-05-07T12:00:00.000Z",
+          "msg_modified_usr_id": "string",
+          "msg_modified_usr_obj": {
+            "usr_email_address": "ava@example.com",
+            "usr_first_name": "Ava",
+            "usr_full_name": "Ava Chen",
+            "usr_id": "string",
+            "usr_last_name": "Chen",
+            "usr_profile_pic_url": "https://example.com"
+          },
+          "msg_text": "string",
+          "msg_th_id": "string",
+          "msg_th_obj": {
+            "th_icon_name": "Ava Chen",
+            "th_id": "string",
+            "th_name": "Ava Chen"
+          },
+          "msg_thread_name": "Ava Chen"
+        }
+      ]
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `message_list[].msg_acc_id` | string |  |
+| `message_list[].msg_created_date_local` | date |  |
+| `message_list[].msg_created_usr_id` | string |  |
+| `message_list[].msg_has_fl` | boolean |  |
+| `message_list[].msg_id` | string |  |
+| `message_list[].msg_ih_id` | string |  |
+| `message_list[].msg_ih_obj.ih_created_date_local` | date |  |
+| `message_list[].msg_ih_obj.ih_id` | string |  |
+| `message_list[].msg_ih_obj.ih_instance_description` | string |  |
+| `message_list[].msg_ih_obj.ih_personal_task` | boolean |  |
+| `message_list[].msg_ih_obj.ih_progress_percentage` | number |  |
+| `message_list[].msg_ih_obj.ih_test_mode` | boolean |  |
+| `message_list[].msg_ih_obj.ih_th_id` | string |  |
+| `message_list[].msg_ih_obj.ih_th_obj.th_icon_name` | string |  |
+| `message_list[].msg_ih_obj.ih_th_obj.th_id` | string |  |
+| `message_list[].msg_ih_obj.ih_th_obj.th_name` | string |  |
+| `message_list[].msg_modified_date_local` | date |  |
+| `message_list[].msg_modified_usr_id` | string |  |
+| `message_list[].msg_modified_usr_obj.usr_email_address` | string |  |
+| `message_list[].msg_modified_usr_obj.usr_first_name` | string |  |
+| `message_list[].msg_modified_usr_obj.usr_full_name` | string |  |
+| `message_list[].msg_modified_usr_obj.usr_id` | string |  |
+| `message_list[].msg_modified_usr_obj.usr_last_name` | string |  |
+| `message_list[].msg_modified_usr_obj.usr_profile_pic_url` | string |  |
+| `message_list[].msg_text` | string |  |
+| `message_list[].msg_th_id` | string |  |
+| `message_list[].msg_th_obj.th_icon_name` | string |  |
+| `message_list[].msg_th_obj.th_id` | string |  |
+| `message_list[].msg_th_obj.th_name` | string |  |
+| `message_list[].msg_thread_name` | string |  |
+
+## Native endpoint
+
+Through the native Process Plan API, this operation is `GET /user/me/message/list` (base URL `https://apius0.processplan.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-messages-for-me.md) for the provider-specific parameters and requirements.
+

@@ -1,0 +1,84 @@
+# Dynamic Mockups: List Collections
+
+Retrieves your collections from Dynamic Mockups.
+
+```
+GET https://connect.mindcloud.co/v1/universal/dynamicMockups/latest/actions/list-collections
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Dynamic Mockups `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/dynamicMockups/latest/actions/list-collections?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/dynamicMockups/latest/actions/list-collections?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `include_all_catalogs` | boolean | no | Set true to include collections across all catalogs. Example: `true \| false`. |
+| `catalog_uuid` | string | no | Optional catalog UUID filter. Example: `e.g. b1d8fac5-b8d1-4af8-99d9-8c4155a0f24d`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "data": [
+        {
+          "createdAt": "2026-05-07T12:00:00.000Z",
+          "createdAtTimestamp": "2026-05-07T12:00:00.000Z",
+          "mockupCount": 1,
+          "name": "Ava Chen",
+          "updatedAt": "2026-05-07T12:00:00.000Z",
+          "updatedAtTimestamp": "2026-05-07T12:00:00.000Z",
+          "uuid": "string"
+        }
+      ],
+      "message": "string",
+      "success": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `data[].createdAt` | date |  |
+| `data[].createdAtTimestamp` | date |  |
+| `data[].mockupCount` | number |  |
+| `data[].name` | string |  |
+| `data[].updatedAt` | date |  |
+| `data[].updatedAtTimestamp` | date |  |
+| `data[].uuid` | string |  |
+| `message` | string |  |
+| `success` | boolean |  |
+
+## Native endpoint
+
+Through the native Dynamic Mockups API, this operation is `GET api/v1/collections` (base URL `https://app.dynamicmockups.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-collections.md) for the provider-specific parameters and requirements.
+

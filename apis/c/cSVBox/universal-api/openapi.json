@@ -1,0 +1,737 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "CSVBox Universal API",
+    "version": "0.0.7",
+    "description": "Import CSV and spreadsheet data into your app with embeddable CSVBox importers and automated destination delivery."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/cSVBox/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/cSVBox/latest/actions/submit-file-from-public-url": {
+      "post": {
+        "operationId": "cSVBox.submit-file-from-public-url",
+        "summary": "Submit File From Public URL",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/cSVBox/latest/actions/submit-file-from-public-url"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "publicFileUrl",
+                  "sheetLicenseKey"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "publicFileUrl": {
+                    "type": "string",
+                    "description": "Publicly reachable URL for the CSV or spreadsheet file to import."
+                  },
+                  "sheetLicenseKey": {
+                    "type": "string",
+                    "description": "CSVBox sheet license key that determines the destination sheet."
+                  },
+                  "fileSheetName": {
+                    "type": "string",
+                    "description": "Worksheet name to import when the source file contains multiple tabs.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "autoMap": {
+                    "type": "boolean",
+                    "description": "Allow CSVBox to auto-map columns when exact matches are not found.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "userId": {
+                    "type": "string",
+                    "description": "Optional user identifier to attach to the import metadata.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "hasHeader": {
+                    "type": "boolean",
+                    "description": "Whether the incoming file includes a header row."
+                  },
+                  "maxRows": {
+                    "type": "number",
+                    "description": "Optional maximum number of rows to import.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "custom_fields": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "User-linked custom fields returned by CSVBox."
+                          },
+                          "destination_type": {
+                            "type": "string",
+                            "description": "Configured destination type for the import."
+                          },
+                          "dynamic_columns": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Dynamic column payload returned by CSVBox."
+                          },
+                          "env_name": {
+                            "type": "string",
+                            "description": "CSVBox environment name for the import."
+                          },
+                          "import_id": {
+                            "type": "number",
+                            "description": "CSVBox import identifier."
+                          },
+                          "import_starttime": {
+                            "type": "number",
+                            "description": "Import start timestamp returned by CSVBox."
+                          },
+                          "options": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Applied import options returned by CSVBox."
+                          },
+                          "sheet_id": {
+                            "type": "number",
+                            "description": "Numeric CSVBox sheet identifier."
+                          },
+                          "sheet_name": {
+                            "type": "string",
+                            "description": "CSVBox sheet name."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/cSVBox/latest/actions/upload-file": {
+      "post": {
+        "operationId": "cSVBox.upload-file",
+        "summary": "Upload File",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/cSVBox/latest/actions/upload-file"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "file",
+                  "sheetLicenseKey"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "file": {
+                    "type": "string",
+                    "description": "Spreadsheet file to upload directly to CSVBox."
+                  },
+                  "sheetLicenseKey": {
+                    "type": "string",
+                    "description": "CSVBox sheet license key that determines the destination sheet."
+                  },
+                  "fileSheetName": {
+                    "type": "string",
+                    "description": "Worksheet name to import when the source file contains multiple tabs.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "autoMap": {
+                    "type": "boolean",
+                    "description": "Allow CSVBox to auto-map columns when exact matches are not found.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "userId": {
+                    "type": "string",
+                    "description": "Optional user identifier to attach to the import metadata.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "hasHeader": {
+                    "type": "boolean",
+                    "description": "Whether the incoming file includes a header row."
+                  },
+                  "maxRows": {
+                    "type": "number",
+                    "description": "Optional maximum number of rows to import.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "custom_fields": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "User-linked custom fields returned by CSVBox."
+                          },
+                          "destination_type": {
+                            "type": "string",
+                            "description": "Configured destination type for the import."
+                          },
+                          "dynamic_columns": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Dynamic column payload returned by CSVBox."
+                          },
+                          "env_name": {
+                            "type": "string",
+                            "description": "CSVBox environment name for the import."
+                          },
+                          "import_id": {
+                            "type": "number",
+                            "description": "CSVBox import identifier."
+                          },
+                          "import_starttime": {
+                            "type": "number",
+                            "description": "Import start timestamp returned by CSVBox."
+                          },
+                          "options": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Applied import options returned by CSVBox."
+                          },
+                          "sheet_id": {
+                            "type": "number",
+                            "description": "Numeric CSVBox sheet identifier."
+                          },
+                          "sheet_name": {
+                            "type": "string",
+                            "description": "CSVBox sheet name."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/cSVBox/latest/actions/verify-connection": {
+      "get": {
+        "operationId": "cSVBox.verify-connection",
+        "summary": "Verify Connection",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/cSVBox/latest/actions/verify-connection"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Connected account details returned by CSVBox."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "CSVBox authentication status message."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

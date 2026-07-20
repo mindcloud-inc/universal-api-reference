@@ -1,0 +1,78 @@
+# Wistia: Translate Media
+
+Translates the transcript for a Wistia media item.
+
+```
+POST https://connect.mindcloud.co/v1/universal/wistia/latest/actions/translate-media
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Wistia `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/wistia/latest/actions/translate-media" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "mediaHashedId": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/wistia/latest/actions/translate-media', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "mediaHashedId": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `mediaHashedId` | string | yes |  |
+| `language` | string | no |  |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "backgroundJobStatus": {
+        "id": 1,
+        "status": "string"
+      },
+      "message": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `backgroundJobStatus` | object | A background job keeps track of the progress of an asynchronous task, e.g bulk archiving media, translating media, etc. |
+| `backgroundJobStatus.id` | number | The ID of the background job that's been queued for the request. |
+| `backgroundJobStatus.status` | string | The status of the background job that's been queued for the request. |
+| `message` | string |  |
+
+## Native endpoint
+
+Through the native Wistia API, this operation is `POST /modern/medias/:mediaHashedId/translate` (base URL `https://api.wistia.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/translate-media.md) for the provider-specific parameters and requirements.
+

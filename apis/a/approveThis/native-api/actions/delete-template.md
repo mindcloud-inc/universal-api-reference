@@ -1,0 +1,16 @@
+# Delete Template with ApproveThis
+
+Deletes an approval template from ApproveThis by slug.
+
+## Endpoint
+
+- **Method:** `DELETE`
+- **Path:** `/templates/:template`
+- **Base URL:** `https://app.approvethis.com/api/v1`
+- **Official documentation:** [Delete Template](https://app.approvethis.com/docs/api)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `template` | path | `string` | yes | The template slug. |

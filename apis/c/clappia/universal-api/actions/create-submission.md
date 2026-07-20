@@ -1,0 +1,78 @@
+# Clappia: Create Submission
+
+Creates a new submission in Clappia.
+
+```
+POST https://connect.mindcloud.co/v1/universal/clappia/latest/actions/create-submission
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Clappia `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/clappia/latest/actions/create-submission" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "appId": "string",
+  "requestingUserEmailAddress": "ava@example.com",
+  "data": {}
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/clappia/latest/actions/create-submission', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "appId": "string",
+    "requestingUserEmailAddress": "ava@example.com",
+    "data": {}
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `appId` | string | yes | Clappia app ID. |
+| `requestingUserEmailAddress` | string | yes | Email address of the Clappia user on whose behalf the submission is created. |
+| `data` | object | yes | Submission payload object keyed by the target app's Clappia field variable names. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "submissionFieldValues": {},
+      "submissionId": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `submissionFieldValues` | object |  |
+| `submissionId` | string |  |
+
+## Native endpoint
+
+Through the native Clappia API, this operation is `POST /submissions/create` (base URL `https://api-public-v4.clappia.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-submission.md) for the provider-specific parameters and requirements.
+

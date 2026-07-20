@@ -1,0 +1,100 @@
+# smsmode: List Channels
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/smsmode/latest/actions/list-channels
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a smsmode `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/smsmode/latest/actions/list-channels?connectionId=$CONNECTION_ID&limit=25&offset=0&organisationId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0',
+  "organisationId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/smsmode/latest/actions/list-channels?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `organisationId` | string | yes | Organisation ID path parameter from the smsmode API route. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "archivePeriod": "string",
+      "channelId": "string",
+      "creationDate": "2026-05-07T12:00:00.000Z",
+      "dailyConsumption": 1,
+      "dailyConsumptionLimit": 1,
+      "defaultCallbackUrlMo": "https://example.com",
+      "defaultCallbackUrlStatus": "https://example.com",
+      "defaultFromField": "string",
+      "flow": "string",
+      "fromFieldList": [
+        "string"
+      ],
+      "href": "string",
+      "monthlyConsumption": 1,
+      "monthlyConsumptionLimit": 1,
+      "name": "Ava Chen",
+      "organisationId": "string",
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `archivePeriod` | string |  |
+| `channelId` | string |  |
+| `creationDate` | date |  |
+| `dailyConsumption` | number |  |
+| `dailyConsumptionLimit` | number |  |
+| `defaultCallbackUrlMo` | string |  |
+| `defaultCallbackUrlStatus` | string |  |
+| `defaultFromField` | string |  |
+| `flow` | string |  |
+| `fromFieldList[]` | string |  |
+| `href` | string |  |
+| `monthlyConsumption` | number |  |
+| `monthlyConsumptionLimit` | number |  |
+| `name` | string |  |
+| `organisationId` | string |  |
+| `type` | string |  |
+
+## Native endpoint
+
+Through the native smsmode API, this operation is `GET commons/v1/organisations/:organisationId/channels` (base URL `https://rest.smsmode.com/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-channels.md) for the provider-specific parameters and requirements.
+

@@ -1,0 +1,111 @@
+# Atlar: Update pending transaction
+
+Updates an existing pending transaction in Atlar.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/atlar/latest/actions/update-pending-transaction
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Atlar `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/atlar/latest/actions/update-pending-transaction" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "id": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/atlar/latest/actions/update-pending-transaction', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "id": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string<string> | yes |  |
+| `If_Match` | string<string> | no |  |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "accountId": "string",
+      "amount": {},
+      "bankTransactionCode": {},
+      "batchInformation": {},
+      "charges": [
+        {}
+      ],
+      "counterparty": {},
+      "created": "2026-05-07T12:00:00.000Z",
+      "currencyExchange": {},
+      "date": "2026-05-07T12:00:00.000Z",
+      "description": "string",
+      "id": "string",
+      "instructedAmount": {},
+      "organizationId": "string",
+      "reference": "string",
+      "references": {},
+      "returned": true,
+      "returnReason": {},
+      "updated": "2026-05-07T12:00:00.000Z",
+      "valueDate": "2026-05-07T12:00:00.000Z",
+      "virtualAccount": {}
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `accountId` | string |  |
+| `amount` | object |  |
+| `bankTransactionCode` | object |  |
+| `batchInformation` | object |  |
+| `charges` | array<object> |  |
+| `counterparty` | object |  |
+| `created` | date |  |
+| `currencyExchange` | object |  |
+| `date` | date |  |
+| `description` | string |  |
+| `id` | string |  |
+| `instructedAmount` | object |  |
+| `organizationId` | string |  |
+| `reference` | string |  |
+| `references` | object |  |
+| `returned` | boolean |  |
+| `returnReason` | object |  |
+| `updated` | date |  |
+| `valueDate` | date |  |
+| `virtualAccount` | object |  |
+
+## Native endpoint
+
+Through the native Atlar API, this operation is `PATCH /financial-data/v2beta/pending-transactions/{id}` (base URL `https://api.atlar.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-pending-transaction.md) for the provider-specific parameters and requirements.
+

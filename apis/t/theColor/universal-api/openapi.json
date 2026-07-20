@@ -1,0 +1,2621 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "The Color Universal API",
+    "version": "0.0.6",
+    "description": "Identify colors, convert color formats, and generate color schemes using The Color API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/theColor/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/theColor/latest/actions/generate-color-scheme-by-cmyk": {
+      "get": {
+        "operationId": "theColor.generate-color-scheme-by-cmyk",
+        "summary": "Generate Color Scheme By CMYK",
+        "description": "Generates a color scheme in The Color from a CMYK seed.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/generate-color-scheme-by-cmyk"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cmyk",
+            "in": "query",
+            "required": true,
+            "description": "Valid CMYK seed color, such as 100,58,0,33 or cmyk(100,58,0,33).",
+            "schema": {
+              "type": "string",
+              "description": "Valid CMYK seed color, such as 100,58,0,33 or cmyk(100,58,0,33).",
+              "default": "100,58,0,33"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Scheme mode to generate from the seed color.",
+            "schema": {
+              "type": "string",
+              "description": "Scheme mode to generate from the seed color.",
+              "enum": [
+                "analogic",
+                "analogic-complement",
+                "complement",
+                "monochrome",
+                "monochrome-dark",
+                "monochrome-light",
+                "quad",
+                "triad"
+              ],
+              "default": "monochrome"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "Number of colors to return.",
+            "schema": {
+              "type": "number",
+              "description": "Number of colors to return.",
+              "default": 5
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "schemes": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Links for alternate scheme modes."
+                              },
+                              "self": {
+                                "type": "string",
+                                "description": "Self link for this scheme."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "colors": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "description": "Generated colors in the scheme."
+                            }
+                          },
+                          "count": {
+                            "type": "string",
+                            "description": "Number of colors returned by the API."
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG scheme image URL without names."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG scheme image URL with names."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "mode": {
+                            "type": "string",
+                            "description": "Scheme mode used for generation."
+                          },
+                          "seed": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Seed color used to generate the scheme.",
+                            "properties": {
+                              "hex": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed hex value."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "name": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed color name."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/theColor/latest/actions/generate-color-scheme-by-hex": {
+      "get": {
+        "operationId": "theColor.generate-color-scheme-by-hex",
+        "summary": "Generate Color Scheme By Hex",
+        "description": "Generates a color scheme in The Color from a hex seed.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/generate-color-scheme-by-hex"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hex",
+            "in": "query",
+            "required": true,
+            "description": "Valid hex seed color code, such as 0047AB.",
+            "schema": {
+              "type": "string",
+              "description": "Valid hex seed color code, such as 0047AB.",
+              "default": "0047AB"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Scheme mode to generate from the seed color.",
+            "schema": {
+              "type": "string",
+              "description": "Scheme mode to generate from the seed color.",
+              "enum": [
+                "analogic",
+                "analogic-complement",
+                "complement",
+                "monochrome",
+                "monochrome-dark",
+                "monochrome-light",
+                "quad",
+                "triad"
+              ],
+              "default": "monochrome"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "Number of colors to return.",
+            "schema": {
+              "type": "number",
+              "description": "Number of colors to return.",
+              "default": 5
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "schemes": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Links for alternate scheme modes."
+                              },
+                              "self": {
+                                "type": "string",
+                                "description": "Self link for this scheme."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "colors": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "description": "Generated colors in the scheme."
+                            }
+                          },
+                          "count": {
+                            "type": "string",
+                            "description": "Number of colors returned by the API."
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG scheme image URL without names."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG scheme image URL with names."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "mode": {
+                            "type": "string",
+                            "description": "Scheme mode used for generation."
+                          },
+                          "seed": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Seed color used to generate the scheme.",
+                            "properties": {
+                              "hex": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed hex value."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "name": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed color name."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/theColor/latest/actions/generate-color-scheme-by-hsl": {
+      "get": {
+        "operationId": "theColor.generate-color-scheme-by-hsl",
+        "summary": "Generate Color Scheme By HSL",
+        "description": "Generates a color scheme in The Color from an HSL seed.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/generate-color-scheme-by-hsl"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hsl",
+            "in": "query",
+            "required": true,
+            "description": "Valid HSL seed color, such as 215,100%,34% or hsl(215,100%,34%).",
+            "schema": {
+              "type": "string",
+              "description": "Valid HSL seed color, such as 215,100%,34% or hsl(215,100%,34%).",
+              "default": "215,100%,34%"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Scheme mode to generate from the seed color.",
+            "schema": {
+              "type": "string",
+              "description": "Scheme mode to generate from the seed color.",
+              "enum": [
+                "analogic",
+                "analogic-complement",
+                "complement",
+                "monochrome",
+                "monochrome-dark",
+                "monochrome-light",
+                "quad",
+                "triad"
+              ],
+              "default": "monochrome"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "Number of colors to return.",
+            "schema": {
+              "type": "number",
+              "description": "Number of colors to return.",
+              "default": 5
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "schemes": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Links for alternate scheme modes."
+                              },
+                              "self": {
+                                "type": "string",
+                                "description": "Self link for this scheme."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "colors": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "description": "Generated colors in the scheme."
+                            }
+                          },
+                          "count": {
+                            "type": "string",
+                            "description": "Number of colors returned by the API."
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG scheme image URL without names."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG scheme image URL with names."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "mode": {
+                            "type": "string",
+                            "description": "Scheme mode used for generation."
+                          },
+                          "seed": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Seed color used to generate the scheme.",
+                            "properties": {
+                              "hex": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed hex value."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "name": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed color name."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/theColor/latest/actions/generate-color-scheme-by-rgb": {
+      "get": {
+        "operationId": "theColor.generate-color-scheme-by-rgb",
+        "summary": "Generate Color Scheme By RGB",
+        "description": "Generates a color scheme in The Color from an RGB seed.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/generate-color-scheme-by-rgb"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rgb",
+            "in": "query",
+            "required": true,
+            "description": "Valid RGB seed color, such as 0,71,171 or rgb(0,71,171).",
+            "schema": {
+              "type": "string",
+              "description": "Valid RGB seed color, such as 0,71,171 or rgb(0,71,171).",
+              "default": "0,71,171"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Scheme mode to generate from the seed color.",
+            "schema": {
+              "type": "string",
+              "description": "Scheme mode to generate from the seed color.",
+              "enum": [
+                "analogic",
+                "analogic-complement",
+                "complement",
+                "monochrome",
+                "monochrome-dark",
+                "monochrome-light",
+                "quad",
+                "triad"
+              ],
+              "default": "monochrome"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "Number of colors to return.",
+            "schema": {
+              "type": "number",
+              "description": "Number of colors to return.",
+              "default": 5
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "schemes": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Links for alternate scheme modes."
+                              },
+                              "self": {
+                                "type": "string",
+                                "description": "Self link for this scheme."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "colors": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "description": "Generated colors in the scheme."
+                            }
+                          },
+                          "count": {
+                            "type": "string",
+                            "description": "Number of colors returned by the API."
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG scheme image URL without names."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG scheme image URL with names."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "mode": {
+                            "type": "string",
+                            "description": "Scheme mode used for generation."
+                          },
+                          "seed": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Seed color used to generate the scheme.",
+                            "properties": {
+                              "hex": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed hex value."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "name": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "Seed color name."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/theColor/latest/actions/identify-color-by-cmyk": {
+      "get": {
+        "operationId": "theColor.identify-color-by-cmyk",
+        "summary": "Identify Color By CMYK",
+        "description": "Identifies a color in The Color by CMYK value.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/identify-color-by-cmyk"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cmyk",
+            "in": "query",
+            "required": true,
+            "description": "Valid CMYK color, such as 100,58,0,33 or cmyk(100,58,0,33).",
+            "schema": {
+              "type": "string",
+              "description": "Valid CMYK color, such as 100,58,0,33 or cmyk(100,58,0,33).",
+              "default": "100,58,0,33"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "self": {
+                                "type": "object",
+                                "properties": {
+                                  "href": {
+                                    "type": "string",
+                                    "description": "Self link for the color result."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "cmyk": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted CMYK value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "contrast": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Recommended contrasting color."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hex": {
+                            "type": "object",
+                            "properties": {
+                              "clean": {
+                                "type": "string",
+                                "description": "Hex value without the leading hash."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted hex value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsl": {
+                            "type": "object",
+                            "properties": {
+                              "h": {
+                                "type": "number",
+                                "description": "Hue component."
+                              },
+                              "l": {
+                                "type": "number",
+                                "description": "Lightness percentage."
+                              },
+                              "s": {
+                                "type": "number",
+                                "description": "Saturation percentage."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSL value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsv": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSV value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG image URL without the color name."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG image URL with the color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                              "closest_named_hex": {
+                                "type": "string",
+                                "description": "Closest named hex color."
+                              },
+                              "distance": {
+                                "type": "number",
+                                "description": "Distance from the closest named color."
+                              },
+                              "exact_match_name": {
+                                "type": "boolean",
+                                "description": "Whether the supplied color exactly matches the returned name."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Matched color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "rgb": {
+                            "type": "object",
+                            "properties": {
+                              "b": {
+                                "type": "number",
+                                "description": "Blue component."
+                              },
+                              "g": {
+                                "type": "number",
+                                "description": "Green component."
+                              },
+                              "r": {
+                                "type": "number",
+                                "description": "Red component."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted RGB value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "XYZ": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted XYZ value."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/theColor/latest/actions/identify-color-by-hex": {
+      "get": {
+        "operationId": "theColor.identify-color-by-hex",
+        "summary": "Identify Color By Hex",
+        "description": "Identifies a color in The Color by hex code.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/identify-color-by-hex"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hex",
+            "in": "query",
+            "required": true,
+            "description": "Valid hex color code, such as 0047AB.",
+            "schema": {
+              "type": "string",
+              "description": "Valid hex color code, such as 0047AB.",
+              "default": "0047AB"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "self": {
+                                "type": "object",
+                                "properties": {
+                                  "href": {
+                                    "type": "string",
+                                    "description": "Self link for the color result."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "cmyk": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted CMYK value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "contrast": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Recommended contrasting color."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hex": {
+                            "type": "object",
+                            "properties": {
+                              "clean": {
+                                "type": "string",
+                                "description": "Hex value without the leading hash."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted hex value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsl": {
+                            "type": "object",
+                            "properties": {
+                              "h": {
+                                "type": "number",
+                                "description": "Hue component."
+                              },
+                              "l": {
+                                "type": "number",
+                                "description": "Lightness percentage."
+                              },
+                              "s": {
+                                "type": "number",
+                                "description": "Saturation percentage."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSL value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsv": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSV value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG image URL without the color name."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG image URL with the color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                              "closest_named_hex": {
+                                "type": "string",
+                                "description": "Closest named hex color."
+                              },
+                              "distance": {
+                                "type": "number",
+                                "description": "Distance from the closest named color."
+                              },
+                              "exact_match_name": {
+                                "type": "boolean",
+                                "description": "Whether the supplied color exactly matches the returned name."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Matched color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "rgb": {
+                            "type": "object",
+                            "properties": {
+                              "b": {
+                                "type": "number",
+                                "description": "Blue component."
+                              },
+                              "g": {
+                                "type": "number",
+                                "description": "Green component."
+                              },
+                              "r": {
+                                "type": "number",
+                                "description": "Red component."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted RGB value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "XYZ": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted XYZ value."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/theColor/latest/actions/identify-color-by-hsl": {
+      "get": {
+        "operationId": "theColor.identify-color-by-hsl",
+        "summary": "Identify Color By HSL",
+        "description": "Identifies a color in The Color by HSL value.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/identify-color-by-hsl"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hsl",
+            "in": "query",
+            "required": true,
+            "description": "Valid HSL color, such as 215,100%,34% or hsl(215,100%,34%).",
+            "schema": {
+              "type": "string",
+              "description": "Valid HSL color, such as 215,100%,34% or hsl(215,100%,34%).",
+              "default": "215,100%,34%"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "self": {
+                                "type": "object",
+                                "properties": {
+                                  "href": {
+                                    "type": "string",
+                                    "description": "Self link for the color result."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "cmyk": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted CMYK value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "contrast": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Recommended contrasting color."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hex": {
+                            "type": "object",
+                            "properties": {
+                              "clean": {
+                                "type": "string",
+                                "description": "Hex value without the leading hash."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted hex value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsl": {
+                            "type": "object",
+                            "properties": {
+                              "h": {
+                                "type": "number",
+                                "description": "Hue component."
+                              },
+                              "l": {
+                                "type": "number",
+                                "description": "Lightness percentage."
+                              },
+                              "s": {
+                                "type": "number",
+                                "description": "Saturation percentage."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSL value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsv": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSV value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG image URL without the color name."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG image URL with the color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                              "closest_named_hex": {
+                                "type": "string",
+                                "description": "Closest named hex color."
+                              },
+                              "distance": {
+                                "type": "number",
+                                "description": "Distance from the closest named color."
+                              },
+                              "exact_match_name": {
+                                "type": "boolean",
+                                "description": "Whether the supplied color exactly matches the returned name."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Matched color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "rgb": {
+                            "type": "object",
+                            "properties": {
+                              "b": {
+                                "type": "number",
+                                "description": "Blue component."
+                              },
+                              "g": {
+                                "type": "number",
+                                "description": "Green component."
+                              },
+                              "r": {
+                                "type": "number",
+                                "description": "Red component."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted RGB value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "XYZ": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted XYZ value."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/theColor/latest/actions/identify-color-by-rgb": {
+      "get": {
+        "operationId": "theColor.identify-color-by-rgb",
+        "summary": "Identify Color By RGB",
+        "description": "Identifies a color in The Color by RGB value.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/theColor/latest/actions/identify-color-by-rgb"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rgb",
+            "in": "query",
+            "required": true,
+            "description": "Valid RGB color, such as 0,71,171 or rgb(0,71,171).",
+            "schema": {
+              "type": "string",
+              "description": "Valid RGB color, such as 0,71,171 or rgb(0,71,171).",
+              "default": "0,71,171"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_links": {
+                            "type": "object",
+                            "properties": {
+                              "self": {
+                                "type": "object",
+                                "properties": {
+                                  "href": {
+                                    "type": "string",
+                                    "description": "Self link for the color result."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "cmyk": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted CMYK value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "contrast": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Recommended contrasting color."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hex": {
+                            "type": "object",
+                            "properties": {
+                              "clean": {
+                                "type": "string",
+                                "description": "Hex value without the leading hash."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted hex value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsl": {
+                            "type": "object",
+                            "properties": {
+                              "h": {
+                                "type": "number",
+                                "description": "Hue component."
+                              },
+                              "l": {
+                                "type": "number",
+                                "description": "Lightness percentage."
+                              },
+                              "s": {
+                                "type": "number",
+                                "description": "Saturation percentage."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSL value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hsv": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted HSV value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "image": {
+                            "type": "object",
+                            "properties": {
+                              "bare": {
+                                "type": "string",
+                                "description": "SVG image URL without the color name."
+                              },
+                              "named": {
+                                "type": "string",
+                                "description": "SVG image URL with the color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                              "closest_named_hex": {
+                                "type": "string",
+                                "description": "Closest named hex color."
+                              },
+                              "distance": {
+                                "type": "number",
+                                "description": "Distance from the closest named color."
+                              },
+                              "exact_match_name": {
+                                "type": "boolean",
+                                "description": "Whether the supplied color exactly matches the returned name."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Matched color name."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "rgb": {
+                            "type": "object",
+                            "properties": {
+                              "b": {
+                                "type": "number",
+                                "description": "Blue component."
+                              },
+                              "g": {
+                                "type": "number",
+                                "description": "Green component."
+                              },
+                              "r": {
+                                "type": "number",
+                                "description": "Red component."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted RGB value."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "XYZ": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "Formatted XYZ value."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

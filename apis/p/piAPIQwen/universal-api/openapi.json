@@ -1,0 +1,772 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "PiAPI/Qwen Universal API",
+    "version": "0.0.3",
+    "description": "Generate and edit images with Qwen and track tasks"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/piAPIQwen/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/piAPIQwen/latest/actions/create-image-edit-task": {
+      "post": {
+        "operationId": "piAPIQwen.create-image-edit-task",
+        "summary": "Create Image Edit Task",
+        "description": "Creates an image edit task in PiAPI/Qwen.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/piAPIQwen/latest/actions/create-image-edit-task"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "input.image1",
+                  "input.prompt"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "input.image1": {
+                    "type": "string",
+                    "example": "https://example.com/image1.png"
+                  },
+                  "input.image2": {
+                    "type": "string",
+                    "example": "https://example.com/image2.png",
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.image3": {
+                    "type": "string",
+                    "example": "https://example.com/image3.png",
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.prompt": {
+                    "type": "string",
+                    "example": "Describe the edit you want"
+                  },
+                  "input.negative_prompt": {
+                    "type": "string",
+                    "example": "What to avoid",
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.seed": {
+                    "type": "number",
+                    "example": -1,
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.steps": {
+                    "type": "number",
+                    "example": 8,
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.flow_shift": {
+                    "type": "number",
+                    "example": 3,
+                    "x-mindcloud-advanced": true
+                  },
+                  "config.webhook_config.endpoint": {
+                    "type": "string",
+                    "example": "https://example.com/webhook",
+                    "x-mindcloud-advanced": true
+                  },
+                  "config.webhook_config.secret": {
+                    "type": "string",
+                    "example": "optional-secret",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "number",
+                            "description": "HTTP-style success code returned by PiAPI create-task response."
+                          },
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "Model used for the task."
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "Current task status immediately after creation."
+                              },
+                              "task_id": {
+                                "type": "string",
+                                "description": "Created PiAPI task identifier."
+                              },
+                              "task_type": {
+                                "type": "string",
+                                "description": "PiAPI task type for the created task."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/piAPIQwen/latest/actions/create-text-to-image-task": {
+      "post": {
+        "operationId": "piAPIQwen.create-text-to-image-task",
+        "summary": "Create Text to Image Task",
+        "description": "Creates a text-to-image task in PiAPI/Qwen.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/piAPIQwen/latest/actions/create-text-to-image-task"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "input.prompt"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "input.prompt": {
+                    "type": "string",
+                    "example": "A detailed image prompt"
+                  },
+                  "input.seed": {
+                    "type": "number",
+                    "example": -1,
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.steps": {
+                    "type": "number",
+                    "example": 16,
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.width": {
+                    "type": "number",
+                    "example": 1024,
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.height": {
+                    "type": "number",
+                    "example": 1024,
+                    "x-mindcloud-advanced": true
+                  },
+                  "input.flow_shift": {
+                    "type": "number",
+                    "example": 3,
+                    "x-mindcloud-advanced": true
+                  },
+                  "config.webhook_config.endpoint": {
+                    "type": "string",
+                    "example": "https://example.com/webhook",
+                    "x-mindcloud-advanced": true
+                  },
+                  "config.webhook_config.secret": {
+                    "type": "string",
+                    "example": "optional-secret",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "number",
+                            "description": "HTTP-style success code returned by PiAPI create-task response."
+                          },
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "Model used for the task."
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "Current task status immediately after creation."
+                              },
+                              "task_id": {
+                                "type": "string",
+                                "description": "Created PiAPI task identifier."
+                              },
+                              "task_type": {
+                                "type": "string",
+                                "description": "PiAPI task type for the created task."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/piAPIQwen/latest/actions/get-task": {
+      "get": {
+        "operationId": "piAPIQwen.get-task",
+        "summary": "Get Task",
+        "description": "Retrieves task status details from PiAPI/Qwen.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/piAPIQwen/latest/actions/get-task"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "task_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "task-id"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "Model used for the task."
+                              },
+                              "output": {
+                                "type": "object",
+                                "properties": {
+                                  "image_url": {
+                                    "type": "string",
+                                    "description": "Generated image URL when the task output is available."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "Current PiAPI task status."
+                              },
+                              "task_id": {
+                                "type": "string",
+                                "description": "PiAPI task identifier."
+                              },
+                              "task_type": {
+                                "type": "string",
+                                "description": "PiAPI task type for the task."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "timestamp": {
+                            "type": "number",
+                            "description": "Unix timestamp for the task lookup response."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

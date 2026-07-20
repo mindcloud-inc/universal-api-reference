@@ -1,0 +1,10 @@
+# List Marketplace Subscriptions with Nautical
+
+Retrieves a list of marketplace subscriptions from Nautical.
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `graphql/`
+- **Base URL:** `https://api.mpconsole.com`
+- **Official documentation:** [List Marketplace Subscriptions](https://guide.thetraide.com/docs/api/operations/queries/marketplace-subscriptions/)

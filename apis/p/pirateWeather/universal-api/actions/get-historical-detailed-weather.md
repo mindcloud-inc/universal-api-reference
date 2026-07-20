@@ -1,0 +1,86 @@
+# Pirate Weather: Get Historical Detailed Weather
+
+Retrieves detailed historical weather from Pirate Weather.
+
+```
+GET https://connect.mindcloud.co/v1/universal/pirateWeather/latest/actions/get-historical-detailed-weather
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Pirate Weather `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/pirateWeather/latest/actions/get-historical-detailed-weather?connectionId=$CONNECTION_ID&latitude=1&longitude=1&time=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "latitude": "1",
+  "longitude": "1",
+  "time": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/pirateWeather/latest/actions/get-historical-detailed-weather?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `latitude` | number | yes | Latitude in decimal degrees. |
+| `longitude` | number | yes | Longitude in decimal degrees. |
+| `time` | string | yes | Past time as a UNIX timestamp or supported Pirate Weather time string. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "currently": {},
+      "daily": {},
+      "elevation": 1,
+      "flags": {},
+      "hourly": {},
+      "latitude": 1,
+      "longitude": 1,
+      "minutely": {},
+      "offset": 1,
+      "timezone": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `currently` | object |  |
+| `daily` | object |  |
+| `elevation` | number |  |
+| `flags` | object |  |
+| `hourly` | object |  |
+| `latitude` | number |  |
+| `longitude` | number |  |
+| `minutely` | object |  |
+| `offset` | number |  |
+| `timezone` | string |  |
+
+## Native endpoint
+
+Through the native Pirate Weather API, this operation is `GET https://timemachine.pirateweather.net/forecast/header-auth/:latitude,:longitude,:time` (base URL `https://api.pirateweather.net`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-historical-detailed-weather.md) for the provider-specific parameters and requirements.
+

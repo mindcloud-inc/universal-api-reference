@@ -1,0 +1,16 @@
+# Delete Collection with Weaviate Vector Store
+
+Deletes a collection (and all associated data) from Weaviate.
+
+## Endpoint
+
+- **Method:** `DELETE`
+- **Path:** `/v1/schema/:className`
+- **Base URL:** `https://tl3apaxxsoiuwhpnsdv19a.c0.us-west3.gcp.weaviate.cloud`
+- **Official documentation:** [Delete Collection](https://docs.weaviate.io/weaviate/api/rest)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `className` | path | `string` | yes | The collection class name to delete. |

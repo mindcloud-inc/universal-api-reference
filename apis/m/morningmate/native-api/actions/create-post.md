@@ -1,0 +1,19 @@
+# Create Post with Morningmate
+
+Creates a post in a Morningmate project.
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `/v1/posts/projects/[:projectId]`
+- **Base URL:** `https://api.morningmate.com`
+- **Official documentation:** [Create Post](https://api.morningmate.com/docs/api/v1/posts)
+
+## Parameters
+
+| Parameter | Location | Type | Required |
+| --- | --- | --- | --- |
+| `projectId` | path | `number` | yes |
+| `registerId` | body | `string` | yes |
+| `title` | body | `string` | yes |
+| `contents` | body | `string` | yes |

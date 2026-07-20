@@ -1,0 +1,490 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Jaldi Universal API",
+    "version": "0.0.6",
+    "description": "Manage Jaldi lead campaigns and send or retrieve leads through Jaldi webhook APIs."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/jaldi/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/jaldi/latest/actions/create-lead": {
+      "post": {
+        "operationId": "jaldi.create-lead",
+        "summary": "Create Lead",
+        "description": "Creates a new lead in Jaldi.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/jaldi/latest/actions/create-lead"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "campaignId",
+                  "firstName",
+                  "phone"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "campaignId": {
+                    "type": "string",
+                    "description": "The Jaldi campaign_id that should receive the new lead."
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "description": "Lead first name."
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Lead phone number in Jaldi's recommended +CountryCode format."
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "description": "Lead last name."
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Lead email address."
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "Optional notes sent with the lead."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "response": {
+                            "type": "object",
+                            "properties": {
+                              "message": {
+                                "type": "string",
+                                "description": "Jaldi success message returned after the lead is inserted and distributed."
+                              },
+                              "status_code": {
+                                "type": "number",
+                                "description": "HTTP-like status code returned inside Jaldi's response payload."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/jaldi/latest/actions/list-leads": {
+      "get": {
+        "operationId": "jaldi.list-leads",
+        "summary": "List Leads",
+        "description": "Retrieves leads from Jaldi.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/jaldi/latest/actions/list-leads"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lastUpdateFrom",
+            "in": "query",
+            "required": false,
+            "description": "Return leads updated on or after this Jaldi datetime in YYYY-MM-DD hh:mm format.",
+            "schema": {
+              "type": "string",
+              "description": "Return leads updated on or after this Jaldi datetime in YYYY-MM-DD hh:mm format."
+            }
+          },
+          {
+            "name": "lastUpdateTo",
+            "in": "query",
+            "required": false,
+            "description": "Return leads updated on or before this Jaldi datetime in YYYY-MM-DD hh:mm format.",
+            "schema": {
+              "type": "string",
+              "description": "Return leads updated on or before this Jaldi datetime in YYYY-MM-DD hh:mm format."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string",
+                            "description": "Provisional Jaldi lead email attribute inferred from Jaldi's webhook create contract."
+                          },
+                          "firstName": {
+                            "type": "string",
+                            "description": "Provisional Jaldi lead first name attribute inferred from Jaldi's public lead-entry docs and webhook create contract."
+                          },
+                          "lastName": {
+                            "type": "string",
+                            "description": "Provisional Jaldi lead last name attribute inferred from Jaldi's webhook create contract."
+                          },
+                          "notes": {
+                            "type": "string",
+                            "description": "Provisional Jaldi lead notes attribute inferred from Jaldi's public lead-management docs."
+                          },
+                          "phone": {
+                            "type": "string",
+                            "description": "Provisional Jaldi lead phone number attribute inferred from Jaldi's public lead-entry docs."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Provisional Jaldi lead status attribute inferred from Jaldi's public lead-status documentation."
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "description": "Provisional Jaldi lead update timestamp attribute inferred from the fetch endpoint's last_update_from / last_update_to selectors."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

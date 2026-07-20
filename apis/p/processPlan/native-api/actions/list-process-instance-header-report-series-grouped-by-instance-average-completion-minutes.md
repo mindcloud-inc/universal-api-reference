@@ -1,0 +1,8 @@
+# List Process Instance Header Report Series Grouped By Instance Average Completion Minutes with Process Plan
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/process_instance_header_report_series/list/grouped_by_instance_average_completion_minutes`
+- **Base URL:** `https://apius0.processplan.com/api/v4`
+- **Official documentation:** [List Process Instance Header Report Series Grouped By Instance Average Completion Minutes](https://answers.processplan.com/c/api/api-endpoints)

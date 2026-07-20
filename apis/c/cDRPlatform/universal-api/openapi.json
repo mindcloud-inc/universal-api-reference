@@ -1,0 +1,780 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "CDR Platform Universal API",
+    "version": "0.0.3",
+    "description": "Price, purchase, and verify carbon removal orders"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/cDRPlatform/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/cDRPlatform/latest/actions/calculate-co2-removal-price": {
+      "get": {
+        "operationId": "cDRPlatform.calculate-co2-removal-price",
+        "summary": "Calculate CO2 Removal Price",
+        "description": "Calculates CO2 removal pricing in CDR Platform.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/cDRPlatform/latest/actions/calculate-co2-removal-price"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "weightUnit",
+            "in": "query",
+            "required": true,
+            "description": "Unit for the CO2 removal amount.",
+            "schema": {
+              "type": "string",
+              "description": "Unit for the CO2 removal amount.",
+              "enum": [
+                "g",
+                "kg",
+                "t"
+              ],
+              "example": "kg"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "required": true,
+            "description": "Currency for the price calculation.",
+            "schema": {
+              "type": "string",
+              "description": "Currency for the price calculation.",
+              "enum": [
+                "chf",
+                "eur",
+                "gbp",
+                "usd"
+              ],
+              "example": "usd"
+            }
+          },
+          {
+            "name": "items[].methodType",
+            "in": "query",
+            "required": true,
+            "description": "Carbon removal method type for an item.",
+            "schema": {
+              "type": "string",
+              "description": "Carbon removal method type for an item.",
+              "enum": [
+                "bio-oil",
+                "forestation",
+                "kelp-sinking",
+                "olivine"
+              ],
+              "example": "forestation"
+            }
+          },
+          {
+            "name": "items[].cdrAmount",
+            "in": "query",
+            "required": true,
+            "description": "Amount of CO2 removal for an item, in the selected weight unit.",
+            "schema": {
+              "type": "number",
+              "description": "Amount of CO2 removal for an item, in the selected weight unit.",
+              "example": 1000
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "cost": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Cost breakdown for the price calculation.",
+                            "properties": {
+                              "items": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "cdr_amount": {
+                                      "type": "number",
+                                      "description": "Requested removal amount."
+                                    },
+                                    "cost": {
+                                      "type": "number",
+                                      "description": "Cost for this removal method item."
+                                    },
+                                    "method_type": {
+                                      "type": "string",
+                                      "description": "Removal method type."
+                                    }
+                                  }
+                                },
+                                "description": "Per-removal-method price rows."
+                              },
+                              "removal": {
+                                "type": "number",
+                                "description": "Removal cost subtotal."
+                              },
+                              "total": {
+                                "type": "number",
+                                "description": "Total calculated cost."
+                              },
+                              "variable_fees": {
+                                "type": "number",
+                                "description": "Variable fees subtotal."
+                              }
+                            }
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "Currency for the calculated cost."
+                          },
+                          "weight_unit": {
+                            "type": "string",
+                            "description": "Weight unit used in the calculation."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/cDRPlatform/latest/actions/get-cdr-certificate-by-id": {
+      "get": {
+        "operationId": "cDRPlatform.get-cdr-certificate-by-id",
+        "summary": "Get CDR Certificate By ID",
+        "description": "Retrieves a CDR certificate by ID from CDR Platform.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/cDRPlatform/latest/actions/get-cdr-certificate-by-id"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "Certificate ID using the documented three-part code format, for example ABC-DEF-GHI.",
+            "schema": {
+              "type": "string",
+              "description": "Certificate ID using the documented three-part code format, for example ABC-DEF-GHI.",
+              "example": "ABC-DEF-GHI"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "certificate_id": {
+                            "type": "string",
+                            "description": "Certificate identifier."
+                          },
+                          "display_name": {
+                            "type": "string",
+                            "description": "Certificate display name."
+                          },
+                          "issued_date": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Date the certificate was issued."
+                          },
+                          "removal_amount_kg": {
+                            "type": "number",
+                            "description": "Removal amount in kilograms."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/cDRPlatform/latest/actions/purchase-co2-removal": {
+      "post": {
+        "operationId": "cDRPlatform.purchase-co2-removal",
+        "summary": "Purchase CO2 Removal",
+        "description": "Creates a CO2 removal purchase in CDR Platform.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/cDRPlatform/latest/actions/purchase-co2-removal"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "weightUnit",
+                  "currency",
+                  "items[].methodType",
+                  "items[].cdrAmount"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "weightUnit": {
+                    "type": "string",
+                    "description": "Unit for the CO2 removal amount.",
+                    "enum": [
+                      "g",
+                      "kg",
+                      "t"
+                    ],
+                    "example": "kg"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Currency for the purchase request.",
+                    "enum": [
+                      "chf",
+                      "eur",
+                      "gbp",
+                      "usd"
+                    ],
+                    "example": "usd"
+                  },
+                  "items[].methodType": {
+                    "type": "string",
+                    "description": "Carbon removal method type for an item.",
+                    "enum": [
+                      "bio-oil",
+                      "forestation",
+                      "kelp-sinking",
+                      "olivine"
+                    ],
+                    "example": "forestation"
+                  },
+                  "items[].cdrAmount": {
+                    "type": "number",
+                    "description": "Amount of CO2 removal for an item, in the selected weight unit.",
+                    "example": 1000
+                  },
+                  "clientReferenceId": {
+                    "type": "string",
+                    "description": "Optional client reference ID to store with the purchase request.",
+                    "example": "order-123",
+                    "x-mindcloud-advanced": true
+                  },
+                  "certificateDisplayName": {
+                    "type": "string",
+                    "description": "Optional display name for the removal certificate.",
+                    "example": "Earth Day removal",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "transaction_uuid": {
+                            "type": "string",
+                            "description": "Unique transaction UUID for the CDR purchase request."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

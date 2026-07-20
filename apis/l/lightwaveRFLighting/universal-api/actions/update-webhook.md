@@ -1,0 +1,66 @@
+# LightwaveRF Lighting: Update Webhook
+
+Updates an existing webhook in LightwaveRF Lighting.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/lightwaveRFLighting/latest/actions/update-webhook
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a LightwaveRF Lighting `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/lightwaveRFLighting/latest/actions/update-webhook" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "eventId": "string",
+  "events[]": [
+    {}
+  ],
+  "url": "https://example.com",
+  "version": 1
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/lightwaveRFLighting/latest/actions/update-webhook', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "eventId": "string",
+    "events[]": [{}],
+    "url": "https://example.com",
+    "version": 1
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `eventId` | string | yes | The LightwaveRF webhook identifier to update. |
+| `events[]` | array<object> | yes | The updated list of LightwaveRF event subscriptions for the webhook. |
+| `url` | string | yes | The public HTTPS URL that should receive webhook deliveries. |
+| `ref` | string | no | An optional reference string to correlate the webhook registration. |
+| `version` | number | yes | The current webhook version required by the provider for optimistic concurrency. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native LightwaveRF Lighting API returns.
+
+## Native endpoint
+
+Through the native LightwaveRF Lighting API, this operation is `PATCH /v1/events/{eventId}` (base URL `https://publicapi.lightwaverf.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-webhook.md) for the provider-specific parameters and requirements.
+

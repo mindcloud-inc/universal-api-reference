@@ -1,0 +1,84 @@
+# Stormboard: List Chat Messages
+
+Retrieves chat messages from a Storm in Stormboard.
+
+```
+GET https://connect.mindcloud.co/v1/universal/stormboard/latest/actions/list-chat-messages
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Stormboard `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/stormboard/latest/actions/list-chat-messages?connectionId=$CONNECTION_ID&stormId=1" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "stormId": "1"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/stormboard/latest/actions/list-chat-messages?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `stormId` | number | yes | Storm ID from the Stormboard share dialog or related storm record. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "messages": [
+        {
+          "created": "string",
+          "isnew": true,
+          "msg": "string",
+          "storm": 1,
+          "user": {
+            "id": 1,
+            "name": "Ava Chen"
+          }
+        }
+      ],
+      "status": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `messages` | array<object> |  |
+| `messages[].created` | string |  |
+| `messages[].isnew` | boolean |  |
+| `messages[].msg` | string |  |
+| `messages[].storm` | number |  |
+| `messages[].user` | object |  |
+| `messages[].user.id` | number |  |
+| `messages[].user.name` | string |  |
+| `status` | number |  |
+
+## Native endpoint
+
+Through the native Stormboard API, this operation is `GET /chat/:storm_id/list` (base URL `https://api.stormboard.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-chat-messages.md) for the provider-specific parameters and requirements.
+

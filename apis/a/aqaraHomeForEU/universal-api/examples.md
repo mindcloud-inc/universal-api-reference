@@ -1,0 +1,94 @@
+# Aqara Home for EU Universal API Examples
+
+These examples use the MindCloud API key and Aqara Home for EU connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
+
+## Get Device Info
+
+
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/aqaraHomeForEU/latest/actions/query-device-info?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/aqaraHomeForEU/latest/actions/query-device-info?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "code": 1,
+      "message": "string",
+      "requestId": "string",
+      "result": {
+        "deviceName": "Ava Chen",
+        "did": "string"
+      }
+    }
+  ],
+  "meta": {}
+}
+```
+
+See the full [Get Device Info action reference](actions/query-device-info.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/aqaraHomeForEU/latest/actions/query-device-info).
+
+## Create Account
+
+
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/aqaraHomeForEU/latest/actions/config-auth-create-account" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/aqaraHomeForEU/latest/actions/config-auth-create-account', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "code": 1,
+      "message": "string",
+      "requestId": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+See the full [Create Account action reference](actions/config-auth-create-account.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/aqaraHomeForEU/latest/actions/config-auth-create-account).

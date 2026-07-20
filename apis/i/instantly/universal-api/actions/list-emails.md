@@ -1,0 +1,75 @@
+# Instantly: List Emails
+
+Retrieves emails from Instantly.
+
+```
+GET https://connect.mindcloud.co/v1/universal/instantly/latest/actions/list-emails
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Instantly `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/instantly/latest/actions/list-emails?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0'
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/instantly/latest/actions/list-emails?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "eaccount": "ava@example.com",
+      "from_address_email": "ava@example.com",
+      "id": "string",
+      "is_unread": 1,
+      "subject": "string",
+      "thread_id": "string",
+      "timestamp_created": "2026-05-07T12:00:00.000Z",
+      "to_address_email_list": "ava@example.com"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `eaccount` | string | Sending email account. |
+| `from_address_email` | string | Sender email address. |
+| `id` | string | Email UUID. |
+| `is_unread` | number | Unread flag. |
+| `subject` | string | Email subject. |
+| `thread_id` | string | Email thread ID. |
+| `timestamp_created` | date | Timestamp when the email was created. |
+| `to_address_email_list` | string | Recipient email list. |
+
+## Native endpoint
+
+Through the native Instantly API, this operation is `GET /api/v2/emails` (base URL `https://api.instantly.ai`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-emails.md) for the provider-specific parameters and requirements.
+

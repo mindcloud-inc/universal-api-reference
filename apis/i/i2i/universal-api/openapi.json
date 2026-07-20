@@ -1,0 +1,1133 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "i2i Universal API",
+    "version": "0.0.4",
+    "description": "i2i Fulfillment is a Canadian omnichannel fulfillment and supply-chain partner with Vancouver and Toronto distribution centres. This app exposes read-only ship order lookups for the i2i IBIS API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/i2i/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/i2i/latest/actions/create-order": {
+      "post": {
+        "operationId": "i2i.create-order",
+        "summary": "Create order",
+        "description": "Creates a new ship order in i2i.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/i2i/latest/actions/create-order"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "header",
+                  "lines[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "header": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Order header object matching the existing i2i connector payload: number, ref_no, po_no, service, shipper, soldto, shipto, and optional comments."
+                  },
+                  "lines[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Line item array matching the existing i2i connector payload. Each line includes description, item, and qty."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/i2i/latest/actions/get-ship-order": {
+      "get": {
+        "operationId": "i2i.get-ship-order",
+        "summary": "Get ship order",
+        "description": "Retrieves a ship order from i2i by order ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/i2i/latest/actions/get-ship-order"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "description": "i2i ship order ID to fetch.",
+            "schema": {
+              "type": "string",
+              "description": "i2i ship order ID to fetch.",
+              "example": "12345"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "header": {
+                            "type": "object",
+                            "properties": {
+                              "active": {
+                                "type": "string",
+                                "description": "Active flag returned by i2i."
+                              },
+                              "cancelled": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Cancellation timestamp when present."
+                              },
+                              "comment1": {
+                                "type": "string",
+                                "description": "First order comment."
+                              },
+                              "comment2": {
+                                "type": "string",
+                                "description": "Second order comment."
+                              },
+                              "created": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Created timestamp."
+                              },
+                              "id": {
+                                "type": "number",
+                                "description": "i2i ship order ID."
+                              },
+                              "number": {
+                                "type": "string",
+                                "description": "i2i ship order number."
+                              },
+                              "opened": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Opened timestamp."
+                              },
+                              "packed": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Packed timestamp."
+                              },
+                              "picked": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Picked timestamp."
+                              },
+                              "poNo": {
+                                "type": "string",
+                                "description": "Purchase order number."
+                              },
+                              "refNo": {
+                                "type": "string",
+                                "description": "Reference number."
+                              },
+                              "service": {
+                                "type": "string",
+                                "description": "Shipping service."
+                              },
+                              "shipped": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Shipped timestamp."
+                              },
+                              "shipper": {
+                                "type": "string",
+                                "description": "Shipper or carrier."
+                              },
+                              "shipto": {
+                                "type": "object",
+                                "properties": {
+                                  "address1": {
+                                    "type": "string",
+                                    "description": "Ship-to address line 1."
+                                  },
+                                  "address2": {
+                                    "type": "string",
+                                    "description": "Ship-to address line 2."
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "description": "Ship-to city."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "description": "Ship-to code."
+                                  },
+                                  "contact": {
+                                    "type": "string",
+                                    "description": "Ship-to contact."
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "description": "Ship-to country."
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "description": "Ship-to email."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Ship-to name."
+                                  },
+                                  "postal": {
+                                    "type": "string",
+                                    "description": "Ship-to postal code."
+                                  },
+                                  "province": {
+                                    "type": "string",
+                                    "description": "Ship-to province."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "soldto": {
+                                "type": "object",
+                                "properties": {
+                                  "address1": {
+                                    "type": "string",
+                                    "description": "Sold-to address line 1."
+                                  },
+                                  "address2": {
+                                    "type": "string",
+                                    "description": "Sold-to address line 2."
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "description": "Sold-to city."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "description": "Sold-to code."
+                                  },
+                                  "contact": {
+                                    "type": "string",
+                                    "description": "Sold-to contact."
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "description": "Sold-to country."
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "description": "Sold-to email."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Sold-to name."
+                                  },
+                                  "postal": {
+                                    "type": "string",
+                                    "description": "Sold-to postal code."
+                                  },
+                                  "province": {
+                                    "type": "string",
+                                    "description": "Sold-to province."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "i2i ship order status."
+                              },
+                              "trackingNo": {
+                                "type": "string",
+                                "description": "Tracking number."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "lines": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "description": {
+                                  "type": "string",
+                                  "description": "Line item description."
+                                },
+                                "item": {
+                                  "type": "string",
+                                  "description": "Line item code."
+                                },
+                                "orderedLot": {
+                                  "type": "string",
+                                  "description": "Ordered lot."
+                                },
+                                "orderedQty": {
+                                  "type": "number",
+                                  "description": "Ordered quantity."
+                                },
+                                "pickedQty": {
+                                  "type": "number",
+                                  "description": "Picked quantity."
+                                },
+                                "picks": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "pickedFrom": {
+                                        "type": "string",
+                                        "description": "Picked-from location."
+                                      },
+                                      "pickedLot": {
+                                        "type": "string",
+                                        "description": "Picked lot."
+                                      },
+                                      "pickedQty": {
+                                        "type": "number",
+                                        "description": "Picked quantity for the pick record."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "sentQty": {
+                                  "type": "number",
+                                  "description": "Sent quantity."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/i2i/latest/actions/list-ship-orders": {
+      "get": {
+        "operationId": "i2i.list-ship-orders",
+        "summary": "List ship orders",
+        "description": "Retrieves ship orders from i2i by status and date range.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/i2i/latest/actions/list-ship-orders"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "description": "Earliest ship-order timestamp accepted by i2i for this lookup.",
+            "schema": {
+              "type": "string",
+              "description": "Earliest ship-order timestamp accepted by i2i for this lookup.",
+              "example": "2026-04-01T00:00:00Z",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "description": "Latest ship-order timestamp accepted by i2i for this lookup.",
+            "schema": {
+              "type": "string",
+              "description": "Latest ship-order timestamp accepted by i2i for this lookup.",
+              "example": "2026-04-28T23:59:59Z",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Ship order status filter.",
+            "schema": {
+              "type": "string",
+              "description": "Ship order status filter.",
+              "enum": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7"
+              ]
+            }
+          },
+          {
+            "name": "complete",
+            "in": "query",
+            "required": false,
+            "description": "Completion flag filter used by i2i.",
+            "schema": {
+              "type": "string",
+              "description": "Completion flag filter used by i2i.",
+              "enum": [
+                "0",
+                "1"
+              ],
+              "default": "Y",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "created": {
+                            "type": "string"
+                          },
+                          "header": {
+                            "type": "object",
+                            "properties": {
+                              "active": {
+                                "type": "string",
+                                "description": "Active flag returned by i2i."
+                              },
+                              "cancelled": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Cancellation timestamp when present."
+                              },
+                              "comment1": {
+                                "type": "string",
+                                "description": "First order comment."
+                              },
+                              "comment2": {
+                                "type": "string",
+                                "description": "Second order comment."
+                              },
+                              "created": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Created timestamp."
+                              },
+                              "id": {
+                                "type": "number",
+                                "description": "i2i ship order ID."
+                              },
+                              "number": {
+                                "type": "string",
+                                "description": "i2i ship order number."
+                              },
+                              "opened": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Opened timestamp."
+                              },
+                              "packed": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Packed timestamp."
+                              },
+                              "picked": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Picked timestamp."
+                              },
+                              "poNo": {
+                                "type": "string",
+                                "description": "Purchase order number."
+                              },
+                              "refNo": {
+                                "type": "string",
+                                "description": "Reference number."
+                              },
+                              "service": {
+                                "type": "string",
+                                "description": "Shipping service."
+                              },
+                              "shipped": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Shipped timestamp."
+                              },
+                              "shipper": {
+                                "type": "string",
+                                "description": "Shipper or carrier."
+                              },
+                              "shipto": {
+                                "type": "object",
+                                "properties": {
+                                  "address1": {
+                                    "type": "string",
+                                    "description": "Ship-to address line 1."
+                                  },
+                                  "address2": {
+                                    "type": "string",
+                                    "description": "Ship-to address line 2."
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "description": "Ship-to city."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "description": "Ship-to code."
+                                  },
+                                  "contact": {
+                                    "type": "string",
+                                    "description": "Ship-to contact."
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "description": "Ship-to country."
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "description": "Ship-to email."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Ship-to name."
+                                  },
+                                  "postal": {
+                                    "type": "string",
+                                    "description": "Ship-to postal code."
+                                  },
+                                  "province": {
+                                    "type": "string",
+                                    "description": "Ship-to province."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "soldto": {
+                                "type": "object",
+                                "properties": {
+                                  "address1": {
+                                    "type": "string",
+                                    "description": "Sold-to address line 1."
+                                  },
+                                  "address2": {
+                                    "type": "string",
+                                    "description": "Sold-to address line 2."
+                                  },
+                                  "city": {
+                                    "type": "string",
+                                    "description": "Sold-to city."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "description": "Sold-to code."
+                                  },
+                                  "contact": {
+                                    "type": "string",
+                                    "description": "Sold-to contact."
+                                  },
+                                  "country": {
+                                    "type": "string",
+                                    "description": "Sold-to country."
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "description": "Sold-to email."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Sold-to name."
+                                  },
+                                  "postal": {
+                                    "type": "string",
+                                    "description": "Sold-to postal code."
+                                  },
+                                  "province": {
+                                    "type": "string",
+                                    "description": "Sold-to province."
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "i2i ship order status."
+                              },
+                              "trackingNo": {
+                                "type": "string",
+                                "description": "Tracking number."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "number"
+                          },
+                          "lines": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "description": {
+                                  "type": "string",
+                                  "description": "Line item description."
+                                },
+                                "item": {
+                                  "type": "string",
+                                  "description": "Line item code."
+                                },
+                                "orderedLot": {
+                                  "type": "string",
+                                  "description": "Ordered lot."
+                                },
+                                "orderedQty": {
+                                  "type": "number",
+                                  "description": "Ordered quantity."
+                                },
+                                "pickedQty": {
+                                  "type": "number",
+                                  "description": "Picked quantity."
+                                },
+                                "picks": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "pickedFrom": {
+                                        "type": "string",
+                                        "description": "Picked-from location."
+                                      },
+                                      "pickedLot": {
+                                        "type": "string",
+                                        "description": "Picked lot."
+                                      },
+                                      "pickedQty": {
+                                        "type": "number",
+                                        "description": "Picked quantity for the pick record."
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "sentQty": {
+                                  "type": "number",
+                                  "description": "Sent quantity."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "number": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

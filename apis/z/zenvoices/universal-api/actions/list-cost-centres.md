@@ -1,0 +1,65 @@
+# Zenvoices: List Cost Centres
+
+Retrieves cost centres from your Zenvoices workspace.
+
+```
+GET https://connect.mindcloud.co/v1/universal/zenvoices/latest/actions/list-cost-centres
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Zenvoices `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [sorting](../sorting.md) (`sort`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/zenvoices/latest/actions/list-cost-centres?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0'
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/zenvoices/latest/actions/list-cost-centres?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "items": [
+        {}
+      ],
+      "totalCount": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `items` | array<object> | Returned records. |
+| `totalCount` | number | Total available records. |
+
+## Native endpoint
+
+Through the native Zenvoices API, this operation is `POST /public-api/v1/costCentres/list` (base URL `https://app.zenvoices.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-cost-centres.md) for the provider-specific parameters and requirements.
+

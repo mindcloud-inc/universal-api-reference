@@ -1,0 +1,16 @@
+# Delete a role with Weaviate Vector Store
+
+Deletes a role from Weaviate.
+
+## Endpoint
+
+- **Method:** `DELETE`
+- **Path:** `/authz/roles/:id`
+- **Base URL:** `https://tl3apaxxsoiuwhpnsdv19a.c0.us-west3.gcp.weaviate.cloud`
+- **Official documentation:** [Delete a role](https://docs.weaviate.io/weaviate/api/rest)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | yes | The name of the role. |

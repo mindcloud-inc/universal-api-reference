@@ -1,0 +1,64 @@
+# Mem: Delete Note
+
+Deletes an existing note from Mem.
+
+```
+DELETE https://connect.mindcloud.co/v1/universal/mem/latest/actions/delete-note
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Mem `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/mem/latest/actions/delete-note?connectionId=$CONNECTION_ID&noteId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "noteId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/mem/latest/actions/delete-note?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `noteId` | string | yes | The ID of the note to delete. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "requestId": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `requestId` | string | Mem request identifier. |
+
+## Native endpoint
+
+Through the native Mem API, this operation is `DELETE /v2/notes/:noteId` (base URL `https://api.mem.ai`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/delete-note.md) for the provider-specific parameters and requirements.
+

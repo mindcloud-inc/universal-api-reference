@@ -1,0 +1,70 @@
+# LambdaTest: Delete Build
+
+Deletes an existing build from LambdaTest.
+
+```
+DELETE https://connect.mindcloud.co/v1/universal/lambdaTest/latest/actions/delete-build
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a LambdaTest `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/lambdaTest/latest/actions/delete-build?connectionId=$CONNECTION_ID&buildId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "buildId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/lambdaTest/latest/actions/delete-build?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `buildId` | string | yes | The LambdaTest build ID. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "data": {},
+      "message": "string",
+      "Meta": {},
+      "status": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `data` | object |  |
+| `message` | string |  |
+| `Meta` | object |  |
+| `status` | string |  |
+
+## Native endpoint
+
+Through the native LambdaTest API, this operation is `DELETE /builds/{build_id}` (base URL `https://api.lambdatest.com/automation/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/delete-build.md) for the provider-specific parameters and requirements.
+

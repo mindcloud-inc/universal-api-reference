@@ -1,0 +1,1640 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Bureau of Labor Statistics Universal API",
+    "version": "0.1.1",
+    "description": "Access public U.S. Bureau of Labor Statistics time-series data, popular series, and survey metadata through the BLS Public Data API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/bureauOfLaborStatistics/latest/actions/get-latest-series-data": {
+      "get": {
+        "operationId": "bureauOfLaborStatistics.get-latest-series-data",
+        "summary": "Get Latest Series Data",
+        "description": "Retrieves the latest data point for a Bureau of Labor Statistics series.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest/actions/get-latest-series-data"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "BLS time series ID. Use uppercase BLS format, for example LAUCN040010000000005.",
+            "schema": {
+              "type": "string",
+              "description": "BLS time series ID. Use uppercase BLS format, for example LAUCN040010000000005."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "BLS response messages."
+                          },
+                          "responseTime": {
+                            "type": "number",
+                            "description": "BLS response time in milliseconds."
+                          },
+                          "Results": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "BLS response results envelope.",
+                            "properties": {
+                              "series": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "data": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "footnotes": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "additionalProperties": false,
+                                              "properties": {
+                                                "code": {
+                                                  "type": "string",
+                                                  "description": "Optional BLS footnote code."
+                                                },
+                                                "text": {
+                                                  "type": "string",
+                                                  "description": "Optional BLS footnote text."
+                                                }
+                                              }
+                                            },
+                                            "description": "Footnotes for the data point."
+                                          },
+                                          "latest": {
+                                            "type": "string",
+                                            "description": "BLS latest marker."
+                                          },
+                                          "period": {
+                                            "type": "string",
+                                            "description": "BLS period code."
+                                          },
+                                          "periodName": {
+                                            "type": "string",
+                                            "description": "Human-readable period name."
+                                          },
+                                          "value": {
+                                            "type": "string",
+                                            "description": "Latest value as returned by BLS."
+                                          },
+                                          "year": {
+                                            "type": "string",
+                                            "description": "Latest data point year."
+                                          }
+                                        }
+                                      },
+                                      "description": "Latest data point for the series."
+                                    },
+                                    "seriesID": {
+                                      "type": "string",
+                                      "description": "BLS series ID."
+                                    }
+                                  }
+                                },
+                                "description": "Series returned by BLS."
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "BLS request status returned by runtime."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/bureauOfLaborStatistics/latest/actions/get-single-series-data": {
+      "get": {
+        "operationId": "bureauOfLaborStatistics.get-single-series-data",
+        "summary": "Get Single Series Data",
+        "description": "Retrieves recent data for one Bureau of Labor Statistics series.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest/actions/get-single-series-data"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "BLS time series ID. Use uppercase BLS format, for example LAUCN040010000000005.",
+            "schema": {
+              "type": "string",
+              "description": "BLS time series ID. Use uppercase BLS format, for example LAUCN040010000000005."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "BLS response messages."
+                          },
+                          "responseTime": {
+                            "type": "number",
+                            "description": "BLS response time in milliseconds."
+                          },
+                          "Results": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "BLS response results envelope.",
+                            "properties": {
+                              "series": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "data": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "footnotes": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "additionalProperties": false,
+                                              "properties": {
+                                                "code": {
+                                                  "type": "string",
+                                                  "description": "Optional BLS footnote code."
+                                                },
+                                                "text": {
+                                                  "type": "string",
+                                                  "description": "Optional BLS footnote text."
+                                                }
+                                              }
+                                            },
+                                            "description": "Footnotes for the data point."
+                                          },
+                                          "latest": {
+                                            "type": "string",
+                                            "description": "Present when BLS marks the data point as latest."
+                                          },
+                                          "period": {
+                                            "type": "string",
+                                            "description": "BLS period code."
+                                          },
+                                          "periodName": {
+                                            "type": "string",
+                                            "description": "Human-readable period name."
+                                          },
+                                          "value": {
+                                            "type": "string",
+                                            "description": "Data point value as returned by BLS."
+                                          },
+                                          "year": {
+                                            "type": "string",
+                                            "description": "Data point year."
+                                          }
+                                        }
+                                      },
+                                      "description": "Data points for the series."
+                                    },
+                                    "seriesID": {
+                                      "type": "string",
+                                      "description": "BLS series ID."
+                                    }
+                                  }
+                                },
+                                "description": "Series returned by BLS."
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "BLS request status returned by runtime."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/bureauOfLaborStatistics/latest/actions/get-survey": {
+      "get": {
+        "operationId": "bureauOfLaborStatistics.get-survey",
+        "summary": "Get Survey",
+        "description": "Retrieves metadata for a Bureau of Labor Statistics survey.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest/actions/get-survey"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "surveyAbbreviation",
+            "in": "query",
+            "required": true,
+            "description": "BLS survey abbreviation, for example TU.",
+            "schema": {
+              "type": "string",
+              "description": "BLS survey abbreviation, for example TU."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "BLS response messages."
+                          },
+                          "responseTime": {
+                            "type": "number",
+                            "description": "BLS response time in milliseconds."
+                          },
+                          "Results": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "BLS response results envelope.",
+                            "properties": {
+                              "survey": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "allowsNetChange": {
+                                      "type": "string",
+                                      "description": "Whether net change calculations are allowed."
+                                    },
+                                    "allowsPercentChange": {
+                                      "type": "string",
+                                      "description": "Whether percent change calculations are allowed."
+                                    },
+                                    "hasAnnualAverages": {
+                                      "type": "string",
+                                      "description": "Whether annual averages are available."
+                                    },
+                                    "survey_abbreviation": {
+                                      "type": "string",
+                                      "description": "Survey abbreviation."
+                                    },
+                                    "survey_name": {
+                                      "type": "string",
+                                      "description": "Survey name."
+                                    }
+                                  }
+                                },
+                                "description": "Requested BLS survey metadata."
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "BLS request status returned by runtime."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/bureauOfLaborStatistics/latest/actions/list-popular-series": {
+      "get": {
+        "operationId": "bureauOfLaborStatistics.list-popular-series",
+        "summary": "List Popular Series",
+        "description": "Retrieves popular Bureau of Labor Statistics series IDs.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest/actions/list-popular-series"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "survey",
+            "in": "query",
+            "required": false,
+            "description": "Optional BLS survey abbreviation, for example LA, to return popular series for one survey.",
+            "schema": {
+              "type": "string",
+              "description": "Optional BLS survey abbreviation, for example LA, to return popular series for one survey."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "BLS response messages."
+                          },
+                          "responseTime": {
+                            "type": "number",
+                            "description": "BLS response time in milliseconds."
+                          },
+                          "Results": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "BLS response results envelope.",
+                            "properties": {
+                              "series": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "seriesID": {
+                                      "type": "string",
+                                      "description": "BLS series ID."
+                                    }
+                                  }
+                                },
+                                "description": "Popular series returned by BLS."
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "BLS request status returned by runtime."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/bureauOfLaborStatistics/latest/actions/list-surveys": {
+      "get": {
+        "operationId": "bureauOfLaborStatistics.list-surveys",
+        "summary": "List Surveys",
+        "description": "Retrieves metadata for all Bureau of Labor Statistics surveys.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest/actions/list-surveys"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "BLS response messages."
+                          },
+                          "responseTime": {
+                            "type": "number",
+                            "description": "BLS response time in milliseconds."
+                          },
+                          "Results": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "BLS response results envelope.",
+                            "properties": {
+                              "survey": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "survey_abbreviation": {
+                                      "type": "string",
+                                      "description": "Survey abbreviation."
+                                    },
+                                    "survey_name": {
+                                      "type": "string",
+                                      "description": "Survey name."
+                                    }
+                                  }
+                                },
+                                "description": "BLS surveys returned by runtime."
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "BLS request status returned by runtime."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/bureauOfLaborStatistics/latest/actions/query-series-data": {
+      "get": {
+        "operationId": "bureauOfLaborStatistics.query-series-data",
+        "summary": "Query Series Data",
+        "description": "Finds Bureau of Labor Statistics data for one or more series.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest/actions/query-series-data"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "seriesid",
+            "in": "query",
+            "required": true,
+            "description": "One or more BLS series IDs. BLS expects the JSON key seriesid with an array of IDs.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "One or more BLS series IDs. BLS expects the JSON key seriesid with an array of IDs."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "startyear",
+            "in": "query",
+            "required": false,
+            "description": "Optional four-digit start year for the requested time frame.",
+            "schema": {
+              "type": "string",
+              "description": "Optional four-digit start year for the requested time frame."
+            }
+          },
+          {
+            "name": "endyear",
+            "in": "query",
+            "required": false,
+            "description": "Optional four-digit end year for the requested time frame.",
+            "schema": {
+              "type": "string",
+              "description": "Optional four-digit end year for the requested time frame."
+            }
+          },
+          {
+            "name": "catalog",
+            "in": "query",
+            "required": false,
+            "description": "Optional BLS flag to include catalog metadata when available. BLS registration may be required for enhanced optional fields.",
+            "schema": {
+              "type": "boolean",
+              "description": "Optional BLS flag to include catalog metadata when available. BLS registration may be required for enhanced optional fields.",
+              "default": false,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "calculations",
+            "in": "query",
+            "required": false,
+            "description": "Optional BLS flag to include available net and percent calculations. BLS registration may be required for enhanced optional fields.",
+            "schema": {
+              "type": "boolean",
+              "description": "Optional BLS flag to include available net and percent calculations. BLS registration may be required for enhanced optional fields.",
+              "default": false,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "annualaverage",
+            "in": "query",
+            "required": false,
+            "description": "Optional BLS flag to include annual averages when available. BLS registration may be required for enhanced optional fields.",
+            "schema": {
+              "type": "boolean",
+              "description": "Optional BLS flag to include annual averages when available. BLS registration may be required for enhanced optional fields.",
+              "default": false,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "aspects",
+            "in": "query",
+            "required": false,
+            "description": "Optional BLS flag to retrieve aspects associated with data points when available. BLS registration may be required for enhanced optional fields.",
+            "schema": {
+              "type": "boolean",
+              "description": "Optional BLS flag to retrieve aspects associated with data points when available. BLS registration may be required for enhanced optional fields.",
+              "default": false,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "BLS response messages."
+                          },
+                          "responseTime": {
+                            "type": "number",
+                            "description": "BLS response time in milliseconds."
+                          },
+                          "Results": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "BLS response results envelope.",
+                            "properties": {
+                              "series": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "data": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "footnotes": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "additionalProperties": false,
+                                              "properties": {
+                                                "code": {
+                                                  "type": "string",
+                                                  "description": "Optional BLS footnote code."
+                                                },
+                                                "text": {
+                                                  "type": "string",
+                                                  "description": "Optional BLS footnote text."
+                                                }
+                                              }
+                                            },
+                                            "description": "Footnotes for the data point."
+                                          },
+                                          "latest": {
+                                            "type": "string",
+                                            "description": "Present when BLS marks the data point as latest."
+                                          },
+                                          "period": {
+                                            "type": "string",
+                                            "description": "BLS period code."
+                                          },
+                                          "periodName": {
+                                            "type": "string",
+                                            "description": "Human-readable period name."
+                                          },
+                                          "value": {
+                                            "type": "string",
+                                            "description": "Data point value as returned by BLS."
+                                          },
+                                          "year": {
+                                            "type": "string",
+                                            "description": "Data point year."
+                                          }
+                                        }
+                                      },
+                                      "description": "Data points for the series."
+                                    },
+                                    "seriesID": {
+                                      "type": "string",
+                                      "description": "BLS series ID."
+                                    }
+                                  }
+                                },
+                                "description": "Series returned by BLS."
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "BLS request status returned by runtime."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

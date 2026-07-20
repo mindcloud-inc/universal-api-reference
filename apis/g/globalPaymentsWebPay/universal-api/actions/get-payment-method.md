@@ -1,0 +1,80 @@
+# Global Payments WebPay: Get Payment Method
+
+Retrieves a payment method from Global Payments WebPay.
+
+```
+GET https://connect.mindcloud.co/v1/universal/globalPaymentsWebPay/latest/actions/get-payment-method
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Global Payments WebPay `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/globalPaymentsWebPay/latest/actions/get-payment-method?connectionId=$CONNECTION_ID&id=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "id": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/globalPaymentsWebPay/latest/actions/get-payment-method?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | yes | Global Payments payment method ID. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "account_id": "string",
+      "card": {
+        "number_last4": "string"
+      },
+      "id": "string",
+      "merchant_id": "string",
+      "name": "Ava Chen",
+      "reference": "string",
+      "status": "string",
+      "time_created": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `account_id` | string |  |
+| `card.number_last4` | string |  |
+| `id` | string |  |
+| `merchant_id` | string |  |
+| `name` | string |  |
+| `reference` | string |  |
+| `status` | string |  |
+| `time_created` | date |  |
+
+## Native endpoint
+
+Through the native Global Payments WebPay API, this operation is `GET /payment-methods/{id}` (base URL `https://apis.globalpay.com/ucp`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-payment-method.md) for the provider-specific parameters and requirements.
+

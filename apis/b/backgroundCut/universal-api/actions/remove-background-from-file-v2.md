@@ -1,0 +1,77 @@
+# BackgroundCut: Remove Background From File (v2)
+
+Removes an image background in BackgroundCut from an uploaded file.
+
+```
+POST https://connect.mindcloud.co/v1/universal/backgroundCut/latest/actions/remove-background-from-file-v2
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a BackgroundCut `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/backgroundCut/latest/actions/remove-background-from-file-v2" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "imageFile": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/backgroundCut/latest/actions/remove-background-from-file-v2', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "imageFile": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `imageFile` | file | yes | Source image file. |
+| `maxResolution` | number | no | Maximum output resolution in pixels, up to 12000000. Example: `4000000`. |
+| `returnType` | list | no | Output image format. One of: `0`, `1`, `2`, `3`. Default: `PNG`. |
+| `quality` | list | no | Processing quality. One of: `0`, `1`, `2`. Default: `Medium`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "data": [
+        1
+      ],
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `data` | array<number> | Binary bytes of the generated image file. |
+| `type` | string | Serialized Node buffer type for the returned PNG or WEBP image. |
+
+## Native endpoint
+
+Through the native BackgroundCut API, this operation is `POST https://api.backgroundcut.co/v2/cut/` (base URL `https://backgroundcut.co/api/v1/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/remove-background-from-file-v2.md) for the provider-specific parameters and requirements.
+

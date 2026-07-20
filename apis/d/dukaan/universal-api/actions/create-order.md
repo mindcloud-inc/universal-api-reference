@@ -1,0 +1,116 @@
+# Dukaan: Create Order
+
+Creates a new order in Dukaan.
+
+```
+POST https://connect.mindcloud.co/v1/universal/dukaan/latest/actions/create-order
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Dukaan `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/dukaan/latest/actions/create-order" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "store": "your-store-uuid",
+  "lineItems[]": [
+    {}
+  ],
+  "mobile": "+91 9999999999",
+  "address": {}
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/dukaan/latest/actions/create-order', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "store": "your-store-uuid",
+    "lineItems[]": [{}],
+    "mobile": "+91 9999999999",
+    "address": {}
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `store` | string | yes | Store UUID for the order. Example: `your-store-uuid`. |
+| `lineItems[]` | array<object> | yes | Order line item objects. |
+| `mobile` | string | yes | Buyer mobile number. Example: `+91 9999999999`. |
+| `buyerPin` | string | no | Buyer postal code. Example: `560102`. |
+| `address` | object | yes | Buyer address object. |
+| `notes` | string | no | Order notes. Example: `Added a note`. |
+| `paymentMode` | number | no | Dukaan payment mode code. Default: `0`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "buyer_address": {},
+      "coupon_discount": 1,
+      "created_at": "2026-05-07T12:00:00.000Z",
+      "delivery_cost": 1,
+      "display_order_id": "string",
+      "id": 1,
+      "is_new": true,
+      "line_items": [
+        {}
+      ],
+      "modified_at": "2026-05-07T12:00:00.000Z",
+      "notes": "string",
+      "payment_mode": 1,
+      "product_count": 1,
+      "status": 1,
+      "total_cost": 1,
+      "type": 1,
+      "uuid": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `buyer_address` | object | Buyer address details |
+| `coupon_discount` | number | Coupon discount amount |
+| `created_at` | date | Creation timestamp |
+| `delivery_cost` | number | Delivery charge |
+| `display_order_id` | string | Human-readable order ID |
+| `id` | number | Dukaan order ID |
+| `is_new` | boolean | Whether the order is new |
+| `line_items` | array<object> | Order line items |
+| `modified_at` | date | Last modified timestamp |
+| `notes` | string | Order notes |
+| `payment_mode` | number | Payment mode code |
+| `product_count` | number | Number of products in the order |
+| `status` | number | Order status code |
+| `total_cost` | number | Order total cost |
+| `type` | number | Order type code |
+| `uuid` | string | Dukaan order UUID |
+
+## Native endpoint
+
+Through the native Dukaan API, this operation is `POST api/order/seller/order/` (base URL `https://api.mydukaan.io`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-order.md) for the provider-specific parameters and requirements.
+

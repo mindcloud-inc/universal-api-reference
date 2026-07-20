@@ -1,0 +1,80 @@
+# Dart: Update Doc
+
+Updates an existing doc in Dart.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/dart/latest/actions/update-doc
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Dart `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/dart/latest/actions/update-doc" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/dart/latest/actions/update-doc', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | no |  |
+| `item.folder` | string | no |  |
+| `item.id` | string | no |  |
+| `item.text` | string | no |  |
+| `item.title` | string | no |  |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "folder": "string",
+      "htmlUrl": "https://example.com",
+      "id": "string",
+      "text": "string",
+      "title": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `folder` | string |  |
+| `htmlUrl` | string |  |
+| `id` | string |  |
+| `text` | string |  |
+| `title` | string |  |
+
+## Native endpoint
+
+Through the native Dart API, this operation is `PUT /docs/:id` (base URL `https://app.dartai.com/api/v0/public`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-doc.md) for the provider-specific parameters and requirements.
+

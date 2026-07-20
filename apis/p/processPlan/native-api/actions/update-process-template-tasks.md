@@ -1,0 +1,8 @@
+# Update Process Template Tasks with Process Plan
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `/process_template_task/id_list/update`
+- **Base URL:** `https://apius0.processplan.com/api/v4`
+- **Official documentation:** [Update Process Template Tasks](https://answers.processplan.com/c/api/api-endpoints)

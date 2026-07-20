@@ -1,0 +1,121 @@
+# InventoryBase: Create Inspection Contact
+
+Creates a new contact for an inspection in InventoryBase.
+
+```
+POST https://connect.mindcloud.co/v1/universal/inventoryBase/latest/actions/create-inspection-contact
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a InventoryBase `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/inventoryBase/latest/actions/create-inspection-contact" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "deliver": true,
+  "email": "ava@example.com",
+  "inspectionId": 1,
+  "name": "Ava Chen",
+  "notify": true,
+  "phone": "string",
+  "signee": true,
+  "type": 1
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/inventoryBase/latest/actions/create-inspection-contact', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "deliver": true,
+    "email": "ava@example.com",
+    "inspectionId": 1,
+    "name": "Ava Chen",
+    "notify": true,
+    "phone": "string",
+    "signee": true,
+    "type": 1
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `deliver` | boolean | yes | Whether to deliver to the contact |
+| `email` | string | yes | Contact email |
+| `inspectionId` | number | yes | The ID of the inspection |
+| `name` | string | yes | Contact name |
+| `notify` | boolean | yes | Whether to notify the contact |
+| `phone` | string | yes | Contact phone |
+| `signee` | boolean | yes | Whether the contact is a signee |
+| `type` | number | yes | Contact type ID |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "deliver": true,
+      "email": "ava@example.com",
+      "id": 1,
+      "name": "Ava Chen",
+      "notify": true,
+      "occupyOn": "string",
+      "otherLabel": "string",
+      "pending": true,
+      "phone": "string",
+      "reference": "string",
+      "signee": true,
+      "sms": true,
+      "syncId": 1,
+      "type": 1,
+      "vacateOn": "string",
+      "viewed": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `deliver` | boolean |  |
+| `email` | string |  |
+| `id` | number |  |
+| `name` | string |  |
+| `notify` | boolean |  |
+| `occupyOn` | string |  |
+| `otherLabel` | string |  |
+| `pending` | boolean |  |
+| `phone` | string |  |
+| `reference` | string |  |
+| `signee` | boolean |  |
+| `sms` | boolean |  |
+| `syncId` | number |  |
+| `type` | number |  |
+| `vacateOn` | string |  |
+| `viewed` | string |  |
+
+## Native endpoint
+
+Through the native InventoryBase API, this operation is `POST /inspections/:inspectionId/contacts` (base URL `https://api.inventorybase.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-inspection-contact.md) for the provider-specific parameters and requirements.
+

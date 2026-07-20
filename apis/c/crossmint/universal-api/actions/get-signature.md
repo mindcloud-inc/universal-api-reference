@@ -1,0 +1,50 @@
+# Crossmint: Get Signature
+
+Retrieves a signature from Crossmint.
+
+```
+GET https://connect.mindcloud.co/v1/universal/crossmint/latest/actions/get-signature
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Crossmint `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/crossmint/latest/actions/get-signature?connectionId=$CONNECTION_ID&walletLocator=email%3Auser%40example.com%3Aevm%3Asmart&signatureId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "walletLocator": "email:user@example.com:evm:smart",
+  "signatureId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/crossmint/latest/actions/get-signature?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `walletLocator` | string | yes | Wallet locator using the Crossmint wallet locator formats. Example: `email:user@example.com:evm:smart`. |
+| `signatureId` | string | yes | Signature identifier returned by Crossmint. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Crossmint API returns.
+
+## Native endpoint
+
+Through the native Crossmint API, this operation is `GET /2025-06-09/wallets/:walletLocator/signatures/:signatureId` (base URL `https://staging.crossmint.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-signature.md) for the provider-specific parameters and requirements.
+

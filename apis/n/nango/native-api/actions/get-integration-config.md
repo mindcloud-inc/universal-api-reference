@@ -1,0 +1,14 @@
+# Get Integration (Config) with Nango
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/config/:providerConfigKey`
+- **Base URL:** `https://api.nango.dev`
+- **Official documentation:** [Get Integration (Config)](https://raw.githubusercontent.com/speakeasy-sdks/nango-typescript-sdk/main/openapi.yaml)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `providerConfigKey` | path | `string` | yes | The provider configuration key for the integration. |

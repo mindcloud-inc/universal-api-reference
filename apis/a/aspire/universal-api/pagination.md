@@ -1,0 +1,106 @@
+# Aspire Universal API Pagination
+
+Paginated list actions accept `limit` and `offset` as query parameters. MindCloud translates them into whatever pagination model Aspire expects, so the request shape stays the same even when the native API uses pages or cursors.
+
+| Parameter | Description |
+| --- | --- |
+| `limit` | Maximum number of records to return |
+| `offset` | Number of records to skip |
+
+Start with `offset=0`, add `limit` to the offset after each page, and stop when a page returns fewer rows than requested.
+
+## Example
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get-invoice-revenue?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+## Aspire actions that support pagination
+
+- [Create Pay Rate Override Pay Codes](actions/create-pay-rate-override-pay-codes.md)
+- [List Invoice Revenues](actions/get-invoice-revenue.md)
+- [List Prospect Ratings](actions/get-prospect-ratings.md)
+- [List Vendors](actions/get-users.md)
+- [List Activities](actions/list-activities.md)
+- [List Activity Categories](actions/list-activity-categories.md)
+- [List Activity Comment Histories](actions/list-activity-comment-histories.md)
+- [List Activity Contacts](actions/list-activity-contacts.md)
+- [List Addresses](actions/list-addresses.md)
+- [List Attachment Types](actions/list-attachment-types.md)
+- [List Bank Deposits](actions/list-bank-deposits.md)
+- [List Branches](actions/list-branches.md)
+- [List Catalog Item Categories](actions/list-catalog-item-categories.md)
+- [List Catalog Items](actions/list-catalog-items.md)
+- [List Certification Types](actions/list-certification-types.md)
+- [List Certifications](actions/list-certifications.md)
+- [List Clock Times](actions/list-clock-times.md)
+- [List Companies](actions/list-companies.md)
+- [List Contact Custom Field Definitions](actions/list-contact-custom-field-definitions.md)
+- [List Contact Custom Fields](actions/list-contact-custom-fields.md)
+- [List Contact Types](actions/list-contact-types.md)
+- [List Contacts](actions/list-contacts.md)
+- [List Division Integration Codes](actions/list-division-integration-codes.md)
+- [List Divisions](actions/list-divisions.md)
+- [List Employee Incident Types](actions/list-employee-incident-types.md)
+- [List Employee Incidents](actions/list-employee-incidents.md)
+- [List Equipment Classes](actions/list-equipment-classes.md)
+- [List Equipment Disposal Reasons](actions/list-equipment-disposal-reasons.md)
+- [List Equipment Manufacturers](actions/list-equipment-manufacturers.md)
+- [List Equipment Model Service Schedules](actions/list-equipment-model-service-schedules.md)
+- [List Equipment Models](actions/list-equipment-models.md)
+- [List Equipment Reading Logs](actions/list-equipment-reading-logs.md)
+- [List Equipment Requested Services](actions/list-equipment-requested-services.md)
+- [List Equipment Service Logs](actions/list-equipment-service-logs.md)
+- [List Equipment Service Tags](actions/list-equipment-service-tags.md)
+- [List Equipment Sizes](actions/list-equipment-sizes.md)
+- [List Equipments](actions/list-equipments.md)
+- [List Inventory Locations](actions/list-inventory-locations.md)
+- [List Invoice Batches](actions/list-invoice-batches.md)
+- [List Invoice Taxes](actions/list-invoice-taxes.md)
+- [List Invoices](actions/list-invoices.md)
+- [List Item Allocations](actions/list-item-allocations.md)
+- [List Job Statuses](actions/list-job-statuses.md)
+- [List Jobs](actions/list-jobs.md)
+- [List Localities](actions/list-localities.md)
+- [List Oportunity Service Items](actions/list-oportunity-service-items.md)
+- [List Opportunities](actions/list-opportunities.md)
+- [List Opportunity Lost Reasons](actions/list-opportunity-lost-reasons.md)
+- [List Opportunity Service Groups](actions/list-opportunity-service-groups.md)
+- [List Opportunity Service Kit Items](actions/list-opportunity-service-kit-items.md)
+- [List Opportunity Services](actions/list-opportunity-services.md)
+- [List Opportunity Status](actions/list-opportunity-status.md)
+- [List Pay Rate Override Pay Codes](actions/list-pay-rate-override-pay-codes.md)
+- [List Pay Rates](actions/list-pay-rates.md)
+- [List Pay Schedules](actions/list-pay-schedules.md)
+- [List Payment Categories](actions/list-payment-categories.md)
+- [List Payment Terms](actions/list-payment-terms.md)
+- [List Payments](actions/list-payments.md)
+- [List Properties](actions/list-properties.md)
+- [List Property Availabilities](actions/list-property-availabilities.md)
+- [List Property Contacts](actions/list-property-contacts.md)
+- [List Property Custom Field Definitions](actions/list-property-custom-field-definitions.md)
+- [List Property Custom Fields](actions/list-property-custom-fields.md)
+- [List Property Status](actions/list-property-status.md)
+- [List Property Types](actions/list-property-types.md)
+- [List Receipts](actions/list-receipts.md)
+- [List Regions](actions/list-regions.md)
+- [List Revenue Variances](actions/list-revenue-variances.md)
+- [List Roles](actions/list-roles.md)
+- [List Routes](actions/list-routes.md)
+- [List Sales Types](actions/list-sales-types.md)
+- [List Service Type Integration Codes](actions/list-service-type-integration-codes.md)
+- [List Service Types](actions/list-service-types.md)
+- [List Services](actions/list-services.md)
+- [List Tags](actions/list-tags.md)
+- [List Tax Jurisdictions](actions/list-tax-jurisdictions.md)
+- [List Unit Types](actions/list-unit-types.md)
+- [List Users](actions/list-users.md)
+- [List Work Ticket Canceled Reasons](actions/list-work-ticket-canceled-reasons.md)
+- [List Work Ticket Items](actions/list-work-ticket-items.md)
+- [List Work Ticket Revenues](actions/list-work-ticket-revenues.md)
+- [List Work Ticket Times](actions/list-work-ticket-times.md)
+- [List Work Ticket Visit Notes](actions/list-work-ticket-visit-notes.md)
+- [List Work Ticket Visits](actions/list-work-ticket-visits.md)
+- [List Work Tickets](actions/list-work-tickets.md)
+- [Update Pay Rate Override Pay Codes](actions/update-pay-rate-override-pay-codes.md)

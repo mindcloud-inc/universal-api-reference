@@ -1,0 +1,16 @@
+# List Projects for Owner with data.world
+
+Retrieves projects for an owner from data.world.
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/projects/{owner}`
+- **Base URL:** `https://api.data.world/v0`
+- **Official documentation:** [List Projects for Owner](https://developer.data.world/reference/getprojectsbyowner-1)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `owner` | path | `string` | yes | User or organization owner of the project. |

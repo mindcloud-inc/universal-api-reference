@@ -1,0 +1,4171 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Geocodio Universal API",
+    "version": "0.0.4",
+    "description": "Geocodio provides geocoding, reverse geocoding, data append, list geocoding, and distance APIs for addresses and coordinates in the United States, Canada, and Mexico."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/geocodio/latest/actions/batch-geocode-addresses": {
+      "get": {
+        "operationId": "geocodio.batch-geocode-addresses",
+        "summary": "Batch Geocode Addresses",
+        "description": "Retrieves geocoding results from Geocodio for multiple addresses.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/batch-geocode-addresses"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "payload[]",
+            "in": "query",
+            "required": true,
+            "description": "Array or keyed object of addresses to geocode.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array or keyed object of addresses to geocode."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Optional comma-separated list of data append fields.",
+            "schema": {
+              "type": "string",
+              "description": "Optional comma-separated list of data append fields. Pass multiple values separated by `,`.",
+              "example": "timezone,cd",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Optional maximum number of results per address.",
+            "schema": {
+              "type": "number",
+              "description": "Optional maximum number of results per address.",
+              "example": 1,
+              "x-mindcloud-advanced": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "query": {
+                                  "type": "string",
+                                  "description": "Input address query."
+                                },
+                                "response": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Geocoding response for the input query.",
+                                  "properties": {
+                                    "results": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "formattedAddress": {
+                                            "type": "string",
+                                            "description": "Formatted address for a candidate result."
+                                          },
+                                          "location": {
+                                            "type": "object",
+                                            "properties": {
+                                              "lat": {
+                                                "type": "number",
+                                                "description": "Latitude for a candidate result."
+                                              },
+                                              "lng": {
+                                                "type": "number",
+                                                "description": "Longitude for a candidate result."
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          }
+                                        }
+                                      },
+                                      "description": "Candidate geocoding results for the query."
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "description": "Batch geocoding results."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/batch-reverse-geocode-coordinates": {
+      "get": {
+        "operationId": "geocodio.batch-reverse-geocode-coordinates",
+        "summary": "Batch Reverse Geocode Coordinates",
+        "description": "Retrieves address details from Geocodio for multiple coordinates.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/batch-reverse-geocode-coordinates"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "payload[]",
+            "in": "query",
+            "required": true,
+            "description": "Array or keyed object of coordinates to reverse geocode.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array or keyed object of coordinates to reverse geocode."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Optional comma-separated list of data append fields.",
+            "schema": {
+              "type": "string",
+              "description": "Optional comma-separated list of data append fields. Pass multiple values separated by `,`.",
+              "example": "timezone",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "skipGeocoding",
+            "in": "query",
+            "required": false,
+            "description": "When present, extracts field data from coordinates without reverse geocoding.",
+            "schema": {
+              "type": "boolean",
+              "description": "When present, extracts field data from coordinates without reverse geocoding.",
+              "x-mindcloud-advanced": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "query": {
+                                  "type": "string",
+                                  "description": "Input coordinate query."
+                                },
+                                "response": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Reverse geocoding response for the input coordinate.",
+                                  "properties": {
+                                    "results": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "formattedAddress": {
+                                            "type": "string",
+                                            "description": "Formatted address for a candidate result."
+                                          },
+                                          "location": {
+                                            "type": "object",
+                                            "properties": {
+                                              "lat": {
+                                                "type": "number",
+                                                "description": "Latitude for a candidate result."
+                                              },
+                                              "lng": {
+                                                "type": "number",
+                                                "description": "Longitude for a candidate result."
+                                              }
+                                            },
+                                            "additionalProperties": false
+                                          }
+                                        }
+                                      },
+                                      "description": "Candidate address results for the coordinate."
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "description": "Batch reverse geocoding results."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/calculate-distance-from-origin": {
+      "get": {
+        "operationId": "geocodio.calculate-distance-from-origin",
+        "summary": "Calculate Distance From Origin",
+        "description": "Retrieves distances from one origin in Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/calculate-distance-from-origin"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "origin",
+            "in": "query",
+            "required": true,
+            "description": "Origin coordinate or address.",
+            "schema": {
+              "type": "string",
+              "description": "Origin coordinate or address.",
+              "example": "38.8977,-77.0365,WhiteHouse"
+            }
+          },
+          {
+            "name": "destinations[]",
+            "in": "query",
+            "required": true,
+            "description": "Destination coordinates or addresses.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Destination coordinates or addresses."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Distance calculation mode: driving or straightline.",
+            "schema": {
+              "type": "string",
+              "description": "Distance calculation mode: driving or straightline.",
+              "enum": [
+                "0",
+                "1"
+              ],
+              "default": "straightline"
+            }
+          },
+          {
+            "name": "units",
+            "in": "query",
+            "required": false,
+            "description": "Distance units: miles or km.",
+            "schema": {
+              "type": "string",
+              "description": "Distance units: miles or km.",
+              "enum": [
+                "0",
+                "1"
+              ],
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "destinations": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "distanceKm": {
+                                  "type": "number",
+                                  "description": "Distance in kilometers."
+                                },
+                                "distanceMiles": {
+                                  "type": "number",
+                                  "description": "Distance in miles."
+                                },
+                                "durationSeconds": {
+                                  "type": "number",
+                                  "description": "Travel duration in seconds for driving mode."
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "Destination identifier when provided."
+                                },
+                                "location": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  },
+                                  "description": "Destination coordinates as latitude and longitude."
+                                },
+                                "query": {
+                                  "type": "string",
+                                  "description": "Original destination query."
+                                }
+                              }
+                            },
+                            "description": "Calculated destination distances."
+                          },
+                          "mode": {
+                            "type": "string",
+                            "description": "Distance calculation mode."
+                          },
+                          "origin": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Origin location metadata.",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Origin identifier when provided."
+                              },
+                              "location": {
+                                "type": "array",
+                                "items": {
+                                  "type": "number"
+                                },
+                                "description": "Origin coordinates as latitude and longitude."
+                              },
+                              "query": {
+                                "type": "string",
+                                "description": "Original origin query."
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/calculate-distance-matrix": {
+      "get": {
+        "operationId": "geocodio.calculate-distance-matrix",
+        "summary": "Calculate Distance Matrix",
+        "description": "Retrieves a distance matrix from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/calculate-distance-matrix"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "origins[]",
+            "in": "query",
+            "required": true,
+            "description": "Array of origin coordinates or addresses.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of origin coordinates or addresses."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "destinations[]",
+            "in": "query",
+            "required": true,
+            "description": "Array of destination coordinates or addresses.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of destination coordinates or addresses."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Distance calculation mode: driving or straightline.",
+            "schema": {
+              "type": "string",
+              "description": "Distance calculation mode: driving or straightline.",
+              "enum": [
+                "0",
+                "1"
+              ],
+              "default": "straightline"
+            }
+          },
+          {
+            "name": "units",
+            "in": "query",
+            "required": false,
+            "description": "Distance units: miles or km.",
+            "schema": {
+              "type": "string",
+              "description": "Distance units: miles or km.",
+              "enum": [
+                "0",
+                "1"
+              ],
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mode": {
+                            "type": "string",
+                            "description": "Distance calculation mode."
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "destinations": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "distanceKm": {
+                                        "type": "number",
+                                        "description": "Distance in kilometers."
+                                      },
+                                      "distanceMiles": {
+                                        "type": "number",
+                                        "description": "Distance in miles."
+                                      },
+                                      "durationSeconds": {
+                                        "type": "number",
+                                        "description": "Travel duration in seconds for driving mode."
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "description": "Destination identifier when provided."
+                                      },
+                                      "location": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        },
+                                        "description": "Destination coordinates as latitude and longitude."
+                                      }
+                                    }
+                                  },
+                                  "description": "Calculated destination distances for this origin."
+                                },
+                                "origin": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Origin location metadata.",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "Origin identifier when provided."
+                                    },
+                                    "location": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      },
+                                      "description": "Origin coordinates as latitude and longitude."
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "description": "Distance matrix rows by origin."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/create-distance-job": {
+      "post": {
+        "operationId": "geocodio.create-distance-job",
+        "summary": "Create Distance Job",
+        "description": "Creates an asynchronous distance job in Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/create-distance-job"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "name",
+                  "origins[]",
+                  "destinations[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "A name for the distance matrix job.",
+                    "example": "Store to customer distances"
+                  },
+                  "origins[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Origin list ID or array of coordinates/addresses."
+                  },
+                  "destinations[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Destination list ID or array of coordinates/addresses."
+                  },
+                  "distanceMode": {
+                    "type": "string",
+                    "description": "Distance calculation mode: driving or straightline.",
+                    "enum": [
+                      "0",
+                      "1"
+                    ],
+                    "default": "straightline"
+                  },
+                  "callbackUrl": {
+                    "type": "string",
+                    "description": "Optional webhook URL to call when the job completes.",
+                    "example": "https://example.com/webhook/distance-complete",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "calculationsCompleted": {
+                            "type": "number",
+                            "description": "Completed calculations."
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Job creation time."
+                          },
+                          "destinationsCount": {
+                            "type": "number",
+                            "description": "Number of destination locations."
+                          },
+                          "destinationsType": {
+                            "type": "string",
+                            "description": "Type of destinations input."
+                          },
+                          "distanceMode": {
+                            "type": "string",
+                            "description": "Distance mode used by the job."
+                          },
+                          "downloadUrl": {
+                            "type": "string",
+                            "description": "Download URL when available."
+                          },
+                          "identifier": {
+                            "type": "string",
+                            "description": "Public job identifier."
+                          },
+                          "isExpired": {
+                            "type": "boolean",
+                            "description": "Whether the results have expired."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Job name."
+                          },
+                          "originsCount": {
+                            "type": "number",
+                            "description": "Number of origin locations."
+                          },
+                          "originsType": {
+                            "type": "string",
+                            "description": "Type of origins input."
+                          },
+                          "progress": {
+                            "type": "number",
+                            "description": "Completion percentage."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Job processing status."
+                          },
+                          "statusMessage": {
+                            "type": "string",
+                            "description": "Status message."
+                          },
+                          "timeLeft": {
+                            "type": "string",
+                            "description": "Estimated time remaining."
+                          },
+                          "totalCalculations": {
+                            "type": "number",
+                            "description": "Total calculations in the job."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/create-geocoding-list": {
+      "post": {
+        "operationId": "geocodio.create-geocoding-list",
+        "summary": "Create Geocoding List",
+        "description": "Creates a new geocoding list in Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/create-geocoding-list"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "direction",
+                  "format"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "fields": {
+                    "type": "string",
+                    "description": "Optional data append fields for geocoding list results. Pass multiple values separated by `,`.",
+                    "example": "timezone,cd",
+                    "x-mindcloud-advanced": true
+                  },
+                  "file": {
+                    "type": "string",
+                    "description": "CSV, TSV, Excel, or ZIP file to upload."
+                  },
+                  "direction": {
+                    "type": "string",
+                    "description": "Whether to forward geocode addresses or reverse geocode coordinates.",
+                    "enum": [
+                      "0",
+                      "1"
+                    ]
+                  },
+                  "format": {
+                    "type": "string",
+                    "description": "Column format template, such as {{A}} {{B}}, {{C}} {{D}}.",
+                    "example": "{{A}} {{B}}, {{C}} {{D}}"
+                  },
+                  "callback": {
+                    "type": "string",
+                    "description": "Optional callback URL for completion notification.",
+                    "example": "https://example.com/webhook/geocodio-list-complete",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "file": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Uploaded file metadata.",
+                            "properties": {
+                              "estimatedRowsCount": {
+                                "type": "number",
+                                "description": "Estimated number of data rows."
+                              },
+                              "filename": {
+                                "type": "string",
+                                "description": "Uploaded filename."
+                              },
+                              "headers": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Column headers from the uploaded file."
+                              }
+                            }
+                          },
+                          "id": {
+                            "type": "number",
+                            "description": "List ID."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/delete-distance-job": {
+      "delete": {
+        "operationId": "geocodio.delete-distance-job",
+        "summary": "Delete Distance Job",
+        "description": "Deletes an asynchronous distance job from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/delete-distance-job"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "description": "Distance job identifier.",
+            "schema": {
+              "type": "string",
+              "description": "Distance job identifier.",
+              "example": "abc123xyz"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string",
+                            "description": "Deletion result message."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/delete-geocoding-list": {
+      "delete": {
+        "operationId": "geocodio.delete-geocoding-list",
+        "summary": "Delete Geocoding List",
+        "description": "Deletes an existing geocoding list from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/delete-geocoding-list"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "Geocodio list ID.",
+            "schema": {
+              "type": "number",
+              "description": "Geocodio list ID.",
+              "example": 42
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the list was deleted successfully."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/download-distance-job-results": {
+      "get": {
+        "operationId": "geocodio.download-distance-job-results",
+        "summary": "Download Distance Job Results",
+        "description": "Retrieves completed distance job results from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/download-distance-job-results"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "description": "Distance job identifier.",
+            "schema": {
+              "type": "string",
+              "description": "Distance job identifier.",
+              "example": "abc123xyz"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mode": {
+                            "type": "string",
+                            "description": "Distance calculation mode."
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "destinations": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "distanceKm": {
+                                        "type": "number",
+                                        "description": "Distance in kilometers."
+                                      },
+                                      "distanceMiles": {
+                                        "type": "number",
+                                        "description": "Distance in miles."
+                                      },
+                                      "durationSeconds": {
+                                        "type": "number",
+                                        "description": "Travel duration in seconds for driving mode."
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "description": "Destination identifier when provided."
+                                      },
+                                      "location": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        },
+                                        "description": "Destination coordinates as latitude and longitude."
+                                      }
+                                    }
+                                  },
+                                  "description": "Calculated destination distances for this origin."
+                                },
+                                "origin": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Origin location metadata.",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string",
+                                      "description": "Origin identifier when provided."
+                                    },
+                                    "location": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      },
+                                      "description": "Origin coordinates as latitude and longitude."
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "description": "Distance matrix rows by origin."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/download-geocoding-list-results": {
+      "get": {
+        "operationId": "geocodio.download-geocoding-list-results",
+        "summary": "Download Geocoding List Results",
+        "description": "Retrieves completed geocoding list results from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/download-geocoding-list-results"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "Geocodio list ID.",
+            "schema": {
+              "type": "number",
+              "description": "Geocodio list ID.",
+              "example": 42
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string",
+                            "description": "CSV download content for the completed geocoding list."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/geocode-address": {
+      "get": {
+        "operationId": "geocodio.geocode-address",
+        "summary": "Geocode Address",
+        "description": "Retrieves geocoding results from Geocodio for one address.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/geocode-address"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "The address, city, ZIP/postal code, or stable address key to geocode.",
+            "schema": {
+              "type": "string",
+              "description": "The address, city, ZIP/postal code, or stable address key to geocode.",
+              "example": "1109 N Highland St, Arlington VA"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Optional country to geocode in. Supported values are USA, Canada, or Mexico.",
+            "schema": {
+              "type": "string",
+              "description": "Optional country to geocode in. Supported values are USA, Canada, or Mexico.",
+              "example": "USA",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Optional comma-separated list of data append fields, such as timezone, cd, census, zip4, or acs-demographics.",
+            "schema": {
+              "type": "string",
+              "description": "Optional comma-separated list of data append fields, such as timezone, cd, census, zip4, or acs-demographics. Pass multiple values separated by `,`.",
+              "example": "timezone,cd",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Optional maximum number of geocoding results to return.",
+            "schema": {
+              "type": "number",
+              "description": "Optional maximum number of geocoding results to return.",
+              "example": 5,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Optional response format. Geocodio currently documents simple as the alternate format.",
+            "schema": {
+              "type": "string",
+              "description": "Optional response format. Geocodio currently documents simple as the alternate format.",
+              "enum": [
+                "0"
+              ],
+              "example": "simple",
+              "x-mindcloud-advanced": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "input": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Parsed input address returned by Geocodio.",
+                            "properties": {
+                              "addressComponents": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Parsed input address components."
+                              },
+                              "formattedAddress": {
+                                "type": "string",
+                                "description": "Formatted input address."
+                              }
+                            }
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "accuracy": {
+                                  "type": "number",
+                                  "description": "Geocodio accuracy score."
+                                },
+                                "accuracyType": {
+                                  "type": "string",
+                                  "description": "Accuracy type reported by Geocodio."
+                                },
+                                "formattedAddress": {
+                                  "type": "string",
+                                  "description": "Formatted address for the geocoded result."
+                                },
+                                "location": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Latitude and longitude for the result.",
+                                  "properties": {
+                                    "lat": {
+                                      "type": "number",
+                                      "description": "Latitude for the result."
+                                    },
+                                    "lng": {
+                                      "type": "number",
+                                      "description": "Longitude for the result."
+                                    }
+                                  }
+                                },
+                                "matchType": {
+                                  "type": "string",
+                                  "description": "Match type reported by Geocodio."
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "description": "Source dataset for the result."
+                                },
+                                "stableAddressKey": {
+                                  "type": "string",
+                                  "description": "Stable address key for the result."
+                                }
+                              }
+                            },
+                            "description": "Candidate geocoding results ordered by accuracy."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/get-distance-job": {
+      "get": {
+        "operationId": "geocodio.get-distance-job",
+        "summary": "Get Distance Job",
+        "description": "Retrieves an asynchronous distance job from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/get-distance-job"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "description": "Distance job identifier.",
+            "schema": {
+              "type": "string",
+              "description": "Distance job identifier.",
+              "example": "abc123xyz"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "calculationsCompleted": {
+                            "type": "number",
+                            "description": "Completed calculations."
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Job creation time."
+                          },
+                          "destinationsCount": {
+                            "type": "number",
+                            "description": "Number of destination locations."
+                          },
+                          "destinationsType": {
+                            "type": "string",
+                            "description": "Type of destinations input."
+                          },
+                          "distanceMode": {
+                            "type": "string",
+                            "description": "Distance mode used by the job."
+                          },
+                          "downloadUrl": {
+                            "type": "string",
+                            "description": "Download URL when available."
+                          },
+                          "identifier": {
+                            "type": "string",
+                            "description": "Public job identifier."
+                          },
+                          "isExpired": {
+                            "type": "boolean",
+                            "description": "Whether the results have expired."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Job name."
+                          },
+                          "originsCount": {
+                            "type": "number",
+                            "description": "Number of origin locations."
+                          },
+                          "originsType": {
+                            "type": "string",
+                            "description": "Type of origins input."
+                          },
+                          "progress": {
+                            "type": "number",
+                            "description": "Completion percentage."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Job processing status."
+                          },
+                          "statusMessage": {
+                            "type": "string",
+                            "description": "Status message."
+                          },
+                          "timeLeft": {
+                            "type": "string",
+                            "description": "Estimated time remaining."
+                          },
+                          "totalCalculations": {
+                            "type": "number",
+                            "description": "Total calculations in the job."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/get-geocoding-list": {
+      "get": {
+        "operationId": "geocodio.get-geocoding-list",
+        "summary": "Get Geocoding List",
+        "description": "Retrieves geocoding list status from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/get-geocoding-list"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "Geocodio list ID.",
+            "schema": {
+              "type": "number",
+              "description": "Geocodio list ID.",
+              "example": 42
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "downloadUrl": {
+                            "type": "string",
+                            "description": "Download URL when available."
+                          },
+                          "expiresAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Result expiration time."
+                          },
+                          "fields": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Requested data append fields."
+                          },
+                          "file": {
+                            "type": "object",
+                            "properties": {
+                              "estimatedRowsCount": {
+                                "type": "number",
+                                "description": "Estimated number of rows."
+                              },
+                              "filename": {
+                                "type": "string",
+                                "description": "Uploaded filename."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "id": {
+                            "type": "number",
+                            "description": "List ID."
+                          },
+                          "status": {
+                            "type": "object",
+                            "properties": {
+                              "message": {
+                                "type": "string",
+                                "description": "Status message."
+                              },
+                              "progress": {
+                                "type": "number",
+                                "description": "Processing progress percentage."
+                              },
+                              "state": {
+                                "type": "string",
+                                "description": "Processing state."
+                              },
+                              "timeLeftDescription": {
+                                "type": "string",
+                                "description": "Estimated time remaining."
+                              },
+                              "timeLeftSeconds": {
+                                "type": "number",
+                                "description": "Estimated seconds remaining."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/list-distance-jobs": {
+      "get": {
+        "operationId": "geocodio.list-distance-jobs",
+        "summary": "List Distance Jobs",
+        "description": "Retrieves asynchronous distance jobs from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/list-distance-jobs"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "calculationsCompleted": {
+                                  "type": "number",
+                                  "description": "Completed calculations."
+                                },
+                                "createdAt": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "Job creation time."
+                                },
+                                "destinationsCount": {
+                                  "type": "number",
+                                  "description": "Number of destination locations."
+                                },
+                                "distanceMode": {
+                                  "type": "string",
+                                  "description": "Distance mode used by the job."
+                                },
+                                "downloadUrl": {
+                                  "type": "string",
+                                  "description": "Download URL when available."
+                                },
+                                "identifier": {
+                                  "type": "string",
+                                  "description": "Public job identifier."
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Job name."
+                                },
+                                "originsCount": {
+                                  "type": "number",
+                                  "description": "Number of origin locations."
+                                },
+                                "progress": {
+                                  "type": "number",
+                                  "description": "Completion percentage."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Job processing status."
+                                },
+                                "totalCalculations": {
+                                  "type": "number",
+                                  "description": "Total calculations in the job."
+                                }
+                              }
+                            },
+                            "description": "Distance matrix jobs."
+                          },
+                          "links": {
+                            "type": "object",
+                            "properties": {
+                              "first": {
+                                "type": "string",
+                                "description": "First page URL."
+                              },
+                              "last": {
+                                "type": "string",
+                                "description": "Last page URL."
+                              },
+                              "next": {
+                                "type": "string",
+                                "description": "Next page URL."
+                              },
+                              "prev": {
+                                "type": "string",
+                                "description": "Previous page URL."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "meta": {
+                            "type": "object",
+                            "properties": {
+                              "currentPage": {
+                                "type": "number",
+                                "description": "Current page number."
+                              },
+                              "lastPage": {
+                                "type": "number",
+                                "description": "Last page number."
+                              },
+                              "perPage": {
+                                "type": "number",
+                                "description": "Rows per page."
+                              },
+                              "total": {
+                                "type": "number",
+                                "description": "Total rows."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/list-geocoding-lists": {
+      "get": {
+        "operationId": "geocodio.list-geocoding-lists",
+        "summary": "List Geocoding Lists",
+        "description": "Retrieves geocoding lists from Geocodio.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/list-geocoding-lists"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "currentPage": {
+                            "type": "number",
+                            "description": "Current page number."
+                          },
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "downloadUrl": {
+                                  "type": "string",
+                                  "description": "Download URL when available."
+                                },
+                                "expiresAt": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "Result expiration time."
+                                },
+                                "fields": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "description": "Requested data append fields."
+                                },
+                                "file": {
+                                  "type": "object",
+                                  "properties": {
+                                    "estimatedRowsCount": {
+                                      "type": "number",
+                                      "description": "Estimated number of rows."
+                                    },
+                                    "filename": {
+                                      "type": "string",
+                                      "description": "Uploaded filename."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                },
+                                "id": {
+                                  "type": "number",
+                                  "description": "List ID."
+                                },
+                                "status": {
+                                  "type": "object",
+                                  "properties": {
+                                    "message": {
+                                      "type": "string",
+                                      "description": "Status message."
+                                    },
+                                    "progress": {
+                                      "type": "number",
+                                      "description": "Processing progress percentage."
+                                    },
+                                    "state": {
+                                      "type": "string",
+                                      "description": "Processing state."
+                                    },
+                                    "timeLeftDescription": {
+                                      "type": "string",
+                                      "description": "Estimated time remaining."
+                                    },
+                                    "timeLeftSeconds": {
+                                      "type": "number",
+                                      "description": "Estimated seconds remaining."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              }
+                            },
+                            "description": "Uploaded geocoding lists."
+                          },
+                          "firstPageUrl": {
+                            "type": "string",
+                            "description": "First page URL."
+                          },
+                          "from": {
+                            "type": "number",
+                            "description": "First item index on the page."
+                          },
+                          "nextPageUrl": {
+                            "type": "string",
+                            "description": "Next page URL."
+                          },
+                          "path": {
+                            "type": "string",
+                            "description": "Pagination path."
+                          },
+                          "perPage": {
+                            "type": "number",
+                            "description": "Rows per page."
+                          },
+                          "prevPageUrl": {
+                            "type": "string",
+                            "description": "Previous page URL."
+                          },
+                          "to": {
+                            "type": "number",
+                            "description": "Last item index on the page."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/geocodio/latest/actions/reverse-geocode-coordinate": {
+      "get": {
+        "operationId": "geocodio.reverse-geocode-coordinate",
+        "summary": "Reverse Geocode Coordinate",
+        "description": "Retrieves address details from Geocodio for one coordinate.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/geocodio/latest/actions/reverse-geocode-coordinate"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Latitude and longitude to reverse geocode, formatted as lat,lng.",
+            "schema": {
+              "type": "string",
+              "description": "Latitude and longitude to reverse geocode, formatted as lat,lng.",
+              "example": "38.886672,-77.094735"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Optional comma-separated list of data append fields.",
+            "schema": {
+              "type": "string",
+              "description": "Optional comma-separated list of data append fields. Pass multiple values separated by `,`.",
+              "example": "timezone",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "skipGeocoding",
+            "in": "query",
+            "required": false,
+            "description": "When present, extracts field data from coordinates without reverse geocoding.",
+            "schema": {
+              "type": "boolean",
+              "description": "When present, extracts field data from coordinates without reverse geocoding.",
+              "x-mindcloud-advanced": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "accuracy": {
+                                  "type": "number",
+                                  "description": "Geocodio accuracy score."
+                                },
+                                "accuracyType": {
+                                  "type": "string",
+                                  "description": "Accuracy type reported by Geocodio."
+                                },
+                                "formattedAddress": {
+                                  "type": "string",
+                                  "description": "Formatted address for the matched coordinate."
+                                },
+                                "location": {
+                                  "type": "object",
+                                  "properties": {
+                                    "lat": {
+                                      "type": "number",
+                                      "description": "Latitude of the matched address."
+                                    },
+                                    "lng": {
+                                      "type": "number",
+                                      "description": "Longitude of the matched address."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                },
+                                "stableAddressKey": {
+                                  "type": "string",
+                                  "description": "Stable address key for the result."
+                                }
+                              }
+                            },
+                            "description": "Reverse geocoding results ordered by proximity/accuracy."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

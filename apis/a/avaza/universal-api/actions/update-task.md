@@ -1,0 +1,74 @@
+# Avaza: Update Task
+
+Updates an existing task in Avaza.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/avaza/latest/actions/update-task
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Avaza `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/avaza/latest/actions/update-task" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "taskid": 1,
+  "fieldstoupdate": "string",
+  "assignedtouseridfk": 1,
+  "tags": {}
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/avaza/latest/actions/update-task', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "taskid": 1,
+    "fieldstoupdate": "string",
+    "assignedtouseridfk": 1,
+    "tags": {}
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `taskid` | number | yes |  |
+| `fieldstoupdate` | list<string> | yes |  |
+| `sectionidfk` | number | no |  |
+| `title` | string | no |  |
+| `description` | string | no |  |
+| `assignedtouseridfk` | list<number> | yes |  |
+| `datestart` | date | no |  |
+| `datedue` | date | no |  |
+| `taskprioritycode` | string | no |  |
+| `estimatedeffort` | number | no | Decimal hours |
+| `taskstatuscode` | string | no |  |
+| `percentcomplete` | number | no |  |
+| `tags` | list<object> | yes |  |
+| `tags[].name` | string | no |  |
+| `tags[].color` | string | no | Hex color code in format #000000 |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Avaza API returns.
+
+## Native endpoint
+
+Through the native Avaza API, this operation is `PUT /api/Task` (base URL `https://api.avaza.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-task.md) for the provider-specific parameters and requirements.
+

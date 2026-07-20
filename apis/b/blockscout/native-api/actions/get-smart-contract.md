@@ -1,0 +1,17 @@
+# Get Smart Contract with Blockscout
+
+Retrieves details for a smart contract from Blockscout.
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/:chain_id/api/v2/smart-contracts/:address_hash_param`
+- **Base URL:** `https://api.blockscout.com`
+- **Official documentation:** [Get Smart Contract](https://docs.blockscout.com/api-reference/get-smart-contract)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `chain_id` | path | `string` | no | Blockscout chain ID, for example 10 for Optimism. |
+| `address_hash_param` | path | `string` | yes | Smart contract address. |

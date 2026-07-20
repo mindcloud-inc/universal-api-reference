@@ -1,0 +1,61 @@
+# Socialbu: Get Engagement Rate
+
+Retrieves engagement rate from SocialBu insights.
+
+```
+GET https://connect.mindcloud.co/v1/universal/socialbu/latest/actions/get-engagement-rate
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Socialbu `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/socialbu/latest/actions/get-engagement-rate?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/socialbu/latest/actions/get-engagement-rate?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "followers": 1,
+      "rate": 1,
+      "total_engagement": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `followers` | number |  |
+| `rate` | number |  |
+| `total_engagement` | number |  |
+
+## Native endpoint
+
+Through the native Socialbu API, this operation is `GET /insights/accounts/engagement/rate` (base URL `https://socialbu.com/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-engagement-rate.md) for the provider-specific parameters and requirements.
+

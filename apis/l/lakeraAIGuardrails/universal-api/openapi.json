@@ -1,0 +1,798 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Lakera AI Guardrails Universal API",
+    "version": "0.0.3",
+    "description": "Screen AI interactions for prompt injection, data leakage, and policy violations with Lakera Guard."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/lakeraAIGuardrails/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/lakeraAIGuardrails/latest/actions/check-policy-health": {
+      "get": {
+        "operationId": "lakeraAIGuardrails.check-policy-health",
+        "summary": "Check Policy Health",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/lakeraAIGuardrails/latest/actions/check-policy-health"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "projectId",
+            "in": "query",
+            "required": true,
+            "description": "Lakera project ID whose policy configuration health should be checked.",
+            "schema": {
+              "type": "string",
+              "description": "Lakera project ID whose policy configuration health should be checked."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "isDefault": {
+                            "type": "boolean",
+                            "description": "Whether the result is for the default policy."
+                          },
+                          "lint": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Nested policy validation results.",
+                            "properties": {
+                              "errors": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                "description": "Nested policy validation errors and warnings."
+                              },
+                              "passed": {
+                                "type": "boolean",
+                                "description": "Whether nested policy validation passed."
+                              }
+                            }
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable policy health message."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Overall policy health status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/lakeraAIGuardrails/latest/actions/get-detailed-detector-results": {
+      "get": {
+        "operationId": "lakeraAIGuardrails.get-detailed-detector-results",
+        "summary": "Get Detailed Detector Results",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/lakeraAIGuardrails/latest/actions/get-detailed-detector-results"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "messages[]",
+            "in": "query",
+            "required": true,
+            "description": "Messages comprising the LLM interaction history in OpenAI Chat Completions format.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "description": "Messages comprising the LLM interaction history in OpenAI Chat Completions format."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "projectId",
+            "in": "query",
+            "required": false,
+            "description": "Optional Lakera project ID. If omitted, Lakera uses the Guard default policy.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Lakera project ID. If omitted, Lakera uses the Guard default policy."
+            }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "required": false,
+            "description": "Optional request metadata such as user or session identifiers.",
+            "schema": {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "Optional request metadata such as user or session identifiers.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "devInfo",
+            "in": "query",
+            "required": false,
+            "description": "Return Lakera Guard build information when true.",
+            "schema": {
+              "type": "boolean",
+              "description": "Return Lakera Guard build information when true.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "metadata": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Response metadata.",
+                            "properties": {
+                              "requestUuid": {
+                                "type": "string",
+                                "description": "Unique Lakera request identifier."
+                              }
+                            }
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Detector confidence-level results."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/lakeraAIGuardrails/latest/actions/screen-content-for-threats": {
+      "get": {
+        "operationId": "lakeraAIGuardrails.screen-content-for-threats",
+        "summary": "Screen Content for Threats",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/lakeraAIGuardrails/latest/actions/screen-content-for-threats"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "messages[]",
+            "in": "query",
+            "required": true,
+            "description": "Messages comprising the LLM interaction history in OpenAI Chat Completions format.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "description": "Messages comprising the LLM interaction history in OpenAI Chat Completions format."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "projectId",
+            "in": "query",
+            "required": false,
+            "description": "Optional Lakera project ID. If omitted, Lakera uses the Guard default policy.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Lakera project ID. If omitted, Lakera uses the Guard default policy."
+            }
+          },
+          {
+            "name": "payload",
+            "in": "query",
+            "required": false,
+            "description": "Return detected PII, profanity, or custom regex match locations when available.",
+            "schema": {
+              "type": "boolean",
+              "description": "Return detected PII, profanity, or custom regex match locations when available.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "breakdown",
+            "in": "query",
+            "required": false,
+            "description": "Return the detector breakdown used for the flagging decision.",
+            "schema": {
+              "type": "boolean",
+              "description": "Return the detector breakdown used for the flagging decision.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "required": false,
+            "description": "Optional request metadata such as user or session identifiers.",
+            "schema": {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "Optional request metadata such as user or session identifiers.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "devInfo",
+            "in": "query",
+            "required": false,
+            "description": "Return Lakera Guard build information when true.",
+            "schema": {
+              "type": "boolean",
+              "description": "Return Lakera Guard build information when true.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "breakdown": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Detector breakdown when requested."
+                          },
+                          "devInfo": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Lakera Guard build information when requested."
+                          },
+                          "flagged": {
+                            "type": "boolean",
+                            "description": "Whether threats were detected with sufficient confidence."
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Response metadata.",
+                            "properties": {
+                              "requestUuid": {
+                                "type": "string",
+                                "description": "Unique Lakera request identifier."
+                              }
+                            }
+                          },
+                          "payload": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Detected PII, profanity, or custom regex matches when requested."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

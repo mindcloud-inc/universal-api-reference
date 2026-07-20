@@ -1,0 +1,1205 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Sniffmail Universal API",
+    "version": "0.0.3",
+    "description": "Verify email addresses, detect disposable inboxes, and improve sender deliverability with Sniffmail's email verification API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/sniffmail/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/sniffmail/latest/actions/create-bulk-job": {
+      "post": {
+        "operationId": "sniffmail.create-bulk-job",
+        "summary": "Create Bulk Job",
+        "description": "Creates a bulk email verification job in Sniffmail.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sniffmail/latest/actions/create-bulk-job"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "emails[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "emails[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Provide one or more email addresses for Sniffmail to verify in this bulk job."
+                  },
+                  "webhookUrl": {
+                    "type": "string",
+                    "description": "Optionally send the completed-job notification to this webhook URL.",
+                    "example": "https://example.com/sniffmail-webhook",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "jobId": {
+                            "type": "string",
+                            "description": "The Sniffmail bulk job identifier returned after submission."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "The provider confirmation message for the created job."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The initial Sniffmail job status."
+                          },
+                          "totalEmails": {
+                            "type": "number",
+                            "description": "How many email addresses were accepted into the bulk job."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sniffmail/latest/actions/get-job-results": {
+      "get": {
+        "operationId": "sniffmail.get-job-results",
+        "summary": "Get Job Results",
+        "description": "Retrieves results for a bulk verification job.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sniffmail/latest/actions/get-job-results"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "description": "Provide the Sniffmail bulk job ID returned by Create Bulk Job.",
+            "schema": {
+              "type": "string",
+              "description": "Provide the Sniffmail bulk job ID returned by Create Bulk Job.",
+              "example": "job_abc123xyz"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "job": {
+                            "type": "object",
+                            "properties": {
+                              "completedAt": {
+                                "type": "string",
+                                "description": "When Sniffmail completed the bulk job."
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "description": "When Sniffmail created the bulk job."
+                              },
+                              "id": {
+                                "type": "string",
+                                "description": "The Sniffmail bulk job identifier."
+                              },
+                              "invalidEmails": {
+                                "type": "number",
+                                "description": "How many job emails Sniffmail classified as invalid."
+                              },
+                              "processedEmails": {
+                                "type": "number",
+                                "description": "How many email addresses Sniffmail processed."
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "The final or current job status."
+                              },
+                              "totalEmails": {
+                                "type": "number",
+                                "description": "How many email addresses were submitted in the job."
+                              },
+                              "validEmails": {
+                                "type": "number",
+                                "description": "How many job emails Sniffmail classified as valid."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "deliverabilityScore": {
+                                  "type": "number",
+                                  "description": "The provider deliverability score for the email result."
+                                },
+                                "disposable": {
+                                  "type": "boolean",
+                                  "description": "Whether Sniffmail classified the address as disposable."
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "The email address Sniffmail evaluated."
+                                },
+                                "freeProvider": {
+                                  "type": "boolean",
+                                  "description": "Whether Sniffmail classified the domain as a free email provider."
+                                },
+                                "mxRecords": {
+                                  "type": "boolean",
+                                  "description": "Whether the domain has MX records according to Sniffmail."
+                                },
+                                "reason": {
+                                  "type": "string",
+                                  "description": "The provider reason associated with the email result."
+                                },
+                                "result": {
+                                  "type": "string",
+                                  "description": "The provider classification for the email result."
+                                },
+                                "roleAccount": {
+                                  "type": "boolean",
+                                  "description": "Whether Sniffmail classified the address as a role account."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sniffmail/latest/actions/get-job-status": {
+      "get": {
+        "operationId": "sniffmail.get-job-status",
+        "summary": "Get Job Status",
+        "description": "Retrieves the status of a bulk verification job.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sniffmail/latest/actions/get-job-status"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "description": "Provide the Sniffmail bulk job ID returned by Create Bulk Job.",
+            "schema": {
+              "type": "string",
+              "description": "Provide the Sniffmail bulk job ID returned by Create Bulk Job.",
+              "example": "job_abc123xyz"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "job": {
+                            "type": "object",
+                            "properties": {
+                              "completedAt": {
+                                "type": "string",
+                                "description": "When Sniffmail completed the bulk job, if available."
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "description": "When Sniffmail created the bulk job."
+                              },
+                              "errorMessage": {
+                                "type": "string",
+                                "description": "Any provider error message attached to the job."
+                              },
+                              "id": {
+                                "type": "string",
+                                "description": "The Sniffmail bulk job identifier."
+                              },
+                              "invalidEmails": {
+                                "type": "number",
+                                "description": "How many job emails Sniffmail classified as invalid."
+                              },
+                              "processedEmails": {
+                                "type": "number",
+                                "description": "How many email addresses Sniffmail has already processed."
+                              },
+                              "progress": {
+                                "type": "number",
+                                "description": "The reported completion percentage for the job."
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "The current bulk job status."
+                              },
+                              "totalEmails": {
+                                "type": "number",
+                                "description": "How many email addresses were submitted in the job."
+                              },
+                              "validEmails": {
+                                "type": "number",
+                                "description": "How many job emails Sniffmail classified as valid."
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sniffmail/latest/actions/validate-credentials": {
+      "get": {
+        "operationId": "sniffmail.validate-credentials",
+        "summary": "Validate Credentials",
+        "description": "Validates Sniffmail credentials with a test email verification request.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sniffmail/latest/actions/validate-credentials"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string",
+                            "description": "The fixed sample email used for connection validation."
+                          },
+                          "is_deliverable": {
+                            "type": "boolean",
+                            "description": "Whether the sample mailbox appears deliverable."
+                          },
+                          "is_disposable": {
+                            "type": "boolean",
+                            "description": "Whether the sample address belongs to a disposable email provider."
+                          },
+                          "is_reachable": {
+                            "type": "string",
+                            "description": "Sniffmail reachability classification for the sample email address."
+                          },
+                          "is_role_account": {
+                            "type": "boolean",
+                            "description": "Whether the sample address is a role inbox such as support@ or info@."
+                          },
+                          "is_valid": {
+                            "type": "boolean",
+                            "description": "Whether Sniffmail considers the sample address valid overall."
+                          },
+                          "mx_valid": {
+                            "type": "boolean",
+                            "description": "Whether the sample domain has valid MX records."
+                          },
+                          "reason": {
+                            "type": "string",
+                            "description": "Human-readable verification result reason."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/sniffmail/latest/actions/verify-email": {
+      "get": {
+        "operationId": "sniffmail.verify-email",
+        "summary": "Verify Email",
+        "description": "Retrieves email verification results from Sniffmail.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/sniffmail/latest/actions/verify-email"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "description": "Enter the email address you want Sniffmail to verify.",
+            "schema": {
+              "type": "string",
+              "description": "Enter the email address you want Sniffmail to verify.",
+              "example": "test@example.com"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string",
+                            "description": "The email address that was verified."
+                          },
+                          "is_deliverable": {
+                            "type": "boolean",
+                            "description": "Whether the mailbox appears deliverable."
+                          },
+                          "is_disposable": {
+                            "type": "boolean",
+                            "description": "Whether the address belongs to a disposable email provider."
+                          },
+                          "is_reachable": {
+                            "type": "string",
+                            "description": "Sniffmail reachability classification for the email address."
+                          },
+                          "is_role_account": {
+                            "type": "boolean",
+                            "description": "Whether the address is a role inbox such as support@ or info@."
+                          },
+                          "is_valid": {
+                            "type": "boolean",
+                            "description": "Whether Sniffmail considers the address valid overall."
+                          },
+                          "mx_valid": {
+                            "type": "boolean",
+                            "description": "Whether the domain has valid MX records."
+                          },
+                          "reason": {
+                            "type": "string",
+                            "description": "Human-readable verification result reason."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

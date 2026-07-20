@@ -1,0 +1,284 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Zenlogin Universal API",
+    "version": "0.0.3",
+    "description": "Zenlogin provides a suspicious-login detection API that checks login events using a user identity, email address, user agent, and IP address."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/zenlogin/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/zenlogin/latest/actions/create-login-check": {
+      "post": {
+        "operationId": "zenlogin.create-login-check",
+        "summary": "Create Login Check",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/zenlogin/latest/actions/create-login-check"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "identityKey",
+                  "identityEmailAddress",
+                  "userAgent",
+                  "ipAddress"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "identityKey": {
+                    "type": "string",
+                    "description": "Stable unique identifier for the user being checked. Zenlogin recommends this should not be the user's email address. Maximum length is 128 characters.",
+                    "example": "usr12345"
+                  },
+                  "identityEmailAddress": {
+                    "type": "string",
+                    "description": "Email address Zenlogin can notify if a suspicious login is detected. Maximum length is 256 characters.",
+                    "example": "name@example.com"
+                  },
+                  "userAgent": {
+                    "type": "string",
+                    "description": "User agent observed during the login attempt. Maximum length is 512 characters.",
+                    "example": "Mozilla/5.0"
+                  },
+                  "ipAddress": {
+                    "type": "string",
+                    "description": "IP address observed during the login attempt. Official examples use the `ip_address` payload field. Maximum length is 256 characters.",
+                    "example": "20.169.78.172"
+                  },
+                  "identityFirstName": {
+                    "type": "string",
+                    "description": "Optional first name for notification template variables. Maximum length is 256 characters.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "identityLastName": {
+                    "type": "string",
+                    "description": "Optional last name for notification template variables. Maximum length is 256 characters.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "identityFullName": {
+                    "type": "string",
+                    "description": "Optional full name for notification template variables. Maximum length is 256 characters.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "reqProcess": {
+                    "type": "number",
+                    "description": "Optional 0 or 1 flag controlling whether Zenlogin should process this login check.",
+                    "example": 1,
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "JSON:API data object returned by Zenlogin.",
+                            "properties": {
+                              "email_notification_sent": {
+                                "type": "number",
+                                "description": "Whether Zenlogin sent an email notification for the login check. Runtime not-processed checks returned 0."
+                              },
+                              "id": {
+                                "type": "string",
+                                "description": "Unique ID associated with the login check when Zenlogin processes the request; not-processed runtime checks may return null."
+                              },
+                              "status_key": {
+                                "type": "string",
+                                "description": "Status key returned by Zenlogin for the login check, such as not_processed when req_process is 0."
+                              },
+                              "timestamp": {
+                                "type": "number",
+                                "description": "Unix timestamp when Zenlogin received the API request."
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

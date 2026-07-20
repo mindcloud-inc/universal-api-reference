@@ -1,0 +1,97 @@
+# Olostep: Create Crawl
+
+Creates a new crawl in Olostep.
+
+```
+POST https://connect.mindcloud.co/v1/universal/olostep/latest/actions/create-crawl
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Olostep `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/olostep/latest/actions/create-crawl" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "startUrl": "https://example.com",
+  "maxPages": "100"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/olostep/latest/actions/create-crawl', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "startUrl": "https://example.com",
+    "maxPages": "100"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `startUrl` | string | yes | The URL where the crawl should start. Example: `https://example.com`. |
+| `maxPages` | number | yes | The maximum number of pages to crawl. Example: `100`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "created": "2026-05-07T12:00:00.000Z",
+      "currentDepth": 1,
+      "id": "string",
+      "includeExternal": true,
+      "includeUrls": [
+        "https://example.com"
+      ],
+      "maxDepth": {},
+      "maxPages": 1,
+      "object": "string",
+      "pagesCount": 1,
+      "startDate": "2026-05-07T12:00:00.000Z",
+      "startUrl": "https://example.com",
+      "status": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `created` | date |  |
+| `currentDepth` | number |  |
+| `id` | string |  |
+| `includeExternal` | boolean |  |
+| `includeUrls[]` | string |  |
+| `maxDepth` | object |  |
+| `maxPages` | number |  |
+| `object` | string |  |
+| `pagesCount` | number |  |
+| `startDate` | date |  |
+| `startUrl` | string |  |
+| `status` | string |  |
+
+## Native endpoint
+
+Through the native Olostep API, this operation is `POST /v1/crawls` (base URL `https://api.olostep.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-crawl.md) for the provider-specific parameters and requirements.
+

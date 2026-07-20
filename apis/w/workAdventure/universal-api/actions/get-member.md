@@ -1,0 +1,100 @@
+# WorkAdventure: Get member
+
+Retrieves a member from a WorkAdventure world.
+
+```
+GET https://connect.mindcloud.co/v1/universal/workAdventure/latest/actions/get-member
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a WorkAdventure `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/workAdventure/latest/actions/get-member?connectionId=$CONNECTION_ID&worldSlug=string&memberIdentifier=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "worldSlug": "string",
+  "memberIdentifier": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/workAdventure/latest/actions/get-member?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `worldSlug` | string | yes | The world slug from the WorkAdventure world URL. |
+| `memberIdentifier` | string | yes | Member UUID or email address. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "address": "string",
+      "banned": true,
+      "created_at": "string",
+      "email": "ava@example.com",
+      "first_name": "Ava",
+      "information": "string",
+      "job_title": "string",
+      "last_name": "Chen",
+      "name": "Ava Chen",
+      "phone": "string",
+      "room_private_access_links": [
+        {}
+      ],
+      "tags": [
+        "string"
+      ],
+      "token": "string",
+      "trivia": "string",
+      "updated_at": "string",
+      "uuid": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `address` | string |  |
+| `banned` | boolean |  |
+| `created_at` | string |  |
+| `email` | string |  |
+| `first_name` | string |  |
+| `information` | string |  |
+| `job_title` | string |  |
+| `last_name` | string |  |
+| `name` | string |  |
+| `phone` | string |  |
+| `room_private_access_links` | array<object> |  |
+| `tags` | array<string> |  |
+| `token` | string |  |
+| `trivia` | string |  |
+| `updated_at` | string |  |
+| `uuid` | string |  |
+
+## Native endpoint
+
+Through the native WorkAdventure API, this operation is `GET /api/v1/worlds/:worldSlug/members/:memberIdentifier` (base URL `https://admin.workadventu.re`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-member.md) for the provider-specific parameters and requirements.
+

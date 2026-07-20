@@ -1,0 +1,3113 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Moorcheh Universal API",
+    "version": "0.1.2",
+    "description": "Moorcheh provides REST APIs for namespaces, semantic search, text/vector data ingestion, document retrieval, file upload URLs, deletion, and AI answer generation."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/moorcheh/latest/actions/create-namespace": {
+      "post": {
+        "operationId": "moorcheh.create-namespace",
+        "summary": "Create Namespace",
+        "description": "Creates a new namespace in Moorcheh.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/create-namespace"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "namespace_name",
+                  "type"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "namespace_name": {
+                    "type": "string",
+                    "description": "Unique namespace name using only alphanumeric characters, hyphens, and underscores."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Namespace type: text for documents or vector for pre-computed embeddings.",
+                    "example": "text"
+                  },
+                  "vector_dimension": {
+                    "type": "number",
+                    "description": "Required for vector namespaces. Dimension of vectors to be stored, such as 1536.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable creation message."
+                          },
+                          "namespace_name": {
+                            "type": "string",
+                            "description": "Created namespace name."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Creation status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/delete-documents": {
+      "delete": {
+        "operationId": "moorcheh.delete-documents",
+        "summary": "Delete Documents",
+        "description": "Deletes documents from a Moorcheh namespace by ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/delete-documents"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "namespace_name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the text namespace containing documents to delete.",
+            "schema": {
+              "type": "string",
+              "description": "Name of the text namespace containing documents to delete."
+            }
+          },
+          {
+            "name": "ids[]",
+            "in": "query",
+            "required": true,
+            "description": "Array of document IDs to permanently delete. Moorcheh allows up to 1000 IDs per request.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of document IDs to permanently delete. Moorcheh allows up to 1000 IDs per request."
+            },
+            "style": "form",
+            "explode": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "actual_deletions": {
+                            "type": "number",
+                            "description": "Number of IDs actually deleted."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable deletion message."
+                          },
+                          "remaining_items": {
+                            "type": "number",
+                            "description": "Items remaining in the namespace."
+                          },
+                          "requested_deletions": {
+                            "type": "number",
+                            "description": "Number of IDs requested for deletion."
+                          },
+                          "requested_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "IDs requested for deletion."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Deletion status."
+                          },
+                          "unprocessed_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "IDs not processed in partial responses."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/delete-file": {
+      "delete": {
+        "operationId": "moorcheh.delete-file",
+        "summary": "Delete File",
+        "description": "Deletes files from a Moorcheh namespace in storage.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/delete-file"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "namespace_name",
+            "in": "query",
+            "required": true,
+            "description": "Namespace that contains the file or files.",
+            "schema": {
+              "type": "string",
+              "description": "Namespace that contains the file or files."
+            }
+          },
+          {
+            "name": "file_name",
+            "in": "query",
+            "required": true,
+            "description": "Single file to permanently delete, such as document.pdf.",
+            "schema": {
+              "type": "string",
+              "description": "Single file to permanently delete, such as document.pdf."
+            }
+          },
+          {
+            "name": "file_names[]",
+            "in": "query",
+            "required": false,
+            "description": "Multiple file names to permanently delete in one request.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Multiple file names to permanently delete in one request.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable deletion message."
+                          },
+                          "namespace": {
+                            "type": "string",
+                            "description": "Namespace where files were deleted."
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "file_name": {
+                                  "type": "string",
+                                  "description": "File name processed."
+                                },
+                                "message": {
+                                  "type": "string",
+                                  "description": "Per-file result message."
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "description": "Per-file status, such as deleted or error."
+                                }
+                              }
+                            },
+                            "description": "Per-file deletion results."
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the delete request completed."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/delete-namespace": {
+      "delete": {
+        "operationId": "moorcheh.delete-namespace",
+        "summary": "Delete Namespace",
+        "description": "Deletes a namespace and its data from Moorcheh.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/delete-namespace"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "namespace_name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the namespace to permanently delete.",
+            "schema": {
+              "type": "string",
+              "description": "Name of the namespace to permanently delete."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable deletion queue message."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Namespace deletion request status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/delete-vectors": {
+      "delete": {
+        "operationId": "moorcheh.delete-vectors",
+        "summary": "Delete Vectors",
+        "description": "Deletes vectors from a Moorcheh namespace by ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/delete-vectors"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "namespace_name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the vector namespace containing vectors to delete.",
+            "schema": {
+              "type": "string",
+              "description": "Name of the vector namespace containing vectors to delete."
+            }
+          },
+          {
+            "name": "ids[]",
+            "in": "query",
+            "required": true,
+            "description": "Array of vector IDs to permanently delete. Moorcheh allows up to 1000 IDs per request.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of vector IDs to permanently delete. Moorcheh allows up to 1000 IDs per request."
+            },
+            "style": "form",
+            "explode": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "actual_deletions": {
+                            "type": "number",
+                            "description": "Number of IDs actually deleted."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable deletion message."
+                          },
+                          "remaining_items": {
+                            "type": "number",
+                            "description": "Items remaining in the namespace."
+                          },
+                          "requested_deletions": {
+                            "type": "number",
+                            "description": "Number of IDs requested for deletion."
+                          },
+                          "requested_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "IDs requested for deletion."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Deletion status."
+                          },
+                          "unprocessed_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "IDs not processed in partial responses."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/fetch-text-data": {
+      "get": {
+        "operationId": "moorcheh.fetch-text-data",
+        "summary": "Fetch Text Data",
+        "description": "Retrieves text chunks from a Moorcheh namespace with cursor pagination.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/fetch-text-data"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "namespace_name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the text namespace to fetch text chunks from.",
+            "schema": {
+              "type": "string",
+              "description": "Name of the text namespace to fetch text chunks from."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "execution_time": {
+                            "type": "number",
+                            "description": "Execution time in seconds."
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "created_at": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "Creation timestamp."
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "Chunk or document ID."
+                                },
+                                "is_summary": {
+                                  "type": "boolean",
+                                  "description": "Whether this item is a summary chunk."
+                                },
+                                "metadata": {
+                                  "type": "object",
+                                  "additionalProperties": true,
+                                  "description": "Chunk metadata."
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "Chunk text."
+                                }
+                              }
+                            },
+                            "description": "Fetched text chunks."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable fetch message."
+                          },
+                          "namespace": {
+                            "type": "string",
+                            "description": "Requested namespace."
+                          },
+                          "statistics": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Aggregated counts and timestamps.",
+                            "properties": {
+                              "source_counts": {
+                                "type": "object",
+                                "additionalProperties": true,
+                                "description": "Counts by source."
+                              },
+                              "total_items": {
+                                "type": "number",
+                                "description": "Returned item count."
+                              },
+                              "total_summary_chunks": {
+                                "type": "number",
+                                "description": "Summary chunk count."
+                              },
+                              "total_text_chunks": {
+                                "type": "number",
+                                "description": "Non-summary chunk count."
+                              }
+                            }
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Fetch status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/generate-ai-answer": {
+      "post": {
+        "operationId": "moorcheh.generate-ai-answer",
+        "summary": "Generate AI Answer",
+        "description": "Generates an AI answer in Moorcheh from your data.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/generate-ai-answer"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "namespace",
+                  "query"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "namespace": {
+                    "type": "string",
+                    "description": "Namespace for search mode, or an empty string for direct AI mode."
+                  },
+                  "query": {
+                    "type": "string",
+                    "description": "Question or prompt to answer."
+                  },
+                  "top_k": {
+                    "type": "number",
+                    "description": "Number of relevant chunks to use in search mode. Defaults to 10 in Moorcheh.",
+                    "default": 10
+                  },
+                  "threshold": {
+                    "type": "number",
+                    "description": "Minimum relevance score from 0 to 1. Required when kiosk mode is enabled.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "temperature": {
+                    "type": "number",
+                    "description": "AI creativity level from 0.0 to 2.0. Moorcheh defaults to 0.7.",
+                    "default": 0.7,
+                    "x-mindcloud-advanced": true
+                  },
+                  "ai_model": {
+                    "type": "string",
+                    "description": "Optional Moorcheh AI model ID such as deepseek.r1-v1:0.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "kiosk_mode": {
+                    "type": "boolean",
+                    "description": "Enable threshold-based filtering for namespace-backed answers.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "header_prompt": {
+                    "type": "string",
+                    "description": "Optional instruction prepended to the model prompt.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "footer_prompt": {
+                    "type": "string",
+                    "description": "Optional instruction appended to the prompt. Moorcheh defaults to a concise-answer instruction.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "answer": {
+                            "type": "string",
+                            "description": "Generated answer."
+                          },
+                          "context_count": {
+                            "type": "number",
+                            "description": "Number of context chunks used."
+                          },
+                          "model": {
+                            "type": "string",
+                            "description": "AI model used by Moorcheh."
+                          },
+                          "query": {
+                            "type": "string",
+                            "description": "Original query."
+                          },
+                          "structured_data": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Structured response object when requested."
+                          },
+                          "used_context": {
+                            "type": "boolean",
+                            "description": "Whether namespace context was used."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/get-documents": {
+      "get": {
+        "operationId": "moorcheh.get-documents",
+        "summary": "Get Documents",
+        "description": "Retrieves specific documents from a Moorcheh namespace by ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/get-documents"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "namespace_name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the namespace containing the documents.",
+            "schema": {
+              "type": "string",
+              "description": "Name of the namespace containing the documents."
+            }
+          },
+          {
+            "name": "ids[]",
+            "in": "query",
+            "required": true,
+            "description": "Array of document IDs to retrieve. Moorcheh allows up to 100 IDs per request.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of document IDs to retrieve. Moorcheh allows up to 100 IDs per request."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "found_items": {
+                            "type": "number",
+                            "description": "Number of items found."
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "Document ID."
+                                },
+                                "metadata": {
+                                  "type": "object",
+                                  "additionalProperties": true,
+                                  "description": "Document metadata."
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "Document text."
+                                }
+                              }
+                            },
+                            "description": "Retrieved document objects."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable retrieval message."
+                          },
+                          "not_found_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "IDs not found in partial responses."
+                          },
+                          "requested_ids": {
+                            "type": "number",
+                            "description": "Number of requested IDs."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Retrieval status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/get-upload-file-url": {
+      "post": {
+        "operationId": "moorcheh.get-upload-file-url",
+        "summary": "Get Upload File URL",
+        "description": "Generates a pre-signed file upload URL in Moorcheh.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/get-upload-file-url"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "namespace_name",
+                  "file_name"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "namespace_name": {
+                    "type": "string",
+                    "description": "Name of the text namespace to upload the file into."
+                  },
+                  "file_name": {
+                    "type": "string",
+                    "description": "Target filename including extension, such as document.pdf. Moorcheh auto-detects the content type."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "content_type": {
+                            "type": "string",
+                            "description": "Content-Type header to use when uploading."
+                          },
+                          "expires_in": {
+                            "type": "number",
+                            "description": "URL expiration time in seconds."
+                          },
+                          "file_name": {
+                            "type": "string",
+                            "description": "Final file name used by Moorcheh."
+                          },
+                          "hint": {
+                            "type": "string",
+                            "description": "Human-readable upload instructions."
+                          },
+                          "key": {
+                            "type": "string",
+                            "description": "S3 object key where the file will be stored."
+                          },
+                          "method": {
+                            "type": "string",
+                            "description": "HTTP method to use for upload."
+                          },
+                          "original_file_name": {
+                            "type": "string",
+                            "description": "Original requested file name."
+                          },
+                          "renamed": {
+                            "type": "boolean",
+                            "description": "Whether Moorcheh renamed the file."
+                          },
+                          "upload_url": {
+                            "type": "string",
+                            "description": "Pre-signed S3 URL for uploading the file with PUT."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/list-namespaces": {
+      "get": {
+        "operationId": "moorcheh.list-namespaces",
+        "summary": "List Namespaces",
+        "description": "Retrieves all namespaces in your Moorcheh account.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/list-namespaces"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "namespaces": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "created_at": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "Namespace creation timestamp."
+                                },
+                                "item_count": {
+                                  "type": "number",
+                                  "description": "Total item count in the namespace."
+                                },
+                                "namespace_name": {
+                                  "type": "string",
+                                  "description": "Unique namespace name."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Namespace type, either text or vector."
+                                },
+                                "vector_dimension": {
+                                  "type": "number",
+                                  "description": "Vector dimension, or null for text namespaces."
+                                }
+                              }
+                            },
+                            "description": "Namespaces returned for the authenticated Moorcheh account."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/search": {
+      "get": {
+        "operationId": "moorcheh.search",
+        "summary": "Search",
+        "description": "Finds relevant results in Moorcheh across selected namespaces.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/search"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "description": "Search query text. Metadata and keyword filters can be placed at the end of the query using Moorcheh syntax.",
+            "schema": {
+              "type": "string",
+              "description": "Search query text. Metadata and keyword filters can be placed at the end of the query using Moorcheh syntax."
+            }
+          },
+          {
+            "name": "namespaces[]",
+            "in": "query",
+            "required": true,
+            "description": "Array of namespace names to search. All namespaces must be of the same type.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of namespace names to search. All namespaces must be of the same type."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "top_k",
+            "in": "query",
+            "required": false,
+            "description": "Number of top relevant chunks to return. Defaults to 10 in Moorcheh.",
+            "schema": {
+              "type": "number",
+              "description": "Number of top relevant chunks to return. Defaults to 10 in Moorcheh.",
+              "default": 10
+            }
+          },
+          {
+            "name": "kiosk_mode",
+            "in": "query",
+            "required": false,
+            "description": "When enabled, Moorcheh filters chunks below the threshold.",
+            "schema": {
+              "type": "boolean",
+              "description": "When enabled, Moorcheh filters chunks below the threshold."
+            }
+          },
+          {
+            "name": "threshold",
+            "in": "query",
+            "required": false,
+            "description": "Minimum relevance score from 0 to 1. Required by Moorcheh when kiosk mode is enabled.",
+            "schema": {
+              "type": "number",
+              "description": "Minimum relevance score from 0 to 1. Required by Moorcheh when kiosk mode is enabled.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "execution_time": {
+                            "type": "number",
+                            "description": "Total execution time in seconds."
+                          },
+                          "optimization_info": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Search optimization details."
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "Document or vector identifier."
+                                },
+                                "label": {
+                                  "type": "string",
+                                  "description": "Human-readable relevance label."
+                                },
+                                "metadata": {
+                                  "type": "object",
+                                  "additionalProperties": true,
+                                  "description": "Additional metadata associated with the result."
+                                },
+                                "score": {
+                                  "type": "number",
+                                  "description": "ITS relevance score."
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "Original text for text namespaces."
+                                }
+                              }
+                            },
+                            "description": "Search results ordered by relevance."
+                          },
+                          "timings": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Detailed timing breakdown."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/upload-text-data": {
+      "post": {
+        "operationId": "moorcheh.upload-text-data",
+        "summary": "Upload Text Data",
+        "description": "Uploads text documents to a Moorcheh namespace.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/upload-text-data"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "namespace_name",
+                  "documents[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "namespace_name": {
+                    "type": "string",
+                    "description": "Name of the text namespace to upload documents to."
+                  },
+                  "documents[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Array of flat document objects with id, text, and optional metadata fields."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "document_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Document IDs accepted by Moorcheh."
+                          },
+                          "execution_time": {
+                            "type": "number",
+                            "description": "Request execution time in seconds."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable upload message."
+                          },
+                          "queued_documents": {
+                            "type": "number",
+                            "description": "Number of documents queued for processing."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Upload queue status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/moorcheh/latest/actions/upload-vector-data": {
+      "post": {
+        "operationId": "moorcheh.upload-vector-data",
+        "summary": "Upload Vector Data",
+        "description": "Uploads vector data to a Moorcheh namespace.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/moorcheh/latest/actions/upload-vector-data"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "namespace_name",
+                  "vectors[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "namespace_name": {
+                    "type": "string",
+                    "description": "Name of the vector namespace to upload vectors to."
+                  },
+                  "vectors[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Array of vector objects with id, vector, optional text, and optional metadata fields."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "actual_additions": {
+                            "type": "number",
+                            "description": "Number of vectors actually stored."
+                          },
+                          "credit_limits": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Plan and item-limit details."
+                          },
+                          "execution_time": {
+                            "type": "number",
+                            "description": "Request execution time in seconds."
+                          },
+                          "items_after_upload": {
+                            "type": "number",
+                            "description": "Namespace item count after upload."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable upload message."
+                          },
+                          "requested_uploads": {
+                            "type": "number",
+                            "description": "Number of vectors requested for upload."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Upload status."
+                          },
+                          "vector_ids_processed": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Vector IDs processed by Moorcheh."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

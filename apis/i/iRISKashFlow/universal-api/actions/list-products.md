@@ -1,0 +1,69 @@
+# IRIS KashFlow: List Products
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/iRISKashFlow/latest/actions/list-products
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a IRIS KashFlow `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/iRISKashFlow/latest/actions/list-products?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/iRISKashFlow/latest/actions/list-products?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "manageStockLevels": "string",
+      "productCode": "string",
+      "productDescription": "string",
+      "productID": "string",
+      "productName": "Ava Chen",
+      "productPrice": "string",
+      "qtyInStock": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `manageStockLevels` | string |  |
+| `productCode` | string |  |
+| `productDescription` | string |  |
+| `productID` | string |  |
+| `productName` | string |  |
+| `productPrice` | string |  |
+| `qtyInStock` | string |  |
+
+## Native endpoint
+
+Through the native IRIS KashFlow API, this operation is `POST /api/service.asmx` (base URL `https://securedwebapp.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-products.md) for the provider-specific parameters and requirements.
+

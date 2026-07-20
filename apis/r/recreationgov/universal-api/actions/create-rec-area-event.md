@@ -1,0 +1,97 @@
+# Recreation.gov: Create Rec Area Event
+
+Creates a recreation area event in Recreation.gov.
+
+```
+POST https://connect.mindcloud.co/v1/universal/recreationgov/latest/actions/create-rec-area-event
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Recreation.gov `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/recreationgov/latest/actions/create-rec-area-event" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "id": 1,
+  "name": "Ava Chen"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/recreationgov/latest/actions/create-rec-area-event', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "id": 1,
+    "name": "Ava Chen"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | number | yes |  |
+| `name` | string | yes |  |
+| `description` | string | no |  |
+| `typeDescription` | string | no |  |
+| `scopeDescription` | string | no |  |
+| `frequencyRateDescription` | string | no |  |
+| `feeDescription` | string | no |  |
+| `ageGroup` | string | no |  |
+| `registrationRequired` | boolean | no |  |
+| `adaAccess` | string | no |  |
+| `comments` | string | no |  |
+| `email` | string | no |  |
+| `url` | string | no |  |
+| `urlText` | string | no |  |
+| `startDate` | date | no |  |
+| `endDate` | date | no |  |
+| `sponsorName` | string | no |  |
+| `sponsorClassType` | string | no |  |
+| `sponsorPhone` | string | no |  |
+| `sponsorEmail` | string | no |  |
+| `sponsorUrl` | string | no |  |
+| `sponsorUrlText` | string | no |  |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "MESSAGE": "string",
+      "STATUSCODE": 1,
+      "SUCCESS": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `MESSAGE` | string |  |
+| `STATUSCODE` | number |  |
+| `SUCCESS` | boolean |  |
+
+## Native endpoint
+
+Through the native Recreation.gov API, this operation is `POST /recareas/{id}/events` (base URL `https://ridb.recreation.gov/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-rec-area-event.md) for the provider-specific parameters and requirements.
+

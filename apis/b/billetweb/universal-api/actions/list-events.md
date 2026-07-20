@@ -1,0 +1,50 @@
+# Billetweb: List Events
+
+Retrieves events from your Billetweb account.
+
+```
+GET https://connect.mindcloud.co/v1/universal/billetweb/latest/actions/list-events
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Billetweb `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/billetweb/latest/actions/list-events?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/billetweb/latest/actions/list-events?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `past` | boolean | no | Include past events in the response. |
+| `online` | boolean | no | Include only published online events. |
+| `description` | boolean | no | Include the event description in the response. |
+| `id` | number | no | Filter to one specific event ID. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Billetweb API returns.
+
+## Native endpoint
+
+Through the native Billetweb API, this operation is `GET /events` (base URL `https://www.billetweb.fr/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-events.md) for the provider-specific parameters and requirements.
+

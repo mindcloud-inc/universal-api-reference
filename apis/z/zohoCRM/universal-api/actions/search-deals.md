@@ -1,0 +1,84 @@
+# Zoho CRM: Search Deals
+
+Finds deal records in Zoho CRM by search criteria.
+
+```
+GET https://connect.mindcloud.co/v1/universal/zohoCRM/latest/actions/search-deals
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Zoho CRM `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/zohoCRM/latest/actions/search-deals?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0'
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/zohoCRM/latest/actions/search-deals?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `criteria` | string | no | Use Zoho criteria syntax. Provide one of Criteria, Email, Phone, or Word. Example: `(Deal_Name:equals:Big Renewal)`. |
+| `word` | string | no | Search by a free-text word. Provide one of Criteria, Email, Phone, or Word. Example: `Renewal`. |
+| `email` | string | no | Search by an exact email address. Provide one of Criteria, Email, Phone, or Word. Example: `owner@zylker.com`. |
+| `phone` | string | no | Search by an exact phone number. Provide one of Criteria, Email, Phone, or Word. Example: `+1 555 555 5555`. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields` | string | no | Comma-separated API names of fields to include in the response. Example: `Deal_Name,Stage,Amount`. |
+| `converted` | boolean | no | Whether to include converted records in the result. |
+| `approved` | boolean | no | Whether to restrict the result to approved records. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "amount": 1,
+      "dealName": "Ava Chen",
+      "id": "string",
+      "stage": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `amount` | number |  |
+| `dealName` | string |  |
+| `id` | string |  |
+| `stage` | string |  |
+
+## Native endpoint
+
+Through the native Zoho CRM API, this operation is `GET /Deals/search` (base URL `{{credentials.accessTokenRequest.api_domain}}/crm/v8`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/search-deals.md) for the provider-specific parameters and requirements.
+

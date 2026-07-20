@@ -1,0 +1,25 @@
+# Update Location with Saastic
+
+Updates an existing location in Saastic.
+
+## Endpoint
+
+- **Method:** `PUT`
+- **Path:** `/beacon/locations/:id`
+- **Base URL:** `https://api.moregoodreviews.com`
+- **Official documentation:** [Update Location](https://docs.moregoodreviews.com/platform/api-reference)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | yes | The location ID. |
+| `name` | body | `string` | no | The name of the location. |
+| `display_name` | body | `string` | no | The customer-facing name for the location. Falls back to name. |
+| `slug` | body | `string` | no | The slug for the location. Generated if left out. |
+| `code` | body | `string` | no | An optional store code. |
+| `address1` | body | `string` | no | Address line 1. |
+| `address2` | body | `string` | no | Address line 2. |
+| `city` | body | `string` | no | The city or town. |
+| `state` | body | `string` | no | The state or region. |
+| `postal_code` | body | `string` | no | The postal code. |

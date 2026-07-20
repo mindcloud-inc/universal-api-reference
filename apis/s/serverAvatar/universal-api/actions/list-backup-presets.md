@@ -1,0 +1,76 @@
+# ServerAvatar: List Backup Presets
+
+Retrieves backup presets from ServerAvatar.
+
+```
+GET https://connect.mindcloud.co/v1/universal/serverAvatar/latest/actions/list-backup-presets
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a ServerAvatar `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/serverAvatar/latest/actions/list-backup-presets?connectionId=$CONNECTION_ID&organization=string&server=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "organization": "string",
+  "server": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/serverAvatar/latest/actions/list-backup-presets?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `organization` | string | yes |  |
+| `server` | string | yes |  |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "databases": "string",
+      "retentionPeriod": [
+        "string"
+      ],
+      "schedules": [
+        "string"
+      ],
+      "selectedDatabase": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `databases` | string |  |
+| `retentionPeriod` | array<string> |  |
+| `schedules` | array<string> |  |
+| `selectedDatabase` | string |  |
+
+## Native endpoint
+
+Through the native ServerAvatar API, this operation is `GET /organizations/{{organization}}/servers/{{server}}/backups/presets` (base URL `https://api.serveravatar.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-backup-presets.md) for the provider-specific parameters and requirements.
+

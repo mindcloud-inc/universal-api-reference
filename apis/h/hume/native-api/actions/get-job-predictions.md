@@ -1,0 +1,14 @@
+# Get job predictions with Hume
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/v0/batch/jobs/:id/predictions`
+- **Base URL:** `https://api.hume.ai`
+- **Official documentation:** [Get job predictions](https://dev.hume.ai/reference/expression-measurement-api/batch/get-job-predictions)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | yes | Expression Measurement job identifier. |

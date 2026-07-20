@@ -1,0 +1,64 @@
+# echowin: Create Contact
+
+Creates a contact in echowin.
+
+```
+POST https://connect.mindcloud.co/v1/universal/echowin/latest/actions/create-contact
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a echowin `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/echowin/latest/actions/create-contact" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "number": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/echowin/latest/actions/create-contact', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "number": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `firstName` | string | no |  |
+| `lastName` | string | no |  |
+| `email` | string | no |  |
+| `number` | string | yes |  |
+| `carrier` | string | no |  |
+| `customFields` | object | no |  |
+| `tagIds[]` | array<string> | no |  |
+| `tagNames[]` | array<string> | no |  |
+| `note` | object | no |  |
+| `assignUserIds[]` | array<string> | no |  |
+| `boardIds[]` | array<string> | no |  |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native echowin API returns.
+
+## Native endpoint
+
+Through the native echowin API, this operation is `POST /contacts` (base URL `https://echo.win/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-contact.md) for the provider-specific parameters and requirements.
+

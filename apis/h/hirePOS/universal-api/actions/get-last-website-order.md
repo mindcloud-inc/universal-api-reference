@@ -1,0 +1,48 @@
+# HirePOS: Get Last Website Order
+
+Retrieves a customer's last website order from HirePOS by email.
+
+```
+GET https://connect.mindcloud.co/v1/universal/hirePOS/latest/actions/get-last-website-order
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a HirePOS `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/hirePOS/latest/actions/get-last-website-order?connectionId=$CONNECTION_ID&email=ava%40example.com" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "email": "ava@example.com"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/hirePOS/latest/actions/get-last-website-order?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `email` | string | yes | Email address used to look up the customer's most recent website order. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native HirePOS API returns.
+
+## Native endpoint
+
+Through the native HirePOS API, this operation is `GET /LastWebsiteOrder` (base URL `https://api.hirepos.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-last-website-order.md) for the provider-specific parameters and requirements.
+

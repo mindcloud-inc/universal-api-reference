@@ -1,0 +1,48 @@
+# PrimeGate: List Deals by Pipeline ID
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/primeGate/latest/actions/list-deals-by-pipeline-id
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a PrimeGate `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/primeGate/latest/actions/list-deals-by-pipeline-id?connectionId=$CONNECTION_ID&pipelineId=1" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "pipelineId": "1"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/primeGate/latest/actions/list-deals-by-pipeline-id?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `pipelineId` | number | yes |  |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native PrimeGate API returns.
+
+## Native endpoint
+
+Through the native PrimeGate API, this operation is `POST deal/get` (base URL `https://api.primegate.io/v2`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-deals-by-pipeline-id.md) for the provider-specific parameters and requirements.
+

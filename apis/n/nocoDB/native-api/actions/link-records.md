@@ -1,0 +1,20 @@
+# Link Records with NocoDB
+
+Links records through a NocoDB link field.
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `/api/v3/data/:baseId/:tableId/links/:linkFieldId/:recordId`
+- **Base URL:** `https://app.nocodb.com`
+- **Official documentation:** [Link Records](https://nocodb.com/apis/v3/data)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `baseId` | path | `string` | yes | Base identifier. |
+| `tableId` | path | `string` | yes | Table identifier. |
+| `linkFieldId` | path | `string` | yes | Link-to-another-record field identifier. |
+| `recordId` | path | `string` | yes | Record identifier. |
+| `id` | body | `string` | yes | Adjacent record identifier to link. |

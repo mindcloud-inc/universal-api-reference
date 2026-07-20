@@ -1,0 +1,110 @@
+# Recurly: Create Account
+
+
+
+```
+POST https://connect.mindcloud.co/v1/universal/recurly/latest/actions/create-account
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Recurly `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/recurly/latest/actions/create-account" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "code": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/recurly/latest/actions/create-account', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "code": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `code` | string | yes | Unique account code. |
+| `company` | string | no | Company name. |
+| `email` | string | no | Account email address. |
+| `firstName` | string | no | Billing first name. |
+| `lastName` | string | no | Billing last name. |
+| `preferredLocale` | string | no | Locale code for hosted experiences and emails. |
+| `preferredTimeZone` | string | no | Time zone identifier for the account. |
+| `taxExempt` | boolean | no | Whether the account is tax exempt. |
+| `username` | string | no | Optional account username. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "code": "string",
+      "company": "string",
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "deletedAt": "2026-05-07T12:00:00.000Z",
+      "email": "ava@example.com",
+      "firstName": "Ava",
+      "hasActiveSubscription": true,
+      "hasLiveSubscription": true,
+      "hasPastDueInvoice": true,
+      "id": "string",
+      "lastName": "Chen",
+      "object": "string",
+      "preferredLocale": "string",
+      "preferredTimeZone": "string",
+      "state": "string",
+      "taxExempt": true,
+      "updatedAt": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `code` | string |  |
+| `company` | string |  |
+| `createdAt` | date |  |
+| `deletedAt` | date |  |
+| `email` | string |  |
+| `firstName` | string |  |
+| `hasActiveSubscription` | boolean |  |
+| `hasLiveSubscription` | boolean |  |
+| `hasPastDueInvoice` | boolean |  |
+| `id` | string |  |
+| `lastName` | string |  |
+| `object` | string |  |
+| `preferredLocale` | string |  |
+| `preferredTimeZone` | string |  |
+| `state` | string |  |
+| `taxExempt` | boolean |  |
+| `updatedAt` | date |  |
+
+## Native endpoint
+
+Through the native Recurly API, this operation is `POST /accounts` (base URL `https://v3.recurly.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-account.md) for the provider-specific parameters and requirements.
+

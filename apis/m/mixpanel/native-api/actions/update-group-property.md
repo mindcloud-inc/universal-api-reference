@@ -1,0 +1,21 @@
+# Update Group Property with Mixpanel
+
+Updates a group property in Mixpanel.
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `https://api.mixpanel.com/groups`
+- **Base URL:** `https://mixpanel.com/api`
+- **Official documentation:** [Update Group Property](https://developer.mixpanel.com/reference/group-set-property)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `$group_key` | body | `string` | yes | Group key that identifies the type of group profile to update. |
+| `$group_id` | body | `string` | yes | ID of the specific group profile to update. |
+| `$set` | body | `object` | yes | Object of group profile properties to set. |
+| `ip` | query | `number` | no | Set to 1 to use the request IP for geolocation updates. |
+| `strict` | query | `number` | no | Set to 1 to return validation errors for invalid updates. |
+| `verbose` | query | `number` | no | Set to 1 to include verbose validation messages in the response. |

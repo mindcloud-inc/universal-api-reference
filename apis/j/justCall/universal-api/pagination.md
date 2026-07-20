@@ -1,0 +1,26 @@
+# JustCall Universal API Pagination
+
+Paginated list actions accept `limit` and `offset` as query parameters. MindCloud translates them into whatever pagination model JustCall expects, so the request shape stays the same even when the native API uses pages or cursors.
+
+| Parameter | Description |
+| --- | --- |
+| `limit` | Maximum number of records to return |
+| `offset` | Number of records to skip |
+
+Start with `offset=0`, add `limit` to the offset after each page, and stop when a page returns fewer rows than requested.
+
+## Example
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/justCall/latest/actions/list-all-calls?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+## JustCall actions that support pagination
+
+- [List All Calls](actions/list-all-calls.md)
+- [List All Contacts](actions/list-all-contacts.md)
+- [List All Phone Numbers](actions/list-all-phone-numbers.md)
+- [List All Threads](actions/list-all-threads.md)
+- [List All Users](actions/list-all-users.md)
+- [List Blacklisted Contacts](actions/list-blacklisted-contacts.md)

@@ -1,0 +1,170 @@
+# Finmo: Get Customer
+
+Finds a customer in Finmo by ID.
+
+```
+GET https://connect.mindcloud.co/v1/universal/finmo/latest/actions/get-customer
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Finmo `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/finmo/latest/actions/get-customer?connectionId=$CONNECTION_ID&customerId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "customerId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/finmo/latest/actions/get-customer?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `customerId` | string | yes | Customer identifier to retrieve. |
+| `includeDeleted` | boolean | no | Include deleted customers in the lookup. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "data": {
+        "accountUsagePurpose": "string",
+        "companyDomain": {},
+        "createdAt": "string",
+        "createdBy": "string",
+        "customerHostedUrl": {},
+        "customerId": "string",
+        "description": "string",
+        "gcaActivatedAt": {},
+        "gcaActivationStatus": "string",
+        "individual": {
+          "addressCity": {},
+          "addressCountry": {},
+          "addressLine1": {},
+          "addressLine2": {},
+          "addressProofDocumentId": {},
+          "addressState": {},
+          "addressZipCode": {},
+          "countryOfResidence": {},
+          "dob": {},
+          "email": {},
+          "firstName": "Ava",
+          "identificationCustomType": {},
+          "identificationDocumentId": {},
+          "identificationType": {},
+          "identificationValue": {},
+          "lastName": "Chen",
+          "nationality": {},
+          "phoneCountryCode": {},
+          "phoneNumber": {},
+          "phoneNumberE164": {}
+        },
+        "isActive": true,
+        "isEnabled": true,
+        "isGcaEnabled": true,
+        "isSenderValidationEnabled": true,
+        "isUrlExpired": true,
+        "isWalletReady": true,
+        "metadata": {
+          "source": "string",
+          "testRun": "string"
+        },
+        "organizationReferenceId": "string",
+        "orgId": "string",
+        "payinSenderIdList": {},
+        "status": "string",
+        "type": "string",
+        "updatedAt": "string",
+        "webhookUrl": {}
+      },
+      "requestId": "string",
+      "requestTime": "string",
+      "statusCode": 1,
+      "statusText": "string",
+      "success": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `data` | object |  |
+| `data.accountUsagePurpose` | string |  |
+| `data.companyDomain` | object |  |
+| `data.createdAt` | string |  |
+| `data.createdBy` | string |  |
+| `data.customerHostedUrl` | object |  |
+| `data.customerId` | string |  |
+| `data.description` | string |  |
+| `data.gcaActivatedAt` | object |  |
+| `data.gcaActivationStatus` | string |  |
+| `data.individual` | object |  |
+| `data.individual.addressCity` | object |  |
+| `data.individual.addressCountry` | object |  |
+| `data.individual.addressLine1` | object |  |
+| `data.individual.addressLine2` | object |  |
+| `data.individual.addressProofDocumentId` | object |  |
+| `data.individual.addressState` | object |  |
+| `data.individual.addressZipCode` | object |  |
+| `data.individual.countryOfResidence` | object |  |
+| `data.individual.dob` | object |  |
+| `data.individual.email` | object |  |
+| `data.individual.firstName` | string |  |
+| `data.individual.identificationCustomType` | object |  |
+| `data.individual.identificationDocumentId` | object |  |
+| `data.individual.identificationType` | object |  |
+| `data.individual.identificationValue` | object |  |
+| `data.individual.lastName` | string |  |
+| `data.individual.nationality` | object |  |
+| `data.individual.phoneCountryCode` | object |  |
+| `data.individual.phoneNumber` | object |  |
+| `data.individual.phoneNumberE164` | object |  |
+| `data.isActive` | boolean |  |
+| `data.isEnabled` | boolean |  |
+| `data.isGcaEnabled` | boolean |  |
+| `data.isSenderValidationEnabled` | boolean |  |
+| `data.isUrlExpired` | boolean |  |
+| `data.isWalletReady` | boolean |  |
+| `data.metadata` | object |  |
+| `data.metadata.source` | string |  |
+| `data.metadata.testRun` | string |  |
+| `data.organizationReferenceId` | string |  |
+| `data.orgId` | string |  |
+| `data.payinSenderIdList` | object |  |
+| `data.status` | string |  |
+| `data.type` | string |  |
+| `data.updatedAt` | string |  |
+| `data.webhookUrl` | object |  |
+| `requestId` | string |  |
+| `requestTime` | string |  |
+| `statusCode` | number |  |
+| `statusText` | string |  |
+| `success` | boolean |  |
+
+## Native endpoint
+
+Through the native Finmo API, this operation is `GET /customer/:customer` (base URL `https://api.finmo.net/v1/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-customer.md) for the provider-specific parameters and requirements.
+

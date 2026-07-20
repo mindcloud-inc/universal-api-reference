@@ -1,0 +1,694 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Surplus Lines Tax Universal API",
+    "version": "0.0.5",
+    "description": "REST API for surplus lines tax calculations across all 50 U.S. states, DC, Puerto Rico, and the U.S. Virgin Islands, including stamping fees, regulatory charges, and historical rate lookups for insurance workflows."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/surplusLinesTax/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/surplusLinesTax/latest/actions/calculate-surplus-lines-taxes": {
+      "post": {
+        "operationId": "surplusLinesTax.calculate-surplus-lines-taxes",
+        "summary": "Calculate Surplus Lines Taxes",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/surplusLinesTax/latest/actions/calculate-surplus-lines-taxes"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "state",
+                  "premium"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "State name or two-letter abbreviation."
+                  },
+                  "premium": {
+                    "type": "number",
+                    "description": "Premium amount in USD."
+                  },
+                  "effectiveDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Historical calculation date in YYYY-MM-DD format.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "year": {
+                    "type": "number",
+                    "description": "Tax year used for Iowa's phased-down rates.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "wetMarine": {
+                    "type": "boolean",
+                    "description": "Use Alaska's wet marine tax treatment.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "fireInsurance": {
+                    "type": "boolean",
+                    "description": "Apply fire insurance rules where supported.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "electronicFiling": {
+                    "type": "boolean",
+                    "description": "Apply electronic filing rules where supported.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "fireMarshalRate": {
+                    "type": "number",
+                    "description": "Fire marshal tax rate as a decimal between 0 and 0.01 for Illinois.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "medicalMalpractice": {
+                    "type": "boolean",
+                    "description": "Apply Puerto Rico medical malpractice exemption.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "workersComp": {
+                    "type": "boolean",
+                    "description": "Apply Virginia workers compensation exemption.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "newBusiness": {
+                    "type": "boolean",
+                    "description": "Include Oregon's new or renewal policy service charge.",
+                    "default": true,
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "account": {
+                            "type": "object",
+                            "properties": {
+                              "balance": {
+                                "type": "string"
+                              },
+                              "freeQueriesRemaining": {
+                                "type": "number"
+                              },
+                              "wasFreeQuery": {
+                                "type": "boolean"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "breakdown": {
+                            "type": "object",
+                            "properties": {
+                              "baseTax": {
+                                "type": "object",
+                                "properties": {
+                                  "amount": {
+                                    "type": "number"
+                                  },
+                                  "rate": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "fireMarshalTax": {
+                                "type": "object",
+                                "properties": {
+                                  "amount": {
+                                    "type": "number"
+                                  },
+                                  "rate": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "flatFee": {
+                                "type": "object",
+                                "properties": {
+                                  "amount": {
+                                    "type": "number"
+                                  },
+                                  "rate": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "stampingFee": {
+                                "type": "object",
+                                "properties": {
+                                  "amount": {
+                                    "type": "number"
+                                  },
+                                  "rate": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "legislativeSource": {
+                            "type": "string"
+                          },
+                          "notes": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "premium": {
+                            "type": "number"
+                          },
+                          "ratesFrom": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          },
+                          "stateCode": {
+                            "type": "string"
+                          },
+                          "success": {
+                            "type": "boolean"
+                          },
+                          "totalDue": {
+                            "type": "number"
+                          },
+                          "totalTax": {
+                            "type": "number"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/surplusLinesTax/latest/actions/retrieve-historical-surplus-lines-tax-rates": {
+      "get": {
+        "operationId": "surplusLinesTax.retrieve-historical-surplus-lines-tax-rates",
+        "summary": "Retrieve Historical Surplus Lines Tax Rates",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/surplusLinesTax/latest/actions/retrieve-historical-surplus-lines-tax-rates"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "description": "State name or two-letter abbreviation.",
+            "schema": {
+              "type": "string",
+              "description": "State name or two-letter abbreviation."
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "description": "Optional historical lookup date in YYYY-MM-DD format. Leave blank to use the current date according to the human docs page.",
+            "schema": {
+              "type": "string",
+              "description": "Optional historical lookup date in YYYY-MM-DD format. Leave blank to use the current date according to the human docs page."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "account": {
+                            "type": "object",
+                            "properties": {
+                              "balance": {
+                                "type": "string"
+                              },
+                              "freeQueriesRemaining": {
+                                "type": "number"
+                              },
+                              "wasFreeQuery": {
+                                "type": "boolean"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "queryDate": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "rate": {
+                            "type": "object",
+                            "properties": {
+                              "confidence": {
+                                "type": "string"
+                              },
+                              "dataSource": {
+                                "type": "string"
+                              },
+                              "effectiveFrom": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "fieldSources": {
+                                "type": "object",
+                                "properties": {
+                                  "filingFee": {
+                                    "type": "string"
+                                  },
+                                  "fireMarshalTax": {
+                                    "type": "string"
+                                  },
+                                  "flatFee": {
+                                    "type": "string"
+                                  },
+                                  "regulatoryFee": {
+                                    "type": "string"
+                                  },
+                                  "roundingRule": {
+                                    "type": "string"
+                                  },
+                                  "serviceFee": {
+                                    "type": "string"
+                                  },
+                                  "slasClearinghouseFee": {
+                                    "type": "string"
+                                  },
+                                  "specialNotes": {
+                                    "type": "string"
+                                  },
+                                  "stampingFee": {
+                                    "type": "string"
+                                  },
+                                  "surcharge": {
+                                    "type": "string"
+                                  },
+                                  "taxRate": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              },
+                              "filingFee": {
+                                "type": "string"
+                              },
+                              "fireMarshalTax": {
+                                "type": "string"
+                              },
+                              "flatFee": {
+                                "type": "string"
+                              },
+                              "legislativeSource": {
+                                "type": "string"
+                              },
+                              "regulatoryFee": {
+                                "type": "string"
+                              },
+                              "roundingRule": {
+                                "type": "string"
+                              },
+                              "serviceFee": {
+                                "type": "string"
+                              },
+                              "slasClearinghouseFee": {
+                                "type": "string"
+                              },
+                              "stampingFee": {
+                                "type": "string"
+                              },
+                              "surcharge": {
+                                "type": "string"
+                              },
+                              "taxRate": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "ratesFrom": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          },
+                          "stateCode": {
+                            "type": "string"
+                          },
+                          "success": {
+                            "type": "boolean"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

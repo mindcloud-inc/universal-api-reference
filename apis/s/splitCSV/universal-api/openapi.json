@@ -1,0 +1,800 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Split CSV Universal API",
+    "version": "0.0.5",
+    "description": "Split and transform delimited text files"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/splitCSV/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/splitCSV/latest/actions/create-order": {
+      "post": {
+        "operationId": "splitCSV.create-order",
+        "summary": "Create Order",
+        "description": "Creates a new file-processing order in Split CSV.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/splitCSV/latest/actions/create-order"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "file",
+                  "method"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "file": {
+                    "type": "string",
+                    "description": "The HTTPS URL of the source file to split.",
+                    "example": "https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv"
+                  },
+                  "method": {
+                    "type": "string",
+                    "description": "The split method to apply to the source file.",
+                    "enum": [
+                      "filecount",
+                      "filesize",
+                      "headervalue",
+                      "linecount",
+                      "linesperfile",
+                      "passthrough",
+                      "sqlite3"
+                    ],
+                    "example": "filecount"
+                  },
+                  "fileCount": {
+                    "type": "number",
+                    "description": "The number of files to produce. Required when method is filecount.",
+                    "example": 2
+                  },
+                  "fileSize": {
+                    "type": "number",
+                    "description": "The target size in bytes for each split file. Required when method is filesize.",
+                    "example": 1048576
+                  },
+                  "lineCount": {
+                    "type": "number",
+                    "description": "The number of lines to include in each file. Required when method is linecount.",
+                    "example": 1000
+                  },
+                  "linesPerFile": {
+                    "type": "number",
+                    "description": "The number of records to include in each file. Required when method is linesperfile.",
+                    "example": 500
+                  },
+                  "targetHeader": {
+                    "type": "number",
+                    "description": "The zero-based column index whose header value should be used for splitting. Required when method is headervalue.",
+                    "example": 0
+                  },
+                  "headers": {
+                    "type": "number",
+                    "description": "The number of header lines to replicate into each output file.",
+                    "example": 1,
+                    "x-mindcloud-advanced": true
+                  },
+                  "skip": {
+                    "type": "number",
+                    "description": "The number of leading lines to skip before parsing the source file.",
+                    "example": 0,
+                    "x-mindcloud-advanced": true
+                  },
+                  "xlsx": {
+                    "type": "boolean",
+                    "description": "When true, save the output files in Excel XLSX format.",
+                    "example": false,
+                    "x-mindcloud-advanced": true
+                  },
+                  "json": {
+                    "type": "boolean",
+                    "description": "When true, save the output files as newline-delimited JSON.",
+                    "example": false,
+                    "x-mindcloud-advanced": true
+                  },
+                  "tabName": {
+                    "type": "string",
+                    "description": "The worksheet name to use when xlsx is true.",
+                    "example": "Split CSV Output",
+                    "x-mindcloud-advanced": true
+                  },
+                  "detectDuplicates": {
+                    "type": "boolean",
+                    "description": "When true, duplicate rows are written to a separate duplicates.csv file and remain in the split output.",
+                    "example": false,
+                    "x-mindcloud-advanced": true
+                  },
+                  "removeDuplicates": {
+                    "type": "boolean",
+                    "description": "When true, duplicate rows are written to a separate duplicates.csv file and removed from the split output.",
+                    "example": false,
+                    "x-mindcloud-advanced": true
+                  },
+                  "useQuotes": {
+                    "type": "boolean",
+                    "description": "When false, output CSV fields are not quoted.",
+                    "example": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "delimiter": {
+                    "type": "string",
+                    "description": "The delimiter character to use when parsing the source file instead of a comma.",
+                    "example": ",",
+                    "x-mindcloud-advanced": true
+                  },
+                  "outputDelimiter": {
+                    "type": "string",
+                    "description": "The delimiter character to use when generating the split output files instead of a comma.",
+                    "example": ";",
+                    "x-mindcloud-advanced": true
+                  },
+                  "drop[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "description": "The zero-based column indexes to remove from the output.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "notificationUrl": {
+                    "type": "string",
+                    "description": "The HTTPS webhook URL to notify when the split completes.",
+                    "example": "https://example.com/splitcsv-webhook",
+                    "x-mindcloud-advanced": true
+                  },
+                  "perFile": {
+                    "type": "boolean",
+                    "description": "When true, send a separate webhook for each output file after completion.",
+                    "example": false,
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The created order id."
+                          },
+                          "order": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "The created order object.",
+                            "properties": {
+                              "created": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "The order creation timestamp in ISO8601 format."
+                              },
+                              "id": {
+                                "type": "string",
+                                "description": "The order id."
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "The order name, typically driven by the source file name."
+                              }
+                            }
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the order was created successfully."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/splitCSV/latest/actions/get-order-status": {
+      "get": {
+        "operationId": "splitCSV.get-order-status",
+        "summary": "Get Order Status",
+        "description": "Retrieves the status of an order in Split CSV.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/splitCSV/latest/actions/get-order-status"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "The order ID returned by Create Order. Use latest to retrieve the most recent order.",
+            "schema": {
+              "type": "string",
+              "description": "The order ID returned by Create Order. Use latest to retrieve the most recent order.",
+              "example": "latest"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "content": {
+                            "type": "string",
+                            "description": "A download URL for the completed split archive when available."
+                          },
+                          "created": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "The order creation timestamp in ISO8601 format."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The order id."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The order name, typically driven by the source file name."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The current order status."
+                          },
+                          "updated": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "The most recent order update timestamp in ISO8601 format."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/splitCSV/latest/actions/retrieve-profile": {
+      "get": {
+        "operationId": "splitCSV.retrieve-profile",
+        "summary": "Retrieve Profile",
+        "description": "Retrieves the current user profile from Split CSV.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/splitCSV/latest/actions/retrieve-profile"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "defaultRetention": {
+                            "type": "number",
+                            "description": "The default retention period in days."
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The account email address."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The account display name."
+                          },
+                          "perFileNotifications": {
+                            "type": "boolean",
+                            "description": "Whether per-file webhook notifications are enabled."
+                          },
+                          "provider": {
+                            "type": "string",
+                            "description": "The account authentication provider."
+                          },
+                          "timezone": {
+                            "type": "string",
+                            "description": "The account timezone."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

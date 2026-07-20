@@ -1,0 +1,490 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Byteplant Email Validator Universal API",
+    "version": "0.0.9",
+    "description": "Validate email addresses and detect disposable, fake, and mistyped emails"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/byteplantEmailValidator/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/byteplantEmailValidator/latest/actions/create-bulk-email-validation-task": {
+      "post": {
+        "operationId": "byteplantEmailValidator.create-bulk-email-validation-task",
+        "summary": "Create Bulk Email Validation Task",
+        "description": "Creates a bulk email validation task in Byteplant Email Validator.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/byteplantEmailValidator/latest/actions/create-bulk-email-validation-task"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "emailsCsv"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "emailsCsv": {
+                    "type": "string",
+                    "description": "CSV content with an `Email` header and one email address per row.",
+                    "example": "Email\nsupport@byteplant.com"
+                  },
+                  "taskName": {
+                    "type": "string",
+                    "description": "Optional name for the bulk validation task.",
+                    "example": "March list cleanup",
+                    "x-mindcloud-advanced": true
+                  },
+                  "validationMode": {
+                    "type": "string",
+                    "description": "Optional validation mode. Express retries unavailable servers for 2 hours; extensive retries for 72 hours.",
+                    "enum": [
+                      "express",
+                      "extensive"
+                    ],
+                    "default": "express",
+                    "x-mindcloud-advanced": true
+                  },
+                  "notifyEmail": {
+                    "type": "string",
+                    "description": "Optional email address to receive completion notifications for this task.",
+                    "example": "ops@example.com",
+                    "x-mindcloud-advanced": true
+                  },
+                  "notifyUrl": {
+                    "type": "string",
+                    "description": "Optional URL to receive a completion notification with the task id.",
+                    "example": "https://example.com/byteplant-callback",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "info": {
+                            "type": "string",
+                            "description": "Task identifier when accepted, or provider error information when the request is rejected."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "Byteplant bulk validation result code. `121` means the task was accepted; `119` indicates an input or API error."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/byteplantEmailValidator/latest/actions/verify-email-address": {
+      "get": {
+        "operationId": "byteplantEmailValidator.verify-email-address",
+        "summary": "Verify Email Address",
+        "description": "Retrieves email deliverability details from Byteplant Email Validator.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/byteplantEmailValidator/latest/actions/verify-email-address"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "emailAddress",
+            "in": "query",
+            "required": true,
+            "description": "Email address to validate.",
+            "schema": {
+              "type": "string",
+              "description": "Email address to validate.",
+              "example": "name@example.com"
+            }
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "required": false,
+            "description": "Timeout in seconds (default 10, min 5, max 300).",
+            "schema": {
+              "type": "number",
+              "description": "Timeout in seconds (default 10, min 5, max 300).",
+              "example": 5,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "details": {
+                            "type": "string",
+                            "description": "Detailed validation status description."
+                          },
+                          "freemail": {
+                            "type": "boolean",
+                            "description": "Whether the address uses a freemail provider."
+                          },
+                          "info": {
+                            "type": "string",
+                            "description": "Short validation status description."
+                          },
+                          "ratelimitRemain": {
+                            "type": "number",
+                            "description": "Remaining requests in the current rate-limit window."
+                          },
+                          "ratelimitSeconds": {
+                            "type": "number",
+                            "description": "Seconds remaining in the current rate-limit window."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "Byteplant validation status code."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

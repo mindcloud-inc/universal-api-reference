@@ -1,0 +1,134 @@
+# Leantime: List Status Labels
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/leantime/latest/actions/list-status-labels
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Leantime `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/leantime/latest/actions/list-status-labels?connectionId=$CONNECTION_ID&params.projectId=1" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "params.projectId": "1"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/leantime/latest/actions/list-status-labels?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `params.projectId` | number | yes | The project ID to load status labels for. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "0": {
+        "class": "string",
+        "kanbanCol": true,
+        "name": "Ava Chen",
+        "sortKey": 1,
+        "statusType": "string"
+      },
+      "1": {
+        "class": "string",
+        "kanbanCol": true,
+        "name": "Ava Chen",
+        "sortKey": 1,
+        "statusType": "string"
+      },
+      "2": {
+        "class": "string",
+        "kanbanCol": true,
+        "name": "Ava Chen",
+        "sortKey": 1,
+        "statusType": "string"
+      },
+      "3": {
+        "class": "string",
+        "kanbanCol": true,
+        "name": "Ava Chen",
+        "sortKey": 1,
+        "statusType": "string"
+      },
+      "4": {
+        "class": "string",
+        "kanbanCol": true,
+        "name": "Ava Chen",
+        "sortKey": 1,
+        "statusType": "string"
+      },
+      "-1": {
+        "class": "string",
+        "kanbanCol": true,
+        "name": "Ava Chen",
+        "sortKey": 1,
+        "statusType": "string"
+      }
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `-1.class` | string |  |
+| `-1.kanbanCol` | boolean |  |
+| `-1.name` | string |  |
+| `-1.sortKey` | number |  |
+| `-1.statusType` | string |  |
+| `0.class` | string |  |
+| `0.kanbanCol` | boolean |  |
+| `0.name` | string |  |
+| `0.sortKey` | number |  |
+| `0.statusType` | string |  |
+| `1.class` | string |  |
+| `1.kanbanCol` | boolean |  |
+| `1.name` | string |  |
+| `1.sortKey` | number |  |
+| `1.statusType` | string |  |
+| `2.class` | string |  |
+| `2.kanbanCol` | boolean |  |
+| `2.name` | string |  |
+| `2.sortKey` | number |  |
+| `2.statusType` | string |  |
+| `3.class` | string |  |
+| `3.kanbanCol` | boolean |  |
+| `3.name` | string |  |
+| `3.sortKey` | number |  |
+| `3.statusType` | string |  |
+| `4.class` | string |  |
+| `4.kanbanCol` | boolean |  |
+| `4.name` | string |  |
+| `4.sortKey` | number |  |
+| `4.statusType` | string |  |
+
+## Native endpoint
+
+Through the native Leantime API, this operation is `POST /` (base URL `{{credentials.workspaceUrl}}/api/jsonrpc`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-status-labels.md) for the provider-specific parameters and requirements.
+

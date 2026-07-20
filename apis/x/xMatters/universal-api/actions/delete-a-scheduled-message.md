@@ -1,0 +1,169 @@
+# xMatters: Delete a scheduled message
+
+Deletes a scheduled message from your xMatters instance.
+
+```
+DELETE https://connect.mindcloud.co/v1/universal/xMatters/latest/actions/delete-a-scheduled-message
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a xMatters `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/xMatters/latest/actions/delete-a-scheduled-message?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/xMatters/latest/actions/delete-a-scheduled-message?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `scheduledMessageId` | string | no |  |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "event": {
+        "bypassPhoneIntro": true,
+        "created": "2026-05-07T12:00:00.000Z",
+        "escalationOverride": true,
+        "eventType": "string",
+        "expirationInMinutes": 1,
+        "floodControl": true,
+        "form": {
+          "id": "string",
+          "links": {
+            "self": "https://example.com"
+          },
+          "name": "Ava Chen"
+        },
+        "overrideDeviceRestrictions": true,
+        "plan": {
+          "id": "string",
+          "links": {
+            "self": "https://example.com"
+          },
+          "name": "Ava Chen"
+        },
+        "priority": "string",
+        "properties": {
+          "haveWorkersBeenNotifiedYet": true,
+          "isTheScheduleChanging": true
+        },
+        "recipients": {
+          "count": 1,
+          "data": [
+            {
+              "id": "string",
+              "links": {
+                "self": "https://example.com"
+              },
+              "recipientType": "string",
+              "targetName": "Ava Chen"
+            }
+          ],
+          "total": 1
+        },
+        "requirePhonePassword": true,
+        "responseCountsEnabled": true,
+        "status": "string",
+        "voicemailOptions": {
+          "every": 1,
+          "leave": "ava@example.com",
+          "retry": 1
+        }
+      },
+      "id": "string",
+      "name": "Ava Chen",
+      "owner": {
+        "firstName": "Ava",
+        "id": "string",
+        "lastName": "Chen",
+        "links": {
+          "self": "https://example.com"
+        },
+        "recipientType": "string",
+        "status": "string",
+        "targetName": "Ava Chen"
+      },
+      "previousFireTime": "2026-05-07T12:00:00.000Z",
+      "recurrence": {
+        "frequency": "string",
+        "startTime": "2026-05-07T12:00:00.000Z"
+      }
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `event.bypassPhoneIntro` | boolean |  |
+| `event.created` | date |  |
+| `event.escalationOverride` | boolean |  |
+| `event.eventType` | string |  |
+| `event.expirationInMinutes` | number |  |
+| `event.floodControl` | boolean |  |
+| `event.form.id` | string |  |
+| `event.form.links.self` | string |  |
+| `event.form.name` | string |  |
+| `event.overrideDeviceRestrictions` | boolean |  |
+| `event.plan.id` | string |  |
+| `event.plan.links.self` | string |  |
+| `event.plan.name` | string |  |
+| `event.priority` | string |  |
+| `event.properties.haveWorkersBeenNotifiedYet` | boolean |  |
+| `event.properties.isTheScheduleChanging` | boolean |  |
+| `event.recipients.count` | number |  |
+| `event.recipients.data[].id` | string |  |
+| `event.recipients.data[].links.self` | string |  |
+| `event.recipients.data[].recipientType` | string |  |
+| `event.recipients.data[].targetName` | string |  |
+| `event.recipients.total` | number |  |
+| `event.requirePhonePassword` | boolean |  |
+| `event.responseCountsEnabled` | boolean |  |
+| `event.status` | string |  |
+| `event.voicemailOptions.every` | number |  |
+| `event.voicemailOptions.leave` | string |  |
+| `event.voicemailOptions.retry` | number |  |
+| `id` | string |  |
+| `name` | string |  |
+| `owner.firstName` | string |  |
+| `owner.id` | string |  |
+| `owner.lastName` | string |  |
+| `owner.links.self` | string |  |
+| `owner.recipientType` | string |  |
+| `owner.status` | string |  |
+| `owner.targetName` | string |  |
+| `previousFireTime` | date |  |
+| `recurrence.frequency` | string |  |
+| `recurrence.startTime` | date |  |
+
+## Native endpoint
+
+Through the native xMatters API, this operation is `DELETE scheduled-messages/{scheduledMessageId}` (base URL `https://mindcloud.xmatters.com/api/xm/1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/delete-a-scheduled-message.md) for the provider-specific parameters and requirements.
+

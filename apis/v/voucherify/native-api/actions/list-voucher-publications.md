@@ -1,0 +1,16 @@
+# List Voucher Publications with Voucherify
+
+Retrieves a voucher's publications from Voucherify.
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/vouchers/:voucherId/publications`
+- **Base URL:** `https://us1.api.voucherify.io/v1`
+- **Official documentation:** [List Voucher Publications](https://docs.voucherify.io/api-reference/vouchers)
+
+## Parameters
+
+| Parameter | Location | Type | Required |
+| --- | --- | --- | --- |
+| `voucherId` | path | `string` | yes |

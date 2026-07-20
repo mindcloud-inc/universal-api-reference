@@ -1,0 +1,50 @@
+# Ninety.io: Delete Measurable Note
+
+Deletes a measurable note from Ninety.io for a period.
+
+```
+DELETE https://connect.mindcloud.co/v1/universal/ninetyio/latest/actions/delete-measurable-note
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Ninety.io `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/ninetyio/latest/actions/delete-measurable-note?connectionId=$CONNECTION_ID&kpiId=string&periodStartDate=2026-05-07T12%3A00%3A00.000Z" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "kpiId": "string",
+  "periodStartDate": "2026-05-07T12:00:00.000Z"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/ninetyio/latest/actions/delete-measurable-note?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `kpiId` | string | yes |  |
+| `periodStartDate` | date | yes |  |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Ninety.io API returns.
+
+## Native endpoint
+
+Through the native Ninety.io API, this operation is `DELETE /v1/scorecard/kpis/:kpiId/notes/:periodStartDate` (base URL `https://api.public.ninety.io`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/delete-measurable-note.md) for the provider-specific parameters and requirements.
+

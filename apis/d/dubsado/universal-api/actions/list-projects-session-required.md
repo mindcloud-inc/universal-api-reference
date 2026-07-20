@@ -1,0 +1,77 @@
+# Dubsado: List Projects (Session Required)
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/dubsado/latest/actions/list-projects-session-required
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Dubsado `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/dubsado/latest/actions/list-projects-session-required?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/dubsado/latest/actions/list-projects-session-required?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "approve": true,
+      "archived": true,
+      "brand": "string",
+      "client": {
+        "email": "ava@example.com",
+        "firstName": "Ava",
+        "lastName": "Chen"
+      },
+      "end": {},
+      "potential": true,
+      "start": {},
+      "title": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `approve` | boolean |  |
+| `archived` | boolean |  |
+| `brand` | string |  |
+| `client.email` | string |  |
+| `client.firstName` | string |  |
+| `client.lastName` | string |  |
+| `end` | object |  |
+| `potential` | boolean |  |
+| `start` | object |  |
+| `title` | string |  |
+
+## Native endpoint
+
+Through the native Dubsado API, this operation is `GET /project` (base URL `https://app.dubsado.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-projects-session-required.md) for the provider-specific parameters and requirements.
+

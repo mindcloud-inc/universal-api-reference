@@ -1,0 +1,97 @@
+# Mistral AI: Upload File
+
+Uploads a new file to Mistral AI.
+
+```
+POST https://connect.mindcloud.co/v1/universal/mistralAI/latest/actions/upload-file
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Mistral AI `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/mistralAI/latest/actions/upload-file" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "file": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/mistralAI/latest/actions/upload-file', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "file": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `file` | file | yes | The file object to upload. |
+| `purpose` | string | no | Optional file purpose. |
+| `expiry` | number | no | Optional expiry in hours. |
+| `visibility` | string | no | File visibility setting. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "bytes": 1,
+      "created_at": 1,
+      "expires_at": "string",
+      "filename": "Ava Chen",
+      "id": "string",
+      "mimetype": "string",
+      "num_lines": 1,
+      "object": "string",
+      "purpose": "string",
+      "sample_type": "string",
+      "signature": "string",
+      "source": "string",
+      "visibility": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `bytes` | number |  |
+| `created_at` | number |  |
+| `expires_at` | string |  |
+| `filename` | string |  |
+| `id` | string |  |
+| `mimetype` | string |  |
+| `num_lines` | number |  |
+| `object` | string |  |
+| `purpose` | string |  |
+| `sample_type` | string |  |
+| `signature` | string |  |
+| `source` | string |  |
+| `visibility` | string |  |
+
+## Native endpoint
+
+Through the native Mistral AI API, this operation is `POST /v1/files` (base URL `https://api.mistral.ai`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/upload-file.md) for the provider-specific parameters and requirements.
+

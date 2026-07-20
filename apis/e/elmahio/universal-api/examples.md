@@ -1,0 +1,92 @@
+# elmah.io Universal API Examples
+
+These examples use the MindCloud API key and elmah.io connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
+
+## List Logs
+
+Retrieves logs from elmah.io.
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/elmahio/latest/actions/list-logs?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/elmahio/latest/actions/list-logs?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "color": "string",
+      "disabled": true,
+      "environmentName": "Ava Chen",
+      "id": "string",
+      "name": "Ava Chen"
+    }
+  ],
+  "meta": {}
+}
+```
+
+See the full [List Logs action reference](actions/list-logs.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/elmahio/latest/actions/list-logs).
+
+## Create Deployment
+
+Creates a new deployment in elmah.io.
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/elmahio/latest/actions/create-deployment" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "version": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/elmahio/latest/actions/create-deployment', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "version": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "location": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+See the full [Create Deployment action reference](actions/create-deployment.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/elmahio/latest/actions/create-deployment).

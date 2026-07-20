@@ -1,0 +1,72 @@
+# Pilvio: Get Load Balancer
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/pilvio/latest/actions/get-load-balancer
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Pilvio `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/pilvio/latest/actions/get-load-balancer?connectionId=$CONNECTION_ID&loadBalancerUuid=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "loadBalancerUuid": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/pilvio/latest/actions/get-load-balancer?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `loadBalancerUuid` | string | yes | UUID of the load balancer to retrieve. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "billingAccountId": 1,
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "networkUuid": "string",
+      "userId": 1,
+      "uuid": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `billingAccountId` | number |  |
+| `createdAt` | date |  |
+| `networkUuid` | string |  |
+| `userId` | number |  |
+| `uuid` | string |  |
+
+## Native endpoint
+
+Through the native Pilvio API, this operation is `GET /network/load_balancers/{load_balancer_uuid}` (base URL `https://api.pilvio.com/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-load-balancer.md) for the provider-specific parameters and requirements.
+

@@ -1,0 +1,17 @@
+# Archive A Feature Flag with Unleash
+
+Archives a feature flag in Unleash.
+
+## Endpoint
+
+- **Method:** `DELETE`
+- **Path:** `/api/admin/projects/{projectId}/features/{featureName}`
+- **Base URL:** `https://us.app.getunleash.io/uspp0456`
+- **Official documentation:** [Archive A Feature Flag](https://docs.getunleash.io/api)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `projectId` | path | `string` | yes | Required path parameter. |
+| `featureName` | path | `string` | yes | Required path parameter. |

@@ -1,0 +1,643 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Forminit Universal API",
+    "version": "0.0.6",
+    "description": "Submit forms and manage form submissions"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/forminit/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/forminit/latest/actions/list-submissions": {
+      "get": {
+        "operationId": "forminit.list-submissions",
+        "summary": "List Submissions",
+        "description": "Retrieves submissions for a specific Forminit form.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/forminit/latest/actions/list-submissions"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "formId",
+            "in": "query",
+            "required": true,
+            "description": "Form identifier to read submissions from.",
+            "schema": {
+              "type": "string",
+              "description": "Form identifier to read submissions from."
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "description": "Search term used to filter matching submissions.",
+            "schema": {
+              "type": "string",
+              "description": "Search term used to filter matching submissions."
+            }
+          },
+          {
+            "name": "files",
+            "in": "query",
+            "required": false,
+            "description": "Include file details in the response when true.",
+            "schema": {
+              "type": "boolean",
+              "description": "Include file details in the response when true."
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "required": false,
+            "description": "IANA timezone used for formatted submission dates.",
+            "schema": {
+              "type": "string",
+              "description": "IANA timezone used for formatted submission dates."
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "apiVersion": {
+                            "type": "string",
+                            "description": "Forminit API version reported by the endpoint."
+                          },
+                          "fields": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "label": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "sortOrder": {
+                                  "type": "number"
+                                },
+                                "type": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "description": "Field definitions configured for the form."
+                          },
+                          "formId": {
+                            "type": "string",
+                            "description": "Form identifier returned by Forminit."
+                          },
+                          "pagination": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Pagination metadata for the current result set.",
+                            "properties": {
+                              "count": {
+                                "type": "number"
+                              },
+                              "currentPage": {
+                                "type": "number"
+                              },
+                              "firstPage": {
+                                "type": "number"
+                              },
+                              "lastPage": {
+                                "type": "number"
+                              },
+                              "size": {
+                                "type": "number"
+                              },
+                              "total": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "submissions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "blocks": {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "isSeen": {
+                                  "type": "boolean"
+                                },
+                                "isStarred": {
+                                  "type": "boolean"
+                                },
+                                "submissionDate": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "submissionStatus": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "description": "Matching submissions for the form."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/forminit/latest/actions/submit-form": {
+      "post": {
+        "operationId": "forminit.submit-form",
+        "summary": "Submit Form",
+        "description": "Creates a new submission for a Forminit form.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/forminit/latest/actions/submit-form"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "formId",
+                  "blocks"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "formId": {
+                    "type": "string",
+                    "description": "The Forminit form identifier.",
+                    "example": "kua953xaju5"
+                  },
+                  "blocks": {
+                    "type": "string",
+                    "description": "JSON string containing the Forminit `blocks` array.",
+                    "example": "[object Object],[object Object]"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "redirectUrl": {
+                            "type": "string",
+                            "description": "Redirect URL returned after successful submission."
+                          },
+                          "submission": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Created submission details.",
+                            "properties": {
+                              "blocks": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "date": {
+                                "type": "string"
+                              },
+                              "hashId": {
+                                "type": "string"
+                              },
+                              "submissionInfo": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "ip": {
+                                    "type": "string"
+                                  },
+                                  "location": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "city": {
+                                        "type": "object",
+                                        "properties": {
+                                          "name": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      },
+                                      "country": {
+                                        "type": "object",
+                                        "properties": {
+                                          "iso": {
+                                            "type": "string"
+                                          },
+                                          "name": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      },
+                                      "geo": {
+                                        "type": "object",
+                                        "properties": {
+                                          "lat": {
+                                            "type": "number"
+                                          },
+                                          "lng": {
+                                            "type": "number"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      },
+                                      "timezone": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "referer": {
+                                    "type": "string"
+                                  },
+                                  "sdk_version": {
+                                    "type": "string"
+                                  },
+                                  "user_agent": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the submission was accepted by Forminit."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

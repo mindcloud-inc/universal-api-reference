@@ -1,0 +1,63 @@
+# SimFin: Download annual bank balance dataset
+
+Retrieves the annual bank balance dataset from SimFin.
+
+```
+GET https://connect.mindcloud.co/v1/universal/simFin/latest/actions/download-annual-bank-balance-dataset
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a SimFin `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/simFin/latest/actions/download-annual-bank-balance-dataset?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/simFin/latest/actions/download-annual-bank-balance-dataset?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "dataset": "string",
+      "downloaded": true,
+      "market": "string",
+      "variant": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `dataset` | string |  |
+| `downloaded` | boolean |  |
+| `market` | string |  |
+| `variant` | string |  |
+
+## Native endpoint
+
+Through the native SimFin API, this operation is `GET s3?dataset=balance-banks&variant=annual&market=us` (base URL `https://prod.simfin.com/api/bulk-download`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/download-annual-bank-balance-dataset.md) for the provider-specific parameters and requirements.
+

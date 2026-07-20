@@ -1,0 +1,1702 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Mailcheck Universal API",
+    "version": "0.0.4",
+    "description": "Verify email deliverability, run bulk email checks, analyze email authenticity, rotate MailCheck API keys, and inspect MailCheck account usage from the MailCheck API."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/mailcheck/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/mailcheck/latest/actions/bulk-verify-emails": {
+      "post": {
+        "operationId": "mailcheck.bulk-verify-emails",
+        "summary": "Bulk Verify Emails",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mailcheck/latest/actions/bulk-verify-emails"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "emails[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "emails[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Up to 100 email addresses to verify in one request. Provide a JSON array of email strings."
+                  },
+                  "webhookUrl": {
+                    "type": "string",
+                    "description": "Optional HTTPS URL that MailCheck should notify when bulk verification completes.",
+                    "example": "https://your-server.example.com/mailcheck/webhook",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining monthly credits after the bulk verification."
+                          },
+                          "job_id": {
+                            "type": "string",
+                            "description": "Bulk verification job identifier."
+                          },
+                          "results": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "cached": {
+                                  "type": "boolean",
+                                  "description": "Whether the result came from cache."
+                                },
+                                "checks": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Per-check outcomes for the email.",
+                                  "properties": {
+                                    "disposable": {
+                                      "type": "string",
+                                      "description": "Disposable-email check result."
+                                    },
+                                    "free_provider": {
+                                      "type": "boolean",
+                                      "description": "Whether the provider is free."
+                                    },
+                                    "mx": {
+                                      "type": "string",
+                                      "description": "MX lookup result."
+                                    },
+                                    "role": {
+                                      "type": "string",
+                                      "description": "Role-address check result."
+                                    },
+                                    "smtp": {
+                                      "type": "string",
+                                      "description": "SMTP verification result."
+                                    },
+                                    "syntax": {
+                                      "type": "string",
+                                      "description": "Syntax validation result."
+                                    }
+                                  }
+                                },
+                                "details": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "Additional verification details.",
+                                  "properties": {
+                                    "catch_all": {
+                                      "type": "boolean",
+                                      "description": "Whether the domain is catch-all when available."
+                                    },
+                                    "catchAll": {
+                                      "type": "boolean",
+                                      "description": "Catch-all indicator returned by the API."
+                                    },
+                                    "has_typo_suggestion": {
+                                      "type": "boolean",
+                                      "description": "Whether MailCheck found a typo suggestion."
+                                    },
+                                    "is_disposable": {
+                                      "type": "boolean",
+                                      "description": "Whether the address uses a disposable provider."
+                                    },
+                                    "is_free_provider": {
+                                      "type": "boolean",
+                                      "description": "Whether the provider is free."
+                                    },
+                                    "is_role": {
+                                      "type": "boolean",
+                                      "description": "Whether the email is role-based."
+                                    },
+                                    "mxHost": {
+                                      "type": "string",
+                                      "description": "Resolved MX host when available."
+                                    },
+                                    "risk_level": {
+                                      "type": "string",
+                                      "description": "Risk level classification."
+                                    },
+                                    "role": {
+                                      "type": "string",
+                                      "description": "Detected role mailbox when available."
+                                    }
+                                  }
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "description": "Verified email address."
+                                },
+                                "reason": {
+                                  "type": "string",
+                                  "description": "Verification verdict reason."
+                                },
+                                "score": {
+                                  "type": "number",
+                                  "description": "Confidence score from 0 to 100."
+                                },
+                                "valid": {
+                                  "type": "boolean",
+                                  "description": "Whether MailCheck considers the email deliverable."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "total": {
+                            "type": "number",
+                            "description": "Total number of results returned."
+                          },
+                          "unique_verified": {
+                            "type": "number",
+                            "description": "Number of unique email addresses verified."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/mailcheck/latest/actions/get-account": {
+      "get": {
+        "operationId": "mailcheck.get-account",
+        "summary": "Get Account",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mailcheck/latest/actions/get-account"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "api_key": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Metadata about the active API key.",
+                            "properties": {
+                              "created_at": {
+                                "type": "string",
+                                "description": "When the API key was created."
+                              },
+                              "last_used_at": {
+                                "type": "string",
+                                "description": "When the API key was last used."
+                              },
+                              "prefix": {
+                                "type": "string",
+                                "description": "Visible prefix of the current API key."
+                              }
+                            }
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "Account email address."
+                          },
+                          "monthly_limit": {
+                            "type": "number",
+                            "description": "Monthly verification quota for the account."
+                          },
+                          "plan": {
+                            "type": "string",
+                            "description": "Current MailCheck billing plan."
+                          },
+                          "usage": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Current usage summary.",
+                            "properties": {
+                              "current_month": {
+                                "type": "number",
+                                "description": "Verifications used this month."
+                              },
+                              "remaining": {
+                                "type": "number",
+                                "description": "Verifications remaining this month."
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/mailcheck/latest/actions/rotate-api-key": {
+      "put": {
+        "operationId": "mailcheck.rotate-api-key",
+        "summary": "Rotate API Key",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mailcheck/latest/actions/rotate-api-key"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "api_key": {
+                            "type": "string",
+                            "description": "The newly issued MailCheck API key."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Rotation status message."
+                          },
+                          "warning": {
+                            "type": "string",
+                            "description": "Warning that the old key has been revoked."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/mailcheck/latest/actions/verify-email": {
+      "post": {
+        "operationId": "mailcheck.verify-email",
+        "summary": "Verify Email",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mailcheck/latest/actions/verify-email"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "email"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Email address to verify.",
+                    "example": "user@example.com"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "cached": {
+                            "type": "boolean",
+                            "description": "Whether the result came from cache."
+                          },
+                          "checks": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Per-check outcomes.",
+                            "properties": {
+                              "disposable": {
+                                "type": "string",
+                                "description": "Disposable-email check result."
+                              },
+                              "free_provider": {
+                                "type": "boolean",
+                                "description": "Whether the provider is a free mailbox provider."
+                              },
+                              "mx": {
+                                "type": "string",
+                                "description": "MX lookup result."
+                              },
+                              "role": {
+                                "type": "string",
+                                "description": "Role-address check result."
+                              },
+                              "smtp": {
+                                "type": "string",
+                                "description": "SMTP verification result."
+                              },
+                              "syntax": {
+                                "type": "string",
+                                "description": "Syntax validation result."
+                              }
+                            }
+                          },
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining monthly credits after the verification."
+                          },
+                          "details": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Additional verification details.",
+                            "properties": {
+                              "catch_all": {
+                                "type": "boolean",
+                                "description": "Whether the domain is catch-all when available."
+                              },
+                              "catchAll": {
+                                "type": "boolean",
+                                "description": "Catch-all indicator returned by the API."
+                              },
+                              "has_typo_suggestion": {
+                                "type": "boolean",
+                                "description": "Whether MailCheck found a typo suggestion."
+                              },
+                              "is_disposable": {
+                                "type": "boolean",
+                                "description": "Whether the address uses a disposable provider."
+                              },
+                              "is_free_provider": {
+                                "type": "boolean",
+                                "description": "Whether the provider is free."
+                              },
+                              "is_role": {
+                                "type": "boolean",
+                                "description": "Whether the email is role-based."
+                              },
+                              "mxHost": {
+                                "type": "string",
+                                "description": "Resolved MX host when available."
+                              },
+                              "risk_level": {
+                                "type": "string",
+                                "description": "Risk level classification."
+                              }
+                            }
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "Verified email address."
+                          },
+                          "reason": {
+                            "type": "string",
+                            "description": "Verification verdict reason."
+                          },
+                          "score": {
+                            "type": "number",
+                            "description": "Confidence score from 0 to 100."
+                          },
+                          "valid": {
+                            "type": "boolean",
+                            "description": "Whether MailCheck considers the email deliverable."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/mailcheck/latest/actions/verify-email-authenticity": {
+      "post": {
+        "operationId": "mailcheck.verify-email-authenticity",
+        "summary": "Verify Email Authenticity",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mailcheck/latest/actions/verify-email-authenticity"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "headers"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "headers": {
+                    "type": "string",
+                    "description": "Raw email header block to analyze for authenticity.",
+                    "example": "From: sender@example.com\nReceived: from ..."
+                  },
+                  "trustedDomains[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Optional list of trusted domains used for lookalike detection. Provide a JSON array of domain strings.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "anomalies": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "description": "Detected anomalies."
+                            }
+                          },
+                          "authentication": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Authentication check results.",
+                            "properties": {
+                              "dkim": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "DKIM analysis.",
+                                "properties": {
+                                  "has_public_key": {
+                                    "type": "boolean",
+                                    "description": "Whether the DKIM public key exists."
+                                  },
+                                  "result": {
+                                    "type": "string",
+                                    "description": "DKIM result."
+                                  }
+                                }
+                              },
+                              "dmarc": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "DMARC analysis.",
+                                "properties": {
+                                  "has_policy": {
+                                    "type": "boolean",
+                                    "description": "Whether a DMARC policy exists."
+                                  },
+                                  "policy": {
+                                    "type": "string",
+                                    "description": "DMARC enforcement policy."
+                                  },
+                                  "record": {
+                                    "type": "string",
+                                    "description": "Observed DMARC record or evidence."
+                                  }
+                                }
+                              },
+                              "spf": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "SPF analysis.",
+                                "properties": {
+                                  "domain": {
+                                    "type": "string",
+                                    "description": "SPF-authenticated domain when available."
+                                  },
+                                  "result": {
+                                    "type": "string",
+                                    "description": "SPF result."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining monthly credits after the analysis."
+                          },
+                          "from": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Parsed sender identity.",
+                            "properties": {
+                              "address": {
+                                "type": "string",
+                                "description": "Sender email address."
+                              },
+                              "display_name": {
+                                "type": "string",
+                                "description": "Sender display name."
+                              },
+                              "domain": {
+                                "type": "string",
+                                "description": "Sender domain."
+                              }
+                            }
+                          },
+                          "lookalike": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Lookalike-domain detection result.",
+                            "properties": {
+                              "is_lookalike": {
+                                "type": "boolean",
+                                "description": "Whether the sender domain resembles a trusted domain."
+                              }
+                            }
+                          },
+                          "privacy": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Privacy guarantees for processing.",
+                            "properties": {
+                              "body_processed": {
+                                "type": "boolean",
+                                "description": "Whether the body was processed."
+                              },
+                              "headers_only": {
+                                "type": "boolean",
+                                "description": "Whether only headers were analyzed."
+                              }
+                            }
+                          },
+                          "trust_score": {
+                            "type": "number",
+                            "description": "Overall trust score from 0 to 100."
+                          },
+                          "verdict": {
+                            "type": "string",
+                            "description": "Overall authenticity verdict."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/mailcheck/latest/actions/verify-raw-email-authenticity": {
+      "post": {
+        "operationId": "mailcheck.verify-raw-email-authenticity",
+        "summary": "Verify Raw Email Authenticity",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mailcheck/latest/actions/verify-raw-email-authenticity"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "rawEmail"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "rawEmail": {
+                    "type": "string",
+                    "description": "Full raw email source. MailCheck strips the body and analyzes only the headers.",
+                    "example": "From: sender@example.com\n...\n\nBody is ignored"
+                  },
+                  "trustedDomains[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Optional list of trusted domains used for lookalike detection. Provide a JSON array of domain strings.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "anomalies": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                              },
+                              "description": "Detected anomalies."
+                            }
+                          },
+                          "authentication": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Authentication check results.",
+                            "properties": {
+                              "dkim": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "DKIM analysis.",
+                                "properties": {
+                                  "has_public_key": {
+                                    "type": "boolean",
+                                    "description": "Whether the DKIM public key exists."
+                                  },
+                                  "result": {
+                                    "type": "string",
+                                    "description": "DKIM result."
+                                  }
+                                }
+                              },
+                              "dmarc": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "DMARC analysis.",
+                                "properties": {
+                                  "has_policy": {
+                                    "type": "boolean",
+                                    "description": "Whether a DMARC policy exists."
+                                  },
+                                  "policy": {
+                                    "type": "string",
+                                    "description": "DMARC enforcement policy."
+                                  },
+                                  "record": {
+                                    "type": "string",
+                                    "description": "Observed DMARC record or evidence."
+                                  }
+                                }
+                              },
+                              "spf": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "SPF analysis.",
+                                "properties": {
+                                  "domain": {
+                                    "type": "string",
+                                    "description": "SPF-authenticated domain when available."
+                                  },
+                                  "result": {
+                                    "type": "string",
+                                    "description": "SPF result."
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "credits_remaining": {
+                            "type": "number",
+                            "description": "Remaining monthly credits after the analysis."
+                          },
+                          "from": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Parsed sender identity.",
+                            "properties": {
+                              "address": {
+                                "type": "string",
+                                "description": "Sender email address."
+                              },
+                              "display_name": {
+                                "type": "string",
+                                "description": "Sender display name."
+                              },
+                              "domain": {
+                                "type": "string",
+                                "description": "Sender domain."
+                              }
+                            }
+                          },
+                          "lookalike": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Lookalike-domain detection result.",
+                            "properties": {
+                              "is_lookalike": {
+                                "type": "boolean",
+                                "description": "Whether the sender domain resembles a trusted domain."
+                              }
+                            }
+                          },
+                          "privacy": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Privacy guarantees for processing.",
+                            "properties": {
+                              "body_processed": {
+                                "type": "boolean",
+                                "description": "Whether the body was processed."
+                              },
+                              "body_stripped": {
+                                "type": "boolean",
+                                "description": "Whether the body was stripped before analysis."
+                              },
+                              "headers_only": {
+                                "type": "boolean",
+                                "description": "Whether only headers were analyzed."
+                              }
+                            }
+                          },
+                          "trust_score": {
+                            "type": "number",
+                            "description": "Overall trust score from 0 to 100."
+                          },
+                          "verdict": {
+                            "type": "string",
+                            "description": "Overall authenticity verdict."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

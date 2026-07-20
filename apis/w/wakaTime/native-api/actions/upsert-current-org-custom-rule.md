@@ -1,0 +1,10 @@
+# Upsert Current Org Custom Rule with WakaTime
+
+Updates custom rules for a WakaTime organization.
+
+## Endpoint
+
+- **Method:** `PUT`
+- **Path:** `/users/current/orgs/:org/custom_rules`
+- **Base URL:** `https://api.wakatime.com/api/v1`
+- **Official documentation:** [Upsert Current Org Custom Rule](https://wakatime.com/developers#org_custom_rules)

@@ -1,0 +1,51 @@
+# Zoho Assist: Delete Unattended Computer
+
+Deletes an unattended computer from Zoho Assist.
+
+```
+DELETE https://connect.mindcloud.co/v1/universal/zohoAssist/latest/actions/delete-unattended-computer
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Zoho Assist `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/zohoAssist/latest/actions/delete-unattended-computer?connectionId=$CONNECTION_ID&resourceId=string&departmentId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "resourceId": "string",
+  "departmentId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/zohoAssist/latest/actions/delete-unattended-computer?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `resourceId` | string | yes | Device resource ID to delete. |
+| `departmentId` | string | yes | Department containing the target device. |
+| `source` | string | no | Optional request source tag sent as a Zoho Assist header. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Zoho Assist API returns.
+
+## Native endpoint
+
+Through the native Zoho Assist API, this operation is `DELETE /devices/:resourceId` (base URL `https://assist.zoho.com/api/v2`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/delete-unattended-computer.md) for the provider-specific parameters and requirements.
+

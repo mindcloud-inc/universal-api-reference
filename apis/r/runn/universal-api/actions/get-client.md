@@ -1,0 +1,70 @@
+# Runn: Get Client
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/runn/latest/actions/get-client
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Runn `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/runn/latest/actions/get-client?connectionId=$CONNECTION_ID&clientId=1" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "clientId": "1"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/runn/latest/actions/get-client?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `clientId` | number | yes | Runn client ID. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "isArchived": true,
+      "name": "Ava Chen",
+      "website": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `id` | number | Client ID. |
+| `isArchived` | boolean | Whether the client is archived. |
+| `name` | string | Client name. |
+| `website` | string | Client website URL, if present. |
+
+## Native endpoint
+
+Through the native Runn API, this operation is `GET /clients/{{clientId}}` (base URL `https://api.runn.io`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-client.md) for the provider-specific parameters and requirements.
+

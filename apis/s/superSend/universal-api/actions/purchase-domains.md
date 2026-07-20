@@ -1,0 +1,66 @@
+# SuperSend: Purchase Domains
+
+Creates managed domains in SuperSend.
+
+```
+POST https://connect.mindcloud.co/v1/universal/superSend/latest/actions/purchase-domains
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a SuperSend `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/superSend/latest/actions/purchase-domains" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "domains[]": [
+    "string"
+  ],
+  "paymentMethodId": "string",
+  "forwardingAddress": "string",
+  "contactDetails": {}
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/superSend/latest/actions/purchase-domains', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "domains[]": ["string"],
+    "paymentMethodId": "string",
+    "forwardingAddress": "string",
+    "contactDetails": {}
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `domains[]` | array<string> | yes |  |
+| `paymentMethodId` | string | yes |  |
+| `forwardingAddress` | string | yes |  |
+| `contactDetails` | object | yes |  |
+| `dmarcEmail` | string | no |  |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native SuperSend API returns.
+
+## Native endpoint
+
+Through the native SuperSend API, this operation is `POST /domains/purchase` (base URL `https://api.supersend.io/v2`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/purchase-domains.md) for the provider-specific parameters and requirements.
+

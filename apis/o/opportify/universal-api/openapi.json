@@ -1,0 +1,2404 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Opportify Universal API",
+    "version": "0.0.10",
+    "description": "Analyze emails and IPs for fraud and deliverability insights"
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/opportify/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/opportify/latest/actions/analyze-email": {
+      "get": {
+        "operationId": "opportify.analyze-email",
+        "summary": "Analyze Email",
+        "description": "Analyzes an email address in Opportify for deliverability and risk.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/analyze-email"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "description": "The email address to validate.",
+            "schema": {
+              "type": "string",
+              "description": "The email address to validate."
+            }
+          },
+          {
+            "name": "enableAI",
+            "in": "query",
+            "required": false,
+            "description": "Enable AI-driven risk analysis. Optional; defaults to `true`.",
+            "schema": {
+              "type": "boolean",
+              "description": "Enable AI-driven risk analysis. Optional; defaults to `true`."
+            }
+          },
+          {
+            "name": "enableAutoCorrection",
+            "in": "query",
+            "required": false,
+            "description": "Controls email auto-correction behavior. Default: `false`.\n\n- When set to `true`: If the system is highly confident about a correction, it will automatically apply it. The analysis will be performed on the corrected email address. The response will include the corrected email in `emailAddress` and `emailCorrection`, with the original input preserved in `emailAutoCorrectedFrom`.\n- When set to `false`: The system will still identify and return potential corrections in the `emailCorrection` field when confident, but the analysis will remain based on the original email address provided in the input. The `emailAutoCorrectedFrom` field will not be present.",
+            "schema": {
+              "type": "boolean",
+              "description": "Controls email auto-correction behavior. Default: `false`.\n\n- When set to `true`: If the system is highly confident about a correction, it will automatically apply it. The analysis will be performed on the corrected email address. The response will include the corrected email in `emailAddress` and `emailCorrection`, with the original input preserved in `emailAutoCorrectedFrom`.\n- When set to `false`: The system will still identify and return potential corrections in the `emailCorrection` field when confident, but the analysis will remain based on the original email address provided in the input. The `emailAutoCorrectedFrom` field will not be present."
+            }
+          },
+          {
+            "name": "enableDomainEnrichment",
+            "in": "query",
+            "required": false,
+            "description": "Include domain-level enrichment details. Optional; defaults to `true`. Set to `false` to omit the `domain` block even when the data exists.",
+            "schema": {
+              "type": "boolean",
+              "description": "Include domain-level enrichment details. Optional; defaults to `true`. Set to `false` to omit the `domain` block even when the data exists."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "addressSignals": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Local-part parsing details for the analyzed address. Always present; fields default to empty strings when a signal is not applicable."
+                          },
+                          "domain": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Domain summary derived from enrichment providers. Omitted when enrichment is unavailable or `enableDomainEnrichment` is set to `false`."
+                          },
+                          "emailAddress": {
+                            "type": "string",
+                            "description": "Normalized email address returned by the service (always lower-case)."
+                          },
+                          "emailAutoCorrectedFrom": {
+                            "type": "string",
+                            "description": "The original email address provided in the request, before auto-correction was applied. This field is only present when `enableAutoCorrection` is `true` AND the system automatically applied a correction.\n\nWhen this field is present, it indicates that:\n- The user submitted this email address\n- The system detected a confident correction\n- `emailAddress` contains the corrected value used for analysis\n- `emailCorrection` contains the same corrected value"
+                          },
+                          "emailCorrection": {
+                            "type": "string",
+                            "description": "The corrected email address when the system is highly confident about a typo or misspelling. Always present; empty string when no correction is needed.\n\n- When `enableAutoCorrection` is `true` and correction applied: Contains the corrected email (same as `emailAddress`). The original input is available in `emailAutoCorrectedFrom`.\n- When `enableAutoCorrection` is `false`: Contains the suggested correction, but `emailAddress` and all analysis remain based on the original input.\n- When no correction is needed: Empty string."
+                          },
+                          "emailDNS": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "DNS details for an email address domain."
+                          },
+                          "emailProvider": {
+                            "type": "string",
+                            "description": "Provider slug derived from the domain, or `unknown` when not classified."
+                          },
+                          "emailType": {
+                            "type": "string",
+                            "description": "Email classification based on provider and enrichment signals.\nAllowed values: `private`, `free`, `disposable`, `unknown`.\nExample: `free`."
+                          },
+                          "isCatchAll": {
+                            "type": "boolean",
+                            "description": "Determines if the email domain is configured as a catch-all, which accepts emails for all addresses within the domain. This is verified through multiple email tests."
+                          },
+                          "isDeliverable": {
+                            "type": "string",
+                            "description": "Checks if the email address exists and is deliverable using SMTP handshake simulation. This involves connecting to the mail server and issuing commands to verify deliverability. The possible answers are `yes`, `no`, or `unknown`. We guarantee a high confidence level on this parameter since this is a real time verification.\nAllowed values: `yes`, `no`, `unknown`.\nExample: `yes`."
+                          },
+                          "isFormatValid": {
+                            "type": "boolean",
+                            "description": "Indicates if the email address meets syntax validation rules."
+                          },
+                          "isMailboxFull": {
+                            "type": "boolean",
+                            "description": "Determines if the mailbox associated with the email is full, in association with isDeliverable field, it can give a reason why the email is not deliverable."
+                          },
+                          "isReachable": {
+                            "type": "boolean",
+                            "description": "Confirms if the email domain has valid MX DNS records using DNS lookup."
+                          },
+                          "riskReport": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "AI-generated risk report detailing the evaluated risk bucket. Returned only when `enableAI` is true."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/analyze-ip": {
+      "get": {
+        "operationId": "opportify.analyze-ip",
+        "summary": "Analyze IP",
+        "description": "Analyzes an IP address in Opportify for risk and geolocation.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/analyze-ip"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ip",
+            "in": "query",
+            "required": true,
+            "description": "The IPv4 or IPv6 address to analyze.",
+            "schema": {
+              "type": "string",
+              "description": "The IPv4 or IPv6 address to analyze."
+            }
+          },
+          {
+            "name": "enableAI",
+            "in": "query",
+            "required": false,
+            "description": "Enable AI-driven analysis for the IP address. Default is `false`.",
+            "schema": {
+              "type": "boolean",
+              "description": "Enable AI-driven analysis for the IP address. Default is `false`."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "blocklisted": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "### Block Listed Details\n\nThe `BlockListed` object provides detailed information about whether an IP address is listed in known blocklists and related data. \n\n---\n\n#### Key Highlights:\n- **Continuous Monitoring**: We constantly monitor and update blocklist sources to ensure the information is accurate and reflects the latest active reports.\n- **Expanding Coverage**: Our system incorporates a wide range of trusted sources, with continuous efforts to onboard additional blocklist data providers.\n\n---\n\n### Response Elements"
+                          },
+                          "connectionType": {
+                            "type": "string",
+                            "description": "The **connectionType** element provides information about the type of connection associated with a given IP address. Our system employs a **dynamic and evolving approach**, leveraging multiple data points to identify the connection type as accurately as possible. \n- **wired**: A traditional wired connection (e.g., DSL, fiber, cable).\n- **mobile**: A mobile network connection (e.g., 4G, 5G).\n- **enterprise**: A connection from a known large business or corporate network.\n- **satellite**: A satellite internet connection.\n- **vpn**: A connection routed through a Virtual Private Network.\n- **cloud-provider**: A connection from a cloud hosting provider (e.g., AWS, Azure).\n- **open-proxy**: A connection using an open or public proxy.\n- **tor**: A connection routed through the Tor network."
+                          },
+                          "geo": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "### Geolocation Determination & Confidence Levels\nGeolocation details are derived by analyzing the provided IP address using data aggregated from a wide range of sources, both official and unofficial (such as user-generated data, open-source, or crowdsourced). This data is meticulously evaluated and ranked using a proprietary weighted reliability score that is tailored to the specific characteristics and trustworthiness of each data source.\n\n---\n\n#### Confidence Levels\n\nThe geolocation process assigns a confidence level to each level of granularity. These levels reflect the probability of accuracy based on the reliability of the data and analysis:\n\n- **Continent-Level (99%)**: The determination of the continent is highly reliable, with a near-certain accuracy rate of 99%.\n- **Country-Level (98%)**: Locating the specific country has a very high accuracy of 98%, reflecting reliable cross-verification.\n- **Region-Level (70–90%)**: Identifying regions (such as states or provinces) has moderate to high accuracy, depending on the data quality and density for the given area.\n- **City-Level (50–70%)**: Pinpointing the specific city is moderately accurate, influenced by factors such as ISP data resolution and urban vs. rural settings.\n- **Specific Area/Point (5–40%)**: Pinpointing a highly specific area (e.g., a neighborhood or street) has a significantly lower confidence level due to inherent limitations in IP-based geolocation technology.\n\n---\n\n#### Key Features\n\n- **Alphabetical Object Sorting**:  \n  The keys in the returned geolocation object are consistently sorted alphabetically, ensuring a predictable structure for easier integration and parsing.\n\n---\n\n### Response Elements"
+                          },
+                          "hostReverse": {
+                            "type": "string",
+                            "description": "Real time reverse DNS lookup result for the IP address."
+                          },
+                          "ipAddress": {
+                            "type": "string",
+                            "description": "The analyzed IP address."
+                          },
+                          "ipAddressNumber": {
+                            "type": "number",
+                            "description": "Numeric representation of the IP address."
+                          },
+                          "ipCidr": {
+                            "type": "string",
+                            "description": "CIDR notation of the IP address."
+                          },
+                          "ipType": {
+                            "type": "string",
+                            "description": "Type of the IP address (IPv4 or IPv6)."
+                          },
+                          "riskReport": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "### Risk Level Determination\nThis documentation outlines how the risk level is determined based on a `normalizedScore` generated by a **multivariate linear regression model**. The risk level provides a static representation of thresholds to classify the severity of risk for an entity.\n\n#### How the Score is Generated\n\nThe risk score (`normalizedScore`) is computed using a **multivariate linear regression model**, a machine learning approach that evaluates multiple input features to predict the risk score.\n\n##### Key Features of the Model:\n1. **Dynamic Scoring:** The model assigns weights to various risk factors, dynamically updating them based on training with new data.\n2. **Constant Training:** The model is continuously retrained with the latest data to improve accuracy and adapt to evolving risk patterns.\n3. **Scalability:** The model supports multiple features and their interactions, deriving a comprehensive and reliable risk score.\n\nThe output score is normalized to a range of **200–1000** for easier interpretation and alignment with industry practices.\n\n---\n\n#### Risk Level Thresholds\n\nThe risk level is a static representation of the `normalizedScore`, categorized into five distinct levels:\n\n| **Risk Level** | **Score Range**          | **Description**                                                                 |\n|----------------|--------------------------|---------------------------------------------------------------------------------|\n| `highest`      | `normalizedScore > 800` | Represents the most critical level of risk. Immediate attention is required. **Extremely high likelihood of malicious IP activity or fraud.**   |\n| `high`         | `600 < normalizedScore <= 800` | Indicates a high level of risk. Consider mitigation actions promptly. **Strong likelihood of malicious IP activity or fraud.**          |\n| `medium`       | `400 < normalizedScore <= 600` | Reflects a moderate level of risk. Monitoring and possible action advised.     |\n| `low`          | `300 < normalizedScore <= 400` | Denotes a low level of risk. Regular monitoring is sufficient.                 |\n| `lowest`       | `normalizedScore <= 300` | The lowest level of risk. Risk is considered negligible or minimal.            |\n\n---\n\n#### Usage\n\nThis risk level determination serves as a human-readable representation of the machine learning model's output. It enables:\n- **Risk Monitoring:** Identifying entities that require immediate attention.\n- **Action Prioritization:** Guiding mitigation efforts based on the severity of the risk.\n- **Decision-Making:** Providing clear thresholds for automated and manual workflows.\n\n---\n\n#### Key Notes\n1. **Dynamic Scoring, Static Levels:**\n  - While the score is dynamically updated through a multivariate linear regression model, the risk levels remain static to maintain consistency and interpretability.\n\n2. **Customizable Thresholds:**\n  - The thresholds for the levels are configurable based on organizational needs or domain-specific requirements.\n\n3. **Model Retraining:** \n  - Regular updates to the model ensure that scores accurately reflect real-world risk trends, improving the reliability of level assignments.\n\n---\n\nThis approach combines the adaptability of multivariate linear regression with the simplicity of static thresholds, offering a robust framework for risk assessment and decision-making.\n\n---\n\n### Response Elements"
+                          },
+                          "trustedProvider": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Details of trusted providers for an IP address."
+                          },
+                          "whois": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "### WHOIS Details\nThis object provides sanitized and normalized WHOIS information for an IP address, including details about the Regional Internet Registry (RIR), Autonomous System Number (ASN), organization, and contact information.\n\n#### Key Features:\n- **RIR Details**: Identify the Regional Internet Registry managing the IP address.\n- **ASN Information**: Obtain the Autonomous System Number details, including the ASN identifier, name, and description.\n- **Organization Data**: Retrieve organization details, such as the ID, name, type, description, address, country, and contact information.\n- **Contact Information**: Access contact details for abuse, admin, and tech issues, including the contact ID, type, name, address, phone, fax, and email.\n\n---\n\n### Response Elements"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/batch-analyze-emails": {
+      "post": {
+        "operationId": "opportify.batch-analyze-emails",
+        "summary": "Batch Analyze Emails",
+        "description": "Creates an asynchronous email analysis job in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/batch-analyze-emails"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "emails[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "emails[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Array of email addresses to analyze."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Optional name for the batch job."
+                  },
+                  "enableAI": {
+                    "type": "boolean",
+                    "description": "Enable AI-based analysis for insights."
+                  },
+                  "enableAutoCorrection": {
+                    "type": "boolean",
+                    "description": "Controls email auto-correction behavior for batch processing. Default: `false`.\n\n- When set to `true`: The system will automatically apply corrections when highly confident. The analysis will be performed on corrected email addresses.\n- When set to `false`: The system will still suggest corrections in the results, but the analysis will remain based on the original email addresses provided."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "jobId": {
+                            "type": "string",
+                            "description": "Unique identifier for the batch job."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the batch job, if provided."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the batch job.\nAllowed values: `QUEUED`, `PROCESSING`, `COMPLETED`, `ERROR`.\nExample: `QUEUED`."
+                          },
+                          "statusDescription": {
+                            "type": "string",
+                            "description": "Description of the status, particularly useful when status is ERROR."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/batch-analyze-ips": {
+      "post": {
+        "operationId": "opportify.batch-analyze-ips",
+        "summary": "Batch Analyze IPs",
+        "description": "Creates an asynchronous IP analysis job in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/batch-analyze-ips"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "ips[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "ips[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Array of IP addresses to analyze."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Optional name for the batch job."
+                  },
+                  "enableAI": {
+                    "type": "boolean",
+                    "description": "Enable AI-based analysis for insights."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "jobId": {
+                            "type": "string",
+                            "description": "Unique identifier for the batch job."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the batch job, if provided."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the batch job.\nAllowed values: `QUEUED`, `PROCESSING`, `COMPLETED`, `ERROR`.\nExample: `QUEUED`."
+                          },
+                          "statusDescription": {
+                            "type": "string",
+                            "description": "Description of the status, particularly useful when status is ERROR."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/create-email-batch-export": {
+      "post": {
+        "operationId": "opportify.create-email-batch-export",
+        "summary": "Create Email Batch Export",
+        "description": "Creates an export job for email batch results in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/create-email-batch-export"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "jobId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "jobId": {
+                    "type": "string",
+                    "description": "The unique identifier of the completed batch job.\nFormat: uuid.\nExample: \"84d22c8b-2cb6-4606-bfb1-361244a097e4\"."
+                  },
+                  "exportType": {
+                    "type": "string",
+                    "description": "Output format for the export. If omitted, the server will use `csv` as the default format.\nAllowed values: `csv`, `json`.\nExample: `csv`."
+                  },
+                  "filters": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Field-level filters to apply to the export. Supports string filters (exact match, comma-separated, or arrays), numeric filters (exact values, arrays, or range objects with min/max), and nested field access using dot notation.\n\n- Maximum 25 filters\n- Maximum 50 values per filter"
+                  },
+                  "columns[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Array of field paths to include in the export. If omitted, all fields are included. Maximum 100 columns."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "exportId": {
+                            "type": "string",
+                            "description": "The unique identifier for the export job.\nFormat: uuid.\nExample: \"6f8d88ef-0896-4f69-90cd-7cc6ce5e6ddf\"."
+                          },
+                          "jobId": {
+                            "type": "string",
+                            "description": "The batch job identifier.\nFormat: uuid.\nExample: \"84d22c8b-2cb6-4606-bfb1-361244a097e4\"."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Initial status of the export job.\nAllowed value: `QUEUED`.\nExample: `QUEUED`."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/create-ip-batch-export": {
+      "post": {
+        "operationId": "opportify.create-ip-batch-export",
+        "summary": "Create IP Batch Export",
+        "description": "Creates an export job for IP batch results in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/create-ip-batch-export"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "jobId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "jobId": {
+                    "type": "string",
+                    "description": "The unique identifier of the completed batch job.\nFormat: uuid.\nExample: \"52b36b1f-0c21-41fa-8a4f-423d25a9a8e2\"."
+                  },
+                  "exportType": {
+                    "type": "string",
+                    "description": "Output format for the export. If omitted, the server will use `csv` as the default format.\nAllowed values: `csv`, `json`.\nExample: `csv`."
+                  },
+                  "filters": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Field-level filters to apply to the export. Supports string filters (exact match, comma-separated, or arrays), numeric filters (exact values, arrays, or range objects with min/max), and nested field access using dot notation.\n\n- Maximum 25 filters\n- Maximum 50 values per filter"
+                  },
+                  "columns[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Array of field paths to include in the export. If omitted, all fields are included. Maximum 100 columns."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "exportId": {
+                            "type": "string",
+                            "description": "The unique identifier for the export job.\nFormat: uuid.\nExample: \"6f8d88ef-0896-4f69-90cd-7cc6ce5e6ddf\"."
+                          },
+                          "jobId": {
+                            "type": "string",
+                            "description": "The batch job identifier.\nFormat: uuid.\nExample: \"84d22c8b-2cb6-4606-bfb1-361244a097e4\"."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Initial status of the export job.\nAllowed value: `QUEUED`.\nExample: `QUEUED`."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/get-email-batch-export-status": {
+      "get": {
+        "operationId": "opportify.get-email-batch-export-status",
+        "summary": "Get Email Batch Export Status",
+        "description": "Retrieves the status of an email batch export job in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/get-email-batch-export-status"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "description": "The unique identifier of the batch job.\nFormat: uuid.\nExample: \"84d22c8b-2cb6-4606-bfb1-361244a097e4\".",
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of the batch job.\nFormat: uuid.\nExample: \"84d22c8b-2cb6-4606-bfb1-361244a097e4\"."
+            }
+          },
+          {
+            "name": "exportId",
+            "in": "query",
+            "required": true,
+            "description": "The unique identifier of the export job.\nFormat: uuid.\nExample: \"6f8d88ef-0896-4f69-90cd-7cc6ce5e6ddf\".",
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of the export job.\nFormat: uuid.\nExample: \"6f8d88ef-0896-4f69-90cd-7cc6ce5e6ddf\"."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "columns": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "List of columns included in the export."
+                          },
+                          "downloadUrl": {
+                            "type": "string",
+                            "description": "Pre-signed URL to download the export file. Only present when status is `COMPLETED`.\nFormat: uri.\nExample: \"https://opportify-batch-analysis.s3.amazonaws.com/...\"."
+                          },
+                          "errorCode": {
+                            "type": "string",
+                            "description": "Error code if the export failed. Only present when status is `FAILED`."
+                          },
+                          "errorMessage": {
+                            "type": "string",
+                            "description": "Error message if the export failed. Only present when status is `FAILED`."
+                          },
+                          "expiresAt": {
+                            "type": "string",
+                            "description": "Expiration timestamp for the download URL (ISO 8601 format). Only present when status is `COMPLETED`.\nFormat: date-time.\nExample: \"2025-11-07T14:32:15.000Z\"."
+                          },
+                          "exportId": {
+                            "type": "string",
+                            "description": "The unique identifier for the export job.\nFormat: uuid.\nExample: \"6f8d88ef-0896-4f69-90cd-7cc6ce5e6ddf\"."
+                          },
+                          "filters": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "List of filters applied to the export."
+                          },
+                          "format": {
+                            "type": "string",
+                            "description": "The output format of the export.\nAllowed values: `csv`, `json`.\nExample: `csv`."
+                          },
+                          "jobId": {
+                            "type": "string",
+                            "description": "The batch job identifier.\nFormat: uuid.\nExample: \"84d22c8b-2cb6-4606-bfb1-361244a097e4\"."
+                          },
+                          "requestedAt": {
+                            "type": "string",
+                            "description": "Timestamp when the export was requested (ISO 8601 format).\nFormat: date-time.\nExample: \"2025-11-07T10:30:00.000Z\"."
+                          },
+                          "resultSizeBytes": {
+                            "type": "number",
+                            "description": "Size of the export file in bytes. Only present when status is `COMPLETED`."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the export job.\nAllowed values: `QUEUED`, `PROCESSING`, `COMPLETED`, `FAILED`.\nExample: `COMPLETED`."
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "description": "Timestamp when the export status was last updated (ISO 8601 format).\nFormat: date-time.\nExample: \"2025-11-07T10:32:15.000Z\"."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/get-email-batch-status": {
+      "get": {
+        "operationId": "opportify.get-email-batch-status",
+        "summary": "Get Email Batch Status",
+        "description": "Retrieves the status of an email batch job in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/get-email-batch-status"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "description": "The unique identifier of the batch job to retrieve status for.",
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of the batch job to retrieve status for."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "downloadUrls": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Available download URLs for the batch job results. Only present when status is \"COMPLETED\"."
+                          },
+                          "jobId": {
+                            "type": "string",
+                            "description": "Unique identifier for the batch job."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the batch job, if provided."
+                          },
+                          "progress": {
+                            "type": "number",
+                            "description": "Percentage of completion for the batch job (0-100)."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the batch job.\nAllowed values: `QUEUED`, `PROCESSING`, `COMPLETED`, `ERROR`.\nExample: `COMPLETED`."
+                          },
+                          "statusDescription": {
+                            "type": "string",
+                            "description": "Description of the status, particularly useful when status is ERROR."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/get-ip-batch-export-status": {
+      "get": {
+        "operationId": "opportify.get-ip-batch-export-status",
+        "summary": "Get IP Batch Export Status",
+        "description": "Retrieves the status of an IP batch export job in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/get-ip-batch-export-status"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "description": "The unique identifier of the batch job.\nFormat: uuid.\nExample: \"52b36b1f-0c21-41fa-8a4f-423d25a9a8e2\".",
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of the batch job.\nFormat: uuid.\nExample: \"52b36b1f-0c21-41fa-8a4f-423d25a9a8e2\"."
+            }
+          },
+          {
+            "name": "exportId",
+            "in": "query",
+            "required": true,
+            "description": "The unique identifier of the export job.\nFormat: uuid.\nExample: \"3b90d156-a0d8-4630-8230-f59e9a4e9e33\".",
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of the export job.\nFormat: uuid.\nExample: \"3b90d156-a0d8-4630-8230-f59e9a4e9e33\"."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "columns": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "List of columns included in the export."
+                          },
+                          "downloadUrl": {
+                            "type": "string",
+                            "description": "Pre-signed URL to download the export file. Only present when status is `COMPLETED`.\nFormat: uri.\nExample: \"https://opportify-batch-analysis.s3.amazonaws.com/...\"."
+                          },
+                          "errorCode": {
+                            "type": "string",
+                            "description": "Error code if the export failed. Only present when status is `FAILED`."
+                          },
+                          "errorMessage": {
+                            "type": "string",
+                            "description": "Error message if the export failed. Only present when status is `FAILED`."
+                          },
+                          "expiresAt": {
+                            "type": "string",
+                            "description": "Expiration timestamp for the download URL (ISO 8601 format). Only present when status is `COMPLETED`.\nFormat: date-time.\nExample: \"2025-11-07T14:32:15.000Z\"."
+                          },
+                          "exportId": {
+                            "type": "string",
+                            "description": "The unique identifier for the export job.\nFormat: uuid.\nExample: \"6f8d88ef-0896-4f69-90cd-7cc6ce5e6ddf\"."
+                          },
+                          "filters": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "List of filters applied to the export."
+                          },
+                          "format": {
+                            "type": "string",
+                            "description": "The output format of the export.\nAllowed values: `csv`, `json`.\nExample: `csv`."
+                          },
+                          "jobId": {
+                            "type": "string",
+                            "description": "The batch job identifier.\nFormat: uuid.\nExample: \"84d22c8b-2cb6-4606-bfb1-361244a097e4\"."
+                          },
+                          "requestedAt": {
+                            "type": "string",
+                            "description": "Timestamp when the export was requested (ISO 8601 format).\nFormat: date-time.\nExample: \"2025-11-07T10:30:00.000Z\"."
+                          },
+                          "resultSizeBytes": {
+                            "type": "number",
+                            "description": "Size of the export file in bytes. Only present when status is `COMPLETED`."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the export job.\nAllowed values: `QUEUED`, `PROCESSING`, `COMPLETED`, `FAILED`.\nExample: `COMPLETED`."
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "description": "Timestamp when the export status was last updated (ISO 8601 format).\nFormat: date-time.\nExample: \"2025-11-07T10:32:15.000Z\"."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/opportify/latest/actions/get-ip-batch-status": {
+      "get": {
+        "operationId": "opportify.get-ip-batch-status",
+        "summary": "Get IP Batch Status",
+        "description": "Retrieves the status of an IP batch job in Opportify.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/opportify/latest/actions/get-ip-batch-status"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "description": "The unique identifier of the batch job to retrieve status for.",
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of the batch job to retrieve status for."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "downloadUrls": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Available download URLs for the batch job results. Only present when status is \"COMPLETED\"."
+                          },
+                          "jobId": {
+                            "type": "string",
+                            "description": "Unique identifier for the batch job."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the batch job, if provided."
+                          },
+                          "progress": {
+                            "type": "number",
+                            "description": "Percentage of completion for the batch job (0-100)."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the batch job.\nAllowed values: `QUEUED`, `PROCESSING`, `COMPLETED`, `ERROR`.\nExample: `COMPLETED`."
+                          },
+                          "statusDescription": {
+                            "type": "string",
+                            "description": "Description of the status, particularly useful when status is ERROR."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

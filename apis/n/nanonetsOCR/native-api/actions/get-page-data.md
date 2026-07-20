@@ -1,0 +1,16 @@
+# Get Page Data with Nanonets OCR
+
+## Endpoint
+
+- **Method:** `GET`
+- **Path:** `/workflows/:workflow_id/documents/:document_id/pages/:page_id`
+- **Base URL:** `https://app.nanonets.com/api/v4`
+- **Official documentation:** [Get Page Data](https://apidocs.nanonets.com/docs/api/document-processing/)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `workflow_id` | path | `list` | yes | Workflow identifier. |
+| `document_id` | path | `string` | yes | Document identifier. |
+| `page_id` | path | `string` | yes | Page identifier. |

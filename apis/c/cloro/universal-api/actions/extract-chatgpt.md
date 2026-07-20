@@ -1,0 +1,88 @@
+# Cloro: Extract ChatGPT
+
+
+
+```
+POST https://connect.mindcloud.co/v1/universal/cloro/latest/actions/extract-chatgpt
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Cloro `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X POST "https://connect.mindcloud.co/v1/universal/cloro/latest/actions/extract-chatgpt" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "prompt": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/cloro/latest/actions/extract-chatgpt', {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "prompt": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `country` | string | no | ISO 3166-1 alpha-2 country code for localized results. |
+| `prompt` | string | yes | The prompt to send to ChatGPT. |
+| `include` | object | no | Optional flags for additional response data. |
+| `include.markdown` | boolean | no | Include markdown formatted response content. |
+| `include.html` | boolean | no | Include HTML response content. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `include.rawResponse` | boolean | no | Include raw streaming response events. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "result": {
+        "markdown": "string",
+        "model": "string",
+        "text": "string"
+      },
+      "success": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `result.markdown` | string |  |
+| `result.model` | string |  |
+| `result.text` | string |  |
+| `success` | boolean |  |
+
+## Native endpoint
+
+Through the native Cloro API, this operation is `POST /v1/monitor/chatgpt` (base URL `https://api.cloro.dev`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/extract-chatgpt.md) for the provider-specific parameters and requirements.
+

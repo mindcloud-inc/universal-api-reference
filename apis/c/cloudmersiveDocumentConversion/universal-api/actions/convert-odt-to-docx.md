@@ -1,0 +1,64 @@
+# Cloudmersive Document Conversion: Convert ODT to DOCX
+
+Converts an ODT file to DOCX.
+
+```
+GET https://connect.mindcloud.co/v1/universal/cloudmersiveDocumentConversion/latest/actions/convert-odt-to-docx
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Cloudmersive Document Conversion `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/cloudmersiveDocumentConversion/latest/actions/convert-odt-to-docx?connectionId=$CONNECTION_ID&inputFile=UEsDBBQAAAAAAENnpVxexjIMJwAAACcAAAAIAAAAbWltZXR5cGVhcHBsaWNhdGlvbi92bmQub2FzaXMub3BlbmRvY3VtZW50LnRleHRQSwMEFAAAAAAAQ2elXPkMAHpSAQAAUgEAABUAAABNRVRBLUlORi9tYW5pZmVzdC54bWw8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI%2FPjxtYW5pZmVzdDptYW5pZmVzdCB4bWxuczptYW5pZmVzdD0idXJuOm9hc2lzOm5hbWVzOnRjOm9wZW5kb2N1bWVudDp4bWxuczptYW5pZmVzdDoxLjAiPjxtYW5pZmVzdDpmaWxlLWVudHJ5IG1hbmlmZXN0Om1lZGlhLXR5cGU9ImFwcGxpY2F0aW9uL3ZuZC5vYXNpcy5vcGVuZG9jdW1lbnQudGV4dCIgbWFuaWZlc3Q6ZnVsbC1wYXRoPSIvIi8%2BPG1hbmlmZXN0OmZpbGUtZW50cnkgbWFuaWZlc3Q6bWVkaWEtdHlwZT0idGV4dC94bWwiIG1hbmlmZXN0OmZ1bGwtcGF0aD0iY29udGVudC54bWwiLz48L21hbmlmZXN0Om1hbmlmZXN0PlBLAwQUAAAAAABDZ6Vc2pQbVEgBAABIAQAACwAAAGNvbnRlbnQueG1sPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48b2ZmaWNlOmRvY3VtZW50LWNvbnRlbnQgeG1sbnM6b2ZmaWNlPSJ1cm46b2FzaXM6bmFtZXM6dGM6b3BlbmRvY3VtZW50OnhtbG5zOmZmaWNlOjEuMCIgeG1sbnM6dGV4dD0idXJuOm9hc2lzOm5hbWVzOnRjOm9wZW5kb2N1bWVudDp4bWxuczp0ZXh0OjEuMCIgb2ZmaWNlOnZlcnNpb249IjEuMiI%2BPG9mZmljZTpib2R5PjxvZmZpY2U6dGV4dD48dGV4dDpwPkNsb3VkbWVyc2l2ZSBzYW1wbGUgT0RUPC90ZXh0OnA%2BPC9vZmZpY2U6dGV4dD48L29mZmljZTpib2R5Pjwvb2ZmaWNlOmRvY3VtZW50LWNvbnRlbnQ%2BUEsBAhQDFAAAAAAAQ2elXF7GMgwnAAAAJwAAAAgAAAAAAAAAAAAAAIABAAAAbWltZXR5cGVQSwECFAMUAAAAAABDZ6Vc%2BQwAelIBAABSAAAAFQAAAAAAAAAAAAAAgAFNAAAATUVUQS1JTkYvbWFuaWZlc3QueG1sUEsBAhQDFAAAAAAAQ2elXNqUG1RIAQAASAEAAAsAAAAAAAAAAAAAAIAB0gEAAGNvbnRlbnQueG1sUEsFBgAAAAADAAMA0gAAAEMDAAAAAA%3D%3D" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "inputFile": "UEsDBBQAAAAAAENnpVxexjIMJwAAACcAAAAIAAAAbWltZXR5cGVhcHBsaWNhdGlvbi92bmQub2FzaXMub3BlbmRvY3VtZW50LnRleHRQSwMEFAAAAAAAQ2elXPkMAHpSAQAAUgEAABUAAABNRVRBLUlORi9tYW5pZmVzdC54bWw8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PjxtYW5pZmVzdDptYW5pZmVzdCB4bWxuczptYW5pZmVzdD0idXJuOm9hc2lzOm5hbWVzOnRjOm9wZW5kb2N1bWVudDp4bWxuczptYW5pZmVzdDoxLjAiPjxtYW5pZmVzdDpmaWxlLWVudHJ5IG1hbmlmZXN0Om1lZGlhLXR5cGU9ImFwcGxpY2F0aW9uL3ZuZC5vYXNpcy5vcGVuZG9jdW1lbnQudGV4dCIgbWFuaWZlc3Q6ZnVsbC1wYXRoPSIvIi8+PG1hbmlmZXN0OmZpbGUtZW50cnkgbWFuaWZlc3Q6bWVkaWEtdHlwZT0idGV4dC94bWwiIG1hbmlmZXN0OmZ1bGwtcGF0aD0iY29udGVudC54bWwiLz48L21hbmlmZXN0Om1hbmlmZXN0PlBLAwQUAAAAAABDZ6Vc2pQbVEgBAABIAQAACwAAAGNvbnRlbnQueG1sPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48b2ZmaWNlOmRvY3VtZW50LWNvbnRlbnQgeG1sbnM6b2ZmaWNlPSJ1cm46b2FzaXM6bmFtZXM6dGM6b3BlbmRvY3VtZW50OnhtbG5zOmZmaWNlOjEuMCIgeG1sbnM6dGV4dD0idXJuOm9hc2lzOm5hbWVzOnRjOm9wZW5kb2N1bWVudDp4bWxuczp0ZXh0OjEuMCIgb2ZmaWNlOnZlcnNpb249IjEuMiI+PG9mZmljZTpib2R5PjxvZmZpY2U6dGV4dD48dGV4dDpwPkNsb3VkbWVyc2l2ZSBzYW1wbGUgT0RUPC90ZXh0OnA+PC9vZmZpY2U6dGV4dD48L29mZmljZTpib2R5Pjwvb2ZmaWNlOmRvY3VtZW50LWNvbnRlbnQ+UEsBAhQDFAAAAAAAQ2elXF7GMgwnAAAAJwAAAAgAAAAAAAAAAAAAAIABAAAAbWltZXR5cGVQSwECFAMUAAAAAABDZ6Vc+QwAelIBAABSAAAAFQAAAAAAAAAAAAAAgAFNAAAATUVUQS1JTkYvbWFuaWZlc3QueG1sUEsBAhQDFAAAAAAAQ2elXNqUG1RIAQAASAEAAAsAAAAAAAAAAAAAAIAB0gEAAGNvbnRlbnQueG1sUEsFBgAAAAADAAMA0gAAAEMDAAAAAA=="
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/cloudmersiveDocumentConversion/latest/actions/convert-odt-to-docx?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `inputFile` | file | yes | Input ODT text document to convert to DOCX. Default: `UEsDBBQAAAAAAENnpVxexjIMJwAAACcAAAAIAAAAbWltZXR5cGVhcHBsaWNhdGlvbi92bmQub2FzaXMub3BlbmRvY3VtZW50LnRleHRQSwMEFAAAAAAAQ2elXPkMAHpSAQAAUgEAABUAAABNRVRBLUlORi9tYW5pZmVzdC54bWw8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PjxtYW5pZmVzdDptYW5pZmVzdCB4bWxuczptYW5pZmVzdD0idXJuOm9hc2lzOm5hbWVzOnRjOm9wZW5kb2N1bWVudDp4bWxuczptYW5pZmVzdDoxLjAiPjxtYW5pZmVzdDpmaWxlLWVudHJ5IG1hbmlmZXN0Om1lZGlhLXR5cGU9ImFwcGxpY2F0aW9uL3ZuZC5vYXNpcy5vcGVuZG9jdW1lbnQudGV4dCIgbWFuaWZlc3Q6ZnVsbC1wYXRoPSIvIi8+PG1hbmlmZXN0OmZpbGUtZW50cnkgbWFuaWZlc3Q6bWVkaWEtdHlwZT0idGV4dC94bWwiIG1hbmlmZXN0OmZ1bGwtcGF0aD0iY29udGVudC54bWwiLz48L21hbmlmZXN0Om1hbmlmZXN0PlBLAwQUAAAAAABDZ6Vc2pQbVEgBAABIAQAACwAAAGNvbnRlbnQueG1sPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48b2ZmaWNlOmRvY3VtZW50LWNvbnRlbnQgeG1sbnM6b2ZmaWNlPSJ1cm46b2FzaXM6bmFtZXM6dGM6b3BlbmRvY3VtZW50OnhtbG5zOmZmaWNlOjEuMCIgeG1sbnM6dGV4dD0idXJuOm9hc2lzOm5hbWVzOnRjOm9wZW5kb2N1bWVudDp4bWxuczp0ZXh0OjEuMCIgb2ZmaWNlOnZlcnNpb249IjEuMiI+PG9mZmljZTpib2R5PjxvZmZpY2U6dGV4dD48dGV4dDpwPkNsb3VkbWVyc2l2ZSBzYW1wbGUgT0RUPC90ZXh0OnA+PC9vZmZpY2U6dGV4dD48L29mZmljZTpib2R5Pjwvb2ZmaWNlOmRvY3VtZW50LWNvbnRlbnQ+UEsBAhQDFAAAAAAAQ2elXF7GMgwnAAAAJwAAAAgAAAAAAAAAAAAAAIABAAAAbWltZXR5cGVQSwECFAMUAAAAAABDZ6Vc+QwAelIBAABSAAAAFQAAAAAAAAAAAAAAgAFNAAAATUVUQS1JTkYvbWFuaWZlc3QueG1sUEsBAhQDFAAAAAAAQ2elXNqUG1RIAQAASAEAAAsAAAAAAAAAAAAAAIAB0gEAAGNvbnRlbnQueG1sUEsFBgAAAAADAAMA0gAAAEMDAAAAAA==`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "outputFile": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `outputFile` | string | Converted Word DOCX file content returned by Cloudmersive. |
+
+## Native endpoint
+
+Through the native Cloudmersive Document Conversion API, this operation is `POST /convert/odt/to/docx` (base URL `https://api.cloudmersive.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/convert-odt-to-docx.md) for the provider-specific parameters and requirements.
+

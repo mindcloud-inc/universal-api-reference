@@ -1,0 +1,518 @@
+{
+  "openapi": "3.1.2",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "UK Check VAT Universal API",
+    "version": "0.0.2",
+    "description": "Check whether UK VAT registration numbers are valid, retrieve registered business details, and optionally generate an HMRC consultation reference for audit evidence."
+  },
+  "servers": [
+    {
+      "url": "https://connect.mindcloud.co"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://mindcloud.co/docs/universal/rest/uKCheckVAT/latest"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/universal/uKCheckVAT/latest/actions/check-vat-registration": {
+      "get": {
+        "operationId": "uKCheckVAT.check-vat-registration",
+        "summary": "Check VAT Registration",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/uKCheckVAT/latest/actions/check-vat-registration"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetVrn",
+            "in": "query",
+            "required": true,
+            "description": "UK VAT registration number to check. HMRC accepts a 9-digit or 12-digit number.",
+            "schema": {
+              "type": "string",
+              "description": "UK VAT registration number to check. HMRC accepts a 9-digit or 12-digit number.",
+              "example": "553557881"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "processingDate": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp when HMRC processed the check."
+                          },
+                          "target": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "VAT registered business returned by HMRC.",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Registered business address.",
+                                "properties": {
+                                  "countryCode": {
+                                    "type": "string",
+                                    "description": "Registered address country code."
+                                  },
+                                  "line1": {
+                                    "type": "string",
+                                    "description": "First line of the registered address."
+                                  },
+                                  "postcode": {
+                                    "type": "string",
+                                    "description": "Registered address postcode."
+                                  }
+                                }
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Registered business name."
+                              },
+                              "vatNumber": {
+                                "type": "string",
+                                "description": "VAT registration number that HMRC matched."
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/uKCheckVAT/latest/actions/check-vat-registration-with-reference-number": {
+      "get": {
+        "operationId": "uKCheckVAT.check-vat-registration-with-reference-number",
+        "summary": "Check VAT Registration With Reference Number",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/uKCheckVAT/latest/actions/check-vat-registration-with-reference-number"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetVrn",
+            "in": "query",
+            "required": true,
+            "description": "UK VAT registration number to check. HMRC accepts a 9-digit or 12-digit number.",
+            "schema": {
+              "type": "string",
+              "description": "UK VAT registration number to check. HMRC accepts a 9-digit or 12-digit number.",
+              "example": "553557881"
+            }
+          },
+          {
+            "name": "requesterVrn",
+            "in": "query",
+            "required": true,
+            "description": "Your VAT registration number. HMRC accepts a 9-digit or 12-digit number and returns a consultation number when this requester is valid.",
+            "schema": {
+              "type": "string",
+              "description": "Your VAT registration number. HMRC accepts a 9-digit or 12-digit number and returns a consultation number when this requester is valid.",
+              "example": "146295999727"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "consultationNumber": {
+                            "type": "string",
+                            "description": "HMRC reference proving the VAT number check was made."
+                          },
+                          "processingDate": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp when HMRC processed the check."
+                          },
+                          "requester": {
+                            "type": "string",
+                            "description": "Requester VAT registration number used for the verified check."
+                          },
+                          "target": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "VAT registered business returned by HMRC.",
+                            "properties": {
+                              "address": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "description": "Registered business address.",
+                                "properties": {
+                                  "countryCode": {
+                                    "type": "string",
+                                    "description": "Registered address country code."
+                                  },
+                                  "line1": {
+                                    "type": "string",
+                                    "description": "First line of the registered address."
+                                  },
+                                  "postcode": {
+                                    "type": "string",
+                                    "description": "Registered address postcode."
+                                  }
+                                }
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Registered business name."
+                              },
+                              "vatNumber": {
+                                "type": "string",
+                                "description": "VAT registration number that HMRC matched."
+                              }
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "A MindCloud API key."
+      }
+    }
+  }
+}

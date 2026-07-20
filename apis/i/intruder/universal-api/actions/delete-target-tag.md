@@ -1,0 +1,50 @@
+# Intruder: Delete Target Tag
+
+
+
+```
+DELETE https://connect.mindcloud.co/v1/universal/intruder/latest/actions/delete-target-tag
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Intruder `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/intruder/latest/actions/delete-target-tag?connectionId=$CONNECTION_ID&targetId=string&name=Ava%20Chen" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  "targetId": "string",
+  "name": "Ava Chen"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/intruder/latest/actions/delete-target-tag?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `targetId` | string | yes | The Intruder target identifier. |
+| `name` | string | yes | The tag name to delete from the target. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Intruder API returns.
+
+## Native endpoint
+
+Through the native Intruder API, this operation is `DELETE /targets/:target_id/tags/:name/` (base URL `https://api.intruder.io/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/delete-target-tag.md) for the provider-specific parameters and requirements.
+
