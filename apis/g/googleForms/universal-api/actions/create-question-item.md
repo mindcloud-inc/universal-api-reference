@@ -52,6 +52,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `title` | string | yes | Question item title. |
 | `question` | object | yes | Full Google Forms Question object for advanced question types. |
 | `locationIndex` | number | yes | Where to place the new question item. |
+| `description` | string | no |  |
 
 ## Response
 

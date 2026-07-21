@@ -19,14 +19,14 @@ Send these additional headers for this operation:
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `WO_Number` | body | `string` | yes |
-| `WO_Reference_Code` | body | `string` | yes |
-| `WO_Job_Number` | body | `string` | yes |
+| `WO_Number` | body | `string` | no |
+| `WO_Reference_Code` | body | `string` | no |
+| `WO_Job_Number` | body | `string` | no |
 | `WO_Job_Division` | body | `string` | no |
 | `Contract_Number` | body | `string` | no |
 | `contractNumber` | body | `string` | no |
-| `Customer_PO_Number` | body | `list` | yes |
-| `Customer_Job` | body | `date` | yes |
+| `Customer_PO_Number` | body | `list` | no |
+| `Customer_Job` | body | `date` | no |
 | `WO_Phone1` | body | `string` | no |
 | `WO_Phone2` | body | `string` | no |
 | `Bill_Contract` | body | `number` | no |

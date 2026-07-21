@@ -1,6 +1,6 @@
 # BlazeMeter: Update Workspace Tag
 
-
+Updates a workspace tag in BlazeMeter.
 
 ```
 PUT https://connect.mindcloud.co/v1/universal/blazeMeter/latest/actions/update-workspace-tag
@@ -77,5 +77,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native BlazeMeter API, this operation is `PUT /workspaces/:workspaceId/tags/:tagId` (base URL `https:///a.blazemeter.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-workspace-tag.md) for the provider-specific parameters and requirements.
+Through the native BlazeMeter API, this operation is `PUT /workspaces/:workspaceId/tags/:tagId` (base URL `https://a.blazemeter.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-workspace-tag.md) for the provider-specific parameters and requirements.
 

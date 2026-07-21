@@ -1,6 +1,6 @@
 # BlazeMeter: Regenerate User API Key Secret
 
-
+Regenerates a user API key secret in BlazeMeter.
 
 ```
 PUT https://connect.mindcloud.co/v1/universal/blazeMeter/latest/actions/regenerate-user-api-key-secret
@@ -74,5 +74,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native BlazeMeter API, this operation is `POST /user/api-keys/:apiKeyId/regenerate` (base URL `https:///a.blazemeter.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/regenerate-user-api-key-secret.md) for the provider-specific parameters and requirements.
+Through the native BlazeMeter API, this operation is `POST /user/api-keys/:apiKeyId/regenerate` (base URL `https://a.blazemeter.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/regenerate-user-api-key-secret.md) for the provider-specific parameters and requirements.
 

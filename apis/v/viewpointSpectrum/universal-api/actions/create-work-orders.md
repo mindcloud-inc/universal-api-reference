@@ -15,12 +15,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "woNumer": "string",
-  "woReferenceCode": "string",
-  "woJobNumber": "string",
-  "customerPONumber": "string",
-  "customerJob": "2026-05-07T12:00:00.000Z"
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
@@ -32,12 +27,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "woNumer": "string",
-    "woReferenceCode": "string",
-    "woJobNumber": "string",
-    "customerPONumber": "string",
-    "customerJob": "2026-05-07T12:00:00.000Z"
+    connectionId
   })
 });
 
@@ -50,14 +40,14 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `woNumer` | string | yes |  |
-| `woReferenceCode` | string | yes |  |
-| `woJobNumber` | string | yes |  |
+| `woNumer` | string | no |  |
+| `woReferenceCode` | string | no |  |
+| `woJobNumber` | string | no |  |
 | `woJobDivision` | string | no |  |
 | `contractNumber` | string | no |  |
 | `contractNumber` | string | no |  |
-| `customerPONumber` | list | yes |  |
-| `customerJob` | date | yes |  |
+| `customerPONumber` | list | no |  |
+| `customerJob` | date | no |  |
 | `woPhone1` | string | no |  |
 | `woPhone2` | string | no |  |
 | `billContract` | number | no |  |

@@ -1,10 +1,12 @@
 # Regenerate User API Key Secret with BlazeMeter
 
+Regenerates a user API key secret in BlazeMeter.
+
 ## Endpoint
 
 - **Method:** `POST`
 - **Path:** `/user/api-keys/:apiKeyId/regenerate`
-- **Base URL:** `https:///a.blazemeter.com/api/v4`
+- **Base URL:** `https://a.blazemeter.com/api/v4`
 - **Official documentation:** [Regenerate User API Key Secret](https://help.blazemeter.com/apidocs/#tag/user/operation/apiKeysRegenerateSecret)
 
 ## Parameters

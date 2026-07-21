@@ -1,6 +1,6 @@
 # BlazeMeter: Get Current User
 
-
+Retrieves current user details from BlazeMeter.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/blazeMeter/latest/actions/get-current-user
@@ -61,5 +61,5 @@ const { success, data } = await response.json();
 
 ## Native endpoint
 
-Through the native BlazeMeter API, this operation is `GET /user` (base URL `https:///a.blazemeter.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-current-user.md) for the provider-specific parameters and requirements.
+Through the native BlazeMeter API, this operation is `GET /user` (base URL `https://a.blazemeter.com/api/v4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-current-user.md) for the provider-specific parameters and requirements.
 

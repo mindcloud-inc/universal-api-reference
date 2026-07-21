@@ -17,3 +17,4 @@ Creates a question item in Google Forms.
 | `title` | body | `string` | yes | Question item title. |
 | `question` | body | `object` | yes | Full Google Forms Question object for advanced question types. |
 | `locationIndex` | body | `number` | yes | Where to place the new question item. |
+| `description` | body | `string` | no | — |

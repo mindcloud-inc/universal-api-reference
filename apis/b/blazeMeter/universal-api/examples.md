@@ -4,7 +4,7 @@ These examples use the MindCloud API key and BlazeMeter connection described in 
 
 ## Get Current User
 
-
+Retrieves current user details from BlazeMeter.
 
 ```bash
 curl -X GET "https://connect.mindcloud.co/v1/universal/blazeMeter/latest/actions/get-current-user?connectionId=$CONNECTION_ID" \
@@ -47,7 +47,7 @@ See the full [Get Current User action reference](actions/get-current-user.md), o
 
 ## Create Project
 
-
+Creates a project in BlazeMeter.
 
 ```bash
 curl -X POST "https://connect.mindcloud.co/v1/universal/blazeMeter/latest/actions/create-project" \

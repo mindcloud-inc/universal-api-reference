@@ -4,7 +4,7 @@ A consolidated summary of BlazeMeter's API configuration and 34 documented opera
 
 - **Official docs:** https://help.blazemeter.com/apidocs/
 - **OpenAPI specification:** https://a.blazemeter.com/api/v4/explorer/swagger.json
-- **API base URL:** `https:///a.blazemeter.com/api/v4`
+- **API base URL:** `https://a.blazemeter.com/api/v4`
 
 ## Authentication
 
