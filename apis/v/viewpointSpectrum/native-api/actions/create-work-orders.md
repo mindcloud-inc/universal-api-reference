@@ -23,7 +23,7 @@ Send these additional headers for this operation:
 | `WO_Reference_Code` | body | `string` | no |
 | `WO_Job_Number` | body | `string` | no |
 | `WO_Job_Division` | body | `string` | no |
-| `Contract_Number` | body | `string` | no |
+| `Bill_Customer_Code` | body | `string` | no |
 | `contractNumber` | body | `string` | no |
 | `Customer_PO_Number` | body | `list` | no |
 | `Customer_Job` | body | `date` | no |

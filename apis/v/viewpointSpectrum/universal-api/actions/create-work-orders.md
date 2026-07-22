@@ -44,7 +44,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `woReferenceCode` | string | no |  |
 | `woJobNumber` | string | no |  |
 | `woJobDivision` | string | no |  |
-| `contractNumber` | string | no |  |
+| `billCustomerCode` | string | no |  |
 | `contractNumber` | string | no |  |
 | `customerPONumber` | list | no |  |
 | `customerJob` | date | no |  |

@@ -36,6 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `companyCode` | string | no |  |
+| `customerCode` | string | no |  |
 | `pStatus` | list | no |  |
 
 ## Response

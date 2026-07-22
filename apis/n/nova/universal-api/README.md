@@ -1,4 +1,4 @@
-# <img src="https://images.mindcloud.co/apps/icons/nova-icon-square_1775740560695.svg+xml" alt="Nova logo" width="28" height="28"> Nova: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/nova-crm-logo_1783997323094.png" alt="Nova logo" width="28" height="28"> Nova: Universal API
 
 Nova CRM and lead-operations API for authenticating tenant access, listing live lead lists, creating leads, and updating lead records.
 

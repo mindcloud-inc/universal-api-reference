@@ -1,4 +1,4 @@
-# <img src="https://images.mindcloud.co/apps/icons/favicon_1774906153781.svg+xml" alt="ChartLy logo" width="28" height="28"> ChartLy: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/chartly-logo_1783998554589.png" alt="ChartLy logo" width="28" height="28"> ChartLy: Universal API
 
 Generate chart images, create chart URLs, and track chart metrics
 

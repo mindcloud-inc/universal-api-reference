@@ -20,4 +20,5 @@ Send these additional headers for this operation:
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
 | `companyCode` | body | `string` | no |
+| `customerCode` | body | `string` | no |
 | `pStatus` | body | `list` | no |
