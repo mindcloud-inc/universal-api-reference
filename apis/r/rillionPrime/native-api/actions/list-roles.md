@@ -5,7 +5,7 @@
 - **Method:** `GET`
 - **Path:** `/role`
 - **Base URL:** `{baseUrl}`
-- **Official documentation:** [List Roles](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html)
+- **Official documentation:** [List Roles](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Role%20-%20v1.0)
 
 ## Capabilities
 

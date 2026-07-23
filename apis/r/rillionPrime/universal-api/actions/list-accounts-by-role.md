@@ -44,7 +44,85 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Rillion Prime API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "account": "string",
+      "accountId": 1,
+      "chTime": "string",
+      "chUser": "string",
+      "company": "string",
+      "companyIsNull": 1,
+      "deliveryStatus": 1,
+      "favourite": true,
+      "forProcessing": true,
+      "index": 1,
+      "inspected": true,
+      "invoiceStatus": 1,
+      "isAllocationsAccount": true,
+      "keyValuesRowState": 1,
+      "locked": true,
+      "lockedRowLockedTime": "string",
+      "name": "Ava Chen",
+      "noteMandatory": true,
+      "rowState": 1,
+      "selected": true,
+      "selectOption": 1,
+      "useNumber": 1,
+      "useObject1": 1,
+      "useObject2": 1,
+      "useObject3": 1,
+      "useObject4": 1,
+      "useObject5": 1,
+      "useObject6": 1,
+      "useObject7": 1,
+      "useObject8": 1,
+      "validTo": "string",
+      "vatCodeMandatory": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `account` | string |  |
+| `accountId` | number |  |
+| `chTime` | string |  |
+| `chUser` | string |  |
+| `company` | string |  |
+| `companyIsNull` | number |  |
+| `deliveryStatus` | number |  |
+| `favourite` | boolean |  |
+| `forProcessing` | boolean |  |
+| `index` | number |  |
+| `inspected` | boolean |  |
+| `invoiceStatus` | number |  |
+| `isAllocationsAccount` | boolean |  |
+| `keyValuesRowState` | number |  |
+| `locked` | boolean |  |
+| `lockedRowLockedTime` | string |  |
+| `name` | string |  |
+| `noteMandatory` | boolean |  |
+| `rowState` | number |  |
+| `selected` | boolean |  |
+| `selectOption` | number |  |
+| `useNumber` | number |  |
+| `useObject1` | number |  |
+| `useObject2` | number |  |
+| `useObject3` | number |  |
+| `useObject4` | number |  |
+| `useObject5` | number |  |
+| `useObject6` | number |  |
+| `useObject7` | number |  |
+| `useObject8` | number |  |
+| `validTo` | string |  |
+| `vatCodeMandatory` | boolean |  |
 
 ## Native endpoint
 

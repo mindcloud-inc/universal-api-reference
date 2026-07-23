@@ -62,8 +62,8 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 
 ## Pagination
 
-- **REST - Query Pagination:** Use `limit` in the request body to set the page size (default 10; accepted range 10–200). Use `after` in the query string as the pagination cursor.
-- **REST - Body Pagination:** Use `limit` in the request body to set the page size (default 10; accepted range 10–200). Use `after` in the request body as the pagination cursor.
+- **REST - Query Pagination:** Use `limit` in the query string to set the page size (default 100; accepted range 10–100). Use `after` in the query string as the pagination cursor.
+- **REST - Body Pagination:** Use `limit` in the request body to set the page size (default 200; accepted range 10–200). Use `after` in the request body as the pagination cursor.
 
 ## Endpoints (73 documented)
 
@@ -133,7 +133,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [Search Lists](actions/search-lists.md) | REST - Body Pagination | `POST crm/v3/lists/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-lists-v3/lists/post-crm-v3-lists-search) |
 | [Search Orders](actions/search-orders.md) | REST - Body Pagination | `POST crm/v3/objects/orders/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-orders-v3/search/post-crm-v3-objects-orders-search) |
 | [Search Products](actions/search-products.md) | REST - Body Pagination | `POST crm/v3/objects/products/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-products-v3/search/post-crm-v3-objects-products-search) |
-| [Search Subscriptions](actions/search-subscriptions.md) | REST - Query Pagination | `POST crm/v3/objects/subscriptions/search` | [docs](https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/commerce-subscriptions/search/search-commerce-subscriptions) |
+| [Search Subscriptions](actions/search-subscriptions.md) | REST - Body Pagination | `POST crm/v3/objects/subscriptions/search` | [docs](https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/commerce-subscriptions/search/search-commerce-subscriptions) |
 | [Search Tickets](actions/search-tickets.md) | REST - Body Pagination | `POST crm/v3/objects/tickets/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-tickets-v3/search/post-crm-v3-objects-tickets-search) |
 | [Update Company by ID](actions/update-company-by-id.md) | REST - Query Pagination | `PATCH crm/v3/objects/companies/:companyId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/patch-crm-v3-objects-companies-companyId) |
 | [Update Contact by ID](actions/update-contact-by-id.md) | REST - Query Pagination | `PATCH crm/v3/objects/contacts/:contactId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/basic/patch-crm-v3-objects-contacts-contactId) |

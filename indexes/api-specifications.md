@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3113 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3114 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1551,6 +1551,7 @@ Machine-readable API descriptions for 3113 apps. Universal API specifications ar
 | [Microsoft 365 Planner](../apis/m/microsoft365Planner) | [OpenAPI 3.1](../apis/m/microsoft365Planner/universal-api/openapi.json) |  |
 | [Microsoft Clarity](../apis/m/microsoftClarity) | [OpenAPI 3.1](../apis/m/microsoftClarity/universal-api/openapi.json) |  |
 | [Microsoft Dynamics 365 BC](../apis/m/microsoftDynamics365BC) | [OpenAPI 3.1](../apis/m/microsoftDynamics365BC/universal-api/openapi.json) |  |
+| [Microsoft Exchange](../apis/m/microsoftExchange) | [OpenAPI 3.1](../apis/m/microsoftExchange/universal-api/openapi.json) |  |
 | [Microsoft Intune](../apis/m/microsoftIntune) | [OpenAPI 3.1](../apis/m/microsoftIntune/universal-api/openapi.json) |  |
 | [Microsoft Power BI](../apis/m/microsoftPowerBI) | [OpenAPI 3.1](../apis/m/microsoftPowerBI/universal-api/openapi.json) |  |
 | [Microsoft SharePoint Online](../apis/m/microsoftSharePointOnline) | [OpenAPI 3.1](../apis/m/microsoftSharePointOnline/universal-api/openapi.json) |  |

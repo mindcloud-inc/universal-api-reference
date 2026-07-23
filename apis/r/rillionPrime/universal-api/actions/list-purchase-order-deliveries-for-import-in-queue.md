@@ -36,12 +36,62 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `queueStatus` | number | no | Request body value for QueueStatus. |
-| `queueStatus` | number | no | Request body value for QueueStatus. |
-| `queueStatus` | number | no | Request body value for QueueStatus. |
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Rillion Prime API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "company": "string",
+      "purchaseOrderDeliveryModel": {
+        "company": "string",
+        "deliveryDate": "string",
+        "deliveryNote": "string",
+        "purchaseOrderDeliveryLines": [
+          {
+            "amount": 1,
+            "lineNo": "string",
+            "number": 1,
+            "purchaseOrderNo": "string",
+            "queueStatus": 1,
+            "queueType": 1
+          }
+        ],
+        "queueStatus": 1,
+        "queueType": 1,
+        "supplier": "string",
+        "supplierDeliveryNote": "string"
+      },
+      "supplier": "string",
+      "supplierDeliveryNote": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `company` | string |  |
+| `purchaseOrderDeliveryModel.company` | string |  |
+| `purchaseOrderDeliveryModel.deliveryDate` | string |  |
+| `purchaseOrderDeliveryModel.deliveryNote` | string |  |
+| `purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].amount` | number |  |
+| `purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].lineNo` | string |  |
+| `purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].number` | number |  |
+| `purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].purchaseOrderNo` | string |  |
+| `purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].queueStatus` | number |  |
+| `purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].queueType` | number |  |
+| `purchaseOrderDeliveryModel.queueStatus` | number |  |
+| `purchaseOrderDeliveryModel.queueType` | number |  |
+| `purchaseOrderDeliveryModel.supplier` | string |  |
+| `purchaseOrderDeliveryModel.supplierDeliveryNote` | string |  |
+| `supplier` | string |  |
+| `supplierDeliveryNote` | string |  |
 
 ## Native endpoint
 

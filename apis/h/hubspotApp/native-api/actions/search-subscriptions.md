@@ -5,7 +5,7 @@
 - **Method:** `POST`
 - **Path:** `crm/v3/objects/subscriptions/search`
 - **Base URL:** `https://api.hubapi.com`
-- **API:** REST - Query Pagination
+- **API:** REST - Body Pagination
 - **Official documentation:** [Search Subscriptions](https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/commerce-subscriptions/search/search-commerce-subscriptions)
 
 ## Capabilities

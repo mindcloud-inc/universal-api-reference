@@ -40,7 +40,35 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Rillion Prime API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "dateFormat": "string",
+      "dateSeparator": "string",
+      "decimalSymbol": "string",
+      "digitGroupingSymbol": "string",
+      "language": "string",
+      "languageID": "string",
+      "timeFormat": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `dateFormat` | string |  |
+| `dateSeparator` | string |  |
+| `decimalSymbol` | string |  |
+| `digitGroupingSymbol` | string |  |
+| `language` | string |  |
+| `languageID` | string |  |
+| `timeFormat` | string |  |
 
 ## Native endpoint
 

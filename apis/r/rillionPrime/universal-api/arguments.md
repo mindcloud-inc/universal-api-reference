@@ -1,6 +1,6 @@
 # Rillion Prime Universal API Arguments
 
-Arguments are the inputs a Rillion Prime action needs. Each [action page](README.md#actions-140) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Rillion Prime action needs. Each [action page](README.md#actions-40) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

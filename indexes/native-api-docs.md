@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3113 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3114 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1593,6 +1593,7 @@ The official vendor API documentation for each of the 3113 apps in this repo. Ea
 - [Microsoft 365 Planner](../apis/m/microsoft365Planner/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/planner-overview?view=graph-rest-1.0
 - [Microsoft Clarity](../apis/m/microsoftClarity/native-api) - https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
 - [Microsoft Dynamics 365 BC](../apis/m/microsoftDynamics365BC/native-api)
+- [Microsoft Exchange](../apis/m/microsoftExchange/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0
 - [Microsoft Intune](../apis/m/microsoftIntune/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0
 - [Microsoft Power BI](../apis/m/microsoftPowerBI/native-api) - https://learn.microsoft.com/en-us/rest/api/power-bi/
 - [Microsoft SharePoint Online](../apis/m/microsoftSharePointOnline/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0

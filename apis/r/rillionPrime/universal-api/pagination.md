@@ -12,27 +12,23 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/get-invoice-account-coding-history?connectionId=$CONNECTION_ID&limit=25&offset=0&invoiceId=1&role=Administrator" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/list-accounts-by-role?connectionId=$CONNECTION_ID&limit=25&offset=0&role=Administrator" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## Rillion Prime actions that support pagination
 
-- [Get Invoice Account Coding History](actions/get-invoice-account-coding-history.md)
 - [List Accounts By Role](actions/list-accounts-by-role.md)
 - [List Allocation Types For Role](actions/list-allocation-types-for-role.md)
 - [List Asset Types For Role](actions/list-asset-types-for-role.md)
-- [List Assets By Role](actions/list-assets-by-role.md)
 - [List Companies By Role](actions/list-companies-by-role.md)
 - [List Currencies](actions/list-currencies.md)
 - [List Flow Proposal For Role](actions/list-flow-proposal-for-role.md)
 - [List Invoice Queue](actions/list-invoice-queue.md)
 - [List Invoices](actions/list-invoices.md)
-- [List Locked Rows](actions/list-locked-rows.md)
 - [List Object Relation](actions/list-object-relation.md)
 - [List Object Relation Setting](actions/list-object-relation-setting.md)
 - [List Objects For Role](actions/list-objects-for-role.md)
-- [List Payment Audit Logs](actions/list-payment-audit-logs.md)
 - [List Payment Suppliers](actions/list-payment-suppliers.md)
 - [List Payments](actions/list-payments.md)
 - [List Periods For Role](actions/list-periods-for-role.md)

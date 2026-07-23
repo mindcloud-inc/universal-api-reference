@@ -5,7 +5,7 @@
 - **Method:** `GET`
 - **Path:** `/budget/search/role/:role`
 - **Base URL:** `{baseUrl}`
-- **Official documentation:** [Search For Expenditures](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html)
+- **Official documentation:** [Search For Expenditures](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0)
 
 ## Capabilities
 

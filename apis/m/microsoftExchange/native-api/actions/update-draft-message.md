@@ -1,0 +1,18 @@
+# Update Draft Message with Microsoft Exchange
+
+Updates an existing draft message in Microsoft Exchange.
+
+## Endpoint
+
+- **Method:** `PATCH`
+- **Path:** `/v1.0/me/messages/{{messageId}}`
+- **Base URL:** `https://graph.microsoft.com`
+- **Official documentation:** [Update Draft Message](https://learn.microsoft.com/en-us/graph/api/message-update?view=graph-rest-1.0)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `messageId` | path | `string` | yes | The ID of the Exchange message to update. |
+| `subject` | body | `string` | no | Updated message subject. This is most useful when editing a draft message. |
+| `body.content` | body | `string` | no | Updated message body content. This is most useful when editing a draft message. |

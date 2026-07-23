@@ -40,13 +40,39 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `purchaseOrderDeliveries` | array | no | Request body value for PurchaseOrderDeliveries. |
-| `purchaseOrderDeliveries` | array | no | Request body value for PurchaseOrderDeliveries. |
-| `purchaseOrderDeliveries` | array | no | Request body value for PurchaseOrderDeliveries. |
+| `purchaseOrderDeliveries[]` | array<object> | no | Request body value for PurchaseOrderDeliveries. |
+| `purchaseOrderDeliveries[].company` | string | no |  |
+| `purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].purchaseOrderNo` | string | no |  |
+| `purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].lineNo` | string | no |  |
+| `purchaseOrderDeliveries[].supplier` | string | no |  |
+| `purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].number` | number | no |  |
+| `purchaseOrderDeliveries[].supplierDeliveryNote` | string | no |  |
+| `purchaseOrderDeliveries[].deliveryNote` | string | no |  |
+| `purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].amount` | number | no |  |
+| `purchaseOrderDeliveries[].deliveryDate` | string | no |  |
+| `purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].queueStatus` | number | no |  |
+| `purchaseOrderDeliveries[].queueStatus` | number | no |  |
+| `purchaseOrderDeliveries[].purchaseOrderDeliveryLines[]` | array<object> | no |  |
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Rillion Prime API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "response": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `response` | string |  |
 
 ## Native endpoint
 

@@ -110,76 +110,28 @@ Example response:
 
 See the full [List Roles action reference](actions/list-roles.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/rillionPrime/latest/actions/list-roles).
 
-## Add Invoice Receipt To Invoice Queue
+## Create Purchase Order Delivery Queue Records
 
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/add-invoice-receipt-to-invoice-queue" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/create-purchase-order-delivery-queue-records" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "updateInvoiceReceiptRequest": {},
-  "updateInvoiceReceiptRequestInvoiceNo": 1,
-  "updateInvoiceReceiptRequestInvoiceSeries": "string",
-  "updateInvoiceReceiptRequestArrivalAccountCodingDate": "2026-05-07T12:00:00.000Z",
-  "updateInvoiceReceiptRequestErrorText": "string",
-  "updateInvoiceReceiptRequestQueueStatus": 1,
-  "updateInvoiceReceiptRequestStatus": 1,
-  "updateInvoiceReceiptRequestVoucherNo": 1,
-  "updateInvoiceReceiptRequestVoucherSeries": "string",
-  "updateInvoiceReceiptRequestInvoiceExternalId": "string",
-  "updateInvoiceReceiptRequestInvoiceExternalSource": "string",
-  "role": "Administrator"
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/add-invoice-receipt-to-invoice-queue', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/create-purchase-order-delivery-queue-records', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "updateInvoiceReceiptRequest": {},
-    "updateInvoiceReceiptRequestInvoiceNo": 1,
-    "updateInvoiceReceiptRequestInvoiceSeries": "string",
-    "updateInvoiceReceiptRequestArrivalAccountCodingDate": "2026-05-07T12:00:00.000Z",
-    "updateInvoiceReceiptRequestErrorText": "string",
-    "updateInvoiceReceiptRequestQueueStatus": 1,
-    "updateInvoiceReceiptRequestStatus": 1,
-    "updateInvoiceReceiptRequestVoucherNo": 1,
-    "updateInvoiceReceiptRequestVoucherSeries": "string",
-    "updateInvoiceReceiptRequestInvoiceExternalId": "string",
-    "updateInvoiceReceiptRequestInvoiceExternalSource": "string",
-    "role": "Administrator",
-    "updateInvoiceReceiptRequest": {},
-    "updateInvoiceReceiptRequestInvoiceNo": 1,
-    "updateInvoiceReceiptRequestInvoiceSeries": "string",
-    "updateInvoiceReceiptRequestArrivalAccountCodingDate": "2026-05-07T12:00:00.000Z",
-    "updateInvoiceReceiptRequestErrorText": "string",
-    "updateInvoiceReceiptRequestQueueStatus": 1,
-    "updateInvoiceReceiptRequestStatus": 1,
-    "updateInvoiceReceiptRequestVoucherNo": 1,
-    "updateInvoiceReceiptRequestVoucherSeries": "string",
-    "updateInvoiceReceiptRequestInvoiceExternalId": "string",
-    "updateInvoiceReceiptRequestInvoiceExternalSource": "string",
-    "role": "Administrator",
-    "updateInvoiceReceiptRequest": {},
-    "updateInvoiceReceiptRequestInvoiceNo": 1,
-    "updateInvoiceReceiptRequestInvoiceSeries": "string",
-    "updateInvoiceReceiptRequestArrivalAccountCodingDate": "2026-05-07T12:00:00.000Z",
-    "updateInvoiceReceiptRequestErrorText": "string",
-    "updateInvoiceReceiptRequestQueueStatus": 1,
-    "updateInvoiceReceiptRequestStatus": 1,
-    "updateInvoiceReceiptRequestVoucherNo": 1,
-    "updateInvoiceReceiptRequestVoucherSeries": "string",
-    "updateInvoiceReceiptRequestInvoiceExternalId": "string",
-    "updateInvoiceReceiptRequestInvoiceExternalSource": "string",
-    "role": "Administrator"
+    connectionId
   })
 });
 
@@ -191,9 +143,13 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "response": "string"
+    }
+  ],
   "meta": {}
 }
 ```
 
-See the full [Add Invoice Receipt To Invoice Queue action reference](actions/add-invoice-receipt-to-invoice-queue.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/rillionPrime/latest/actions/add-invoice-receipt-to-invoice-queue).
+See the full [Create Purchase Order Delivery Queue Records action reference](actions/create-purchase-order-delivery-queue-records.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/rillionPrime/latest/actions/create-purchase-order-delivery-queue-records).

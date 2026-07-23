@@ -5,7 +5,7 @@
 - **Method:** `GET`
 - **Path:** `/payment/supplier`
 - **Base URL:** `{baseUrl}`
-- **Official documentation:** [List Payment Suppliers](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html)
+- **Official documentation:** [List Payment Suppliers](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0)
 
 ## Capabilities
 

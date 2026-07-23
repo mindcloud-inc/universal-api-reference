@@ -5,7 +5,7 @@
 - **Method:** `GET`
 - **Path:** `/invoicequeue/metadata/role/:role`
 - **Base URL:** `{baseUrl}`
-- **Official documentation:** [Get Invoice Log Table Metadata](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html)
+- **Official documentation:** [Get Invoice Log Table Metadata](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0)
 
 ## Parameters
 
