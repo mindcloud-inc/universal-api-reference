@@ -8,6 +8,8 @@ GET https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/search-c
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a HubSpot `connectionId` ([setup](../authentication.md)).
 
+This action also supports [filtering](../filtering.md) (`where`).
+
 ## Example request
 
 ```bash

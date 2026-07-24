@@ -1,4 +1,4 @@
-# List Payment Approvals with Rillion Prime
+# List Payment Approvals with Rillion Prime Pay
 
 ## Endpoint
 

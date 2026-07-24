@@ -11,14 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a PostHog 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-persons?connectionId=$CONNECTION_ID&project_id=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-persons?connectionId=$CONNECTION_ID&project_id=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "project_id": "string"
+  "project_id": "1"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-persons?${params}`, {
@@ -37,7 +37,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `email` | string | no |  |
-| `project_id` | string | yes |  |
+| `project_id` | list<number> | yes |  |
 | `properties[].key` | string | no | Key of the property you're filtering on. For example email or $current_url |
 | `properties[].value` | string | no | Value of your filter. For example test@example.com or https://example.com/test/. Can be an array for an OR query, like ["test@example.com","ok@example.com"] |
 | `properties[].operator` | string | no | Default: exact Default: `exact`. |

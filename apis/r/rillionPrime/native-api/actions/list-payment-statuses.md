@@ -1,4 +1,4 @@
-# List Payment Statuses with Rillion Prime
+# List Payment Statuses with Rillion Prime Pay
 
 ## Endpoint
 

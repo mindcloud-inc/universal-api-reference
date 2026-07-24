@@ -255665,13 +255665,14 @@
     "universalOpenApiPath": "apis/r/rijksoverheid/universal-api/openapi.json"
   },
   {
-    "name": "Rillion Prime",
+    "name": "Rillion Prime Pay",
     "slug": "rillionPrime",
+    "description": "Connect to the Rillion Prime Pay API to manage payment approvals, schedules, suppliers, statuses, exports, and related payment operations from MindCloud.",
     "iconUrl": "https://images.mindcloud.co/apps/icons/images-2_1783094673766.png",
     "websiteUrl": "https://www.rillion.com/",
     "nativeBaseUrl": "{{credentials.baseUrl}}",
     "nativeDocumentationUrl": "https://rillion-prime-integration.readme.io/docs/using-the-api-reference",
-    "version": "0.0.18",
+    "version": "0.0.22",
     "authentication": [
       {
         "type": "custom",
@@ -255800,109 +255801,280 @@
     ],
     "actions": [
       {
-        "name": "Create Purchase Order Delivery Queue Records",
-        "slug": "create-purchase-order-delivery-queue-records",
+        "name": "Approve Payments",
+        "slug": "approve-payments",
+        "operation": "update",
+        "method": "PUT",
+        "model": "payment",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "POST",
+          "path": "/payment/process/approve",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
+              "dataType": "string",
+              "location": "header",
+              "required": false
+            },
+            {
+              "key": "paymentIds[]",
+              "name": "Payment IDs",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "processInstantly",
+              "name": "Process Instantly",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false,
+              "description": "If true, payments will be processed instantly after approval"
+            },
+            {
+              "key": "processAccordingToSchedule",
+              "name": "Process According To Schedule",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false,
+              "description": "If true, payments will be processed on the next scheduled date after approval"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "paymentIds[]",
+            "name": "Payment IDs",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": true
+          },
+          {
+            "key": "processInstantly",
+            "name": "Process Instantly",
+            "dataType": "boolean",
+            "required": false,
+            "description": "If true, payments will be processed instantly after approval"
+          },
+          {
+            "key": "processAccordingToSchedule",
+            "name": "Process According To Schedule",
+            "dataType": "boolean",
+            "required": false,
+            "description": "If true, payments will be processed on the next scheduled date after approval"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "failed.duplicateStatus",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "successfull",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Cancel Payments",
+        "slug": "cancel-payments",
+        "operation": "update",
+        "method": "PUT",
+        "model": "payment",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "POST",
+          "path": "/payment/process/cancel",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
+              "dataType": "string",
+              "location": "header",
+              "required": false
+            },
+            {
+              "key": "paymentIds[]",
+              "name": "Payment IDs",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "paymentCancellationReason",
+              "name": "Payment Cancellation Reason",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Reason for payment cancellation",
+              "enumValues": [
+                "HandledExternally",
+                "SendBack",
+                "Voided"
+              ]
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "paymentIds[]",
+            "name": "Payment IDs",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": true
+          },
+          {
+            "key": "paymentCancellationReason",
+            "name": "Payment Cancellation Reason",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "description": "Reason for payment cancellation",
+            "enumValues": [
+              "HandledExternally",
+              "SendBack",
+              "Voided"
+            ]
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "message",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentIds[]",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Payment Approval",
+        "slug": "create-payment-approval",
         "operation": "create",
         "method": "POST",
-        "model": "purchaseOrder",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Buyer%20-%20v1.0",
+        "model": "approval",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
-          "method": "PUT",
-          "path": "/purchaseorderdeliveryqueue",
+          "method": "POST",
+          "path": "/payment/approval",
           "baseUrl": "{{credentials.baseUrl}}",
           "apiType": "rest",
           "arguments": [
             {
-              "key": "purchaseOrderDeliveries[]",
-              "name": "Purchase Order Deliveries",
-              "dataType": "array",
-              "itemDataType": "object",
-              "location": "body",
-              "required": false,
-              "description": "Request body value for PurchaseOrderDeliveries."
-            },
-            {
-              "key": "purchaseOrderDeliveries[].company",
-              "name": "Company",
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
               "dataType": "string",
-              "location": "body",
+              "location": "header",
               "required": false
             },
             {
-              "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].purchaseOrderNo",
-              "name": "Purchase Order No",
+              "key": "approvallevel",
+              "name": "Approval Level",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "enumValues": [
+                "AllPayments",
+                "None"
+              ]
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "approvallevel",
+            "name": "Approval Level",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "enumValues": [
+              "AllPayments",
+              "None"
+            ]
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Create Payment Export Job",
+        "slug": "create-payment-export-job",
+        "operation": "create",
+        "method": "POST",
+        "model": "payment",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "POST",
+          "path": "/payment/export",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
               "dataType": "string",
-              "location": "body",
+              "location": "header",
               "required": false
             },
             {
-              "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].lineNo",
-              "name": "Line No",
-              "dataType": "string",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].supplier",
-              "name": "Supplier",
-              "dataType": "string",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].number",
-              "name": "Number",
-              "dataType": "number",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].supplierDeliveryNote",
-              "name": "Supplier Delivery Note",
-              "dataType": "string",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].deliveryNote",
-              "name": "Delivery Note",
-              "dataType": "string",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].amount",
-              "name": "Amount",
-              "dataType": "number",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].deliveryDate",
-              "name": "Delivery Date",
-              "dataType": "string",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].queueStatus",
-              "name": "Queue Status",
-              "dataType": "number",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].queueStatus",
-              "name": "Queue Status",
-              "dataType": "number",
-              "location": "body",
-              "required": false
-            },
-            {
-              "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[]",
-              "name": "Purchase Order Delivery Lines",
-              "dataType": "array",
-              "itemDataType": "object",
+              "key": "paymentStatus",
+              "name": "Payment Status",
+              "dataType": "list",
               "location": "body",
               "required": false
             }
@@ -255915,261 +256087,119 @@
         },
         "arguments": [
           {
-            "key": "purchaseOrderDeliveries[]",
-            "name": "Purchase Order Deliveries",
-            "dataType": "array",
-            "itemDataType": "object",
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "paymentStatus",
+            "name": "Payment Status",
+            "dataType": "list",
             "required": false,
-            "description": "Request body value for PurchaseOrderDeliveries."
-          },
-          {
-            "key": "purchaseOrderDeliveries[].company",
-            "name": "Company",
-            "dataType": "string",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].purchaseOrderNo",
-            "name": "Purchase Order No",
-            "dataType": "string",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].lineNo",
-            "name": "Line No",
-            "dataType": "string",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].supplier",
-            "name": "Supplier",
-            "dataType": "string",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].number",
-            "name": "Number",
-            "dataType": "number",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].supplierDeliveryNote",
-            "name": "Supplier Delivery Note",
-            "dataType": "string",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].deliveryNote",
-            "name": "Delivery Note",
-            "dataType": "string",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].amount",
-            "name": "Amount",
-            "dataType": "number",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].deliveryDate",
-            "name": "Delivery Date",
-            "dataType": "string",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[].queueStatus",
-            "name": "Queue Status",
-            "dataType": "number",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].queueStatus",
-            "name": "Queue Status",
-            "dataType": "number",
-            "required": false
-          },
-          {
-            "key": "purchaseOrderDeliveries[].purchaseOrderDeliveryLines[]",
-            "name": "Purchase Order Delivery Lines",
-            "dataType": "array",
-            "itemDataType": "object",
-            "required": false
+            "example": "PaymentCreated"
           }
         ],
         "responseSchema": [
           {
-            "key": "response",
+            "key": "contentType",
             "dataType": "string",
             "mockType": "string"
+          },
+          {
+            "key": "enableRangeProcessing",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "entityTag",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "fileContents",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "fileDownloadName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "lastModified",
+            "dataType": "object",
+            "mockType": "object"
           }
         ]
       },
       {
-        "name": "Get Invoice Details",
-        "slug": "get-invoice-details",
-        "operation": "read",
-        "method": "GET",
-        "model": "invoice",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0",
+        "name": "Create Payment Schedule",
+        "slug": "create-payment-schedule",
+        "operation": "create",
+        "method": "POST",
+        "model": "payment",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
-          "method": "GET",
-          "path": "/invoice/detail",
+          "method": "POST",
+          "path": "/payment/schedule",
           "baseUrl": "{{credentials.baseUrl}}",
           "apiType": "rest",
           "arguments": [
             {
-              "key": "Environment",
-              "internalKey": "environment",
-              "name": "Environment",
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
               "dataType": "string",
-              "location": "query",
-              "required": true,
-              "description": "Optional query value for Environment."
+              "location": "header",
+              "required": false
             },
             {
-              "key": "User",
-              "internalKey": "user",
-              "name": "User",
-              "dataType": "string",
-              "location": "query",
+              "key": "interval",
+              "name": "Interval",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
               "required": true,
-              "description": "Optional query value for User."
+              "description": "Interval type",
+              "enumValues": [
+                "Daily",
+                "Instant",
+                "Weekly"
+              ]
             },
             {
-              "key": "Role",
-              "internalKey": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "query",
-              "required": true,
-              "description": "Optional query value for Role."
-            },
-            {
-              "key": "InvoiceId",
-              "internalKey": "invoiceId",
-              "name": "InvoiceI ID",
-              "dataType": "number",
-              "location": "query",
-              "required": true,
-              "description": "Optional query value for InvoiceId."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "environment",
-            "name": "Environment",
-            "dataType": "string",
-            "required": true,
-            "description": "Optional query value for Environment."
-          },
-          {
-            "key": "user",
-            "name": "User",
-            "dataType": "string",
-            "required": true,
-            "description": "Optional query value for User.",
-            "example": "AdminUser"
-          },
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Optional query value for Role.",
-            "example": "Administrator"
-          },
-          {
-            "key": "invoiceId",
-            "name": "InvoiceI ID",
-            "dataType": "number",
-            "required": true,
-            "description": "Optional query value for InvoiceId."
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "Get Invoice Log Table Metadata",
-        "slug": "get-invoice-log-table-metadata",
-        "operation": "read",
-        "method": "GET",
-        "model": "invoice",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/invoicequeue/metadata/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "Get Invoice Queue",
-        "slug": "get-invoice-queue",
-        "operation": "read",
-        "method": "GET",
-        "model": "invoice",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/invoicequeue/:invoiceQueueId/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "invoiceQueueId",
-              "name": "InvoiceQueueId",
-              "dataType": "number",
-              "location": "param",
-              "required": true,
-              "description": "Path value for InvoiceQueueId."
-            },
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            },
-            {
-              "key": "headersOnly",
-              "name": "HeadersOnly",
-              "dataType": "boolean",
-              "location": "query",
+              "key": "intervalConfiguration",
+              "name": "Interval Configuration",
+              "dataType": "object",
+              "location": "body",
               "required": false,
-              "description": "When true, returns only header rows where supported."
+              "description": "Configuration for interval. Required when interval is Daily or Weekly."
+            },
+            {
+              "key": "intervalConfiguration.time",
+              "name": "Time",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Time of day (HH:mm:ss). Required when interval is Daily or Weekly."
+            },
+            {
+              "key": "intervalConfiguration.day",
+              "name": "Day",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Day of week (required when interval is Weekly).",
+              "enumValues": [
+                "Friday",
+                "Monday",
+                "Thursday",
+                "Tuesday",
+                "Wednesday"
+              ]
             }
           ]
         },
@@ -256180,51 +256210,77 @@
         },
         "arguments": [
           {
-            "key": "invoiceQueueId",
-            "name": "InvoiceQueueId",
-            "dataType": "number",
-            "required": true,
-            "description": "Path value for InvoiceQueueId."
-          },
-          {
-            "key": "role",
-            "name": "Role",
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
             "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
+            "required": false
           },
           {
-            "key": "headersOnly",
-            "name": "HeadersOnly",
-            "dataType": "boolean",
+            "key": "interval",
+            "name": "Interval",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "description": "Interval type",
+            "enumValues": [
+              "Daily",
+              "Instant",
+              "Weekly"
+            ]
+          },
+          {
+            "key": "intervalConfiguration",
+            "name": "Interval Configuration",
+            "dataType": "object",
             "required": false,
-            "description": "When true, returns only header rows where supported."
+            "description": "Configuration for interval. Required when interval is Daily or Weekly."
+          },
+          {
+            "key": "intervalConfiguration.time",
+            "name": "Time",
+            "dataType": "string",
+            "required": false,
+            "description": "Time of day (HH:mm:ss). Required when interval is Daily or Weekly."
+          },
+          {
+            "key": "intervalConfiguration.day",
+            "name": "Day",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Day of week (required when interval is Weekly).",
+            "enumValues": [
+              "Friday",
+              "Monday",
+              "Thursday",
+              "Tuesday",
+              "Wednesday"
+            ]
           }
         ],
         "responseSchema": []
       },
       {
-        "name": "Get Language",
-        "slug": "get-language",
+        "name": "Download Payment Image",
+        "slug": "download-payment-image",
         "operation": "read",
         "method": "GET",
-        "group": "Language",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=System%20-%20v1.0",
+        "model": "file",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
-          "path": "/language/:LanguageID",
+          "path": "/payment/images/download",
           "baseUrl": "{{credentials.baseUrl}}",
           "apiType": "rest",
           "arguments": [
             {
-              "key": "LanguageID",
-              "internalKey": "languageID",
-              "name": "LanguageID",
+              "key": "imageUrl",
+              "name": "Image URL",
               "dataType": "string",
-              "location": "param",
+              "location": "query",
               "required": true,
-              "description": "Path value for LanguageID."
+              "description": "Use the full image URL returned by List Payment Images for check images."
             }
           ]
         },
@@ -256235,901 +256291,45 @@
         },
         "arguments": [
           {
-            "key": "languageID",
-            "name": "LanguageID",
+            "key": "imageUrl",
+            "name": "Image URL",
             "dataType": "string",
             "required": true,
-            "description": "Path value for LanguageID."
+            "description": "Use the full image URL returned by List Payment Images for check images."
           }
         ],
         "responseSchema": [
           {
-            "key": "dateFormat",
+            "key": "contentType",
             "dataType": "string",
             "mockType": "string"
           },
           {
-            "key": "dateSeparator",
+            "key": "enableRangeProcessing",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "entityTag",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "fileContents",
             "dataType": "string",
             "mockType": "string"
           },
           {
-            "key": "decimalSymbol",
+            "key": "fileDownloadName",
             "dataType": "string",
             "mockType": "string"
           },
           {
-            "key": "digitGroupingSymbol",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "language",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "languageID",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "timeFormat",
-            "dataType": "string",
-            "mockType": "string"
+            "key": "lastModified",
+            "dataType": "object",
+            "mockType": "object"
           }
         ]
-      },
-      {
-        "name": "Get User Preferences",
-        "slug": "get-user-preferences",
-        "operation": "read",
-        "method": "GET",
-        "group": "Preference",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/preferences",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest"
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [],
-        "responseSchema": []
-      },
-      {
-        "name": "List Accounts By Role",
-        "slug": "list-accounts-by-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "group": "Account",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/account/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Role name to use in the path, for example Administrator."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Role name to use in the path, for example Administrator.",
-            "example": "Administrator"
-          }
-        ],
-        "responseSchema": [
-          {
-            "key": "account",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "accountId",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "chTime",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "chUser",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "company",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "companyIsNull",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "deliveryStatus",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "favourite",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "forProcessing",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "index",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "inspected",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "invoiceStatus",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "isAllocationsAccount",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "keyValuesRowState",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "locked",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "lockedRowLockedTime",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "name",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "noteMandatory",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "rowState",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "selected",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "selectOption",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useNumber",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject1",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject2",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject3",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject4",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject5",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject6",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject7",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "useObject8",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "validTo",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "vatCodeMandatory",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          }
-        ]
-      },
-      {
-        "name": "List Allocation Types For Role",
-        "slug": "list-allocation-types-for-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "group": "Allocation Type",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/allocationType",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest"
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [],
-        "responseSchema": []
-      },
-      {
-        "name": "List Asset Types For Role",
-        "slug": "list-asset-types-for-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "group": "Asset Type",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/assettype/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Companies By Role",
-        "slug": "list-companies-by-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "company",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/company/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Role name to use in the path, for example Administrator."
-            },
-            {
-              "key": "headersOnly",
-              "name": "Headers Only",
-              "dataType": "boolean",
-              "location": "query",
-              "required": false,
-              "description": "When true, returns only header rows where supported."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Role name to use in the path, for example Administrator.",
-            "example": "Administrator"
-          },
-          {
-            "key": "headersOnly",
-            "name": "Headers Only",
-            "dataType": "boolean",
-            "required": false,
-            "description": "When true, returns only header rows where supported."
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Currencies",
-        "slug": "list-currencies",
-        "operation": "read",
-        "method": "GET",
-        "group": "Currency",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/currency",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest"
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [],
-        "responseSchema": [
-          {
-            "key": "baseCurrency",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "buyingRate",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "chTime",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "chUser",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "company",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "currency",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "fromAccountCodingDate",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "locked",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          }
-        ]
-      },
-      {
-        "name": "List Flow Proposal For Role",
-        "slug": "list-flow-proposal-for-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/invoice/FlowProposal/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            },
-            {
-              "key": "headersOnly",
-              "name": "HeadersOnly",
-              "dataType": "boolean",
-              "location": "query",
-              "required": false,
-              "description": "When true, returns only header rows where supported."
-            },
-            {
-              "key": "Role",
-              "internalKey": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for Role."
-            },
-            {
-              "key": "HeadersOnly",
-              "internalKey": "headersOnly",
-              "name": "HeadersOnly",
-              "dataType": "boolean",
-              "location": "query",
-              "required": false,
-              "description": "When true, returns only header rows where supported."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
-          },
-          {
-            "key": "headersOnly",
-            "name": "HeadersOnly",
-            "dataType": "boolean",
-            "required": false,
-            "description": "When true, returns only header rows where supported."
-          },
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": false,
-            "description": "Optional query value for Role.",
-            "example": "Administrator"
-          },
-          {
-            "key": "headersOnly",
-            "name": "HeadersOnly",
-            "dataType": "boolean",
-            "required": false,
-            "description": "When true, returns only header rows where supported."
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Group Types",
-        "slug": "list-group-types",
-        "operation": "read",
-        "method": "GET",
-        "group": "Group Type",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=System%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/groupType",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "Template",
-              "internalKey": "template",
-              "name": "Template",
-              "dataType": "string",
-              "location": "query",
-              "required": true,
-              "description": "Template value used to list visible group types, for example Invoice."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "template",
-            "name": "Template",
-            "dataType": "string",
-            "required": true,
-            "description": "Template value used to list visible group types, for example Invoice.",
-            "example": "Invoice"
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Invoice Queue",
-        "slug": "list-invoice-queue",
-        "operation": "read",
-        "method": "GET",
-        "model": "invoice",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/invoicequeue/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            },
-            {
-              "key": "headersOnly",
-              "name": "HeadersOnly",
-              "dataType": "boolean",
-              "location": "query",
-              "required": false,
-              "description": "When true, returns only header rows where supported."
-            },
-            {
-              "key": "updateQueueStatus",
-              "name": "UpdateQueueStatus",
-              "dataType": "boolean",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for UpdateQueueStatus."
-            },
-            {
-              "key": "searchTerm",
-              "name": "SearchTerm",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for SearchTerm."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
-          },
-          {
-            "key": "headersOnly",
-            "name": "HeadersOnly",
-            "dataType": "boolean",
-            "required": false,
-            "description": "When true, returns only header rows where supported."
-          },
-          {
-            "key": "updateQueueStatus",
-            "name": "UpdateQueueStatus",
-            "dataType": "boolean",
-            "required": false,
-            "description": "Optional query value for UpdateQueueStatus."
-          },
-          {
-            "key": "searchTerm",
-            "name": "SearchTerm",
-            "dataType": "string",
-            "required": false,
-            "description": "Optional query value for SearchTerm."
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Invoices",
-        "slug": "list-invoices",
-        "operation": "read",
-        "method": "GET",
-        "model": "invoice",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/invoice",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "Environment",
-              "internalKey": "environment",
-              "name": "Environment",
-              "dataType": "string",
-              "location": "query",
-              "required": true,
-              "description": "Optional query value for Environment."
-            },
-            {
-              "key": "User",
-              "internalKey": "user",
-              "name": "User",
-              "dataType": "string",
-              "location": "query",
-              "required": true,
-              "description": "Optional query value for User."
-            },
-            {
-              "key": "Role",
-              "internalKey": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for Role."
-            },
-            {
-              "key": "ForProcessing",
-              "internalKey": "forProcessing",
-              "name": "ForProcessing",
-              "dataType": "number",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for ForProcessing."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "environment",
-            "name": "Environment",
-            "dataType": "string",
-            "required": true,
-            "description": "Optional query value for Environment."
-          },
-          {
-            "key": "user",
-            "name": "User",
-            "dataType": "string",
-            "required": true,
-            "description": "Optional query value for User.",
-            "example": "AdminUser"
-          },
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": false,
-            "description": "Optional query value for Role.",
-            "example": "Administrator"
-          },
-          {
-            "key": "forProcessing",
-            "name": "ForProcessing",
-            "dataType": "number",
-            "required": false,
-            "description": "Optional query value for ForProcessing."
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Languages",
-        "slug": "list-languages",
-        "operation": "read",
-        "method": "GET",
-        "group": "Language",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=System%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/language",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest"
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [],
-        "responseSchema": []
-      },
-      {
-        "name": "List Object Relation",
-        "slug": "list-object-relation",
-        "operation": "read",
-        "method": "GET",
-        "group": "Object",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/objectRelation",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest"
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [],
-        "responseSchema": []
-      },
-      {
-        "name": "List Object Relation Setting",
-        "slug": "list-object-relation-setting",
-        "operation": "read",
-        "method": "GET",
-        "group": "Object",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/objectRelationSetting",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest"
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [],
-        "responseSchema": []
-      },
-      {
-        "name": "List Object Types",
-        "slug": "list-object-types",
-        "operation": "read",
-        "method": "GET",
-        "group": "Object",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=System%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/objectType",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "Company",
-              "internalKey": "company",
-              "name": "Company",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for Company."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "company",
-            "name": "Company",
-            "dataType": "string",
-            "required": false,
-            "description": "Optional query value for Company."
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Objects For Role",
-        "slug": "list-objects-for-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "group": "Object",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/object/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
-          }
-        ],
-        "responseSchema": []
       },
       {
         "name": "List Payment Approvals",
@@ -257137,6 +256337,7 @@
         "operation": "read",
         "method": "GET",
         "model": "payment",
+        "group": "Payment",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257150,14 +256351,144 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "approvalLevel",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Payment Audit Logs",
+        "slug": "list-payment-audit-logs",
+        "operation": "read",
+        "method": "GET",
+        "model": "auditLog",
+        "group": "Audit",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "GET",
+          "path": "/payment/audit",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "searchReferenceId",
+              "name": "Search Reference ID",
+              "dataType": "string",
+              "location": "query",
+              "required": true,
+              "description": "Reference ID to search for in payment audit logs."
+            },
+            {
+              "key": "referenceType",
+              "name": "Reference Type",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": true,
+              "description": "Reference type to search for in payment audit logs."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "searchReferenceId",
+            "name": "Search Reference ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Reference ID to search for in payment audit logs.",
+            "example": "RillionPay2"
+          },
+          {
+            "key": "referenceType",
+            "name": "Reference Type",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "description": "Reference type to search for in payment audit logs."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "auditLogs[].data[].action",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "auditLogs[].data[].date",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "auditLogs[].data[].details",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "auditLogs[].data[].newState",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "auditLogs[].data[].previousState",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "auditLogs[].data[].username",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "auditLogs[].referenceId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "auditLogs[].totalPages",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "auditLogs[].totalRecords",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "pageIndex",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "pageSize",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "referenceType",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "searchReferenceId",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Payment Configuration Providers",
         "slug": "list-payment-configuration-providers",
         "operation": "read",
         "method": "GET",
-        "model": "payment",
+        "group": "Configuration",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257171,7 +256502,93 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "paymentProviderName",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Payment Images",
+        "slug": "list-payment-images",
+        "operation": "read",
+        "method": "GET",
+        "model": "file",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "GET",
+          "path": "/payment/images",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "PaymentId",
+              "internalKey": "paymentId",
+              "name": "Payment ID",
+              "dataType": "string",
+              "location": "query",
+              "required": true,
+              "description": "Payment ID to fetch images for."
+            },
+            {
+              "key": "ImageType",
+              "internalKey": "imageType",
+              "name": "Image Type",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": true,
+              "description": "Image type to return for the payment."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "paymentId",
+            "name": "Payment ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Payment ID to fetch images for."
+          },
+          {
+            "key": "imageType",
+            "name": "Image Type",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "description": "Image type to return for the payment."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "imageExtension",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "images[].imageName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "images[].imageUrl",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Payment Permissions",
@@ -257179,6 +256596,7 @@
         "operation": "read",
         "method": "GET",
         "model": "payment",
+        "group": "Payment",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257192,7 +256610,13 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "permissionLevel",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Payment Schedules",
@@ -257200,6 +256624,7 @@
         "operation": "read",
         "method": "GET",
         "model": "payment",
+        "group": "Payment",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257213,7 +256638,18 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "interval",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "intervalConfiguration",
+            "dataType": "object",
+            "mockType": "object"
+          }
+        ]
       },
       {
         "name": "List Payment Statuses",
@@ -257221,6 +256657,7 @@
         "operation": "read",
         "method": "GET",
         "model": "payment",
+        "group": "Payment",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257241,7 +256678,7 @@
         "slug": "list-payment-supplier-statuses",
         "operation": "read",
         "method": "GET",
-        "model": "payment",
+        "group": "Suppliers",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257255,15 +256692,30 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "detailsRejectedCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "pendingApprovalCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "remitAddressNeededCount",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
       },
       {
         "name": "List Payment Suppliers",
         "slug": "list-payment-suppliers",
         "operation": "read",
         "method": "GET",
-        "model": "payment",
-        "group": "Payment Supplier",
+        "group": "Suppliers",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257274,11 +256726,11 @@
             {
               "key": "SearchTerm",
               "internalKey": "searchTerm",
-              "name": "SearchTerm",
+              "name": "Search Term",
               "dataType": "string",
               "location": "query",
               "required": false,
-              "description": "Optional query value for SearchTerm."
+              "description": "Filter suppliers by search term."
             }
           ]
         },
@@ -257290,21 +256742,141 @@
         "arguments": [
           {
             "key": "searchTerm",
-            "name": "SearchTerm",
+            "name": "Search Term",
             "dataType": "string",
             "required": false,
-            "description": "Optional query value for SearchTerm."
+            "description": "Filter suppliers by search term."
           }
         ],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "internationalDetails",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "paymentMethod",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "statusLastChanged",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplier",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierAddress.address1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierAddress.address2",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "supplierAddress.address3",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "supplierAddress.address4",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "supplierAddress.address5",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierAddress.address6",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "supplierAddress.country",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "supplierId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "supplierName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierPaymentGrouping",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierRemitAddress.careOf",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "supplierRemitAddress.city",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierRemitAddress.country",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierRemitAddress.postalCode",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "supplierRemitAddress.state",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierRemitAddress.street1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierRemitAddress.street2",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierRemitAddress.zipCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierStatus",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Payment Tenant Company Configurations",
         "slug": "list-payment-tenant-company-configurations",
         "operation": "read",
         "method": "GET",
-        "model": "payment",
-        "group": "Payment Tenant Company Configuration",
+        "group": "Configuration",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257318,15 +256890,70 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "tenantCompanies[].company",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tenantCompanies[].companyId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tenantCompanies[].configuration.bankAccountIdentifier",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "tenantCompanies[].configuration.buyerId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tenantCompanies[].configuration.buyerName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tenantCompanies[].configuration.companyId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tenantCompanies[].configuration.oldBuyerId",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "tenantCompanies[].configuration.primeBuyerId",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "tenantCompanies[].configuration.startDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tenantCompanies[].name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tenantCompanies[].tenantId",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Payment Tenant Configurations",
         "slug": "list-payment-tenant-configurations",
         "operation": "read",
         "method": "GET",
-        "model": "payment",
-        "group": "Payment Tenant Configuration",
+        "group": "Configuration",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257340,15 +256967,30 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentProviderId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "tenant",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Payment Tenant Provider Configurations",
         "slug": "list-payment-tenant-provider-configurations",
         "operation": "read",
         "method": "GET",
-        "model": "payment",
-        "group": "Payment Tenant Provider Configuration",
+        "group": "Configuration",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257362,7 +257004,23 @@
           "sorting": false
         },
         "arguments": [],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "enablePaymentGrouping",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "url",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "username",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Payments",
@@ -257370,6 +257028,7 @@
         "operation": "read",
         "method": "GET",
         "model": "payment",
+        "group": "Payment",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257380,11 +257039,11 @@
             {
               "key": "SearchTerm",
               "internalKey": "searchTerm",
-              "name": "SearchTerm",
+              "name": "Search Term",
               "dataType": "string",
               "location": "query",
               "required": false,
-              "description": "Optional query value for SearchTerm."
+              "description": "Filter results by search term."
             }
           ]
         },
@@ -257396,13 +257055,304 @@
         "arguments": [
           {
             "key": "searchTerm",
-            "name": "SearchTerm",
+            "name": "Search Term",
             "dataType": "string",
             "required": false,
-            "description": "Optional query value for SearchTerm."
+            "description": "Filter results by search term."
           }
         ],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "amount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "company",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "companyName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "currency",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "currentPaymentProviderStage",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "currentPaymentProviderStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "details.checkImageUrl",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "details.clearingDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "details.foreignAmountMinorUnits",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "details.fxCurrency",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "details.fxRate",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "details.instrumentNumber",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "details.issuedDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "details.reconciliationId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "details.trackingId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "details.usdAmount",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "discountAmount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "discountApplied",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "discountDate",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "dueDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].amountCents",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "events[].category",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].description",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].eventCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].eventName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].method",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].stage",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].status",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].timestamp",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "externalId",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "externalSource",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "fxRate",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "fxRateRetrievedAt",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "fxRateType",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "invoiceDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "invoiceNumber",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "lastInvoiceApprovalDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "lastInvoiceApproverNames",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentMethod",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentReferenceId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentSentByName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentSentOnDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentStatusLastChangeDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "processingDates.fundingReceivedByProviderDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "processingDates.paymentSettledDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "processingDates.sentFromProviderDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "processingDates.sentToProviderDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "scheduleDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplier",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierInvoiceNo",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplierStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "usdAmount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "voucherNo",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "voucherSeries",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Pending Supplier Payments",
@@ -257410,6 +257360,7 @@
         "operation": "read",
         "method": "GET",
         "model": "payment",
+        "group": "Suppliers",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -257420,11 +257371,11 @@
             {
               "key": "SupplierId",
               "internalKey": "supplierId",
-              "name": "SupplierId",
+              "name": "Supplier ID",
               "dataType": "string",
               "location": "query",
               "required": true,
-              "description": "Optional query value for SupplierId."
+              "description": "Supplier ID to list pending payments for."
             }
           ]
         },
@@ -257436,753 +257387,200 @@
         "arguments": [
           {
             "key": "supplierId",
-            "name": "SupplierId",
+            "name": "Supplier ID",
             "dataType": "string",
             "required": true,
-            "description": "Optional query value for SupplierId."
+            "description": "Supplier ID to list pending payments for."
           }
         ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Periods For Role",
-        "slug": "list-periods-for-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/period/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
+        "responseSchema": [
           {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
+            "key": "paymentApprovedCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "paymentAwaitingApprovalCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "paymentCreatedCount",
+            "dataType": "number",
+            "mockType": "number"
           }
-        ],
-        "responseSchema": []
+        ]
       },
       {
-        "name": "List Purchase Order Deliveries For Import In Queue",
-        "slug": "list-purchase-order-deliveries-for-import-in-queue",
-        "operation": "read",
-        "method": "GET",
-        "model": "purchaseOrder",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Buyer%20-%20v1.0",
+        "name": "Process Payments",
+        "slug": "process-payments",
+        "operation": "update",
+        "method": "PUT",
+        "model": "payment",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "POST",
-          "path": "/purchaseorderdeliveryqueue/ListPurchaseOrderDeliveryForImportInQueue",
+          "path": "/payment/process",
           "baseUrl": "{{credentials.baseUrl}}",
           "apiType": "rest",
           "arguments": [
             {
-              "key": "queueStatus",
-              "name": "QueueStatus",
-              "dataType": "number",
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
+              "dataType": "string",
+              "location": "header",
+              "required": false
+            },
+            {
+              "key": "paymentIds[]",
+              "name": "Payment IDs",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "setScheduledDate",
+              "name": "Set Scheduled Date",
+              "dataType": "date",
               "location": "body",
               "required": false,
-              "description": "Request body value for QueueStatus."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "queueStatus",
-            "name": "QueueStatus",
-            "dataType": "number",
-            "required": false,
-            "description": "Request body value for QueueStatus."
-          }
-        ],
-        "responseSchema": [
-          {
-            "key": "company",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.company",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.deliveryDate",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.deliveryNote",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].amount",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].lineNo",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].number",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].purchaseOrderNo",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].queueStatus",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.purchaseOrderDeliveryLines[].queueType",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.queueStatus",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.queueType",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.supplier",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "purchaseOrderDeliveryModel.supplierDeliveryNote",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "supplier",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "supplierDeliveryNote",
-            "dataType": "string",
-            "mockType": "string"
-          }
-        ]
-      },
-      {
-        "name": "List Role Operation Permissions",
-        "slug": "list-role-operation-permissions",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Role%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/role/operationpermissiongroup",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "User",
-              "internalKey": "user",
-              "name": "User",
-              "dataType": "string",
-              "location": "query",
-              "required": true,
-              "description": "Optional query value for User."
+              "description": "Scheduled date to apply to the payment. Only allowed when paymentStatus is PaymentAwaitingApproval or PaymentApproved. Time of day comes from the schedule.",
+              "format": "date"
             },
             {
-              "key": "Role",
-              "internalKey": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for Role."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": false,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "user",
-            "name": "User",
-            "dataType": "string",
-            "required": true,
-            "description": "Optional query value for User.",
-            "example": "AdminUser"
-          },
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": false,
-            "description": "Optional query value for Role.",
-            "example": "Administrator"
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "List Roles",
-        "slug": "list-roles",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Role%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "User",
-              "internalKey": "user",
-              "name": "User",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Optional user login name to scope the role list."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "user",
-            "name": "User",
-            "dataType": "string",
-            "required": false,
-            "description": "Optional user login name to scope the role list.",
-            "example": "AdminUser"
-          }
-        ],
-        "responseSchema": [
-          {
-            "key": "active",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "authorizationAmount",
-            "dataType": "number",
-            "mockType": "number"
-          },
-          {
-            "key": "authorizationOutstandingAmountBelow",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "authorizationOutstandingAmountExceed",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "authorizationOutstandingAmountPercentBelow",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "authorizationOutstandingAmountPercentExceed",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "chTime",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "chUser",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultAddressId",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultCompany",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject1Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject2Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject3Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject4Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject5Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject6Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject7Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "defaultObject8Id",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "flowProposalId",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "forProcessing",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "forwardSupervisor",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "group1",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "group2",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "group3",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "headersOnly",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "includableInFlow",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "keyValuesRowState",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "locked",
-            "dataType": "boolean",
-            "mockType": "boolean"
-          },
-          {
-            "key": "lockedRowId",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "lockedRowLoginName",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "lockedRowRole",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "name",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "newAuthorizationAmount",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "newAuthorizationAmountDateTime",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "newAuthorizationAmountRole",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "newAuthorizationAmountUser",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "permissionGroupBitCode",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "powerRole",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "reminderArrival",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "reminderDueDate",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "reminderImmidiateBitCode",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "reminderSupervisor",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "role",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "roleAdministrator",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "roleCompanies[]",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "roleSupervisor",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "roleUserEmails",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "roleUserLogins",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "roleUserNames[]",
-            "dataType": "string",
-            "mockType": "string"
-          },
-          {
-            "key": "rowState",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectAccount",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectCommodity",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectCompany",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selected",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectExpenseType",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject1",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject2",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject3",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject4",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject5",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject6",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject7",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "selectObject8",
-            "dataType": "object",
-            "mockType": "object"
-          },
-          {
-            "key": "userGroup",
-            "dataType": "object",
-            "mockType": "object"
-          }
-        ]
-      },
-      {
-        "name": "List Suppliers For Role",
-        "slug": "list-suppliers-for-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "group": "Supplier",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/supplier/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            },
-            {
-              "key": "headersOnly",
-              "name": "HeadersOnly",
+              "key": "removeScheduledDate",
+              "name": "Remove Scheduled Date",
               "dataType": "boolean",
-              "location": "query",
+              "location": "body",
               "required": false,
-              "description": "When true, returns only header rows where supported."
+              "description": "Set to true to remove the scheduled date and recompute it from the schedule settings. Only allowed when paymentStatus is PaymentCreated."
             }
           ]
         },
         "supports": {
-          "pagination": true,
+          "pagination": false,
           "filtering": false,
           "sorting": false
         },
         "arguments": [
           {
-            "key": "role",
-            "name": "Role",
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
             "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
+            "required": false
           },
           {
-            "key": "headersOnly",
-            "name": "HeadersOnly",
+            "key": "paymentIds[]",
+            "name": "Payment IDs",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": true
+          },
+          {
+            "key": "setScheduledDate",
+            "name": "Set Scheduled Date",
+            "dataType": "date",
+            "required": false,
+            "description": "Scheduled date to apply to the payment. Only allowed when paymentStatus is PaymentAwaitingApproval or PaymentApproved. Time of day comes from the schedule.",
+            "format": "date"
+          },
+          {
+            "key": "removeScheduledDate",
+            "name": "Remove Scheduled Date",
             "dataType": "boolean",
             "required": false,
-            "description": "When true, returns only header rows where supported."
+            "description": "Set to true to remove the scheduled date and recompute it from the schedule settings. Only allowed when paymentStatus is PaymentCreated."
           }
         ],
-        "responseSchema": []
-      },
-      {
-        "name": "List VAT Codes For Role",
-        "slug": "list-vat-codes-for-role",
-        "operation": "read",
-        "method": "GET",
-        "model": "role",
-        "group": "VAT Code",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=MasterData%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/vatcode/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
+        "responseSchema": [
           {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
-          }
-        ],
-        "responseSchema": []
-      },
-      {
-        "name": "Search For Expenditures",
-        "slug": "search-for-expenditures",
-        "operation": "read",
-        "method": "GET",
-        "model": "expense",
-        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Invoice%20-%20v1.0",
-        "native": {
-          "method": "GET",
-          "path": "/budget/search/role/:role",
-          "baseUrl": "{{credentials.baseUrl}}",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "role",
-              "name": "Role",
-              "dataType": "string",
-              "location": "param",
-              "required": true,
-              "description": "Path value for Role."
-            },
-            {
-              "key": "searchTerm",
-              "name": "SearchTerm",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Optional query value for SearchTerm."
-            }
-          ]
-        },
-        "supports": {
-          "pagination": true,
-          "filtering": false,
-          "sorting": false
-        },
-        "arguments": [
-          {
-            "key": "role",
-            "name": "Role",
-            "dataType": "string",
-            "required": true,
-            "description": "Path value for Role.",
-            "example": "Administrator"
+            "key": "failed.duplicateStatus",
+            "dataType": "number",
+            "mockType": "number"
           },
           {
-            "key": "searchTerm",
-            "name": "SearchTerm",
+            "key": "successfull",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Resend Payments",
+        "slug": "resend-payments",
+        "operation": "update",
+        "method": "PUT",
+        "model": "payment",
+        "group": "Payment",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "POST",
+          "path": "/payment/process/resend",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
+              "dataType": "string",
+              "location": "header",
+              "required": false
+            },
+            {
+              "key": "paymentId",
+              "name": "Payment ID",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Unique paymentId",
+              "format": "uuid"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
             "dataType": "string",
-            "required": false,
-            "description": "Optional query value for SearchTerm."
+            "required": false
+          },
+          {
+            "key": "paymentId",
+            "name": "Payment ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Unique paymentId",
+            "format": "uuid"
           }
         ],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "message",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "paymentId",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "Search Payment Suppliers",
         "slug": "search-payment-suppliers",
         "operation": "read",
         "method": "GET",
-        "model": "payment",
-        "group": "Payment Supplier",
+        "group": "Suppliers",
         "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
         "native": {
           "method": "GET",
@@ -258192,11 +257590,11 @@
           "arguments": [
             {
               "key": "search",
-              "name": "Search",
+              "name": "Search Term",
               "dataType": "string",
               "location": "query",
               "required": true,
-              "description": "Optional query value for Search."
+              "description": "Search term used to find suppliers."
             },
             {
               "key": "limit",
@@ -258204,7 +257602,7 @@
               "dataType": "number",
               "location": "query",
               "required": false,
-              "description": "Optional query value for Limit."
+              "description": "Maximum number of supplier results to return."
             }
           ]
         },
@@ -258216,10 +257614,10 @@
         "arguments": [
           {
             "key": "search",
-            "name": "Search",
+            "name": "Search Term",
             "dataType": "string",
             "required": true,
-            "description": "Optional query value for Search.",
+            "description": "Search term used to find suppliers.",
             "example": "Acme"
           },
           {
@@ -258227,8 +257625,986 @@
             "name": "Limit",
             "dataType": "number",
             "required": false,
-            "description": "Optional query value for Limit.",
+            "description": "Maximum number of supplier results to return.",
             "example": "10"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "supplier",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Update Payment Supplier",
+        "slug": "update-payment-supplier",
+        "operation": "update",
+        "method": "PUT",
+        "group": "Suppliers",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "PUT",
+          "path": "/payment/supplier",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "X-Correlation-ID",
+              "internalKey": "xCorrelationId",
+              "name": "X Correlation ID",
+              "dataType": "string",
+              "location": "header",
+              "required": false
+            },
+            {
+              "key": "supplierId",
+              "name": "Supplier ID",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Unique supplier Id",
+              "format": "uuid"
+            },
+            {
+              "key": "syncWithPaymentProvider",
+              "name": "Sync With Payment Provider",
+              "dataType": "boolean",
+              "location": "body",
+              "required": true,
+              "description": "Boolean indicator to decide if Supplier needs to sync with payment provider"
+            },
+            {
+              "key": "supplierstatus",
+              "name": "Supplier Status",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Status of the supplier",
+              "enumValues": [
+                "PayDisabled",
+                "PayEnabled",
+                "RemitAddressNeeded"
+              ]
+            },
+            {
+              "key": "supplierRemitAddress",
+              "name": "Supplier Remit Address",
+              "dataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "Remit address for the supplier"
+            },
+            {
+              "key": "supplierPaymentGrouping",
+              "name": "Supplier Payment Grouping",
+              "dataType": "list",
+              "itemDataType": "list",
+              "location": "body",
+              "required": false,
+              "description": "Payment grouping option for the supplier",
+              "enumValues": [
+                "Bundle",
+                "SendIndividually"
+              ]
+            },
+            {
+              "key": "supplierRemitAddress.street1",
+              "name": "Street1",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Street address line 1"
+            },
+            {
+              "key": "isInternational",
+              "name": "Is International",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false,
+              "description": "Indicates if the supplier is an international supplier"
+            },
+            {
+              "key": "supplierRemitAddress.street2",
+              "name": "Street2",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Street address line 2"
+            },
+            {
+              "key": "internationalDetails",
+              "name": "International Details",
+              "dataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "International payment details for the supplier"
+            },
+            {
+              "key": "supplierRemitAddress.postalCode",
+              "name": "Postal Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Postal Code"
+            },
+            {
+              "key": "supplierRemitAddress.zipCode",
+              "name": "Zip Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Zip Code"
+            },
+            {
+              "key": "supplierRemitAddress.city",
+              "name": "City",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "City"
+            },
+            {
+              "key": "supplierRemitAddress.state",
+              "name": "State",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "State"
+            },
+            {
+              "key": "supplierRemitAddress.country",
+              "name": "Country",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Country"
+            },
+            {
+              "key": "supplierRemitAddress.careOf",
+              "name": "Care Of",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "CareOf"
+            },
+            {
+              "key": "internationalDetails.currency",
+              "name": "Currency",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Currency code"
+            },
+            {
+              "key": "internationalDetails.iban",
+              "name": "IBAN",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "International Bank Account Number"
+            },
+            {
+              "key": "internationalDetails.swift",
+              "name": "SWIFT",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "SWIFT/BIC code"
+            },
+            {
+              "key": "internationalDetails.accountNumber",
+              "name": "Account Number",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Bank account number"
+            },
+            {
+              "key": "internationalDetails.routingCode",
+              "name": "Routing Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Routing code"
+            },
+            {
+              "key": "internationalDetails.clabe",
+              "name": "Clabe",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "CLABE number (Mexico)"
+            },
+            {
+              "key": "internationalDetails.bankName",
+              "name": "Bank Name",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Name of the bank"
+            },
+            {
+              "key": "internationalDetails.bankCountry",
+              "name": "Bank Country",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Country of the bank"
+            },
+            {
+              "key": "internationalDetails.remittanceEmail",
+              "name": "Remittance Email",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Email for remittance advice"
+            },
+            {
+              "key": "internationalDetails.phoneNo",
+              "name": "Phone No",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Phone number"
+            },
+            {
+              "key": "internationalDetails.payeeType",
+              "name": "Payee Type",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Type of payee"
+            },
+            {
+              "key": "internationalDetails.purpose",
+              "name": "Purpose",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Purpose of payment"
+            },
+            {
+              "key": "internationalDetails.branchCode",
+              "name": "Branch Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Branch code"
+            },
+            {
+              "key": "internationalDetails.accountType",
+              "name": "Account Type",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Account type"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "xCorrelationId",
+            "name": "X Correlation ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "supplierId",
+            "name": "Supplier ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Unique supplier Id",
+            "format": "uuid"
+          },
+          {
+            "key": "syncWithPaymentProvider",
+            "name": "Sync With Payment Provider",
+            "dataType": "boolean",
+            "required": true,
+            "description": "Boolean indicator to decide if Supplier needs to sync with payment provider",
+            "defaultValue": "false"
+          },
+          {
+            "key": "supplierstatus",
+            "name": "Supplier Status",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Status of the supplier",
+            "enumValues": [
+              "PayDisabled",
+              "PayEnabled",
+              "RemitAddressNeeded"
+            ]
+          },
+          {
+            "key": "supplierRemitAddress",
+            "name": "Supplier Remit Address",
+            "dataType": "object",
+            "required": false,
+            "description": "Remit address for the supplier"
+          },
+          {
+            "key": "supplierPaymentGrouping",
+            "name": "Supplier Payment Grouping",
+            "dataType": "list",
+            "itemDataType": "list",
+            "required": false,
+            "description": "Payment grouping option for the supplier",
+            "enumValues": [
+              "Bundle",
+              "SendIndividually"
+            ]
+          },
+          {
+            "key": "supplierRemitAddress.street1",
+            "name": "Street1",
+            "dataType": "string",
+            "required": false,
+            "description": "Street address line 1"
+          },
+          {
+            "key": "isInternational",
+            "name": "Is International",
+            "dataType": "boolean",
+            "required": false,
+            "description": "Indicates if the supplier is an international supplier"
+          },
+          {
+            "key": "supplierRemitAddress.street2",
+            "name": "Street2",
+            "dataType": "string",
+            "required": false,
+            "description": "Street address line 2"
+          },
+          {
+            "key": "internationalDetails",
+            "name": "International Details",
+            "dataType": "object",
+            "required": false,
+            "description": "International payment details for the supplier"
+          },
+          {
+            "key": "supplierRemitAddress.postalCode",
+            "name": "Postal Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Postal Code"
+          },
+          {
+            "key": "supplierRemitAddress.zipCode",
+            "name": "Zip Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Zip Code"
+          },
+          {
+            "key": "supplierRemitAddress.city",
+            "name": "City",
+            "dataType": "string",
+            "required": false,
+            "description": "City"
+          },
+          {
+            "key": "supplierRemitAddress.state",
+            "name": "State",
+            "dataType": "string",
+            "required": false,
+            "description": "State"
+          },
+          {
+            "key": "supplierRemitAddress.country",
+            "name": "Country",
+            "dataType": "string",
+            "required": false,
+            "description": "Country"
+          },
+          {
+            "key": "supplierRemitAddress.careOf",
+            "name": "Care Of",
+            "dataType": "string",
+            "required": false,
+            "description": "CareOf"
+          },
+          {
+            "key": "internationalDetails.currency",
+            "name": "Currency",
+            "dataType": "string",
+            "required": false,
+            "description": "Currency code"
+          },
+          {
+            "key": "internationalDetails.iban",
+            "name": "IBAN",
+            "dataType": "string",
+            "required": false,
+            "description": "International Bank Account Number"
+          },
+          {
+            "key": "internationalDetails.swift",
+            "name": "SWIFT",
+            "dataType": "string",
+            "required": false,
+            "description": "SWIFT/BIC code"
+          },
+          {
+            "key": "internationalDetails.accountNumber",
+            "name": "Account Number",
+            "dataType": "string",
+            "required": false,
+            "description": "Bank account number"
+          },
+          {
+            "key": "internationalDetails.routingCode",
+            "name": "Routing Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Routing code"
+          },
+          {
+            "key": "internationalDetails.clabe",
+            "name": "Clabe",
+            "dataType": "string",
+            "required": false,
+            "description": "CLABE number (Mexico)"
+          },
+          {
+            "key": "internationalDetails.bankName",
+            "name": "Bank Name",
+            "dataType": "string",
+            "required": false,
+            "description": "Name of the bank"
+          },
+          {
+            "key": "internationalDetails.bankCountry",
+            "name": "Bank Country",
+            "dataType": "string",
+            "required": false,
+            "description": "Country of the bank"
+          },
+          {
+            "key": "internationalDetails.remittanceEmail",
+            "name": "Remittance Email",
+            "dataType": "string",
+            "required": false,
+            "description": "Email for remittance advice"
+          },
+          {
+            "key": "internationalDetails.phoneNo",
+            "name": "Phone No",
+            "dataType": "string",
+            "required": false,
+            "description": "Phone number"
+          },
+          {
+            "key": "internationalDetails.payeeType",
+            "name": "Payee Type",
+            "dataType": "string",
+            "required": false,
+            "description": "Type of payee"
+          },
+          {
+            "key": "internationalDetails.purpose",
+            "name": "Purpose",
+            "dataType": "string",
+            "required": false,
+            "description": "Purpose of payment"
+          },
+          {
+            "key": "internationalDetails.branchCode",
+            "name": "Branch Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Branch code"
+          },
+          {
+            "key": "internationalDetails.accountType",
+            "name": "Account Type",
+            "dataType": "string",
+            "required": false,
+            "description": "Account type"
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Update Payment Suppliers",
+        "slug": "update-payment-suppliers",
+        "operation": "update",
+        "method": "PUT",
+        "group": "Suppliers",
+        "documentationUrl": "https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0",
+        "native": {
+          "method": "PUT",
+          "path": "/payment/suppliers",
+          "baseUrl": "{{credentials.baseUrl}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "suppliers[]",
+              "name": "Suppliers",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Array of suppliers to update"
+            },
+            {
+              "key": "suppliers[].supplierId",
+              "name": "Supplier ID",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Unique supplier Id"
+            },
+            {
+              "key": "suppliers[].syncWithPaymentProvider",
+              "name": "Sync With Payment Provider",
+              "dataType": "boolean",
+              "location": "body",
+              "required": true,
+              "description": "Boolean indicator to decide if Supplier needs to sync with payment provider"
+            },
+            {
+              "key": "suppliers[].supplierstatus",
+              "name": "Supplier Status",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Status of the supplier",
+              "enumValues": [
+                "PayDisabled",
+                "PayEnabled",
+                "RemitAddressNeeded"
+              ]
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress",
+              "name": "Supplier Remit Address",
+              "dataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "Remit address for the supplier"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.street1",
+              "name": "Street1",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Street address line 1"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.street2",
+              "name": "Street2",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Street address line 2"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.postalCode",
+              "name": "Postal Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Postal Code"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.zipCode",
+              "name": "Zip Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Zip Code"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.city",
+              "name": "City",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "City"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.state",
+              "name": "State",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "State"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.country",
+              "name": "Country",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Country"
+            },
+            {
+              "key": "suppliers[].supplierRemitAddress.careOf",
+              "name": "Care Of",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "CareOf"
+            },
+            {
+              "key": "suppliers[].supplierPaymentGrouping",
+              "name": "Supplier Payment Grouping",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Payment grouping option for the supplier",
+              "enumValues": [
+                "Bundle",
+                "SendIndividually"
+              ]
+            },
+            {
+              "key": "suppliers[].isInternational",
+              "name": "Is International",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false,
+              "description": "Indicates if the supplier is an international supplier"
+            },
+            {
+              "key": "suppliers[].internationalDetails",
+              "name": "International Details",
+              "dataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "International payment details for the supplier"
+            },
+            {
+              "key": "suppliers[].internationalDetails.currency",
+              "name": "Currency",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Currency code"
+            },
+            {
+              "key": "suppliers[].internationalDetails.iban",
+              "name": "IBAN",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "International Bank Account Number"
+            },
+            {
+              "key": "suppliers[].internationalDetails.swift",
+              "name": "SWIFT",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "SWIFT/BIC code"
+            },
+            {
+              "key": "suppliers[].internationalDetails.accountNumber",
+              "name": "Account Number",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Bank account number"
+            },
+            {
+              "key": "suppliers[].internationalDetails.routingCode",
+              "name": "Routing Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Routing code"
+            },
+            {
+              "key": "suppliers[].internationalDetails.clabe",
+              "name": "Clabe",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "CLABE number (Mexico)"
+            },
+            {
+              "key": "suppliers[].internationalDetails.bankName",
+              "name": "Bank Name",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Name of the bank"
+            },
+            {
+              "key": "suppliers[].internationalDetails.bankCountry",
+              "name": "Bank Country",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Country of the bank"
+            },
+            {
+              "key": "suppliers[].internationalDetails.remittanceEmail",
+              "name": "Remittance Email",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Email for remittance advice"
+            },
+            {
+              "key": "suppliers[].internationalDetails.phoneNo",
+              "name": "Phone No",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Phone number"
+            },
+            {
+              "key": "suppliers[].internationalDetails.payeeType",
+              "name": "Payee Type",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Type of payee"
+            },
+            {
+              "key": "suppliers[].internationalDetails.purpose",
+              "name": "Purpose",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Purpose of payment"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "suppliers[]",
+            "name": "Suppliers",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "Array of suppliers to update"
+          },
+          {
+            "key": "suppliers[].supplierId",
+            "name": "Supplier ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Unique supplier Id"
+          },
+          {
+            "key": "suppliers[].syncWithPaymentProvider",
+            "name": "Sync With Payment Provider",
+            "dataType": "boolean",
+            "required": true,
+            "description": "Boolean indicator to decide if Supplier needs to sync with payment provider",
+            "defaultValue": "false"
+          },
+          {
+            "key": "suppliers[].supplierstatus",
+            "name": "Supplier Status",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Status of the supplier",
+            "enumValues": [
+              "PayDisabled",
+              "PayEnabled",
+              "RemitAddressNeeded"
+            ]
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress",
+            "name": "Supplier Remit Address",
+            "dataType": "object",
+            "required": false,
+            "description": "Remit address for the supplier"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.street1",
+            "name": "Street1",
+            "dataType": "string",
+            "required": false,
+            "description": "Street address line 1"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.street2",
+            "name": "Street2",
+            "dataType": "string",
+            "required": false,
+            "description": "Street address line 2"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.postalCode",
+            "name": "Postal Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Postal Code"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.zipCode",
+            "name": "Zip Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Zip Code"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.city",
+            "name": "City",
+            "dataType": "string",
+            "required": false,
+            "description": "City"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.state",
+            "name": "State",
+            "dataType": "string",
+            "required": false,
+            "description": "State"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.country",
+            "name": "Country",
+            "dataType": "string",
+            "required": false,
+            "description": "Country"
+          },
+          {
+            "key": "suppliers[].supplierRemitAddress.careOf",
+            "name": "Care Of",
+            "dataType": "string",
+            "required": false,
+            "description": "CareOf"
+          },
+          {
+            "key": "suppliers[].supplierPaymentGrouping",
+            "name": "Supplier Payment Grouping",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Payment grouping option for the supplier",
+            "enumValues": [
+              "Bundle",
+              "SendIndividually"
+            ]
+          },
+          {
+            "key": "suppliers[].isInternational",
+            "name": "Is International",
+            "dataType": "boolean",
+            "required": false,
+            "description": "Indicates if the supplier is an international supplier"
+          },
+          {
+            "key": "suppliers[].internationalDetails",
+            "name": "International Details",
+            "dataType": "object",
+            "required": false,
+            "description": "International payment details for the supplier"
+          },
+          {
+            "key": "suppliers[].internationalDetails.currency",
+            "name": "Currency",
+            "dataType": "string",
+            "required": false,
+            "description": "Currency code"
+          },
+          {
+            "key": "suppliers[].internationalDetails.iban",
+            "name": "IBAN",
+            "dataType": "string",
+            "required": false,
+            "description": "International Bank Account Number"
+          },
+          {
+            "key": "suppliers[].internationalDetails.swift",
+            "name": "SWIFT",
+            "dataType": "string",
+            "required": false,
+            "description": "SWIFT/BIC code"
+          },
+          {
+            "key": "suppliers[].internationalDetails.accountNumber",
+            "name": "Account Number",
+            "dataType": "string",
+            "required": false,
+            "description": "Bank account number"
+          },
+          {
+            "key": "suppliers[].internationalDetails.routingCode",
+            "name": "Routing Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Routing code"
+          },
+          {
+            "key": "suppliers[].internationalDetails.clabe",
+            "name": "Clabe",
+            "dataType": "string",
+            "required": false,
+            "description": "CLABE number (Mexico)"
+          },
+          {
+            "key": "suppliers[].internationalDetails.bankName",
+            "name": "Bank Name",
+            "dataType": "string",
+            "required": false,
+            "description": "Name of the bank"
+          },
+          {
+            "key": "suppliers[].internationalDetails.bankCountry",
+            "name": "Bank Country",
+            "dataType": "string",
+            "required": false,
+            "description": "Country of the bank"
+          },
+          {
+            "key": "suppliers[].internationalDetails.remittanceEmail",
+            "name": "Remittance Email",
+            "dataType": "string",
+            "required": false,
+            "description": "Email for remittance advice"
+          },
+          {
+            "key": "suppliers[].internationalDetails.phoneNo",
+            "name": "Phone No",
+            "dataType": "string",
+            "required": false,
+            "description": "Phone number"
+          },
+          {
+            "key": "suppliers[].internationalDetails.payeeType",
+            "name": "Payee Type",
+            "dataType": "string",
+            "required": false,
+            "description": "Type of payee"
+          },
+          {
+            "key": "suppliers[].internationalDetails.purpose",
+            "name": "Purpose",
+            "dataType": "string",
+            "required": false,
+            "description": "Purpose of payment"
           }
         ],
         "responseSchema": []

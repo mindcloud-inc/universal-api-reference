@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "HubSpot Universal API",
-    "version": "0.0.83",
+    "version": "0.0.85",
     "description": "Manage contacts, track deals, run campaigns, and support customers."
   },
   "servers": [
@@ -1094,7 +1094,7 @@
           {
             "name": "inputs[].id",
             "in": "query",
-            "required": true,
+            "required": false,
             "description": "The line item ID to batch read.",
             "schema": {
               "type": "string",
@@ -3080,6 +3080,260 @@
                             "type": "string",
                             "format": "date-time",
                             "description": "When the schema was last updated."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/hubspotApp/latest/actions/create-pipeline-stage": {
+      "post": {
+        "operationId": "hubspotApp.create-pipeline-stage",
+        "summary": "Create Pipeline Stage",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/hubspotApp/latest/actions/create-pipeline-stage"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "objectType",
+                  "pipelineId",
+                  "label",
+                  "displayOrder",
+                  "metadata.probability"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "objectType": {
+                    "type": "string",
+                    "description": "The CRM object type whose pipeline will receive the new stage. Use `deals` for deal stages.",
+                    "example": "deals"
+                  },
+                  "pipelineId": {
+                    "type": "string",
+                    "description": "The ID of the pipeline that should receive the new stage.",
+                    "example": "default"
+                  },
+                  "label": {
+                    "type": "string",
+                    "description": "The name of the stage as it is displayed in HubSpot. The label must be unique within the pipeline.",
+                    "example": "Contract signed"
+                  },
+                  "displayOrder": {
+                    "type": "number",
+                    "description": "The order of the stage in the pipeline. If multiple stages share the same order, HubSpot sorts them alphabetically by label.",
+                    "example": 4
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Additional stage metadata. For deal stages, HubSpot requires `probability` inside this object.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "metadata.probability": {
+                    "type": "string",
+                    "description": "For deal stages, the required close probability from `0.0` to `1.0`, where `0.0` is Closed Lost and `1.0` is Closed Won.",
+                    "example": "0.8"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "archived": {
+                            "type": "boolean",
+                            "description": "Whether the stage is archived."
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the stage was created."
+                          },
+                          "displayOrder": {
+                            "type": "number",
+                            "description": "The order of the stage in the pipeline."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The unique ID of the created pipeline stage."
+                          },
+                          "label": {
+                            "type": "string",
+                            "description": "The stage name displayed in HubSpot."
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Stage metadata such as deal probability."
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the stage was last updated."
+                          },
+                          "writePermissions": {
+                            "type": "string",
+                            "description": "HubSpot write-permission mode for the stage."
                           }
                         },
                         "additionalProperties": false
@@ -11600,19 +11854,14 @@
             }
           },
           {
-            "name": "properties[]",
+            "name": "properties",
             "in": "query",
             "required": false,
             "description": "Deal properties to return in the response.",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
+              "type": "string",
               "description": "Deal properties to return in the response."
-            },
-            "style": "form",
-            "explode": false
+            }
           },
           {
             "name": "propertiesWithHistory[]",
@@ -14660,6 +14909,15 @@
             },
             "style": "form",
             "explode": false
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "An RSQL expression used to filter the results.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "fields",

@@ -11,15 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a HubSpot 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/batch-read-line-items?connectionId=$CONNECTION_ID&inputs%5B%5D=%5Bobject%20Object%5D&inputs%5B%5D.id=79962112746" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/batch-read-line-items?connectionId=$CONNECTION_ID&inputs%5B%5D=%5Bobject%20Object%5D" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "inputs[]": "[object Object]",
-  "inputs[].id": "79962112746"
+  "inputs[]": "[object Object]"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/batch-read-line-items?${params}`, {
@@ -38,7 +37,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `inputs[]` | array<object> | yes | The line items to batch read. |
-| `inputs[].id` | string | yes | The line item ID to batch read. Example: `79962112746`. |
+| `inputs[].id` | string | no | The line item ID to batch read. Example: `79962112746`. |
 
 ### Advanced
 

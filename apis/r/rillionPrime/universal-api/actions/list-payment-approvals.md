@@ -1,4 +1,4 @@
-# Rillion Prime: List Payment Approvals
+# Rillion Prime Pay: List Payment Approvals
 
 
 
@@ -6,7 +6,7 @@
 GET https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/list-payment-approvals
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Rillion Prime `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Rillion Prime Pay `connectionId` ([setup](../authentication.md)).
 
 ## Example request
 
@@ -33,9 +33,25 @@ const { success, data } = await response.json();
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Rillion Prime API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "approvalLevel": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `approvalLevel` | string |  |
 
 ## Native endpoint
 
-Through the native Rillion Prime API, this operation is `GET /payment/approval` (base URL `{{credentials.baseUrl}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-payment-approvals.md) for the provider-specific parameters and requirements.
+Through the native Rillion Prime Pay API, this operation is `GET /payment/approval` (base URL `{{credentials.baseUrl}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-payment-approvals.md) for the provider-specific parameters and requirements.
 

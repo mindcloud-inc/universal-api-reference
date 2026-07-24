@@ -18,7 +18,7 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `properties[]` | query | `array<string>` | no | Deal properties to return in the response. |
+| `properties` | query | `string<string>` | no | Deal properties to return in the response. |
 | `propertiesWithHistory[]` | query | `array<string>` | no | Deal properties to return with value history. |
 | `associations` | query | `string<string>` | no | Associated object types to include as associated IDs. Send multiple values as a array. |
 | `archived` | query | `boolean` | no | Whether to return archived deal records. |

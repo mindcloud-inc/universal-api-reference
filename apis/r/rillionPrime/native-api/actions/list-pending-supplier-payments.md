@@ -1,4 +1,4 @@
-# List Pending Supplier Payments with Rillion Prime
+# List Pending Supplier Payments with Rillion Prime Pay
 
 ## Endpoint
 
@@ -11,4 +11,4 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `SupplierId` | query | `string` | yes | Optional query value for SupplierId. |
+| `SupplierId` | query | `string` | yes | Supplier ID to list pending payments for. |

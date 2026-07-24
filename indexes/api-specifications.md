@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3114 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3115 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -410,6 +410,7 @@ Machine-readable API descriptions for 3114 apps. Universal API specifications ar
 | [Chroma Cloud](../apis/c/chromaCloud) | [OpenAPI 3.1](../apis/c/chromaCloud/universal-api/openapi.json) | [Provider OpenAPI](https://api.trychroma.com:8000/openapi.json) |
 | [Chroma Vector Store](../apis/c/chromaVectorStore) | [OpenAPI 3.1](../apis/c/chromaVectorStore/universal-api/openapi.json) |  |
 | [ChurchStamp](../apis/c/churchStamp) | [OpenAPI 3.1](../apis/c/churchStamp/universal-api/openapi.json) | [Provider OpenAPI](https://churchstampapi.docs.apiary.io/api-description-document) |
+| [Cin7 Core](../apis/c/cin7core) | [OpenAPI 3.1](../apis/c/cin7core/universal-api/openapi.json) |  |
 | [CINCEL](../apis/c/cINCEL) | [OpenAPI 3.1](../apis/c/cINCEL/universal-api/openapi.json) | [Provider OpenAPI](https://api.cincel.digital/v3/oas.yaml?tags=digital-signature,auth,tokens) |
 | [Cinode](../apis/c/cinode) | [OpenAPI 3.1](../apis/c/cinode/universal-api/openapi.json) | [Provider OpenAPI](https://api.cinode.com/swagger/v0.2/swagger.json) |
 | [Circle](../apis/c/circle) | [OpenAPI 3.1](../apis/c/circle/universal-api/openapi.json) | [Provider OpenAPI](https://api-headless.circle.so/api/admin/v2/swagger.yaml) |
@@ -2177,7 +2178,7 @@ Machine-readable API descriptions for 3114 apps. Universal API specifications ar
 | [RightSignature](../apis/r/rightSignature) | [OpenAPI 3.1](../apis/r/rightSignature/universal-api/openapi.json) |  |
 | [Rijksmuseum](../apis/r/rijksmuseum) | [OpenAPI 3.1](../apis/r/rijksmuseum/universal-api/openapi.json) |  |
 | [Rijksoverheid](../apis/r/rijksoverheid) | [OpenAPI 3.1](../apis/r/rijksoverheid/universal-api/openapi.json) |  |
-| [Rillion Prime](../apis/r/rillionPrime) | [OpenAPI 3.1](../apis/r/rillionPrime/universal-api/openapi.json) |  |
+| [Rillion Prime Pay](../apis/r/rillionPrime) | [OpenAPI 3.1](../apis/r/rillionPrime/universal-api/openapi.json) |  |
 | [RingCentral](../apis/r/ringCentral) | [OpenAPI 3.1](../apis/r/ringCentral/universal-api/openapi.json) |  |
 | [Ringg AI](../apis/r/ringgAI) | [OpenAPI 3.1](../apis/r/ringgAI/universal-api/openapi.json) | [Provider OpenAPI](https://docs.ringg.ai/api-reference/openapi.json) |
 | [Ritekit](../apis/r/ritekit) | [OpenAPI 3.1](../apis/r/ritekit/universal-api/openapi.json) |  |

@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3114 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3115 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -419,6 +419,7 @@ The official vendor API documentation for each of the 3114 apps in this repo. Ea
 - [Chroma Cloud](../apis/c/chromaCloud/native-api) - https://docs.trychroma.com/cloud/getting-started
 - [Chroma Vector Store](../apis/c/chromaVectorStore/native-api) - https://docs.trychroma.com/reference/chroma-api
 - [ChurchStamp](../apis/c/churchStamp/native-api) - https://churchstampapi.docs.apiary.io/
+- [Cin7 Core](../apis/c/cin7core/native-api) - https://dearinventory.docs.apiary.io/#
 - [CINCEL](../apis/c/cINCEL/native-api) - https://docs.cincel.digital/v3/digital-signature
 - [Cinode](../apis/c/cinode/native-api) - https://api.cinode.com/docs/index.html
 - [Circle](../apis/c/circle/native-api) - https://api.circle.so/apis/admin-api
@@ -2234,7 +2235,7 @@ The official vendor API documentation for each of the 3114 apps in this repo. Ea
 - [RightSignature](../apis/r/rightSignature/native-api) - https://api.rightsignature.com/documentation/getting_started
 - [Rijksmuseum](../apis/r/rijksmuseum/native-api) - https://data.rijksmuseum.nl/docs
 - [Rijksoverheid](../apis/r/rijksoverheid/native-api) - https://www.rijksoverheid.nl/opendata
-- [Rillion Prime](../apis/r/rillionPrime/native-api) - https://rillion-prime-integration.readme.io/docs/using-the-api-reference
+- [Rillion Prime Pay](../apis/r/rillionPrime/native-api) - https://rillion-prime-integration.readme.io/docs/using-the-api-reference
 - [RingCentral](../apis/r/ringCentral/native-api)
 - [Ringg AI](../apis/r/ringgAI/native-api) - https://docs.ringg.ai/api-reference/quick-start/guide
 - [Ritekit](../apis/r/ritekit/native-api) - https://documenter.getpostman.com/view/2010712/SzS7Qku5?version=latest

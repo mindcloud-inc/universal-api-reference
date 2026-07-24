@@ -1,4 +1,4 @@
-# List Payment Schedules with Rillion Prime
+# List Payment Schedules with Rillion Prime Pay
 
 ## Endpoint
 

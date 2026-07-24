@@ -1,4 +1,4 @@
-# List Payment Tenant Company Configurations with Rillion Prime
+# List Payment Tenant Company Configurations with Rillion Prime Pay
 
 ## Endpoint
 

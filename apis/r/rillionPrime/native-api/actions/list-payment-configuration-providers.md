@@ -1,4 +1,4 @@
-# List Payment Configuration Providers with Rillion Prime
+# List Payment Configuration Providers with Rillion Prime Pay
 
 ## Endpoint
 

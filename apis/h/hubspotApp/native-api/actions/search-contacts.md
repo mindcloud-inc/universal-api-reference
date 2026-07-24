@@ -10,6 +10,10 @@ Finds contacts in HubSpot.
 - **API:** REST - Body Pagination
 - **Official documentation:** [Search Contacts](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/search/post-crm-v3-objects-contacts-search)
 
+## Capabilities
+
+This operation supports [filtering](../README.md#filtering).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

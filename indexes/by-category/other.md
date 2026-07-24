@@ -380,7 +380,7 @@
 - **RevenueCat** · [Universal API reference](../../apis/r/revenueCat/universal-api) · [Native API reference](../../apis/r/revenueCat/native-api) · [Native API docs](https://www.revenuecat.com/docs/api-v2)
 - **RICOH360 Tours** · [Universal API reference](../../apis/r/rICOH360Tours/universal-api) · [Native API reference](../../apis/r/rICOH360Tours/native-api) · [Native API docs](https://docs.ricoh360.com/)
 - **Rijksoverheid** · [Universal API reference](../../apis/r/rijksoverheid/universal-api) · [Native API reference](../../apis/r/rijksoverheid/native-api) · [Native API docs](https://www.rijksoverheid.nl/opendata)
-- **Rillion Prime** · [Universal API reference](../../apis/r/rillionPrime/universal-api) · [Native API reference](../../apis/r/rillionPrime/native-api) · [Native API docs](https://rillion-prime-integration.readme.io/docs/using-the-api-reference)
+- **Rillion Prime Pay** · [Universal API reference](../../apis/r/rillionPrime/universal-api) · [Native API reference](../../apis/r/rillionPrime/native-api) · [Native API docs](https://rillion-prime-integration.readme.io/docs/using-the-api-reference)
 - **RingCentral** · [Universal API reference](../../apis/r/ringCentral/universal-api) · [Native API reference](../../apis/r/ringCentral/native-api)
 - **Robohash** · [Universal API reference](../../apis/r/robohash/universal-api) · [Native API reference](../../apis/r/robohash/native-api) · [Native API docs](https://github.com/e1ven/Robohash)
 - **Robots for Power BI** · [Universal API reference](../../apis/r/robotsForPowerBI/universal-api) · [Native API reference](../../apis/r/robotsForPowerBI/native-api) · [Native API docs](https://docs.pbirobots.powerbitiles.com/guides/api)

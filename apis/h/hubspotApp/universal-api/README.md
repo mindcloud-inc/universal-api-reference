@@ -4,7 +4,7 @@ Manage contacts, track deals, run campaigns, and support customers.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hubspotApp/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 73
+- **Actions:** 74
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.hubspot.com/
 - **Vendor API docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (73)
+## Actions (74)
 
 ### Account Info
 
@@ -184,6 +184,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Pipeline Stage](actions/create-pipeline-stage.md) | POST |  |
 | [Get Pipeline Stage by ID](actions/get-pipeline-stage-by-id.md) | GET | Retrieves a pipeline stage from HubSpot by ID. |
 
 ### Product

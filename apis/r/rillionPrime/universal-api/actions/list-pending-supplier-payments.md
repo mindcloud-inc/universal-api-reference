@@ -1,4 +1,4 @@
-# Rillion Prime: List Pending Supplier Payments
+# Rillion Prime Pay: List Pending Supplier Payments
 
 
 
@@ -6,7 +6,7 @@
 GET https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actions/list-pending-supplier-payments
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Rillion Prime `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Rillion Prime Pay `connectionId` ([setup](../authentication.md)).
 
 ## Example request
 
@@ -36,13 +36,33 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supplierId` | string | yes | Optional query value for SupplierId. |
+| `supplierId` | string | yes | Supplier ID to list pending payments for. |
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Rillion Prime API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "paymentApprovedCount": 1,
+      "paymentAwaitingApprovalCount": 1,
+      "paymentCreatedCount": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `paymentApprovedCount` | number |  |
+| `paymentAwaitingApprovalCount` | number |  |
+| `paymentCreatedCount` | number |  |
 
 ## Native endpoint
 
-Through the native Rillion Prime API, this operation is `GET /payment/supplier/payments/pending` (base URL `{{credentials.baseUrl}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-pending-supplier-payments.md) for the provider-specific parameters and requirements.
+Through the native Rillion Prime Pay API, this operation is `GET /payment/supplier/payments/pending` (base URL `{{credentials.baseUrl}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-pending-supplier-payments.md) for the provider-specific parameters and requirements.
 

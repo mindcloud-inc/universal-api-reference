@@ -1,6 +1,6 @@
-# Rillion Prime Universal API Arguments
+# Rillion Prime Pay Universal API Arguments
 
-Arguments are the inputs a Rillion Prime action needs. Each [action page](README.md#actions-40) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Rillion Prime Pay action needs. Each [action page](README.md#actions-25) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 
@@ -47,7 +47,7 @@ Selection is applied to each row in `data`. The `id` field is retained whenever 
 
 ## Responses and errors
 
-Every Rillion Prime response uses the same envelope. Single-record actions still return one item inside `data`:
+Every Rillion Prime Pay response uses the same envelope. Single-record actions still return one item inside `data`:
 
 ```json
 {

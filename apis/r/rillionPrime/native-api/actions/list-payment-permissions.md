@@ -1,4 +1,4 @@
-# List Payment Permissions with Rillion Prime
+# List Payment Permissions with Rillion Prime Pay
 
 ## Endpoint
 

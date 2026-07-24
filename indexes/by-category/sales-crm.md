@@ -1,6 +1,6 @@
 # Sales & CRM apps
 
-169 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+170 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AeroLeads** · [Universal API reference](../../apis/a/aeroLeads/universal-api) · [Native API reference](../../apis/a/aeroLeads/native-api) · [Native API docs](https://aeroleads.com/api)
 - **Agendor** · [Universal API reference](../../apis/a/agendor/universal-api) · [Native API reference](../../apis/a/agendor/native-api) · [Native API docs](https://api.agendor.com.br/docs/)
@@ -21,6 +21,7 @@
 - **Boost** · [Universal API reference](../../apis/b/boost/universal-api) · [Native API reference](../../apis/b/boost/native-api) · [Native API docs](https://apidoc.boost.space/)
 - **Captain Data** · [Universal API reference](../../apis/c/captainData/universal-api) · [Native API reference](../../apis/c/captainData/native-api) · [Native API docs](https://docs.captaindata.com/v1/introduction)
 - **CentralStationCRM** · [Universal API reference](../../apis/c/centralStationCRM/universal-api) · [Native API reference](../../apis/c/centralStationCRM/native-api) · [Native API docs](https://api.centralstationcrm.net/api-docs/index.html)
+- **Cin7 Core** · [Universal API reference](../../apis/c/cin7core/universal-api) · [Native API reference](../../apis/c/cin7core/native-api) · [Native API docs](https://dearinventory.docs.apiary.io/#)
 - **Cliengo** · [Universal API reference](../../apis/c/cliengo/universal-api) · [Native API reference](../../apis/c/cliengo/native-api) · [Native API docs](https://developers.cliengo.com/reference)
 - **Client Commander** · [Universal API reference](../../apis/c/clientCommander/universal-api) · [Native API reference](../../apis/c/clientCommander/native-api) · [Native API docs](https://docs.clientcommander.com/api-reference/introduction)
 - **Clio Manage** · [Universal API reference](../../apis/c/clio/universal-api) · [Native API reference](../../apis/c/clio/native-api) · [Native API docs](https://docs.developers.clio.com/api-docs/clio-manage/)

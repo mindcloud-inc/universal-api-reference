@@ -1,6 +1,6 @@
 # Viewpoint Spectrum: Native API Reference
 
-A consolidated summary of Viewpoint Spectrum's API configuration and 14 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Spectrum's API configuration and 15 documented operations, with links to official documentation.
 
 - **Official docs:** https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services
 - **API base URL:** `{url}:8482/`
@@ -29,7 +29,7 @@ Shared headers:
 
 Use `$limit` in the query string to set the page size (default 25; accepted range 1–500). Use `$skip` in the query string as the record offset.
 
-## Endpoints (14 documented)
+## Endpoints (15 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -39,6 +39,7 @@ Use `$limit` in the query string to set the page size (default 25; accepted rang
 | [Create Vendor](actions/create-vendor.md) | `POST ws/AddVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor) |
 | [Create Vendor Invoice](actions/create-vendor-invoice.md) | `POST ws/AddAPInvoice` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
 | [Create Vendor Invoice Multi-Line](actions/create-vendor-invoice-multi-line.md) | `POST vendor/invoice` |  |
+| [Create Vendor (SOAP)](actions/create-vendor-soap.md) | `POST ws/AddVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
 | [Create Work Orders](actions/create-work-orders.md) | `POST ws/AddARInvoice` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
 | [Get Customers](actions/get-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |
 | [List Customers](actions/list-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |

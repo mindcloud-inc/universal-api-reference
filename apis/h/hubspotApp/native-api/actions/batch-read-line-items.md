@@ -15,7 +15,7 @@ Retrieves line items from HubSpot in a batch.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `inputs[]` | body | `array<object>` | yes | The line items to batch read. |
-| `inputs[].id` | body | `string` | yes | The line item ID to batch read. |
+| `inputs[].id` | body | `string` | no | The line item ID to batch read. |
 | `properties[]` | body | `array<string>` | no | Properties to include in each returned line item. |
 | `propertiesWithHistory[]` | body | `array<string>` | no | Properties to include with history values in each returned line item. |
 | `idProperty` | query | `string` | no | The unique property to use instead of the default record ID. |

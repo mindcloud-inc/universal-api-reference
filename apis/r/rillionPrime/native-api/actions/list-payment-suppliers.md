@@ -1,4 +1,4 @@
-# List Payment Suppliers with Rillion Prime
+# List Payment Suppliers with Rillion Prime Pay
 
 ## Endpoint
 
@@ -15,4 +15,4 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `SearchTerm` | query | `string` | no | Optional query value for SearchTerm. |
+| `SearchTerm` | query | `string` | no | Filter suppliers by search term. |
