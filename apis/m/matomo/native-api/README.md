@@ -1,6 +1,6 @@
 # Matomo: Native API Reference
 
-A consolidated summary of Matomo's API configuration and 575 documented operations, with links to official documentation.
+A consolidated summary of Matomo's API configuration and 584 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.matomo.org/api-reference/reporting-api
 - **API base URL:** `https://mindcloud.matomo.cloud`
@@ -39,7 +39,7 @@ Send filters in the request body.
 
 Set the sort field with `filter_sort_column` in the request body. Set the direction separately with `filter_sort_order`. Use `asc` for ascending order and `desc` for descending order. Only one sort field is accepted.
 
-## Endpoints (575 documented)
+## Endpoints (584 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -256,7 +256,16 @@ Set the sort field with `filter_sort_column` in the request body. Set the direct
 | [Funnels save Non Goal Funnel](actions/funnels-save-non-goal-funnel.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
 | [Funnels set Goal Funnel](actions/funnels-set-goal-funnel.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
 | [Funnels test Url Matches Steps](actions/funnels-test-url-matches-steps.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Abandoned Carts](actions/get-abandoned-carts.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Abandoned Carts - Days to Conversion](actions/get-abandoned-carts-days-to-conversion.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Abandoned Carts - Visits to Conversion](actions/get-abandoned-carts-visits-to-conversion.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Days to Conversion](actions/get-days-to-conversion.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Goals](actions/get-goals.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Goals Overview](actions/get-goals-overview.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Goals Overview - Days to Conversion](actions/get-goals-overview-days-to-conversion.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Goals Overview - Visits to Conversion](actions/get-goals-overview-visits-to-conversion.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
 | [Get Matomo Version](actions/get-matomo-version.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
+| [Get Visits to Conversion](actions/get-visits-to-conversion.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
 | [Goals add Goal](actions/goals-add-goal.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
 | [Goals delete Goal](actions/goals-delete-goal.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |
 | [Get Ecommerce Orders](actions/goals-get.md) | `POST /index.php` | [docs](https://developer.matomo.org/api-reference/reporting-api) |

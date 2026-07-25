@@ -59,6 +59,7 @@ Set the sort field with `sort_by` in the query string. Set the direction separat
 | [Get Lead](actions/get-lead.md) | `GET /Leads` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [Get Modules](actions/get-modules.md) | `GET /settings/modules` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/modules-api.html) |
 | [Get Notes for Record](actions/get-notes-for-record.md) | `GET /:module_api_name/:record_id/Notes` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-notes.html) |
+| [Get Opportunity Group](actions/get-opportunity-group.md) | `GET /Opportunity_Groups/:opportunityGroupId` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [Get Organization Details](actions/get-organization-details.md) | `GET /org` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-org-data.html) |
 | [Get Records through COQL Query](actions/get-records-through-coql-query.md) | `POST /coql` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/Get-Records-through-COQL-Query.html) |
 | [Get Related Records](actions/get-related-records.md) | `GET /:module_api_name/:record_id/:related_list_api_name` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-related-records.html) |
@@ -67,7 +68,6 @@ Set the sort field with `sort_by` in the query string. Set the direction separat
 | [List Contacts](actions/list-contacts.md) | `GET /Contacts` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [List Deals](actions/list-deals.md) | `GET /Deals` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [List Leads](actions/list-leads.md) | `GET /Leads` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
-| [Get Opportunity Group](actions/new-action1.md) | `GET /Opportunity_Groups/:opportunityGroupId` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [Search Accounts](actions/search-accounts.md) | `GET /Accounts/search` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/search-records.html) |
 | [Search Contacts](actions/search-contacts.md) | `GET /Contacts/search` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/search-records.html) |
 | [Search Deals](actions/search-deals.md) | `GET /Deals/search` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/search-records.html) |

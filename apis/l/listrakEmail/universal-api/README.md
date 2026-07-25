@@ -29,7 +29,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/listrakEmail/latest/actio
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get List](actions/get-list.md) | GET |  |
-| [List Lists](actions/new-action1.md) | GET |  |
+| [List Lists](actions/list-lists.md) | GET |  |
 
 ### Messages
 

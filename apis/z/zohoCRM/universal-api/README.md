@@ -72,7 +72,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zohoCRM/latest/actions/ge
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get Opportunity Group](actions/new-action1.md) | GET | Retrieves an Opportunity Group from Zoho CRM. |
+| [Get Opportunity Group](actions/get-opportunity-group.md) | GET | Retrieves an Opportunity Group from Zoho CRM. |
 
 ### Field Metadata
 

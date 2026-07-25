@@ -4,7 +4,7 @@ Kite Suite is a work management and collaboration platform API for workspaces, p
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/kiteSuiteCustom/latest
 - **Category:** Productivity / Project Management
-- **Actions:** 272
+- **Actions:** 274
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.kitesuite.com
 - **Vendor API docs:** https://api.kitesuite.com/swagger/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/kiteSuiteCustom/latest/ac
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (272)
+## Actions (274)
 
 ### Actions
 
@@ -86,6 +86,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/kiteSuiteCustom/latest/ac
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Custom Field](actions/create-custom-field.md) | POST |  |
+| [Create Custom Field (Drag Endpoint)](actions/create-custom-field-drag-endpoint.md) | POST |  |
 | [Delete custom Field by Id](actions/delete-custom-field-by-id.md) | DELETE |  |
 | [Get Predefined Field](actions/get-predefined-field.md) | GET |  |
 | [Get Predefined Fields by project Id](actions/get-predefined-fields-by-project-id.md) | GET |  |
@@ -222,6 +223,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/kiteSuiteCustom/latest/ac
 | [get workspace backup](actions/get-workspace-backup.md) | GET |  |
 | [Import from Clickup](actions/import-from-clickup.md) | POST |  |
 | [Import from CSV](actions/import-from-csv.md) | POST |  |
+| [Import from CSV (Import Endpoint)](actions/import-from-csv-import-endpoint.md) | POST |  |
 | [Import From Jira](actions/import-from-jira.md) | POST |  |
 | [Update Field by Id](actions/update-field-by-id.md) | PUT |  |
 

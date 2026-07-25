@@ -124864,7 +124864,7 @@
     "websiteUrl": "https://www.alphavantage.co/",
     "nativeBaseUrl": "https://www.alphavantage.co",
     "nativeDocumentationUrl": "https://www.alphavantage.co/documentation/",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "authentication": [
       {
         "type": "custom",
@@ -141678,7 +141678,7 @@
     "description": "Manage Amazon listings, inventory, orders, and shipments",
     "iconUrl": "https://images.mindcloud.co/apps/icons/amazon-1_1768252959060.png",
     "nativeDocumentationUrl": "https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references",
-    "version": "0.0.82",
+    "version": "0.0.87",
     "authentication": [
       {
         "type": "oAuth2",
@@ -153700,6 +153700,834 @@
       }
     ],
     "universalOpenApiPath": "apis/a/amazonSeller/universal-api/openapi.json"
+  },
+  {
+    "name": "Amazon Vendor",
+    "slug": "amazonVendor",
+    "category": "Commerce",
+    "categoryGroup": "Commerce",
+    "iconUrl": "https://images.mindcloud.co/apps/icons/amazon-1_1768252974873.png",
+    "websiteUrl": "https://developer.amazonservices.com/",
+    "nativeDocumentationUrl": "https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references",
+    "version": "0.0.7",
+    "authentication": [
+      {
+        "type": "oAuth2",
+        "name": "OAuth 2.0",
+        "credentials": [
+          {
+            "key": "region",
+            "name": "Region",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "description": "Amazon SP-API region used in the Selling Partner API host."
+          }
+        ],
+        "oauth": {
+          "authorizeUrl": "https://vendorcentral.amazon.com/apps/authorize/consent",
+          "accessTokenUrl": "https://api.amazon.com/auth/o2/token",
+          "refreshTokenUrl": "https://api.amazon.com/auth/o2/token"
+        },
+        "requestHeaders": [
+          {
+            "name": "x-amz-access-token",
+            "template": "<accessToken>"
+          }
+        ]
+      }
+    ],
+    "nativeApis": [
+      {
+        "name": "REST",
+        "type": "rest",
+        "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          }
+        ],
+        "pagination": {
+          "limit": {
+            "parameter": "limit",
+            "location": "query",
+            "default": "100",
+            "minimum": "1",
+            "maximum": "100"
+          },
+          "offset": {
+            "type": "cursor",
+            "parameter": "nextToken",
+            "location": "query"
+          }
+        },
+        "responses": [
+          {
+            "parser": "auto",
+            "dataRootKey": "payload",
+            "cursorKey": "payload.nextToken"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "name": "Create Direct Fulfillment Shipping Labels",
+        "slug": "create-direct-fulfillment-shipping-labels",
+        "operation": "create",
+        "method": "POST",
+        "model": "shipment",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/createshippinglabels",
+        "native": {
+          "method": "POST",
+          "path": "/vendor/directFulfillment/shipping/2021-12-28/shippingLabels/:purchaseOrderNumber",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "purchaseOrderNumber",
+              "name": "Purchase Order Number",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Amazon purchase order number for the Direct Fulfillment shipping label request."
+            },
+            {
+              "key": "sellingParty",
+              "name": "Selling Party",
+              "dataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Selling party information for the Direct Fulfillment shipping label request."
+            },
+            {
+              "key": "shipFromParty",
+              "name": "Ship From Party",
+              "dataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Ship-from party information for the Direct Fulfillment shipping label request."
+            },
+            {
+              "key": "containers[]",
+              "name": "Containers",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "Container details for the Direct Fulfillment shipping label request."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "purchaseOrderNumber",
+            "name": "Purchase Order Number",
+            "dataType": "string",
+            "required": true,
+            "description": "Amazon purchase order number for the Direct Fulfillment shipping label request."
+          },
+          {
+            "key": "sellingParty",
+            "name": "Selling Party",
+            "dataType": "object",
+            "required": true,
+            "description": "Selling party information for the Direct Fulfillment shipping label request."
+          },
+          {
+            "key": "shipFromParty",
+            "name": "Ship From Party",
+            "dataType": "object",
+            "required": true,
+            "description": "Ship-from party information for the Direct Fulfillment shipping label request."
+          },
+          {
+            "key": "containers[]",
+            "name": "Containers",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false,
+            "description": "Container details for the Direct Fulfillment shipping label request."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Direct Fulfillment Shipping Label",
+        "slug": "get-direct-fulfillment-shipping-label",
+        "operation": "read",
+        "method": "GET",
+        "model": "shipment",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/getshippinglabel-1",
+        "native": {
+          "method": "GET",
+          "path": "/vendor/directFulfillment/shipping/2021-12-28/shippingLabels/:purchaseOrderNumber",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "purchaseOrderNumber",
+              "name": "Purchase Order Number",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Amazon purchase order number for the Direct Fulfillment shipping label to retrieve."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "purchaseOrderNumber",
+            "name": "Purchase Order Number",
+            "dataType": "string",
+            "required": true,
+            "description": "Amazon purchase order number for the Direct Fulfillment shipping label to retrieve."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Direct Fulfillment Transaction Status",
+        "slug": "get-direct-fulfillment-transaction-status",
+        "operation": "read",
+        "method": "GET",
+        "model": "transaction",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/gettransactionstatus-1",
+        "native": {
+          "method": "GET",
+          "path": "/vendor/directFulfillment/transactions/2021-12-28/transactions/:transactionId",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "transactionId",
+              "name": "Transaction ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Transaction identifier returned from a Direct Fulfillment POST request."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "transactionId",
+            "name": "Transaction ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Transaction identifier returned from a Direct Fulfillment POST request."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Purchase Order",
+        "slug": "get-purchase-order",
+        "operation": "read",
+        "method": "GET",
+        "model": "purchaseOrder",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/getpurchaseorder",
+        "native": {
+          "method": "GET",
+          "path": "/vendor/orders/v1/purchaseOrders/:purchaseOrderNumber",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "purchaseOrderNumber",
+              "name": "Purchase Order Number",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The 8-character alphanumeric purchase order identifier."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "purchaseOrderNumber",
+            "name": "Purchase Order Number",
+            "dataType": "string",
+            "required": true,
+            "description": "The 8-character alphanumeric purchase order identifier."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Purchase Orders",
+        "slug": "get-purchase-orders",
+        "operation": "read",
+        "method": "GET",
+        "model": "purchaseOrder",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/getpurchaseorders",
+        "native": {
+          "method": "GET",
+          "path": "/vendor/orders/v1/purchaseOrders",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "createdAfter",
+              "name": "Created After",
+              "dataType": "date",
+              "location": "query",
+              "required": false,
+              "description": "Purchase orders that became available after this ISO-8601 timestamp."
+            },
+            {
+              "key": "createdBefore",
+              "name": "Created Before",
+              "dataType": "date",
+              "location": "query",
+              "required": false,
+              "description": "Purchase orders that became available before this ISO-8601 timestamp."
+            },
+            {
+              "key": "changedAfter",
+              "name": "Changed After",
+              "dataType": "date",
+              "location": "query",
+              "required": false,
+              "description": "Purchase orders that changed after this ISO-8601 timestamp."
+            },
+            {
+              "key": "changedBefore",
+              "name": "Changed Before",
+              "dataType": "date",
+              "location": "query",
+              "required": false,
+              "description": "Purchase orders that changed before this ISO-8601 timestamp."
+            },
+            {
+              "key": "sortOrder",
+              "name": "Sort Order",
+              "dataType": "list",
+              "location": "query",
+              "required": false,
+              "description": "Sort ascending or descending by purchase order creation date.",
+              "enumValues": [
+                "ASC",
+                "DESC"
+              ]
+            },
+            {
+              "key": "includeDetails",
+              "name": "Include Details",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "When true, returns purchase orders with complete details. Otherwise, only purchase order numbers are returned.",
+              "format": "toggle"
+            },
+            {
+              "key": "poItemState",
+              "name": "PO Item State",
+              "dataType": "list",
+              "location": "query",
+              "required": false,
+              "description": "Current state of the purchase order item. Amazon documents Cancelled as the allowed value.",
+              "enumValues": [
+                "Cancelled"
+              ]
+            },
+            {
+              "key": "isPOChanged",
+              "name": "Is PO Changed",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "When true, returns purchase orders modified after placement."
+            },
+            {
+              "key": "purchaseOrderState",
+              "name": "Purchase Order State",
+              "dataType": "list",
+              "location": "query",
+              "required": false,
+              "description": "Filters purchase orders by purchase order state.",
+              "enumValues": [
+                "Acknowledged",
+                "Closed",
+                "New"
+              ]
+            },
+            {
+              "key": "orderingVendorCode",
+              "name": "Ordering Vendor Code",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Filters purchase orders by ordering vendor code matching sellingParty.partyId."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "createdAfter",
+            "name": "Created After",
+            "dataType": "date",
+            "required": false,
+            "description": "Purchase orders that became available after this ISO-8601 timestamp."
+          },
+          {
+            "key": "createdBefore",
+            "name": "Created Before",
+            "dataType": "date",
+            "required": false,
+            "description": "Purchase orders that became available before this ISO-8601 timestamp."
+          },
+          {
+            "key": "changedAfter",
+            "name": "Changed After",
+            "dataType": "date",
+            "required": false,
+            "description": "Purchase orders that changed after this ISO-8601 timestamp."
+          },
+          {
+            "key": "changedBefore",
+            "name": "Changed Before",
+            "dataType": "date",
+            "required": false,
+            "description": "Purchase orders that changed before this ISO-8601 timestamp."
+          },
+          {
+            "key": "sortOrder",
+            "name": "Sort Order",
+            "dataType": "list",
+            "required": false,
+            "description": "Sort ascending or descending by purchase order creation date.",
+            "enumValues": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          {
+            "key": "includeDetails",
+            "name": "Include Details",
+            "dataType": "boolean",
+            "required": false,
+            "description": "When true, returns purchase orders with complete details. Otherwise, only purchase order numbers are returned.",
+            "format": "toggle"
+          },
+          {
+            "key": "poItemState",
+            "name": "PO Item State",
+            "dataType": "list",
+            "required": false,
+            "description": "Current state of the purchase order item. Amazon documents Cancelled as the allowed value.",
+            "enumValues": [
+              "Cancelled"
+            ]
+          },
+          {
+            "key": "isPOChanged",
+            "name": "Is PO Changed",
+            "dataType": "boolean",
+            "required": false,
+            "description": "When true, returns purchase orders modified after placement."
+          },
+          {
+            "key": "purchaseOrderState",
+            "name": "Purchase Order State",
+            "dataType": "list",
+            "required": false,
+            "description": "Filters purchase orders by purchase order state.",
+            "enumValues": [
+              "Acknowledged",
+              "Closed",
+              "New"
+            ]
+          },
+          {
+            "key": "orderingVendorCode",
+            "name": "Ordering Vendor Code",
+            "dataType": "string",
+            "required": false,
+            "description": "Filters purchase orders by ordering vendor code matching sellingParty.partyId."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "List Direct Fulfillment Orders",
+        "slug": "list-direct-fulfillment-orders",
+        "operation": "read",
+        "method": "GET",
+        "model": "purchaseOrder",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/getorders-2",
+        "native": {
+          "method": "GET",
+          "path": "/vendor/directFulfillment/orders/2021-12-28/purchaseOrders",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "createdAfter",
+              "name": "Created After",
+              "dataType": "date",
+              "location": "query",
+              "required": true,
+              "description": "Purchase orders that became available after this ISO-8601 date/time."
+            },
+            {
+              "key": "createdBefore",
+              "name": "Created Before",
+              "dataType": "date",
+              "location": "query",
+              "required": true,
+              "description": "Purchase orders that became available before this ISO-8601 date/time."
+            },
+            {
+              "key": "shipFromPartyId",
+              "name": "Ship From Party ID",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Vendor warehouse identifier for the fulfillment warehouse."
+            },
+            {
+              "key": "status",
+              "name": "Status",
+              "dataType": "list",
+              "location": "query",
+              "required": false,
+              "description": "Purchase order status to return.",
+              "enumValues": [
+                "Accepted",
+                "Cancelled",
+                "New",
+                "Shipped"
+              ]
+            },
+            {
+              "key": "sortOrder",
+              "name": "Sort Order",
+              "dataType": "list",
+              "location": "query",
+              "required": false,
+              "description": "Sort order by order creation date.",
+              "enumValues": [
+                "Ascending",
+                "Descending"
+              ]
+            },
+            {
+              "key": "includeDetails",
+              "name": "Include Details",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "When true, returns complete purchase order details; otherwise only purchase order numbers."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "createdAfter",
+            "name": "Created After",
+            "dataType": "date",
+            "required": true,
+            "description": "Purchase orders that became available after this ISO-8601 date/time."
+          },
+          {
+            "key": "createdBefore",
+            "name": "Created Before",
+            "dataType": "date",
+            "required": true,
+            "description": "Purchase orders that became available before this ISO-8601 date/time."
+          },
+          {
+            "key": "shipFromPartyId",
+            "name": "Ship From Party ID",
+            "dataType": "string",
+            "required": false,
+            "description": "Vendor warehouse identifier for the fulfillment warehouse."
+          },
+          {
+            "key": "status",
+            "name": "Status",
+            "dataType": "list",
+            "required": false,
+            "description": "Purchase order status to return.",
+            "enumValues": [
+              "Accepted",
+              "Cancelled",
+              "New",
+              "Shipped"
+            ]
+          },
+          {
+            "key": "sortOrder",
+            "name": "Sort Order",
+            "dataType": "list",
+            "required": false,
+            "description": "Sort order by order creation date.",
+            "enumValues": [
+              "Ascending",
+              "Descending"
+            ]
+          },
+          {
+            "key": "includeDetails",
+            "name": "Include Details",
+            "dataType": "string",
+            "required": false,
+            "description": "When true, returns complete purchase order details; otherwise only purchase order numbers.",
+            "example": "true"
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Submit Direct Fulfillment Acknowledgements",
+        "slug": "submit-direct-fulfillment-acknowledgements",
+        "operation": "create",
+        "method": "POST",
+        "model": "purchaseOrder",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/submitacknowledgement-2",
+        "native": {
+          "method": "POST",
+          "path": "/vendor/directFulfillment/orders/2021-12-28/acknowledgements",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderAcknowledgements[]",
+              "name": "Order Acknowledgements",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "List of one or more Direct Fulfillment purchase order acknowledgements."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderAcknowledgements[]",
+            "name": "Order Acknowledgements",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "List of one or more Direct Fulfillment purchase order acknowledgements."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Submit Direct Fulfillment Invoices",
+        "slug": "submit-direct-fulfillment-invoices",
+        "operation": "create",
+        "method": "POST",
+        "model": "invoice",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/submitinvoice",
+        "native": {
+          "method": "POST",
+          "path": "/vendor/directFulfillment/payments/v1/invoices",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "invoices[]",
+              "name": "Invoices",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Array of Direct Fulfillment invoice objects to submit."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "invoices[]",
+            "name": "Invoices",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "Array of Direct Fulfillment invoice objects to submit."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Submit Direct Fulfillment Shipment Confirmations",
+        "slug": "submit-direct-fulfillment-shipment-confirmations",
+        "operation": "create",
+        "method": "POST",
+        "model": "shipment",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/submitshipmentconfirmations-1",
+        "native": {
+          "method": "POST",
+          "path": "/vendor/directFulfillment/shipping/v1/shipmentConfirmations",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "shipmentConfirmations[]",
+              "name": "Shipment Confirmations",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Array of direct fulfillment shipment confirmation objects."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "shipmentConfirmations[]",
+            "name": "Shipment Confirmations",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "Array of direct fulfillment shipment confirmation objects."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Submit Purchase Order Acknowledgements",
+        "slug": "submit-purchase-order-acknowledgements",
+        "operation": "create",
+        "method": "POST",
+        "model": "purchaseOrder",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/submitacknowledgement",
+        "native": {
+          "method": "POST",
+          "path": "/vendor/orders/v1/acknowledgements",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "acknowledgements[]",
+              "name": "Acknowledgements",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "An array of order acknowledgements to submit."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "acknowledgements[]",
+            "name": "Acknowledgements",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "An array of order acknowledgements to submit."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Submit Shipment Confirmations",
+        "slug": "submit-shipment-confirmations",
+        "operation": "create",
+        "method": "POST",
+        "model": "shipment",
+        "documentationUrl": "https://developer-docs.amazon.com/sp-api/reference/submitshipmentconfirmations",
+        "native": {
+          "method": "POST",
+          "path": "/vendor/shipping/v1/shipmentConfirmations",
+          "baseUrl": "https://sellingpartnerapi-{{credentials.region}}.amazon.com",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "shipmentConfirmations[]",
+              "name": "Shipment Confirmations",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "A list of one or more shipment confirmations."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "shipmentConfirmations[]",
+            "name": "Shipment Confirmations",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "A list of one or more shipment confirmations."
+          }
+        ],
+        "responseSchema": []
+      }
+    ],
+    "universalOpenApiPath": "apis/a/amazonVendor/universal-api/openapi.json"
   },
   {
     "name": "Ambee",

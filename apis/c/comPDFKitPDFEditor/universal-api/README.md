@@ -4,7 +4,7 @@ Run ComPDFKit PDF Editor actions for merge, split, extract, insert, delete, rota
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/comPDFKitPDFEditor/latest
 - **Category:** IT Operations / Developer Tools
-- **Actions:** 55
+- **Actions:** 56
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.compdf.com
 - **Vendor API docs:** https://api.compdf.com/api-libraries/overview
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/comPDFKitPDFEditor/latest
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (55)
+## Actions (56)
 
 ### Assets
 
@@ -48,6 +48,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/comPDFKitPDFEditor/latest
 | [Document Extraction](actions/document-extraction.md) | POST | Creates a document extraction task in ComPDFKit PDF Editor. |
 | [Document Parsing](actions/document-parsing.md) | POST | Creates a document parsing task in ComPDFKit PDF Editor. |
 | [Get Task List](actions/get-task-list.md) | GET | Retrieves file transfer tasks from ComPDFKit PDF Editor. |
+| [Get Task List (Alternate Schema)](actions/get-task-list-alternate-schema.md) | GET | Retrieves file transfer tasks from ComPDFKit PDF Editor. |
 | [HTML to PDF](actions/h-tml-to-pdf.md) | POST | Creates an HTML-to-PDF conversion task in ComPDFKit PDF Editor. |
 | [HTML to PDF Task](actions/h-tml-to-pdf-task.md) | GET |  |
 | [Image Distortion Correction](actions/image-distortion-correction.md) | POST | Creates an image distortion correction task in ComPDFKit PDF Editor. |

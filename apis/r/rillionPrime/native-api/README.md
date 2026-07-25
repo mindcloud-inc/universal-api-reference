@@ -1,6 +1,6 @@
 # Rillion Prime Pay: Native API Reference
 
-A consolidated summary of Rillion Prime Pay's API configuration and 25 documented operations, with links to official documentation.
+A consolidated summary of Rillion Prime Pay's API configuration and 30 documented operations, with links to official documentation.
 
 - **Official docs:** https://rillion-prime-integration.readme.io/docs/using-the-api-reference
 - **API base URL:** `{baseUrl}`
@@ -48,15 +48,20 @@ Use `PageSize` in the query string to set the page size. Use `PageIndex` in the 
 
 Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (25 documented)
+## Endpoints (30 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Approve Payments](actions/approve-payments.md) | `POST /payment/process/approve` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
 | [Cancel Payments](actions/cancel-payments.md) | `POST /payment/process/cancel` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
 | [Create Payment Approval](actions/create-payment-approval.md) | `POST /payment/approval` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
+| [Create Payment Configuration Company](actions/create-payment-configuration-company.md) | `POST /payment/configuration/company` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
 | [Create Payment Export Job](actions/create-payment-export-job.md) | `POST /payment/export` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
 | [Create Payment Schedule](actions/create-payment-schedule.md) | `POST /payment/schedule` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
+| [Create Payment Supplier Grouping](actions/create-payment-supplier-grouping.md) | `POST /payment/suppliers/grouping` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
+| [Create Payment Tenant Company Configuration](actions/create-payment-tenant-company-configuration.md) | `POST /payment/configuration/tenant/company` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
+| [Create Payment Tenant Configuration](actions/create-payment-tenant-configuration.md) | `POST /payment/configuration/tenant` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
+| [Create Payment Tenant Provider Configuration](actions/create-payment-tenant-provider-configuration.md) | `POST /payment/configuration/tenant/provider` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
 | [Download Payment Image](actions/download-payment-image.md) | `GET /payment/images/download` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
 | [List Payment Approvals](actions/list-payment-approvals.md) | `GET /payment/approval` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |
 | [List Payment Audit Logs](actions/list-payment-audit-logs.md) | `GET /payment/audit` | [docs](https://prime-2-uat-14-ue.rillionprime.com/swagger/index.html?urls.primaryName=Pay%20-%20v1.0) |

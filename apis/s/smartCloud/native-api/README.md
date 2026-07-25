@@ -1,6 +1,6 @@
 # 2Smart Cloud: Native API Reference
 
-A consolidated summary of 2Smart Cloud's API configuration and 235 documented operations, with links to official documentation.
+A consolidated summary of 2Smart Cloud's API configuration and 236 documented operations, with links to official documentation.
 
 - **Official docs:** https://cloud.2smart.com/swagger/
 - **OpenAPI specification:** https://cloud.2smart.com/swagger/apidoc.yaml
@@ -31,7 +31,7 @@ const response = await fetch(url, {
 
 [Official authentication documentation](https://cloud.2smart.com/swagger/)
 
-## Endpoints (235 documented)
+## Endpoints (236 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -116,6 +116,7 @@ const response = await fetch(url, {
 | [Get vendor info](actions/create-vendors-profile.md) | `POST /vendors/profile` | [docs](https://cloud.2smart.com/swagger/) |
 | [Add WhatsApp chat_id](actions/create-whatsapp-chat-ids.md) | `POST /whatsapp-chat_ids` | [docs](https://cloud.2smart.com/swagger/) |
 | [Delete favorite widget group](actions/delete-favorite-widget-groups-by-id-delete.md) | `POST /favorite-widget-groups/{id}/delete` | [docs](https://cloud.2smart.com/swagger/) |
+| [Delete mobile user](actions/delete-mobile-user.md) | `DELETE /users` | [docs](https://cloud.2smart.com/swagger/) |
 | [Delete notification record](actions/delete-notification-records-by-id-delete.md) | `POST /notification-records/{id}/delete` | [docs](https://cloud.2smart.com/swagger/) |
 | [Delete phone number](actions/delete-phone-numbers-by-id-delete.md) | `POST /phone-numbers/{id}/delete` | [docs](https://cloud.2smart.com/swagger/) |
 | [Delete phone trigger](actions/delete-phone-triggers-by-id-delete.md) | `POST /phone-triggers/{id}/delete` | [docs](https://cloud.2smart.com/swagger/) |

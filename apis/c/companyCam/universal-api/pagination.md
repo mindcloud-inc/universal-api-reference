@@ -19,11 +19,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions
 ## CompanyCam actions that support pagination
 
 - [List All Checklists](actions/list-all-checklists.md)
+- [List Groups](actions/list-groups.md)
 - [List Photo Comments](actions/list-photo-comments.md)
 - [List Photo Tags](actions/list-photo-tags.md)
 - [List Photos](actions/list-photos.md)
 - [List Project Comments](actions/list-project-comments.md)
 - [List Project Documents](actions/list-project-documents.md)
+- [List Project Labels](actions/list-project-labels.md)
 - [List Project Photos](actions/list-project-photos.md)
 - [List Project Users](actions/list-project-users.md)
 - [List Project Videos](actions/list-project-videos.md)

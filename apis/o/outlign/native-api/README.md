@@ -1,6 +1,6 @@
 # Outlign: Native API Reference
 
-A consolidated summary of Outlign's API configuration and 35 documented operations, with links to official documentation.
+A consolidated summary of Outlign's API configuration and 38 documented operations, with links to official documentation.
 
 - **Official docs:** https://go.outlign.co/api/docs
 - **API base URL:** `https://go.outlign.co/api/v1`
@@ -44,7 +44,7 @@ Use `per_page` in the query string to set the page size (maximum 1000).
 
 Send filters in the query string.
 
-## Endpoints (35 documented)
+## Endpoints (38 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -62,7 +62,9 @@ Send filters in the query string.
 | [List Client-Facing Phases](actions/list-client-facing-phases.md) | `GET /phases` | [docs](https://go.outlign.co/api/docs/phases) |
 | [List Clients](actions/list-clients.md) | `GET /clients` | [docs](https://go.outlign.co/api/docs/clients) |
 | [List Clients By Company](actions/list-clients-by-company.md) | `GET /clients` | [docs](https://go.outlign.co/api/docs/clients) |
+| [List Clients by Company (Alternate)](actions/list-clients-by-company-alternate.md) | `GET /clients` | [docs](https://go.outlign.co/api/docs/clients) |
 | [List Companies](actions/list-companies.md) | `GET /companies` | [docs](https://go.outlign.co/api/docs/companies) |
+| [List Companies (Alternate Schema)](actions/list-companies-alternate-schema.md) | `GET /companies` | [docs](https://go.outlign.co/api/docs/companies) |
 | [List Completed Tasks](actions/list-completed-tasks.md) | `GET /steps` | [docs](https://go.outlign.co/api/docs/tasks) |
 | [List Internal Phases](actions/list-internal-phases.md) | `GET /phases` | [docs](https://go.outlign.co/api/docs/phases) |
 | [List Milestones](actions/list-milestones.md) | `GET /milestones` | [docs](https://go.outlign.co/api/docs/milestones) |
@@ -75,6 +77,7 @@ Send filters in the query string.
 | [List Project Templates](actions/list-project-templates.md) | `GET /project-templates` | [docs](https://go.outlign.co/api/docs/project-templates) |
 | [List Projects](actions/list-projects.md) | `GET /projects` | [docs](https://go.outlign.co/api/docs/projects) |
 | [List Projects By Client](actions/list-projects-by-client.md) | `GET /projects` | [docs](https://go.outlign.co/api/docs/projects) |
+| [List Projects by Client and Company](actions/list-projects-by-client-and-company.md) | `GET /projects` | [docs](https://go.outlign.co/api/docs/projects) |
 | [List Projects By Company](actions/list-projects-by-company.md) | `GET /projects` | [docs](https://go.outlign.co/api/docs/projects) |
 | [List Tasks](actions/list-tasks.md) | `GET /steps` | [docs](https://go.outlign.co/api/docs/tasks) |
 | [List Tasks With Due Dates](actions/list-tasks-with-due-dates.md) | `GET /steps` | [docs](https://go.outlign.co/api/docs/tasks) |

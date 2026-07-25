@@ -1,6 +1,6 @@
 # 2Smart Cloud Universal API Arguments
 
-Arguments are the inputs a 2Smart Cloud action needs. Each [action page](README.md#actions-235) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a 2Smart Cloud action needs. Each [action page](README.md#actions-236) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

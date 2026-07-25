@@ -1,6 +1,6 @@
 # Worksnaps: Native API Reference
 
-A consolidated summary of Worksnaps's API configuration and 34 documented operations, with links to official documentation.
+A consolidated summary of Worksnaps's API configuration and 35 documented operations, with links to official documentation.
 
 - **Official docs:** https://api.worksnaps.com/api_docs/api_overview.html
 - **OpenAPI specification:** https://api.worksnaps.com/api_docs/worksnaps.json
@@ -48,7 +48,7 @@ Responses from this API use XML.
 
 Retry responses with status codes `429,500,502,503,504`. Wait 500 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (34 documented)
+## Endpoints (35 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -60,6 +60,7 @@ Retry responses with status codes `429,500,502,503,504`. Wait 500 ms before the 
 | [Creating offline time entries for a user](actions/creating-offline-time-entries-for-a-user.md) | `POST /projects/{project_id}/users/{user_id}/time_entries.xml` | [docs](https://api.worksnaps.com/api_docs/worksnaps.json) |
 | [Delete a project](actions/delete-a-project.md) | `DELETE /projects/{project_id}.xml` | [docs](https://api.worksnaps.com/api_docs/worksnaps.json) |
 | [Delete a task assignment](actions/delete-a-task-assignment.md) | `DELETE /projects/{project_id}/task_assignments.xml` | [docs](https://api.worksnaps.com/api_docs/worksnaps.json) |
+| [Delete a Task Assignment by ID](actions/delete-a-task-assignment-by-id.md) | `DELETE /projects/{project_id}/task_assignments/{task_assignment_id}.xml` | [docs](https://api.worksnaps.com/api_docs/worksnaps.json) |
 | [Delete a user assignment](actions/delete-a-user-assignment.md) | `DELETE /projects/{project_id}/user_assignments/{user_assignment_id}.xml` | [docs](https://api.worksnaps.com/api_docs/worksnaps.json) |
 | [Delete time entry](actions/delete-time-entry.md) | `DELETE /projects/{project_id}/time_entries/{time_entry_id}.xml` | [docs](https://api.worksnaps.com/api_docs/worksnaps.json) |
 | [Deletes a task](actions/deletes-a-task.md) | `DELETE /projects/{project_id}/tasks/{task_id}.xml` | [docs](https://api.worksnaps.com/api_docs/worksnaps.json) |

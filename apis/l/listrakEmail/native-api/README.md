@@ -45,7 +45,7 @@ Use `count` in the query string to set the page size (default 1000; accepted ran
 | [Get List](actions/get-list.md) | `GET /v1/List/:listID` | [docs](https://api.listrak.com/email#tag/List) |
 | [Get Message](actions/get-message.md) | `GET /v1/List/:listID/Message/:messageID` | [docs](https://api.listrak.com/email#tag/List) |
 | [Get Transactional Message](actions/get-transactional-message.md) | `GET /v1/List/:listID/TransactionalMessage/:messageID` | [docs](https://api.listrak.com/email#tag/List) |
+| [List Lists](actions/list-lists.md) | `GET /v1/List` | [docs](https://api.listrak.com/email#tag/List) |
 | [List Messages](actions/list-messages.md) | `GET /v1/List/:listID/Message` | [docs](https://api.listrak.com/email#tag/List) |
 | [List Transactional Messages](actions/list-transactional-messages.md) | `GET /v1/List/:listID/TransactionalMessage` | [docs](https://api.listrak.com/email#tag/List) |
-| [List Lists](actions/new-action1.md) | `GET /v1/List` | [docs](https://api.listrak.com/email#tag/List) |
 | [Send Transactional Email](actions/send-transactional-email.md) | `POST /v1/List/:listId/TransactionalMessage/:transactionalMessageId/Message` | [docs](https://api.listrak.com/email#operation/TransactionalMessage_PostTransactionalMessageSend) |

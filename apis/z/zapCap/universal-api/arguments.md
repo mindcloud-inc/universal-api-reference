@@ -1,6 +1,6 @@
 # ZapCap Universal API Arguments
 
-Arguments are the inputs a ZapCap action needs. Each [action page](README.md#actions-32) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a ZapCap action needs. Each [action page](README.md#actions-33) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

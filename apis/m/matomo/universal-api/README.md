@@ -3,7 +3,7 @@
 Matomo analytics and administration API for querying visitor, acquisition, content, event, goal, ecommerce, and site configuration data from a Matomo Cloud instance.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/matomo/latest
-- **Actions:** 575
+- **Actions:** 584
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://matomo.org/
 - **Vendor API docs:** https://developer.matomo.org/api-reference/reporting-api
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/matomo/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (575)
+## Actions (584)
 
 ### Abtesting
 
@@ -548,6 +548,15 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/matomo/latest/actions/get
 | [Get Event Categories](actions/events-get-category.md) | GET |  |
 | [Get Event Names](actions/events-get-name.md) | GET |  |
 | [Get Forms Overview](actions/form-analytics-get.md) | GET |  |
+| [Get Abandoned Carts](actions/get-abandoned-carts.md) | GET |  |
+| [Get Abandoned Carts - Days to Conversion](actions/get-abandoned-carts-days-to-conversion.md) | GET |  |
+| [Get Abandoned Carts - Visits to Conversion](actions/get-abandoned-carts-visits-to-conversion.md) | GET |  |
+| [Get Days to Conversion](actions/get-days-to-conversion.md) | GET |  |
+| [Get Goals](actions/get-goals.md) | GET |  |
+| [Get Goals Overview](actions/get-goals-overview.md) | GET |  |
+| [Get Goals Overview - Days to Conversion](actions/get-goals-overview-days-to-conversion.md) | GET |  |
+| [Get Goals Overview - Visits to Conversion](actions/get-goals-overview-visits-to-conversion.md) | GET |  |
+| [Get Visits to Conversion](actions/get-visits-to-conversion.md) | GET |  |
 | [Get Ecommerce Orders](actions/goals-get.md) | GET |  |
 | [Get Ecommerce Orders - Days to Conversion](actions/goals-get-days-to-conversion.md) | GET |  |
 | [Get Product Category](actions/goals-get-items-category.md) | GET |  |

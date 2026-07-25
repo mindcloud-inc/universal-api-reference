@@ -1,6 +1,6 @@
 # Commerce apps
 
-286 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+287 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -9,6 +9,7 @@
 - **Airwallex** · [Universal API reference](../../apis/a/airwallex/universal-api) · [Native API reference](../../apis/a/airwallex/native-api) · [Native API docs](https://www.airwallex.com/docs/developer-tools/api)
 - **Alegra** · [Universal API reference](../../apis/a/alegra/universal-api) · [Native API reference](../../apis/a/alegra/native-api) · [Native API docs](https://developer.alegra.com/)
 - **Amazon Seller** · [Universal API reference](../../apis/a/amazonSeller/universal-api) · [Native API reference](../../apis/a/amazonSeller/native-api) · [Native API docs](https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references)
+- **Amazon Vendor** · [Universal API reference](../../apis/a/amazonVendor/universal-api) · [Native API reference](../../apis/a/amazonVendor/native-api) · [Native API docs](https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references)
 - **Apaleo Official** · [Universal API reference](../../apis/a/apaleoOfficial/universal-api) · [Native API reference](../../apis/a/apaleoOfficial/native-api) · [Native API docs](https://api.apaleo.com/swagger/index.html)
 - **44API** · [Universal API reference](../../apis/a/aPI/universal-api) · [Native API reference](../../apis/a/aPI/native-api) · [Native API docs](https://docs.44api.dev)
 - **B2B Wave** · [Universal API reference](../../apis/b/b2BWave/universal-api) · [Native API reference](../../apis/b/b2BWave/native-api) · [Native API docs](https://docs.b2bwave.com/category/97-api)

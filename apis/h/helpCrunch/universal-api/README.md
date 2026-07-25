@@ -4,7 +4,7 @@ Manage customers, chats, messages, departments, and support activity in HelpCrun
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/helpCrunch/latest
 - **Category:** Support / Ticketing
-- **Actions:** 29
+- **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://helpcrunch.com
 - **Vendor API docs:** https://docs.helpcrunch.com/en/rest-api-v1
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/helpCrunch/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (29)
+## Actions (30)
 
 ### Application
 
@@ -55,6 +55,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/helpCrunch/latest/actions
 | [Delete Customer](actions/delete-customer.md) | DELETE | Deletes an existing customer from HelpCrunch. |
 | [Get Customer](actions/get-customer.md) | GET | Retrieves a single customer from HelpCrunch. |
 | [List Customers](actions/list-customers.md) | GET | Retrieves a list of customers from HelpCrunch. |
+| [Patch Customer](actions/patch-customer.md) | PUT | Updates an existing customer in HelpCrunch. |
 | [Search Customers](actions/search-customers.md) | GET | Finds customers in HelpCrunch using search filters. |
 | [Tag Customer](actions/tag-customer.md) | PUT | Adds tags to a customer in HelpCrunch. |
 | [Untag Customer](actions/untag-customer.md) | PUT | Removes tags from a customer in HelpCrunch. |

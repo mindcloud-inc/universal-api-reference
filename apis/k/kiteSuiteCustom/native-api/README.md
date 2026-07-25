@@ -1,6 +1,6 @@
 # Kite Suite: Native API Reference
 
-A consolidated summary of Kite Suite's API configuration and 272 documented operations, with links to official documentation.
+A consolidated summary of Kite Suite's API configuration and 274 documented operations, with links to official documentation.
 
 - **Official docs:** https://api.kitesuite.com/swagger/
 - **API base URL:** `https://api.kitesuite.com`
@@ -35,7 +35,7 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json` |
 
-## Endpoints (272 documented)
+## Endpoints (274 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -72,6 +72,7 @@ Shared headers:
 | [Create automation condition](actions/create-automation-condition.md) | `POST /api/v1/automation` | [docs](https://api.kitesuite.com/swagger/) |
 | [Create Check task](actions/create-check-task.md) | `POST /api/v1/check-list/` | [docs](https://api.kitesuite.com/swagger/) |
 | [Create Custom Field](actions/create-custom-field.md) | `POST /api/v1/custom-field/` | [docs](https://api.kitesuite.com/swagger/) |
+| [Create Custom Field (Drag Endpoint)](actions/create-custom-field-drag-endpoint.md) | `POST /api/v1/custom-field/drag` | [docs](https://api.kitesuite.com/swagger/) |
 | [Create directory](actions/create-directory.md) | `POST /api/v1/directory` | [docs](https://api.kitesuite.com/swagger/) |
 | [Create Document](actions/create-document.md) | `POST /api/v1/document` | [docs](https://api.kitesuite.com/swagger/) |
 | [Create epic](actions/create-epic.md) | `POST /api/v1/epic` | [docs](https://api.kitesuite.com/swagger/) |
@@ -225,6 +226,7 @@ Shared headers:
 | [Get workspaces by user ID](actions/get-workspaces-by-user-id.md) | `GET /api/v1/workspace/user/:id` | [docs](https://api.kitesuite.com/swagger/) |
 | [Import from Clickup](actions/import-from-clickup.md) | `POST /api/v1/import-export/import/clickup` | [docs](https://api.kitesuite.com/swagger/) |
 | [Import from CSV](actions/import-from-csv.md) | `POST /api/v1/import-export/csv` | [docs](https://api.kitesuite.com/swagger/) |
+| [Import from CSV (Import Endpoint)](actions/import-from-csv-import-endpoint.md) | `POST /api/v1/import-export/import/csv` | [docs](https://api.kitesuite.com/swagger/) |
 | [Import From Jira](actions/import-from-jira.md) | `POST /api/v1/import-export/import/jira` | [docs](https://api.kitesuite.com/swagger/) |
 | [List Teams](actions/list-teams.md) | `GET /api/v1/team` | [docs](https://api.kitesuite.com/swagger/) |
 | [move List position](actions/move-list-position.md) | `POST /api/v1/list/position` | [docs](https://api.kitesuite.com/swagger/) |

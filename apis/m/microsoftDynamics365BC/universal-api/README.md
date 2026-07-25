@@ -3,7 +3,7 @@
 Microsoft Dynamics 365 Business Central
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365BC/latest
-- **Actions:** 50
+- **Actions:** 52
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (50)
+## Actions (52)
 
 ### Addresses
 
@@ -88,6 +88,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [List Bank Deposits Line ODataV4](actions/list-bank-deposits-line-o-data-v4.md) | GET |  |
 | [List Bank Deposits ODataV4](actions/list-bank-deposits-o-data-v4.md) | GET |  |
 | [List Credit Memo ODataV4](actions/list-credit-memo-o-data-v4.md) | GET |  |
+| [List Customer Ledger Entries ODataV4](actions/list-customer-ledger-entries-o-data-v4.md) | GET |  |
 | [List General Journal ODataV4](actions/list-general-journal-o-data-v4.md) | GET |  |
 | [List Journal Lines Payments ODataV4](actions/list-journal-lines-payments-o-data-v4.md) | GET |  |
 | [List Payroll Journal ODataV4](actions/list-payroll-journal-o-data-v4.md) | GET |  |
@@ -99,6 +100,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Sales Order](actions/create-sales-order.md) | POST |  |
+| [Create Sales Order SSI](actions/create-sales-order-ssi.md) | POST |  |
 | [Create Sales Order Line](actions/create-sales-orders-lines.md) | POST |  |
 | [List Journal Line](actions/list-journal-line.md) | GET |  |
 | [List Sales Orders Lines SSI](actions/list-sales-orders-lines-ssi.md) | GET |  |

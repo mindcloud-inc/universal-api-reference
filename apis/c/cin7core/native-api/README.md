@@ -58,7 +58,7 @@ Send filters in the query string. Supported operators: `between`, `contain`, `em
 | [Get Sale Fulfillment Ship](actions/get-sale-fulfillment-ship.md) | `GET sale/fulfilment/ship` | [docs](https://dearinventory.docs.apiary.io/#reference/sale/sale-fulfilment-ship/get) |
 | [Get Sale Order](actions/get-sale-order.md) | `GET sale/order` | [docs](https://dearinventory.docs.apiary.io/#reference/sale/sale-fulfilment/get) |
 | [List Carriers](actions/list-carriers.md) | `GET ref/carrier` | [docs](https://dearinventory.docs.apiary.io/#reference/sale/sale-fulfilment/get) |
+| [List Products](actions/list-products.md) | `GET product` | [docs](https://dearinventory.docs.apiary.io/#reference/product/product/get) |
 | [List Sales](actions/list-sales.md) | `GET saleList` | [docs](https://dearinventory.docs.apiary.io/#reference/sale/sale-list) |
-| [List Products](actions/new-action1.md) | `GET product` | [docs](https://dearinventory.docs.apiary.io/#reference/product/product/get) |
 | [Update Sale Fulfillment Pack](actions/update-sale-fulfillment-pack.md) | `PUT sale/fulfilment/pack` | [docs](https://dearinventory.docs.apiary.io/#reference/sale/sale-fulfilment-pack/put) |
 | [Update Sale Fulfillment Ship](actions/update-sale-fulfillment-ship.md) | `PUT sale/fulfilment/ship` | [docs](https://dearinventory.docs.apiary.io/#reference/sale/sale-fulfilment-ship/put) |

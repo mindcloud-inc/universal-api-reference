@@ -70,32 +70,28 @@ Example response:
 
 See the full [List Vendors action reference](actions/list-vendors.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest/actions/list-vendors).
 
-## Create Customer
+## Add Cash Receipts
 
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/create-customer" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/add-cash-receipts" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "customerCode": "string",
-  "name": "Ava Chen"
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/create-customer', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/add-cash-receipts', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "customerCode": "string",
-    "name": "Ava Chen"
+    connectionId
   })
 });
 
@@ -112,4 +108,4 @@ Example response:
 }
 ```
 
-See the full [Create Customer action reference](actions/create-customer.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest/actions/create-customer).
+See the full [Add Cash Receipts action reference](actions/add-cash-receipts.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest/actions/add-cash-receipts).

@@ -3,7 +3,7 @@
 CoordinateHQ through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/coordinateHQ/latest
-- **Actions:** 11
+- **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/coordinateHQ/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (11)
+## Actions (12)
 
 ### Entity
 
@@ -53,7 +53,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/coordinateHQ/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Attach Task File](actions/attach-task-file.md) | POST |  |
 | [Download Task File](actions/download-task-file.md) | GET |  |
+| [Get Task](actions/get-task.md) | GET |  |
 | [List Project Tasks](actions/list-project-tasks.md) | GET |  |
-| [Attach Task File](actions/new-action1.md) | POST |  |
 

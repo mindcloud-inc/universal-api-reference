@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 50 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 52 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (50 documented)
+## Endpoints (52 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -78,6 +78,7 @@ Response data is read from `value`.
 | [Create Sales Invoice Line Item](actions/create-sales-invoice-line-item.md) | REST | `POST v2.0/companies({{companyId}})/salesInvoices(:invoiceId)/salesInvoiceLines` |  |
 | [Create Sales Invoices](actions/create-sales-invoices.md) | REST | `POST v2.0/companies({{companyId}})/salesInvoices` |  |
 | [Create Sales Order](actions/create-sales-order.md) | REST | `POST companies(:id)/salesOrders` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_create) |
+| [Create Sales Order SSI](actions/create-sales-order-ssi.md) | REST (Copy) | `POST /v2.0/companies(:id)/salesHeadersSSI` | [docs](https://anotepad.com/notes/ccfg4kec) |
 | [Create Sales Order Line](actions/create-sales-orders-lines.md) | REST | `POST v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_create) |
 | [Create Ship-to Addresses SSI](actions/create-ship-to-addresses-ssi.md) | REST (Copy) | `POST v2.0/companies(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [Delete Sales Invoice Line Item](actions/delete-sales-invoice-line-item.md) | REST | `DELETE v2.0/companies(:companyId)/salesInvoices(:salesInvoiceId)/salesInvoiceLines(:lineItemId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
@@ -87,6 +88,7 @@ Response data is read from `value`.
 | [List Bank Deposits ODataV4](actions/list-bank-deposits-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudBankDepositHeader` |  |
 | [List Companies](actions/list-companies.md) | REST | `GET v2.0/companies` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_company_get) |
 | [List Credit Memo ODataV4](actions/list-credit-memo-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudCreditMemo` |  |
+| [List Customer Ledger Entries ODataV4](actions/list-customer-ledger-entries-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/Customer_Ledger_Entries_Excel` |  |
 | [List Customers](actions/list-customers.md) | REST (Copy) | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies({{companyId}})/customers` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List Customers ODataV4](actions/list-customers-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudCustomerCard` |  |
 | [List Customers SSI](actions/list-customers-ssi.md) | REST (Copy) | `GET v2.0/companies({{companyId}})/CustomersSSI` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |

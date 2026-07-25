@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3115 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3117 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -91,6 +91,7 @@ The official vendor API documentation for each of the 3115 apps in this repo. Ea
 - [AltTextify](../apis/a/altTextify/native-api) - https://apidoc.alttextify.net/
 - [Amazing Marvin](../apis/a/amazingMarvin/native-api) - https://github.com/amazingmarvin/MarvinAPI/wiki/Marvin-API
 - [Amazon Seller](../apis/a/amazonSeller/native-api) - https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
+- [Amazon Vendor](../apis/a/amazonVendor/native-api) - https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
 - [Ambee](../apis/a/ambee/native-api) - https://docs.ambeedata.com/apis/overview
 - [Amberscript](../apis/a/amberscript/native-api) - https://amberscript.github.io/api-docs/
 - [AMcards.com](../apis/a/aMcardscom/native-api) - https://staging.amcards.com/docs/
@@ -2895,6 +2896,7 @@ The official vendor API documentation for each of the 3115 apps in this repo. Ea
 - [Viesus](../apis/v/viesus/native-api) - https://docs.viesus.cloud
 - [Viewneo](../apis/v/viewneo/native-api) - https://cloud.viewneo.com/doc/api
 - [Viewpoint Spectrum](../apis/v/viewpointSpectrum/native-api) - https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services
+- [Viewpoint Vista](../apis/v/viewpointVista/native-api) - https://direct-api.xchange.trimble.com/reference/setup
 - [Vimeo](../apis/v/vimeo/native-api) - https://developer.vimeo.com/api/guides/start
 - [Vincario](../apis/v/vincario/native-api) - https://vincario.com/api-docs/3.2/
 - [vionvi CRM](../apis/v/vionviCRM/native-api) - https://280-crm-api.vionvi.com/

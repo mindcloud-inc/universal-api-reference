@@ -4,7 +4,7 @@ ServiceTitan through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 95
+- **Actions:** 96
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (95)
+## Actions (96)
 
 ### Access Tokens
 
@@ -183,9 +183,10 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add Customer Tag](actions/add-customer-tag.md) | POST |  |
 | [List Payroll by Employee ID](actions/list-payroll-by-employee-id.md) | GET | Retrieves payrolls from ServiceTitan for an employee. |
 | [List Payroll by Technician ID](actions/list-payroll-by-technician-id.md) | GET | Retrieves payrolls from ServiceTitan for a technician. |
-| [Update Location Tags](actions/new-action1.md) | PATCH |  |
+| [Update Location Tags](actions/update-location-tags.md) | PATCH |  |
 
 ### Payroll Runs
 

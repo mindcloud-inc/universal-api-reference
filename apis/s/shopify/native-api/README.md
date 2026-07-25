@@ -84,6 +84,7 @@ Shared headers:
 | --- | --- | --- | --- |
 | [Activate Inventory Item](actions/activate-inventory-item.md) | GraphQL | `POST /:apiVersion/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/inventoryActivate) |
 | [Create Webhook Subscription (HTTP)](actions/create-webhook-subscription-http.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/webhookSubscriptionCreate) |
+| [Get Order Transactions (GraphQL)](actions/get-order-transactions-graph-ql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [Get Product Variant by SKU](actions/get-product-variant-by-sku.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants) |
 | [GraphQL - Get Records (Paginated)](actions/graphql-get-records-paginated.md) | REST | `POST :version/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [GraphQL - Get Records (Unwrapped Edges)](actions/graphql-get-records-unwrapped-edges.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
@@ -97,5 +98,4 @@ Shared headers:
 | [List Products](actions/list-products.md) | GraphQL | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/products) |
 | [List Publication Channels](actions/list-publication-channels.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/publications) |
 | [List Selling Plan Groups](actions/list-selling-plan-groups.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/sellingPlanGroups) |
-| [Get Order Transactions (GraphQL)](actions/update-product-graph-ql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [Update Product (GraphQL)](actions/update-product-graphql.md) | REST | `POST 2024-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet) |

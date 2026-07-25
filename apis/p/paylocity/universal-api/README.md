@@ -3,7 +3,7 @@
 All-in-one Modern HR and Payroll Software
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/paylocity/latest
-- **Actions:** 5
+- **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (5)
+## Actions (6)
 
 ### Employees
 
@@ -32,6 +32,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Company Information](actions/get-company-information.md) | GET |  |
+| [Get Company Shifts](actions/get-company-shifts.md) | GET |  |
 
 ### Timesheet Entries
 

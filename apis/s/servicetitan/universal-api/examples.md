@@ -37,38 +37,28 @@ Example response:
 
 See the full [List Activity Codes action reference](actions/list-activity-codes.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/servicetitan/latest/actions/list-activity-codes).
 
-## Create Booking
+## Add Customer Tag
 
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/create-booking" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/add-customer-tag" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "summary": "string",
-  "name": "Ava Chen",
-  "externalId": "string",
-  "isFirstTimeClient": true,
-  "source": "string"
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/create-booking', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/add-customer-tag', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "summary": "string",
-    "name": "Ava Chen",
-    "externalId": "string",
-    "isFirstTimeClient": true,
-    "source": "string"
+    connectionId
   })
 });
 
@@ -85,4 +75,4 @@ Example response:
 }
 ```
 
-See the full [Create Booking action reference](actions/create-booking.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/servicetitan/latest/actions/create-booking).
+See the full [Add Customer Tag action reference](actions/add-customer-tag.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/servicetitan/latest/actions/add-customer-tag).

@@ -3,7 +3,7 @@
 2Smart Cloud is a cloud platform for connecting and supporting Internet of Things devices, including vendor-side product, firmware, layout, dashboard, statistics, and notification management.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/smartCloud/latest
-- **Actions:** 235
+- **Actions:** 236
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://2smart.com/
 - **Vendor API docs:** https://cloud.2smart.com/swagger/
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/smartCloud/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (235)
+## Actions (236)
 
 ### Aggregated Value
 
@@ -624,6 +624,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/smartCloud/latest/actions
 | Action | Method | Description |
 | --- | --- | --- |
 | [Register mobile user](actions/create-users.md) | POST |  |
+| [Delete mobile user](actions/delete-mobile-user.md) | POST |  |
 | [Update mobile user](actions/update-users-update.md) | PUT |  |
 
 ### Validate Reset Password Code

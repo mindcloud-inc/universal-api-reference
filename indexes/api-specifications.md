@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3115 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3117 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -91,6 +91,7 @@ Machine-readable API descriptions for 3115 apps. Universal API specifications ar
 | [AltTextify](../apis/a/altTextify) | [OpenAPI 3.1](../apis/a/altTextify/universal-api/openapi.json) |  |
 | [Amazing Marvin](../apis/a/amazingMarvin) | [OpenAPI 3.1](../apis/a/amazingMarvin/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/amazingmarvin/MarvinAPI/master/marvin-api.yaml) |
 | [Amazon Seller](../apis/a/amazonSeller) | [OpenAPI 3.1](../apis/a/amazonSeller/universal-api/openapi.json) |  |
+| [Amazon Vendor](../apis/a/amazonVendor) | [OpenAPI 3.1](../apis/a/amazonVendor/universal-api/openapi.json) |  |
 | [Ambee](../apis/a/ambee) | [OpenAPI 3.1](../apis/a/ambee/universal-api/openapi.json) |  |
 | [Amberscript](../apis/a/amberscript) | [OpenAPI 3.1](../apis/a/amberscript/universal-api/openapi.json) |  |
 | [AMcards.com](../apis/a/aMcardscom) | [OpenAPI 3.1](../apis/a/aMcardscom/universal-api/openapi.json) |  |
@@ -2817,6 +2818,7 @@ Machine-readable API descriptions for 3115 apps. Universal API specifications ar
 | [Viesus](../apis/v/viesus) | [OpenAPI 3.1](../apis/v/viesus/universal-api/openapi.json) |  |
 | [Viewneo](../apis/v/viewneo) | [OpenAPI 3.1](../apis/v/viewneo/universal-api/openapi.json) | [Provider OpenAPI](https://cloud.viewneo.com/docs) |
 | [Viewpoint Spectrum](../apis/v/viewpointSpectrum) | [OpenAPI 3.1](../apis/v/viewpointSpectrum/universal-api/openapi.json) |  |
+| [Viewpoint Vista](../apis/v/viewpointVista) | [OpenAPI 3.1](../apis/v/viewpointVista/universal-api/openapi.json) |  |
 | [Vimeo](../apis/v/vimeo) | [OpenAPI 3.1](../apis/v/vimeo/universal-api/openapi.json) |  |
 | [Vincario](../apis/v/vincario) | [OpenAPI 3.1](../apis/v/vincario/universal-api/openapi.json) | [Provider OpenAPI](https://vincario.com/api-docs/openapi/3.2) |
 | [vionvi CRM](../apis/v/vionviCRM) | [OpenAPI 3.1](../apis/v/vionviCRM/universal-api/openapi.json) |  |

@@ -19,5 +19,5 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/cin7core/latest/actions/l
 ## Cin7 Core actions that support pagination
 
 - [List Carriers](actions/list-carriers.md)
+- [List Products](actions/list-products.md)
 - [List Sales](actions/list-sales.md)
-- [List Products](actions/new-action1.md)

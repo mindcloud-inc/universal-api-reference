@@ -4,7 +4,7 @@ Sage Intacct through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/intacct/latest
 - **Category:** Commerce / Accounting
-- **Actions:** 17
+- **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.sage.com/en-us/sage-business-cloud/intacct/
 - **Vendor API docs:** https://developer.intacct.com/api/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ge
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (17)
+## Actions (24)
 
 ### Bill
 
@@ -42,6 +42,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ge
 | --- | --- | --- |
 | [List Contacts](actions/list-contacts.md) | GET |  |
 
+### Invoices
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Invoice](actions/create-invoice.md) | POST |  |
+| [Create Sales Invoice](actions/create-sales-invoice.md) | POST |  |
+
 ### Items
 
 | Action | Method | Description |
@@ -53,18 +60,28 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ge
 | [Get Full Item](actions/get-full-item.md) | GET |  |
 | [Get Full Item By Name](actions/get-full-item-by-name.md) | GET |  |
 | [Update Invoice](actions/update-invoice.md) | PUT |  |
+| [Update Item](actions/update-item.md) | PUT |  |
 
 ### Journal Entries
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Journal](actions/createjournal.md) | POST |  |
+| [Update Journal](actions/update-journal.md) | POST |  |
+
+### Order Entry
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create So Transaction](actions/create-so-transaction.md) | POST |  |
 
 ### Other
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Read Bank Deposits](actions/new-action1.md) | POST |  |
+| [Check GLBATCH Duplicate](actions/check-glbatch-duplicate.md) | POST |  |
+| [Post Raw to Stripe](actions/post-raw-to-stripe.md) | POST |  |
+| [Read Bank Deposits](actions/read-bank-deposits.md) | POST |  |
 
 ### Projects
 

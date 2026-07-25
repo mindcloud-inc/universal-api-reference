@@ -4,7 +4,7 @@ Create captioned videos and viral clips with animated templates
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zapCap/latest
 - **Category:** Artificial Intelligence / AI / ML
-- **Actions:** 32
+- **Actions:** 33
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://zapcap.ai
 - **Vendor API docs:** https://platform.zapcap.ai/docs/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zapCap/latest/actions/lis
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (32)
+## Actions (33)
 
 ### Caption Task
 
@@ -83,6 +83,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zapCap/latest/actions/lis
 | [List Videos](actions/list-videos.md) | GET | Retrieves videos from ZapCap. |
 | [Upload Video](actions/upload-video.md) | POST | Uploads a video file to ZapCap. |
 | [Upload Video By URL](actions/upload-video-by-url.md) | POST | Uploads a video to ZapCap from a public URL. |
+| [Upload Video by URL (Mapped Field)](actions/upload-video-by-url-mapped-field.md) | POST | Uploads a video to ZapCap from a public URL. |
 
 ### Video Upload
 

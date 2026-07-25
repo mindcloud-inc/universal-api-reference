@@ -24,6 +24,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 - [List Bank Deposits ODataV4](actions/list-bank-deposits-o-data-v4.md)
 - [List Companies](actions/list-companies.md)
 - [List Credit Memo ODataV4](actions/list-credit-memo-o-data-v4.md)
+- [List Customer Ledger Entries ODataV4](actions/list-customer-ledger-entries-o-data-v4.md)
 - [List Customers](actions/list-customers.md)
 - [List Customers ODataV4](actions/list-customers-o-data-v4.md)
 - [List Customers SSI](actions/list-customers-ssi.md)

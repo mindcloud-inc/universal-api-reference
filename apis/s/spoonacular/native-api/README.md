@@ -1,6 +1,6 @@
 # Spoonacular: Native API Reference
 
-A consolidated summary of Spoonacular's API configuration and 104 documented operations, with links to official documentation.
+A consolidated summary of Spoonacular's API configuration and 106 documented operations, with links to official documentation.
 
 - **Official docs:** https://spoonacular.com/food-api/docs
 - **API base URL:** `https://api.spoonacular.com`
@@ -23,7 +23,7 @@ x-api-key: <apiKey>
 
 [Official authentication documentation](https://spoonacular.com/food-api/docs)
 
-## Endpoints (104 documented)
+## Endpoints (106 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -75,6 +75,7 @@ x-api-key: <apiKey>
 | [Get Menu Item Information](actions/get-menu-item-information.md) | `GET /food/menuItems/{id}` | [docs](https://spoonacular.com/food-api/docs) |
 | [Get Product Information](actions/get-product-information.md) | `GET /food/products/{id}` | [docs](https://spoonacular.com/food-api/docs) |
 | [Get Random Recipes](actions/get-random-recipes.md) | `GET /recipes/random` | [docs](https://spoonacular.com/food-api/docs) |
+| [Get Recipe Card](actions/get-recipe-card.md) | `GET /recipes/{id}/card` | [docs](https://spoonacular.com/food-api/docs) |
 | [Get Recipe Information](actions/get-recipe-information.md) | `GET /recipes/{id}/information` | [docs](https://spoonacular.com/food-api/docs) |
 | [Get Recipe Information Bulk](actions/get-recipe-information-bulk.md) | `GET /recipes/informationBulk` | [docs](https://spoonacular.com/food-api/docs) |
 | [Get Shopping List](actions/get-shopping-list.md) | `GET /mealplanner/{username}/shopping-list` | [docs](https://spoonacular.com/food-api/docs) |
@@ -123,6 +124,7 @@ x-api-key: <apiKey>
 | [Search Recipes](actions/search-recipes.md) | `GET /recipes/complexSearch` | [docs](https://spoonacular.com/food-api/docs) |
 | [Search Recipes by Ingredients](actions/search-recipes-by-ingredients.md) | `GET /recipes/findByIngredients` | [docs](https://spoonacular.com/food-api/docs) |
 | [Search Recipes by Nutrients](actions/search-recipes-by-nutrients.md) | `GET /recipes/findByNutrients` | [docs](https://spoonacular.com/food-api/docs) |
+| [Search Recipes (Legacy)](actions/search-recipes-legacy.md) | `GET /recipes/search` | [docs](https://spoonacular.com/food-api/docs) |
 | [Search Restaurants](actions/search-restaurants.md) | `GET /food/restaurants/search` | [docs](https://spoonacular.com/food-api/docs) |
 | [Search Site Content](actions/search-site-content.md) | `GET /food/site/search` | [docs](https://spoonacular.com/food-api/docs) |
 | [Summarize Recipe](actions/summarize-recipe.md) | `GET /recipes/{id}/summary` | [docs](https://spoonacular.com/food-api/docs) |

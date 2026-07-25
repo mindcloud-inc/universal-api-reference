@@ -1,6 +1,6 @@
 # ZapCap: Native API Reference
 
-A consolidated summary of ZapCap's API configuration and 32 documented operations, with links to official documentation.
+A consolidated summary of ZapCap's API configuration and 33 documented operations, with links to official documentation.
 
 - **Official docs:** https://platform.zapcap.ai/docs/api
 - **API base URL:** `https://api.zapcap.ai`
@@ -35,7 +35,7 @@ Shared headers:
 
 Responses from this API use JSON.
 
-## Endpoints (32 documented)
+## Endpoints (33 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -71,3 +71,4 @@ Responses from this API use JSON.
 | [Start Multipart Upload](actions/start-multipart-upload.md) | `POST /videos/upload` | [docs](https://platform.zapcap.ai/docs/api#tag/videos/post/videos/upload) |
 | [Upload Video](actions/upload-video.md) | `POST /videos` | [docs](https://platform.zapcap.ai/docs/api#tag/videos/post/videos) |
 | [Upload Video By URL](actions/upload-video-by-url.md) | `POST /videos/url` | [docs](https://platform.zapcap.ai/docs/api#tag/videos/post/videos/url) |
+| [Upload Video by URL (Mapped Field)](actions/upload-video-by-url-mapped-field.md) | `POST /videos/url` | [docs](https://platform.zapcap.ai/docs/api#tag/videos/post/videos/url) |

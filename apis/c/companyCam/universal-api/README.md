@@ -4,7 +4,7 @@ Job site photo tools to manage work from anywhere.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/companyCam/latest
 - **Category:** Support / Field Service
-- **Actions:** 48
+- **Actions:** 52
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://companycam.com/
 - **Vendor API docs:** https://docs.companycam.com/reference/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (48)
+## Actions (52)
 
 ### Checklists
 
@@ -36,6 +36,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add Comment to Photo](actions/add-comment-to-photo.md) | POST |  |
 | [Add Comment to Project](actions/add-comment-to-project.md) | POST |  |
 | [List Photo Comments](actions/list-photo-comments.md) | GET |  |
 | [List Project Comments](actions/list-project-comments.md) | GET |  |
@@ -60,6 +61,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions
 | [Create Group](actions/create-group.md) | POST |  |
 | [Delete Group](actions/delete-group.md) | DELETE |  |
 | [Get Group](actions/get-group.md) | GET |  |
+| [List Groups](actions/list-groups.md) | GET |  |
 | [Update Group](actions/update-group.md) | PUT |  |
 
 ### Labels
@@ -68,6 +70,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions
 | --- | --- | --- |
 | [Add Label to Project](actions/add-label-to-project.md) | POST |  |
 | [Delete Project Label](actions/delete-project-label.md) | DELETE | Delete a label from a project by id. |
+| [List Project Labels](actions/list-project-labels.md) | GET |  |
 
 ### Photo
 
@@ -85,7 +88,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Delete Project](actions/new-action1.md) | DELETE | Deletes an existing project from CompanyCam. |
+| [Delete Project](actions/delete-project.md) | DELETE | Deletes an existing project from CompanyCam. |
 
 ### Projects
 
@@ -104,6 +107,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions
 | [Add Tags to Photo](actions/add-tags-to-photo.md) | PUT |  |
 | [List Photo Tags](actions/list-photo-tags.md) | GET |  |
 | [List Tags](actions/list-tags.md) | GET |  |
+
+### Templates
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List All Checklist Templates](actions/list-all-checklist-templates.md) | GET |  |
 
 ### Users
 

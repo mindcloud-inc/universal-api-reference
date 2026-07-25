@@ -12,4 +12,4 @@ Combine conditions with `;` for AND and `,` for OR. For example, `where=status==
 
 ## Cin7 Core actions that support filtering
 
-- [List Products](actions/new-action1.md)
+- [List Products](actions/list-products.md)

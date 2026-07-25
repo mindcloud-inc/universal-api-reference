@@ -4,7 +4,7 @@ Manage projects, clients, tasks, and milestones
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/outlign/latest
 - **Category:** Productivity / Project Management
-- **Actions:** 35
+- **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://outlign.co
 - **Vendor API docs:** https://go.outlign.co/api/docs
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/outlign/latest/actions/ge
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (35)
+## Actions (38)
 
 ### Client
 
@@ -33,6 +33,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/outlign/latest/actions/ge
 | [Get Client](actions/get-client.md) | GET | Retrieves a specific client from Outlign. |
 | [List Clients](actions/list-clients.md) | GET | Retrieves accessible client records from Outlign. |
 | [List Clients By Company](actions/list-clients-by-company.md) | GET | Retrieves client records from Outlign by company. |
+| [List Clients by Company (Alternate)](actions/list-clients-by-company-alternate.md) | GET | Retrieves accessible client records from Outlign. |
 | [Search Clients By Title](actions/search-clients-by-title.md) | GET | Finds clients in Outlign by title. |
 | [Update Client](actions/update-client.md) | PUT | Updates an existing client in Outlign. |
 
@@ -41,6 +42,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/outlign/latest/actions/ge
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Companies](actions/list-companies.md) | GET | Retrieves accessible company records from Outlign. |
+| [List Companies (Alternate Schema)](actions/list-companies-alternate-schema.md) | GET | Retrieves accessible company records from Outlign. |
 
 ### Milestone
 
@@ -69,6 +71,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/outlign/latest/actions/ge
 | [Get Project](actions/get-project.md) | GET | Retrieves a specific project from Outlign. |
 | [List Projects](actions/list-projects.md) | GET | Retrieves accessible project records from Outlign. |
 | [List Projects By Client](actions/list-projects-by-client.md) | GET | Retrieves project records from Outlign by client. |
+| [List Projects by Client and Company](actions/list-projects-by-client-and-company.md) | GET | Retrieves accessible project records from Outlign. |
 | [List Projects By Company](actions/list-projects-by-company.md) | GET | Retrieves project records from Outlign by company. |
 | [Search Projects By Title](actions/search-projects-by-title.md) | GET | Finds projects in Outlign by title. |
 

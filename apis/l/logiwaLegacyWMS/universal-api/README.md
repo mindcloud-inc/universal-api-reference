@@ -4,7 +4,7 @@ Logiwa Legacy WMS through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/logiwaLegacyWMS/latest
 - **Category:** Commerce
-- **Actions:** 15
+- **Actions:** 16
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.logiwa.com/?id=5df0da39e6466c2eec992f3f
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/logiwaLegacyWMS/latest/ac
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (15)
+## Actions (16)
 
 ### Inventories
 
@@ -42,6 +42,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/logiwaLegacyWMS/latest/ac
 | --- | --- | --- |
 | [Get a Product ID](actions/get-a-product-id.md) | POST |  |
 | [List Pack Types (SEARCH)](actions/get-pack-type-info.md) | GET | By using these endpoints, the users can obtain all the information that is related to the pack types of the items. To obtain this… |
+| [List Pack Types (GET)](actions/list-pack-types-get.md) | GET | By using these endpoints, the users can obtain all the information that is related to the pack types of the items. To obtain this… |
 | [List Shipment Info - Import](actions/list-shipment-info-import.md) | POST |  |
 
 ### Products

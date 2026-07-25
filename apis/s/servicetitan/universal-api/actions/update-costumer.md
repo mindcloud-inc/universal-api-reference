@@ -18,20 +18,7 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "address.street": "string",
-  "locations[].address.street": "string",
-  "locations[].name": "Ava Chen",
-  "locations[].address": {},
-  "locations[].contacts[].value": "string",
-  "address.city": "string",
-  "locations[].address.city": "string",
-  "locations[].contacts[].type": "string",
-  "address.state": "string",
-  "locations[].address.zip": "string",
-  "address.zip": "string",
-  "locations[].address.state": "string",
-  "address.country": "string",
-  "locations[].address.country": "string"
+  "customerId": "string"
 }'
 ```
 
@@ -44,20 +31,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/servicet
   },
   body: JSON.stringify({
     connectionId,
-    "address.street": "string",
-    "locations[].address.street": "string",
-    "locations[].name": "Ava Chen",
-    "locations[].address": {},
-    "locations[].contacts[].value": "string",
-    "address.city": "string",
-    "locations[].address.city": "string",
-    "locations[].contacts[].type": "string",
-    "address.state": "string",
-    "locations[].address.zip": "string",
-    "address.zip": "string",
-    "locations[].address.state": "string",
-    "address.country": "string",
-    "locations[].address.country": "string"
+    "customerId": "string"
   })
 });
 
@@ -71,46 +45,46 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `memo` | string | no |  |
-| `address.street` | string | yes |  |
+| `address.street` | string | no |  |
 | `contacts[].value` | string | no |  |
 | `customFields[].typeId` | number | no |  |
 | `externalData.externalData[].value` | string | no |  |
-| `locations[].address.street` | string | yes |  |
+| `locations[].address.street` | string | no |  |
 | `locations[].contacts[].memo` | string | no |  |
 | `locations[].externalData.externalData[].value` | string | no |  |
-| `locations[].name` | string | yes |  |
+| `locations[].name` | string | no |  |
 | `name` | string | no |  |
 | `address.unit` | string | no |  |
 | `contacts[].type` | list<string> | no |  |
 | `customFields[].value` | string | no |  |
 | `externalData.applicationGuid` | string | no |  |
 | `externalData.externalData[].key` | string | no |  |
-| `locations[].address` | object | yes |  |
+| `locations[].address` | object | no |  |
 | `locations[].address.unit` | string | no |  |
-| `locations[].contacts[].value` | string | yes |  |
+| `locations[].contacts[].value` | string | no |  |
 | `locations[].externalData.applicationGuid` | string | no |  |
 | `locations[].externalData.externalData[].key` | string | no |  |
-| `address.city` | string | yes |  |
+| `address.city` | string | no |  |
 | `contacts[].type` | list<string> | no |  |
 | `customFields[].name` | string | no | Name/label of the custom field |
 | `doNotMail` | boolean | no | Default: `false`. |
 | `externalData.externalData[]` | array | no |  |
-| `locations[].address.city` | string | yes |  |
+| `locations[].address.city` | string | no |  |
 | `locations[].contacts[]` | array<object> | no |  |
-| `locations[].contacts[].type` | string<string> | yes |  |
+| `locations[].contacts[].type` | string<string> | no |  |
 | `locations[].externalData.externalData[]` | array | no |  |
-| `address.state` | string | yes |  |
+| `address.state` | string | no |  |
 | `doNotService` | boolean | no | Default: `false`. |
-| `locations[].address.zip` | string | yes |  |
+| `locations[].address.zip` | string | no |  |
 | `locations[].tagTypeIds[]` | array<number> | no |  |
-| `address.zip` | string | yes |  |
+| `address.zip` | string | no |  |
 | `locations[]` | array<object> | no | Locations for the customer |
-| `locations[].address.state` | string | yes |  |
+| `locations[].address.state` | string | no |  |
 | `locations[].externalData` | object | no |  |
 | `address` | object<object> | no | Bill-To address of the customer record |
-| `address.country` | string | yes |  |
+| `address.country` | string | no |  |
 | `externalData` | object | no |  |
-| `locations[].address.country` | string | yes |  |
+| `locations[].address.country` | string | no |  |
 | `address.longitude` | number | no |  |
 | `contacts[]` | array<object> | no |  |
 | `locations[].latitude` | number | no |  |
@@ -119,7 +93,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `locations[].longitude` | number | no |  |
 | `tagTypeIds[]` | array<number> | no |  |
 | `type` | string | no | Residential or commercial |
-| `customerId` | string | no |  |
+| `customerId` | string | yes |  |
 | `customFields` | string | no |  |
 
 ## Response
@@ -128,5 +102,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native ServiceTitan API, this operation is `POST crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` (base URL `https://{{credentials.baseUrl}}/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/update-costumer.md) for the provider-specific parameters and requirements.
+Through the native ServiceTitan API, this operation is `PATCH crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` (base URL `https://{{credentials.baseUrl}}/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/update-costumer.md) for the provider-specific parameters and requirements.
 

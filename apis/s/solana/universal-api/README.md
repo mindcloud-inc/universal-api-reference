@@ -4,7 +4,7 @@ Solana JSON-RPC API
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/solana/latest
 - **Category:** IT Operations / Developer Tools
-- **Actions:** 27
+- **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://solana.com/
 - **Vendor API docs:** https://solana.com/docs/rpc
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/solana/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (27)
+## Actions (30)
 
 ### Actions
 
@@ -30,6 +30,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/solana/latest/actions/get
 | --- | --- | --- |
 | [Get Block Height](actions/get-block-height.md) | GET | Retrieves the current block height from Solana. |
 | [Get Block Production](actions/get-block-production.md) | GET | Retrieves block production details from Solana. |
+| [Get Block Production (Draft Variant)](actions/get-block-production-draft-variant.md) | GET | Retrieves block production details from Solana. |
 | [Get Cluster Nodes](actions/get-cluster-nodes.md) | GET | Retrieves cluster node details from Solana. |
 | [Get Epoch Info](actions/get-epoch-info.md) | GET | Retrieves current epoch information from Solana. |
 | [Get Epoch Schedule](actions/get-epoch-schedule.md) | GET | Retrieves the epoch schedule from Solana. |
@@ -46,7 +47,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/solana/latest/actions/get
 | [Get Max Retransmit Slot](actions/get-max-retransmit-slot.md) | GET | Retrieves the max retransmit slot from Solana. |
 | [Get Max Shred Insert Slot](actions/get-max-shred-insert-slot.md) | GET | Retrieves the max shred insert slot from Solana. |
 | [Get Recent Performance Samples](actions/get-recent-performance-samples.md) | GET | Retrieves recent performance samples from Solana. |
+| [Get Recent Performance Samples (Draft Variant)](actions/get-recent-performance-samples-draft-variant.md) | GET | Retrieves recent performance samples from Solana. |
 | [Get Recent Prioritization Fees](actions/get-recent-prioritization-fees.md) | GET | Retrieves recent prioritization fees from Solana. |
+| [Get Recent Prioritization Fees (Draft Variant)](actions/get-recent-prioritization-fees-draft-variant.md) | GET | Retrieves recent prioritization fees from Solana. |
 | [Get Slot](actions/get-slot.md) | GET | Retrieves the current slot from Solana. |
 | [Get Slot Leader](actions/get-slot-leader.md) | GET | Retrieves the current slot leader from Solana. |
 | [Get Stake Minimum Delegation](actions/get-stake-minimum-delegation.md) | GET | Retrieves the minimum stake delegation from Solana. |

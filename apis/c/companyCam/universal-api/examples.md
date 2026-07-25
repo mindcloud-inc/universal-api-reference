@@ -58,12 +58,12 @@ Example response:
 
 See the full [Get Company action reference](actions/get-company.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/companyCam/latest/actions/get-company).
 
-## Add Comment to Project
+## Add Comment to Photo
 
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions/add-comment-to-project" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/companyCam/latest/actions/add-comment-to-photo" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -73,7 +73,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/companyCam/latest/action
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/companyCam/latest/actions/add-comment-to-project', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/companyCam/latest/actions/add-comment-to-photo', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -111,4 +111,4 @@ Example response:
 }
 ```
 
-See the full [Add Comment to Project action reference](actions/add-comment-to-project.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/companyCam/latest/actions/add-comment-to-project).
+See the full [Add Comment to Photo action reference](actions/add-comment-to-photo.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/companyCam/latest/actions/add-comment-to-photo).

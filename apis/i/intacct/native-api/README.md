@@ -1,6 +1,6 @@
 # Sage Intacct: Native API Reference
 
-A consolidated summary of Sage Intacct's API configuration and 17 documented operations, with links to official documentation.
+A consolidated summary of Sage Intacct's API configuration and 24 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.intacct.com/api/
 - **API base URL:** `https://api.intacct.com/ia/xml/xmlgw.phtml`
@@ -39,14 +39,18 @@ Responses from this API use XML.
 
 Use `pagesize` in the request body to set the page size (default 100; accepted range 1–1000). Use `offset` in the request body as the record offset.
 
-## Endpoints (17 documented)
+## Endpoints (24 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
+| [Check GLBATCH Duplicate](actions/check-glbatch-duplicate.md) | `POST` |  |
 | [Create Budget](actions/create-budget.md) | `POST /` | [docs](https://developer.intacct.com/api/general-ledger/budgets/) |
 | [Create File](actions/create-file.md) | `POST` |  |
+| [Create Invoice](actions/create-invoice.md) | `POST` | [docs](https://developer.intacct.com/api/accounts-receivable/invoices/#create-invoice-legacy) |
 | [Create Item](actions/create-item.md) | `POST` |  |
 | [Create Item New](actions/create-item-2.md) | `POST` |  |
+| [Create Sales Invoice](actions/create-sales-invoice.md) | `POST` | [docs](https://developer.intacct.com/api/accounts-receivable/invoices/#create-invoice-legacy) |
+| [Create So Transaction](actions/create-so-transaction.md) | `POST https://api.intacct.com/ia/xml/xmlgw.phtml` | [docs](https://developer.intacct.com/api/order-entry/order-entry-transactions/#create-order-entry-transaction-legacy) |
 | [Create Bill Item](actions/createbillitem.md) | `POST` |  |
 | [Create Journal](actions/createjournal.md) | `POST` | [docs](https://developer.intacct.com/api/accounts-receivable/invoices/#create-invoice-legacy) |
 | [Get Custom Object](actions/get-custom-object.md) | `POST` |  |
@@ -55,8 +59,11 @@ Use `pagesize` in the request body to set the page size (default 100; accepted r
 | [Get Full Item By Name](actions/get-full-item-by-name.md) | `POST` |  |
 | [List Contacts](actions/list-contacts.md) | `POST /` | [docs](https://developer.intacct.com/api/project-resource-mgmt/projects/#query-and-list-projects) |
 | [List Projects](actions/list-projects.md) | `POST /` | [docs](https://developer.intacct.com/api/project-resource-mgmt/projects/#query-and-list-projects) |
-| [Read Bank Deposits](actions/new-action1.md) | `POST` |  |
+| [Post Raw to Stripe](actions/post-raw-to-stripe.md) | `POST` |  |
 | [Query Object](actions/query-object.md) | `POST /` | [docs](https://developer.intacct.com/web-services/queries/) |
 | [Query Object Sum](actions/query-object-sum.md) | `POST` |  |
+| [Read Bank Deposits](actions/read-bank-deposits.md) | `POST` |  |
 | [Read By Query](actions/read-by-query.md) | `POST` |  |
 | [Update Invoice](actions/update-invoice.md) | `POST` |  |
+| [Update Item](actions/update-item.md) | `POST` |  |
+| [Update Journal](actions/update-journal.md) | `POST` | [docs](https://developer.intacct.com/api/accounts-receivable/invoices/#create-invoice-legacy) |

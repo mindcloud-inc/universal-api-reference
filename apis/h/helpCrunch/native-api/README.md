@@ -1,6 +1,6 @@
 # HelpCrunch: Native API Reference
 
-A consolidated summary of HelpCrunch's API configuration and 29 documented operations, with links to official documentation.
+A consolidated summary of HelpCrunch's API configuration and 30 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.helpcrunch.com/en/rest-api-v1
 - **API base URL:** `https://api.helpcrunch.com/v1`
@@ -44,7 +44,7 @@ Use `limit` in the query string to set the page size (default 100; maximum 100).
 
 Set the sort field with `sort` in the query string. Set the direction separately with `order`. Use `asc` for ascending order and `desc` for descending order. Only one sort field is accepted.
 
-## Endpoints (29 documented)
+## Endpoints (30 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -66,6 +66,7 @@ Set the sort field with `sort` in the query string. Set the direction separately
 | [List Team Members](actions/list-team-members.md) | `GET /agents` | [docs](https://docs.helpcrunch.com/en/rest-api-v1/get-agents-v1) |
 | [Mark Chat As Read By Agent](actions/mark-chat-as-read-by-agent.md) | `PUT /chats/readByAgent` | [docs](https://docs.helpcrunch.com/en/rest-api-v1/read-chat-rest-api-1) |
 | [Mark Chat As Read By Customer](actions/mark-chat-as-read-by-customer.md) | `PUT /chats/readByCustomer` | [docs](https://docs.helpcrunch.com/en/rest-api-v1/read-chat-rest-api-1) |
+| [Patch Customer](actions/patch-customer.md) | `PATCH /customers/:customerId` | [docs](https://docs.helpcrunch.com/en/rest-api-v1/update-customer-v1) |
 | [Rate Chat](actions/rate-chat.md) | `PUT /chats/rate` | [docs](https://docs.helpcrunch.com/en/rest-api-v1/chat-rating-rest-api) |
 | [Search Chats](actions/search-chats.md) | `POST /chats/search` | [docs](https://docs.helpcrunch.com/en/rest-api-v1/search-chats-v1) |
 | [Search Customers](actions/search-customers.md) | `POST /customers/search` | [docs](https://docs.helpcrunch.com/en/rest-api-v1/search-customers-v1) |

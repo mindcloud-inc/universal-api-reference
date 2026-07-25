@@ -4,7 +4,7 @@ Five9 through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/five9/latest
 - **Category:** Support / Contact Center
-- **Actions:** 5
+- **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://documentation.five9.com/bundle/admin-console/page/admin-console/landing-admin-console.htm
 
@@ -21,13 +21,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/five9/latest/actions/camp
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (5)
+## Actions (6)
 
 ### Campaigns
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Campaign Settings](actions/campaign-settings.md) | GET |  |
+
+### Contacts
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Contacts](actions/list-contacts.md) | GET |  |
 
 ### Employees
 

@@ -2,12 +2,12 @@
 
 These examples use the MindCloud API key and Monday connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Boards With items
+## Get Boards
 
-Retrieves items and their subitems from a Monday board by column value.
+
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-boards-with-items?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-boards?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -18,7 +18,7 @@ const params = new URLSearchParams({
   offset: '0'
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-boards-with-items?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-boards?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -52,30 +52,34 @@ Example response:
 }
 ```
 
-See the full [Get Boards With items action reference](actions/get-boards-with-items.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/monday/latest/actions/get-boards-with-items).
+See the full [Get Boards action reference](actions/get-boards.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/monday/latest/actions/get-boards).
 
-## Create Sub Item
+## Create Item
 
-Creates a new subitem in Monday.
+
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/monday/latest/actions/create-sub-item" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/monday/latest/actions/create-item" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "boardId": "123456",
+  "itemName": "Test 1234"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/monday/latest/actions/create-sub-item', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/monday/latest/actions/create-item', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "boardId": "123456",
+    "itemName": "Test 1234"
   })
 });
 
@@ -87,9 +91,13 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "id": "string"
+    }
+  ],
   "meta": {}
 }
 ```
 
-See the full [Create Sub Item action reference](actions/create-sub-item.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/monday/latest/actions/create-sub-item).
+See the full [Create Item action reference](actions/create-item.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/monday/latest/actions/create-item).

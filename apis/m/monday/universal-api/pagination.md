@@ -12,14 +12,16 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-boards-with-items?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-board-by-id?connectionId=$CONNECTION_ID&limit=25&offset=0&boardsId=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## Monday actions that support pagination
 
+- [Get Board By Id](actions/get-board-by-id.md)
 - [Get Board Items](actions/get-board-items.md)
 - [Get Board Items by Column Value](actions/get-board-items-by-column-value.md)
 - [Get Board Items with Sub Items](actions/get-board-items-sub-items.md)
+- [Get Boards](actions/get-boards.md)
 - [Get Boards With items](actions/get-boards-with-items.md)
 - [Get Boards With items (GraphQL)](actions/get-boards-with-items-graph-ql.md)

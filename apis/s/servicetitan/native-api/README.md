@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 95 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 96 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -42,10 +42,11 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (95 documented)
+## Endpoints (96 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
+| [Add Customer Tag](actions/add-customer-tag.md) | `POST crm/v2/tenant/{{credentials.tenant}}/customers/:customerId/tags/:tagTypeId` |  |
 | [Create Booking](actions/create-booking.md) | `POST crm/v2/tenant/{{credentials.tenant}}/booking-provider/:bookingProviderId/bookings` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Bookings_Create) |
 | [Create Customer](actions/create-customer.md) | `POST crm/v2/tenant/{{credentials.tenant}}/customers` |  |
 | [Create Customer Contact](actions/create-customer-contact.md) | `POST crm/v2/tenant/{{credentials.tenant}}/customers/:id/contacts` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_CreateContact) |
@@ -132,11 +133,11 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [List Reports](actions/list-reports.md) | `GET reporting/v2/tenant/{{credentials.tenant}}/report-category/:report_category/reports` | [docs](https://developer.servicetitan.io/docs/apis/tenant-reporting-v2/endpoints/ReportCategoryReports_GetReports) |
 | [List Timesheet Codes](actions/list-timesheet-codes.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/timesheet-codes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-payroll-v2&operation=Payrolls_GetList) |
 | [Mark Invoice as Exported](actions/mark-invoice-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/invoices/markasexported` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-accounting-v2&operation=Invoices_GetList) |
-| [Update Location Tags](actions/new-action1.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/locations/:id` |  |
 | [Add Vendor](actions/post-vendor.md) | `POST inventory/v2/tenant/{{credentials.tenant}}/vendors` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Vendors_Create) |
-| [Update Costumer](actions/update-costumer.md) | `POST crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` |  |
+| [Update Costumer](actions/update-costumer.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` |  |
 | [Update Customer Membership](actions/update-customer-membership.md) | `PATCH memberships/v2/tenant/{{credentials.tenant}}/memberships/:membershipId` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-memberships-v2&operation=CustomerMemberships_Update) |
 | [Update GL Account](actions/update-gl-account.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/gl-accounts/:id` |  |
+| [Update Location Tags](actions/update-location-tags.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/locations/:id` |  |
 | [Update Payment](actions/update-payment.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/payments/{{paymentId}}` |  |
 | [Update Payment Status](actions/update-payment-status.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/payments/status` |  |
 | [Update Vendor](actions/update-vendor.md) | `PATCH inventory/v2/tenant/{{credentials.tenant}}/vendors/:id` |  |

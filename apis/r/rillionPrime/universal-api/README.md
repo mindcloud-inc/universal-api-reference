@@ -3,7 +3,7 @@
 Connect to the Rillion Prime Pay API to manage payment approvals, schedules, suppliers, statuses, exports, and related payment operations from MindCloud.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/rillionPrime/latest
-- **Actions:** 25
+- **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.rillion.com/
 - **Vendor API docs:** https://rillion-prime-integration.readme.io/docs/using-the-api-reference
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (25)
+## Actions (30)
 
 ### Audit
 
@@ -33,6 +33,10 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Payment Configuration Company](actions/create-payment-configuration-company.md) | POST |  |
+| [Create Payment Tenant Company Configuration](actions/create-payment-tenant-company-configuration.md) | POST |  |
+| [Create Payment Tenant Configuration](actions/create-payment-tenant-configuration.md) | POST |  |
+| [Create Payment Tenant Provider Configuration](actions/create-payment-tenant-provider-configuration.md) | POST |  |
 | [List Payment Configuration Providers](actions/list-payment-configuration-providers.md) | GET |  |
 | [List Payment Tenant Company Configurations](actions/list-payment-tenant-company-configurations.md) | GET |  |
 | [List Payment Tenant Configurations](actions/list-payment-tenant-configurations.md) | GET |  |
@@ -61,6 +65,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/rillionPrime/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Payment Supplier Grouping](actions/create-payment-supplier-grouping.md) | POST |  |
 | [List Payment Supplier Statuses](actions/list-payment-supplier-statuses.md) | GET |  |
 | [List Payment Suppliers](actions/list-payment-suppliers.md) | GET |  |
 | [List Pending Supplier Payments](actions/list-pending-supplier-payments.md) | GET |  |

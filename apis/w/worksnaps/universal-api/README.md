@@ -4,7 +4,7 @@ Worksnaps is a time tracking and employee monitoring platform for remote teams. 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/worksnaps/latest
 - **Category:** Productivity / Project Management
-- **Actions:** 34
+- **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.worksnaps.com
 - **Vendor API docs:** https://api.worksnaps.com/api_docs/api_overview.html
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/worksnaps/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (34)
+## Actions (35)
 
 ### Project
 
@@ -62,6 +62,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/worksnaps/latest/actions/
 | --- | --- | --- |
 | [Create a task assignment (i.e., assign a user to a task)](actions/create-a-task-assignment-ie-assign-a-user-to-a-task.md) | POST | Creates a task assignment in a Worksnaps project. |
 | [Delete a task assignment](actions/delete-a-task-assignment.md) | DELETE | Deletes an existing task assignment from Worksnaps. |
+| [Delete a Task Assignment by ID](actions/delete-a-task-assignment-by-id.md) | DELETE | Deletes an existing task assignment from Worksnaps. |
 | [Get a task assignment](actions/get-a-task-assignment.md) | GET | Retrieves a task assignment from a Worksnaps project. |
 | [Get tasks assignments](actions/get-tasks-assignments.md) | GET | Retrieves task assignments from a Worksnaps project. |
 

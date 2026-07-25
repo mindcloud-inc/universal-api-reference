@@ -49,17 +49,17 @@ See the full [Get Cluster Meta action reference](actions/get-cluster-meta.md), o
 Activates a user in Weaviate.
 
 ```bash
-curl -X PUT "https://connect.mindcloud.co/v1/universal/weaviateVectorStore/latest/actions/activateuser" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/weaviateVectorStore/latest/actions/activate-a-user" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "userId": "string"
+  "userid": "string"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/weaviateVectorStore/latest/actions/activateuser', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/weaviateVectorStore/latest/actions/activate-a-user', {
   method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -67,7 +67,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/weaviate
   },
   body: JSON.stringify({
     connectionId,
-    "userId": "string"
+    "userid": "string"
   })
 });
 
@@ -84,4 +84,4 @@ Example response:
 }
 ```
 
-See the full [Activate a user action reference](actions/activateuser.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/weaviateVectorStore/latest/actions/activateuser).
+See the full [Activate a user action reference](actions/activate-a-user.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/weaviateVectorStore/latest/actions/activate-a-user).

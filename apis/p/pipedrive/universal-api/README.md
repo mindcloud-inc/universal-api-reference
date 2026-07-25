@@ -4,7 +4,7 @@ Manage deals, activities, contacts, and sales pipelines
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pipedrive/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 33
+- **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pipedrive.com
 - **Vendor API docs:** https://developers.pipedrive.com/docs/api/v1
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (33)
+## Actions (34)
 
 ### Activity
 
@@ -37,7 +37,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get All Deal Fields](actions/new-action1.md) | GET | Retrieves deal fields from Pipedrive. |
+| [Get All Deal Fields](actions/get-all-deal-fields.md) | GET | Retrieves deal fields from Pipedrive. |
 
 ### Custom Fields Of A Product
 
@@ -100,6 +100,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Product to Deal](actions/add-product-to-deal.md) | POST | Adds a product to a deal in Pipedrive. |
+| [Update a Product](actions/update-a-product.md) | PUT | Updates an existing product in Pipedrive. |
 
 ### Webhook
 

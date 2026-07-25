@@ -1,6 +1,6 @@
 # Other apps
 
-504 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+505 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -474,6 +474,7 @@
 - **Veterans Affairs Forms** · [Universal API reference](../../apis/v/veteransAffairsForms/universal-api) · [Native API reference](../../apis/v/veteransAffairsForms/native-api) · [Native API docs](https://developer.va.gov/explore/api/va-forms/docs)
 - **Vibrato** · [Universal API reference](../../apis/v/vibrato/universal-api) · [Native API reference](../../apis/v/vibrato/native-api) · [Native API docs](https://docs.getvibrato.com/pages/introduction)
 - **Viewpoint Spectrum** · [Universal API reference](../../apis/v/viewpointSpectrum/universal-api) · [Native API reference](../../apis/v/viewpointSpectrum/native-api) · [Native API docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services)
+- **Viewpoint Vista** · [Universal API reference](../../apis/v/viewpointVista/universal-api) · [Native API reference](../../apis/v/viewpointVista/native-api) · [Native API docs](https://direct-api.xchange.trimble.com/reference/setup)
 - **Vortex** · [Universal API reference](../../apis/v/vortex/universal-api) · [Native API reference](../../apis/v/vortex/native-api) · [Native API docs](https://docs.vortexsoftware.com)
 - **Voucherify** · [Universal API reference](../../apis/v/voucherify/universal-api) · [Native API reference](../../apis/v/voucherify/native-api) · [Native API docs](https://docs.voucherify.io/api-reference)
 - **vPlan** · [Universal API reference](../../apis/v/vPlan/universal-api) · [Native API reference](../../apis/v/vPlan/native-api) · [Native API docs](https://docs.api.vplan.com)

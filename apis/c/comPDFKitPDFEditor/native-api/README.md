@@ -1,6 +1,6 @@
 # ComPDFKit PDF Editor: Native API Reference
 
-A consolidated summary of ComPDFKit PDF Editor's API configuration and 55 documented operations, with links to official documentation.
+A consolidated summary of ComPDFKit PDF Editor's API configuration and 56 documented operations, with links to official documentation.
 
 - **Official docs:** https://api.compdf.com/api-libraries/overview
 - **API base URL:** `https://api-server.compdf.com`
@@ -27,7 +27,7 @@ x-api-key: <apiKey>
 
 Use `size` in the query string to set the page size (default 10; minimum 1). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (55 documented)
+## Endpoints (56 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -40,6 +40,7 @@ Use `size` in the query string to set the page size (default 10; minimum 1). Use
 | [Document Parsing](actions/document-parsing.md) | `POST /server/v2/process/idp/documentParsing` | [docs](https://api.compdf.com/api-reference/overview) |
 | [Get Asset Details](actions/get-asset-details.md) | `GET /server/v2/asset/info` | [docs](https://api.compdf.com/api-reference/api-list-presigned) |
 | [Get Task List](actions/get-task-list.md) | `GET /server/v2/task/list` | [docs](https://api.compdf.com/api-reference/api-list) |
+| [Get Task List (Alternate Schema)](actions/get-task-list-alternate-schema.md) | `GET /server/v2/task/list` | [docs](https://api.compdf.com/api-reference/api-list-async) |
 | [Get Tool Support](actions/get-tool-support.md) | `GET /server/v2/tool/support` | [docs](https://api.compdf.com/api-reference/api-list) |
 | [HTML to PDF](actions/h-tml-to-pdf.md) | `POST /server/v2/process/html/pdf` | [docs](https://api.compdf.com/api-reference/conversion-guides) |
 | [HTML to PDF Task](actions/h-tml-to-pdf-task.md) | `GET /server/v1/task/html/pdf` | [docs](https://api.compdf.com/api-reference/api-list-async) |

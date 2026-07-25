@@ -1,6 +1,6 @@
 # CompanyCam Universal API Arguments
 
-Arguments are the inputs a CompanyCam action needs. Each [action page](README.md#actions-48) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a CompanyCam action needs. Each [action page](README.md#actions-52) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

@@ -13,5 +13,4 @@ Retrieves accessible project records from Outlign.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `company_id` | query | `number` | no | Filter projects by company ID. |
-| `client_id` | query | `number` | no | Filter projects by client ID. |
+| `per_page` | query | `number` | no | Number of results per page (max 1000) |

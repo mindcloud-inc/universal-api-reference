@@ -73,8 +73,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Get Order Transactions (GraphQL)](actions/get-order-transactions-graph-ql.md) | PUT |  |
 | [List Products](actions/list-products.md) | GET | Retrieves products from Shopify with GraphQL. |
-| [Get Order Transactions (GraphQL)](actions/update-product-graph-ql.md) | PUT |  |
 | [Update Product (GraphQL)](actions/update-product-graphql.md) | PUT | Updates an existing product in Shopify. |
 
 ### Record

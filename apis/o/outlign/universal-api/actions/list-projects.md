@@ -35,8 +35,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `companyId` | number | no | Filter projects by company ID. |
-| `clientId` | number | no | Filter projects by client ID. |
+| `perPage` | number | no | Number of results per page (max 1000) |
 
 ## Response
 
@@ -47,27 +46,15 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
     {
       "data": [
         {
-          "client": {
-            "id": 1,
-            "title": "string"
-          },
+          "client": {},
           "clientProjectType": "string",
-          "company": {
-            "id": 1,
-            "title": "string"
-          },
+          "company": {},
           "createdAt": "string",
           "description": "string",
           "id": 1,
           "internalProjectType": "string",
           "isClient": true,
           "isInternal": true,
-          "members": [
-            {
-              "id": 1,
-              "name": "Ava Chen"
-            }
-          ],
           "title": "string",
           "updatedAt": "string"
         }
@@ -75,7 +62,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
       "links": {
         "first": "https://example.com",
         "last": {},
-        "next": {},
+        "next": "https://example.com",
         "prev": {}
       },
       "meta": {
@@ -96,24 +83,20 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `data[].client.id` | number |  |
-| `data[].client.title` | string |  |
+| `data[].client` | object |  |
 | `data[].clientProjectType` | string |  |
-| `data[].company.id` | number |  |
-| `data[].company.title` | string |  |
+| `data[].company` | object |  |
 | `data[].createdAt` | string |  |
 | `data[].description` | string |  |
 | `data[].id` | number |  |
 | `data[].internalProjectType` | string |  |
 | `data[].isClient` | boolean |  |
 | `data[].isInternal` | boolean |  |
-| `data[].members[].id` | number |  |
-| `data[].members[].name` | string |  |
 | `data[].title` | string |  |
 | `data[].updatedAt` | string |  |
 | `links.first` | string |  |
 | `links.last` | object |  |
-| `links.next` | object |  |
+| `links.next` | string |  |
 | `links.prev` | object |  |
 | `meta.currentPage` | number |  |
 | `meta.currentPageUrl` | string |  |

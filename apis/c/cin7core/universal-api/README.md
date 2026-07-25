@@ -35,7 +35,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/cin7core/latest/actions/g
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [List Products](actions/new-action1.md) | GET |  |
+| [List Products](actions/list-products.md) | GET |  |
 
 ### Sale
 

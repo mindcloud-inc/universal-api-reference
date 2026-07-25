@@ -1,6 +1,6 @@
 # Weaviate Vector Store Universal API Arguments
 
-Arguments are the inputs a Weaviate Vector Store action needs. Each [action page](README.md#actions-116) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Weaviate Vector Store action needs. Each [action page](README.md#actions-160) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

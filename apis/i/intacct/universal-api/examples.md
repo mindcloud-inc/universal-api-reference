@@ -178,42 +178,28 @@ Example response:
 
 See the full [Get Custom Object action reference](actions/get-custom-object.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/intacct/latest/actions/get-custom-object).
 
-## Create Budget
+## Check GLBATCH Duplicate
 
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/create-budget" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/check-glbatch-duplicate" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "budgetId": "2019 Annual Plan",
-  "description": "string",
-  "periodName": "Month Ended January 2019",
-  "budgetItems[]": [
-    "string"
-  ],
-  "budgetItems[].accountNo": "string",
-  "budgetItems[].amount": 1
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/intacct/latest/actions/create-budget', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/intacct/latest/actions/check-glbatch-duplicate', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "budgetId": "2019 Annual Plan",
-    "description": "string",
-    "periodName": "Month Ended January 2019",
-    "budgetItems[]": ["string"],
-    "budgetItems[].accountNo": "string",
-    "budgetItems[].amount": 1
+    connectionId
   })
 });
 
@@ -225,16 +211,9 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "budgetId": "string",
-      "response": {},
-      "sageRecordNo": 1,
-      "success": true
-    }
-  ],
+  "data": [],
   "meta": {}
 }
 ```
 
-See the full [Create Budget action reference](actions/create-budget.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/intacct/latest/actions/create-budget).
+See the full [Check GLBATCH Duplicate action reference](actions/check-glbatch-duplicate.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/intacct/latest/actions/check-glbatch-duplicate).

@@ -4,7 +4,7 @@ Spoonacular provides recipe, ingredient, product, menu item, meal planning, wine
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/spoonacular/latest
 - **Category:** Business Intelligence / Data Extraction
-- **Actions:** 104
+- **Actions:** 106
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://spoonacular.com/food-api
 - **Vendor API docs:** https://spoonacular.com/food-api/docs
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/spoonacular/latest/action
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (104)
+## Actions (106)
 
 ### Unknown Objects
 
@@ -76,6 +76,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/spoonacular/latest/action
 | [Get Menu Item Information](actions/get-menu-item-information.md) | GET | Retrieves menu item details from Spoonacular. |
 | [Get Product Information](actions/get-product-information.md) | GET | Retrieves grocery product details from Spoonacular. |
 | [Get Random Recipes](actions/get-random-recipes.md) | GET | Retrieves random recipes from Spoonacular. |
+| [Get Recipe Card](actions/get-recipe-card.md) | POST | Retrieves a recipe card from Spoonacular. |
 | [Get Recipe Information](actions/get-recipe-information.md) | GET | Retrieves recipe details from Spoonacular. |
 | [Get Recipe Information Bulk](actions/get-recipe-information-bulk.md) | GET | Retrieves details for multiple Spoonacular recipes. |
 | [Get Shopping List](actions/get-shopping-list.md) | GET | Retrieves a shopping list from Spoonacular. |
@@ -124,6 +125,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/spoonacular/latest/action
 | [Search Recipes](actions/search-recipes.md) | GET | Searches Spoonacular recipes with advanced filters. |
 | [Search Recipes by Ingredients](actions/search-recipes-by-ingredients.md) | GET | Finds Spoonacular recipes by available ingredients. |
 | [Search Recipes by Nutrients](actions/search-recipes-by-nutrients.md) | GET | Finds Spoonacular recipes by nutrient limits. |
+| [Search Recipes (Legacy)](actions/search-recipes-legacy.md) | GET | Searches recipes in Spoonacular by query. |
 | [Search Restaurants](actions/search-restaurants.md) | GET | Searches for restaurants in Spoonacular. |
 | [Search Site Content](actions/search-site-content.md) | GET | Searches Spoonacular site content by query. |
 | [Summarize Recipe](actions/summarize-recipe.md) | GET | Retrieves a recipe summary from Spoonacular. |
