@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3117 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3118 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1100,6 +1100,7 @@ The official vendor API documentation for each of the 3117 apps in this repo. Ea
 - [Google Forms](../apis/g/googleForms/native-api) - https://developers.google.com/workspace/forms/api/reference/rest
 - [Google Groups](../apis/g/googleGroups/native-api) - https://developers.google.com/workspace/admin/directory/v1/guides/manage-groups
 - [Google PageSpeed Insights](../apis/g/googlePageSpeedInsights/native-api) - https://developers.google.com/speed/docs/insights/v5/get-started
+- [Google Search Console](../apis/g/googleSearchConsole/native-api) - https://developers.google.com/webmaster-tools/v1/api_reference_index
 - [Google Sheets](../apis/g/googleSheets/native-api) - https://www.google.com/sheets
 - [Google Slides](../apis/g/googleSlides/native-api) - https://developers.google.com/workspace/slides/api/reference/rest
 - [Google Tasks](../apis/g/googleTasks/native-api) - https://developers.google.com/workspace/tasks/reference/rest

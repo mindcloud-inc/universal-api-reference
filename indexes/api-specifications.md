@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3117 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3118 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1074,6 +1074,7 @@ Machine-readable API descriptions for 3117 apps. Universal API specifications ar
 | [Google Forms](../apis/g/googleForms) | [OpenAPI 3.1](../apis/g/googleForms/universal-api/openapi.json) | [Provider OpenAPI](https://forms.googleapis.com/$discovery/rest?version=v1) |
 | [Google Groups](../apis/g/googleGroups) | [OpenAPI 3.1](../apis/g/googleGroups/universal-api/openapi.json) |  |
 | [Google PageSpeed Insights](../apis/g/googlePageSpeedInsights) | [OpenAPI 3.1](../apis/g/googlePageSpeedInsights/universal-api/openapi.json) |  |
+| [Google Search Console](../apis/g/googleSearchConsole) | [OpenAPI 3.1](../apis/g/googleSearchConsole/universal-api/openapi.json) |  |
 | [Google Sheets](../apis/g/googleSheets) | [OpenAPI 3.1](../apis/g/googleSheets/universal-api/openapi.json) |  |
 | [Google Slides](../apis/g/googleSlides) | [OpenAPI 3.1](../apis/g/googleSlides/universal-api/openapi.json) |  |
 | [Google Tasks](../apis/g/googleTasks) | [OpenAPI 3.1](../apis/g/googleTasks/universal-api/openapi.json) | [Provider OpenAPI](https://www.googleapis.com/discovery/v1/apis/tasks/v1/rest) |
