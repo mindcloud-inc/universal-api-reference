@@ -33,7 +33,7 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
-The next-page cursor is read from `next`.
+The next-page cursor is read from `continuationToken`.
 
 ### Action Instance REST
 
@@ -47,7 +47,7 @@ Shared headers:
 
 ## Pagination
 
-- **REST:** Use `limit` in the query string to set the page size (default 1000; accepted range 1–1000). Use `continuationToken` in the query string as the pagination cursor; numbering starts at 0. Follow the complete next-page URL returned by the API.
+- **REST:** Use `continuationToken` in the request body as the pagination cursor; numbering starts at 0.
 
 ## Filtering
 

@@ -65,16 +65,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "countryCodeOfOrigin": "string",
         "harmonizedSystemCode": "string",
         "id": "string",
-        "inventoryLevels": {
-          "location": {
-            "id": "string",
-            "name": "Ava Chen"
-          },
-          "quantities": {
-            "name": "Ava Chen",
-            "quantity": 1
-          }
-        },
         "unitCost": {
           "amount": "string",
           "currencyCode": "string"
@@ -152,10 +142,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `inventoryItem.countryCodeOfOrigin` | string |  |
 | `inventoryItem.harmonizedSystemCode` | string |  |
 | `inventoryItem.id` | string |  |
-| `inventoryItem.inventoryLevels.location.id` | string |  |
-| `inventoryItem.inventoryLevels.location.name` | string |  |
-| `inventoryItem.inventoryLevels.quantities.name` | string |  |
-| `inventoryItem.inventoryLevels.quantities.quantity` | number |  |
 | `inventoryItem.unitCost.amount` | string |  |
 | `inventoryItem.unitCost.currencyCode` | string |  |
 | `inventoryPolicy` | string |  |

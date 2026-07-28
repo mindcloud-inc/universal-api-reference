@@ -41,12 +41,19 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ARCo` | number | no |  |
+| `CompanyContact.Phone` | string | no |  |
+| `CompanyContact.Fax` | string | no |  |
 | `Name` | string | no |  |
+| `CompanyContact.Contact` | string | no |  |
 | `MailingAddress` | object | no |  |
 | `BillingAddress` | object | no |  |
+| `CompanyContact.contactExt` | string | no |  |
+| `CompanyContact.EMail` | string | no |  |
 | `PayTerms` | string | no |  |
+| `CompanyContact.URL` | string | no |  |
 | `CompanyContact` | object | no |  |
 | `__key` | object | no |  |
+| `__custom_fields` | object | no |  |
 
 ## Response
 

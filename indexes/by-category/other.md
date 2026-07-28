@@ -1,6 +1,6 @@
 # Other apps
 
-506 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+508 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -311,6 +311,7 @@
 - **Orderry** · [Universal API reference](../../apis/o/orderry/universal-api) · [Native API reference](../../apis/o/orderry/native-api) · [Native API docs](https://orderry.readme.io/reference/getting-started)
 - **Order Sender** · [Universal API reference](../../apis/o/orderSender/universal-api) · [Native API reference](../../apis/o/orderSender/native-api) · [Native API docs](https://developer.ordersender.com/)
 - **Orshot** · [Universal API reference](../../apis/o/orshot/universal-api) · [Native API reference](../../apis/o/orshot/native-api) · [Native API docs](https://orshot.com/docs/api-reference)
+- **Osapiens** · [Universal API reference](../../apis/o/osapiens/universal-api) · [Native API reference](../../apis/o/osapiens/native-api) · [Vendor website](https://osapiens.com)
 - **Otiom** · [Universal API reference](../../apis/o/otiom/universal-api) · [Native API reference](../../apis/o/otiom/native-api) · [Native API docs](https://api.otiom.com/swagger/)
 - **Outlook** · [Universal API reference](../../apis/o/outlook/universal-api) · [Native API reference](../../apis/o/outlook/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/message)
 - **Overledger** · [Universal API reference](../../apis/o/overledger/universal-api) · [Native API reference](../../apis/o/overledger/native-api) · [Native API docs](https://docs.overledger.dev/)
@@ -364,6 +365,7 @@
 - **Rachio Smart Hose Timer** · [Universal API reference](../../apis/r/rachioSmartHoseTimer/universal-api) · [Native API reference](../../apis/r/rachioSmartHoseTimer/native-api) · [Native API docs](https://rachio.readme.io/reference/getting-started)
 - **Rachio Smart Lighting Controller** · [Universal API reference](../../apis/r/rachioSmartLightingController/universal-api) · [Native API reference](../../apis/r/rachioSmartLightingController/native-api) · [Native API docs](https://rachio.readme.io/reference/getting-started)
 - **Raklet** · [Universal API reference](../../apis/r/raklet/universal-api) · [Native API reference](../../apis/r/raklet/native-api) · [Native API docs](https://help.raklet.com/en/collections/13838830-api)
+- **Ramp** · [Universal API reference](../../apis/r/ramp/universal-api) · [Native API reference](../../apis/r/ramp/native-api) · [Native API docs](https://docs.ramp.com/developer-api/v1/overview/introduction)
 - **RealFaviconGenerator** · [Universal API reference](../../apis/r/realFaviconGenerator/universal-api) · [Native API reference](../../apis/r/realFaviconGenerator/native-api) · [Native API docs](https://realfavicongenerator.net/developers)
 - **Realtor.com** · [Universal API reference](../../apis/r/realtorcom/universal-api) · [Native API reference](../../apis/r/realtorcom/native-api) · [Native API docs](https://www.listhub.com/api-documentation/)
 - **Rebrickable** · [Universal API reference](../../apis/r/rebrickable/universal-api) · [Native API reference](../../apis/r/rebrickable/native-api) · [Native API docs](https://rebrickable.com/api/v3/docs/?key=xxxxxxxxxx)

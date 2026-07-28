@@ -48,7 +48,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `address.street` | string | no |  |
 | `contacts[].value` | string | no |  |
 | `customFields[].typeId` | number | no |  |
-| `externalData.externalData[].value` | string | no |  |
 | `locations[].address.street` | string | no |  |
 | `locations[].contacts[].memo` | string | no |  |
 | `locations[].externalData.externalData[].value` | string | no |  |
@@ -57,8 +56,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `address.unit` | string | no |  |
 | `contacts[].type` | list<string> | no |  |
 | `customFields[].value` | string | no |  |
-| `externalData.applicationGuid` | string | no |  |
-| `externalData.externalData[].key` | string | no |  |
 | `locations[].address` | object | no |  |
 | `locations[].address.unit` | string | no |  |
 | `locations[].contacts[].value` | string | no |  |
@@ -68,7 +65,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `contacts[].type` | list<string> | no |  |
 | `customFields[].name` | string | no | Name/label of the custom field |
 | `doNotMail` | boolean | no | Default: `false`. |
-| `externalData.externalData[]` | array | no |  |
 | `locations[].address.city` | string | no |  |
 | `locations[].contacts[]` | array<object> | no |  |
 | `locations[].contacts[].type` | string<string> | no |  |

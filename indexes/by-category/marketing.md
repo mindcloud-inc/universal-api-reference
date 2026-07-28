@@ -1,6 +1,6 @@
 # Marketing apps
 
-393 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+394 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Absinthe** · [Universal API reference](../../apis/a/absinthe/universal-api) · [Native API reference](../../apis/a/absinthe/native-api) · [Native API docs](https://api.absinthe.network/doc)
 - **ActiveCampaign** · [Universal API reference](../../apis/a/activeCampaign/universal-api) · [Native API reference](../../apis/a/activeCampaign/native-api) · [Native API docs](https://developers.activecampaign.com/reference/overview)
@@ -385,6 +385,7 @@
 - **Wistia** · [Universal API reference](../../apis/w/wistia/universal-api) · [Native API reference](../../apis/w/wistia/native-api) · [Native API docs](https://docs.wistia.com/reference)
 - **Woodpecker.co** · [Universal API reference](../../apis/w/woodpeckerco/universal-api) · [Native API reference](../../apis/w/woodpeckerco/native-api) · [Native API docs](https://developers.woodpecker.co/docs/)
 - **Wooxy** · [Universal API reference](../../apis/w/wooxy/universal-api) · [Native API reference](../../apis/w/wooxy/native-api) · [Native API docs](https://wooxy.com/api-documentation)
+- **X** · [Universal API reference](../../apis/x/x/universal-api) · [Native API reference](../../apis/x/x/native-api) · [Native API docs](https://docs.x.com/x-api)
 - **Xola** · [Universal API reference](../../apis/x/xola/universal-api) · [Native API reference](../../apis/x/xola/native-api) · [Native API docs](https://developers.xola.com/reference)
 - **YouTube** · [Universal API reference](../../apis/y/youtube/universal-api) · [Native API reference](../../apis/y/youtube/native-api) · [Native API docs](https://developers.google.com/youtube/v3)
 - **ZAP POST** · [Universal API reference](../../apis/z/zAPPOST/universal-api) · [Native API reference](../../apis/z/zAPPOST/native-api) · [Native API docs](https://apidocumentation.zappost.com/)

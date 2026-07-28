@@ -13,9 +13,16 @@
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
 | `ARCo` | body | `number` | no |
+| `CompanyContact.Phone` | body | `string` | no |
+| `CompanyContact.Fax` | body | `string` | no |
 | `Name` | body | `string` | no |
+| `CompanyContact.Contact` | body | `string` | no |
 | `MailingAddress` | body | `object` | no |
 | `BillingAddress` | body | `object` | no |
+| `CompanyContact.contactExt` | body | `string` | no |
+| `CompanyContact.EMail` | body | `string` | no |
 | `PayTerms` | body | `string` | no |
+| `CompanyContact.URL` | body | `string` | no |
 | `CompanyContact` | body | `object` | no |
 | `__key` | body | `object` | no |
+| `__custom_fields` | body | `object` | no |

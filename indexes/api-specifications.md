@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3118 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3121 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -2083,6 +2083,7 @@ Machine-readable API descriptions for 3118 apps. Universal API specifications ar
 | [Raisely](../apis/r/raisely) | [OpenAPI 3.1](../apis/r/raisely/universal-api/openapi.json) | [Provider OpenAPI](https://api.raisely.com/v3/api-docs) |
 | [Raklet](../apis/r/raklet) | [OpenAPI 3.1](../apis/r/raklet/universal-api/openapi.json) | [Provider OpenAPI](https://api.raklet.com/swagger/docs/v1) |
 | [Rakuten Advertising](../apis/r/rakutenAdvertising) | [OpenAPI 3.1](../apis/r/rakutenAdvertising/universal-api/openapi.json) |  |
+| [Ramp](../apis/r/ramp) | [OpenAPI 3.1](../apis/r/ramp/universal-api/openapi.json) |  |
 | [Range](../apis/r/range) | [OpenAPI 3.1](../apis/r/range/universal-api/openapi.json) |  |
 | [RapidAPI](../apis/r/rapidAPI) | [OpenAPI 3.1](../apis/r/rapidAPI/universal-api/openapi.json) |  |
 | [RapidoForm](../apis/r/rapidoForm) | [OpenAPI 3.1](../apis/r/rapidoForm/universal-api/openapi.json) |  |
@@ -2941,6 +2942,7 @@ Machine-readable API descriptions for 3118 apps. Universal API specifications ar
 | [Writeathon](../apis/w/writeathon) | [OpenAPI 3.1](../apis/w/writeathon/universal-api/openapi.json) |  |
 | [wttr.in](../apis/w/wttrin) | [OpenAPI 3.1](../apis/w/wttrin/universal-api/openapi.json) |  |
 | [Wufoo](../apis/w/wufoo) | [OpenAPI 3.1](../apis/w/wufoo/universal-api/openapi.json) |  |
+| [X](../apis/x/x) | [OpenAPI 3.1](../apis/x/x/universal-api/openapi.json) | [Provider OpenAPI](https://api.x.com/2/openapi.json) |
 | [xAI](../apis/x/xAI) | [OpenAPI 3.1](../apis/x/xAI/universal-api/openapi.json) |  |
 | [Xano](../apis/x/xano) | [OpenAPI 3.1](../apis/x/xano/universal-api/openapi.json) | [Provider OpenAPI](https://x8ki-letl-twmt.n7.xano.io/apispec:meta?type=json) |
 | [Xata](../apis/x/xata) | [OpenAPI 3.1](../apis/x/xata/universal-api/openapi.json) | [Provider OpenAPI](https://api.xata.tech/openapi.json) |

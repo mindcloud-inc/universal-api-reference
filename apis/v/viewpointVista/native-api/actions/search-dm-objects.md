@@ -12,7 +12,7 @@ Search objects found in the Viewpoint® Vista™ Document Management ( DM ) prog
 
 ## Capabilities
 
-This operation supports [pagination](../README.md#pagination) and [filtering](../README.md#filtering).
+This operation supports [filtering](../README.md#filtering).
 
 ## Parameters
 

@@ -8,20 +8,16 @@ GET https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoint Vista `connectionId` ([setup](../authentication.md)).
 
-This action also supports [pagination](../pagination.md) (`limit`, `offset`).
-
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-hq-objects?connectionId=$CONNECTION_ID&limit=25&offset=0&object=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-hq-objects?connectionId=$CONNECTION_ID&object=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  limit: '25',
-  offset: '0',
   "object": "string"
 });
 
@@ -49,5 +45,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Viewpoint Vista API, this operation is `GET v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/cache` (base URL `https://api.xchange.trimble.com/connect/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-hq-objects.md) for the provider-specific parameters and requirements.
+Through the native Viewpoint Vista API, this operation is `GET v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/cache` (base URL `https://api.xchange.trimble.com/connect/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-hq-objects.md) for the provider-specific parameters and requirements.
 

@@ -30,6 +30,6 @@ Send these additional headers for this operation:
 | `stateName` | body | `string` | no | — |
 | `createdAfter` | body | `date` | no | Filter issues to return only those created after a specific date. |
 | `updatedAfter` | body | `date` | no | — |
-| `project` | body | `string` | no | The project that this issue is a part of. |
+| `project` | body | `list<string>` | no | The project that this issue is a part of. |
 | `projectState` | body | `string` | no | The status of the Project this Issue is a part of. |
 | `titleContains` | body | `string` | no | — |

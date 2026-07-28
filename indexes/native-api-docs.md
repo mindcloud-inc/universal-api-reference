@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3118 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3121 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1842,6 +1842,7 @@ The official vendor API documentation for each of the 3118 apps in this repo. Ea
 - [Orshot](../apis/o/orshot/native-api) - https://orshot.com/docs/api-reference
 - [Ortto](../apis/o/ortto/native-api) - https://help.ortto.com/c-49-api-reference
 - [Orufy Bookings](../apis/o/orufyBookings/native-api) - https://orufy.com/support/bookings
+- [Osapiens](../apis/o/osapiens/native-api) - https://osapiens.com
 - [Othership](../apis/o/othership/native-api) - https://knowledge.othership.com/workplace-software-faq-admins?hsLang=en
 - [Otiom](../apis/o/otiom/native-api) - https://api.otiom.com/swagger/
 - [OTO](../apis/o/oTO/native-api) - https://help.tryoto.com/en/support/solutions/folders/150000545667
@@ -2138,6 +2139,7 @@ The official vendor API documentation for each of the 3118 apps in this repo. Ea
 - [Raisely](../apis/r/raisely/native-api) - https://developers.raisely.com/reference
 - [Raklet](../apis/r/raklet/native-api) - https://help.raklet.com/en/collections/13838830-api
 - [Rakuten Advertising](../apis/r/rakutenAdvertising/native-api) - https://developers.rakutenadvertising.com/documentation/en-US/affiliate_apis
+- [Ramp](../apis/r/ramp/native-api) - https://docs.ramp.com/developer-api/v1/overview/introduction
 - [Range](../apis/r/range/native-api) - https://www.range.co/docs/api
 - [RapidAPI](../apis/r/rapidAPI/native-api) - https://docs.rapidapi.com/docs/platform-api-overview
 - [RapidoForm](../apis/r/rapidoForm/native-api) - https://www.rapidoform.com/developers/docs/get-started
@@ -3022,6 +3024,7 @@ The official vendor API documentation for each of the 3118 apps in this repo. Ea
 - [Writeathon](../apis/w/writeathon/native-api) - https://guide.writeathon.cn/help/tools/api.html
 - [wttr.in](../apis/w/wttrin/native-api) - https://github.com/chubin/wttr.in
 - [Wufoo](../apis/w/wufoo/native-api) - https://wufoo.github.io/docs/
+- [X](../apis/x/x/native-api) - https://docs.x.com/x-api
 - [xAI](../apis/x/xAI/native-api) - https://docs.x.ai/developers/rest-api-reference/inference
 - [Xano](../apis/x/xano/native-api) - https://docs.xano.com/xano-features/metadata-api
 - [Xata](../apis/x/xata/native-api) - https://xata.io/docs/api-reference/organizations/get-list-of-organizations

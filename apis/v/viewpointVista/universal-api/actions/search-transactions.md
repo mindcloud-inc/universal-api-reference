@@ -8,20 +8,18 @@ GET https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/sear
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoint Vista `connectionId` ([setup](../authentication.md)).
 
-This action also supports [pagination](../pagination.md) (`limit`, `offset`), [filtering](../filtering.md) (`where`).
+This action also supports [filtering](../filtering.md) (`where`).
 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-transactions?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-transactions?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId,
-  limit: '25',
-  offset: '0'
+  connectionId
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-transactions?${params}`, {
@@ -48,5 +46,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Viewpoint Vista API, this operation is `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/transactions/cache/search` (base URL `https://api.xchange.trimble.com/connect/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/search-transactions.md) for the provider-specific parameters and requirements.
+Through the native Viewpoint Vista API, this operation is `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/transactions/cache/search` (base URL `https://api.xchange.trimble.com/connect/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/search-transactions.md) for the provider-specific parameters and requirements.
 

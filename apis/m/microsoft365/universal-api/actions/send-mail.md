@@ -15,7 +15,8 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/microsoft365/latest/acti
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "toRecipients": "person@example.com, other@example.com"
 }'
 ```
 
@@ -27,7 +28,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/microsof
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "toRecipients": "person@example.com, other@example.com"
   })
 });
 
@@ -40,9 +42,19 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message.toRecipients[].emailAddress.address` | string | no | The recipient email address. Example: `jamie@mindcloud.co`. |
+| `toRecipients` | string<object> | yes | Comma-separated email addresses to send to. Example: person@example.com, other@example.com Example: `person@example.com, other@example.com`. |
 | `message.subject` | string | no | The email subject line. Example: `MindCloud Microsoft 365 send test`. |
 | `message.body.content` | string | no | The text content of the email body. Example: `This is a test email sent from the MindCloud Microsoft 365 app.`. |
+| `ccRecipients` | string | no | Optional CC recipients. Use a comma separated list. Example: `manager@example.com`. |
+| `bccRecipients` | string | no | Optional BCC recipients. Use a comma separated list. Example: `audit@example.com`. |
+| `attachmentFile` | file | no | Optional single attachment file to include with the email. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `attachmentFilename` | string | no | Optional attachment filename override. Defaults to the uploaded file name when available. |
+| `attachmentMimeType` | string | no | Optional attachment MIME type override. Defaults to application/octet-stream when unknown. |
 
 ## Response
 

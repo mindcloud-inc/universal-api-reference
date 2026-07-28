@@ -53,6 +53,16 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `bodyContentType` | list | yes | Email body content type: Text or HTML. One of: `0`, `1`. Default: `Text`. |
 | `toRecipients` | string<object> | yes | Comma-separated email addresses to send to. Example: person@example.com, other@example.com Example: `person@example.com, other@example.com`. |
 | `saveToSentItems` | boolean | no | Whether Microsoft should save the sent message to Sent Items. Defaults to true. Default: `true`. |
+| `ccRecipients` | string | no | Optional CC recipients. Use a comma separated list. Example: `manager@example.com`. |
+| `bccRecipients` | string | no | Optional BCC recipients. Use a comma separated list. Example: `audit@example.com`. |
+| `attachmentFile` | file | no | Optional single attachment file to include with the email. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `attachmentFilename` | string | no | Optional attachment filename override. Defaults to the uploaded file name when available. |
+| `attachmentMimeType` | string | no | Optional attachment MIME type override. Defaults to application/octet-stream when unknown. |
 
 ## Response
 

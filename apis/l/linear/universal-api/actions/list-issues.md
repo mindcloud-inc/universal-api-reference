@@ -44,7 +44,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `state` | string | no |  |
 | `createdAfter` | date | no | Filter issues to return only those created after a specific date. |
 | `updatedAfter` | date | no |  |
-| `project` | string | no | The project that this issue is a part of. |
+| `project` | list<string> | no | The project that this issue is a part of. |
 | `projectState` | string | no | The status of the Project this Issue is a part of. |
 | `titleContains` | string | no |  |
 

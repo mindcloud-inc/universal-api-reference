@@ -10,10 +10,6 @@ Represents Potential Project data in Viewpoint® Vista™.
 - **API:** REST
 - **Official documentation:** [List Potential Projects](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache)
 
-## Capabilities
-
-This operation supports [pagination](../README.md#pagination).
-
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

@@ -10,7 +10,7 @@
 
 ## Capabilities
 
-This operation supports [pagination](../README.md#pagination) and [filtering](../README.md#filtering).
+This operation supports [filtering](../README.md#filtering).
 
 ## Parameters
 

@@ -20,7 +20,6 @@ This operation supports [pagination](../README.md#pagination).
 | `address.street` | body | `string` | no | — |
 | `contacts[].value` | body | `string` | no | — |
 | `customFields[].typeId` | body | `number` | no | — |
-| `externalData.externalData[].value` | body | `string` | no | — |
 | `locations[].address.street` | body | `string` | no | — |
 | `locations[].contacts[].memo` | body | `string` | no | — |
 | `locations[].externalData.externalData[].value` | body | `string` | no | — |
@@ -29,8 +28,6 @@ This operation supports [pagination](../README.md#pagination).
 | `address.unit` | body | `string` | no | — |
 | `contacts[].type` | body | `list<string>` | no | — |
 | `customFields[].value` | body | `string` | no | — |
-| `externalData.applicationGuid` | body | `string` | no | — |
-| `externalData.externalData[].key` | body | `string` | no | — |
 | `locations[].address` | body | `object` | no | — |
 | `locations[].address.unit` | body | `string` | no | — |
 | `locations[].contacts[].value` | body | `string` | no | — |
@@ -40,7 +37,6 @@ This operation supports [pagination](../README.md#pagination).
 | `contacts[].type` | body | `list<string>` | no | — |
 | `customFields[].name` | body | `string` | no | Name/label of the custom field |
 | `doNotMail` | body | `boolean` | no | Format: `toggle`. |
-| `externalData.externalData[]` | body | `array` | no | — |
 | `locations[].address.city` | body | `string` | no | — |
 | `locations[].contacts[]` | body | `array<object>` | no | — |
 | `locations[].contacts[].type` | body | `string<string>` | no | — |

@@ -14,6 +14,11 @@ Sends an email from Microsoft 365.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `message.toRecipients[].emailAddress.address` | body | `string` | no | The recipient email address. |
+| `message.toRecipients` | body | `string<object>` | yes | Comma-separated email addresses to send to. Example: person@example.com, other@example.com |
 | `message.subject` | body | `string` | no | The email subject line. |
 | `message.body.content` | body | `string` | no | The text content of the email body. |
+| `message.ccRecipients` | body | `string` | no | Optional CC recipients. Use a comma separated list. |
+| `message.bccRecipients` | body | `string` | no | Optional BCC recipients. Use a comma separated list. |
+| `message.attachments` | body | `file` | no | Optional single attachment file to include with the email. |
+| `attachmentFilename` | body | `string` | no | Optional attachment filename override. Defaults to the uploaded file name when available. |
+| `attachmentMimeType` | body | `string` | no | Optional attachment MIME type override. Defaults to application/octet-stream when unknown. |

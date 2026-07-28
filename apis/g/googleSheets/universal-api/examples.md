@@ -2,22 +2,23 @@
 
 These examples use the MindCloud API key and Google Sheets connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Spreadsheet Metadata
+## List Spreadsheets
 
-Retrieves spreadsheet metadata from Google Sheets.
+Retrieves accessible Google Sheets files from Google Drive.
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleSheets/latest/actions/get-spreadsheet-metadata?connectionId=$CONNECTION_ID&spreadsheetId=Select%20a%20spreadsheet%2C%20or%20click%20%7B%7D%20to%20paste%20a%20spreadsheet%20ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleSheets/latest/actions/list-spreadsheets?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "spreadsheetId": "Select a spreadsheet, or click {} to paste a spreadsheet ID"
+  limit: '25',
+  offset: '0'
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleSheets/latest/actions/get-spreadsheet-metadata?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleSheets/latest/actions/list-spreadsheets?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -31,12 +32,19 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "createdTime": "2026-05-07T12:00:00.000Z",
+      "id": "string",
+      "modifiedTime": "2026-05-07T12:00:00.000Z",
+      "name": "Ava Chen"
+    }
+  ],
   "meta": {}
 }
 ```
 
-See the full [Get Spreadsheet Metadata action reference](actions/get-spreadsheet-metadata.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/googleSheets/latest/actions/get-spreadsheet-metadata).
+See the full [List Spreadsheets action reference](actions/list-spreadsheets.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/googleSheets/latest/actions/list-spreadsheets).
 
 ## Append Rows
 

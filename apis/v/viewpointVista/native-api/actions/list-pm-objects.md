@@ -10,10 +10,6 @@ Represents data found in Viewpoint® Vista™ PM programs.
 - **API:** REST
 - **Official documentation:** [List PM Objects](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache)
 
-## Capabilities
-
-This operation supports [pagination](../README.md#pagination).
-
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

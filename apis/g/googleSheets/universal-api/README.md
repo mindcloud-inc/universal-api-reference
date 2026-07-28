@@ -13,10 +13,10 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Spreadsheet Metadata](actions/get-spreadsheet-metadata.md):
+For example, to [List Spreadsheets](actions/list-spreadsheets.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleSheets/latest/actions/get-spreadsheet-metadata?connectionId=$CONNECTION_ID&spreadsheetId=Select%20a%20spreadsheet%2C%20or%20click%20%7B%7D%20to%20paste%20a%20spreadsheet%20ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleSheets/latest/actions/list-spreadsheets?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 

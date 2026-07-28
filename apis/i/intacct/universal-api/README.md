@@ -93,7 +93,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ge
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get Fields for Object](actions/get-fields.md) | PUT |  |
+| [Get Fields for Object](actions/get-fields.md) | GET |  |
 | [Query Object](actions/query-object.md) | GET |  |
 | [Query Object Sum](actions/query-object-sum.md) | GET |  |
 | [Read By Query](actions/read-by-query.md) | GET |  |

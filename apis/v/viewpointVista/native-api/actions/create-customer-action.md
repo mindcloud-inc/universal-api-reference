@@ -19,3 +19,4 @@
 | `BillingAddress` | body | `object` | no |
 | `PayTerms` | body | `string` | no |
 | `CompanyContact` | body | `object` | no |
+| `__custom_fields` | body | `object` | no |
