@@ -7,7 +7,7 @@ Retrieves records from Shopify with paginated GraphQL queries.
 - **Method:** `POST`
 - **Path:** `:version/graphql.json`
 - **Base URL:** `https://{storeName}.myshopify.com/admin/api/`
-- **API:** REST
+- **API:** GraphQL
 - **Official documentation:** [GraphQL - Get Records (Paginated)](https://shopify.dev/docs/api/admin-graphql/latest)
 
 ## Capabilities

@@ -51,13 +51,13 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `Order_restypid` | string | no |  |
 | `Order_ResDesc` | string | no |  |
 | `Request_Date` | string | no |  |
-| `UDB_FieldName1` | string | no |  |
-| `UDB_FieldName2` | string | no |  |
-| `UDB_FieldName3` | string | no |  |
 | `udb_lotnumber` | number | no |  |
 | `udb_address` | string | no |  |
 | `udb_model` | string | no |  |
 | `udb_community` | string | no |  |
+| `udb_customer` | string | no |  |
+| `udb_abbreviated` | string | no |  |
+| `udb_elevation` | string | no |  |
 
 ## Response
 

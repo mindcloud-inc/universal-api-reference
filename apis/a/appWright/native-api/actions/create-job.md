@@ -21,10 +21,10 @@ Creates a new job in AppWright.
 | `Order_restypid` | query | `string` | no |
 | `Order_ResDesc` | query | `string` | no |
 | `Request_Date` | query | `string` | no |
-| `UDB_FieldName1` | query | `string` | no |
-| `UDB_FieldName2` | query | `string` | no |
-| `UDB_FieldName3` | query | `string` | no |
 | `udb_lotnumber` | query | `number` | no |
 | `udb_address` | query | `string` | no |
 | `udb_model` | query | `string` | no |
 | `udb_community` | query | `string` | no |
+| `udb_customer` | query | `string` | no |
+| `udb_abbreviated` | query | `string` | no |
+| `udb_elevation` | query | `string` | no |

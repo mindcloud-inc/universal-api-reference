@@ -86,7 +86,7 @@ Shared headers:
 | [Create Webhook Subscription (HTTP)](actions/create-webhook-subscription-http.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/webhookSubscriptionCreate) |
 | [Get Order Transactions (GraphQL)](actions/get-order-transactions-graph-ql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [Get Product Variant by SKU](actions/get-product-variant-by-sku.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants) |
-| [GraphQL - Get Records (Paginated)](actions/graphql-get-records-paginated.md) | REST | `POST :version/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
+| [GraphQL - Get Records (Paginated)](actions/graphql-get-records-paginated.md) | GraphQL | `POST :version/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [GraphQL - Get Records (Unwrapped Edges)](actions/graphql-get-records-unwrapped-edges.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [List All Orders](actions/list-all-orders-graphql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/orders) |
 | [List Companies](actions/list-companies-graphql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/companies) |
