@@ -1,6 +1,6 @@
 # Commerce apps
 
-287 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+288 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -211,6 +211,7 @@
 - **Referral Rock** · [Universal API reference](../../apis/r/referralRock/universal-api) · [Native API reference](../../apis/r/referralRock/native-api) · [Native API docs](https://api.referralrock.com/help)
 - **Rentman** · [Universal API reference](../../apis/r/rentman/universal-api) · [Native API reference](../../apis/r/rentman/native-api) · [Native API docs](https://api.rentman.net)
 - **Returnless** · [Universal API reference](../../apis/r/returnless/universal-api) · [Native API reference](../../apis/r/returnless/native-api) · [Native API docs](https://docs.returnless.com/docs/api-rest-reference/64548cf9032b4)
+- **Rillion Prime Web Service** · [Universal API reference](../../apis/r/rillionPrimeWebService/universal-api) · [Native API reference](../../apis/r/rillionPrimeWebService/native-api) · [Native API docs](https://support.rillion.com)
 - **Rithum DSCO** · [Universal API reference](../../apis/r/rithumDSCOV2/universal-api) · [Native API reference](../../apis/r/rithumDSCOV2/native-api) · [Native API docs](https://api.dsco.io/doc/v3/reference/)
 - **RO App** · [Universal API reference](../../apis/r/rOApp/universal-api) · [Native API reference](../../apis/r/rOApp/native-api) · [Native API docs](https://roapp.readme.io/reference)
 - **Rye** · [Universal API reference](../../apis/r/rye/universal-api) · [Native API reference](../../apis/r/rye/native-api) · [Native API docs](https://rye.com/docs/api-v2/introduction)

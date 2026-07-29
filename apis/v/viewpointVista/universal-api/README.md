@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 53
+- **Actions:** 58
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (53)
+## Actions (58)
 
 ### Accounts Payable
 
@@ -113,6 +113,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add Contract Invoice](actions/add-contract-invoice.md) | POST | Adds a Contract based invoice. |
 | [Add Many Time Batch Entries](actions/add-many-payroll-timecard-entries.md) | POST | Add an array of time batch entries |
 | [Add Non-Contract Invoice](actions/add-non-contract-invoice.md) | POST | Adds a Non-Contract based invoice. |
 | [Get Timecard Batch by Ryvit ID](actions/get-timecard-batch-by-ryvit-id.md) | GET |  |
@@ -147,6 +148,10 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add SM Customer](actions/add-sm-customer.md) | POST | Adds a new SM Customer Record. |
+| [Add SM Work Order](actions/add-sm-work-order.md) | POST | Adds a Service Management work order header and automatically creates default Scope 1 in SMWorkOrderScope. |
+| [Change SM Customer](actions/change-sm-customer.md) | POST | Changes an existing SM Customer |
+| [Change SM Work Order](actions/change-sm-work-order.md) | POST | Changes an existing Work Order record. |
 | [Get Customer by RyvitId](actions/get-customer-by-ryvit-id.md) | GET | Represents Info, Contacts and Notes tabs data found in Viewpoint® Vista™ SM Customer program. |
 | [Get Customer by SMCo, CustGroup, Customer](actions/get-customer-by-sm-co-cust-group-customer.md) | GET | Represents Info, Contacts and Notes tabs data found in Viewpoint® Vista™ SM Customer program. |
 | [Get Customer by SMCustomerID](actions/get-customer-by-sm-customer-id.md) | GET | Represents Info, Contacts and Notes tabs data found in Viewpoint® Vista™ SM Customer program. |

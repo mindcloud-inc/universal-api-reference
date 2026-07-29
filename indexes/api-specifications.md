@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3121 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3122 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -2182,6 +2182,7 @@ Machine-readable API descriptions for 3121 apps. Universal API specifications ar
 | [Rijksmuseum](../apis/r/rijksmuseum) | [OpenAPI 3.1](../apis/r/rijksmuseum/universal-api/openapi.json) |  |
 | [Rijksoverheid](../apis/r/rijksoverheid) | [OpenAPI 3.1](../apis/r/rijksoverheid/universal-api/openapi.json) |  |
 | [Rillion Prime Pay](../apis/r/rillionPrime) | [OpenAPI 3.1](../apis/r/rillionPrime/universal-api/openapi.json) |  |
+| [Rillion Prime Web Service](../apis/r/rillionPrimeWebService) | [OpenAPI 3.1](../apis/r/rillionPrimeWebService/universal-api/openapi.json) |  |
 | [RingCentral](../apis/r/ringCentral) | [OpenAPI 3.1](../apis/r/ringCentral/universal-api/openapi.json) |  |
 | [Ringg AI](../apis/r/ringgAI) | [OpenAPI 3.1](../apis/r/ringgAI/universal-api/openapi.json) | [Provider OpenAPI](https://docs.ringg.ai/api-reference/openapi.json) |
 | [Ritekit](../apis/r/ritekit) | [OpenAPI 3.1](../apis/r/ritekit/universal-api/openapi.json) |  |

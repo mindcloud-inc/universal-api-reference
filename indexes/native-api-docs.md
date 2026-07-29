@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3121 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3122 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -2240,6 +2240,7 @@ The official vendor API documentation for each of the 3121 apps in this repo. Ea
 - [Rijksmuseum](../apis/r/rijksmuseum/native-api) - https://data.rijksmuseum.nl/docs
 - [Rijksoverheid](../apis/r/rijksoverheid/native-api) - https://www.rijksoverheid.nl/opendata
 - [Rillion Prime Pay](../apis/r/rillionPrime/native-api) - https://rillion-prime-integration.readme.io/docs/using-the-api-reference
+- [Rillion Prime Web Service](../apis/r/rillionPrimeWebService/native-api) - https://support.rillion.com
 - [RingCentral](../apis/r/ringCentral/native-api)
 - [Ringg AI](../apis/r/ringgAI/native-api) - https://docs.ringg.ai/api-reference/quick-start/guide
 - [Ritekit](../apis/r/ritekit/native-api) - https://documenter.getpostman.com/view/2010712/SzS7Qku5?version=latest

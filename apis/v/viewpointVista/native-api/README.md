@@ -1,6 +1,6 @@
 # Viewpoint Vista: Native API Reference
 
-A consolidated summary of Viewpoint Vista's API configuration and 53 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Vista's API configuration and 58 documented operations, with links to official documentation.
 
 - **Official docs:** https://direct-api.xchange.trimble.com/reference/setup
 - **REST base URL:** `https://api.xchange.trimble.com/connect/`
@@ -53,14 +53,19 @@ Shared headers:
 
 - **REST:** Send filters in the request body.
 
-## Endpoints (53 documented)
+## Endpoints (58 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
+| [Add Contract Invoice](actions/add-contract-invoice.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/pr/2/data/batch_entries/actions/add_contract_inv_v2` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatch_entriesactionsadd_contract_inv_v2) |
 | [Add Many Time Batch Entries](actions/add-many-payroll-timecard-entries.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/pr/2/data/time_batch_entries/actions/add_many` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batch_entriesactionsadd_many) |
 | [Add Non-Contract Invoice](actions/add-non-contract-invoice.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/pr/2/data/batch_entries/actions/add_non-contract_inv` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionsupsert) |
 | [Add Receipt Batch](actions/add-receipt-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batches/actions/add_receipt` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatchesactionsadd_receipt) |
 | [Add Receipt Batch Entry](actions/add-receipt-batch-entry.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batch_entries/actions/add_receipt` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatch_entriesactionsadd_receipt) |
+| [Add SM Customer](actions/add-sm-customer.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/customers/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2datacustomersactionsadd) |
+| [Add SM Work Order](actions/add-sm-work-order.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datawork_ordersactionsadd) |
+| [Change SM Customer](actions/change-sm-customer.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/customers/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datacustomersactionschange) |
+| [Change SM Work Order](actions/change-sm-work-order.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datawork_ordersactionschange) |
 | [Create Customer Action](actions/create-customer-action.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/customers/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2datacustomersactionsadd) |
 | [Get Action Instance](actions/get-action-instance.md) | Action Instance REST | `GET v1/direct/actions/:action_key_value` | [docs](https://direct-api.xchange.trimble.com/reference/get-directactionsaction_key_value) |
 | [Get Customer by RyvitId](actions/get-customer-by-ryvit-id.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/sm/2/data/customers/cache/__ryvitId/:ryvitId_value` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache__ryvitidryvitid_value) |
