@@ -1954,7 +1954,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [PocketSmith](../apis/p/pocketSmith) | [OpenAPI 3.1](../apis/p/pocketSmith/universal-api/openapi.json) |  |
 | [Podio](../apis/p/podio) | [OpenAPI 3.1](../apis/p/podio/universal-api/openapi.json) |  |
 | [Podscan](../apis/p/podscan) | [OpenAPI 3.1](../apis/p/podscan/universal-api/openapi.json) |  |
-| [PokéAPI](../apis/p/pokAPI) | [OpenAPI 3.1](../apis/p/pokAPI/universal-api/openapi.json) |  |
+| [PokéAPI](../apis/p/pokAPI) | [OpenAPI 3.1](../apis/p/pokAPI/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/PokeAPI/pokeapi/master/openapi.yml) |
 | [PokeAPI Core](../apis/p/pokeAPICore) | [OpenAPI 3.1](../apis/p/pokeAPICore/universal-api/openapi.json) |  |
 | [PokeAPI Word](../apis/p/pokeAPIWord) | [OpenAPI 3.1](../apis/p/pokeAPIWord/universal-api/openapi.json) |  |
 | [Polaria](../apis/p/polaria) | [OpenAPI 3.1](../apis/p/polaria/universal-api/openapi.json) |  |

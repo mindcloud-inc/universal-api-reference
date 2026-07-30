@@ -4,7 +4,7 @@ ConvertAPI: Convert, extract, compare, watermark, and optimize files
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/convertAPI/latest
 - **Category:** Business Intelligence / Data Extraction
-- **Actions:** 30
+- **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.convertapi.com/
 - **Vendor API docs:** https://docs.convertapi.com/
@@ -15,20 +15,14 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Add Image Watermark to PDF](actions/add-image-watermark-to-pdf.md):
+For example, to [Get User Info](actions/new-action1.md):
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/convertAPI/latest/actions/add-image-watermark-to-pdf" \
-  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "connectionId": "$CONNECTION_ID",
-  "file": "string",
-  "imageFile": "string"
-}'
+curl -X GET "https://connect.mindcloud.co/v1/universal/convertAPI/latest/actions/new-action1?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (30)
+## Actions (32)
 
 ### Conversion
 
@@ -59,9 +53,16 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/convertAPI/latest/action
 | [Convert PDF to SVG](actions/convert-pdf-to-svg.md) | POST | Converts a PDF file to SVG with ConvertAPI. |
 | [Convert PDF to TXT](actions/convert-pdf-to-txt.md) | POST | Converts a PDF file to TXT with ConvertAPI. |
 | [Convert PDF to XLSX](actions/convert-pdf-to-xlsx.md) | POST | Converts a PDF file to XLSX with ConvertAPI. |
+| [Convert PNG to PDF](actions/convert-png-to-pdf.md) | POST | Converts a PNG file to PDF with ConvertAPI. |
 | [Convert PPTX to PDF](actions/convert-pptx-to-pdf.md) | POST | Converts a PPTX file to PDF with ConvertAPI. |
 | [Convert Web to PDF](actions/convert-web-to-pdf.md) | POST | Converts a web page to PDF with ConvertAPI. |
 | [Convert XLSX to PDF](actions/convert-xlsx-to-pdf.md) | POST | Converts an XLSX file to PDF with ConvertAPI. |
 | [Merge PDF Files](actions/merge-pdf-files.md) | POST | Merges PDF files into one document in ConvertAPI. |
 | [Split PDF](actions/split-pdf.md) | POST | Splits a PDF into separate files in ConvertAPI. |
+
+### Users
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get User Info](actions/new-action1.md) | GET |  |
 

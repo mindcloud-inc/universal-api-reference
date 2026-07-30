@@ -38,6 +38,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `technicianId` | number | no |  |
 | `active` | list | no | Default: `Any`. |
 | `pageSize` | number | no | Default: `500`. |
+| `modifiedOnOrAfter` | string | no |  |
 | `endedOn` | string | no |  |
 | `jobIds` | string | no |  |
 | `startedOn` | string | no |  |

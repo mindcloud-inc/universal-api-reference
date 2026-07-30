@@ -1,6 +1,6 @@
 # ConvertAPI: Native API Reference
 
-A consolidated summary of ConvertAPI's API configuration and 30 documented operations, with links to official documentation.
+A consolidated summary of ConvertAPI's API configuration and 32 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.convertapi.com/
 - **OpenAPI specification:** https://v2.convertapi.com/info/openapi
@@ -35,9 +35,9 @@ Shared headers:
 | `Accept` | `application/json` |
 | `Content-Type` | `multipart/form-data` |
 
-Responses from this API use JSON. Response data is read from `files`.
+Responses from this API use JSON.
 
-## Endpoints (30 documented)
+## Endpoints (32 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -66,8 +66,10 @@ Responses from this API use JSON. Response data is read from `files`.
 | [Convert PDF to SVG](actions/convert-pdf-to-svg.md) | `POST /convert/pdf/to/svg` | [docs](https://www.convertapi.com/pdf-to-svg) |
 | [Convert PDF to TXT](actions/convert-pdf-to-txt.md) | `POST /convert/pdf/to/txt` | [docs](https://www.convertapi.com/pdf-to-txt) |
 | [Convert PDF to XLSX](actions/convert-pdf-to-xlsx.md) | `POST /convert/pdf/to/xlsx` | [docs](https://www.convertapi.com/pdf-to-xlsx) |
+| [Convert PNG to PDF](actions/convert-png-to-pdf.md) | `POST /convert/png/to/pdf` | [docs](https://www.convertapi.com/jpg-to-pdf) |
 | [Convert PPTX to PDF](actions/convert-pptx-to-pdf.md) | `POST /convert/pptx/to/pdf` | [docs](https://www.convertapi.com/pptx-to-pdf) |
 | [Convert Web to PDF](actions/convert-web-to-pdf.md) | `POST /convert/web/to/pdf` | [docs](https://www.convertapi.com/web-to-pdf) |
 | [Convert XLSX to PDF](actions/convert-xlsx-to-pdf.md) | `POST /convert/xlsx/to/pdf` | [docs](https://www.convertapi.com/xlsx-to-pdf) |
 | [Merge PDF Files](actions/merge-pdf-files.md) | `POST /convert/pdf/to/merge` | [docs](https://www.convertapi.com/pdf-to-merge) |
+| [Get User Info](actions/new-action1.md) | `GET /user` | [docs](https://www.convertapi.com/docs/user-information) |
 | [Split PDF](actions/split-pdf.md) | `POST /convert/pdf/to/split` | [docs](https://www.convertapi.com/pdf-to-split) |

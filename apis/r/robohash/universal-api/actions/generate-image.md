@@ -40,8 +40,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `text` | string | yes | Text value used to deterministically generate the Robohash image. Example: `user@example.com`. |
 | `format` | list | yes | Image file extension documented by Robohash, such as png or jpg. One of: `bmp`, `jpg`, `png`. Default: `png`. |
 | `size` | string | no | Optional image dimensions in WIDTHxHEIGHT format, for example 200x200. Example: `200x200`. |
-| `set` | list | no | Optional image set. Official public docs list set1 through set5 and any; the README also documents set6 in the robosets table. One of: `any`, `set1`, `set2`, `set3`, `set4`, `set5`. |
+| `set` | list | no | Optional image set. Official provider documentation and its README list set1 through set6 and any. One of: `any`, `set1`, `set2`, `set3`, `set4`, `set5`, `set6`. |
 | `bgset` | list | no | Optional background set. Official public docs list bg1, bg2, or any. One of: `any`, `bg1`, `bg2`. |
+| `sets` | string | no | Optional comma-delimited set numbers, for example 1,3. The provider documents explicit set lists as stable compared with set=any. |
 
 ### Advanced
 

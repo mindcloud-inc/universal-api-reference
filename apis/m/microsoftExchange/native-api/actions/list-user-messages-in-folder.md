@@ -16,4 +16,7 @@ Finds messages in a user's mail folder in Microsoft Exchange.
 | `userIdOrPrincipalName` | path | `string` | yes | The Microsoft Graph user id or userPrincipalName for the mailbox whose folder messages should be listed. Use the Entra user id when the mail address differs from the userPrincipalName. |
 | `mailFolderId` | path | `string` | yes | The Microsoft Graph mail folder ID or lowercase well-known folder name, such as inbox or sentitems. If a well-known name is not found for a mailbox, list that user's folders and pass the returned folder id. |
 | `$top` | query | `number` | no | Maximum number of messages to return. |
+| `$orderby` | query | `string` | no | Optional Microsoft Graph $orderby expression. Use sentDateTime desc for sentitems and receivedDateTime desc for inbox. |
+| `$select` | query | `string` | no | Comma-separated Microsoft Graph message fields to return. |
 | `$expand` | query | `string` | no | Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted. |
+| `$filter` | query | `string` | no | Optional Microsoft Graph OData filter expression. |

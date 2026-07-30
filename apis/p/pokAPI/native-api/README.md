@@ -3,6 +3,7 @@
 A consolidated summary of PokéAPI's API configuration and 99 documented operations, with links to official documentation.
 
 - **Official docs:** https://pokeapi.co/docs/v2
+- **OpenAPI specification:** https://raw.githubusercontent.com/PokeAPI/pokeapi/master/openapi.yml
 - **API base URL:** `https://pokeapi.co/api/v2`
 
 ## Authentication

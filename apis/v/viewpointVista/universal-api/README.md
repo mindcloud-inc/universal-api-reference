@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 58
+- **Actions:** 61
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (58)
+## Actions (61)
 
 ### Accounts Payable
 
@@ -94,6 +94,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | [List JC Objects](actions/list-jc-objects.md) | GET | Represents data found in Viewpoint® Vista™ JC programs. |
 | [Search JC Objects](actions/search-jc-objects.md) | GET | Search objects found in Viewpoint® Vista™ Job Cost (JC) programs. |
 
+### Jobs
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Job](actions/create-job.md) | POST | Adds a Job based on a contract |
+| [Update Job](actions/update-job.md) | PUT | Update a Job based on a contract |
+
 ### Material Sales
 
 | Action | Method | Description |
@@ -120,6 +127,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | [List PR Objects](actions/list-pr-objects.md) | GET | Represents data found in Viewpoint® Vista™ PR programs. |
 | [Post Invoice Batch](actions/post-invoice-batch.md) | POST | Validate and post an AR Batch |
 | [Search PR Objects](actions/search-pr-objects.md) | GET | Search objects found in Viewpoint® Vista™ Payroll (PR) programs. |
+| [Upsert AR Invoice Batch](actions/upsert-ar-invoice-batch.md) | POST | Upsert Invoice Batch |
 | [Upsert Invoice Batch](actions/upsert-invoice-batch.md) | POST | Upsert Invoice Batch |
 | [Upsert Timecard Batch](actions/upsert-timecard-batch.md) | POST | Upsert TimeCard Batch |
 
