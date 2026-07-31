@@ -16,3 +16,4 @@ Update Invoice record.
 | `invoiceId` | body | `number` | no |
 | `externalId` | body | `string` | no |
 | `externalMessage` | body | `string` | no |
+| `model` | body | `string` | no |

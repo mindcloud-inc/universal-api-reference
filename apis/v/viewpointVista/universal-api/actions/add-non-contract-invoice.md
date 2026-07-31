@@ -18,9 +18,9 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/ac
   "connectionId": "$CONNECTION_ID",
   "co": 1,
   "mth": "2026-05-01",
-  "BatchId": "string",
-  "CustGroup": "string",
-  "Customer": "string",
+  "BatchId": 1,
+  "CustGroup": 1,
+  "Customer": 1,
   "TransDate": "string"
 }'
 ```
@@ -36,9 +36,9 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
     connectionId,
     "co": 1,
     "mth": "2026-05-01",
-    "BatchId": "string",
-    "CustGroup": "string",
-    "Customer": "string",
+    "BatchId": 1,
+    "CustGroup": 1,
+    "Customer": 1,
     "TransDate": "string"
   })
 });
@@ -54,9 +54,9 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `co` | number | yes | Vista PR company. |
 | `mth` | string | yes | Posting month for the batch. Format: YYYY-MM-DD. Example: `2026-05-01`. |
-| `BatchId` | string | yes |  |
-| `CustGroup` | string | yes |  |
-| `Customer` | string | yes |  |
+| `BatchId` | number | yes |  |
+| `CustGroup` | number | yes |  |
+| `Customer` | number | yes |  |
 | `RecType` | number | no |  |
 | `CustRef` | string | no |  |
 | `Invoice` | string | no |  |
@@ -95,5 +95,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Viewpoint Vista API, this operation is `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/pr/2/data/batch_entries/actions/add_non-contract_inv` (base URL `https://api.xchange.trimble.com/connect/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/add-non-contract-invoice.md) for the provider-specific parameters and requirements.
+Through the native Viewpoint Vista API, this operation is `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batch_entries/actions/add_noncntrct_inv_v2` (base URL `https://api.xchange.trimble.com/connect/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/add-non-contract-invoice.md) for the provider-specific parameters and requirements.
 

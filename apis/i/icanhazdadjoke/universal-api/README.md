@@ -1,4 +1,4 @@
-# icanhazdadjoke: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/icanhazdadjoke_1785420699150.png" alt="icanhazdadjoke logo" width="28" height="28"> icanhazdadjoke: Universal API
 
 Fetch random dad jokes, retrieve jokes by ID, and search the icanhazdadjoke catalog.
 

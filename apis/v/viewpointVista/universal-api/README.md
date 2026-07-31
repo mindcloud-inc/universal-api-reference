@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 61
+- **Actions:** 62
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (61)
+## Actions (62)
 
 ### Accounts Payable
 
@@ -44,6 +44,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Action Instance](actions/get-action-instance.md) | GET | Vista processes write operations asynchronously. This endpoint allows the integration to confirm whether a batch or time entry was… |
+
+### Contracts
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Contract](actions/create-contract.md) | POST | Create a contract |
 
 ### Document Management
 
@@ -120,7 +126,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Add Contract Invoice](actions/add-contract-invoice.md) | POST | Adds a Contract based invoice. |
+| [Add AR Contract Invoice](actions/add-ar-contract-invoice.md) | POST | Adds a Contract based invoice. |
 | [Add Many Time Batch Entries](actions/add-many-payroll-timecard-entries.md) | POST | Add an array of time batch entries |
 | [Add Non-Contract Invoice](actions/add-non-contract-invoice.md) | POST | Adds a Non-Contract based invoice. |
 | [Get Timecard Batch by Ryvit ID](actions/get-timecard-batch-by-ryvit-id.md) | GET |  |

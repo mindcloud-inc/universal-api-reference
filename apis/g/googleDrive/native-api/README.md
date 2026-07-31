@@ -18,7 +18,9 @@ Register an OAuth application with the provider to obtain client credentials and
 2. Exchange the returned authorization code with a POST request to https://oauth2.googleapis.com/token.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
-Requested scopes: `openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly`.
+Requested scopes: `openid https://www.googleapis.com/auth/userinfo.email
+https://www.googleapis.com/auth/userinfo.profile
+https://www.googleapis.com/auth/drive`.
 
 Refresh expired access tokens with a POST request to https://oauth2.googleapis.com/token.
 

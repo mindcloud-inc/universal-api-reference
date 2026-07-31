@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3122 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3185 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -51,6 +51,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Agentset](../apis/a/agentset) | [OpenAPI 3.1](../apis/a/agentset/universal-api/openapi.json) | [Provider OpenAPI](https://spec.speakeasy.com/agentset-ktc/api/agentset-api-with-code-samples) |
 | [AgentX](../apis/a/agentX) | [OpenAPI 3.1](../apis/a/agentX/universal-api/openapi.json) |  |
 | [Agicap](../apis/a/agicap) | [OpenAPI 3.1](../apis/a/agicap/universal-api/openapi.json) |  |
+| [Agify](../apis/a/agify) | [OpenAPI 3.1](../apis/a/agify/universal-api/openapi.json) |  |
 | [Agile CRM](../apis/a/agileCRM) | [OpenAPI 3.1](../apis/a/agileCRM/universal-api/openapi.json) |  |
 | [Agiliron](../apis/a/agiliron) | [OpenAPI 3.1](../apis/a/agiliron/universal-api/openapi.json) | [Provider OpenAPI](https://api.agiliron.com/docs/open-api-spec-37) |
 | [Agilite](../apis/a/agilite) | [OpenAPI 3.1](../apis/a/agilite/universal-api/openapi.json) |  |
@@ -95,6 +96,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Ambee](../apis/a/ambee) | [OpenAPI 3.1](../apis/a/ambee/universal-api/openapi.json) |  |
 | [Amberscript](../apis/a/amberscript) | [OpenAPI 3.1](../apis/a/amberscript/universal-api/openapi.json) |  |
 | [AMcards.com](../apis/a/aMcardscom) | [OpenAPI 3.1](../apis/a/aMcardscom/universal-api/openapi.json) |  |
+| [Amiibo API](../apis/a/amiiboAPI) | [OpenAPI 3.1](../apis/a/amiiboAPI/universal-api/openapi.json) |  |
 | [Anabix CRM](../apis/a/anabixCRM) | [OpenAPI 3.1](../apis/a/anabixCRM/universal-api/openapi.json) |  |
 | [Anchor](../apis/a/anchor) | [OpenAPI 3.1](../apis/a/anchor/universal-api/openapi.json) | [Provider OpenAPI](https://docs.anchorbrowser.io/openapi.yaml) |
 | [AnnounceKit](../apis/a/announceKit) | [OpenAPI 3.1](../apis/a/announceKit/universal-api/openapi.json) |  |
@@ -182,6 +184,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [B2B Wave](../apis/b/b2BWave) | [OpenAPI 3.1](../apis/b/b2BWave/universal-api/openapi.json) |  |
 | [Backendless](../apis/b/backendless) | [OpenAPI 3.1](../apis/b/backendless/universal-api/openapi.json) |  |
 | [BackgroundCut](../apis/b/backgroundCut) | [OpenAPI 3.1](../apis/b/backgroundCut/universal-api/openapi.json) |  |
+| [Bacon Ipsum](../apis/b/baconIpsum) | [OpenAPI 3.1](../apis/b/baconIpsum/universal-api/openapi.json) |  |
 | [BambooHR](../apis/b/bambooHrV2) | [OpenAPI 3.1](../apis/b/bambooHrV2/universal-api/openapi.json) |  |
 | [Bannerbear](../apis/b/bannerbear) | [OpenAPI 3.1](../apis/b/bannerbear/universal-api/openapi.json) |  |
 | [Bannerbite](../apis/b/bannerbite) | [OpenAPI 3.1](../apis/b/bannerbite/universal-api/openapi.json) |  |
@@ -285,6 +288,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [BrainyQuote](../apis/b/brainyQuote) | [OpenAPI 3.1](../apis/b/brainyQuote/universal-api/openapi.json) |  |
 | [Brand.dev](../apis/b/branddev) | [OpenAPI 3.1](../apis/b/branddev/universal-api/openapi.json) |  |
 | [Brasil API](../apis/b/brasilAPI) | [OpenAPI 3.1](../apis/b/brasilAPI/universal-api/openapi.json) | [Provider OpenAPI](https://brasilapi.com.br/docs) |
+| [Breaking Bad Quotes](../apis/b/breakingBadQuotes) | [OpenAPI 3.1](../apis/b/breakingBadQuotes/universal-api/openapi.json) |  |
 | [Brevo](../apis/b/brevo) | [OpenAPI 3.1](../apis/b/brevo/universal-api/openapi.json) |  |
 | [Bridge](../apis/b/bridge) | [OpenAPI 3.1](../apis/b/bridge/universal-api/openapi.json) |  |
 | [Bridge Interactive Platform](../apis/b/bridgeInteractivePlatform) | [OpenAPI 3.1](../apis/b/bridgeInteractivePlatform/universal-api/openapi.json) | [Provider OpenAPI](https://bridgedataoutput.com/tuberat/swagger) |
@@ -307,6 +311,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Bulldog-WP](../apis/b/bulldogWP) | [OpenAPI 3.1](../apis/b/bulldogWP/universal-api/openapi.json) | [Provider OpenAPI](https://console.bulldog-wp.co.il/docs/specification) |
 | [Bump.sh](../apis/b/bumpsh) | [OpenAPI 3.1](../apis/b/bumpsh/universal-api/openapi.json) | [Provider OpenAPI](https://developers.bump.sh/source.json) |
 | [Bumpups](../apis/b/bumpups) | [OpenAPI 3.1](../apis/b/bumpups/universal-api/openapi.json) |  |
+| [Bunnies.io](../apis/b/bunniesio) | [OpenAPI 3.1](../apis/b/bunniesio/universal-api/openapi.json) |  |
 | [BunnyCDN](../apis/b/bunnyCDN) | [OpenAPI 3.1](../apis/b/bunnyCDN/universal-api/openapi.json) | [Provider OpenAPI](https://docs.bunny.net/openapi) |
 | [Bureau of Economic Analysis](../apis/b/bureauOfEconomicAnalysis) | [OpenAPI 3.1](../apis/b/bureauOfEconomicAnalysis/universal-api/openapi.json) |  |
 | [Bureau of Labor Statistics](../apis/b/bureauOfLaborStatistics) | [OpenAPI 3.1](../apis/b/bureauOfLaborStatistics/universal-api/openapi.json) |  |
@@ -358,7 +363,9 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Casting42](../apis/c/casting42) | [OpenAPI 3.1](../apis/c/casting42/universal-api/openapi.json) |  |
 | [CastingWords](../apis/c/castingWords) | [OpenAPI 3.1](../apis/c/castingWords/universal-api/openapi.json) |  |
 | [Castor EDC](../apis/c/castorEDC) | [OpenAPI 3.1](../apis/c/castorEDC/universal-api/openapi.json) | [Provider OpenAPI](https://us.castoredc.com/api/swagger?format=json) |
+| [Cataas](../apis/c/cataas) | [OpenAPI 3.1](../apis/c/cataas/universal-api/openapi.json) |  |
 | [Catalog Machine](../apis/c/catalogMachine) | [OpenAPI 3.1](../apis/c/catalogMachine/universal-api/openapi.json) |  |
+| [Cat Facts](../apis/c/catFacts) | [OpenAPI 3.1](../apis/c/catFacts/universal-api/openapi.json) | [Provider OpenAPI](https://catfact.ninja/docs?api-docs.json) |
 | [CATS](../apis/c/cATS) | [OpenAPI 3.1](../apis/c/cATS/universal-api/openapi.json) |  |
 | [CDC Content Services](../apis/c/cDCContentServices) | [OpenAPI 3.1](../apis/c/cDCContentServices/universal-api/openapi.json) |  |
 | [CDR Platform](../apis/c/cDRPlatform) | [OpenAPI 3.1](../apis/c/cDRPlatform/universal-api/openapi.json) | [Provider OpenAPI](https://api.cdrplatform.com/schema/?format=json) |
@@ -410,6 +417,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [ChipBot](../apis/c/chipBot) | [OpenAPI 3.1](../apis/c/chipBot/universal-api/openapi.json) |  |
 | [Chroma Cloud](../apis/c/chromaCloud) | [OpenAPI 3.1](../apis/c/chromaCloud/universal-api/openapi.json) | [Provider OpenAPI](https://api.trychroma.com:8000/openapi.json) |
 | [Chroma Vector Store](../apis/c/chromaVectorStore) | [OpenAPI 3.1](../apis/c/chromaVectorStore/universal-api/openapi.json) |  |
+| [Chuck Norris](../apis/c/chuckNorris) | [OpenAPI 3.1](../apis/c/chuckNorris/universal-api/openapi.json) |  |
 | [ChurchStamp](../apis/c/churchStamp) | [OpenAPI 3.1](../apis/c/churchStamp/universal-api/openapi.json) | [Provider OpenAPI](https://churchstampapi.docs.apiary.io/api-description-document) |
 | [Cin7 Core](../apis/c/cin7core) | [OpenAPI 3.1](../apis/c/cin7core/universal-api/openapi.json) |  |
 | [CINCEL](../apis/c/cINCEL) | [OpenAPI 3.1](../apis/c/cINCEL/universal-api/openapi.json) | [Provider OpenAPI](https://api.cincel.digital/v3/oas.yaml?tags=digital-signature,auth,tokens) |
@@ -476,6 +484,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [CNPJá](../apis/c/cNPJ) | [OpenAPI 3.1](../apis/c/cNPJ/universal-api/openapi.json) |  |
 | [CoachAccountable](../apis/c/coachAccountable) | [OpenAPI 3.1](../apis/c/coachAccountable/universal-api/openapi.json) |  |
 | [Coast](../apis/c/coast) | [OpenAPI 3.1](../apis/c/coast/universal-api/openapi.json) |  |
+| [CocktailDB](../apis/c/cocktailDB) | [OpenAPI 3.1](../apis/c/cocktailDB/universal-api/openapi.json) |  |
 | [Coda](../apis/c/coda) | [OpenAPI 3.1](../apis/c/coda/universal-api/openapi.json) | [Provider OpenAPI](https://coda.io/apis/v1/openapi.yaml) |
 | [Codeberg](../apis/c/codeberg) | [OpenAPI 3.1](../apis/c/codeberg/universal-api/openapi.json) | [Provider OpenAPI](https://codeberg.org/swagger.v1.json) |
 | [Codemagic](../apis/c/codemagic) | [OpenAPI 3.1](../apis/c/codemagic/universal-api/openapi.json) | [Provider OpenAPI](https://codemagic.io/api/v3/schema/openapi.json) |
@@ -484,6 +493,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [CodeSubmit](../apis/c/codeSubmit) | [OpenAPI 3.1](../apis/c/codeSubmit/universal-api/openapi.json) |  |
 | [Code Switch Podcast](../apis/c/codeSwitchPodcast) | [OpenAPI 3.1](../apis/c/codeSwitchPodcast/universal-api/openapi.json) |  |
 | [Cody](../apis/c/cody) | [OpenAPI 3.1](../apis/c/cody/universal-api/openapi.json) | [Provider OpenAPI](https://developers.meetcody.ai/source.json) |
+| [Coffee API](../apis/c/coffeeAPI) | [OpenAPI 3.1](../apis/c/coffeeAPI/universal-api/openapi.json) |  |
 | [Cogmento CRM](../apis/c/cogmentoCRM) | [OpenAPI 3.1](../apis/c/cogmentoCRM/universal-api/openapi.json) | [Provider OpenAPI](https://api.cogmento.com/static/swagger/index.html) |
 | [Cognito Forms](../apis/c/cognitoForms) | [OpenAPI 3.1](../apis/c/cognitoForms/universal-api/openapi.json) | [Provider OpenAPI](https://static.cognitoforms.com/api-reference/CognitoFormsOpenAPI.json) |
 | [Cohere](../apis/c/cohere) | [OpenAPI 3.1](../apis/c/cohere/universal-api/openapi.json) |  |
@@ -629,6 +639,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [DatoCMS](../apis/d/datoCMS) | [OpenAPI 3.1](../apis/d/datoCMS/universal-api/openapi.json) |  |
 | [Datumbox](../apis/d/datumbox) | [OpenAPI 3.1](../apis/d/datumbox/universal-api/openapi.json) |  |
 | [Daytona](../apis/d/daytona) | [OpenAPI 3.1](../apis/d/daytona/universal-api/openapi.json) | [Provider OpenAPI](https://www.daytona.io/docs/openapi.json) |
+| [D&D 5e](../apis/d/dD5e) | [OpenAPI 3.1](../apis/d/dD5e/universal-api/openapi.json) |  |
 | [Dealfront](../apis/d/dealfront) | [OpenAPI 3.1](../apis/d/dealfront/universal-api/openapi.json) |  |
 | [DealMachine](../apis/d/dealMachine) | [OpenAPI 3.1](../apis/d/dealMachine/universal-api/openapi.json) |  |
 | [deAPI](../apis/d/deAPI) | [OpenAPI 3.1](../apis/d/deAPI/universal-api/openapi.json) |  |
@@ -650,12 +661,14 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [DeskTime](../apis/d/deskTime) | [OpenAPI 3.1](../apis/d/deskTime/universal-api/openapi.json) |  |
 | [Detrack](../apis/d/detrack) | [OpenAPI 3.1](../apis/d/detrack/universal-api/openapi.json) |  |
 | [DevCycle](../apis/d/devCycle) | [OpenAPI 3.1](../apis/d/devCycle/universal-api/openapi.json) | [Provider OpenAPI](https://api.devcycle.com/openapi.json) |
+| [Dev Excuses](../apis/d/devExcuses) | [OpenAPI 3.1](../apis/d/devExcuses/universal-api/openapi.json) |  |
 | [Devin](../apis/d/devin) | [OpenAPI 3.1](../apis/d/devin/universal-api/openapi.json) |  |
 | [Dev.to](../apis/d/devto) | [OpenAPI 3.1](../apis/d/devto/universal-api/openapi.json) | [Provider OpenAPI](https://developers.forem.com/redocusaurus/plugin-redoc-1.yaml) |
 | [Dext](../apis/d/dext) | [OpenAPI 3.1](../apis/d/dext/universal-api/openapi.json) |  |
 | [Diabolocom](../apis/d/diabolocom) | [OpenAPI 3.1](../apis/d/diabolocom/universal-api/openapi.json) |  |
 | [DialMyCalls](../apis/d/dialMyCalls) | [OpenAPI 3.1](../apis/d/dialMyCalls/universal-api/openapi.json) |  |
 | [Dialpad](../apis/d/dialpad) | [OpenAPI 3.1](../apis/d/dialpad/universal-api/openapi.json) | [Provider OpenAPI](https://dialpad.com/static/openapi/platform-v1.0.json) |
+| [DiceBear](../apis/d/diceBear) | [OpenAPI 3.1](../apis/d/diceBear/universal-api/openapi.json) |  |
 | [Didit](../apis/d/didit) | [OpenAPI 3.1](../apis/d/didit/universal-api/openapi.json) |  |
 | [DIDWW SMS OUT](../apis/d/dIDWWSMSOUT) | [OpenAPI 3.1](../apis/d/dIDWWSMSOUT/universal-api/openapi.json) |  |
 | [Diffbot](../apis/d/diffbot) | [OpenAPI 3.1](../apis/d/diffbot/universal-api/openapi.json) | [Provider OpenAPI](https://kg.diffbot.com/kg/dql/openapi.json) |
@@ -675,6 +688,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Discord](../apis/d/discord) | [OpenAPI 3.1](../apis/d/discord/universal-api/openapi.json) |  |
 | [Discord-Bot](../apis/d/discordBot) | [OpenAPI 3.1](../apis/d/discordBot/universal-api/openapi.json) |  |
 | [Discourse](../apis/d/discourse) | [OpenAPI 3.1](../apis/d/discourse/universal-api/openapi.json) | [Provider OpenAPI](https://docs.discourse.org/openapi.json) |
+| [Disney API](../apis/d/disneyAPI) | [OpenAPI 3.1](../apis/d/disneyAPI/universal-api/openapi.json) |  |
 | [Disparo PRO](../apis/d/disparoPRO) | [OpenAPI 3.1](../apis/d/disparoPRO/universal-api/openapi.json) | [Provider OpenAPI](https://gateway.disparopro.com.br/rcs/docs-json) |
 | [DitLead](../apis/d/ditLead) | [OpenAPI 3.1](../apis/d/ditLead/universal-api/openapi.json) | [Provider OpenAPI](https://api.ditlead.com/v1/docs.json) |
 | [DivvyHQ](../apis/d/divvyHQ) | [OpenAPI 3.1](../apis/d/divvyHQ/universal-api/openapi.json) | [Provider OpenAPI](https://developer.divvyhq.com/openapi.yml) |
@@ -709,6 +723,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Docusnap365](../apis/d/docusnap365) | [OpenAPI 3.1](../apis/d/docusnap365/universal-api/openapi.json) |  |
 | [Docutray](../apis/d/docutray) | [OpenAPI 3.1](../apis/d/docutray/universal-api/openapi.json) | [Provider OpenAPI](https://docs.docutray.com/swagger.json) |
 | [DocuWriter.ai](../apis/d/docuWriterai) | [OpenAPI 3.1](../apis/d/docuWriterai/universal-api/openapi.json) |  |
+| [Dog Facts](../apis/d/dogFacts) | [OpenAPI 3.1](../apis/d/dogFacts/universal-api/openapi.json) |  |
 | [DogQ](../apis/d/dogQ) | [OpenAPI 3.1](../apis/d/dogQ/universal-api/openapi.json) |  |
 | [Dolibarr](../apis/d/dolibarr) | [OpenAPI 3.1](../apis/d/dolibarr/universal-api/openapi.json) | [Provider OpenAPI](https://mindcloud-dolibarr-0421.with7.dolicloud.com/api/index.php/explorer/swagger.json) |
 | [DomoAI](../apis/d/domoAI) | [OpenAPI 3.1](../apis/d/domoAI/universal-api/openapi.json) |  |
@@ -853,11 +868,13 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Eversign](../apis/e/eversign) | [OpenAPI 3.1](../apis/e/eversign/universal-api/openapi.json) |  |
 | [Evervault](../apis/e/evervault) | [OpenAPI 3.1](../apis/e/evervault/universal-api/openapi.json) | [Provider OpenAPI](https://docs.evervault.com/api-spec.json) |
 | [Every.org](../apis/e/everyorg) | [OpenAPI 3.1](../apis/e/everyorg/universal-api/openapi.json) |  |
+| [Evil Insult](../apis/e/evilInsult) | [OpenAPI 3.1](../apis/e/evilInsult/universal-api/openapi.json) |  |
 | [Evoliz](../apis/e/evoliz) | [OpenAPI 3.1](../apis/e/evoliz/universal-api/openapi.json) | [Provider OpenAPI](https://evoliz.io/api-docs/api-docs.yaml) |
 | [eWeLink](../apis/e/eWeLink) | [OpenAPI 3.1](../apis/e/eWeLink/universal-api/openapi.json) |  |
 | [Exa](../apis/e/exa) | [OpenAPI 3.1](../apis/e/exa/universal-api/openapi.json) | [Provider OpenAPI](https://exa.ai/docs/reference/openapi-spec) |
 | [Exact Mails](../apis/e/exactMails) | [OpenAPI 3.1](../apis/e/exactMails/universal-api/openapi.json) | [Provider OpenAPI](https://exactmails.xyz:8012/openapi.json) |
 | [Exchange Rates API](../apis/e/exchangeRatesAPI) | [OpenAPI 3.1](../apis/e/exchangeRatesAPI/universal-api/openapi.json) |  |
+| [Excuser](../apis/e/excuser) | [OpenAPI 3.1](../apis/e/excuser/universal-api/openapi.json) |  |
 | [Expensify](../apis/e/expensify) | [OpenAPI 3.1](../apis/e/expensify/universal-api/openapi.json) |  |
 | [ExpertEase](../apis/e/expertEase) |  | [Provider OpenAPI](https://backend.experteaseai.com/api/schema/) |
 | [ExpertTexting](../apis/e/expertTexting) | [OpenAPI 3.1](../apis/e/expertTexting/universal-api/openapi.json) |  |
@@ -914,6 +931,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Fillout](../apis/f/fillout) | [OpenAPI 3.1](../apis/f/fillout/universal-api/openapi.json) |  |
 | [Fillout Forms](../apis/f/filloutForms) | [OpenAPI 3.1](../apis/f/filloutForms/universal-api/openapi.json) |  |
 | [Finage](../apis/f/finage) | [OpenAPI 3.1](../apis/f/finage/universal-api/openapi.json) |  |
+| [Final Space](../apis/f/finalSpace) | [OpenAPI 3.1](../apis/f/finalSpace/universal-api/openapi.json) |  |
 | [Financial Modeling Prep](../apis/f/financialModelingPrep) | [OpenAPI 3.1](../apis/f/financialModelingPrep/universal-api/openapi.json) |  |
 | [finaX](../apis/f/finaX) | [OpenAPI 3.1](../apis/f/finaX/universal-api/openapi.json) | [Provider OpenAPI](https://docs.finax.dev/openapi.json) |
 | [FindyMail](../apis/f/findyMail) | [OpenAPI 3.1](../apis/f/findyMail/universal-api/openapi.json) |  |
@@ -956,11 +974,13 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [FlowiseAI](../apis/f/flowiseAI) | [OpenAPI 3.1](../apis/f/flowiseAI/universal-api/openapi.json) |  |
 | [Fluents](../apis/f/fluents) | [OpenAPI 3.1](../apis/f/fluents/universal-api/openapi.json) |  |
 | [Fluxguard](../apis/f/fluxguard) | [OpenAPI 3.1](../apis/f/fluxguard/universal-api/openapi.json) |  |
+| [FOAAS](../apis/f/fOAAS) | [OpenAPI 3.1](../apis/f/fOAAS/universal-api/openapi.json) |  |
 | [Focusmate](../apis/f/focusmate) | [OpenAPI 3.1](../apis/f/focusmate/universal-api/openapi.json) |  |
 | [FogBugz](../apis/f/fogBugz) | [OpenAPI 3.1](../apis/f/fogBugz/universal-api/openapi.json) |  |
 | [folk](../apis/f/folk) | [OpenAPI 3.1](../apis/f/folk/universal-api/openapi.json) |  |
 | [Follow Up Boss - Legacy](../apis/f/followUpBoss) | [OpenAPI 3.1](../apis/f/followUpBoss/universal-api/openapi.json) | [Provider OpenAPI](https://docs.followupboss.com/reference/getting-started) |
 | [Follow Up Boss](../apis/f/followUpBossV2) | [OpenAPI 3.1](../apis/f/followUpBossV2/universal-api/openapi.json) |  |
+| [Foodish](../apis/f/foodish) | [OpenAPI 3.1](../apis/f/foodish/universal-api/openapi.json) |  |
 | [ForceManager](../apis/f/forceManager) | [OpenAPI 3.1](../apis/f/forceManager/universal-api/openapi.json) |  |
 | [Forecast](../apis/f/forecast) | [OpenAPI 3.1](../apis/f/forecast/universal-api/openapi.json) |  |
 | [Foreplay](../apis/f/foreplay) | [OpenAPI 3.1](../apis/f/foreplay/universal-api/openapi.json) | [Provider OpenAPI](https://public.api.foreplay.co/openapi.json) |
@@ -999,8 +1019,10 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Freshworks CRM](../apis/f/freshworksCRM) | [OpenAPI 3.1](../apis/f/freshworksCRM/universal-api/openapi.json) |  |
 | [Front](../apis/f/front) | [OpenAPI 3.1](../apis/f/front/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/frontapp/front-api-specs/main/core-api/core-api.json) |
 | [Frontegg](../apis/f/frontegg) | [OpenAPI 3.1](../apis/f/frontegg/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/frontegg/openapi-public/master/apis-combined.json) |
+| [Fruityvice](../apis/f/fruityvice) | [OpenAPI 3.1](../apis/f/fruityvice/universal-api/openapi.json) |  |
 | [FTrack](../apis/f/fTrack) | [OpenAPI 3.1](../apis/f/fTrack/universal-api/openapi.json) |  |
 | [FullSession](../apis/f/fullSession) | [OpenAPI 3.1](../apis/f/fullSession/universal-api/openapi.json) |  |
+| [Fun Translations](../apis/f/funTranslations) | [OpenAPI 3.1](../apis/f/funTranslations/universal-api/openapi.json) |  |
 | [FuseDesk](../apis/f/fuseDesk) | [OpenAPI 3.1](../apis/f/fuseDesk/universal-api/openapi.json) |  |
 | [FutureAGI](../apis/f/futureAGI) | [OpenAPI 3.1](../apis/f/futureAGI/universal-api/openapi.json) |  |
 | [1001fx](../apis/f/fx) | [OpenAPI 3.1](../apis/f/fx/universal-api/openapi.json) | [Provider OpenAPI](https://api.1001fx.com/api-json) |
@@ -1085,6 +1107,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [GoSquared](../apis/g/goSquared) | [OpenAPI 3.1](../apis/g/goSquared/universal-api/openapi.json) |  |
 | [GoTeamup](../apis/g/goTeamup) | [OpenAPI 3.1](../apis/g/goTeamup/universal-api/openapi.json) |  |
 | [gotoHuman](../apis/g/gotoHuman) | [OpenAPI 3.1](../apis/g/gotoHuman/universal-api/openapi.json) |  |
+| [GoT Quotes](../apis/g/goTQuotes) | [OpenAPI 3.1](../apis/g/goTQuotes/universal-api/openapi.json) |  |
 | [GoZen DeepAgent](../apis/g/goZenDeepAgent) | [OpenAPI 3.1](../apis/g/goZenDeepAgent/universal-api/openapi.json) |  |
 | [GPTBots](../apis/g/gPTBots) | [OpenAPI 3.1](../apis/g/gPTBots/universal-api/openapi.json) |  |
 | [GPT Chatbot](../apis/g/gPTChatbot) | [OpenAPI 3.1](../apis/g/gPTChatbot/universal-api/openapi.json) |  |
@@ -1136,6 +1159,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Harness](../apis/h/harness) | [OpenAPI 3.1](../apis/h/harness/universal-api/openapi.json) |  |
 | [Harpoon](../apis/h/harpoon) | [OpenAPI 3.1](../apis/h/harpoon/universal-api/openapi.json) | [Provider OpenAPI](https://app.harpoonapp.com/api-docs/api-docs.json) |
 | [Harry Potter](../apis/h/harryPotter) | [OpenAPI 3.1](../apis/h/harryPotter/universal-api/openapi.json) |  |
+| [Harry Potter API](../apis/h/harryPotterAPI) | [OpenAPI 3.1](../apis/h/harryPotterAPI/universal-api/openapi.json) |  |
 | [Harvest](../apis/h/harvest) | [OpenAPI 3.1](../apis/h/harvest/universal-api/openapi.json) |  |
 | [Harvestr.io](../apis/h/harvestr) | [OpenAPI 3.1](../apis/h/harvestr/universal-api/openapi.json) |  |
 | [HasData](../apis/h/hasData) | [OpenAPI 3.1](../apis/h/hasData/universal-api/openapi.json) |  |
@@ -1176,6 +1200,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Hoops](../apis/h/hoops) | [OpenAPI 3.1](../apis/h/hoops/universal-api/openapi.json) |  |
 | [HoorayHR](../apis/h/hoorayHR) | [OpenAPI 3.1](../apis/h/hoorayHR/universal-api/openapi.json) | [Provider OpenAPI](https://api.hoorayhr.io/swagger.json) |
 | [Hopewiser](../apis/h/hopewiser) | [OpenAPI 3.1](../apis/h/hopewiser/universal-api/openapi.json) |  |
+| [Horoscope](../apis/h/horoscope) | [OpenAPI 3.1](../apis/h/horoscope/universal-api/openapi.json) |  |
 | [Host.io](../apis/h/hostio) | [OpenAPI 3.1](../apis/h/hostio/universal-api/openapi.json) |  |
 | [HotspotSystem](../apis/h/hotspotSystem) | [OpenAPI 3.1](../apis/h/hotspotSystem/universal-api/openapi.json) |  |
 | [Housecall Pro](../apis/h/housecallPro) | [OpenAPI 3.1](../apis/h/housecallPro/universal-api/openapi.json) |  |
@@ -1187,6 +1212,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [HTML 2 PDF](../apis/h/hTML2PDF) | [OpenAPI 3.1](../apis/h/hTML2PDF/universal-api/openapi.json) |  |
 | [HTML/CSS to Image app](../apis/h/hTMLCSSToImageApp) | [OpenAPI 3.1](../apis/h/hTMLCSSToImageApp/universal-api/openapi.json) |  |
 | [HTML to PDF](../apis/h/hTMLToPDF) | [OpenAPI 3.1](../apis/h/hTMLToPDF/universal-api/openapi.json) |  |
+| [HTTP Dogs](../apis/h/hTTPDogs) | [OpenAPI 3.1](../apis/h/hTTPDogs/universal-api/openapi.json) |  |
 | [httpSMS](../apis/h/httpSMS) | [OpenAPI 3.1](../apis/h/httpSMS/universal-api/openapi.json) | [Provider OpenAPI](https://api.httpsms.com/doc.json) |
 | [Hubflo](../apis/h/hubflo) | [OpenAPI 3.1](../apis/h/hubflo/universal-api/openapi.json) |  |
 | [Hub Planner](../apis/h/hubPlanner) | [OpenAPI 3.1](../apis/h/hubPlanner/universal-api/openapi.json) |  |
@@ -1204,8 +1230,10 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Hyperise](../apis/h/hyperise) | [OpenAPI 3.1](../apis/h/hyperise/universal-api/openapi.json) |  |
 | [Hyperstack Certificates](../apis/h/hyperstack) | [OpenAPI 3.1](../apis/h/hyperstack/universal-api/openapi.json) |  |
 | [Hyperzod](../apis/h/hyperzod) | [OpenAPI 3.1](../apis/h/hyperzod/universal-api/openapi.json) | [Provider OpenAPI](https://archbee-doc-uploads.s3.amazonaws.com/A6k4A417O1V2DGm4H5kN0/bBGM0lJYbsaQKkZKCMccO-20250926-063409.json) |
+| [Hyrule Compendium](../apis/h/hyruleCompendium) | [OpenAPI 3.1](../apis/h/hyruleCompendium/universal-api/openapi.json) |  |
 | [i2i](../apis/i/i2i) | [OpenAPI 3.1](../apis/i/i2i/universal-api/openapi.json) |  |
 | [icanhazdadjoke](../apis/i/icanhazdadjoke) | [OpenAPI 3.1](../apis/i/icanhazdadjoke/universal-api/openapi.json) |  |
+| [Ice and Fire (Game of Thrones)](../apis/i/iceAndFireGameOfThrones) | [OpenAPI 3.1](../apis/i/iceAndFireGameOfThrones/universal-api/openapi.json) |  |
 | [IceCubes](../apis/i/iceCubes) | [OpenAPI 3.1](../apis/i/iceCubes/universal-api/openapi.json) |  |
 | [Icon Horse](../apis/i/iconHorse) | [OpenAPI 3.1](../apis/i/iconHorse/universal-api/openapi.json) |  |
 | [ID Analyzer](../apis/i/iDAnalyzer) | [OpenAPI 3.1](../apis/i/iDAnalyzer/universal-api/openapi.json) |  |
@@ -1222,6 +1250,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [ImageRouter](../apis/i/imageRouter) | [OpenAPI 3.1](../apis/i/imageRouter/universal-api/openapi.json) | [Provider OpenAPI](https://api.imagerouter.io/.well-known/openapi.yaml) |
 | [Imagior](../apis/i/imagior) | [OpenAPI 3.1](../apis/i/imagior/universal-api/openapi.json) |  |
 | [Imejis.io](../apis/i/imejisio) | [OpenAPI 3.1](../apis/i/imejisio/universal-api/openapi.json) |  |
+| [Imgflip](../apis/i/imgflip) | [OpenAPI 3.1](../apis/i/imgflip/universal-api/openapi.json) |  |
 | [imgix](../apis/i/imgix) | [OpenAPI 3.1](../apis/i/imgix/universal-api/openapi.json) | [Provider OpenAPI](https://docs.imgix.com/en-US/apis/management/overview) |
 | [Implisense](../apis/i/implisenseAPI) | [OpenAPI 3.1](../apis/i/implisenseAPI/universal-api/openapi.json) | [Provider OpenAPI](https://docs.implisense.com/api/openapi.json) |
 | [INBOX](../apis/i/iNBOX) | [OpenAPI 3.1](../apis/i/iNBOX/universal-api/openapi.json) |  |
@@ -1254,6 +1283,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Instasent](../apis/i/instasent) | [OpenAPI 3.1](../apis/i/instasent/universal-api/openapi.json) |  |
 | [Instatus](../apis/i/instatus) | [OpenAPI 3.1](../apis/i/instatus/universal-api/openapi.json) |  |
 | [Instructure](../apis/i/instructure) | [OpenAPI 3.1](../apis/i/instructure/universal-api/openapi.json) |  |
+| [Insult API](../apis/i/insultAPI) | [OpenAPI 3.1](../apis/i/insultAPI/universal-api/openapi.json) |  |
 | [Sage Intacct](../apis/i/intacct) | [OpenAPI 3.1](../apis/i/intacct/universal-api/openapi.json) |  |
 | [IntakeQ](../apis/i/intakeQ) | [OpenAPI 3.1](../apis/i/intakeQ/universal-api/openapi.json) |  |
 | [Intelliprint](../apis/i/intelliprint) | [OpenAPI 3.1](../apis/i/intelliprint/universal-api/openapi.json) | [Provider OpenAPI](https://registry.scalar.com/@intelliprint/apis/intelliprint-api-reference?format=json) |
@@ -1513,6 +1543,8 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Markup AI](../apis/m/markupAI) | [OpenAPI 3.1](../apis/m/markupAI/universal-api/openapi.json) | [Provider OpenAPI](https://docs.markup.ai/openapi.json) |
 | [Matomo](../apis/m/matomo) | [OpenAPI 3.1](../apis/m/matomo/universal-api/openapi.json) |  |
 | [Matterport](../apis/m/matterport) | [OpenAPI 3.1](../apis/m/matterport/universal-api/openapi.json) |  |
+| [MCU Countdown](../apis/m/mCUCountdown) | [OpenAPI 3.1](../apis/m/mCUCountdown/universal-api/openapi.json) |  |
+| [MealDB](../apis/m/mealDB) | [OpenAPI 3.1](../apis/m/mealDB/universal-api/openapi.json) |  |
 | [Mediastack](../apis/m/mediastack) | [OpenAPI 3.1](../apis/m/mediastack/universal-api/openapi.json) |  |
 | [Meetstream AI](../apis/m/meetstreamAI) | [OpenAPI 3.1](../apis/m/meetstreamAI/universal-api/openapi.json) |  |
 | [Megaapi Start](../apis/m/megaapiStart) | [OpenAPI 3.1](../apis/m/megaapiStart/universal-api/openapi.json) |  |
@@ -1525,6 +1557,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Mem0](../apis/m/mem0) | [OpenAPI 3.1](../apis/m/mem0/universal-api/openapi.json) |  |
 | [Memberstack](../apis/m/memberstack) | [OpenAPI 3.1](../apis/m/memberstack/universal-api/openapi.json) |  |
 | [MemberVault](../apis/m/memberVault) | [OpenAPI 3.1](../apis/m/memberVault/universal-api/openapi.json) |  |
+| [Meme API](../apis/m/memeAPI) | [OpenAPI 3.1](../apis/m/memeAPI/universal-api/openapi.json) |  |
 | [Memento Database](../apis/m/mementoDatabase) | [OpenAPI 3.1](../apis/m/mementoDatabase/universal-api/openapi.json) |  |
 | [Memix](../apis/m/memix) | [OpenAPI 3.1](../apis/m/memix/universal-api/openapi.json) | [Provider OpenAPI](https://api.memix.com/openapi.json) |
 | [Mempool](../apis/m/mempool) | [OpenAPI 3.1](../apis/m/mempool/universal-api/openapi.json) |  |
@@ -1533,6 +1566,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Mendix](../apis/m/mendix) | [OpenAPI 3.1](../apis/m/mendix/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/mendix/docs/development/static/openapi-spec/projects-v2.yaml) |
 | [Mentortools](../apis/m/mentortools) | [OpenAPI 3.1](../apis/m/mentortools/universal-api/openapi.json) | [Provider OpenAPI](https://app.mentortools.com/public_api/specification/?permission_filter=courses_read&permission_filter=courses_update&permission_filter=mediastorage_create) |
 | [MENU TIGER](../apis/m/mENUTIGER) | [OpenAPI 3.1](../apis/m/mENUTIGER/universal-api/openapi.json) |  |
+| [Meow Facts](../apis/m/meowFacts) | [OpenAPI 3.1](../apis/m/meowFacts/universal-api/openapi.json) |  |
 | [ME-QR](../apis/m/mEQR) | [OpenAPI 3.1](../apis/m/mEQR/universal-api/openapi.json) |  |
 | [Mercado Pago](../apis/m/mercadoPago) | [OpenAPI 3.1](../apis/m/mercadoPago/universal-api/openapi.json) |  |
 | [Merge](../apis/m/merge) | [OpenAPI 3.1](../apis/m/merge/universal-api/openapi.json) |  |
@@ -1542,6 +1576,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [MessageBird](../apis/m/messageBird) | [OpenAPI 3.1](../apis/m/messageBird/universal-api/openapi.json) | [Provider OpenAPI](https://global--openapi-specs--151603429280--use1.s3.us-east-1.amazonaws.com/joined-specs/openapi.yml) |
 | [Messaggio](../apis/m/messaggio) | [OpenAPI 3.1](../apis/m/messaggio/universal-api/openapi.json) | [Provider OpenAPI](https://messaggio.com/messaggio_api_27102025_en.yaml) |
 | [Metance](../apis/m/metance) | [OpenAPI 3.1](../apis/m/metance/universal-api/openapi.json) | [Provider OpenAPI](https://api.metance.com/swagger/VaultOpenApiSpecification/swagger.json) |
+| [Metaphorpsum](../apis/m/metaphorpsum) | [OpenAPI 3.1](../apis/m/metaphorpsum/universal-api/openapi.json) |  |
 | [MetaSurvey](../apis/m/metaSurvey) | [OpenAPI 3.1](../apis/m/metaSurvey/universal-api/openapi.json) |  |
 | [Metronome](../apis/m/metronome) | [OpenAPI 3.1](../apis/m/metronome/universal-api/openapi.json) | [Provider OpenAPI](https://docs.metronome.com/openapi.json) |
 | [Mews](../apis/m/mews) | [OpenAPI 3.1](../apis/m/mews/universal-api/openapi.json) |  |
@@ -1638,6 +1673,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [nandbox](../apis/n/nandbox) | [OpenAPI 3.1](../apis/n/nandbox/universal-api/openapi.json) |  |
 | [Nango](../apis/n/nango) | [OpenAPI 3.1](../apis/n/nango/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/speakeasy-sdks/nango-typescript-sdk/main/openapi.yaml) |
 | [Nanonets OCR](../apis/n/nanonetsOCR) | [OpenAPI 3.1](../apis/n/nanonetsOCR/universal-api/openapi.json) |  |
+| [NASA APOD](../apis/n/nASAAPOD) | [OpenAPI 3.1](../apis/n/nASAAPOD/universal-api/openapi.json) |  |
 | [NASA Image and Video Library](../apis/n/nASAImageAndVideoLibrary) | [OpenAPI 3.1](../apis/n/nASAImageAndVideoLibrary/universal-api/openapi.json) |  |
 | [Natif.ai](../apis/n/natifai) | [OpenAPI 3.1](../apis/n/natifai/universal-api/openapi.json) | [Provider OpenAPI](https://api.natif.ai/openapi.json) |
 | [Nationalize_io](../apis/n/nationalizeIo) | [OpenAPI 3.1](../apis/n/nationalizeIo/universal-api/openapi.json) |  |
@@ -1704,6 +1740,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Nucleus One](../apis/n/nucleusOne) | [OpenAPI 3.1](../apis/n/nucleusOne/universal-api/openapi.json) | [Provider OpenAPI](https://client-api.nucleus.one/api/v1/openapi.yaml) |
 | [Nuclino](../apis/n/nuclino) | [OpenAPI 3.1](../apis/n/nuclino/universal-api/openapi.json) |  |
 | [Nudgify](../apis/n/nudgify) | [OpenAPI 3.1](../apis/n/nudgify/universal-api/openapi.json) |  |
+| [Numbers API](../apis/n/numbersAPI) | [OpenAPI 3.1](../apis/n/numbersAPI/universal-api/openapi.json) |  |
 | [Numverify](../apis/n/numverify) | [OpenAPI 3.1](../apis/n/numverify/universal-api/openapi.json) | [Provider OpenAPI](https://api.swaggerhub.com/apis/apilayer-863/numverify-api/1.0.0/swagger.json) |
 | [Nutrient - Convert to PDF](../apis/n/nutrientConvertToPDF) | [OpenAPI 3.1](../apis/n/nutrientConvertToPDF/universal-api/openapi.json) | [Provider OpenAPI](https://www.nutrient.io/api/documentation/developer-guides/api-reference/) |
 | [Nutrient Document Converter](../apis/n/nutrientDocumentConverter) | [OpenAPI 3.1](../apis/n/nutrientDocumentConverter/universal-api/openapi.json) | [Provider OpenAPI](https://www.nutrient.io/api/documentation/developer-guides/api-reference/) |
@@ -1715,6 +1752,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [NVIDIA](../apis/n/nVIDIA) | [OpenAPI 3.1](../apis/n/nVIDIA/universal-api/openapi.json) |  |
 | [Nvoip](../apis/n/nvoip) | [OpenAPI 3.1](../apis/n/nvoip/universal-api/openapi.json) |  |
 | [Nyckel](../apis/n/nyckel) | [OpenAPI 3.1](../apis/n/nyckel/universal-api/openapi.json) |  |
+| [NYC Squirrel Census](../apis/n/nYCSquirrelCensus) | [OpenAPI 3.1](../apis/n/nYCSquirrelCensus/universal-api/openapi.json) |  |
 | [Nyne AI](../apis/n/nyneAI) | [OpenAPI 3.1](../apis/n/nyneAI/universal-api/openapi.json) | [Provider OpenAPI](https://api.nyne.ai/.well-known/nyne-api.json) |
 | [Oanda](../apis/o/oanda) | [OpenAPI 3.1](../apis/o/oanda/universal-api/openapi.json) |  |
 | [Oboloo](../apis/o/oboloo) | [OpenAPI 3.1](../apis/o/oboloo/universal-api/openapi.json) | [Provider OpenAPI](https://oboloo.app/docs/api-docs.json) |
@@ -1724,6 +1762,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Odoo](../apis/o/odoo) | [OpenAPI 3.1](../apis/o/odoo/universal-api/openapi.json) |  |
 | [OfficeClip](../apis/o/officeClip) | [OpenAPI 3.1](../apis/o/officeClip/universal-api/openapi.json) | [Provider OpenAPI](https://app.officeclip.com/swagger/docs/v1) |
 | [OfficeMaps](../apis/o/officeMaps) | [OpenAPI 3.1](../apis/o/officeMaps/universal-api/openapi.json) | [Provider OpenAPI](https://api.officemaps.io/docs/v1.json) |
+| [Official Joke API](../apis/o/officialJokeAPI) | [OpenAPI 3.1](../apis/o/officialJokeAPI/universal-api/openapi.json) |  |
 | [OkoCRM](../apis/o/okoCRM) | [OpenAPI 3.1](../apis/o/okoCRM/universal-api/openapi.json) |  |
 | [OKSign](../apis/o/oKSign) | [OpenAPI 3.1](../apis/o/oKSign/universal-api/openapi.json) |  |
 | [Ollama](../apis/o/ollama) | [OpenAPI 3.1](../apis/o/ollama/universal-api/openapi.json) |  |
@@ -1767,6 +1806,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [OpenFEC](../apis/o/openFEC) | [OpenAPI 3.1](../apis/o/openFEC/universal-api/openapi.json) | [Provider OpenAPI](https://api.open.fec.gov/swagger/) |
 | [Openlayer](../apis/o/openlayer) | [OpenAPI 3.1](../apis/o/openlayer/universal-api/openapi.json) |  |
 | [Open Letter Connect](../apis/o/openLetterConnect) | [OpenAPI 3.1](../apis/o/openLetterConnect/universal-api/openapi.json) |  |
+| [Open Notify](../apis/o/openNotify) | [OpenAPI 3.1](../apis/o/openNotify/universal-api/openapi.json) |  |
 | [OpenPLZ](../apis/o/openPLZ) | [OpenAPI 3.1](../apis/o/openPLZ/universal-api/openapi.json) | [Provider OpenAPI](https://openplzapi.org/swagger/v1/swagger.json) |
 | [openpm](../apis/o/openpm) | [OpenAPI 3.1](../apis/o/openpm/universal-api/openapi.json) | [Provider OpenAPI](https://openpm.ai/packages/openpm/openapi.json) |
 | [OpenQR](../apis/o/openQR) | [OpenAPI 3.1](../apis/o/openQR/universal-api/openapi.json) |  |
@@ -1801,6 +1841,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Outlook](../apis/o/outlook) | [OpenAPI 3.1](../apis/o/outlook/universal-api/openapi.json) |  |
 | [Outseta](../apis/o/outseta) | [OpenAPI 3.1](../apis/o/outseta/universal-api/openapi.json) |  |
 | [Overledger](../apis/o/overledger) | [OpenAPI 3.1](../apis/o/overledger/universal-api/openapi.json) |  |
+| [Owen Wilson Wow API](../apis/o/owenWilsonWowAPI) | [OpenAPI 3.1](../apis/o/owenWilsonWowAPI/universal-api/openapi.json) |  |
 | [OxaPay Crypto Payment Gateway](../apis/o/oxaPayCryptoPaymentGateway) | [OpenAPI 3.1](../apis/o/oxaPayCryptoPaymentGateway/universal-api/openapi.json) |  |
 | [Oxylabs](../apis/o/oxylabs) | [OpenAPI 3.1](../apis/o/oxylabs/universal-api/openapi.json) |  |
 | [Pabbly Email Verification](../apis/p/pabblyEmailVerification) | [OpenAPI 3.1](../apis/p/pabblyEmailVerification/universal-api/openapi.json) |  |
@@ -1929,6 +1970,8 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [PixelBin.io](../apis/p/pixelBinio) | [OpenAPI 3.1](../apis/p/pixelBinio/universal-api/openapi.json) |  |
 | [PixieBrix](../apis/p/pixieBrix) | [OpenAPI 3.1](../apis/p/pixieBrix/universal-api/openapi.json) | [Provider OpenAPI](https://app.pixiebrix.com/api/openapi/) |
 | [pixx.io](../apis/p/pixxio) | [OpenAPI 3.1](../apis/p/pixxio/universal-api/openapi.json) | [Provider OpenAPI](https://api.pixxio.com/docs/openapi) |
+| [PlaceBear](../apis/p/placeBear) | [OpenAPI 3.1](../apis/p/placeBear/universal-api/openapi.json) |  |
+| [Placecats](../apis/p/placecats) | [OpenAPI 3.1](../apis/p/placecats/universal-api/openapi.json) |  |
 | [Placedog](../apis/p/placedog) | [OpenAPI 3.1](../apis/p/placedog/universal-api/openapi.json) |  |
 | [Placekey](../apis/p/placekey) | [OpenAPI 3.1](../apis/p/placekey/universal-api/openapi.json) |  |
 | [Placid](../apis/p/placid) | [OpenAPI 3.1](../apis/p/placid/universal-api/openapi.json) |  |
@@ -1954,6 +1997,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [PocketSmith](../apis/p/pocketSmith) | [OpenAPI 3.1](../apis/p/pocketSmith/universal-api/openapi.json) |  |
 | [Podio](../apis/p/podio) | [OpenAPI 3.1](../apis/p/podio/universal-api/openapi.json) |  |
 | [Podscan](../apis/p/podscan) | [OpenAPI 3.1](../apis/p/podscan/universal-api/openapi.json) |  |
+| [PoetryDB](../apis/p/poetryDB) | [OpenAPI 3.1](../apis/p/poetryDB/universal-api/openapi.json) |  |
 | [PokéAPI](../apis/p/pokAPI) | [OpenAPI 3.1](../apis/p/pokAPI/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/PokeAPI/pokeapi/master/openapi.yml) |
 | [PokeAPI Core](../apis/p/pokeAPICore) | [OpenAPI 3.1](../apis/p/pokeAPICore/universal-api/openapi.json) |  |
 | [PokeAPI Word](../apis/p/pokeAPIWord) | [OpenAPI 3.1](../apis/p/pokeAPIWord/universal-api/openapi.json) |  |
@@ -2064,6 +2108,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [QuestionPro Surveys](../apis/q/questionProSurveys) | [OpenAPI 3.1](../apis/q/questionProSurveys/universal-api/openapi.json) |  |
 | [QuestionScout](../apis/q/questionScout) | [OpenAPI 3.1](../apis/q/questionScout/universal-api/openapi.json) |  |
 | [Queue](../apis/q/queue) | [OpenAPI 3.1](../apis/q/queue/universal-api/openapi.json) | [Provider OpenAPI](https://docs.usequeue.com/api-reference/openapi.json) |
+| [Queue Times](../apis/q/queueTimes) | [OpenAPI 3.1](../apis/q/queueTimes/universal-api/openapi.json) |  |
 | [Quickbase](../apis/q/quickbase) | [OpenAPI 3.1](../apis/q/quickbase/universal-api/openapi.json) |  |
 | [QuickBooks Online](../apis/q/quickBooksOnline) | [OpenAPI 3.1](../apis/q/quickBooksOnline/universal-api/openapi.json) |  |
 | [QuickEmailVerification](../apis/q/quickEmailVerification) | [OpenAPI 3.1](../apis/q/quickEmailVerification/universal-api/openapi.json) |  |
@@ -2084,6 +2129,10 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Raklet](../apis/r/raklet) | [OpenAPI 3.1](../apis/r/raklet/universal-api/openapi.json) | [Provider OpenAPI](https://api.raklet.com/swagger/docs/v1) |
 | [Rakuten Advertising](../apis/r/rakutenAdvertising) | [OpenAPI 3.1](../apis/r/rakutenAdvertising/universal-api/openapi.json) |  |
 | [Ramp](../apis/r/ramp) | [OpenAPI 3.1](../apis/r/ramp/universal-api/openapi.json) |  |
+| [random.dog](../apis/r/randomdog) | [OpenAPI 3.1](../apis/r/randomdog/universal-api/openapi.json) |  |
+| [Random Duck](../apis/r/randomDuck) | [OpenAPI 3.1](../apis/r/randomDuck/universal-api/openapi.json) |  |
+| [RandomFox](../apis/r/randomFox) | [OpenAPI 3.1](../apis/r/randomFox/universal-api/openapi.json) |  |
+| [Random User](../apis/r/randomUser) | [OpenAPI 3.1](../apis/r/randomUser/universal-api/openapi.json) |  |
 | [Range](../apis/r/range) | [OpenAPI 3.1](../apis/r/range/universal-api/openapi.json) |  |
 | [RapidAPI](../apis/r/rapidAPI) | [OpenAPI 3.1](../apis/r/rapidAPI/universal-api/openapi.json) |  |
 | [RapidoForm](../apis/r/rapidoForm) | [OpenAPI 3.1](../apis/r/rapidoForm/universal-api/openapi.json) |  |
@@ -2177,6 +2226,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [ReviewStream](../apis/r/reviewStream) | [OpenAPI 3.1](../apis/r/reviewStream/universal-api/openapi.json) |  |
 | [Revi.io Reviews](../apis/r/reviioReviews) | [OpenAPI 3.1](../apis/r/reviioReviews/universal-api/openapi.json) |  |
 | [Reward Sciences](../apis/r/rewardSciences) | [OpenAPI 3.1](../apis/r/rewardSciences/universal-api/openapi.json) |  |
+| [Rick and Morty](../apis/r/rickAndMorty) | [OpenAPI 3.1](../apis/r/rickAndMorty/universal-api/openapi.json) |  |
 | [RICOH360 Tours](../apis/r/rICOH360Tours) | [OpenAPI 3.1](../apis/r/rICOH360Tours/universal-api/openapi.json) |  |
 | [RightSignature](../apis/r/rightSignature) | [OpenAPI 3.1](../apis/r/rightSignature/universal-api/openapi.json) |  |
 | [Rijksmuseum](../apis/r/rijksmuseum) | [OpenAPI 3.1](../apis/r/rijksmuseum/universal-api/openapi.json) |  |
@@ -2228,6 +2278,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Sales Cookie](../apis/s/salesCookie) | [OpenAPI 3.1](../apis/s/salesCookie/universal-api/openapi.json) |  |
 | [SalesDrive](../apis/s/salesDrive) | [OpenAPI 3.1](../apis/s/salesDrive/universal-api/openapi.json) | [Provider OpenAPI](https://api.salesdrive.me/swagger/openapi-uk.php) |
 | [Salesflare](../apis/s/salesflare) | [OpenAPI 3.1](../apis/s/salesflare/universal-api/openapi.json) | [Provider OpenAPI](https://api.salesflare.com/openapi.json) |
+| [Salesforce](../apis/s/salesForce) | [OpenAPI 3.1](../apis/s/salesForce/universal-api/openapi.json) |  |
 | [Salesforge](../apis/s/salesforge) | [OpenAPI 3.1](../apis/s/salesforge/universal-api/openapi.json) |  |
 | [Saleshandy](../apis/s/saleshandy) | [OpenAPI 3.1](../apis/s/saleshandy/universal-api/openapi.json) | [Provider OpenAPI](https://developer.saleshandy.com/openapi.json) |
 | [Salesmate](../apis/s/salesmate) | [OpenAPI 3.1](../apis/s/salesmate/universal-api/openapi.json) |  |
@@ -2332,6 +2383,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [ShareFile](../apis/s/shareFile) | [OpenAPI 3.1](../apis/s/shareFile/universal-api/openapi.json) |  |
 | [Sharetribe](../apis/s/sharetribe) | [OpenAPI 3.1](../apis/s/sharetribe/universal-api/openapi.json) |  |
 | [SharpAPI](../apis/s/sharpAPI) | [OpenAPI 3.1](../apis/s/sharpAPI/universal-api/openapi.json) |  |
+| [Shibe.online](../apis/s/shibeonline) | [OpenAPI 3.1](../apis/s/shibeonline/universal-api/openapi.json) |  |
 | [Shields.io](../apis/s/shieldsio) | [OpenAPI 3.1](../apis/s/shieldsio/universal-api/openapi.json) |  |
 | [7shifts](../apis/s/shifts) | [OpenAPI 3.1](../apis/s/shifts/universal-api/openapi.json) |  |
 | [ShinyStat](../apis/s/shinyStat) | [OpenAPI 3.1](../apis/s/shinyStat/universal-api/openapi.json) |  |
@@ -2356,6 +2408,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [ShortPixel](../apis/s/shortPixel) | [OpenAPI 3.1](../apis/s/shortPixel/universal-api/openapi.json) |  |
 | [Short URL](../apis/s/shortURL) | [OpenAPI 3.1](../apis/s/shortURL/universal-api/openapi.json) |  |
 | [Shotstack](../apis/s/shotstack) | [OpenAPI 3.1](../apis/s/shotstack/universal-api/openapi.json) |  |
+| [SHOUTCLOUD](../apis/s/sHOUTCLOUD) | [OpenAPI 3.1](../apis/s/sHOUTCLOUD/universal-api/openapi.json) |  |
 | [Showcase Workshop](../apis/s/showcaseWorkshop) | [OpenAPI 3.1](../apis/s/showcaseWorkshop/universal-api/openapi.json) |  |
 | [Shuffler](../apis/s/shuffler) | [OpenAPI 3.1](../apis/s/shuffler/universal-api/openapi.json) |  |
 | [Shuffll](../apis/s/shuffll) | [OpenAPI 3.1](../apis/s/shuffll/universal-api/openapi.json) | [Provider OpenAPI](https://api-docs.shuffll.com/_bundle/apis/index.json?download=) |
@@ -2482,6 +2535,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Stacker](../apis/s/stacker) | [OpenAPI 3.1](../apis/s/stacker/universal-api/openapi.json) |  |
 | [Stackoverflow](../apis/s/stackoverflow) | [OpenAPI 3.1](../apis/s/stackoverflow/universal-api/openapi.json) | [Provider OpenAPI](https://api.stackexchange.com/docs) |
 | [88stacks Image Generator](../apis/s/stacksImageGenerator) | [OpenAPI 3.1](../apis/s/stacksImageGenerator/universal-api/openapi.json) |  |
+| [STAPI](../apis/s/sTAPI) | [OpenAPI 3.1](../apis/s/sTAPI/universal-api/openapi.json) |  |
 | [Starburst Galaxy](../apis/s/starburstGalaxy) | [OpenAPI 3.1](../apis/s/starburstGalaxy/universal-api/openapi.json) | [Provider OpenAPI](https://galaxy.starburst.io/public/openapi/v1/json) |
 | [Starfish](../apis/s/starfish) | [OpenAPI 3.1](../apis/s/starfish/universal-api/openapi.json) |  |
 | [Starshipit](../apis/s/starshipit) | [OpenAPI 3.1](../apis/s/starshipit/universal-api/openapi.json) |  |
@@ -2513,6 +2567,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Streamtime](../apis/s/streamtime) | [OpenAPI 3.1](../apis/s/streamtime/universal-api/openapi.json) | [Provider OpenAPI](https://api.streamtime.net/v2/swagger.json) |
 | [Stripe](../apis/s/stripe) | [OpenAPI 3.1](../apis/s/stripe/universal-api/openapi.json) |  |
 | [Stripo](../apis/s/stripo) | [OpenAPI 3.1](../apis/s/stripo/universal-api/openapi.json) |  |
+| [Studio Ghibli](../apis/s/studioGhibli) | [OpenAPI 3.1](../apis/s/studioGhibli/universal-api/openapi.json) |  |
 | [Subnoto](../apis/s/subnoto) | [OpenAPI 3.1](../apis/s/subnoto/universal-api/openapi.json) |  |
 | [Subpage](../apis/s/subpage) | [OpenAPI 3.1](../apis/s/subpage/universal-api/openapi.json) |  |
 | [Sumo Logic](../apis/s/sumoLogic) | [OpenAPI 3.1](../apis/s/sumoLogic/universal-api/openapi.json) | [Provider OpenAPI](https://api.sumologic.com/docs/sumologic-api.yaml) |
@@ -2543,6 +2598,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [SVAHNAR](../apis/s/sVAHNAR) | [OpenAPI 3.1](../apis/s/sVAHNAR/universal-api/openapi.json) |  |
 | [Svix](../apis/s/svix) | [OpenAPI 3.1](../apis/s/svix/universal-api/openapi.json) | [Provider OpenAPI](https://api.svix.com/api/v1/openapi.json) |
 | [Swagger Converter](../apis/s/swaggerConverter) | [OpenAPI 3.1](../apis/s/swaggerConverter/universal-api/openapi.json) | [Provider OpenAPI](https://converter.swagger.io/api/openapi.json) |
+| [SWAPI](../apis/s/sWAPI) | [OpenAPI 3.1](../apis/s/sWAPI/universal-api/openapi.json) |  |
 | [Swarm](../apis/s/swarm) | [OpenAPI 3.1](../apis/s/swarm/universal-api/openapi.json) |  |
 | [SweetProcess](../apis/s/sweetProcess) | [OpenAPI 3.1](../apis/s/sweetProcess/universal-api/openapi.json) |  |
 | [Swell](../apis/s/swell) | [OpenAPI 3.1](../apis/s/swell/universal-api/openapi.json) |  |
@@ -2590,6 +2646,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Teamhood](../apis/t/teamhood) | [OpenAPI 3.1](../apis/t/teamhood/universal-api/openapi.json) | [Provider OpenAPI](https://api-mindcloud1.teamhood.com/swagger/v1/swagger.json) |
 | [TeamUp](../apis/t/teamUp) | [OpenAPI 3.1](../apis/t/teamUp/universal-api/openapi.json) | [Provider OpenAPI](https://stoplight.io/api/v1/projects/teamup/api/nodes/reference/generated_docs_public.yaml) |
 | [Teamwork Projects](../apis/t/teamworkProjects) | [OpenAPI 3.1](../apis/t/teamworkProjects/universal-api/openapi.json) |  |
+| [Techy](../apis/t/techy) | [OpenAPI 3.1](../apis/t/techy/universal-api/openapi.json) |  |
 | [TED Radio Hour Podcast](../apis/t/tEDRadioHourPodcast) | [OpenAPI 3.1](../apis/t/tEDRadioHourPodcast/universal-api/openapi.json) |  |
 | [TeleSign](../apis/t/teleSign) | [OpenAPI 3.1](../apis/t/teleSign/universal-api/openapi.json) |  |
 | [Teletype App](../apis/t/teletypeApp) | [OpenAPI 3.1](../apis/t/teletypeApp/universal-api/openapi.json) |  |
@@ -2761,6 +2818,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Upstash Redis](../apis/u/upstashRedis) | [OpenAPI 3.1](../apis/u/upstashRedis/universal-api/openapi.json) |  |
 | [UptimeRobot](../apis/u/uptimeRobot) | [OpenAPI 3.1](../apis/u/uptimeRobot/universal-api/openapi.json) |  |
 | [UpViral](../apis/u/upViral) | [OpenAPI 3.1](../apis/u/upViral/universal-api/openapi.json) |  |
+| [Urban Dictionary](../apis/u/urbanDictionary) | [OpenAPI 3.1](../apis/u/urbanDictionary/universal-api/openapi.json) |  |
 | [Urlbox](../apis/u/urlbox) | [OpenAPI 3.1](../apis/u/urlbox/universal-api/openapi.json) |  |
 | [URL.dev](../apis/u/uRLdev) | [OpenAPI 3.1](../apis/u/uRLdev/universal-api/openapi.json) |  |
 | [urlscan.io](../apis/u/urlscanio) | [OpenAPI 3.1](../apis/u/urlscanio/universal-api/openapi.json) | [Provider OpenAPI](https://docs.urlscan.io/apis/urlscan-openapi) |
@@ -2770,6 +2828,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [US Congress CRS](../apis/u/uSCongressCRS) | [OpenAPI 3.1](../apis/u/uSCongressCRS/universal-api/openapi.json) |  |
 | [Usedesk](../apis/u/usedesk) | [OpenAPI 3.1](../apis/u/usedesk/universal-api/openapi.json) |  |
 | [UseINBOX](../apis/u/useINBOX) | [OpenAPI 3.1](../apis/u/useINBOX/universal-api/openapi.json) |  |
+| [Useless Facts](../apis/u/uselessFacts) | [OpenAPI 3.1](../apis/u/uselessFacts/universal-api/openapi.json) |  |
 | [Userback](../apis/u/userback) | [OpenAPI 3.1](../apis/u/userback/universal-api/openapi.json) |  |
 | [UserBit](../apis/u/userBit) | [OpenAPI 3.1](../apis/u/userBit/universal-api/openapi.json) |  |
 | [UserCheck](../apis/u/userCheck) | [OpenAPI 3.1](../apis/u/userCheck/universal-api/openapi.json) |  |
@@ -2780,6 +2839,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Uwear.ai](../apis/u/uwearai) | [OpenAPI 3.1](../apis/u/uwearai/universal-api/openapi.json) |  |
 | [v0](../apis/v/v0) | [OpenAPI 3.1](../apis/v/v0/universal-api/openapi.json) |  |
 | [Vacation Tracker](../apis/v/vacationTracker) | [OpenAPI 3.1](../apis/v/vacationTracker/universal-api/openapi.json) |  |
+| [Vadivelu HTTP codes](../apis/v/vadiveluHTTPCodes) | [OpenAPI 3.1](../apis/v/vadiveluHTTPCodes/universal-api/openapi.json) |  |
 | [Vadootv](../apis/v/vadootv) | [OpenAPI 3.1](../apis/v/vadootv/universal-api/openapi.json) |  |
 | [Vaisala Xweather](../apis/v/vaisalaXweatherAPI) | [OpenAPI 3.1](../apis/v/vaisalaXweatherAPI/universal-api/openapi.json) |  |
 | [Vaiz](../apis/v/vaiz) | [OpenAPI 3.1](../apis/v/vaiz/universal-api/openapi.json) |  |
@@ -2903,6 +2963,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Whattime](../apis/w/whattime) | [OpenAPI 3.1](../apis/w/whattime/universal-api/openapi.json) | [Provider OpenAPI](https://developer.whattime.co.kr/swagger.json) |
 | [WhautoChat](../apis/w/whautoChat) | [OpenAPI 3.1](../apis/w/whautoChat/universal-api/openapi.json) |  |
 | [Whautomate](../apis/w/whautomate) | [OpenAPI 3.1](../apis/w/whautomate/universal-api/openapi.json) |  |
+| [Where the ISS at](../apis/w/whereTheISSAt) | [OpenAPI 3.1](../apis/w/whereTheISSAt/universal-api/openapi.json) |  |
 | [Whisky Hunter](../apis/w/whiskyHunter) | [OpenAPI 3.1](../apis/w/whiskyHunter/universal-api/openapi.json) |  |
 | [White Swan](../apis/w/whiteSwan) | [OpenAPI 3.1](../apis/w/whiteSwan/universal-api/openapi.json) |  |
 | [WhoisJson](../apis/w/whoisJson) | [OpenAPI 3.1](../apis/w/whoisJson/universal-api/openapi.json) | [Provider OpenAPI](https://whoisjson.com/swagger.json) |
@@ -2941,6 +3002,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Wrangle](../apis/w/wrangle) | [OpenAPI 3.1](../apis/w/wrangle/universal-api/openapi.json) |  |
 | [Wrike](../apis/w/wrike) | [OpenAPI 3.1](../apis/w/wrike/universal-api/openapi.json) |  |
 | [Writeathon](../apis/w/writeathon) | [OpenAPI 3.1](../apis/w/writeathon/universal-api/openapi.json) |  |
+| [wtfismyip](../apis/w/wtfismyip) | [OpenAPI 3.1](../apis/w/wtfismyip/universal-api/openapi.json) |  |
 | [wttr.in](../apis/w/wttrin) | [OpenAPI 3.1](../apis/w/wttrin/universal-api/openapi.json) |  |
 | [Wufoo](../apis/w/wufoo) | [OpenAPI 3.1](../apis/w/wufoo/universal-api/openapi.json) |  |
 | [X](../apis/x/x) | [OpenAPI 3.1](../apis/x/x/universal-api/openapi.json) | [Provider OpenAPI](https://api.x.com/2/openapi.json) |
@@ -2963,6 +3025,7 @@ Machine-readable API descriptions for 3122 apps. Universal API specifications ar
 | [Yeahdesk](../apis/y/yeahdesk) | [OpenAPI 3.1](../apis/y/yeahdesk/universal-api/openapi.json) |  |
 | [Yeeflow](../apis/y/yeeflow) | [OpenAPI 3.1](../apis/y/yeeflow/universal-api/openapi.json) | [Provider OpenAPI](https://cdn.yungalaxy.com/yeeflow/developer/v1/yeeflow_en.yaml) |
 | [YepCode](../apis/y/yepCode) | [OpenAPI 3.1](../apis/y/yepCode/universal-api/openapi.json) | [Provider OpenAPI](https://cloud.yepcode.io/api/rest/public/api-docs) |
+| [Yes/No](../apis/y/yesNo) | [OpenAPI 3.1](../apis/y/yesNo/universal-api/openapi.json) |  |
 | [Yeti Snow](../apis/y/yetiSnow) | [OpenAPI 3.1](../apis/y/yetiSnow/universal-api/openapi.json) |  |
 | [y.gy](../apis/y/ygy) | [OpenAPI 3.1](../apis/y/ygy/universal-api/openapi.json) |  |
 | [YNAB](../apis/y/ynab) | [OpenAPI 3.1](../apis/y/ynab/universal-api/openapi.json) | [Provider OpenAPI](https://api.ynab.com/papi/open_api_spec.yaml) |

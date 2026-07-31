@@ -48,8 +48,17 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "id": "string",
-      "joke": "string"
+      "current_page": 1,
+      "limit": 1,
+      "next_page": 1,
+      "previous_page": 1,
+      "results": [
+        {}
+      ],
+      "search_term": "string",
+      "status": 1,
+      "total_jokes": 1,
+      "total_pages": 1
     }
   ],
   "meta": {}
@@ -60,8 +69,15 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `id` | string | Dad joke ID. |
-| `joke` | string | Dad joke text. |
+| `current_page` | number | Current result page. |
+| `limit` | number | Results per page. |
+| `next_page` | number | Next result page. |
+| `previous_page` | number | Previous result page. |
+| `results` | array<object> | Matching dad jokes, each with id and joke. |
+| `search_term` | string | Submitted search term. |
+| `status` | number | HTTP-style status from the API response. |
+| `total_jokes` | number | Total matching jokes. |
+| `total_pages` | number | Total result pages. |
 
 ## Native endpoint
 

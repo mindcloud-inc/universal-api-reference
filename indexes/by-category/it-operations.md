@@ -1,6 +1,6 @@
 # IT Operations apps
 
-388 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+389 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbyy** · [Universal API reference](../../apis/a/abbyy/universal-api) · [Native API reference](../../apis/a/abbyy/native-api) · [Native API docs](https://support.abbyy.com/hc/en-us/articles/360017269420-API-reference)
 - **Abstract IP Intelligence** · [Universal API reference](../../apis/a/abstractIPIntelligence/universal-api) · [Native API reference](../../apis/a/abstractIPIntelligence/native-api) · [Native API docs](https://docs.abstractapi.com/api/ip-intelligence)
@@ -97,6 +97,7 @@
 - **DeployHQ** · [Universal API reference](../../apis/d/deployHQ/universal-api) · [Native API reference](../../apis/d/deployHQ/native-api) · [Native API docs](https://www.deployhq.com/support/api)
 - **DevCycle** · [Universal API reference](../../apis/d/devCycle/universal-api) · [Native API reference](../../apis/d/devCycle/native-api) · [Native API docs](https://docs.devcycle.com/management-api/)
 - **Devin** · [Universal API reference](../../apis/d/devin/universal-api) · [Native API reference](../../apis/d/devin/native-api) · [Native API docs](https://docs.devin.ai/api-reference/overview)
+- **DiceBear** · [Universal API reference](../../apis/d/diceBear/universal-api) · [Native API reference](../../apis/d/diceBear/native-api) · [Native API docs](https://www.dicebear.com/how-to-use/http-api)
 - **Didit** · [Universal API reference](../../apis/d/didit/universal-api) · [Native API reference](../../apis/d/didit/native-api) · [Native API docs](https://docs.didit.me/api-reference/overview)
 - **Diffy** · [Universal API reference](../../apis/d/diffy/universal-api) · [Native API reference](../../apis/d/diffy/native-api) · [Native API docs](https://app.diffy.website/rest)
 - **DNSFilter** · [Universal API reference](../../apis/d/dNSFilter/universal-api) · [Native API reference](../../apis/d/dNSFilter/native-api) · [Native API docs](https://api.dnsfilter.com/docs)

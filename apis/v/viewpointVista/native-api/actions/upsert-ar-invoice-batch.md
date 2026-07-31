@@ -5,10 +5,10 @@ Upsert Invoice Batch
 ## Endpoint
 
 - **Method:** `POST`
-- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ap/2/data/inv_batches/actions/upsert`
+- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ar/2/data/batches/actions/add_invoice`
 - **Base URL:** `https://api.xchange.trimble.com/connect/`
 - **API:** REST
-- **Official documentation:** [Upsert AR Invoice Batch](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionsupsert)
+- **Official documentation:** [Upsert AR Invoice Batch](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatchesactionsadd_invoice)
 
 ## Parameters
 
@@ -17,5 +17,3 @@ Upsert Invoice Batch
 | `Co` | body | `number` | yes | Vista PR company. |
 | `Mth` | body | `string` | yes | Posting month for the batch. Format: YYYY-MM-DD. |
 | `Notes` | body | `string` | no | Optional notes for the timecard batch. Maximum length: 0. |
-| `__batch` | body | `string` | no | — |
-| `__lockBatch` | body | `boolean` | no | Keep the batch locked after processing the action |

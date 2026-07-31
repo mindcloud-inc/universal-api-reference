@@ -43,6 +43,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `invoiceId` | number | no |  |
 | `externalId` | string | no |  |
 | `externalMessage` | string | no |  |
+| `model` | string | no |  |
 
 ## Response
 
