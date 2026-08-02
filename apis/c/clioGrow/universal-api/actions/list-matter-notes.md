@@ -8,20 +8,16 @@ GET https://connect.mindcloud.co/v1/universal/clioGrow/latest/actions/list-matte
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Clio Grow `connectionId` ([setup](../authentication.md)).
 
-This action also supports [pagination](../pagination.md) (`limit`, `offset`).
-
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/clioGrow/latest/actions/list-matter-notes?connectionId=$CONNECTION_ID&limit=25&offset=0&matterId=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/clioGrow/latest/actions/list-matter-notes?connectionId=$CONNECTION_ID&matterId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  limit: '25',
-  offset: '0',
   "matterId": "string"
 });
 
@@ -72,5 +68,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Clio Grow API, this operation is `GET /matters/{matter_id}/notes` (base URL `https://api.clio.com/grow`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-matter-notes.md) for the provider-specific parameters and requirements.
+Through the native Clio Grow API, this operation is `GET /matters/{matter_id}/notes` (base URL `https://api.clio.com/grow`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-matter-notes.md) for the provider-specific parameters and requirements.
 

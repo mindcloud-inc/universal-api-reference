@@ -7,10 +7,6 @@
 - **Base URL:** `https://api.clio.com/grow`
 - **Official documentation:** [List Inbox Leads](https://docs.developers.clio.com/clio-grow/api-reference/#tag/Inbox-Leads/operation/InboxLead%23index)
 
-## Capabilities
-
-This operation supports [pagination](../README.md#pagination).
-
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

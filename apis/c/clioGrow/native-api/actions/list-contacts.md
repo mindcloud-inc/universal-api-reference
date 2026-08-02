@@ -7,10 +7,6 @@
 - **Base URL:** `https://api.clio.com/grow`
 - **Official documentation:** [List Contacts](https://docs.developers.clio.com/clio-grow/api-reference/#tag/Contacts/operation/Contact%23index)
 
-## Capabilities
-
-This operation supports [pagination](../README.md#pagination).
-
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

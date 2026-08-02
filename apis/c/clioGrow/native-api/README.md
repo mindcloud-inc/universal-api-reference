@@ -31,7 +31,7 @@ The flow supports refresh tokens. Refresh expired access tokens with a POST requ
 
 ## Pagination
 
-The page size is configurable (default 200; maximum 200). Use `page_token` in the query string as the pagination cursor. Follow the complete next-page URL returned by the API.
+Use `page_token` in the query string as the pagination cursor.
 
 ## Retry behavior
 
