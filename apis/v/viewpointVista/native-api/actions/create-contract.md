@@ -23,5 +23,5 @@ Create a contract
 | `Notes` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `__custom_fields` | body | `object` | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |
 | `ContractItems[]` | body | `array` | no | — |
-| `Customer` | body | `string` | no | Key to ar/customers(CustGroup, Customer). CustGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
+| `Customer` | body | `number` | no | Key to ar/customers(CustGroup, Customer). CustGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
 | `TaxCode` | body | `string` | no | — |

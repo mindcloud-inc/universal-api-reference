@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Viewpoint Vista Universal API",
-    "version": "0.0.43",
+    "version": "0.0.45",
     "description": "Call Viewpoint Vista actions through MindCloud's Universal API."
   },
   "servers": [
@@ -2702,7 +2702,7 @@
                     "items": {}
                   },
                   "Customer": {
-                    "type": "string",
+                    "type": "number",
                     "description": "Key to ar/customers(CustGroup, Customer). CustGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted."
                   },
                   "TaxCode": {
@@ -3108,7 +3108,8 @@
                   "JCCo",
                   "Job",
                   "Contract",
-                  "LiabTemplate"
+                  "LiabTemplate",
+                  "PRStateCode"
                 ],
                 "properties": {
                   "connectionId": {
@@ -3133,6 +3134,10 @@
                   "LiabTemplate": {
                     "type": "number",
                     "description": "Key to jc/liability_templates(JCCo, LiabTemplate)."
+                  },
+                  "PRStateCode": {
+                    "type": "string",
+                    "description": "Used in the payroll process to lookup pr/states(PRCo, PRStateCode). This value does not have to exist in pr/states to save this record."
                   },
                   "LockPhases": {
                     "type": "string",
@@ -3214,6 +3219,9 @@
                     "type": "object",
                     "additionalProperties": true,
                     "description": "Add a property to this object for each user defined field to be set. Property name set to the user defined field name."
+                  },
+                  "RevGrpInv": {
+                    "type": "string"
                   }
                 },
                 "additionalProperties": false
@@ -12885,6 +12893,241 @@
         }
       }
     },
+    "/v1/universal/viewpointVista/latest/actions/update-contract": {
+      "put": {
+        "operationId": "viewpointVista.update-contract",
+        "summary": "Update Contract",
+        "description": "Update a contract",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/update-contract"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "__key"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "__key": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "__key.KeyID": {
+                    "type": "string"
+                  },
+                  "CustRef": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string",
+                    "description": "Optional. If omitted, it will be defaulted based on Vista defaulting behavior."
+                  },
+                  "Department": {
+                    "type": "string"
+                  },
+                  "ContractStatus": {
+                    "type": "number",
+                    "description": "Allowed: 1, 2, 3"
+                  },
+                  "Notes": {
+                    "type": "string",
+                    "description": "Optional. If omitted, null will be defaulted."
+                  },
+                  "ContractItems[]": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "Customer": {
+                    "type": "number",
+                    "description": "Key to ar/customers(CustGroup, Customer). CustGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted."
+                  },
+                  "TaxCode": {
+                    "type": "string"
+                  },
+                  "__custom_fields": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Add a property to this object for each user defined field to be set. Property name set to the user defined field name."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "operation": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/viewpointVista/latest/actions/update-customer-action": {
       "put": {
         "operationId": "viewpointVista.update-customer-action",
@@ -13237,6 +13480,9 @@
                     "type": "object",
                     "additionalProperties": true,
                     "description": "Add a property to this object for each user defined field to be set. Property name set to the user defined field name."
+                  },
+                  "RevGrpInv": {
+                    "type": "string"
                   }
                 },
                 "additionalProperties": false

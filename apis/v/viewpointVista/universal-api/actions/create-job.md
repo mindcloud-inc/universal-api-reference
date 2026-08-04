@@ -19,7 +19,8 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/ac
   "JCCo": 1,
   "Job": "string",
   "Contract": "string",
-  "LiabTemplate": 1
+  "LiabTemplate": 1,
+  "PRStateCode": "string"
 }'
 ```
 
@@ -35,7 +36,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
     "JCCo": 1,
     "Job": "string",
     "Contract": "string",
-    "LiabTemplate": 1
+    "LiabTemplate": 1,
+    "PRStateCode": "string"
   })
 });
 
@@ -53,6 +55,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `Job` | string | yes | Key to jc/jobs(JCCo, Job). Length <= 10. |
 | `Contract` | string | yes | Key to jc/contracts(JCCo, Contract). Length <= 10. |
 | `LiabTemplate` | number | yes | Key to jc/liability_templates(JCCo, LiabTemplate). |
+| `PRStateCode` | string | yes | Used in the payroll process to lookup pr/states(PRCo, PRStateCode). This value does not have to exist in pr/states to save this record. |
 | `LockPhases` | list<string> | no | Optional. If omitted, N will be defaulted. Allowed: Y, N. One of: `N`, `Y`. |
 | `ProjectMgr` | number | no | Key to jc/project_managers(JCCo, ProjectMgr). Optional. If omitted, null will be defaulted. |
 | `Description` | string | no | Optional. If omitted, it will be defaulted based on Vista defaulting behavior. |
@@ -72,6 +75,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `TaxCode` | string | no | Key to hq/tax_codes(TaxGroup, TaxCode). TaxGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
 | `Notes` | string | no | Optional. If omitted, null will be defaulted. |
 | `__custom_fields` | object | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |
+| `RevGrpInv` | string | no |  |
 
 ## Response
 

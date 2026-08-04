@@ -2,7 +2,7 @@
 
 ![Last sync](https://img.shields.io/github/last-commit/mindcloud-inc/universal-api-reference?label=last%20sync)
 
-The API surface of **3,185 apps** — **75,386 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
+The API surface of **3,191 apps** — **75,488 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
 
 ```bash
 git clone https://github.com/mindcloud-inc/universal-api-reference.git
@@ -30,7 +30,7 @@ Averaged out, that's ~23.7 documented endpoints per app — most integration pla
 
 - `apis/<letter>/<api>/universal-api/` — the Universal API README, auth, pagination, filtering, sorting, argument conventions, examples, and one file per action.
 - `apis/<letter>/<api>/native-api/` — the vendor-native API README and one file per native operation.
-- [`catalog.json`](catalog.json) — machine-readable catalog of all 3,185 apps, with per-letter shards under [`catalog/`](catalog).
+- [`catalog.json`](catalog.json) — machine-readable catalog of all 3,191 apps, with per-letter shards under [`catalog/`](catalog).
 - [`indexes/`](indexes) — app indexes by category, API specification, and native-docs link.
 - [`llms.txt`](llms.txt) — index of this repo for LLM ingestion.
 - [`indexes/api-specifications.md`](indexes/api-specifications.md) — generated Universal API OpenAPI files and provider-published Native API specifications.
@@ -59,15 +59,15 @@ Full disclosure: MindCloud sells a [Universal API and MCP](https://mindcloud.co/
 - **Native API reference** — integrating directly with an app? Each endpoint file documents the native endpoint, arguments, pagination, and quirks, with links to source docs. No account, no SDK, no gateway required.
 - **Agent context** — point your agent or RAG pipeline at [`llms.txt`](llms.txt) and `catalog.json`, or vendor the folders for the apps you care about.
 - **Grep across every API at once** — find every app with a `refund` endpoint, every API that paginates by cursor, every endpoint that touches `invoice`.
-- **Unified API / MCP** — if you'd rather call all 3,185 apps through one REST signature and auth model, that's [the hosted thing](https://mindcloud.co/docs/universal/rest/home/latest).
+- **Unified API / MCP** — if you'd rather call all 3,191 apps through one REST signature and auth model, that's [the hosted thing](https://mindcloud.co/docs/universal/rest/home/latest).
 
 ## Browse
 
 **By letter:**
-[A (184)](apis/a) · [B (146)](apis/b) · [C (285)](apis/c) · [D (169)](apis/d) · [E (131)](apis/e) · [F (136)](apis/f) · [G (116)](apis/g) · [H (89)](apis/h) · [I (94)](apis/i) · [J (25)](apis/j) · [K (47)](apis/k) · [L (123)](apis/l) · [M (166)](apis/m) · [N (86)](apis/n) · [O (94)](apis/o) · [P (251)](apis/p) · [Q (33)](apis/q) · [R (149)](apis/r) · [S (360)](apis/s) · [T (172)](apis/t) · [U (58)](apis/u) · [V (74)](apis/v) · [W (97)](apis/w) · [X (12)](apis/x) · [Y (22)](apis/y) · [Z (66)](apis/z)
+[A (185)](apis/a) · [B (146)](apis/b) · [C (285)](apis/c) · [D (170)](apis/d) · [E (131)](apis/e) · [F (136)](apis/f) · [G (117)](apis/g) · [H (89)](apis/h) · [I (94)](apis/i) · [J (25)](apis/j) · [K (47)](apis/k) · [L (123)](apis/l) · [M (166)](apis/m) · [N (86)](apis/n) · [O (94)](apis/o) · [P (251)](apis/p) · [Q (33)](apis/q) · [R (149)](apis/r) · [S (360)](apis/s) · [T (174)](apis/t) · [U (59)](apis/u) · [V (74)](apis/v) · [W (97)](apis/w) · [X (12)](apis/x) · [Y (22)](apis/y) · [Z (66)](apis/z)
 
 **By category:**
-[Communication (181)](indexes/by-category/communication.md) · [Productivity (372)](indexes/by-category/productivity.md) · [IT Operations (389)](indexes/by-category/it-operations.md) · [Sales & CRM (170)](indexes/by-category/sales-crm.md) · [Commerce (288)](indexes/by-category/commerce.md) · [Marketing (394)](indexes/by-category/marketing.md) · [Content & Files (71)](indexes/by-category/content-files.md) · [Support (180)](indexes/by-category/support.md) · [Human Resources (77)](indexes/by-category/human-resources.md) · [Business Intelligence (257)](indexes/by-category/business-intelligence.md) · [Artificial Intelligence (204)](indexes/by-category/artificial-intelligence.md) · [Website & App Building (32)](indexes/by-category/website-app-building.md) · [Other (570)](indexes/by-category/other.md)
+[Communication (181)](indexes/by-category/communication.md) · [Productivity (372)](indexes/by-category/productivity.md) · [IT Operations (390)](indexes/by-category/it-operations.md) · [Sales & CRM (170)](indexes/by-category/sales-crm.md) · [Commerce (289)](indexes/by-category/commerce.md) · [Marketing (394)](indexes/by-category/marketing.md) · [Content & Files (71)](indexes/by-category/content-files.md) · [Support (180)](indexes/by-category/support.md) · [Human Resources (77)](indexes/by-category/human-resources.md) · [Business Intelligence (258)](indexes/by-category/business-intelligence.md) · [Artificial Intelligence (204)](indexes/by-category/artificial-intelligence.md) · [Website & App Building (32)](indexes/by-category/website-app-building.md) · [Other (573)](indexes/by-category/other.md)
 
 ## Missing an app? Found a bug?
 

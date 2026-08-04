@@ -1,0 +1,66 @@
+# Autotask: Update Opportunity
+
+
+
+```
+PUT https://connect.mindcloud.co/v1/universal/autotask/latest/actions/update-opportunity
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Autotask `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/update-opportunity" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "id": 1
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/autotask/latest/actions/update-opportunity', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "id": 1
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | number | yes |  |
+| `title` | string | no |  |
+| `description` | string | no |  |
+| `status` | number | no |  |
+| `stage` | number | no |  |
+| `projectedCloseDate` | date | no |  |
+| `ownerResourceID` | number | no |  |
+| `probability` | number | no |  |
+| `contactID` | number | no |  |
+| `amount` | number | no |  |
+| `cost` | number | no |  |
+| `nextStep` | string | no |  |
+| `closedDate` | date | no |  |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Autotask API returns.
+
+## Native endpoint
+
+Through the native Autotask API, this operation is `PATCH /Opportunities` (base URL `https://webservices14.autotask.net/ATServicesRest/v1.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-opportunity.md) for the provider-specific parameters and requirements.
+

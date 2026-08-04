@@ -1,6 +1,6 @@
 # Business Intelligence apps
 
-257 apps in the Business Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+258 apps in the Business Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **ActiveMerge** · [Universal API reference](../../apis/a/activeMerge/universal-api) · [Native API reference](../../apis/a/activeMerge/native-api) · [Native API docs](https://app.activemerge.com/api/documentation)
 - **Address Auto-Complete by Fetchify** · [Universal API reference](../../apis/a/addressAutoCompleteByFetchify/universal-api) · [Native API reference](../../apis/a/addressAutoCompleteByFetchify/native-api) · [Native API docs](https://docs.fetchify.com/)
@@ -227,6 +227,7 @@
 - **Tako** · [Universal API reference](../../apis/t/tako/universal-api) · [Native API reference](../../apis/t/tako/native-api) · [Native API docs](https://docs.tako.com/documentation/getting-started/overview)
 - **Tavily** · [Universal API reference](../../apis/t/tavily/universal-api) · [Native API reference](../../apis/t/tavily/native-api) · [Native API docs](https://docs.tavily.com/documentation/api-reference/introduction)
 - **Temi** · [Universal API reference](../../apis/t/temi/universal-api) · [Native API reference](../../apis/t/temi/native-api) · [Native API docs](https://www.temi.com/api/reference/v1)
+- **Tinybird** · [Universal API reference](../../apis/t/tinybird/universal-api) · [Native API reference](../../apis/t/tinybird/native-api) · [Native API docs](https://www.tinybird.co/docs/api-reference)
 - **TomTom** · [Universal API reference](../../apis/t/tomTom/universal-api) · [Native API reference](../../apis/t/tomTom/native-api) · [Native API docs](https://developer.tomtom.com/documentation)
 - **TPSCheck** · [Universal API reference](../../apis/t/tPSCheck/universal-api) · [Native API reference](../../apis/t/tPSCheck/native-api) · [Native API docs](https://www.tpscheck.uk/documentation/)
 - **Trint** · [Universal API reference](../../apis/t/trint/universal-api) · [Native API reference](../../apis/t/trint/native-api) · [Native API docs](https://dev.trint.com/reference)

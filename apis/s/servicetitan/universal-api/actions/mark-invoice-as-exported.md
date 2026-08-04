@@ -15,7 +15,10 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "data[]": [
+    "string"
+  ]
 }'
 ```
 
@@ -27,7 +30,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/servicet
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "data[]": ["string"]
   })
 });
 
@@ -40,10 +44,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `invoiceId` | number | no |  |
-| `externalId` | string | no |  |
-| `externalMessage` | string | no |  |
-| `model` | string | no |  |
+| `data[]` | array | yes | [ { "invoiceId": 0, "externalId": "string", "externalMessage": "string" } ] |
 
 ## Response
 

@@ -19,6 +19,7 @@ Adds a Job based on a contract
 | `Job` | body | `string` | yes | Key to jc/jobs(JCCo, Job). Length <= 10. Maximum length: 10. |
 | `Contract` | body | `string` | yes | Key to jc/contracts(JCCo, Contract). Length <= 10. Maximum length: 10. |
 | `LiabTemplate` | body | `number` | yes | Key to jc/liability_templates(JCCo, LiabTemplate). |
+| `PRStateCode` | body | `string` | yes | Used in the payroll process to lookup pr/states(PRCo, PRStateCode). This value does not have to exist in pr/states to save this record. |
 | `LockPhases` | body | `list<string>` | no | Optional. If omitted, N will be defaulted. Allowed: Y, N. Accepted values: `N`, `Y`. |
 | `ProjectMgr` | body | `number` | no | Key to jc/project_managers(JCCo, ProjectMgr). Optional. If omitted, null will be defaulted. |
 | `Description` | body | `string` | no | Optional. If omitted, it will be defaulted based on Vista defaulting behavior. |
@@ -38,3 +39,4 @@ Adds a Job based on a contract
 | `TaxCode` | body | `string` | no | Key to hq/tax_codes(TaxGroup, TaxCode). TaxGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
 | `Notes` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `__custom_fields` | body | `object` | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |
+| `RevGrpInv` | body | `string` | no | — |

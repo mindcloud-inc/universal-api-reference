@@ -1,6 +1,6 @@
 # Commerce apps
 
-288 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+289 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -253,6 +253,7 @@
 - **Tenderplan** · [Universal API reference](../../apis/t/tenderplan/universal-api) · [Native API reference](../../apis/t/tenderplan/native-api) · [Native API docs](https://tenderplan.ru/api/doc/)
 - **Thinkific** · [Universal API reference](../../apis/t/thinkific/universal-api) · [Native API reference](../../apis/t/thinkific/native-api) · [Native API docs](https://developers.thinkific.com/api/api-documentation)
 - **Tidely** · [Universal API reference](../../apis/t/tidely/universal-api) · [Native API reference](../../apis/t/tidely/native-api) · [Native API docs](https://faq.tidely.com/de/api-rechnungen)
+- **Toast** · [Universal API reference](../../apis/t/toast/universal-api) · [Native API reference](../../apis/t/toast/native-api) · [Native API docs](https://doc.toasttab.com/openapi/)
 - **Tolstoy** · [Universal API reference](../../apis/t/tolstoy/universal-api) · [Native API reference](../../apis/t/tolstoy/native-api) · [Native API docs](https://developers.gotolstoy.com/welcome)
 - **Torque** · [Universal API reference](../../apis/t/torque/universal-api) · [Native API reference](../../apis/t/torque/native-api) · [Native API docs](https://docs.torque.fi/business/api-reference)
 - **TrackMage** · [Universal API reference](../../apis/t/trackMage/universal-api) · [Native API reference](../../apis/t/trackMage/native-api) · [Native API docs](https://docs.trackmage.com/docs/)

@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3185 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3191 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -172,6 +172,7 @@ Machine-readable API descriptions for 3185 apps. Universal API specifications ar
 | [Automate Sales CRM](../apis/a/automateSalesCRM) | [OpenAPI 3.1](../apis/a/automateSalesCRM/universal-api/openapi.json) |  |
 | [Automate Team - Task Management](../apis/a/automateTeamTaskManagement) | [OpenAPI 3.1](../apis/a/automateTeamTaskManagement/universal-api/openapi.json) |  |
 | [Automatic Data Extraction](../apis/a/automaticDataExtraction) | [OpenAPI 3.1](../apis/a/automaticDataExtraction/universal-api/openapi.json) |  |
+| [Autotask](../apis/a/autotask) | [OpenAPI 3.1](../apis/a/autotask/universal-api/openapi.json) |  |
 | [Autype](../apis/a/autype) | [OpenAPI 3.1](../apis/a/autype/universal-api/openapi.json) | [Provider OpenAPI](https://docs.autype.com/api-reference/openapi.json) |
 | [Availity](../apis/a/availity) | [OpenAPI 3.1](../apis/a/availity/universal-api/openapi.json) |  |
 | [Avaza](../apis/a/avaza) | [OpenAPI 3.1](../apis/a/avaza/universal-api/openapi.json) | [Provider OpenAPI](https://api.avaza.com/swagger/docs/v1) |
@@ -751,6 +752,7 @@ Machine-readable API descriptions for 3185 apps. Universal API specifications ar
 | [Dropbox Sign](../apis/d/dropboxSign) | [OpenAPI 3.1](../apis/d/dropboxSign/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/hellosign/hellosign-openapi/main/openapi.yaml) |
 | [Dropcontact](../apis/d/dropcontact) | [OpenAPI 3.1](../apis/d/dropcontact/universal-api/openapi.json) |  |
 | [Dropmark](../apis/d/dropmark) | [OpenAPI 3.1](../apis/d/dropmark/universal-api/openapi.json) |  |
+| [D-Tools SI](../apis/d/dToolsSI) | [OpenAPI 3.1](../apis/d/dToolsSI/universal-api/openapi.json) |  |
 | [Dub](../apis/d/dub) | [OpenAPI 3.1](../apis/d/dub/universal-api/openapi.json) |  |
 | [Dubble](../apis/d/dubble) | [OpenAPI 3.1](../apis/d/dubble/universal-api/openapi.json) |  |
 | [Dubsado](../apis/d/dubsado) | [OpenAPI 3.1](../apis/d/dubsado/universal-api/openapi.json) |  |
@@ -1083,6 +1085,7 @@ Machine-readable API descriptions for 3185 apps. Universal API specifications ar
 | [Goody](../apis/g/goody) | [OpenAPI 3.1](../apis/g/goody/universal-api/openapi.json) | [Provider OpenAPI](https://assets.ongoody.com/static/web/goody-api-openapi.json) |
 | [Google Ads](../apis/g/googleAds) | [OpenAPI 3.1](../apis/g/googleAds/universal-api/openapi.json) |  |
 | [Google AI Studio](../apis/g/googleAIStudio) | [OpenAPI 3.1](../apis/g/googleAIStudio/universal-api/openapi.json) |  |
+| [Google Analytics](../apis/g/googleAnalytics) | [OpenAPI 3.1](../apis/g/googleAnalytics/universal-api/openapi.json) |  |
 | [Google BigQuery](../apis/g/googleBigQuery) | [OpenAPI 3.1](../apis/g/googleBigQuery/universal-api/openapi.json) |  |
 | [Google Calendar](../apis/g/googleCalendar) | [OpenAPI 3.1](../apis/g/googleCalendar/universal-api/openapi.json) |  |
 | [Google Chat](../apis/g/googleChat) | [OpenAPI 3.1](../apis/g/googleChat/universal-api/openapi.json) |  |
@@ -2712,12 +2715,14 @@ Machine-readable API descriptions for 3185 apps. Universal API specifications ar
 | [Timizer](../apis/t/timizer) | [OpenAPI 3.1](../apis/t/timizer/universal-api/openapi.json) | [Provider OpenAPI](https://api-doc.timizer.io/api-key-doc.swagger.yaml) |
 | [Tinify](../apis/t/tinify) | [OpenAPI 3.1](../apis/t/tinify/universal-api/openapi.json) |  |
 | [Tinq.ai](../apis/t/tinqai) | [OpenAPI 3.1](../apis/t/tinqai/universal-api/openapi.json) |  |
+| [Tinybird](../apis/t/tinybird) | [OpenAPI 3.1](../apis/t/tinybird/universal-api/openapi.json) |  |
 | [TinyPNG](../apis/t/tinyPNG) | [OpenAPI 3.1](../apis/t/tinyPNG/universal-api/openapi.json) |  |
 | [Tisane Labs](../apis/t/tisaneLabs) | [OpenAPI 3.1](../apis/t/tisaneLabs/universal-api/openapi.json) | [Provider OpenAPI](https://docs.tisane.ai/_bundle/apis/tisane-api-short.json?download=) |
 | [tl:dv](../apis/t/tldv) | [OpenAPI 3.1](../apis/t/tldv/universal-api/openapi.json) |  |
 | [TLY Link Shortener](../apis/t/tLYLinkShortener) | [OpenAPI 3.1](../apis/t/tLYLinkShortener/universal-api/openapi.json) |  |
 | [TMetric](../apis/t/tMetric) | [OpenAPI 3.1](../apis/t/tMetric/universal-api/openapi.json) |  |
 | [Tny](../apis/t/tny) | [OpenAPI 3.1](../apis/t/tny/universal-api/openapi.json) | [Provider OpenAPI](https://www.tny.dev/api/v1/openapi) |
+| [Toast](../apis/t/toast) | [OpenAPI 3.1](../apis/t/toast/universal-api/openapi.json) |  |
 | [Todoist](../apis/t/todoist) | [OpenAPI 3.1](../apis/t/todoist/universal-api/openapi.json) |  |
 | [Toggl Track](../apis/t/togglTrack) | [OpenAPI 3.1](../apis/t/togglTrack/universal-api/openapi.json) |  |
 | [Tolq](../apis/t/tolq) | [OpenAPI 3.1](../apis/t/tolq/universal-api/openapi.json) |  |
@@ -2823,6 +2828,7 @@ Machine-readable API descriptions for 3185 apps. Universal API specifications ar
 | [URL.dev](../apis/u/uRLdev) | [OpenAPI 3.1](../apis/u/uRLdev/universal-api/openapi.json) |  |
 | [urlscan.io](../apis/u/urlscanio) | [OpenAPI 3.1](../apis/u/urlscanio/universal-api/openapi.json) | [Provider OpenAPI](https://docs.urlscan.io/apis/urlscan-openapi) |
 | [URL to Text](../apis/u/uRLToText) | [OpenAPI 3.1](../apis/u/uRLToText/universal-api/openapi.json) |  |
+| [USAC](../apis/u/uSAC) | [OpenAPI 3.1](../apis/u/uSAC/universal-api/openapi.json) |  |
 | [USA.gov](../apis/u/uSAgov) | [OpenAPI 3.1](../apis/u/uSAgov/universal-api/openapi.json) |  |
 | [USAJOBS](../apis/u/uSAJOBS) | [OpenAPI 3.1](../apis/u/uSAJOBS/universal-api/openapi.json) |  |
 | [US Congress CRS](../apis/u/uSCongressCRS) | [OpenAPI 3.1](../apis/u/uSCongressCRS/universal-api/openapi.json) |  |

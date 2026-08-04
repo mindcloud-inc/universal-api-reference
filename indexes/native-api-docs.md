@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3185 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3191 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -176,6 +176,7 @@ The official vendor API documentation for each of the 3185 apps in this repo. Ea
 - [Automate Sales CRM](../apis/a/automateSalesCRM/native-api) - https://support.automatebusiness.com/en/category/automate-sales-crm-6px6fi
 - [Automate Team - Task Management](../apis/a/automateTeamTaskManagement/native-api) - https://developers.onautomate.com/task
 - [Automatic Data Extraction](../apis/a/automaticDataExtraction/native-api) - https://docs.zyte.com/zyte-api/usage/reference.html
+- [Autotask](../apis/a/autotask/native-api) - https://www.autotask.net/help/developerhelp/Content/APIs/REST/REST_API_Home.htm
 - [Autype](../apis/a/autype/native-api) - https://docs.autype.com/api-reference/introduction
 - [Availity](../apis/a/availity/native-api) - https://developer.availity.com/blog/2025/3/25/hipaa-transactions
 - [Avaza](../apis/a/avaza/native-api) - https://api.avaza.com/swagger/ui/index
@@ -772,6 +773,7 @@ The official vendor API documentation for each of the 3185 apps in this repo. Ea
 - [Dropcontact](../apis/d/dropcontact/native-api) - https://developer.dropcontact.com/
 - [Dropmark](../apis/d/dropmark/native-api) - https://support.dropmark.com/article/96-api
 - [DSCO Dropship EDI](../apis/d/dSCODropshipEDI/native-api) - https://developer.dsco.io/reference/introduction
+- [D-Tools SI](../apis/d/dToolsSI/native-api) - https://api.d-tools.com/si/doc
 - [Dub](../apis/d/dub/native-api) - https://dub.co/docs/api-reference/introduction
 - [Dubble](../apis/d/dubble/native-api) - https://dubble.readme.io
 - [Dubsado](../apis/d/dubsado/native-api) - https://help.dubsado.com/en/articles/909872-connecting-with-zapier
@@ -1109,6 +1111,7 @@ The official vendor API documentation for each of the 3185 apps in this repo. Ea
 - [Goody](../apis/g/goody/native-api) - https://developer.ongoody.com/commerce-api/overview
 - [Google Ads](../apis/g/googleAds/native-api) - https://developers.google.com/google-ads/api
 - [Google AI Studio](../apis/g/googleAIStudio/native-api) - https://ai.google.dev/api
+- [Google Analytics](../apis/g/googleAnalytics/native-api)
 - [Google BigQuery](../apis/g/googleBigQuery/native-api) - https://bigquery.googleapis.com/$discovery/rest?version=v2
 - [Google Calendar](../apis/g/googleCalendar/native-api) - https://developers.google.com/workspace/calendar/api/v3/reference
 - [Google Chat](../apis/g/googleChat/native-api) - https://developers.google.com/workspace/chat/api/reference/rest
@@ -2788,12 +2791,14 @@ The official vendor API documentation for each of the 3185 apps in this repo. Ea
 - [Timizer](../apis/t/timizer/native-api) - https://api-doc.timizer.io
 - [Tinify](../apis/t/tinify/native-api) - https://tinify.com/developers/reference/http
 - [Tinq.ai](../apis/t/tinqai/native-api) - https://docs.tinq.ai/api-reference
+- [Tinybird](../apis/t/tinybird/native-api) - https://www.tinybird.co/docs/api-reference
 - [TinyPNG](../apis/t/tinyPNG/native-api) - https://tinify.com/developers/reference/http
 - [Tisane Labs](../apis/t/tisaneLabs/native-api) - https://docs.tisane.ai/apis/tisane-api-short
 - [tl:dv](../apis/t/tldv/native-api) - https://doc.tldv.io/index.html
 - [TLY Link Shortener](../apis/t/tLYLinkShortener/native-api) - https://t.ly/docs
 - [TMetric](../apis/t/tMetric/native-api) - https://app.tmetric.com/api-docs
 - [Tny](../apis/t/tny/native-api) - https://www.tny.dev/api-docs
+- [Toast](../apis/t/toast/native-api) - https://doc.toasttab.com/openapi/
 - [Todoist](../apis/t/todoist/native-api) - https://developer.todoist.com/api/v1/
 - [Toggl Track](../apis/t/togglTrack/native-api) - https://engineering.toggl.com/docs/track/
 - [Tolq](../apis/t/tolq/native-api) - https://docs.tolq.com/reference
@@ -2902,6 +2907,7 @@ The official vendor API documentation for each of the 3185 apps in this repo. Ea
 - [URL.dev](../apis/u/uRLdev/native-api) - https://docs.superuser.app/readme.md
 - [urlscan.io](../apis/u/urlscanio/native-api) - https://docs.urlscan.io/guides/quickstart
 - [URL to Text](../apis/u/uRLToText/native-api) - https://urltotext.com/documentation/api-docs/url-to-text/
+- [USAC](../apis/u/uSAC/native-api) - https://dev.socrata.com/
 - [USA.gov](../apis/u/uSAgov/native-api) - https://www.usa.gov/website-analytics/data/
 - [USAJOBS](../apis/u/uSAJOBS/native-api) - https://developer.usajobs.gov/api-reference/
 - [US Congress CRS](../apis/u/uSCongressCRS/native-api) - https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/CRSReportEndpoint.md

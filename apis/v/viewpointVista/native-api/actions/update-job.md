@@ -37,3 +37,4 @@ Update a Job based on a contract
 | `TaxCode` | body | `string` | no | Key to hq/tax_codes(TaxGroup, TaxCode). TaxGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
 | `Notes` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `__custom_fields` | body | `object` | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |
+| `RevGrpInv` | body | `string` | no | — |

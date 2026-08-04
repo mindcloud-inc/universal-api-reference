@@ -1,6 +1,6 @@
 # IT Operations apps
 
-389 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+390 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbyy** · [Universal API reference](../../apis/a/abbyy/universal-api) · [Native API reference](../../apis/a/abbyy/native-api) · [Native API docs](https://support.abbyy.com/hc/en-us/articles/360017269420-API-reference)
 - **Abstract IP Intelligence** · [Universal API reference](../../apis/a/abstractIPIntelligence/universal-api) · [Native API reference](../../apis/a/abstractIPIntelligence/native-api) · [Native API docs](https://docs.abstractapi.com/api/ip-intelligence)
@@ -29,6 +29,7 @@
 - **Astra** · [Universal API reference](../../apis/a/astra/universal-api) · [Native API reference](../../apis/a/astra/native-api) · [Native API docs](https://docs.datastax.com/en/astra-api-docs/_attachments/devops-api/index.html)
 - **Auth0 Management** · [Universal API reference](../../apis/a/auth0ManagementAPI/universal-api) · [Native API reference](../../apis/a/auth0ManagementAPI/native-api) · [Native API docs](https://dev.auth0.com/docs/api/management/v2)
 - **Autom** · [Universal API reference](../../apis/a/autom/universal-api) · [Native API reference](../../apis/a/autom/native-api) · [Native API docs](https://docs.autom.dev/)
+- **Autotask** · [Universal API reference](../../apis/a/autotask/universal-api) · [Native API reference](../../apis/a/autotask/native-api) · [Native API docs](https://www.autotask.net/help/developerhelp/Content/APIs/REST/REST_API_Home.htm)
 - **Autype** · [Universal API reference](../../apis/a/autype/universal-api) · [Native API reference](../../apis/a/autype/native-api) · [Native API docs](https://docs.autype.com/api-reference/introduction)
 - **Azure SQL** · [Universal API reference](../../apis/a/azuresql/universal-api) · [Native API reference](../../apis/a/azuresql/native-api) · [Native API docs](https://learn.microsoft.com/en-us/azure/azure-sql/)
 - **Backendless** · [Universal API reference](../../apis/b/backendless/universal-api) · [Native API reference](../../apis/b/backendless/native-api) · [Native API docs](https://backendless.com/docs/rest/index.html)

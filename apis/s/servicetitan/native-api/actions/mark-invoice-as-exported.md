@@ -11,9 +11,6 @@ Update Invoice record.
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `invoiceId` | body | `number` | no |
-| `externalId` | body | `string` | no |
-| `externalMessage` | body | `string` | no |
-| `model` | body | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `data[]` | body | `array` | yes | [   {     "invoiceId": 0,     "externalId": "string",     "externalMessage": "string"   } ] |

@@ -4,7 +4,7 @@ ServiceTitan through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 96
+- **Actions:** 97
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (96)
+## Actions (97)
 
 ### Access Tokens
 
@@ -131,6 +131,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Create Job Note](actions/create-job-note.md) | POST |  |
 | [Export Job Notes](actions/export-job-notes.md) | GET |  |
 | [Get Job Notes](actions/get-job-notes.md) | GET |  |
+| [Update Job](actions/update-job.md) | PUT | Updates an existing job in ServiceTitan. |
 | [Upload Job Attachment](actions/upload-job-attachment.md) | POST | https://developer.servicetitan.io/docs/apis/tenant-forms-v2/endpoints/Jobs_CreateAttachment |
 
 ### Job Booking

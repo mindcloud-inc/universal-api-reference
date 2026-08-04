@@ -55,7 +55,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `Notes` | string | no | Optional. If omitted, null will be defaulted. |
 | `__custom_fields` | object | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |
 | `ContractItems[]` | array | no |  |
-| `Customer` | string | no | Key to ar/customers(CustGroup, Customer). CustGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
+| `Customer` | number | no | Key to ar/customers(CustGroup, Customer). CustGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
 | `TaxCode` | string | no |  |
 
 ## Response

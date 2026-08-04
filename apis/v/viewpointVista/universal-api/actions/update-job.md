@@ -65,6 +65,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `TaxCode` | string | no | Key to hq/tax_codes(TaxGroup, TaxCode). TaxGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
 | `Notes` | string | no | Optional. If omitted, null will be defaulted. |
 | `__custom_fields` | object | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |
+| `RevGrpInv` | string | no |  |
 
 ## Response
 
