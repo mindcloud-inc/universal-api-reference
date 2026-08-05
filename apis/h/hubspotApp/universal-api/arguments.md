@@ -1,6 +1,6 @@
 # HubSpot Universal API Arguments
 
-Arguments are the inputs a HubSpot action needs. Each [action page](README.md#actions-75) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a HubSpot action needs. Each [action page](README.md#actions-76) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

@@ -1,6 +1,6 @@
 # Google Analytics Universal API Arguments
 
-Arguments are the inputs a Google Analytics action needs. Each [action page](README.md#actions-2) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Google Analytics action needs. Each [action page](README.md#actions-15) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

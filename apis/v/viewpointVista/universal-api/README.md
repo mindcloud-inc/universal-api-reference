@@ -105,8 +105,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create Job](actions/create-job.md) | POST | Adds a Job based on a contract |
-| [Update Job](actions/update-job.md) | PUT | Update a Job based on a contract |
+| [Create JC Job](actions/create-jc-job.md) | POST | Adds a Job based on a contract |
+| [Update JC Job](actions/update-jc-job.md) | PUT | Update a Job based on a contract |
 
 ### Material Sales
 

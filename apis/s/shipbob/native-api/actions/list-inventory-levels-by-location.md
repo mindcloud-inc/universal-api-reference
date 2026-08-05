@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `2025-07/inventory-level/locations?`
+- **Path:** `2026-07/inventory-level/locations?`
 - **Base URL:** `https://{apiSubdomain}.shipbob.com/`
 - **API:** REST - Cursor
 - **Official documentation:** [List Inventory Levels by Location](https://developer.shipbob.com/)

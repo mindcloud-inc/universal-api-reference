@@ -1,0 +1,20 @@
+# Run Custom Report with Google Analytics
+
+## Endpoint
+
+- **Method:** `POST`
+- **Path:** `https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd`
+- **Base URL:** `https://analyticsdata.googleapis.com/v1beta`
+- **Official documentation:** [Run Custom Report](https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport)
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `propertyId` | path | `string` | yes | GA4 property ID without the properties/ prefix |
+| `dateRanges[]` | body | `array<object>` | yes | — |
+| `dimensions[]` | body | `array<object>` | yes | GA4 dimensions as objects with a name field |
+| `metrics[]` | body | `array<object>` | yes | GA4 metrics as objects with a name field |
+| `orderBys[]` | body | `array<object>` | no | — |
+| `limit` | body | `number` | no | — |
+| `offset` | body | `number` | no | — |

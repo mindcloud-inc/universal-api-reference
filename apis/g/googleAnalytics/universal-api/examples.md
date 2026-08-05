@@ -30,7 +30,14 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "accountSummaries": [
+        {}
+      ],
+      "nextPageToken": "string"
+    }
+  ],
   "meta": {}
 }
 ```

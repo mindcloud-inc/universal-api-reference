@@ -39,6 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `active` | string | no | What kind of items should be returned (only active items will be returned by default) |
 | `ids` | string | no |  |
 
 ## Response

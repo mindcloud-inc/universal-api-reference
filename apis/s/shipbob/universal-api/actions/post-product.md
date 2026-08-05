@@ -15,9 +15,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/p
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "referenceId": "string",
-  "name": "Ava Chen"
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
@@ -29,9 +27,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/shipbob/
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "referenceId": "string",
-    "name": "Ava Chen"
+    connectionId
   })
 });
 
@@ -44,13 +40,13 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `referenceId` | string | yes |  |
-| `sku` | string | no |  |
-| `name` | string | yes |  |
-| `barcode` | string | no |  |
-| `gtin` | string | no | Global Trade Item Number - unique and internationally recognized identifier assigned to item by company GS1. |
-| `upc` | string | no | Universal Product Code - Unique external identifier |
-| `unit_price` | number | no | The price of one unit |
+| `is_quarantine` | string | no |  |
+| `variants.sku` | string | no |  |
+| `name` | string | no |  |
+| `variants.upc` | string | no |  |
+| `taxonomy_id` | number | no |  |
+| `type_id` | number | no | The product type ID (1 = Regular, 2 = Bundle) |
+| `variants` | object | no | Example: `List of variants to create with the product. At least one variant is required. Each variant must have a unique SKU.`. |
 
 ## Response
 
@@ -58,5 +54,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native ShipBob API, this operation is `POST 1.0/product` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/post-product.md) for the provider-specific parameters and requirements.
+Through the native ShipBob API, this operation is `POST 2026-07/product` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/post-product.md) for the provider-specific parameters and requirements.
 

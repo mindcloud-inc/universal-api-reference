@@ -1,6 +1,6 @@
 # HubSpot: Native API Reference
 
-A consolidated summary of HubSpot's API configuration and 75 documented operations, with links to official documentation.
+A consolidated summary of HubSpot's API configuration and 76 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
 - **REST - Query Pagination base URL:** `https://api.hubapi.com`
@@ -69,7 +69,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 
 - **REST - Body Pagination:** Send filters in the request body. Supported operators: `between`, `contain`, `eq`, `exist`, `gt`, `gte`, `lt`, `lte`, `ncontain`, `ne`, `nexist`.
 
-## Endpoints (75 documented)
+## Endpoints (76 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -85,6 +85,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [Create Engagement](actions/create-engagement.md) | REST - Query Pagination | `POST crm/v3/objects/:engagementType` | [docs](https://developers.hubspot.com/docs/api-reference/crm-objects-v3/basic/post-crm-v3-objects-objectType) |
 | [Create Line Item](actions/create-line-item.md) | REST - Query Pagination | `POST crm/v3/objects/line_items` | [docs](https://developers.hubspot.com/docs/api-reference/crm-line-items-v3/guide) |
 | [Create List](actions/create-list.md) | REST - Query Pagination | `POST crm/v3/lists` | [docs](https://developers.hubspot.com/docs/api-reference/crm-lists-v3/lists/post-crm-v3-lists) |
+| [Create Listings (v2026-03)](actions/create-listings-v202603.md) | REST - Query Pagination | `POST crm/objects/2026-03/listings` | [docs](https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/patch-crm-v3-objects-companies-companyId) |
 | [Create Object Schema](actions/create-object-schema.md) | REST - Query Pagination | `POST crm-object-schemas/v3/schemas` | [docs](https://developers.hubspot.com/docs/api-reference/crm-schemas-v3/core/post-crm-object-schemas-v3-schemas) |
 | [Create Pipeline Stage](actions/create-pipeline-stage.md) | REST - Query Pagination | `POST crm/v3/pipelines/:objectType/:pipelineId/stages` | [docs](https://developers.hubspot.com/docs/api-reference/crm-pipelines-v3/pipeline-stages/post-crm-v3-pipelines-objectType-pipelineId-stages) |
 | [Create Product](actions/create-product.md) | REST - Query Pagination | `POST crm/v3/objects/products` | [docs](https://developers.hubspot.com/docs/api-reference/crm-products-v3/basic/post-crm-v3-objects-products) |

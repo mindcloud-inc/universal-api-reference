@@ -3,9 +3,10 @@
 ## Endpoint
 
 - **Method:** `POST`
-- **Path:** `1.0/product`
+- **Path:** `2026-07/product`
 - **Base URL:** `https://{apiSubdomain}.shipbob.com/`
 - **API:** REST
+- **Official documentation:** [Post Product](https://developer-stage.shipbob.dev/2026-07/api/products/create-product)
 
 ## Headers
 
@@ -19,10 +20,10 @@ Send these additional headers for this operation:
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `reference_id` | body | `string` | yes | — |
-| `sku` | body | `string` | no | — |
-| `name` | body | `string` | yes | — |
-| `barcode` | body | `string` | no | — |
-| `gtin` | body | `string` | no | Global Trade Item Number - unique and internationally recognized identifier assigned to item by company GS1. |
-| `upc` | body | `string` | no | Universal Product Code - Unique external identifier |
-| `unit_price` | body | `number` | no | The price of one unit |
+| `is_quarantine` | body | `string` | no | — |
+| `variants.sku` | body | `string` | no | — |
+| `name` | body | `string` | no | — |
+| `variants.upc` | body | `string` | no | — |
+| `taxonomy_id` | body | `number` | no | — |
+| `type_id` | body | `number` | no | The product type ID (1 = Regular, 2 = Bundle) |
+| `variants` | body | `object` | no | — |

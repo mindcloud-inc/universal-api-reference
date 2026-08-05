@@ -73,5 +73,5 @@ const { success, data } = await response.json();
 
 ## Native endpoint
 
-Through the native ShipBob API, this operation is `GET 1.0/fulfillmentCenter` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-fulfillment-centers.md) for the provider-specific parameters and requirements.
+Through the native ShipBob API, this operation is `GET 2026-07/fulfillment-center` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-fulfillment-centers.md) for the provider-specific parameters and requirements.
 

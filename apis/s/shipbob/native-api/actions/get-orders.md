@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `2025-07/order`
+- **Path:** `2026-07/order`
 - **Base URL:** `https://{apiSubdomain}.shipbob.com/`
 - **API:** REST
 - **Official documentation:** [Get Orders](https://developer.shipbob.com/api/2025-07/orders/get-orders)

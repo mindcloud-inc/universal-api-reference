@@ -1,6 +1,6 @@
 # Other apps
 
-573 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+572 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -210,7 +210,6 @@
 - **Giphy** · [Universal API reference](../../apis/g/giphy/universal-api) · [Native API reference](../../apis/g/giphy/native-api) · [Native API docs](https://developers.giphy.com/docs/api)
 - **GNews** · [Universal API reference](../../apis/g/gNews/universal-api) · [Native API reference](../../apis/g/gNews/native-api) · [Native API docs](https://docs.gnews.io)
 - **Golemio API** · [Universal API reference](../../apis/g/golemioAPI/universal-api) · [Native API reference](../../apis/g/golemioAPI/native-api) · [Native API docs](https://operator-ict.gitlab.io/golemio/documentation/en/open-data-api/)
-- **Google Analytics** · [Universal API reference](../../apis/g/googleAnalytics/universal-api) · [Native API reference](../../apis/g/googleAnalytics/native-api)
 - **Google Search Console** · [Universal API reference](../../apis/g/googleSearchConsole/universal-api) · [Native API reference](../../apis/g/googleSearchConsole/native-api) · [Native API docs](https://developers.google.com/webmaster-tools/v1/api_reference_index)
 - **Google Sheets** · [Universal API reference](../../apis/g/googleSheets/universal-api) · [Native API reference](../../apis/g/googleSheets/native-api) · [Vendor website](https://www.google.com/sheets)
 - **goQR.me** · [Universal API reference](../../apis/g/goQRme/universal-api) · [Native API reference](../../apis/g/goQRme/native-api) · [Native API docs](https://goqr.me/api/doc/)

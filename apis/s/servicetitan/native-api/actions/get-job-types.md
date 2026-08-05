@@ -12,6 +12,7 @@ This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `ids` | query | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `active` | query | `string` | no | What kind of items should be returned (only active items will be returned by default) |
+| `ids` | query | `string` | no | — |

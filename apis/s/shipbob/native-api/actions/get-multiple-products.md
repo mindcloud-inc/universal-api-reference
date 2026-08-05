@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `1.0/product`
+- **Path:** `2026-07/product`
 - **Base URL:** `https://{apiSubdomain}.shipbob.com/`
 - **API:** REST
 
@@ -11,5 +11,5 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| `SKU` | query | `string` | no | list of reference IDs to filter by |
 | `Search` | query | `string` | no | — |
-| `ReferenceIds` | query | `array<string>` | no | list of reference IDs to filter by |

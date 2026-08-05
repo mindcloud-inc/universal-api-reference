@@ -1,4 +1,4 @@
-# Update Job with Viewpoint Vista
+# Update JC Job with Viewpoint Vista
 
 Update a Job based on a contract
 
@@ -8,7 +8,7 @@ Update a Job based on a contract
 - **Path:** `v1/direct/subscribers/{subscriberCode}/vista/jc/2/data/jobs/actions/change`
 - **Base URL:** `https://api.xchange.trimble.com/connect/`
 - **API:** REST
-- **Official documentation:** [Update Job](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd)
+- **Official documentation:** [Update JC Job](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd)
 
 ## Parameters
 
@@ -36,5 +36,5 @@ Update a Job based on a contract
 | `ShipAddress2` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `TaxCode` | body | `string` | no | Key to hq/tax_codes(TaxGroup, TaxCode). TaxGroup will be determined based on JCCo. Optional. If omitted, null will be defaulted. |
 | `Notes` | body | `string` | no | Optional. If omitted, null will be defaulted. |
-| `__custom_fields` | body | `object` | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |
 | `RevGrpInv` | body | `string` | no | — |
+| `__custom_fields` | body | `object` | no | Add a property to this object for each user defined field to be set. Property name set to the user defined field name. |

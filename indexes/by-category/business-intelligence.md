@@ -1,6 +1,6 @@
 # Business Intelligence apps
 
-258 apps in the Business Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+259 apps in the Business Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **ActiveMerge** · [Universal API reference](../../apis/a/activeMerge/universal-api) · [Native API reference](../../apis/a/activeMerge/native-api) · [Native API docs](https://app.activemerge.com/api/documentation)
 - **Address Auto-Complete by Fetchify** · [Universal API reference](../../apis/a/addressAutoCompleteByFetchify/universal-api) · [Native API reference](../../apis/a/addressAutoCompleteByFetchify/native-api) · [Native API docs](https://docs.fetchify.com/)
@@ -101,6 +101,7 @@
 - **Gender API** · [Universal API reference](../../apis/g/genderAPI/universal-api) · [Native API reference](../../apis/g/genderAPI/native-api) · [Native API docs](https://gender-api.com/en/api-docs/v2)
 - **Geoapify Geocode** · [Universal API reference](../../apis/g/geoapify/universal-api) · [Native API reference](../../apis/g/geoapify/native-api) · [Native API docs](https://apidocs.geoapify.com/docs)
 - **Get Website Report** · [Universal API reference](../../apis/g/getWebsiteReport/universal-api) · [Native API reference](../../apis/g/getWebsiteReport/native-api) · [Native API docs](https://app.getwebsite.report/login)
+- **Google Analytics** · [Universal API reference](../../apis/g/googleAnalytics/universal-api) · [Native API reference](../../apis/g/googleAnalytics/native-api) · [Native API docs](https://developers.google.com/analytics)
 - **Google BigQuery** · [Universal API reference](../../apis/g/googleBigQuery/universal-api) · [Native API reference](../../apis/g/googleBigQuery/native-api) · [Native API docs](https://bigquery.googleapis.com/$discovery/rest?version=v2)
 - **GoSquared** · [Universal API reference](../../apis/g/goSquared/universal-api) · [Native API reference](../../apis/g/goSquared/native-api) · [Native API docs](https://www.gosquared.com/docs/)
 - **Grants.gov** · [Universal API reference](../../apis/g/grantsgov/universal-api) · [Native API reference](../../apis/g/grantsgov/native-api) · [Native API docs](https://grants.gov/api/api-guide)

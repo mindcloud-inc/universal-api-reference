@@ -29,13 +29,45 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleAn
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `pageSize` | number | no | Maximum account summaries to return (up to 200) Default: `50`. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `pageToken` | string | no | Token from a previous response |
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Google Analytics API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "accountSummaries": [
+        {}
+      ],
+      "nextPageToken": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `accountSummaries` | array<object> | Accessible account summaries and child property summaries |
+| `nextPageToken` | string | Token for the next page |
 
 ## Native endpoint
 
-Through the native Google Analytics API, this operation is `GET https://analyticsadmin.googleapis.com/v1beta/accountSummaries` (base URL `https://www.googleapis.com/analytics/v3/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-account-summaries.md) for the provider-specific parameters and requirements.
+Through the native Google Analytics API, this operation is `GET https://analyticsadmin.googleapis.com/v1beta/accountSummaries` (base URL `https://analyticsdata.googleapis.com/v1beta`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-account-summaries.md) for the provider-specific parameters and requirements.
 

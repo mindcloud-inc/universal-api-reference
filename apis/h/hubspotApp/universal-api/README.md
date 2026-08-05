@@ -4,7 +4,7 @@ Manage contacts, track deals, run campaigns, and support customers.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hubspotApp/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 75
+- **Actions:** 76
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.hubspot.com/
 - **Vendor API docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (75)
+## Actions (76)
 
 ### Account Info
 
@@ -53,6 +53,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Listings (v2026-03)](actions/create-listings-v202603.md) | PUT | Creates a listing in HubSpot. |
 | [Delete Company by ID](actions/delete-company-by-id.md) | DELETE | Deletes an existing company from HubSpot. |
 | [Get Company by ID](actions/get-company-by-id.md) | GET | Retrieves a company from HubSpot by ID. |
 | [List Companies](actions/list-companies.md) | GET | Retrieves companies from HubSpot. |

@@ -35,8 +35,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `search` | string | no |  |
-| `referenceIds[]` | array<string> | no | list of reference IDs to filter by |
+| `sku` | string | no | list of reference IDs to filter by |
+| `Search` | string | no |  |
 
 ## Response
 
@@ -44,5 +44,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native ShipBob API, this operation is `GET 1.0/product` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-multiple-products.md) for the provider-specific parameters and requirements.
+Through the native ShipBob API, this operation is `GET 2026-07/product` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-multiple-products.md) for the provider-specific parameters and requirements.
 

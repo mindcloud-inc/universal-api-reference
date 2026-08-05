@@ -43,7 +43,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `__key` | object | yes |  |
-| `__key.KeyID` | string | no |  |
 | `CustRef` | string | no |  |
 | `Description` | string | no | Optional. If omitted, it will be defaulted based on Vista defaulting behavior. |
 | `Department` | string | no |  |

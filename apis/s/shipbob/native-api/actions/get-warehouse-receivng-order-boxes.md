@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `2026-01/receiving/{{id}}/boxes`
+- **Path:** `2026-07/receiving/{{id}}/boxes`
 - **Base URL:** `https://{apiSubdomain}.shipbob.com/`
 - **API:** REST
 

@@ -15,7 +15,6 @@ Update a contract
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `__key` | body | `object` | yes | — |
-| `__key.KeyID` | body | `string` | no | — |
 | `CustRef` | path | `string` | no | — |
 | `Description` | body | `string` | no | Optional. If omitted, it will be defaulted based on Vista defaulting behavior. |
 | `Department` | body | `string` | no | — |

@@ -46,5 +46,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native ShipBob API, this operation is `GET 2025-07/order` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-orders.md) for the provider-specific parameters and requirements.
+Through the native ShipBob API, this operation is `GET 2026-07/order` (base URL `https://{{credentials.apiSubdomain}}.shipbob.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-orders.md) for the provider-specific parameters and requirements.
 

@@ -162581,13 +162581,19 @@
   {
     "name": "Google Analytics",
     "slug": "googleAnalytics",
+    "category": "Analytics & BI",
+    "categoryGroup": "Business Intelligence",
+    "description": "Read Google Analytics 4 account, property, traffic, engagement, event, conversion, and ecommerce reporting data.",
     "iconUrl": "https://images.mindcloud.co/apps/icons/como-criar-uma-propriedade-do-google-analytics-4_1758304207339.png",
-    "version": "0.0.12",
+    "websiteUrl": "https://analytics.google.com/",
+    "nativeDocumentationUrl": "https://developers.google.com/analytics",
+    "version": "0.0.17",
     "authentication": [
       {
         "type": "oAuth2",
         "name": "OAuth 2.0",
-        "scopes": "https://www.googleapis.com/auth/analytics openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+        "scopes": "openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/analytics.readonly",
+        "documentationUrl": "https://developers.google.com/identity/protocols/oauth2/web-server",
         "oauth": {
           "authorizeUrl": "https://accounts.google.com/o/oauth2/auth",
           "accessTokenUrl": "https://oauth2.googleapis.com/token",
@@ -162599,20 +162605,18 @@
       {
         "name": "REST",
         "type": "rest",
-        "baseUrl": "https://www.googleapis.com/analytics/v3/",
+        "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
         "headers": [
           {
             "name": "Content-Type",
             "value": "application/json; charset=utf-8"
           }
         ],
-        "pagination": {
-          "limit": {
-            "parameter": "limit",
-            "location": "body",
-            "default": "1000"
-          },
-          "offset": {}
+        "retry": {
+          "delayMs": 1000,
+          "maxAttempts": 3,
+          "multiplier": 2,
+          "statusCodes": "429,500,502,503,504"
         },
         "responses": [
           {
@@ -162623,44 +162627,1815 @@
     ],
     "actions": [
       {
-        "name": "List Account Summaries",
-        "slug": "list-account-summaries",
+        "name": "Get Conversions Report",
+        "slug": "get-conversions-report",
         "operation": "read",
         "method": "GET",
+        "model": "report",
+        "group": "Conversions Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
         "native": {
-          "method": "GET",
-          "path": "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
-          "baseUrl": "https://www.googleapis.com/analytics/v3/",
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
           "apiName": "REST",
-          "apiType": "rest"
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 date ranges, such as 30daysAgo through today"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
         },
         "supports": {
           "pagination": false,
           "filtering": false,
           "sorting": false
         },
-        "arguments": [],
-        "responseSchema": []
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Get Device and Geography Report",
+        "slug": "get-device-geography-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Device and Geography Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 date ranges, such as 30daysAgo through today"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Get Ecommerce Report",
+        "slug": "get-ecommerce-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Ecommerce Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 date ranges, such as 30daysAgo through today"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Get Engagement Report",
+        "slug": "get-engagement-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Engagement Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 date ranges, such as 30daysAgo through today"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Get Events and Key Events Report",
+        "slug": "get-events-key-events-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Events Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 date ranges, such as 30daysAgo through today"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Get Landing Pages Report",
+        "slug": "get-landing-pages-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Landing Pages Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 date ranges, such as 30daysAgo through today"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Get Pages Report",
+        "slug": "get-pages-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Pages Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "PropertyId",
+              "dataType": "string",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 date ranges, such as 30daysAgo through today"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "PropertyId",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Get Property Metadata",
+        "slug": "get-property-metadata",
+        "operation": "read",
+        "method": "GET",
+        "model": "project",
+        "group": "Analytics Property Metadata",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata",
+        "native": {
+          "method": "GET",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId/metadata",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensions",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Available standard and custom dimensions",
+            "mockType": "array"
+          },
+          {
+            "key": "metrics",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Available standard and custom metrics",
+            "mockType": "array"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "Metadata resource name",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Get Traffic Acquisition Report",
+        "slug": "get-traffic-acquisition-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Traffic Acquisition Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "List Account Summaries",
+        "slug": "list-account-summaries",
+        "operation": "read",
+        "method": "GET",
+        "model": "crmAccount",
+        "group": "Analytics Account Summary",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1beta/accountSummaries/list",
+        "native": {
+          "method": "GET",
+          "path": "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "pageSize",
+              "name": "Page Size",
+              "dataType": "number",
+              "location": "query",
+              "required": false,
+              "description": "Maximum account summaries to return (up to 200)"
+            },
+            {
+              "key": "pageToken",
+              "name": "Page Token",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Token from a previous response"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "pageSize",
+            "name": "Page Size",
+            "dataType": "number",
+            "required": false,
+            "description": "Maximum account summaries to return (up to 200)",
+            "defaultValue": "50"
+          },
+          {
+            "key": "pageToken",
+            "name": "Page Token",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Token from a previous response"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "accountSummaries",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Accessible account summaries and child property summaries",
+            "mockType": "array"
+          },
+          {
+            "key": "nextPageToken",
+            "dataType": "string",
+            "description": "Token for the next page",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Accounts",
         "slug": "list-accounts",
         "operation": "read",
         "method": "GET",
+        "model": "crmAccount",
+        "group": "Analytics Account",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1beta/accounts/list",
         "native": {
           "method": "GET",
           "path": "https://analyticsadmin.googleapis.com/v1beta/accounts",
-          "baseUrl": "https://www.googleapis.com/analytics/v3/",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
           "apiName": "REST",
-          "apiType": "rest"
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "pageSize",
+              "name": "Page Size",
+              "dataType": "number",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "pageToken",
+              "name": "Page Token",
+              "dataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "showDeleted",
+              "name": "Show Deleted",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false
+            }
+          ]
         },
         "supports": {
           "pagination": false,
           "filtering": false,
           "sorting": false
         },
-        "arguments": [],
+        "arguments": [
+          {
+            "key": "pageSize",
+            "name": "Page Size",
+            "dataType": "number",
+            "required": false,
+            "defaultValue": "50"
+          },
+          {
+            "key": "pageToken",
+            "name": "Page Token",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "showDeleted",
+            "name": "Show Deleted",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true,
+            "defaultValue": "false"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "accounts",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Accessible Google Analytics accounts",
+            "mockType": "array"
+          },
+          {
+            "key": "nextPageToken",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Properties",
+        "slug": "list-properties",
+        "operation": "read",
+        "method": "GET",
+        "model": "project",
+        "group": "Analytics Property",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1beta/properties/list",
+        "native": {
+          "method": "GET",
+          "path": "https://analyticsadmin.googleapis.com/v1beta/properties",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "filter",
+              "name": "Property Filter",
+              "dataType": "string",
+              "location": "query",
+              "required": true,
+              "description": "Required Admin API filter, for example parent:accounts/123456789"
+            },
+            {
+              "key": "pageSize",
+              "name": "Page Size",
+              "dataType": "number",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "pageToken",
+              "name": "Page Token",
+              "dataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "showDeleted",
+              "name": "Show Deleted",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "filter",
+            "name": "Property Filter",
+            "dataType": "string",
+            "required": true,
+            "description": "Required Admin API filter, for example parent:accounts/123456789",
+            "example": "parent:accounts/123456789"
+          },
+          {
+            "key": "pageSize",
+            "name": "Page Size",
+            "dataType": "number",
+            "required": false,
+            "defaultValue": "50"
+          },
+          {
+            "key": "pageToken",
+            "name": "Page Token",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "showDeleted",
+            "name": "Show Deleted",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true,
+            "defaultValue": "false"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "nextPageToken",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "properties",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Google Analytics properties matching the filter",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Run Custom Report",
+        "slug": "run-custom-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Analytics Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "dimensions[]",
+              "name": "Dimensions",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 dimensions as objects with a name field"
+            },
+            {
+              "key": "metrics[]",
+              "name": "Metrics",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "GA4 metrics as objects with a name field"
+            },
+            {
+              "key": "orderBys[]",
+              "name": "Order Bys",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "dimensions[]",
+            "name": "Dimensions",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 dimensions as objects with a name field"
+          },
+          {
+            "key": "metrics[]",
+            "name": "Metrics",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "GA4 metrics as objects with a name field"
+          },
+          {
+            "key": "orderBys[]",
+            "name": "Order Bys",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
+      },
+      {
+        "name": "Run Funnel Report",
+        "slug": "run-funnel-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Funnel Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1alpha/properties/runFunnelReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1alpha/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "dateRanges[]",
+              "name": "Date Ranges",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "funnel",
+              "name": "Funnel Definition",
+              "dataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Early-preview GA4 funnel definition containing ordered funnel steps"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "schemaDynamic": true,
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "dateRanges[]",
+            "name": "Date Ranges",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "defaultValue": [
+              {
+                "endDate": "today",
+                "startDate": "30daysAgo"
+              }
+            ]
+          },
+          {
+            "key": "funnel",
+            "name": "Funnel Definition",
+            "dataType": "object",
+            "required": true,
+            "description": "Early-preview GA4 funnel definition containing ordered funnel steps"
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "defaultValue": "1000"
+          }
+        ],
         "responseSchema": []
+      },
+      {
+        "name": "Run Realtime Report",
+        "slug": "run-realtime-report",
+        "operation": "read",
+        "method": "GET",
+        "model": "report",
+        "group": "Realtime Analytics Report",
+        "documentationUrl": "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runRealtimeReport",
+        "native": {
+          "method": "POST",
+          "path": "https://analyticsdata.googleapis.com/v1beta/properties/:propertyId:urlEnd",
+          "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "propertyId",
+              "name": "Property ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "GA4 property ID without the properties/ prefix"
+            },
+            {
+              "key": "limit",
+              "name": "Row Limit",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Maximum report rows to return"
+            },
+            {
+              "key": "offset",
+              "name": "Row Offset",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Zero-based row offset"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "propertyId",
+            "name": "Property ID",
+            "dataType": "string",
+            "required": true,
+            "description": "GA4 property ID without the properties/ prefix",
+            "example": "123456789"
+          },
+          {
+            "key": "limit",
+            "name": "Row Limit",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Maximum report rows to return",
+            "defaultValue": "1000"
+          },
+          {
+            "key": "offset",
+            "name": "Row Offset",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Zero-based row offset",
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "dimensionHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested dimension columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "kind",
+            "dataType": "string",
+            "description": "Google Analytics response type",
+            "mockType": "string"
+          },
+          {
+            "key": "metadata",
+            "dataType": "object",
+            "description": "Property currency and timezone metadata",
+            "mockType": "object"
+          },
+          {
+            "key": "metricHeaders",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Requested metric columns in response order",
+            "mockType": "array"
+          },
+          {
+            "key": "rowCount",
+            "dataType": "number",
+            "description": "Total number of rows matching the report",
+            "mockType": "number"
+          },
+          {
+            "key": "rows",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Report rows containing dimensionValues and metricValues",
+            "mockType": "array"
+          }
+        ]
       }
     ],
     "universalOpenApiPath": "apis/g/googleAnalytics/universal-api/openapi.json"

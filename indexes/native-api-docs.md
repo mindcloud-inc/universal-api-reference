@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3191 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3192 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1111,7 +1111,7 @@ The official vendor API documentation for each of the 3191 apps in this repo. Ea
 - [Goody](../apis/g/goody/native-api) - https://developer.ongoody.com/commerce-api/overview
 - [Google Ads](../apis/g/googleAds/native-api) - https://developers.google.com/google-ads/api
 - [Google AI Studio](../apis/g/googleAIStudio/native-api) - https://ai.google.dev/api
-- [Google Analytics](../apis/g/googleAnalytics/native-api)
+- [Google Analytics](../apis/g/googleAnalytics/native-api) - https://developers.google.com/analytics
 - [Google BigQuery](../apis/g/googleBigQuery/native-api) - https://bigquery.googleapis.com/$discovery/rest?version=v2
 - [Google Calendar](../apis/g/googleCalendar/native-api) - https://developers.google.com/workspace/calendar/api/v3/reference
 - [Google Chat](../apis/g/googleChat/native-api) - https://developers.google.com/workspace/chat/api/reference/rest
@@ -1584,6 +1584,7 @@ The official vendor API documentation for each of the 3191 apps in this repo. Ea
 - [Mapulus](../apis/m/mapulus/native-api) - https://developer.mapulus.com/v1/docs
 - [MariaDB](../apis/m/mariadb/native-api) - https://mariadb.com/docs/server
 - [Marketing Master IO](../apis/m/marketingMasterIO/native-api) - https://developers.marketingmaster.io/
+- [MarketTime](../apis/m/marketTime/native-api) - https://publicapi.markettime.com/swagger-ui/index.html
 - [Markup AI](../apis/m/markupAI/native-api) - https://docs.markup.ai/
 - [Matomo](../apis/m/matomo/native-api) - https://developer.matomo.org/api-reference/reporting-api
 - [Matterport](../apis/m/matterport/native-api) - https://matterport.github.io/showcase-sdk/api_home.html

@@ -48,9 +48,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/p
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "referenceId": "string",
-  "name": "Ava Chen"
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
@@ -62,9 +60,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/shipbob/
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "referenceId": "string",
-    "name": "Ava Chen"
+    connectionId
   })
 });
 

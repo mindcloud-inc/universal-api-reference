@@ -63,15 +63,15 @@ Shared headers:
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
-| [Get Fulfillment Centers](actions/get-fulfillment-centers.md) | REST | `GET 1.0/fulfillmentCenter` |  |
-| [Get Inventory Level](actions/get-inventory-level.md) | REST | `GET /2025-07/inventory-level/{{inventoryId}}/locations` |  |
-| [Get Multiple Products](actions/get-multiple-products.md) | REST | `GET 1.0/product` |  |
-| [Get Multiple Warehouse Receiving Orders](actions/get-multiple-warehouse-receiving-orders.md) | REST | `GET 2.0/receiving-extended` |  |
-| [Get Orders](actions/get-orders.md) | REST | `GET 2025-07/order` | [docs](https://developer.shipbob.com/api/2025-07/orders/get-orders) |
-| [Get Product](actions/get-product.md) | REST | `GET 2025-07/product/{{productId}}` |  |
+| [Get Fulfillment Centers](actions/get-fulfillment-centers.md) | REST | `GET 2026-07/fulfillment-center` |  |
+| [Get Inventory Level](actions/get-inventory-level.md) | REST | `GET /2026-07/inventory-level/{{inventoryId}}/locations` |  |
+| [Get Multiple Products](actions/get-multiple-products.md) | REST | `GET 2026-07/product` |  |
+| [Get Multiple Warehouse Receiving Orders](actions/get-multiple-warehouse-receiving-orders.md) | REST | `GET 2026-07/receiving` |  |
+| [Get Orders](actions/get-orders.md) | REST | `GET 2026-07/order` | [docs](https://developer.shipbob.com/api/2025-07/orders/get-orders) |
+| [Get Product](actions/get-product.md) | REST | `GET 2026-07/product/{{productId}}` |  |
 | [Get Warehouse Receiving Order](actions/get-warehouse-receiving-order.md) | REST | `GET https://api.shipbob.com/2026-01/receiving/:id` |  |
-| [Get Warehouse Receivng Order Boxes](actions/get-warehouse-receivng-order-boxes.md) | REST | `GET 2026-01/receiving/{{id}}/boxes` |  |
-| [List Inventory Items](actions/list-inventory-items.md) | REST | `GET 1.0/inventory` |  |
-| [List Inventory Levels by Location](actions/list-inventory-levels-by-location.md) | REST - Cursor | `GET 2025-07/inventory-level/locations?` | [docs](https://developer.shipbob.com/) |
-| [Post Product](actions/post-product.md) | REST | `POST 1.0/product` |  |
-| [Post Warehouse Receiving Order (Extended)](actions/post-warehouse-receiving-order-extended.md) | REST | `POST 2.0/receiving-extended` |  |
+| [Get Warehouse Receivng Order Boxes](actions/get-warehouse-receivng-order-boxes.md) | REST | `GET 2026-07/receiving/{{id}}/boxes` |  |
+| [List Inventory Items](actions/list-inventory-items.md) | REST | `GET 2026-07/inventory` |  |
+| [List Inventory Levels by Location](actions/list-inventory-levels-by-location.md) | REST - Cursor | `GET 2026-07/inventory-level/locations?` | [docs](https://developer.shipbob.com/) |
+| [Post Product](actions/post-product.md) | REST | `POST 2026-07/product` | [docs](https://developer-stage.shipbob.dev/2026-07/api/products/create-product) |
+| [Post Warehouse Receiving Order (Extended)](actions/post-warehouse-receiving-order-extended.md) | REST | `POST 2026-07/receiving` |  |

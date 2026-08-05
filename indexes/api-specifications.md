@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3191 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3192 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1543,6 +1543,7 @@ Machine-readable API descriptions for 3191 apps. Universal API specifications ar
 | [Mapsly](../apis/m/mapsly) | [OpenAPI 3.1](../apis/m/mapsly/universal-api/openapi.json) |  |
 | [Mapulus](../apis/m/mapulus) | [OpenAPI 3.1](../apis/m/mapulus/universal-api/openapi.json) | [Provider OpenAPI](https://developer.mapulus.com/v1/openapi.json) |
 | [Marketing Master IO](../apis/m/marketingMasterIO) | [OpenAPI 3.1](../apis/m/marketingMasterIO/universal-api/openapi.json) | [Provider OpenAPI](https://developers.marketingmaster.io/mmio-openapi.json) |
+| [MarketTime](../apis/m/marketTime) | [OpenAPI 3.1](../apis/m/marketTime/universal-api/openapi.json) | [Provider OpenAPI](https://publicapi.markettime.com/v3/api-docs/v1) |
 | [Markup AI](../apis/m/markupAI) | [OpenAPI 3.1](../apis/m/markupAI/universal-api/openapi.json) | [Provider OpenAPI](https://docs.markup.ai/openapi.json) |
 | [Matomo](../apis/m/matomo) | [OpenAPI 3.1](../apis/m/matomo/universal-api/openapi.json) |  |
 | [Matterport](../apis/m/matterport) | [OpenAPI 3.1](../apis/m/matterport/universal-api/openapi.json) |  |

@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `2.0/receiving-extended`
+- **Path:** `2026-07/receiving`
 - **Base URL:** `https://{apiSubdomain}.shipbob.com/`
 - **API:** REST
 
