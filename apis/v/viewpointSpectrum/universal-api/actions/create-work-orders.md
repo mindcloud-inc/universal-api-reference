@@ -92,5 +92,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Viewpoint Spectrum API, this operation is `POST ws/AddARInvoice` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-work-orders.md) for the provider-specific parameters and requirements.
+Through the native Viewpoint Spectrum API, this operation is `POST ws/WorkOrderHeader` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-work-orders.md) for the provider-specific parameters and requirements.
 

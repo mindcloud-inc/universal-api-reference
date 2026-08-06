@@ -62,7 +62,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `termsCode` | string | no | Default: `NET30`. |
 | `standardRetentionPercent` | number | no |  |
 | `taxableFlag` | list | no |  |
-| `salesTaxCode` | string | no |  |
+| `salesTaxCode` | string | no | Default: `\"\"`. |
 | `resaleNumber` | string | no |  |
 | `resaleExpDate` | date | no |  |
 | `statementFlag` | list | no |  |

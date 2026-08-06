@@ -61,7 +61,11 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `contact2` | string | no |  |
 | `contact3` | string | no |  |
 | `salesperson` | string | no |  |
-| `termsCode` | string | no | Default: `NET30`. |
+| `termsCode` | string | no |  |
+| `termsDays` | string | no |  |
+| `discountTermsCode` | string | no |  |
+| `discountTermsDays` | string | no |  |
+| `discountPercent` | string | no |  |
 | `standardRetentionPercent` | number | no |  |
 | `taxableFlag` | list | no |  |
 | `salesTaxCode` | string | no |  |

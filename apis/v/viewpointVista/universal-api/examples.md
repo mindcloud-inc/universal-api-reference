@@ -50,12 +50,12 @@ Example response:
 
 See the full [Get Action Instance action reference](actions/get-action-instance.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/get-action-instance).
 
-## Add AR Contract Invoice
+## Add AR Contract Invoice V1
 
 Adds a Contract based invoice.
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ar-contract-invoice" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ar-contract-invoice-v1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -72,7 +72,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/ac
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ar-contract-invoice', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ar-contract-invoice-v1', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -110,4 +110,4 @@ Example response:
 }
 ```
 
-See the full [Add AR Contract Invoice action reference](actions/add-ar-contract-invoice.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/add-ar-contract-invoice).
+See the full [Add AR Contract Invoice V1 action reference](actions/add-ar-contract-invoice-v1.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/add-ar-contract-invoice-v1).

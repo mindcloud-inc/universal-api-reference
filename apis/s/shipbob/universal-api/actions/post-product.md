@@ -41,12 +41,12 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `is_quarantine` | string | no |  |
-| `variants.sku` | string | no |  |
+| `variants[].sku` | string | no |  |
 | `name` | string | no |  |
-| `variants.upc` | string | no |  |
+| `variants[].upc` | string | no |  |
 | `taxonomy_id` | number | no |  |
 | `type_id` | number | no | The product type ID (1 = Regular, 2 = Bundle) |
-| `variants` | object | no | Example: `List of variants to create with the product. At least one variant is required. Each variant must have a unique SKU.`. |
+| `variants[]` | array<object> | no | Example: `List of variants to create with the product. At least one variant is required. Each variant must have a unique SKU.`. |
 
 ## Response
 

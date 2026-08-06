@@ -1,6 +1,6 @@
 # Commerce apps
 
-290 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+291 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -12,6 +12,7 @@
 - **Amazon Vendor** · [Universal API reference](../../apis/a/amazonVendor/universal-api) · [Native API reference](../../apis/a/amazonVendor/native-api) · [Native API docs](https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references)
 - **Apaleo Official** · [Universal API reference](../../apis/a/apaleoOfficial/universal-api) · [Native API reference](../../apis/a/apaleoOfficial/native-api) · [Native API docs](https://api.apaleo.com/swagger/index.html)
 - **44API** · [Universal API reference](../../apis/a/aPI/universal-api) · [Native API reference](../../apis/a/aPI/native-api) · [Native API docs](https://docs.44api.dev)
+- **Avalara AvaTax** · [Universal API reference](../../apis/a/avalara/universal-api) · [Native API reference](../../apis/a/avalara/native-api) · [Native API docs](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/)
 - **B2B Wave** · [Universal API reference](../../apis/b/b2BWave/universal-api) · [Native API reference](../../apis/b/b2BWave/native-api) · [Native API docs](https://docs.b2bwave.com/category/97-api)
 - **BaseLinker** · [Universal API reference](../../apis/b/baseLinker/universal-api) · [Native API reference](../../apis/b/baseLinker/native-api) · [Native API docs](https://api.baselinker.com/)
 - **Becon** · [Universal API reference](../../apis/b/becon/universal-api) · [Native API reference](../../apis/b/becon/native-api) · [Native API docs](https://bcon.global/integrations/api/)

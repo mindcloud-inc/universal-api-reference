@@ -21,9 +21,9 @@ Send these additional headers for this operation:
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `is_quarantine` | body | `string` | no | — |
-| `variants.sku` | body | `string` | no | — |
+| `variants[].sku` | body | `string` | no | — |
 | `name` | body | `string` | no | — |
-| `variants.upc` | body | `string` | no | — |
+| `variants[].upc` | body | `string` | no | — |
 | `taxonomy_id` | body | `number` | no | — |
 | `type_id` | body | `number` | no | The product type ID (1 = Regular, 2 = Bundle) |
-| `variants` | body | `object` | no | — |
+| `variants[]` | body | `array<object>` | no | — |

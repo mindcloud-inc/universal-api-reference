@@ -1,6 +1,6 @@
 # Communication apps
 
-181 apps in the Communication category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+180 apps in the Communication category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **ActivitySmith** · [Universal API reference](../../apis/a/activitySmith/universal-api) · [Native API reference](../../apis/a/activitySmith/native-api) · [Native API docs](https://activitysmith.com/docs)
 - **Agent Mail** · [Universal API reference](../../apis/a/agentMail/universal-api) · [Native API reference](../../apis/a/agentMail/native-api) · [Native API docs](https://docs.agentmail.to/api-reference)
@@ -170,7 +170,6 @@
 - **Wati** · [Universal API reference](../../apis/w/wati/universal-api) · [Native API reference](../../apis/w/wati/native-api) · [Native API docs](https://docs.wati.io/reference)
 - **Wbiztool** · [Universal API reference](../../apis/w/wbiztool/universal-api) · [Native API reference](../../apis/w/wbiztool/native-api) · [Native API docs](https://wbiztool.com/docs/)
 - **WebinarGeek** · [Universal API reference](../../apis/w/webinarGeek/universal-api) · [Native API reference](../../apis/w/webinarGeek/native-api) · [Native API docs](https://webinargeek.docs.apiary.io/)
-- **WhatsApp Number Validator** · [Universal API reference](../../apis/w/whatsAppNumberValidator/universal-api) · [Native API reference](../../apis/w/whatsAppNumberValidator/native-api) · [Native API docs](https://zylalabs.com/api-marketplace/communication%2B%26%2Bmessaging/whatsapp%2Bnumber%2Bvalidator%2Bapi/9470)
 - **WhatsBoost** · [Universal API reference](../../apis/w/whatsBoost/universal-api) · [Native API reference](../../apis/w/whatsBoost/native-api) · [Native API docs](https://whatsboost.net/developer)
 - **WhatsBox** · [Universal API reference](../../apis/w/whatsBox/universal-api) · [Native API reference](../../apis/w/whatsBox/native-api) · [Native API docs](https://api.whatsbox.io/docs)
 - **WhautoChat** · [Universal API reference](../../apis/w/whautoChat/universal-api) · [Native API reference](../../apis/w/whautoChat/native-api) · [Native API docs](https://help.whauto.chat/cloud-version/integrations/rest-api/)

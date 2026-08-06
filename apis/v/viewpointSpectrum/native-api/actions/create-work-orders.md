@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `POST`
-- **Path:** `ws/AddARInvoice`
+- **Path:** `ws/WorkOrderHeader`
 - **Base URL:** `{url}:8482/`
 - **Official documentation:** [Create Work Orders](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices)
 

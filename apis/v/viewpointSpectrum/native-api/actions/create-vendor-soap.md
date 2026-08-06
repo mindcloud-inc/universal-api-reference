@@ -37,6 +37,10 @@ Send these additional headers for this operation:
 | `Contact_3` | body | `string` | no | Maximum length: 20. |
 | `Salesperson` | body | `string` | no | Maximum length: 3. |
 | `termsCode` | body | `string` | no | Maximum length: 1. |
+| `termsDays` | body | `string` | no | — |
+| `discountTermsCode` | body | `string` | no | — |
+| `discountTermsDays` | body | `string` | no | — |
+| `discountPercent` | body | `string` | no | — |
 | `standardRetentionPercent` | body | `number` | no | — |
 | `taxableFlag` | body | `list` | no | — |
 | `salesTaxCode` | body | `string` | no | Maximum length: 15. |

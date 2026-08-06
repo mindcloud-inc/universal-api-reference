@@ -179,6 +179,7 @@ The official vendor API documentation for each of the 3192 apps in this repo. Ea
 - [Autotask](../apis/a/autotask/native-api) - https://www.autotask.net/help/developerhelp/Content/APIs/REST/REST_API_Home.htm
 - [Autype](../apis/a/autype/native-api) - https://docs.autype.com/api-reference/introduction
 - [Availity](../apis/a/availity/native-api) - https://developer.availity.com/blog/2025/3/25/hipaa-transactions
+- [Avalara AvaTax](../apis/a/avalara/native-api) - https://developer.avalara.com/api-reference/avatax/rest/v2/methods/
 - [Avaza](../apis/a/avaza/native-api) - https://api.avaza.com/swagger/ui/index
 - [Avionte](../apis/a/avionte/native-api) - https://developer.avionte.com/reference
 - [Avoma](../apis/a/avoma/native-api) - https://dev.avoma.com
@@ -3043,7 +3044,6 @@ The official vendor API documentation for each of the 3192 apps in this repo. Ea
 - [WeSupply](../apis/w/weSupply/native-api) - https://documenter.getpostman.com/view/11859344/T17AiAYq
 - [What3Words](../apis/w/what3Words/native-api) - https://developer.what3words.com/public-api/docs
 - [WhatIsMyBrowser](../apis/w/whatIsMyBrowser/native-api) - https://developers.whatismybrowser.com/api/docs/v3/integration-guide/
-- [WhatsApp Number Validator](../apis/w/whatsAppNumberValidator/native-api) - https://zylalabs.com/api-marketplace/communication%2B%26%2Bmessaging/whatsapp%2Bnumber%2Bvalidator%2Bapi/9470
 - [WhatsBoost](../apis/w/whatsBoost/native-api) - https://whatsboost.net/developer
 - [WhatsBox](../apis/w/whatsBox/native-api) - https://api.whatsbox.io/docs
 - [WhatsScale](../apis/w/whatsScale/native-api) - https://whatsscale.com/docs

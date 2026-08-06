@@ -1,14 +1,14 @@
-# Add AR Contract Invoice with Viewpoint Vista
+# Add AR Contract Invoice V1 with Viewpoint Vista
 
 Adds a Contract based invoice.
 
 ## Endpoint
 
 - **Method:** `POST`
-- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ar/2/data/batch_entries/actions/add_contract_inv_v2`
+- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ar/2/data/batch_entries/actions/add_contract_inv`
 - **Base URL:** `https://api.xchange.trimble.com/connect/`
 - **API:** REST
-- **Official documentation:** [Add AR Contract Invoice](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatch_entriesactionsadd_contract_inv_v2)
+- **Official documentation:** [Add AR Contract Invoice V1](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatch_entriesactionsadd_contract_inv_v2)
 
 ## Parameters
 

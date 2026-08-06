@@ -175,6 +175,7 @@ Machine-readable API descriptions for 3192 apps. Universal API specifications ar
 | [Autotask](../apis/a/autotask) | [OpenAPI 3.1](../apis/a/autotask/universal-api/openapi.json) |  |
 | [Autype](../apis/a/autype) | [OpenAPI 3.1](../apis/a/autype/universal-api/openapi.json) | [Provider OpenAPI](https://docs.autype.com/api-reference/openapi.json) |
 | [Availity](../apis/a/availity) | [OpenAPI 3.1](../apis/a/availity/universal-api/openapi.json) |  |
+| [Avalara AvaTax](../apis/a/avalara) | [OpenAPI 3.1](../apis/a/avalara/universal-api/openapi.json) |  |
 | [Avaza](../apis/a/avaza) | [OpenAPI 3.1](../apis/a/avaza/universal-api/openapi.json) | [Provider OpenAPI](https://api.avaza.com/swagger/docs/v1) |
 | [Avionte](../apis/a/avionte) | [OpenAPI 3.1](../apis/a/avionte/universal-api/openapi.json) |  |
 | [Avoma](../apis/a/avoma) | [OpenAPI 3.1](../apis/a/avoma/universal-api/openapi.json) | [Provider OpenAPI](https://dev.avoma.com/openapi.yml) |
@@ -2963,7 +2964,6 @@ Machine-readable API descriptions for 3192 apps. Universal API specifications ar
 | [WeSupply](../apis/w/weSupply) | [OpenAPI 3.1](../apis/w/weSupply/universal-api/openapi.json) |  |
 | [What3Words](../apis/w/what3Words) | [OpenAPI 3.1](../apis/w/what3Words/universal-api/openapi.json) | [Provider OpenAPI](https://openapi.what3words.com/openapi/openapi.json) |
 | [WhatIsMyBrowser](../apis/w/whatIsMyBrowser) | [OpenAPI 3.1](../apis/w/whatIsMyBrowser/universal-api/openapi.json) |  |
-| [WhatsApp Number Validator](../apis/w/whatsAppNumberValidator) | [OpenAPI 3.1](../apis/w/whatsAppNumberValidator/universal-api/openapi.json) |  |
 | [WhatsBoost](../apis/w/whatsBoost) | [OpenAPI 3.1](../apis/w/whatsBoost/universal-api/openapi.json) |  |
 | [WhatsBox](../apis/w/whatsBox) | [OpenAPI 3.1](../apis/w/whatsBox/universal-api/openapi.json) | [Provider OpenAPI](https://api.whatsbox.io/docs/json) |
 | [WhatsScale](../apis/w/whatsScale) | [OpenAPI 3.1](../apis/w/whatsScale/universal-api/openapi.json) | [Provider OpenAPI](https://whatsscale.com/api-docs) |

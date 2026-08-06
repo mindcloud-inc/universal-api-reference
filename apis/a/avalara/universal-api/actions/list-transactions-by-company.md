@@ -1,0 +1,189 @@
+# Avalara AvaTax: List Transactions By Company
+
+
+
+```
+GET https://connect.mindcloud.co/v1/universal/avalara/latest/actions/list-transactions-by-company
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Avalara AvaTax `connectionId` ([setup](../authentication.md)).
+
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [filtering](../filtering.md) (`where`), [sorting](../sorting.md) (`sort`).
+
+## Example request
+
+```bash
+curl -X GET "https://connect.mindcloud.co/v1/universal/avalara/latest/actions/list-transactions-by-company?connectionId=$CONNECTION_ID&limit=25&offset=0&companyCode=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+```
+
+```js
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0',
+  "companyCode": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/avalara/latest/actions/list-transactions-by-company?${params}`, {
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `companyCode` | string | yes | Avalara company code. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `dataSourceId` | number | no | Optionally filter transactions to those from a specific data source. |
+| `include` | string | no | Comma-separated related objects to include in the response. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "adjustmentDescription": "string",
+      "adjustmentReason": "string",
+      "batchCode": "string",
+      "businessIdentificationNo": "string",
+      "code": "string",
+      "companyId": 1,
+      "country": "string",
+      "currencyCode": "string",
+      "customerCode": "string",
+      "customerUsageType": "string",
+      "customerVendorCode": "string",
+      "date": "2026-05-07T12:00:00.000Z",
+      "description": "string",
+      "destinationAddressId": 1,
+      "email": "ava@example.com",
+      "entityUseCode": "string",
+      "exchangeRate": 1,
+      "exchangeRateCurrencyCode": "string",
+      "exchangeRateEffectiveDate": "2026-05-07T12:00:00.000Z",
+      "exemptNo": "string",
+      "id": 1,
+      "isSellerImporterOfRecord": true,
+      "lines": [
+        {}
+      ],
+      "locationCode": "string",
+      "locationTypes": [
+        {}
+      ],
+      "locked": true,
+      "messages": [
+        {}
+      ],
+      "modifiedDate": "2026-05-07T12:00:00.000Z",
+      "modifiedUserId": 1,
+      "originAddressId": 1,
+      "paymentDate": "2026-05-07T12:00:00.000Z",
+      "purchaseOrderNo": "string",
+      "reconciled": true,
+      "referenceCode": "string",
+      "region": "string",
+      "reportingLocationCode": "string",
+      "salespersonCode": "string",
+      "shippingTaxes": [
+        {}
+      ],
+      "softwareVersion": "string",
+      "status": "string",
+      "summary": [
+        {}
+      ],
+      "taxDate": "2026-05-07T12:00:00.000Z",
+      "taxOverrideAmount": 1,
+      "taxOverrideReason": "string",
+      "taxOverrideType": "string",
+      "totalAmount": 1,
+      "totalDiscount": 1,
+      "totalExempt": 1,
+      "totalTax": 1,
+      "totalTaxable": 1,
+      "totalTaxCalculated": 1,
+      "type": "string",
+      "version": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `adjustmentDescription` | string |  |
+| `adjustmentReason` | string |  |
+| `batchCode` | string |  |
+| `businessIdentificationNo` | string |  |
+| `code` | string |  |
+| `companyId` | number |  |
+| `country` | string |  |
+| `currencyCode` | string |  |
+| `customerCode` | string |  |
+| `customerUsageType` | string |  |
+| `customerVendorCode` | string |  |
+| `date` | date |  |
+| `description` | string |  |
+| `destinationAddressId` | number |  |
+| `email` | string |  |
+| `entityUseCode` | string |  |
+| `exchangeRate` | number |  |
+| `exchangeRateCurrencyCode` | string |  |
+| `exchangeRateEffectiveDate` | date |  |
+| `exemptNo` | string |  |
+| `id` | number |  |
+| `isSellerImporterOfRecord` | boolean |  |
+| `lines` | array<object> |  |
+| `locationCode` | string |  |
+| `locationTypes` | array<object> |  |
+| `locked` | boolean |  |
+| `messages` | array<object> |  |
+| `modifiedDate` | date |  |
+| `modifiedUserId` | number |  |
+| `originAddressId` | number |  |
+| `paymentDate` | date |  |
+| `purchaseOrderNo` | string |  |
+| `reconciled` | boolean |  |
+| `referenceCode` | string |  |
+| `region` | string |  |
+| `reportingLocationCode` | string |  |
+| `salespersonCode` | string |  |
+| `shippingTaxes` | array<object> |  |
+| `softwareVersion` | string |  |
+| `status` | string |  |
+| `summary` | array<object> |  |
+| `taxDate` | date |  |
+| `taxOverrideAmount` | number |  |
+| `taxOverrideReason` | string |  |
+| `taxOverrideType` | string |  |
+| `totalAmount` | number |  |
+| `totalDiscount` | number |  |
+| `totalExempt` | number |  |
+| `totalTax` | number |  |
+| `totalTaxable` | number |  |
+| `totalTaxCalculated` | number |  |
+| `type` | string |  |
+| `version` | number |  |
+
+## Native endpoint
+
+Through the native Avalara AvaTax API, this operation is `GET companies/:companyCode/transactions` (base URL `{{credentials.environment}}`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-transactions-by-company.md) for the provider-specific parameters and requirements.
+

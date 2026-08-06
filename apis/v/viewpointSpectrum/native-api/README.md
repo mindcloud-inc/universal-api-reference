@@ -43,7 +43,7 @@ Use `$limit` in the query string to set the page size (default 25; accepted rang
 | [Create Vendor Invoice](actions/create-vendor-invoice.md) | `POST ws/AddAPInvoice` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
 | [Create Vendor Invoice Multi-Line](actions/create-vendor-invoice-multi-line.md) | `POST vendor/invoice` |  |
 | [Create Vendor (SOAP)](actions/create-vendor-soap.md) | `POST ws/AddVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
-| [Create Work Orders](actions/create-work-orders.md) | `POST ws/AddARInvoice` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
+| [Create Work Orders](actions/create-work-orders.md) | `POST ws/WorkOrderHeader` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
 | [Get Customers](actions/get-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |
 | [List Customers](actions/list-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |
 | [List Vendors](actions/list-vendors.md) | `GET vendors/{{credentials.companyID}}` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/get-vendors) |

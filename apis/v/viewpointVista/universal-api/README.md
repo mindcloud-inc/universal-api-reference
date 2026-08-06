@@ -127,7 +127,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Add AR Contract Invoice](actions/add-ar-contract-invoice.md) | POST | Adds a Contract based invoice. |
+| [Add AR Contract Invoice V1](actions/add-ar-contract-invoice-v1.md) | POST | Adds a Contract based invoice. |
 | [Add Many Time Batch Entries](actions/add-many-payroll-timecard-entries.md) | POST | Add an array of time batch entries |
 | [Add Non-Contract Invoice](actions/add-non-contract-invoice.md) | POST | Adds a Non-Contract based invoice. |
 | [Get Timecard Batch by Ryvit ID](actions/get-timecard-batch-by-ryvit-id.md) | GET |  |
