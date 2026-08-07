@@ -32,8 +32,6 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
-The next-page cursor is read from `payload.nextToken`.
-
 ## Pagination
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `nextToken` in the query string as the pagination cursor.

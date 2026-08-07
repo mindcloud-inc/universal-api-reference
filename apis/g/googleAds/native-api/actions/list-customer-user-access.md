@@ -7,6 +7,7 @@ Retrieves customer user access from Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/googleAds:search`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [List Customer User Access](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search)
 
 ## Parameters

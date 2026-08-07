@@ -4,7 +4,7 @@ Create campaigns, measure performance, and optimize Google ad spend.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/googleAds/latest
 - **Category:** Marketing
-- **Actions:** 92
+- **Actions:** 93
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ads.google.com/
 - **Vendor API docs:** https://developers.google.com/google-ads/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (92)
+## Actions (93)
 
 ### Accounts
 
@@ -109,6 +109,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add Lead Feedback](actions/add-lead-feedback.md) | POST |  |
 | [Get Local Services Lead](actions/get-local-services-lead.md) | GET | Retrieves a local services lead from Google Ads. |
 | [List Local Services Leads](actions/list-local-services-leads.md) | GET | Retrieves local services leads from Google Ads. |
 

@@ -7,6 +7,7 @@ Generates keyword historical metrics in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId:generateKeywordHistoricalMetrics`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Generate Keyword Historical Metrics](https://developers.google.com/google-ads/api/reference/rpc/v22/KeywordPlanIdeaService/GenerateKeywordHistoricalMetrics)
 
 ## Parameters

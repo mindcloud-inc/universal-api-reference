@@ -7,6 +7,7 @@ Searches Google Ads using a custom GAQL query.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/googleAds:search`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Search Google Ads](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search)
 
 ## Parameters

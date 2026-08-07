@@ -7,6 +7,7 @@ Creates a keyword criterion in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/adGroupCriteria:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Add Keyword Criterion](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupCriterionService/MutateAdGroupCriteria)
 
 ## Parameters

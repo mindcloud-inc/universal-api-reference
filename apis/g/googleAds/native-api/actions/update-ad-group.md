@@ -7,6 +7,7 @@ Updates an existing ad group in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/adGroups:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Update Ad Group](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupService/MutateAdGroups)
 
 ## Parameters

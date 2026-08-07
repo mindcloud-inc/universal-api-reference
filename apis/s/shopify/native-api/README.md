@@ -1,6 +1,6 @@
 # Shopify: Native API Reference
 
-A consolidated summary of Shopify's API configuration and 17 documented operations, with links to official documentation.
+A consolidated summary of Shopify's API configuration and 19 documented operations, with links to official documentation.
 
 - **Official docs:** https://shopify.dev/docs/api
 - **REST base URL:** `https://{storeName}.myshopify.com/admin/api/`
@@ -78,12 +78,13 @@ Shared headers:
 
 - **REST:** Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (17 documented)
+## Endpoints (19 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
 | [Activate Inventory Item](actions/activate-inventory-item.md) | GraphQL | `POST /:apiVersion/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/inventoryActivate) |
 | [Create Webhook Subscription (HTTP)](actions/create-webhook-subscription-http.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/webhookSubscriptionCreate) |
+| [Get Inventory Bulk Export Status](actions/get-inventory-bulk-export-status.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/usage/bulk-operations/queries) |
 | [Get Order Transactions (GraphQL)](actions/get-order-transactions-graph-ql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [Get Product Variant by SKU](actions/get-product-variant-by-sku.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants) |
 | [GraphQL - Get Records (Paginated)](actions/graphql-get-records-paginated.md) | GraphQL | `POST :version/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
@@ -98,4 +99,5 @@ Shared headers:
 | [List Products](actions/list-products.md) | GraphQL | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/products) |
 | [List Publication Channels](actions/list-publication-channels.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/publications) |
 | [List Selling Plan Groups](actions/list-selling-plan-groups.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/sellingPlanGroups) |
+| [Start Inventory Bulk Export](actions/start-inventory-bulk-export.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/usage/bulk-operations/queries) |
 | [Update Product (GraphQL)](actions/update-product-graphql.md) | REST | `POST 2024-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet) |

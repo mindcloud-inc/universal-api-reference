@@ -4,7 +4,7 @@ Manage products, orders, customers, and inventory levels
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/shopify/latest
 - **Category:** Commerce
-- **Actions:** 17
+- **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** shopify.com
 - **Vendor API docs:** https://shopify.dev/docs/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (17)
+## Actions (19)
 
 ### Admin Graphql Api
 
@@ -49,6 +49,18 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Deleted Product Events](actions/list-deleted-product-events.md) | GET | Retrieves deleted product events from Shopify. |
+
+### Inventory
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Start Inventory Bulk Export](actions/start-inventory-bulk-export.md) | GET |  |
+
+### Inventory Export
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Inventory Bulk Export Status](actions/get-inventory-bulk-export-status.md) | GET |  |
 
 ### Inventory Levels
 

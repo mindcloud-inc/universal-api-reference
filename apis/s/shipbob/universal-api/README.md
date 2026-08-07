@@ -3,7 +3,7 @@
 ShipBob through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/shipbob/latest
-- **Actions:** 12
+- **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/li
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (12)
+## Actions (14)
 
 ### Inventories
 
@@ -39,13 +39,20 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/li
 | [Get Warehouse Receivng Order Boxes](actions/get-warehouse-receivng-order-boxes.md) | GET |  |
 | [List Inventory Items](actions/list-inventory-items.md) | GET |  |
 | [Post Product](actions/post-product.md) | POST |  |
-| [Post Warehouse Receiving Order (Extended)](actions/post-warehouse-receiving-order-extended.md) | POST |  |
+| [Post Warehouse Receiving Order](actions/post-warehouse-receiving-order.md) | POST |  |
 
 ### Products
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Product](actions/get-product.md) | GET |  |
+
+### Return Order
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Return Order](actions/get-return-order.md) | GET |  |
+| [List Return Orders](actions/list-return-orders.md) | GET |  |
 
 ### Sales Orders
 

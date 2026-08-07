@@ -33,3 +33,4 @@
 | `PropertyTags` | body | `string` | no | — |
 | `ProductionManagerContactID` | body | `list` | no | — |
 | `CountyID` | body | `number` | no | Use this when Locality is enabled |
+| `Note` | body | `string` | no | — |

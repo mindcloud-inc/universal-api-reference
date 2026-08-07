@@ -7,6 +7,7 @@ Attaches a label to an ad group ad in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/adGroupAdLabels:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Attach Ad Group Ad Label](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupAdLabelService/MutateAdGroupAdLabels)
 
 ## Parameters

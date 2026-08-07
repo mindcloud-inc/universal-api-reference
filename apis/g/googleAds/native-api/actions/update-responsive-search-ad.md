@@ -7,6 +7,7 @@ Updates an existing responsive search ad in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/adGroupAds:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Update Responsive Search Ad](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupAdService/MutateAdGroupAds)
 
 ## Parameters

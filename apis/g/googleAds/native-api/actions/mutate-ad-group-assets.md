@@ -7,6 +7,7 @@ Creates, updates, or removes ad group assets in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/adGroupAssets:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Mutate Ad Group Assets](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupAssetService/MutateAdGroupAssets)
 
 ## Parameters

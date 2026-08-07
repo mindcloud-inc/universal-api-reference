@@ -66,6 +66,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `PropertyTags` | string | no |  |
 | `ProductionManagerContactID` | list | no |  |
 | `CountyID` | number | no | Use this when Locality is enabled |
+| `Note` | string | no |  |
 
 ## Response
 

@@ -7,6 +7,7 @@ Creates, updates, or removes campaign asset sets in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/campaignAssetSets:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Mutate Campaign Asset Sets](https://developers.google.com/google-ads/api/reference/rpc/v22/CampaignAssetSetService/MutateCampaignAssetSets)
 
 ## Parameters

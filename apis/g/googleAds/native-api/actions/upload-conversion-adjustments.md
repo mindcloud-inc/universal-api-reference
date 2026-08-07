@@ -7,6 +7,7 @@ Uploads conversion adjustments to Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId:uploadConversionAdjustments`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Upload Conversion Adjustments](https://developers.google.com/google-ads/api/reference/rpc/v22/ConversionAdjustmentUploadService/UploadConversionAdjustments)
 
 ## Parameters

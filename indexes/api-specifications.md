@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3192 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3195 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -246,6 +246,7 @@ Machine-readable API descriptions for 3192 apps. Universal API specifications ar
 | [Bitskout](../apis/b/bitskout) | [OpenAPI 3.1](../apis/b/bitskout/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/microsoft/PowerPlatformConnectors/dev/certified-connectors/bitskout/apiDefinition.swagger.json) |
 | [Biyo POS](../apis/b/biyoPOS) | [OpenAPI 3.1](../apis/b/biyoPOS/universal-api/openapi.json) |  |
 | [BKK Futar](../apis/b/bKKFutar) | [OpenAPI 3.1](../apis/b/bKKFutar/universal-api/openapi.json) |  |
+| [BlackBaud](../apis/b/blackBaud) | [OpenAPI 3.1](../apis/b/blackBaud/universal-api/openapi.json) |  |
 | [Bland AI](../apis/b/blandAI) | [OpenAPI 3.1](../apis/b/blandAI/universal-api/openapi.json) |  |
 | [Blaze AI](../apis/b/blazeAI) | [OpenAPI 3.1](../apis/b/blazeAI/universal-api/openapi.json) | [Provider OpenAPI](https://api.blaze.ai/api/v1/open_api_doc) |
 | [BlazeMeter](../apis/b/blazeMeter) | [OpenAPI 3.1](../apis/b/blazeMeter/universal-api/openapi.json) | [Provider OpenAPI](https://a.blazemeter.com/api/v4/explorer/swagger.json) |
@@ -1499,6 +1500,7 @@ Machine-readable API descriptions for 3192 apps. Universal API specifications ar
 | [Lookify](../apis/l/lookify) | [OpenAPI 3.1](../apis/l/lookify/universal-api/openapi.json) |  |
 | [Loomio](../apis/l/loomio) | [OpenAPI 3.1](../apis/l/loomio/universal-api/openapi.json) |  |
 | [LoopedIn](../apis/l/loopedIn) | [OpenAPI 3.1](../apis/l/loopedIn/universal-api/openapi.json) |  |
+| [Loop Returns](../apis/l/loopReturns) | [OpenAPI 3.1](../apis/l/loopReturns/universal-api/openapi.json) |  |
 | [Loops](../apis/l/loops) | [OpenAPI 3.1](../apis/l/loops/universal-api/openapi.json) | [Provider OpenAPI](https://app.loops.so/openapi.json) |
 | [Loop & Tie](../apis/l/loopTie) | [OpenAPI 3.1](../apis/l/loopTie/universal-api/openapi.json) |  |
 | [Loopy Loyalty](../apis/l/loopyLoyalty) | [OpenAPI 3.1](../apis/l/loopyLoyalty/universal-api/openapi.json) | [Provider OpenAPI](https://developer.loopyloyalty.com/loopyloyalty.swagger.json) |
@@ -1654,6 +1656,7 @@ Machine-readable API descriptions for 3192 apps. Universal API specifications ar
 | [Morningmate](../apis/m/morningmate) | [OpenAPI 3.1](../apis/m/morningmate/universal-api/openapi.json) |  |
 | [Morph](../apis/m/morph) | [OpenAPI 3.1](../apis/m/morph/universal-api/openapi.json) |  |
 | [Moskit](../apis/m/moskit) | [OpenAPI 3.1](../apis/m/moskit/universal-api/openapi.json) | [Provider OpenAPI](https://stoplight.io/api/v1/projects/moskit/api-v2/nodes/reference/openapi.yaml?fromExportButton=true&snapshotType=http_service&deref=optimizedBundle) |
+| [Motive](../apis/m/motive) | [OpenAPI 3.1](../apis/m/motive/universal-api/openapi.json) |  |
 | [Moxie](../apis/m/moxie) | [OpenAPI 3.1](../apis/m/moxie/universal-api/openapi.json) |  |
 | [MoySklad](../apis/m/moySklad) | [OpenAPI 3.1](../apis/m/moySklad/universal-api/openapi.json) |  |
 | [Mozilla Observatory](../apis/m/mozillaObservatory) | [OpenAPI 3.1](../apis/m/mozillaObservatory/universal-api/openapi.json) |  |

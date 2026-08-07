@@ -7,6 +7,7 @@ Attaches a label to a keyword criterion in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/adGroupCriterionLabels:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Attach Keyword Label](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupCriterionLabelService/MutateAdGroupCriterionLabels)
 
 ## Parameters

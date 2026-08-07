@@ -7,6 +7,7 @@ Retrieves a search terms report from Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/googleAds:search`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Search Terms Report](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search)
 
 ## Parameters

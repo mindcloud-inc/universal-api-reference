@@ -1,6 +1,6 @@
 # Google Ads Universal API Arguments
 
-Arguments are the inputs a Google Ads action needs. Each [action page](README.md#actions-92) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Google Ads action needs. Each [action page](README.md#actions-93) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

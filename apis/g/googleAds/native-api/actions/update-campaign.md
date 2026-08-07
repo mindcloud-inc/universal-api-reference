@@ -7,6 +7,7 @@ Updates an existing campaign in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/campaigns:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Update Campaign](https://developers.google.com/google-ads/api/reference/rpc/v22/CampaignService/MutateCampaigns)
 
 ## Parameters

@@ -1,6 +1,6 @@
-# Osapiens: Native API Reference
+# Inextrack: Native API Reference
 
-A consolidated summary of Osapiens's API configuration.
+A consolidated summary of Inextrack's API configuration.
 
 - **API base URL:** `https://{environment}`
 
@@ -27,8 +27,6 @@ const response = await fetch(url, {
   }
 });
 ```
-
-[Official authentication documentation](https://qa.osapiens.cloud/data/in/rest/e2e-testing-ttos-1/tpd/capture-json/)
 
 ## API conventions
 

@@ -7,6 +7,7 @@ Uploads click conversions to Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId:uploadClickConversions`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Upload Click Conversions](https://developers.google.com/google-ads/api/reference/rpc/v22/ConversionUploadService/UploadClickConversions)
 
 ## Parameters

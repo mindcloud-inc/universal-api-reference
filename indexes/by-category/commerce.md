@@ -1,6 +1,6 @@
 # Commerce apps
 
-291 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+292 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -144,6 +144,7 @@
 - **LionWheel Delivery** · [Universal API reference](../../apis/l/lionWheelDelivery/universal-api) · [Native API reference](../../apis/l/lionWheelDelivery/native-api) · [Native API docs](https://github.com/lionwheel/api)
 - **Lodgify** · [Universal API reference](../../apis/l/lodgify/universal-api) · [Native API reference](../../apis/l/lodgify/native-api) · [Native API docs](https://docs.lodgify.com/reference)
 - **Logiwa Legacy WMS** · [Universal API reference](../../apis/l/logiwaLegacyWMS/universal-api) · [Native API reference](../../apis/l/logiwaLegacyWMS/native-api) · [Native API docs](https://developer.logiwa.com/?id=5df0da39e6466c2eec992f3f)
+- **Loop Returns** · [Universal API reference](../../apis/l/loopReturns/universal-api) · [Native API reference](../../apis/l/loopReturns/native-api) · [Native API docs](https://docs.loopreturns.com/api-reference/authentication)
 - **Loyverse** · [Universal API reference](../../apis/l/loyverse/universal-api) · [Native API reference](../../apis/l/loyverse/native-api) · [Native API docs](https://developer.loyverse.com/docs/)
 - **Lulu** · [Universal API reference](../../apis/l/lulu/universal-api) · [Native API reference](../../apis/l/lulu/native-api) · [Native API docs](https://api.lulu.com/docs/)
 - **MarketTime** · [Universal API reference](../../apis/m/marketTime/universal-api) · [Native API reference](../../apis/m/marketTime/native-api) · [Native API docs](https://publicapi.markettime.com/swagger-ui/index.html)

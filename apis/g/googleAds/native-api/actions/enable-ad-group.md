@@ -7,6 +7,7 @@ Updates an ad group to enabled status in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/adGroups:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Enable Ad Group](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupService/MutateAdGroups)
 
 ## Parameters

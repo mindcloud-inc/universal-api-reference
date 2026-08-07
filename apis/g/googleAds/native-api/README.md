@@ -1,9 +1,10 @@
 # Google Ads: Native API Reference
 
-A consolidated summary of Google Ads's API configuration and 92 documented operations, with links to official documentation.
+A consolidated summary of Google Ads's API configuration and 93 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.google.com/google-ads/api
-- **API base URL:** `https://googleads.googleapis.com/`
+- **REST base URL:** `https://googleads.googleapis.com/`
+- **REST API base URL:** `https://datamanager.googleapis.com`
 
 ## Authentication
 
@@ -22,13 +23,15 @@ Register an OAuth application with the provider to obtain client credentials and
 2. Exchange the returned authorization code with a POST request to https://oauth2.googleapis.com/token.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
-Requested scopes: `https://www.googleapis.com/auth/adwords https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile`.
+Requested scopes: `https://www.googleapis.com/auth/adwords https://www.googleapis.com/auth/datamanager`.
 
 Refresh expired access tokens with a POST request to https://oauth2.googleapis.com/token.
 
 [Official authentication documentation](https://developers.google.com/google-ads/api/docs/oauth/overview)
 
 ## API conventions
+
+### REST
 
 Request bodies use JSON.
 
@@ -38,12 +41,27 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
-## Endpoints (92 documented)
+### REST API
+
+Request bodies use JSON.
+
+Shared headers:
+
+| Header | Value |
+| --- | --- |
+| `Content-Type` | `application/json` |
+
+## Retry behavior
+
+- **REST API:** Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
+
+## Endpoints (93 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Add Campaign Criterion](actions/add-campaign-criterion.md) | `POST v22/customers/:customerId/campaignCriteria:mutate` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/CampaignCriterionService/MutateCampaignCriteria) |
 | [Add Keyword Criterion](actions/add-keyword-criterion.md) | `POST v22/customers/:customerId/adGroupCriteria:mutate` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupCriterionService/MutateAdGroupCriteria) |
+| [Add Lead Feedback](actions/add-lead-feedback.md) | `POST v21/customers/:customerId/localServicesLeads/:leadId:provideLeadFeedback` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v21/LocalServicesLeadService/ProvideLeadFeedback) |
 | [Add Negative Campaign Keyword](actions/add-negative-campaign-keyword.md) | `POST v22/customers/:customerId/campaignCriteria:mutate` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/CampaignCriterionService/MutateCampaignCriteria) |
 | [Add Offline User Data Job Operations](actions/add-offline-user-data-job-operations.md) | `POST v22/customers/:customerId/offlineUserDataJobs/:offlineUserDataJobId:addOperations` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/OfflineUserDataJobService/AddOfflineUserDataJobOperations) |
 | [Attach Ad Group Ad Label](actions/attach-ad-group-ad-label.md) | `POST v22/customers/:customerId/adGroupAdLabels:mutate` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/AdGroupAdLabelService/MutateAdGroupAdLabels) |

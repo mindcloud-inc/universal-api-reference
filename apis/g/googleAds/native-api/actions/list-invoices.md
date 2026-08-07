@@ -7,6 +7,7 @@ Retrieves invoices from your Google Ads account.
 - **Method:** `GET`
 - **Path:** `v22/customers/:customerId/invoices`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [List Invoices](https://developers.google.com/google-ads/api/reference/rpc/v22/InvoiceService/ListInvoices)
 
 ## Parameters

@@ -7,6 +7,7 @@ Generates keyword ideas in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId:generateKeywordIdeas`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Generate Keyword Ideas](https://developers.google.com/google-ads/api/reference/rpc/v22/KeywordPlanIdeaService/GenerateKeywordIdeas)
 
 ## Parameters

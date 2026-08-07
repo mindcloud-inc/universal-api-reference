@@ -7,6 +7,7 @@ Retrieves account change status from Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/googleAds:search`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [List Account Change Status](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search)
 
 ## Parameters

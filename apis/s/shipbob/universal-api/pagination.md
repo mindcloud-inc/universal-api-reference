@@ -19,3 +19,4 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/li
 ## ShipBob actions that support pagination
 
 - [List Inventory Levels by Location](actions/list-inventory-levels-by-location.md)
+- [List Return Orders](actions/list-return-orders.md)

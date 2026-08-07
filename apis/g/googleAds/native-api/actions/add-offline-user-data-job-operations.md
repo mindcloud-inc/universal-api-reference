@@ -7,6 +7,7 @@ Adds operations to an offline user data job in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/offlineUserDataJobs/:offlineUserDataJobId:addOperations`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Add Offline User Data Job Operations](https://developers.google.com/google-ads/api/reference/rpc/v22/OfflineUserDataJobService/AddOfflineUserDataJobOperations)
 
 ## Parameters

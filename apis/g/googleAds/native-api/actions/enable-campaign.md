@@ -7,6 +7,7 @@ Updates a campaign to enabled status in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/campaigns:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Enable Campaign](https://developers.google.com/google-ads/api/reference/rpc/v22/CampaignService/MutateCampaigns)
 
 ## Parameters

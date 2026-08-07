@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3192 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3195 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -251,6 +251,7 @@ The official vendor API documentation for each of the 3192 apps in this repo. Ea
 - [Bitskout](../apis/b/bitskout/native-api) - https://learn.microsoft.com/en-us/connectors/bitskout/
 - [Biyo POS](../apis/b/biyoPOS/native-api) - https://biyopos.com/encyclopedia/api-application-programming-interface/
 - [BKK Futar](../apis/b/bKKFutar/native-api) - https://bkkfutar.docs.apiary.io/
+- [BlackBaud](../apis/b/blackBaud/native-api) - https://developer.blackbaud.com/skyapi/docs/getting-started
 - [Bland AI](../apis/b/blandAI/native-api) - https://docs.bland.ai/api-v1/post/calls
 - [BlankBlocks](../apis/b/blankBlocks/native-api) - https://docs.blankblocks.com
 - [Blaze AI](../apis/b/blazeAI/native-api) - https://api.blaze.ai/api/documentation
@@ -1291,6 +1292,7 @@ The official vendor API documentation for each of the 3192 apps in this repo. Ea
 - [Incontrol](../apis/i/incontrol/native-api) - https://portal.incontrol.app/swagger/index.html?urls.primaryName=Public%20API%20(v1)
 - [IN-D KYC India](../apis/i/iNDKYCIndia/native-api) - https://dev.in-d.ai/
 - [IndyForms](../apis/i/indyForms/native-api) - https://api.indyforms.com/swagger/index.html?urls.primaryName=Indyforms+Public+Api+v2
+- [Inextrack](../apis/i/inextrack/native-api) - https://osapiens.com
 - [Infisical](../apis/i/infisical/native-api) - https://infisical.com/docs/api-reference/overview/introduction
 - [InflatableOffice](../apis/i/inflatableOffice/native-api) - https://rental.software/support/knowledge-base/articles/api
 - [inFlow Inventory](../apis/i/inFlowInventory/native-api) - https://cloudapi.inflowinventory.com/docs/index.html
@@ -1538,6 +1540,7 @@ The official vendor API documentation for each of the 3192 apps in this repo. Ea
 - [Lookify](../apis/l/lookify/native-api) - https://lookify.io/assets/pdfs/enterprise_carrier_api_documentation.pdf
 - [Loomio](../apis/l/loomio/native-api) - https://github.com/loomio/loomio/tree/master/app/controllers/api/v1
 - [LoopedIn](../apis/l/loopedIn/native-api) - https://docs.loopedin.io/
+- [Loop Returns](../apis/l/loopReturns/native-api) - https://docs.loopreturns.com/api-reference/authentication
 - [Loops](../apis/l/loops/native-api) - https://loops.so/docs/api-reference/intro
 - [Loop & Tie](../apis/l/loopTie/native-api) - https://docs.loopandtie.com/reference
 - [Loopy Loyalty](../apis/l/loopyLoyalty/native-api) - https://developer.loopyloyalty.com/
@@ -1697,6 +1700,7 @@ The official vendor API documentation for each of the 3192 apps in this repo. Ea
 - [Morningmate](../apis/m/morningmate/native-api) - https://api.morningmate.com/docs
 - [Morph](../apis/m/morph/native-api) - https://docs.morphllm.com/introduction
 - [Moskit](../apis/m/moskit/native-api) - https://moskit.stoplight.io/docs/api-v2/
+- [Motive](../apis/m/motive/native-api) - https://developer.gomotive.com/reference/getting-started-with-your-api
 - [Moxie](../apis/m/moxie/native-api) - https://help.withmoxie.com/en/collections/5482062-public-api-endpoints
 - [MoySklad](../apis/m/moySklad/native-api) - https://dev.moysklad.ru/doc/api/remap/1.2/
 - [Mozilla Observatory](../apis/m/mozillaObservatory/native-api) - https://developer.mozilla.org/en-US/observatory/docs/faq
@@ -1887,7 +1891,6 @@ The official vendor API documentation for each of the 3192 apps in this repo. Ea
 - [Orshot](../apis/o/orshot/native-api) - https://orshot.com/docs/api-reference
 - [Ortto](../apis/o/ortto/native-api) - https://help.ortto.com/c-49-api-reference
 - [Orufy Bookings](../apis/o/orufyBookings/native-api) - https://orufy.com/support/bookings
-- [Osapiens](../apis/o/osapiens/native-api) - https://osapiens.com
 - [Othership](../apis/o/othership/native-api) - https://knowledge.othership.com/workplace-software-faq-admins?hsLang=en
 - [Otiom](../apis/o/otiom/native-api) - https://api.otiom.com/swagger/
 - [OTO](../apis/o/oTO/native-api) - https://help.tryoto.com/en/support/solutions/folders/150000545667

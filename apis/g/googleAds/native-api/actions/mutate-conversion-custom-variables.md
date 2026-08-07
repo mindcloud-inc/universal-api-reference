@@ -7,6 +7,7 @@ Creates, updates, or removes conversion custom variables in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/conversionCustomVariables:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Mutate Conversion Custom Variables](https://developers.google.com/google-ads/api/reference/rpc/v22/ConversionCustomVariableService/MutateConversionCustomVariables)
 
 ## Parameters

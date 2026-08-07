@@ -7,6 +7,7 @@ Creates, updates, or removes conversion actions in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/conversionActions:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Mutate Conversion Actions](https://developers.google.com/google-ads/api/reference/rpc/v22/ConversionActionService/MutateConversionActions)
 
 ## Parameters

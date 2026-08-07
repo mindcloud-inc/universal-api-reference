@@ -7,6 +7,7 @@ Attaches a label to a campaign in Google Ads.
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/campaignLabels:mutate`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Attach Campaign Label](https://developers.google.com/google-ads/api/reference/rpc/v22/CampaignLabelService/MutateCampaignLabels)
 
 ## Parameters

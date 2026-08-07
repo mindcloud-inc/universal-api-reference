@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `v22/customers/:customerId/googleAds:search`
 - **Base URL:** `https://googleads.googleapis.com/`
+- **API:** REST
 - **Official documentation:** [Get Customer Overview](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search)
 
 ## Parameters
