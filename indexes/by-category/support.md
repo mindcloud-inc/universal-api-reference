@@ -1,6 +1,6 @@
 # Support apps
 
-180 apps in the Support category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+181 apps in the Support category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AirPinpoint** · [Universal API reference](../../apis/a/airPinpoint/universal-api) · [Native API reference](../../apis/a/airPinpoint/native-api) · [Native API docs](https://airpinpoint.com/docs/api)
 - **Airzone Cloud** · [Universal API reference](../../apis/a/airzoneCloud/universal-api) · [Native API reference](../../apis/a/airzoneCloud/native-api) · [Native API docs](https://developers.airzonecloud.com/docs/web-api/)
@@ -172,6 +172,7 @@
 - **Workiz** · [Universal API reference](../../apis/w/workiz/universal-api) · [Native API reference](../../apis/w/workiz/native-api) · [Native API docs](https://developer.workiz.com/)
 - **WotNot** · [Universal API reference](../../apis/w/wotNot/universal-api) · [Native API reference](../../apis/w/wotNot/native-api) · [Native API docs](https://help.wotnot.io/build/integrations/public-apis)
 - **Wrangle** · [Universal API reference](../../apis/w/wrangle/universal-api) · [Native API reference](../../apis/w/wrangle/native-api) · [Native API docs](https://wrangle.apidocumentation.com/reference)
+- **XOi** · [Universal API reference](../../apis/x/xOi/universal-api) · [Native API reference](../../apis/x/xOi/native-api) · [Native API docs](https://integration-docs.xoi.io/)
 - **Yay.com** · [Universal API reference](../../apis/y/yaycom/universal-api) · [Native API reference](../../apis/y/yaycom/native-api) · [Native API docs](https://www.yay.com/voip/api-docs/)
 - **Yeahdesk** · [Universal API reference](../../apis/y/yeahdesk/universal-api) · [Native API reference](../../apis/y/yeahdesk/native-api) · [Native API docs](https://help.yeahdesk.ru/docs/for-developers/http-api)
 - **Yeti Snow** · [Universal API reference](../../apis/y/yetiSnow/universal-api) · [Native API reference](../../apis/y/yetiSnow/native-api) · [Native API docs](https://documenter.getpostman.com/view/5759255/Uyxohiig)

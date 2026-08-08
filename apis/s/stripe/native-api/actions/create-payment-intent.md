@@ -20,3 +20,6 @@ Creates a new payment intent in Stripe.
 | `description` | body | `string` | no | An arbitrary string attached to the object. |
 | `confirm` | body | `boolean` | no | Set to true to attempt to confirm this PaymentIntent immediately. |
 | `capture_method` | body | `list<string>` | no | Controls when funds are captured from the customer. Accepted values: `automatic`, `automatic_async`, `manual`. |
+| `metadata` | body | `object` | no | — |
+| `offSession` | body | `boolean` | no | — |
+| `idempotencyKey` | body | `string` | no | — |

@@ -176658,7 +176658,7 @@
     "websiteUrl": "https://www.workday.com",
     "nativeBaseUrl": "https://services1.wd501.myworkday.com/ccx/api/timeTracking/v5/marianienterprises",
     "nativeDocumentationUrl": "https://community.workday.com/sites/default/files/file-hosting/restapi/index.html",
-    "version": "0.0.8",
+    "version": "0.0.11",
     "authentication": [
       {
         "type": "custom",
@@ -176743,7 +176743,388 @@
         ]
       }
     ],
-    "actions": []
+    "actions": [
+      {
+        "name": "Get Job Profiles",
+        "slug": "get-job-profiles",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers/-ID-",
+        "native": {
+          "method": "GET",
+          "path": "jobProfiles/:ID",
+          "baseUrl": "{{credentials.restAPIBaseURL}}/",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "ID",
+              "internalKey": "jobId",
+              "name": "Job ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The Workday ID of the job. Use a returned id from Get Jobs."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "jobId",
+            "name": "Job ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The Workday ID of the job. Use a returned id from Get Jobs."
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Token",
+        "slug": "get-token",
+        "operation": "read",
+        "method": "GET",
+        "model": "accessToken",
+        "description": "Exchange a refresh token for a new Workday access token.",
+        "native": {
+          "method": "POST",
+          "path": "{{credentials.tokenEndpoint}}",
+          "useFullUrl": true,
+          "apiType": "rest",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ],
+          "arguments": [
+            {
+              "key": "grant_type",
+              "internalKey": "grantType",
+              "name": "Grant Type",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "refresh_token",
+              "internalKey": "refreshToken",
+              "name": "Refresh Token",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "grantType",
+            "name": "Grant Type",
+            "dataType": "string",
+            "required": false,
+            "defaultValue": "refresh_token"
+          },
+          {
+            "key": "refreshToken",
+            "name": "Refresh Token",
+            "dataType": "string",
+            "required": false,
+            "defaultValue": "{{credentials.refreshToken}}"
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Worker",
+        "slug": "get-worker",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "description": "Get a single worker from Workday Time Tracking by Workday worker ID.",
+        "documentationUrl": "https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers/-ID-",
+        "native": {
+          "method": "GET",
+          "path": "workers/:ID",
+          "baseUrl": "{{credentials.restAPIBaseURL}}/",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "ID",
+              "internalKey": "workerId",
+              "name": "Worker ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The Workday ID of the worker. Use a returned id from Get Workers."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "workerId",
+            "name": "Worker ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The Workday ID of the worker. Use a returned id from Get Workers."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "additionalJobs",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Additional job assignments when present.",
+            "mockType": "array"
+          },
+          {
+            "key": "descriptor",
+            "dataType": "string",
+            "description": "The display name of the worker.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The Workday ID of the worker.",
+            "mockType": "string"
+          },
+          {
+            "key": "person",
+            "dataType": "object",
+            "description": "Basic person contact information.",
+            "mockType": "object"
+          },
+          {
+            "key": "primaryJob",
+            "dataType": "object",
+            "description": "Current primary job details.",
+            "mockType": "object"
+          },
+          {
+            "key": "workerId",
+            "dataType": "string",
+            "description": "The worker ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "workerType",
+            "dataType": "object",
+            "description": "Worker type details.",
+            "mockType": "object"
+          }
+        ]
+      },
+      {
+        "name": "Get Workers",
+        "slug": "get-workers",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "description": "List workers from Workday Time Tracking with optional name or worker ID search, visibility filtering, and pagination.",
+        "documentationUrl": "https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers",
+        "native": {
+          "method": "GET",
+          "path": "workers",
+          "baseUrl": "{{credentials.restAPIBaseURL}}/",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "search",
+              "name": "Search",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Search workers by name or worker ID. The search is case-insensitive."
+            },
+            {
+              "key": "filterByOrgVisibility",
+              "name": "Filter By Org Visibility",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "Only return workers whose supervisory organizations are visible to the processing user."
+            },
+            {
+              "key": "includeTerminatedWorkers",
+              "name": "Include Terminated Workers",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "Include terminated workers in the output."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "search",
+            "name": "Search",
+            "dataType": "string",
+            "required": false,
+            "description": "Search workers by name or worker ID. The search is case-insensitive."
+          },
+          {
+            "key": "filterByOrgVisibility",
+            "name": "Filter By Org Visibility",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true,
+            "description": "Only return workers whose supervisory organizations are visible to the processing user."
+          },
+          {
+            "key": "includeTerminatedWorkers",
+            "name": "Include Terminated Workers",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true,
+            "description": "Include terminated workers in the output."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "additionalJobs",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Additional job assignments when present.",
+            "mockType": "array"
+          },
+          {
+            "key": "descriptor",
+            "dataType": "string",
+            "description": "The display name of the worker.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The Workday ID of the worker.",
+            "mockType": "string"
+          },
+          {
+            "key": "person",
+            "dataType": "object",
+            "description": "Basic person contact information.",
+            "mockType": "object"
+          },
+          {
+            "key": "primaryJob",
+            "dataType": "object",
+            "description": "Current primary job details.",
+            "mockType": "object"
+          },
+          {
+            "key": "workerId",
+            "dataType": "string",
+            "description": "The worker ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "workerType",
+            "dataType": "object",
+            "description": "Worker type details.",
+            "mockType": "object"
+          }
+        ]
+      },
+      {
+        "name": "Get Workers History",
+        "slug": "get-workers-history",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers",
+        "native": {
+          "method": "GET",
+          "path": "workers/:ID/history",
+          "baseUrl": "{{credentials.restAPIBaseURL}}/",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "ID",
+              "internalKey": "workerID",
+              "name": "Worker ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "workerID",
+            "name": "Worker ID",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "List Worker Organizations",
+        "slug": "list-worker-organizations",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers/-ID-",
+        "native": {
+          "method": "GET",
+          "path": "workers/:ID/organizations",
+          "baseUrl": "{{credentials.restAPIBaseURL}}/",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "ID",
+              "internalKey": "workerId",
+              "name": "Worker ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The Workday ID of the worker. Use a returned id from Get Workers."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "workerId",
+            "name": "Worker ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The Workday ID of the worker. Use a returned id from Get Workers."
+          }
+        ],
+        "responseSchema": []
+      }
+    ],
+    "universalOpenApiPath": "apis/w/workday/universal-api/openapi.json"
   },
   {
     "name": "WorkflowMax",

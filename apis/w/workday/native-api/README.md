@@ -1,6 +1,6 @@
 # Workday: Native API Reference
 
-A consolidated summary of Workday's API configuration, with links to official documentation.
+A consolidated summary of Workday's API configuration and 6 documented operations, with links to official documentation.
 
 - **Official docs:** https://community.workday.com/sites/default/files/file-hosting/restapi/index.html
 - **API base URL:** `{restAPIBaseURL}/`
@@ -30,3 +30,14 @@ Authorization: Bearer <custom.accessToken>
 ## Pagination
 
 Use `limit` in the query string to set the page size (default 100). Use `offset` in the query string as the record offset; numbering starts at 0.
+
+## Endpoints (6 documented)
+
+| Operation | Method & path | Vendor docs |
+| --- | --- | --- |
+| [Get Job Profiles](actions/get-job-profiles.md) | `GET jobProfiles/:ID` | [docs](https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers/-ID-) |
+| [Get Token](actions/get-token.md) | `POST {{credentials.tokenEndpoint}}` |  |
+| [Get Worker](actions/get-worker.md) | `GET workers/:ID` | [docs](https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers/-ID-) |
+| [Get Workers](actions/get-workers.md) | `GET workers` | [docs](https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers) |
+| [Get Workers History](actions/get-workers-history.md) | `GET workers/:ID/history` | [docs](https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers) |
+| [List Worker Organizations](actions/list-worker-organizations.md) | `GET workers/:ID/organizations` | [docs](https://community.workday.com/sites/default/files/file-hosting/restapi/index.html#timeTracking/v5/get-/workers/-ID-) |

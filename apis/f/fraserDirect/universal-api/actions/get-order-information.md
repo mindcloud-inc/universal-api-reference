@@ -80,5 +80,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Fraser Direct API, this operation is `GET /GetOrderInformation` (base URL `https://apiv2test.fraserdirect.ca/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-order-information.md) for the provider-specific parameters and requirements.
+Through the native Fraser Direct API, this operation is `GET /GetOrderInformation` (base URL `{{credentials.baseURL}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-order-information.md) for the provider-specific parameters and requirements.
 

@@ -3,7 +3,7 @@
 
 
 ```
-POST https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-board-items-by-column-value
+GET https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-board-items-by-column-value
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Monday `connectionId` ([setup](../authentication.md)).
@@ -13,24 +13,21 @@ This action also supports [pagination](../pagination.md) (`limit`, `offset`).
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-board-items-by-column-value" \
-  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "connectionId": "$CONNECTION_ID"
-}'
+curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-board-items-by-column-value?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-board-items-by-column-value', {
-  method: 'POST',
+const params = new URLSearchParams({
+  connectionId,
+  limit: '25',
+  offset: '0'
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-board-items-by-column-value?${params}`, {
   headers: {
-    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    connectionId
-  })
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
 });
 
 const { success, data } = await response.json();
@@ -38,7 +35,7 @@ const { success, data } = await response.json();
 
 ## Inputs
 
-Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |

@@ -4,7 +4,7 @@
 
 - **Method:** `POST`
 - **Path:** `/CreateOrder`
-- **Base URL:** `https://apiv2test.fraserdirect.ca/`
+- **Base URL:** `{baseURL}`
 
 ## Headers
 
@@ -34,3 +34,4 @@ Send these additional headers for this operation:
 | `Carrier` | body | `string` | no | Optional carrier. If omitted, Fraser Direct rate shops based on ServiceLevel. |
 | `ServiceLevel` | body | `string` | yes | Required service level. Valid values are STANDARD or EXPRESS. |
 | `DetailList` | body | `object<object>` | no | — |
+| `ReferenceNumber` | body | `string` | no | — |

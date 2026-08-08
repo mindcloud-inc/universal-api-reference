@@ -4,7 +4,7 @@ Field service software to drive growth
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aspire/latest
 - **Category:** Human Resources / HRIS
-- **Actions:** 149
+- **Actions:** 151
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.youraspire.com/
 - **Vendor API docs:** https://guide.youraspire.com/apidocs
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (149)
+## Actions (151)
 
 ### Activity
 
@@ -371,6 +371,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
 | --- | --- | --- |
 | [List Service Type Integration Codes](actions/list-service-type-integration-codes.md) | GET | Retrieves service type integration codes from your Aspire account. |
 | [List Service Types](actions/list-service-types.md) | GET | Retrieves service types from your Aspire account. |
+
+### Tags
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Opportunity Tags](actions/list-opportunity-tags.md) | GET | Retrieves opportunity tags from your Aspire account. |
+| [List Opportunity Tags Assignments](actions/list-opportunity-tags-assignments.md) | GET | Retrieves opportunity tags from your Aspire account. |
 
 ### Tasks
 

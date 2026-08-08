@@ -4,7 +4,7 @@
 
 - **Method:** `GET`
 - **Path:** `/GetInventory`
-- **Base URL:** `https://apiv2test.fraserdirect.ca/`
+- **Base URL:** `{baseURL}`
 
 ## Parameters
 

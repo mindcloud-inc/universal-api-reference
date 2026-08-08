@@ -3,7 +3,7 @@
 Retrieves items and their subitems from a Monday board by column value.
 
 ```
-POST https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-all-sub-items-of-of-an-item-by-items-column-value
+GET https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-all-sub-items-of-of-an-item-by-items-column-value
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Monday `connectionId` ([setup](../authentication.md)).
@@ -11,24 +11,19 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Monday `
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-all-sub-items-of-of-an-item-by-items-column-value" \
-  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "connectionId": "$CONNECTION_ID"
-}'
+curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-all-sub-items-of-of-an-item-by-items-column-value?connectionId=$CONNECTION_ID" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-all-sub-items-of-of-an-item-by-items-column-value', {
-  method: 'POST',
+const params = new URLSearchParams({
+  connectionId
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-all-sub-items-of-of-an-item-by-items-column-value?${params}`, {
   headers: {
-    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    connectionId
-  })
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
 });
 
 const { success, data } = await response.json();
@@ -36,7 +31,7 @@ const { success, data } = await response.json();
 
 ## Inputs
 
-Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |

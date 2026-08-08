@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3195 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3198 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1100,6 +1100,7 @@ Machine-readable API descriptions for 3195 apps. Universal API specifications ar
 | [Google Drive](../apis/g/googleDrive) | [OpenAPI 3.1](../apis/g/googleDrive/universal-api/openapi.json) | [Provider OpenAPI](https://github.com/APIs-guru/openapi-directory/blob/main/APIs/googleapis.com/drive/v3/openapi.yaml) |
 | [Google Forms](../apis/g/googleForms) | [OpenAPI 3.1](../apis/g/googleForms/universal-api/openapi.json) | [Provider OpenAPI](https://forms.googleapis.com/$discovery/rest?version=v1) |
 | [Google Groups](../apis/g/googleGroups) | [OpenAPI 3.1](../apis/g/googleGroups/universal-api/openapi.json) |  |
+| [Google Maps](../apis/g/googleMaps) | [OpenAPI 3.1](../apis/g/googleMaps/universal-api/openapi.json) |  |
 | [Google PageSpeed Insights](../apis/g/googlePageSpeedInsights) | [OpenAPI 3.1](../apis/g/googlePageSpeedInsights/universal-api/openapi.json) |  |
 | [Google Search Console](../apis/g/googleSearchConsole) | [OpenAPI 3.1](../apis/g/googleSearchConsole/universal-api/openapi.json) |  |
 | [Google Sheets](../apis/g/googleSheets) | [OpenAPI 3.1](../apis/g/googleSheets/universal-api/openapi.json) |  |
@@ -1218,6 +1219,7 @@ Machine-readable API descriptions for 3195 apps. Universal API specifications ar
 | [HTML/CSS to Image app](../apis/h/hTMLCSSToImageApp) | [OpenAPI 3.1](../apis/h/hTMLCSSToImageApp/universal-api/openapi.json) |  |
 | [HTML to PDF](../apis/h/hTMLToPDF) | [OpenAPI 3.1](../apis/h/hTMLToPDF/universal-api/openapi.json) |  |
 | [HTTP Dogs](../apis/h/hTTPDogs) | [OpenAPI 3.1](../apis/h/hTTPDogs/universal-api/openapi.json) |  |
+| [HTTP](../apis/h/httpRequest) | [OpenAPI 3.1](../apis/h/httpRequest/universal-api/openapi.json) |  |
 | [httpSMS](../apis/h/httpSMS) | [OpenAPI 3.1](../apis/h/httpSMS/universal-api/openapi.json) | [Provider OpenAPI](https://api.httpsms.com/doc.json) |
 | [Hubflo](../apis/h/hubflo) | [OpenAPI 3.1](../apis/h/hubflo/universal-api/openapi.json) |  |
 | [Hub Planner](../apis/h/hubPlanner) | [OpenAPI 3.1](../apis/h/hubPlanner/universal-api/openapi.json) |  |
@@ -2996,6 +2998,7 @@ Machine-readable API descriptions for 3195 apps. Universal API specifications ar
 | [Wooxy](../apis/w/wooxy) | [OpenAPI 3.1](../apis/w/wooxy/universal-api/openapi.json) |  |
 | [WordsAPI](../apis/w/wordsAPI) | [OpenAPI 3.1](../apis/w/wordsAPI/universal-api/openapi.json) |  |
 | [WorkAdventure](../apis/w/workAdventure) | [OpenAPI 3.1](../apis/w/workAdventure/universal-api/openapi.json) | [Provider OpenAPI](https://admin.workadventu.re/docs/api-docs.json) |
+| [Workday](../apis/w/workday) | [OpenAPI 3.1](../apis/w/workday/universal-api/openapi.json) |  |
 | [WorkflowMax](../apis/w/workflowMax) | [OpenAPI 3.1](../apis/w/workflowMax/universal-api/openapi.json) |  |
 | [Workflowy](../apis/w/workflowy) | [OpenAPI 3.1](../apis/w/workflowy/universal-api/openapi.json) |  |
 | [Workiom](../apis/w/workiom) | [OpenAPI 3.1](../apis/w/workiom/universal-api/openapi.json) | [Provider OpenAPI](https://api.workiom.com/swagger/v1/swagger.json) |
@@ -3023,6 +3026,7 @@ Machine-readable API descriptions for 3195 apps. Universal API specifications ar
 | [Xkcd](../apis/x/xkcd) | [OpenAPI 3.1](../apis/x/xkcd/universal-api/openapi.json) |  |
 | [xMatters](../apis/x/xMatters) | [OpenAPI 3.1](../apis/x/xMatters/universal-api/openapi.json) |  |
 | [Xodo Sign](../apis/x/xodoSign) | [OpenAPI 3.1](../apis/x/xodoSign/universal-api/openapi.json) |  |
+| [XOi](../apis/x/xOi) | [OpenAPI 3.1](../apis/x/xOi/universal-api/openapi.json) |  |
 | [Xola](../apis/x/xola) | [OpenAPI 3.1](../apis/x/xola/universal-api/openapi.json) |  |
 | [Xperiencify](../apis/x/xperiencify) | [OpenAPI 3.1](../apis/x/xperiencify/universal-api/openapi.json) |  |
 | [XPS Ship](../apis/x/xPSShip) | [OpenAPI 3.1](../apis/x/xPSShip/universal-api/openapi.json) |  |

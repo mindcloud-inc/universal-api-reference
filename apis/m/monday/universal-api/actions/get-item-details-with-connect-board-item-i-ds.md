@@ -3,7 +3,7 @@
 Retrieves item details and linked board items from Monday.
 
 ```
-POST https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-item-details-with-connect-board-item-i-ds
+GET https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-item-details-with-connect-board-item-i-ds
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Monday `connectionId` ([setup](../authentication.md)).
@@ -11,30 +11,22 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Monday `
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-item-details-with-connect-board-item-i-ds" \
-  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "connectionId": "$CONNECTION_ID",
-  "itemId": 1,
-  "linkedBoardId": "https://example.com",
-  "connectColumnId": "string"
-}'
+curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-item-details-with-connect-board-item-i-ds?connectionId=$CONNECTION_ID&itemId=1&linkedBoardId=https%3A%2F%2Fexample.com&connectColumnId=string" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-item-details-with-connect-board-item-i-ds', {
-  method: 'POST',
+const params = new URLSearchParams({
+  connectionId,
+  "itemId": "1",
+  "linkedBoardId": "https://example.com",
+  "connectColumnId": "string"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/monday/latest/actions/get-item-details-with-connect-board-item-i-ds?${params}`, {
   headers: {
-    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    connectionId,
-    "itemId": 1,
-    "linkedBoardId": "https://example.com",
-    "connectColumnId": "string"
-  })
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
 });
 
 const { success, data } = await response.json();
@@ -42,7 +34,7 @@ const { success, data } = await response.json();
 
 ## Inputs
 
-Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |

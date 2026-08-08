@@ -3,7 +3,7 @@
 
 
 ```
-POST https://connect.mindcloud.co/v1/universal/intacct/latest/actions/update-journal
+PUT https://connect.mindcloud.co/v1/universal/intacct/latest/actions/update-journal
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Sage Intacct `connectionId` ([setup](../authentication.md)).
@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Sage Int
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/update-journal" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/update-journal" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -24,7 +24,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/u
 
 ```js
 const response = await fetch('https://connect.mindcloud.co/v1/universal/intacct/latest/actions/update-journal', {
-  method: 'POST',
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'

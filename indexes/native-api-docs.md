@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3195 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3198 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1126,6 +1126,7 @@ The official vendor API documentation for each of the 3195 apps in this repo. Ea
 - [Google Drive](../apis/g/googleDrive/native-api) - https://developers.google.com/workspace/drive/api/reference/rest/v3
 - [Google Forms](../apis/g/googleForms/native-api) - https://developers.google.com/workspace/forms/api/reference/rest
 - [Google Groups](../apis/g/googleGroups/native-api) - https://developers.google.com/workspace/admin/directory/v1/guides/manage-groups
+- [Google Maps](../apis/g/googleMaps/native-api)
 - [Google PageSpeed Insights](../apis/g/googlePageSpeedInsights/native-api) - https://developers.google.com/speed/docs/insights/v5/get-started
 - [Google Search Console](../apis/g/googleSearchConsole/native-api) - https://developers.google.com/webmaster-tools/v1/api_reference_index
 - [Google Sheets](../apis/g/googleSheets/native-api) - https://www.google.com/sheets
@@ -1245,6 +1246,7 @@ The official vendor API documentation for each of the 3195 apps in this repo. Ea
 - [HTML/CSS to Image app](../apis/h/hTMLCSSToImageApp/native-api) - https://docs.htmlcsstoimage.com
 - [HTML to PDF](../apis/h/hTMLToPDF/native-api) - https://platform.htmltopdfapi.co/docs/api
 - [HTTP Dogs](../apis/h/hTTPDogs/native-api) - https://http.dog/
+- [HTTP](../apis/h/httpRequest/native-api) - https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/
 - [httpSMS](../apis/h/httpSMS/native-api) - https://api.httpsms.com/index.html
 - [Hubflo](../apis/h/hubflo/native-api) - https://hubflo.readme.io/reference/the-hubflo-api
 - [Hub Planner](../apis/h/hubPlanner/native-api) - https://github.com/hubplanner/API
@@ -3105,6 +3107,7 @@ The official vendor API documentation for each of the 3195 apps in this repo. Ea
 - [Xkcd](../apis/x/xkcd/native-api) - https://xkcd.com/json.html
 - [xMatters](../apis/x/xMatters/native-api) - https://help.xmatters.com/xmapi/index.html
 - [Xodo Sign](../apis/x/xodoSign/native-api) - https://eversign.com/api/documentation
+- [XOi](../apis/x/xOi/native-api) - https://integration-docs.xoi.io/
 - [Xola](../apis/x/xola/native-api) - https://developers.xola.com/reference
 - [Xperiencify](../apis/x/xperiencify/native-api) - https://intercom.help/xperiencify/en/articles/9888509-integrating-with-the-api
 - [XPS Ship](../apis/x/xPSShip/native-api) - https://xpsshipper.com/restapi/docs/v1-ecommerce/endpoints/overview/

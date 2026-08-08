@@ -3,7 +3,7 @@
 Finds a board item in Monday by name.
 
 ```
-POST https://connect.mindcloud.co/v1/universal/monday/latest/actions/search-in-board-with-item-name
+GET https://connect.mindcloud.co/v1/universal/monday/latest/actions/search-in-board-with-item-name
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Monday `connectionId` ([setup](../authentication.md)).
@@ -11,28 +11,21 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Monday `
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/monday/latest/actions/search-in-board-with-item-name" \
-  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "connectionId": "$CONNECTION_ID",
-  "boardId": "string",
-  "itemName": "Ava Chen"
-}'
+curl -X GET "https://connect.mindcloud.co/v1/universal/monday/latest/actions/search-in-board-with-item-name?connectionId=$CONNECTION_ID&boardId=string&itemName=Ava%20Chen" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/monday/latest/actions/search-in-board-with-item-name', {
-  method: 'POST',
+const params = new URLSearchParams({
+  connectionId,
+  "boardId": "string",
+  "itemName": "Ava Chen"
+});
+
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/monday/latest/actions/search-in-board-with-item-name?${params}`, {
   headers: {
-    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    connectionId,
-    "boardId": "string",
-    "itemName": "Ava Chen"
-  })
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
+  }
 });
 
 const { success, data } = await response.json();
@@ -40,7 +33,7 @@ const { success, data } = await response.json();
 
 ## Inputs
 
-Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |

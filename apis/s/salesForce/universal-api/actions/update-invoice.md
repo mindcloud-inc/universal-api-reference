@@ -3,7 +3,7 @@
 
 
 ```
-PATCH https://connect.mindcloud.co/v1/universal/salesForce/latest/actions/update-invoice
+PUT https://connect.mindcloud.co/v1/universal/salesForce/latest/actions/update-invoice
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Salesforce `connectionId` ([setup](../authentication.md)).
@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Salesfor
 ## Example request
 
 ```bash
-curl -X PATCH "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions/update-invoice" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions/update-invoice" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -21,7 +21,7 @@ curl -X PATCH "https://connect.mindcloud.co/v1/universal/salesForce/latest/actio
 
 ```js
 const response = await fetch('https://connect.mindcloud.co/v1/universal/salesForce/latest/actions/update-invoice', {
-  method: 'PATCH',
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'

@@ -21,53 +21,48 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions
 
 ## Actions (22)
 
-### Companies
+### Contacts
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Customer](actions/create-customer.md) | POST |  |
+| [Get Contact by Email](actions/get-contact-by-email.md) | GET |  |
+| [Get Contacts](actions/get-contacts.md) | GET |  |
+
+### CRM Accounts
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Account](actions/create-account.md) | POST |  |
 
-### Contacts
+### Fulfillments
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create Record](actions/create-record.md) | POST |  |
-| [Get Contact by Email](actions/get-contact-by-email.md) | GET |  |
-| [Get Contacts](actions/get-contacts.md) | GET |  |
+| [Get Fulfillment Orders](actions/get-fulfillment-orders.md) | GET |  |
 
-### Customers
+### Order Delivery Group
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create Customer](actions/create-customer.md) | POST |  |
+| [Get Order Delivery Group](actions/get-order-delivery-group.md) | GET |  |
 
-### Items
-
-| Action | Method | Description |
-| --- | --- | --- |
-| [Create Order Item](actions/create-order-item.md) | POST |  |
-| [Query (SOQL)](actions/query.md) | GET | Use raw SOQL syntax to Query your Salesforce Org. |
-
-### Lookup
+### Order Delivery Method
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Org sObjects (Lookup)](actions/lookup-s-objects.md) | GET | Returns the authenticated organizations sObjects for Lookup fields. |
+| [Get Order Delivery Method](actions/get-order-delivery-method.md) | GET |  |
 
-### Other
-
-| Action | Method | Description |
-| --- | --- | --- |
-| [Find Product Offer by Product Code](actions/find-product-by-product-code.md) | GET |  |
-| [Find Order by OrderNumber](actions/get-order.md) | GET | Get the ID for a single Order object by its Order Number |
-| [Query Order Items (test)](actions/query-order-items-test.md) | GET |  |
-| [Update Order Items](actions/update-invoice.md) | PATCH |  |
-
-### Pricebook
+### Price Books
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Pricebook](actions/list-pricebook.md) | GET |  |
+
+### Pricebook Entry
+
+| Action | Method | Description |
+| --- | --- | --- |
 | [List Pricebook Entry](actions/list-pricebook-entry.md) | GET |  |
 
 ### Products
@@ -75,21 +70,41 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Product](actions/create-product.md) | POST |  |
-| [Update Product](actions/update-product.md) | POST |  |
+| [Find Product Offer by Product Code](actions/find-product-by-product-code.md) | GET |  |
+| [Update Product](actions/update-product.md) | PUT |  |
 
 ### Record
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Record](actions/create-record.md) | POST |  |
 | [Delete Record](actions/delete-record.md) | DELETE |  |
 | [Update Record](actions/update-recordv2.md) | PUT |  |
+
+### Sales Order Lines
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Order Item](actions/create-order-item.md) | POST |  |
+| [Update Order Items](actions/update-invoice.md) | PUT |  |
 
 ### Sales Orders
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Order](actions/create-order.md) | POST |  |
-| [Get Fulfillment Orders](actions/get-fulfillment-orders.md) | GET |  |
-| [Get Order Delivery Group](actions/get-order-delivery-group.md) | GET |  |
-| [Get Order Delivery Method](actions/get-order-delivery-method.md) | GET |  |
+| [Find Order by OrderNumber](actions/get-order.md) | GET | Get the ID for a single Order object by its Order Number |
+
+### Sobject
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Org sObjects (Lookup)](actions/lookup-s-objects.md) | GET | Returns the authenticated organizations sObjects for Lookup fields. |
+
+### Soql Query
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Query (SOQL)](actions/query.md) | GET | Use raw SOQL syntax to Query your Salesforce Org. |
+| [Query Order Items (test)](actions/query-order-items-test.md) | GET |  |
 

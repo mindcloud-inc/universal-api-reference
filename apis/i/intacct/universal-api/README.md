@@ -15,16 +15,16 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Custom Object](actions/get-custom-object.md):
+For example, to [Check GLBATCH Duplicate](actions/check-glbatch-duplicate.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/get-custom-object?connectionId=$CONNECTION_ID&object=CUSTOMER" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/check-glbatch-duplicate?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## Actions (24)
 
-### Bill
+### Bills
 
 | Action | Method | Description |
 | --- | --- | --- |
@@ -42,34 +42,46 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ge
 | --- | --- | --- |
 | [List Contacts](actions/list-contacts.md) | GET |  |
 
+### Custom Fields
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Fields for Object](actions/get-fields.md) | GET |  |
+
+### Documents
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create File](actions/create-file.md) | POST |  |
+
+### General Ledger Batch
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Check GLBATCH Duplicate](actions/check-glbatch-duplicate.md) | GET |  |
+| [Create Journal](actions/createjournal.md) | POST |  |
+| [Update Journal](actions/update-journal.md) | PUT |  |
+
 ### Invoices
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Invoice](actions/create-invoice.md) | POST |  |
 | [Create Sales Invoice](actions/create-sales-invoice.md) | POST |  |
+| [Update Invoice](actions/update-invoice.md) | PUT |  |
 
 ### Items
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create File](actions/create-file.md) | POST |  |
 | [Create Item](actions/create-item.md) | POST |  |
 | [Create Item New](actions/create-item-2.md) | POST |  |
 | [Get Custom Object](actions/get-custom-object.md) | GET |  |
 | [Get Full Item](actions/get-full-item.md) | GET |  |
 | [Get Full Item By Name](actions/get-full-item-by-name.md) | GET |  |
-| [Update Invoice](actions/update-invoice.md) | PUT |  |
 | [Update Item](actions/update-item.md) | PUT |  |
 
-### Journal Entries
-
-| Action | Method | Description |
-| --- | --- | --- |
-| [Create Journal](actions/createjournal.md) | POST |  |
-| [Update Journal](actions/update-journal.md) | POST |  |
-
-### Order Entry
+### Order Entry Transaction
 
 | Action | Method | Description |
 | --- | --- | --- |
@@ -79,7 +91,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ge
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Check GLBATCH Duplicate](actions/check-glbatch-duplicate.md) | POST |  |
 | [Post Raw to Stripe](actions/post-raw-to-stripe.md) | POST |  |
 | [Read Bank Deposits](actions/read-bank-deposits.md) | POST |  |
 
@@ -93,7 +104,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ge
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get Fields for Object](actions/get-fields.md) | GET |  |
 | [Query Object](actions/query-object.md) | GET |  |
 | [Query Object Sum](actions/query-object-sum.md) | GET |  |
 | [Read By Query](actions/read-by-query.md) | GET |  |

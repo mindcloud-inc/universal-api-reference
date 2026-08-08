@@ -72,6 +72,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `carrier` | string | no | Optional carrier. If omitted, Fraser Direct rate shops based on ServiceLevel. |
 | `serviceLevel` | string | yes | Required service level. Valid values are STANDARD or EXPRESS. |
 | `detailList` | object<object> | no |  |
+| `ReferenceNumber` | string | no |  |
 
 ## Response
 
@@ -105,5 +106,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Fraser Direct API, this operation is `POST /CreateOrder` (base URL `https://apiv2test.fraserdirect.ca/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-order.md) for the provider-specific parameters and requirements.
+Through the native Fraser Direct API, this operation is `POST /CreateOrder` (base URL `{{credentials.baseURL}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-order.md) for the provider-specific parameters and requirements.
 

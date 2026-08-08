@@ -2,7 +2,7 @@
 
 A consolidated summary of Fraser Direct's API configuration and 7 documented operations.
 
-- **API base URL:** `https://apiv2test.fraserdirect.ca/`
+- **API base URL:** `{baseURL}`
 
 ## Authentication
 
@@ -14,6 +14,7 @@ Bearer token authentication using Fraser Direct's password-grant token endpoint.
 
 - **Username:** `username` · required · Fraser Direct API login username.
 - **Password:** `password` · required · Fraser Direct API password.
+- **baseURL:** `baseURL` · optional · Base URL for the API calls. Changes from Prod to QA
 
 Send these headers with each API request:
 

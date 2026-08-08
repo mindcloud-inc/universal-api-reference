@@ -1,6 +1,6 @@
 # Aspire: Native API Reference
 
-A consolidated summary of Aspire's API configuration and 149 documented operations, with links to official documentation.
+A consolidated summary of Aspire's API configuration and 151 documented operations, with links to official documentation.
 
 - **Official docs:** https://guide.youraspire.com/apidocs
 - **API base URL:** `https://{environment}.youraspire.com/`
@@ -49,7 +49,7 @@ Set the sort field with `$orderby` in the query string. Use `asc` for ascending 
 
 Wait 60000 ms before the first retry. Stop after 14 attempts. Multiply the delay by 3 after each failed attempt.
 
-## Endpoints (149 documented)
+## Endpoints (151 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -144,6 +144,8 @@ Wait 60000 ms before the first retry. Stop after 14 attempts. Multiply the delay
 | [List Opportunity Service Kit Items](actions/list-opportunity-service-kit-items.md) | `GET OpportunityServiceKitItems` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/OpportunityServiceKitItems/OpportunityServiceKitItems_Get) |
 | [List Opportunity Services](actions/list-opportunity-services.md) | `GET OpportunityServices` | [docs](https://guide.youraspire.com/apidocs/) |
 | [List Opportunity Status](actions/list-opportunity-status.md) | `GET OpportunityStatuses` | [docs](https://guide.youraspire.com/apidocs/opportunity-status) |
+| [List Opportunity Tags](actions/list-opportunity-tags.md) | `GET OpportunityTags` | [docs](https://cloud-api.youraspire.com/swagger/index.html) |
+| [List Opportunity Tags Assignments](actions/list-opportunity-tags-assignments.md) | `GET OpportunityTags` | [docs](https://cloud-api.youraspire.com/swagger/index.html) |
 | [List Pay Rate Override Pay Codes](actions/list-pay-rate-override-pay-codes.md) | `GET PayRateOverridePayCodes` | [docs](https://guide.youraspire.com/apidocs/payrates-5) |
 | [List Pay Rates](actions/list-pay-rates.md) | `GET PayRates` | [docs](https://guide.youraspire.com/apidocs/payrates-5) |
 | [List Pay Schedules](actions/list-pay-schedules.md) | `GET PaySchedules` | [docs](https://guide.youraspire.com/apidocs/pay-schedules-1) |

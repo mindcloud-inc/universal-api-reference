@@ -50,6 +50,9 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `paymentMethod` | string | no | PaymentMethod ID to attach to this PaymentIntent. |
 | `description` | string | no | An arbitrary string attached to the object. |
 | `confirm` | boolean | no | Set to true to attempt to confirm this PaymentIntent immediately. |
+| `metadata` | object | no |  |
+| `offSession` | boolean | no |  |
+| `idempotencyKey` | string | no |  |
 
 ### Advanced
 
