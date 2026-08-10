@@ -85,7 +85,7 @@ Shared headers:
 | [Activate Inventory Item](actions/activate-inventory-item.md) | GraphQL | `POST /:apiVersion/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/inventoryActivate) |
 | [Create Webhook Subscription (HTTP)](actions/create-webhook-subscription-http.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/webhookSubscriptionCreate) |
 | [Get Inventory Bulk Export Status](actions/get-inventory-bulk-export-status.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/usage/bulk-operations/queries) |
-| [Get Order Transactions (GraphQL)](actions/get-order-transactions-graph-ql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
+| [List Order Payment Transactions](actions/get-order-transactions-graph-ql.md) | REST | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/order) |
 | [Get Product Variant by SKU](actions/get-product-variant-by-sku.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants) |
 | [GraphQL - Get Records (Paginated)](actions/graphql-get-records-paginated.md) | GraphQL | `POST :version/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [GraphQL - Get Records (Unwrapped Edges)](actions/graphql-get-records-unwrapped-edges.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |

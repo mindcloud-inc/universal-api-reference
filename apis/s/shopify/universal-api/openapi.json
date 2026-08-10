@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Shopify Universal API",
-    "version": "0.2.307",
+    "version": "0.2.308",
     "description": "Manage products, orders, customers, and inventory levels"
   },
   "servers": [
@@ -641,9 +641,9 @@
       }
     },
     "/v1/universal/shopify/latest/actions/get-order-transactions-graph-ql": {
-      "put": {
+      "get": {
         "operationId": "shopify.get-order-transactions-graph-ql",
-        "summary": "Get Order Transactions (GraphQL)",
+        "summary": "List Order Payment Transactions",
         "externalDocs": {
           "url": "https://mindcloud.co/docs/universal/rest/shopify/latest/actions/get-order-transactions-graph-ql"
         },
@@ -652,29 +652,48 @@
             "bearerAuth": []
           }
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "connectionId"
-                ],
-                "properties": {
-                  "connectionId": {
-                    "type": "string",
-                    "description": "The MindCloud connection ID for this app."
-                  },
-                  "query": {
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false
-              }
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variables",
+            "in": "query",
+            "required": false,
+            "description": "Order selection inputs.",
+            "schema": {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "Order selection inputs."
+            }
+          },
+          {
+            "name": "variables.orderId",
+            "in": "query",
+            "required": true,
+            "description": "The Shopify GraphQL Order ID to retrieve payment transactions for.",
+            "schema": {
+              "type": "string",
+              "description": "The Shopify GraphQL Order ID to retrieve payment transactions for.",
+              "example": "gid://shopify/Order/1234567890"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Successful response.",

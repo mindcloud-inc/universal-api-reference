@@ -74,6 +74,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
 | --- | --- | --- |
 | [List Locations](actions/list-locations.md) | GET | Retrieves locations from Shopify. |
 
+### Order Payment Transaction
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Order Payment Transactions](actions/get-order-transactions-graph-ql.md) | GET |  |
+
 ### Product Variants
 
 | Action | Method | Description |
@@ -85,7 +91,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get Order Transactions (GraphQL)](actions/get-order-transactions-graph-ql.md) | PUT |  |
 | [List Products](actions/list-products.md) | GET | Retrieves products from Shopify with GraphQL. |
 | [Update Product (GraphQL)](actions/update-product-graphql.md) | PUT | Updates an existing product in Shopify. |
 
