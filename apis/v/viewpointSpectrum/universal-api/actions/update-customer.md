@@ -70,7 +70,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `priceLevelLabor` | number | no | Work Order Labor Level. |
 | `creditLimit` | number | no | Credit Limit. |
 | `dateCreated` | date | no | Date Established. |
-| `customerEmail` | string | no | Customer Email. |
+| `Email1` | string | no | Customer Email. |
 | `markupCode` | string | no | Non-stock Markup Code. |
 | `userDefinedFields` | object | no | User-defined fields object for UDF1 through UDF20. |
 

@@ -40,6 +40,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `companyQuery` | string | no | Optional Shopify company search query string. Leave blank to list companies. Example: `name:Acme`. |
+| `externalId` | string | no | Find the Shopify B2B company whose externalId matches this external source-system ID. Example: `External company ID`. |
 
 ### Advanced
 
@@ -53,9 +54,61 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Shopify API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "contacts": {
+        "nodes": [
+          {
+            "customer": {
+              "email": "ava@example.com",
+              "firstName": "Ava",
+              "id": "string",
+              "lastName": "Chen"
+            },
+            "id": "string"
+          }
+        ]
+      },
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "externalId": "string",
+      "id": "string",
+      "locations": {
+        "nodes": [
+          {
+            "id": "string",
+            "name": "Ava Chen"
+          }
+        ]
+      },
+      "name": "Ava Chen",
+      "updatedAt": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `contacts.nodes[].customer.email` | string |  |
+| `contacts.nodes[].customer.firstName` | string |  |
+| `contacts.nodes[].customer.id` | string | Associated Shopify Customer GID |
+| `contacts.nodes[].customer.lastName` | string |  |
+| `contacts.nodes[].id` | string | Shopify Company Contact GID |
+| `createdAt` | date | Company creation time |
+| `externalId` | string | External source-system company ID |
+| `id` | string | Shopify Company GID |
+| `locations.nodes[].id` | string | Shopify Company Location GID |
+| `locations.nodes[].name` | string | Company location name |
+| `name` | string | Shopify company name |
+| `updatedAt` | date | Company last update time |
 
 ## Native endpoint
 
-Through the native Shopify API, this operation is `POST 2025-01/graphql.json` (base URL `https://{{credentials.storeName}}.myshopify.com/admin/api/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-companies-graphql.md) for the provider-specific parameters and requirements.
+Through the native Shopify API, this operation is `POST 2026-07/graphql.json` (base URL `https://{{credentials.storeName}}.myshopify.com/admin/api/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-companies-graphql.md) for the provider-specific parameters and requirements.
 

@@ -4,7 +4,7 @@ Manage products, orders, customers, and inventory levels
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/shopify/latest
 - **Category:** Commerce
-- **Actions:** 19
+- **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** shopify.com
 - **Vendor API docs:** https://shopify.dev/docs/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (19)
+## Actions (25)
 
 ### Admin Graphql Api
 
@@ -38,11 +38,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
 | [List Publication Channels](actions/list-publication-channels.md) | GET | Retrieves publication channels from Shopify. |
 | [List Selling Plan Groups](actions/list-selling-plan-groups.md) | GET | Retrieves selling plan groups from Shopify. |
 
-### Companies
+### Company
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Company](actions/create-company.md) | POST |  |
 | [List Companies](actions/list-companies-graphql.md) | GET | Retrieves companies from Shopify with GraphQL. |
+
+### Company Contact
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Assign Customer to Company](actions/assign-customer-to-company.md) | PUT |  |
+| [Create Company Contact](actions/create-company-contact.md) | POST |  |
 
 ### Events
 
@@ -79,6 +87,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Order Payment Transactions](actions/get-order-transactions-graph-ql.md) | GET |  |
+
+### Price List
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Price Lists](actions/list-price-lists.md) | GET |  |
+| [Set Fixed Price on Price List](actions/set-fixed-price-on-price-list.md) | PUT |  |
+
+### Product
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create or Update Product](actions/create-or-update-product.md) | PUT |  |
 
 ### Product Variants
 

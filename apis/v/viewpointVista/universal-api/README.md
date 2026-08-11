@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 63
+- **Actions:** 64
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (63)
+## Actions (64)
 
 ### Accounts Payable
 
@@ -133,6 +133,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | [Get Timecard Batch by Ryvit ID](actions/get-timecard-batch-by-ryvit-id.md) | GET |  |
 | [List PR Objects](actions/list-pr-objects.md) | GET | Represents data found in Viewpoint® Vista™ PR programs. |
 | [Post Invoice Batch](actions/post-invoice-batch.md) | POST | Validate and post an AR Batch |
+| [Post Payment Batch](actions/post-payment-batch.md) | POST | Validate and post an AR Batch |
 | [Search PR Objects](actions/search-pr-objects.md) | GET | Search objects found in Viewpoint® Vista™ Payroll (PR) programs. |
 | [Upsert AR Invoice Batch](actions/upsert-ar-invoice-batch.md) | POST | Upsert Invoice Batch |
 | [Upsert Invoice Batch](actions/upsert-invoice-batch.md) | POST | Upsert Invoice Batch |

@@ -1,6 +1,6 @@
 # Shopify: Native API Reference
 
-A consolidated summary of Shopify's API configuration and 19 documented operations, with links to official documentation.
+A consolidated summary of Shopify's API configuration and 25 documented operations, with links to official documentation.
 
 - **Official docs:** https://shopify.dev/docs/api
 - **REST base URL:** `https://{storeName}.myshopify.com/admin/api/`
@@ -78,11 +78,15 @@ Shared headers:
 
 - **REST:** Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (19 documented)
+## Endpoints (25 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
 | [Activate Inventory Item](actions/activate-inventory-item.md) | GraphQL | `POST /:apiVersion/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/inventoryActivate) |
+| [Assign Customer to Company](actions/assign-customer-to-company.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyAssignCustomerAsContact) |
+| [Create Company](actions/create-company.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyCreate) |
+| [Create Company Contact](actions/create-company-contact.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyContactCreate) |
+| [Create or Update Product](actions/create-or-update-product.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/productSet) |
 | [Create Webhook Subscription (HTTP)](actions/create-webhook-subscription-http.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/webhookSubscriptionCreate) |
 | [Get Inventory Bulk Export Status](actions/get-inventory-bulk-export-status.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/usage/bulk-operations/queries) |
 | [List Order Payment Transactions](actions/get-order-transactions-graph-ql.md) | REST | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/order) |
@@ -90,14 +94,16 @@ Shared headers:
 | [GraphQL - Get Records (Paginated)](actions/graphql-get-records-paginated.md) | GraphQL | `POST :version/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [GraphQL - Get Records (Unwrapped Edges)](actions/graphql-get-records-unwrapped-edges.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest) |
 | [List All Orders](actions/list-all-orders-graphql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/orders) |
-| [List Companies](actions/list-companies-graphql.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/companies) |
+| [List Companies](actions/list-companies-graphql.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/queries/companies) |
 | [List Customers](actions/list-customers-graphql.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/customers) |
 | [List Deleted Product Events](actions/list-deleted-product-events.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/unstable/queries/events) |
 | [List Locations](actions/list-locations.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/locations) |
 | [List Orders](actions/list-orders.md) | REST | `POST 2025-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/orders) |
+| [List Price Lists](actions/list-price-lists.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/queries/priceLists) |
 | [List Product Variants](actions/list-product-variants.md) | GraphQL | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/productVariants) |
 | [List Products](actions/list-products.md) | GraphQL | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/products) |
 | [List Publication Channels](actions/list-publication-channels.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/publications) |
 | [List Selling Plan Groups](actions/list-selling-plan-groups.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/sellingPlanGroups) |
+| [Set Fixed Price on Price List](actions/set-fixed-price-on-price-list.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/pricelistfixedpricesadd) |
 | [Start Inventory Bulk Export](actions/start-inventory-bulk-export.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/usage/bulk-operations/queries) |
 | [Update Product (GraphQL)](actions/update-product-graphql.md) | REST | `POST 2024-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/productSet) |

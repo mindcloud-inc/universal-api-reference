@@ -72,7 +72,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `priceLevelLabor` | list<number> | no |  |
 | `creditLimit` | number | no |  |
 | `dateCreated` | date | no |  |
-| `customerEmail` | string | no |  |
+| `Email1` | string | no |  |
 | `markupCode` | string | no |  |
 | `userDefinedFields` | object | no | UDF1 — UDF20 |
 

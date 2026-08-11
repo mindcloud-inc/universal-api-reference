@@ -1,6 +1,6 @@
 # Viewpoint Spectrum: Native API Reference
 
-A consolidated summary of Viewpoint Spectrum's API configuration and 17 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Spectrum's API configuration and 18 documented operations, with links to official documentation.
 
 - **Official docs:** https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services
 - **API base URL:** `{url}:8482/`
@@ -29,7 +29,7 @@ Shared headers:
 
 Use `$limit` in the query string to set the page size (default 25; accepted range 1–500). Use `$skip` in the query string as the record offset.
 
-## Endpoints (17 documented)
+## Endpoints (18 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -49,4 +49,5 @@ Use `$limit` in the query string to set the page size (default 25; accepted rang
 | [List Vendors](actions/list-vendors.md) | `GET vendors/{{credentials.companyID}}` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/get-vendors) |
 | [Update Customer](actions/update-customer.md) | `POST ws/AddCustomer` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/update-customer) |
 | [Update Vendor](actions/update-vendor.md) | `POST ws/UpdateVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/update-vendor) |
+| [Update Vendor (SOAP)](actions/update-vendor-soap.md) | `POST ws/UpdateVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/update-vendor) |
 | [Upsert Customer Bill-To](actions/upsert-customer-bill-to.md) | `POST ws/CustomerBillto` |  |

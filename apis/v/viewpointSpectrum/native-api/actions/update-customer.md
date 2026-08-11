@@ -39,6 +39,6 @@
 | `Price_Level_Labor` | body | `number` | no | Work Order Labor Level. |
 | `Credit_Limit` | body | `number` | no | Credit Limit. |
 | `Date_Created` | body | `date` | no | Date Established. |
-| `Customer_Email` | body | `string` | no | Customer Email. |
+| `Email1` | body | `string` | no | Customer Email. |
 | `Markup_Code` | body | `string` | no | Non-stock Markup Code. |
 | `userDefinedFields` | body | `object` | no | User-defined fields object for UDF1 through UDF20. |

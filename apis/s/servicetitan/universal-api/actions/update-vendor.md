@@ -41,10 +41,14 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address.street` | string | no |  |
+| `externalData.applicationGuid` | string | no |  |
+| `externalData.externalData[].value` | string | no |  |
 | `name` | string | no |  |
 | `vendorContacts[].name` | string | no |  |
 | `active` | boolean | no |  |
 | `address.unit` | string | no |  |
+| `externalData.externalData[]` | array | no |  |
+| `externalData.externalData[].key` | string | no |  |
 | `vendorContacts[].email` | string | no |  |
 | `address.city` | string | no |  |
 | `memo` | string | no |  |
@@ -56,6 +60,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `phone` | string | no |  |
 | `email` | string | no |  |
 | `fax` | string | no |  |
+| `externalData` | object | no |  |
 | `isTruckReplenishment` | string | no |  |
 | `taxRate` | number | no |  |
 | `restrictedMobileCreation` | boolean | no |  |
@@ -63,8 +68,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `paymentTermId` | number | no |  |
 | `remittanceVendorId` | number | no |  |
 | `address` | object | no |  |
-| `vendorContacts[]` | array | no |  |
 | `id` | string | no |  |
+| `vendorContacts[]` | array | no |  |
 
 ## Response
 

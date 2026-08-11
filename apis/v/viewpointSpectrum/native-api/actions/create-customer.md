@@ -47,6 +47,6 @@ Send these additional headers for this operation:
 | `priceLevelLabor` | body | `list<number>` | no | — |
 | `creditLimit` | body | `number` | no | — |
 | `dateCreated` | body | `date` | no | — |
-| `customerEmail` | body | `string` | no | — |
+| `Email1` | body | `string` | no | — |
 | `markupCode` | body | `string` | no | — |
 | `userDefinedFields` | body | `object` | no | UDF1 — UDF20 |
