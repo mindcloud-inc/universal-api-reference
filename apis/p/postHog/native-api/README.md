@@ -32,11 +32,11 @@ Shared headers:
 | `Accept` | `application/json, text/plain, */*` |
 | `Content-Type` | `application/json; charset=utf-8` |
 
-Responses from this API use JSON.
+Responses from this API use JSON. The next-page cursor is read from `next`.
 
 ## Pagination
 
-Use `limit` in the query string to set the page size. Use `offset` in the query string as the record offset; numbering starts at 0.
+Use `limit` in the query string to set the page size. Use `offset` in the query string as the pagination cursor. Follow the complete next-page URL returned by the API.
 
 ## Endpoints (8 documented)
 

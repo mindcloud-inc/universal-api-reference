@@ -55,5 +55,5 @@ const { success, data } = await response.json();
 
 ## Native endpoint
 
-Through the native Simpro API, this operation is `GET /companies/` (base URL `https://mindcloud.simprosuite.com/api/v1.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-companies.md) for the provider-specific parameters and requirements.
+Through the native Simpro API, this operation is `GET /companies/` (base URL `{{credentials.buildUrl}}/api/v1.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-companies.md) for the provider-specific parameters and requirements.
 

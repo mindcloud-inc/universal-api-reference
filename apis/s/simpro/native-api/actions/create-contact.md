@@ -4,7 +4,7 @@
 
 - **Method:** `POST`
 - **Path:** `/companies/:companyId/contacts/`
-- **Base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **Base URL:** `{buildUrl}/api/v1.0`
 - **Official documentation:** [Create Contact](https://developer.simprogroup.com/apidoc/?page=9aa698f602b1e5694855cee73a683488)
 
 ## Parameters

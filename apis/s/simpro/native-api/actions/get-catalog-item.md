@@ -4,7 +4,7 @@
 
 - **Method:** `GET`
 - **Path:** `/companies/:companyId/catalogs/:catalogId`
-- **Base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **Base URL:** `{buildUrl}/api/v1.0`
 - **Official documentation:** [Get Catalog Item](https://developer.simprogroup.com/apidoc/?page=5408c752aea14ba352fc3dad16b268d8)
 
 ## Parameters

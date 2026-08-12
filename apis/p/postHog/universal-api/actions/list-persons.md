@@ -8,16 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-person
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a PostHog `connectionId` ([setup](../authentication.md)).
 
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-persons?connectionId=$CONNECTION_ID&project_id=1" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-persons?connectionId=$CONNECTION_ID&limit=25&offset=0&project_id=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
+  limit: '25',
+  offset: '0',
   "project_id": "1"
 });
 
@@ -311,5 +315,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native PostHog API, this operation is `GET /environments/:projectId/persons` (base URL `https://us.posthog.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-persons.md) for the provider-specific parameters and requirements.
+Through the native PostHog API, this operation is `GET /environments/:projectId/persons` (base URL `https://us.posthog.com/api`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-persons.md) for the provider-specific parameters and requirements.
 

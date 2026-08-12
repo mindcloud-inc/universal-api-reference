@@ -1,6 +1,6 @@
 # Shopify: Native API Reference
 
-A consolidated summary of Shopify's API configuration and 25 documented operations, with links to official documentation.
+A consolidated summary of Shopify's API configuration and 26 documented operations, with links to official documentation.
 
 - **Official docs:** https://shopify.dev/docs/api
 - **REST base URL:** `https://{storeName}.myshopify.com/admin/api/`
@@ -78,11 +78,12 @@ Shared headers:
 
 - **REST:** Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (25 documented)
+## Endpoints (26 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
 | [Activate Inventory Item](actions/activate-inventory-item.md) | GraphQL | `POST /:apiVersion/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/inventoryActivate) |
+| [Add Tags to Order](actions/add-tags-to-order.md) | REST | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/tagsAdd) |
 | [Assign Customer to Company](actions/assign-customer-to-company.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyAssignCustomerAsContact) |
 | [Create Company](actions/create-company.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyCreate) |
 | [Create Company Contact](actions/create-company-contact.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyContactCreate) |

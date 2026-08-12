@@ -3,7 +3,7 @@
 Web-based construction ERP solution with leading-edge tools
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest
-- **Actions:** 18
+- **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.viewpoint.com/resource-library/spectrum
 - **Vendor API docs:** https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (18)
+## Actions (19)
 
 ### Customers
 
@@ -38,6 +38,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add Work Order Site Address](actions/add-work-order-site-address.md) | POST |  |
 | [Create Customer Invoice](actions/create-customer-invoice.md) | POST |  |
 | [Create Vendor Invoice](actions/create-vendor-invoice.md) | POST |  |
 | [Create Work Orders](actions/create-work-orders.md) | POST |  |

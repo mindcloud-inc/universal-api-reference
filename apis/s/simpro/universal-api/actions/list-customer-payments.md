@@ -44,5 +44,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Simpro API, this operation is `GET /companies/:companyId/customerPayments/` (base URL `https://mindcloud.simprosuite.com/api/v1.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-customer-payments.md) for the provider-specific parameters and requirements.
+Through the native Simpro API, this operation is `GET /companies/:companyId/customerPayments/` (base URL `{{credentials.buildUrl}}/api/v1.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-customer-payments.md) for the provider-specific parameters and requirements.
 

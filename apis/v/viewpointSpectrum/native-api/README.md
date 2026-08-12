@@ -1,6 +1,6 @@
 # Viewpoint Spectrum: Native API Reference
 
-A consolidated summary of Viewpoint Spectrum's API configuration and 18 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Spectrum's API configuration and 19 documented operations, with links to official documentation.
 
 - **Official docs:** https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services
 - **API base URL:** `{url}:8482/`
@@ -29,12 +29,13 @@ Shared headers:
 
 Use `$limit` in the query string to set the page size (default 25; accepted range 1–500). Use `$skip` in the query string as the record offset.
 
-## Endpoints (18 documented)
+## Endpoints (19 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Add Cash Receipts](actions/add-cash-receipts.md) | `POST /ws/AddCash_Receipts` |  |
 | [Add Cash Receipts (SOAP)](actions/add-cash-receipts-soap.md) | `POST /ws/AddCash_Receipts` |  |
+| [Add Work Order Site Address](actions/add-work-order-site-address.md) | `POST ws/AddWOSiteAddress` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
 | [Create AR Customer Invoice Multi-Line](actions/create-ar-customer-invoice-multi-line.md) | `POST customer/invoice` |  |
 | [Create Customer](actions/create-customer.md) | `POST ws/AddCustomer` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
 | [Create Customer Invoice](actions/create-customer-invoice.md) | `POST ws/AddARInvoice` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |

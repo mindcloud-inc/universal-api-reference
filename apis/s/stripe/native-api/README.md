@@ -1,6 +1,6 @@
 # Stripe: Native API Reference
 
-A consolidated summary of Stripe's API configuration and 24 documented operations, with links to official documentation.
+A consolidated summary of Stripe's API configuration and 25 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.stripe.com/api
 - **API base URL:** `https://api.stripe.com/v1`
@@ -46,7 +46,7 @@ Responses from this API use JSON.
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `starting_after` in the query string as the pagination cursor.
 
-## Endpoints (24 documented)
+## Endpoints (25 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -55,6 +55,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Capture Payment Intent](actions/capture-payment-intent.md) | `POST payment_intents/:intent/capture` | [docs](https://docs.stripe.com/api/payment_intents/capture) |
 | [Confirm Payment Intent](actions/confirm-payment-intent.md) | `POST payment_intents/:intent/confirm` | [docs](https://docs.stripe.com/api/payment_intents/confirm) |
 | [Create Checkout Session](actions/create-checkout-session.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
+| [Create Variable-Amount Checkout Session](actions/create-checkout-session-copy.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
 | [Create Customer](actions/create-customer.md) | `POST customers` | [docs](https://docs.stripe.com/api/customers/create) |
 | [Create Payment Intent](actions/create-payment-intent.md) | `POST payment_intents` | [docs](https://docs.stripe.com/api/payment_intents/create) |
 | [Create Subscription](actions/create-subscription.md) | `POST subscriptions` | [docs](https://docs.stripe.com/api/subscriptions/create) |

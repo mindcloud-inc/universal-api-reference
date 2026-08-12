@@ -4,7 +4,7 @@
 
 - **Method:** `POST`
 - **Path:** `/companies/:companyId/sites/`
-- **Base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **Base URL:** `{buildUrl}/api/v1.0`
 - **Official documentation:** [Create Site](https://developer.simprogroup.com/apidoc/?page=3faa64303d5f5bcd043bb88f6768e603)
 
 ## Parameters

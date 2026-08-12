@@ -30,7 +30,16 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "createdOn": "string",
+      "found": true,
+      "key": "string",
+      "namespace": "Ava Chen",
+      "updatedOn": "string",
+      "value": "string"
+    }
+  ],
   "meta": {}
 }
 ```
@@ -70,7 +79,14 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "key": "string",
+      "namespace": "Ava Chen",
+      "updatedOn": "string",
+      "value": "string"
+    }
+  ],
   "meta": {}
 }
 ```

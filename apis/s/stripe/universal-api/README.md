@@ -4,7 +4,7 @@ Accept payments, manage subscriptions, invoice customers, and reconcile revenue.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/stripe/latest
 - **Category:** Commerce / Payments & Billing
-- **Actions:** 24
+- **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://stripe.com
 - **Vendor API docs:** https://docs.stripe.com/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (24)
+## Actions (25)
 
 ### Checkout Session Line Item
 
@@ -35,6 +35,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Checkout Session](actions/create-checkout-session.md) | POST | Creates a new checkout session in Stripe. |
+| [Create Variable-Amount Checkout Session](actions/create-checkout-session-copy.md) | POST | Creates a new checkout session in Stripe. |
 | [Expire Checkout Session](actions/expire-checkout-session.md) | PUT | Expires an existing checkout session in Stripe. |
 | [Retrieve Checkout Session](actions/retrieve-checkout-session.md) | GET | Retrieves a checkout session from Stripe. |
 

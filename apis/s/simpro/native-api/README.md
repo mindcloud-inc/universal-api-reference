@@ -3,16 +3,20 @@
 A consolidated summary of Simpro's API configuration and 30 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.simprogroup.com/apidoc/
-- **API base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **API base URL:** `{buildUrl}/api/v1.0`
 
 ## Authentication
 
 ### OAuth2
 
+### Credentials
+
+- **Build URL:** `buildUrl` · required · Enter the full Simpro build URL for the account you want to connect, for example https://your-build.simprosuite.com.
+
 Register an OAuth application with the provider to obtain client credentials and configure its redirect URI.
 
-1. Send the user to https://mindcloud.simprosuite.com/oauth2/login to approve access.
-2. Exchange the returned authorization code with a POST request to https://mindcloud.simprosuite.com/oauth2/token.
+1. Send the user to {{credentials.buildUrl}}/oauth2/login to approve access.
+2. Exchange the returned authorization code with a POST request to {{credentials.buildUrl}}/oauth2/token.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
 

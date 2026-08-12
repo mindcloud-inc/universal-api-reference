@@ -4,7 +4,7 @@
 
 - **Method:** `PATCH`
 - **Path:** `/companies/:companyId/customers/companies/:customerId`
-- **Base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **Base URL:** `{buildUrl}/api/v1.0`
 - **Official documentation:** [Update Customer](https://developer.simprogroup.com/apidoc/?page=e6d0e1c8fc6a4fcf47869df87e04cd88)
 
 ## Parameters

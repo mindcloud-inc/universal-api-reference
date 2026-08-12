@@ -1,6 +1,6 @@
 # Shopify Universal API Arguments
 
-Arguments are the inputs a Shopify action needs. Each [action page](README.md#actions-25) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Shopify action needs. Each [action page](README.md#actions-26) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

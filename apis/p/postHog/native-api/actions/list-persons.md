@@ -9,6 +9,10 @@ Retrieves persons from a PostHog project.
 - **Base URL:** `https://us.posthog.com/api`
 - **Official documentation:** [List Persons](https://posthog.com/docs/api/persons)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

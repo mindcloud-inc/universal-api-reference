@@ -4,7 +4,7 @@
 
 - **Method:** `GET`
 - **Path:** `/companies/:companyId/quotes/:quoteId`
-- **Base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **Base URL:** `{buildUrl}/api/v1.0`
 - **Official documentation:** [Get Quote](https://developer.simprogroup.com/apidoc/#api-Quotes-get_api_v1_0_companies__companyID__quotes__quoteID_)
 
 ## Parameters

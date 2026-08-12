@@ -40,7 +40,33 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Key Value Storage API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "createdOn": "string",
+      "found": true,
+      "key": "string",
+      "namespace": "Ava Chen",
+      "updatedOn": "string",
+      "value": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `createdOn` | string |  |
+| `found` | boolean |  |
+| `key` | string |  |
+| `namespace` | string |  |
+| `updatedOn` | string |  |
+| `value` | string |  |
 
 ## Native endpoint
 

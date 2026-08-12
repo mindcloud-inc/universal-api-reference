@@ -4,7 +4,7 @@
 
 - **Method:** `GET`
 - **Path:** `/companies/:companyId/customers/`
-- **Base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **Base URL:** `{buildUrl}/api/v1.0`
 - **Official documentation:** [List Customers](https://developer.simprogroup.com/apidoc/?page=e6d0e1c8fc6a4fcf47869df87e04cd88)
 
 ## Parameters

@@ -46,7 +46,29 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Key Value Storage API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "key": "string",
+      "namespace": "Ava Chen",
+      "updatedOn": "string",
+      "value": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `key` | string |  |
+| `namespace` | string |  |
+| `updatedOn` | string |  |
+| `value` | string |  |
 
 ## Native endpoint
 

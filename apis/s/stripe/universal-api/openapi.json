@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Stripe Universal API",
-    "version": "0.0.39",
+    "version": "0.0.42",
     "description": "Accept payments, manage subscriptions, invoice customers, and reconcile revenue."
   },
   "servers": [
@@ -1172,6 +1172,321 @@
                     "description": "Reference ID to reconcile session with your internal systems.",
                     "example": "order_123",
                     "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "amountTotal": {
+                            "type": "number",
+                            "description": "Total amount"
+                          },
+                          "created": {
+                            "type": "number",
+                            "description": "Creation timestamp in seconds"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "Session currency"
+                          },
+                          "customer": {
+                            "type": "string",
+                            "description": "Customer ID"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "Checkout session ID"
+                          },
+                          "mode": {
+                            "type": "string",
+                            "description": "Checkout mode"
+                          },
+                          "object": {
+                            "type": "string",
+                            "description": "Stripe object type"
+                          },
+                          "paymentStatus": {
+                            "type": "string",
+                            "description": "Payment status"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Session status"
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "Hosted checkout URL"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/stripe/latest/actions/create-checkout-session-copy": {
+      "post": {
+        "operationId": "stripe.create-checkout-session-copy",
+        "summary": "Create Variable-Amount Checkout Session",
+        "description": "Creates a new checkout session in Stripe.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/stripe/latest/actions/create-checkout-session-copy"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "mode",
+                  "priceDataCurrency",
+                  "unitAmount",
+                  "productName"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "mode": {
+                    "type": "string",
+                    "description": "Checkout mode: payment, setup, or subscription.",
+                    "enum": [
+                      "payment",
+                      "setup",
+                      "subscription"
+                    ],
+                    "example": "payment"
+                  },
+                  "lineItems[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Line items for this checkout session."
+                  },
+                  "lineItems[].quantity": {
+                    "type": "number",
+                    "description": "Quantity for the line item.",
+                    "example": 1
+                  },
+                  "successUrl": {
+                    "type": "string",
+                    "description": "URL to redirect customers after successful checkout in hosted mode.",
+                    "example": "https://example.com/success"
+                  },
+                  "returnUrl": {
+                    "type": "string",
+                    "description": "URL to return customers to your site for embedded/custom UI modes.",
+                    "example": "https://example.com/return",
+                    "x-mindcloud-advanced": true
+                  },
+                  "cancelUrl": {
+                    "type": "string",
+                    "description": "URL to redirect customers if they cancel checkout.",
+                    "example": "https://example.com/cancel"
+                  },
+                  "customer": {
+                    "type": "string",
+                    "description": "Existing customer ID to prefill checkout.",
+                    "example": "cus_123"
+                  },
+                  "customerEmail": {
+                    "type": "string",
+                    "description": "Email used to prefill customer data when no customer ID is provided.",
+                    "example": "customer@example.com",
+                    "x-mindcloud-advanced": true
+                  },
+                  "paymentMethodTypes[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Allowed payment method types for this session.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "uiMode": {
+                    "type": "string",
+                    "description": "Checkout UI mode: hosted, embedded, or custom.",
+                    "enum": [
+                      "custom",
+                      "embedded",
+                      "hosted"
+                    ],
+                    "example": "hosted",
+                    "x-mindcloud-advanced": true
+                  },
+                  "clientReferenceId": {
+                    "type": "string",
+                    "description": "Reference ID to reconcile session with your internal systems.",
+                    "example": "order_123",
+                    "x-mindcloud-advanced": true
+                  },
+                  "priceDataCurrency": {
+                    "type": "string",
+                    "description": "Three-letter lowercase currency code for the inline Stripe Price, for example usd."
+                  },
+                  "unitAmount": {
+                    "type": "number",
+                    "description": "Positive integer amount in the currency's smallest unit (cents for USD)."
+                  },
+                  "productName": {
+                    "type": "string",
+                    "description": "Customer-visible product or payment-request name."
                   }
                 },
                 "additionalProperties": false

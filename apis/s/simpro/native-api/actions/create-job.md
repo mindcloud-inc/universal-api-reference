@@ -4,7 +4,7 @@
 
 - **Method:** `POST`
 - **Path:** `/companies/:companyId/jobs/`
-- **Base URL:** `https://mindcloud.simprosuite.com/api/v1.0`
+- **Base URL:** `{buildUrl}/api/v1.0`
 - **Official documentation:** [Create Job](https://developer.simprogroup.com/apidoc/#api-Jobs-post_api_v1_0_companies__companyID__jobs_)
 
 ## Parameters

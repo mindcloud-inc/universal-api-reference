@@ -12,10 +12,11 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-projects?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/postHog/latest/actions/list-persons?connectionId=$CONNECTION_ID&limit=25&offset=0&project_id=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## PostHog actions that support pagination
 
+- [List Persons](actions/list-persons.md)
 - [List Projects](actions/list-projects.md)
