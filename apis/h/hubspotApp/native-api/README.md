@@ -1,6 +1,6 @@
 # HubSpot: Native API Reference
 
-A consolidated summary of HubSpot's API configuration and 76 documented operations, with links to official documentation.
+A consolidated summary of HubSpot's API configuration and 77 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
 - **REST - Query Pagination base URL:** `https://api.hubapi.com`
@@ -69,7 +69,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 
 - **REST - Body Pagination:** Send filters in the request body. Supported operators: `between`, `contain`, `eq`, `exist`, `gt`, `gte`, `lt`, `lte`, `ncontain`, `ne`, `nexist`.
 
-## Endpoints (76 documented)
+## Endpoints (77 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -79,6 +79,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [Batch Read Engagements](actions/batch-read-engagements.md) | REST - Query Pagination | `POST crm/v3/objects/:engagementType/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/crm-objects-v3/batch/post-crm-v3-objects-objectType-batch-read) |
 | [Batch Read Line Items](actions/batch-read-line-items.md) | REST - Query Pagination | `POST crm/v3/objects/line_items/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/crm-line-items-v3/batch/post-crm-v3-objects-line_items-batch-read) |
 | [Batch Read Notes](actions/batch-read-notes.md) | REST - Query Pagination | `POST crm/v3/objects/notes/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/crm-notes-v3/batch/post-crm-v3-objects-notes-batch-read) |
+| [Batch Upsert Contacts](actions/batch-upsert-contacts.md) | REST - Query Pagination | `POST crm/objects/2026-03/contacts/batch/upsert` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/contacts/batch/upsert-contacts) |
 | [Create Company](actions/create-company.md) | REST - Query Pagination | `POST crm/v3/objects/companies` | [docs](https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/post-crm-v3-objects-companies) |
 | [Create Contact](actions/create-contact.md) | REST - Query Pagination | `POST crm/v3/objects/contacts` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/basic/post-crm-v3-objects-contacts) |
 | [Create Deal](actions/create-deal.md) | REST - Query Pagination | `POST crm/v3/objects/deals` | [docs](https://developers.hubspot.com/docs/api-reference/crm-deals-v3/basic/post-crm-v3-objects-0-3) |
