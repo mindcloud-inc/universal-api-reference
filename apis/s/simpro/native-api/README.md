@@ -12,6 +12,8 @@ A consolidated summary of Simpro's API configuration and 30 documented operation
 ### Credentials
 
 - **Build URL:** `buildUrl` · required · Enter the full Simpro build URL for the account you want to connect, for example https://your-build.simprosuite.com.
+- **Client ID:** `clientId` · required · Paste the Client ID Simpro shows after your administrator approves the API application for this build.
+- **Client Secret:** `clientSecret` · required · Paste the Client Secret Simpro shows when the API application is first approved. Simpro only shows this value then, so copy it before leaving the page.
 
 Register an OAuth application with the provider to obtain client credentials and configure its redirect URI.
 
@@ -19,6 +21,8 @@ Register an OAuth application with the provider to obtain client credentials and
 2. Exchange the returned authorization code with a POST request to {{credentials.buildUrl}}/oauth2/token.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
+
+The flow supports refresh tokens. Refresh expired access tokens with a POST request to {{credentials.buildUrl}}/oauth2/token.
 
 [Official authentication documentation](https://developer.simprogroup.com/apidoc/?page=3366d2ea7906f693b27d57ed9cca3acb#tag/Authorisation-code-grant-workflow)
 

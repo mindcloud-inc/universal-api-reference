@@ -1,6 +1,6 @@
 # Shopify: Native API Reference
 
-A consolidated summary of Shopify's API configuration and 26 documented operations, with links to official documentation.
+A consolidated summary of Shopify's API configuration and 27 documented operations, with links to official documentation.
 
 - **Official docs:** https://shopify.dev/docs/api
 - **REST base URL:** `https://{storeName}.myshopify.com/admin/api/`
@@ -78,7 +78,7 @@ Shared headers:
 
 - **REST:** Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (26 documented)
+## Endpoints (27 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -88,6 +88,7 @@ Shared headers:
 | [Create Company](actions/create-company.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyCreate) |
 | [Create Company Contact](actions/create-company-contact.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/companyContactCreate) |
 | [Create or Update Product](actions/create-or-update-product.md) | GraphQL | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/2026-07/mutations/productSet) |
+| [Create Order Fulfillment](actions/create-order-fulfillment-graph-ql.md) | REST | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/fulfillmentCreate) |
 | [Create Webhook Subscription (HTTP)](actions/create-webhook-subscription-http.md) | REST | `POST 2024-10/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/mutations/webhookSubscriptionCreate) |
 | [Get Inventory Bulk Export Status](actions/get-inventory-bulk-export-status.md) | REST | `POST 2026-01/graphql.json` | [docs](https://shopify.dev/docs/api/usage/bulk-operations/queries) |
 | [List Order Payment Transactions](actions/get-order-transactions-graph-ql.md) | REST | `POST 2026-07/graphql.json` | [docs](https://shopify.dev/docs/api/admin-graphql/latest/queries/order) |

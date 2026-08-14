@@ -4,7 +4,7 @@ Leading integrated cloud business software suite, including business accounting,
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/netsuite/latest
 - **Category:** Marketing
-- **Actions:** 180
+- **Actions:** 181
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.netsuite.com/portal/home.shtml
 - **Vendor API docs:** https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/netsuite/latest/actions/g
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (180)
+## Actions (181)
 
 ### Account
 
@@ -204,6 +204,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/netsuite/latest/actions/g
 | [List Tasks](actions/list-tasks.md) | GET |  |
 | [List Time Bills](actions/list-time-bills.md) | GET |  |
 | [List Vendors](actions/list-vendors.md) | GET |  |
+| [Get Item Fulfillment](actions/new-action1.md) | GET |  |
 | [Update Assembly Item](actions/update-assembly-item.md) | PUT |  |
 | [Update Contact](actions/update-contact.md) | PUT |  |
 | [Update Customer](actions/update-customer.md) | PUT |  |

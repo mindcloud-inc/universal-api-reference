@@ -4,7 +4,7 @@ Manage products, orders, customers, and inventory levels
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/shopify/latest
 - **Category:** Commerce
-- **Actions:** 26
+- **Actions:** 27
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** shopify.com
 - **Vendor API docs:** https://shopify.dev/docs/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (26)
+## Actions (27)
 
 ### Admin Graphql Api
 
@@ -87,6 +87,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shopify/latest/actions/li
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Tags to Order](actions/add-tags-to-order.md) | PUT |  |
+
+### Order Fulfillment
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Order Fulfillment](actions/create-order-fulfillment-graph-ql.md) | POST |  |
 
 ### Order Payment Transaction
 

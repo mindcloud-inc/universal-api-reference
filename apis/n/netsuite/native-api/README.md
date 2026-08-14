@@ -1,6 +1,6 @@
 # NetSuite - Advanced: Native API Reference
 
-A consolidated summary of NetSuite - Advanced's API configuration and 180 documented operations, with links to official documentation.
+A consolidated summary of NetSuite - Advanced's API configuration and 181 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/
 - **REST base URL:** `https://{accountId}.suitetalk.api.netsuite.com`
@@ -50,7 +50,7 @@ Shared headers:
 - **REST:** Wait 5000 ms before the first retry. Stop after 5 attempts. Multiply the delay by 2 after each failed attempt.
 - **Internal:** Wait 5000 ms before the first retry. Stop after 5 attempts. Multiply the delay by 3 after each failed attempt.
 
-## Endpoints (180 documented)
+## Endpoints (181 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -192,6 +192,7 @@ Shared headers:
 | [List Vendor Return Authorizations](actions/list-vendor-return-authorizations.md) | `POST https://{{credentials.accountId}}.restlets.api.netsuite.com/app/site/hosting/restlet.nl` | [docs](https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/script/record/vendorreturnauthorization.html) |
 | [List Vendors](actions/list-vendors.md) | `POST https://{{credentials.accountId}}.restlets.api.netsuite.com/app/site/hosting/restlet.nl` | [docs](https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2024_2/script/record/vendor.html) |
 | [List Work Orders](actions/list-work-orders.md) | `POST https://{{credentials.accountId}}.restlets.api.netsuite.com/app/site/hosting/restlet.nl` | [docs](https://www.netsuite.com/portal/home.shtml) |
+| [Get Item Fulfillment](actions/new-action1.md) | `GET /services/rest/record/v1/ItemFulfillment/:id` | [docs](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_161425629582.html) |
 | [Update Account](actions/update-account.md) | `POST https://{{credentials.accountId}}.restlets.api.netsuite.com/app/site/hosting/restlet.nl` |  |
 | [Update Assembly Item](actions/update-assembly-item.md) | `POST https://{{credentials.accountId}}.restlets.api.netsuite.com/app/site/hosting/restlet.nl` |  |
 | [Update Cash Refund](actions/update-cash-refund.md) | `POST https://{{credentials.accountId}}.restlets.api.netsuite.com/app/site/hosting/restlet.nl` |  |
