@@ -15,7 +15,7 @@ Updates an existing campaign criterion in Google Ads.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | — |
-| `operations[]` | body | `array<object>` | no | List of mutate operations. |
+| `operations[]` | body | `array<object>` | yes | List of mutate operations. |
 | `operations[].update` | body | `object` | no | Update payload for each mutate operation. |
 | `operations[].update.bidModifier` | body | `number` | no | — |
 | `operations[].update.resourceName` | body | `string` | yes | — |

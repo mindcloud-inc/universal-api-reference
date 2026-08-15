@@ -13,5 +13,5 @@
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list<string>` | yes | Customer ID to query (without dashes). |
-| `startDate` | body | `string` | no | Start date for the reporting window (YYYY-MM-DD). |
-| `endDate` | body | `string` | no | End date for the reporting window (YYYY-MM-DD). |
+| `startDate` | body | `string` | yes | Start date for the reporting window (YYYY-MM-DD). |
+| `endDate` | body | `string` | yes | End date for the reporting window (YYYY-MM-DD). |

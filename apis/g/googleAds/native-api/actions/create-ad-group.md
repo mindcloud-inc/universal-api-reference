@@ -16,8 +16,8 @@ Creates an ad group in Google Ads.
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | Customer ID where the ad group will be created (without dashes). |
 | `operations[].create` | body | `object` | no | — |
-| `operations[].create.name` | body | `string` | no | — |
-| `operations[]` | body | `array` | no | — |
+| `operations[].create.name` | body | `string` | yes | — |
+| `operations[]` | body | `array` | yes | — |
 | `operations[].create.campaign` | body | `string` | yes | Campaign resource name for the ad group, format customers/{customer_id}/campaigns/{campaign_id}. |
 | `operations[].create.status` | body | `string` | no | — |
 | `operations[].create.cpcBidMicros` | body | `number` | no | — |

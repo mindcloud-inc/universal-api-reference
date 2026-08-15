@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Google A
 ## Example request
 
 ```bash
-curl -X DELETE "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/detach-campaign-label?connectionId=$CONNECTION_ID&customerId=1234567890&operations%5B%5D.remove=string" \
+curl -X DELETE "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/detach-campaign-label?connectionId=$CONNECTION_ID&customerId=1234567890&operations%5B%5D=%5Bobject%20Object%5D&operations%5B%5D.remove=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -19,6 +19,7 @@ curl -X DELETE "https://connect.mindcloud.co/v1/universal/googleAds/latest/actio
 const params = new URLSearchParams({
   connectionId,
   "customerId": "1234567890",
+  "operations[]": "[object Object]",
   "operations[].remove": "string"
 });
 
@@ -38,7 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `customerId` | list | yes | Example: `1234567890`. |
-| `operations[]` | array<object> | no | List of mutate operations. |
+| `operations[]` | array<object> | yes | List of mutate operations. |
 | `operations[].remove` | string | yes |  |
 
 ### Advanced

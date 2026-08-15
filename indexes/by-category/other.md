@@ -1,6 +1,6 @@
 # Other apps
 
-575 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+576 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -443,6 +443,7 @@
 - **SAIA EDI** · [Universal API reference](../../apis/s/sAIAEDI/universal-api) · [Native API reference](../../apis/s/sAIAEDI/native-api) · [Native API docs](https://saiaprodapi.developer.azure-api.net/api-details)
 - **Sales Cookie** · [Universal API reference](../../apis/s/salesCookie/universal-api) · [Native API reference](../../apis/s/salesCookie/native-api) · [Native API docs](https://support2.salescookie.com/portal/en/kb/articles/kb-how-can-i-access-sales-incentive-data-using-api-calls)
 - **Salesforce** · [Universal API reference](../../apis/s/salesForce/universal-api) · [Native API reference](../../apis/s/salesForce/native-api)
+- **Samsara** · [Universal API reference](../../apis/s/samsara/universal-api) · [Native API reference](../../apis/s/samsara/native-api) · [Native API docs](https://developers.samsara.com/reference)
 - **Schiphol Airport** · [Universal API reference](../../apis/s/schipholAirport/universal-api) · [Native API reference](../../apis/s/schipholAirport/native-api) · [Native API docs](https://developer.schiphol.nl/apis/flight-api/v4/quickstarts)
 - **SCOTUSblog** · [Universal API reference](../../apis/s/sCOTUSblog/universal-api) · [Native API reference](../../apis/s/sCOTUSblog/native-api) · [Native API docs](https://www.scotusblog.com/rss-feeds/)
 - **Segmind** · [Universal API reference](../../apis/s/segmind/universal-api) · [Native API reference](../../apis/s/segmind/native-api) · [Native API docs](https://docs.segmind.com)

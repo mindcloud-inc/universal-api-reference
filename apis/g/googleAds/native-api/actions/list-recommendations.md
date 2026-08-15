@@ -15,4 +15,4 @@ Retrieves recommendations from your Google Ads account.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | Customer ID to query (without dashes). |
-| `query` | body | `string` | no | GAQL query used to list recommendation resources. |
+| `query` | body | `string` | yes | GAQL query used to list recommendation resources. |

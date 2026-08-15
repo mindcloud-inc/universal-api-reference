@@ -11,14 +11,15 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Google A
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/list-recommendations?connectionId=$CONNECTION_ID&customerId=1234567890" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/list-recommendations?connectionId=$CONNECTION_ID&customerId=1234567890&query=SELECT%20recommendation.resource_name%2C%20recommendation.type%2C%20recommendation.campaign%2C%20recommendation.dismissed%20FROM%20recommendation%20LIMIT%2050" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "customerId": "1234567890"
+  "customerId": "1234567890",
+  "query": "SELECT recommendation.resource_name, recommendation.type, recommendation.campaign, recommendation.dismissed FROM recommendation LIMIT 50"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/list-recommendations?${params}`, {
@@ -37,7 +38,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `customerId` | list | yes | Customer ID to query (without dashes). Example: `1234567890`. |
-| `query` | string | no | GAQL query used to list recommendation resources. Default: `SELECT recommendation.resource_name, recommendation.type, recommendation.campaign, recommendation.dismissed FROM recommendation LIMIT 50`. |
+| `query` | string | yes | GAQL query used to list recommendation resources. Default: `SELECT recommendation.resource_name, recommendation.type, recommendation.campaign, recommendation.dismissed FROM recommendation LIMIT 50`. |
 
 ## Response
 

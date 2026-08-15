@@ -1,6 +1,6 @@
 # Commerce apps
 
-292 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+293 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -86,6 +86,7 @@
 - **Explodely** · [Universal API reference](../../apis/e/explodely/universal-api) · [Native API reference](../../apis/e/explodely/native-api) · [Native API docs](https://docs.explodely.com/api/introduction)
 - **Extensiv Order Manager** · [Universal API reference](../../apis/e/extensiv/universal-api) · [Native API reference](../../apis/e/extensiv/native-api) · [Native API docs](https://documentation.skubana.com/pages/order-manager.html)
 - **Extensiv 3PL Warehouse** · [Universal API reference](../../apis/e/extensiv3PLWarehouse/universal-api) · [Native API reference](../../apis/e/extensiv3PLWarehouse/native-api) · [Native API docs](https://developer.3plcentral.com/#34586810-c20c-410d-9295-9ae07aa10c54)
+- **Faire** · [Universal API reference](../../apis/f/Faire/universal-api) · [Native API reference](../../apis/f/Faire/native-api) · [Native API docs](https://faire.github.io/external-api-docs/#introduction)
 - **Farmbrite** · [Universal API reference](../../apis/f/farmbrite/universal-api) · [Native API reference](../../apis/f/farmbrite/native-api) · [Native API docs](https://developers.farmbrite.com/docs/)
 - **FastBill** · [Universal API reference](../../apis/f/fastBill/universal-api) · [Native API reference](../../apis/f/fastBill/native-api) · [Native API docs](https://apidocs.fastbill.com/fastbill/en/fundamentals.html)
 - **Fatture in Cloud** · [Universal API reference](../../apis/f/fattureInCloud/universal-api) · [Native API reference](../../apis/f/fattureInCloud/native-api) · [Native API docs](https://developers.fattureincloud.it/api-reference/)

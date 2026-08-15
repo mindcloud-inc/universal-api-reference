@@ -15,7 +15,7 @@ Attaches a label to an ad group in Google Ads.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | — |
-| `operations[]` | body | `array<object>` | no | List of mutate operations. |
+| `operations[]` | body | `array<object>` | yes | List of mutate operations. |
 | `operations[].create` | body | `object` | no | Create payload for each mutate operation. |
 | `operations[].create.adGroup` | body | `string` | yes | — |
 | `operations[].create.label` | body | `string` | yes | — |

@@ -15,7 +15,7 @@ Detaches a label from an ad group ad in Google Ads.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | — |
-| `operations[]` | body | `array<object>` | no | List of mutate operations. |
+| `operations[]` | body | `array<object>` | yes | List of mutate operations. |
 | `operations[].remove` | body | `string` | yes | — |
 | `partialFailure` | body | `boolean` | no | — |
 | `validateOnly` | body | `boolean` | no | — |

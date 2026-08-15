@@ -17,7 +17,7 @@ Creates a campaign budget in Google Ads.
 | `customerId` | path | `list` | yes | Customer ID where the campaign budget will be created (without dashes). |
 | `operations[].create` | body | `object` | no | — |
 | `operations[].create.name` | body | `string` | no | — |
-| `operations[]` | body | `array` | no | — |
+| `operations[]` | body | `array` | yes | — |
 | `operations[].create.deliveryMethod` | body | `list` | yes | — |
 | `operations[].create.amountMicros` | body | `number` | yes | — |
 | `operations[].create.period` | body | `string` | no | — |

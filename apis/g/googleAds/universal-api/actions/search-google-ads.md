@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Google A
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/search-google-ads?connectionId=$CONNECTION_ID&customerId=1234567890&query=SELECT%20campaign.id%2C%20campaign.name%2C%20metrics.impressions%2C%20metrics.clicks%2C%20metrics.cost_micros%20FROM%20campaign" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/search-google-ads?connectionId=$CONNECTION_ID&customerId=1234567890&query=SELECT%20campaign.id%2C%20campaign.name%2C%20metrics.impressions%2C%20metrics.clicks%2C%20metrics.cost_micros%20FROM%20campaign&startDate=2026-02-01&endDate=2026-02-28" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -19,7 +19,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/
 const params = new URLSearchParams({
   connectionId,
   "customerId": "1234567890",
-  "query": "SELECT campaign.id, campaign.name, metrics.impressions, metrics.clicks, metrics.cost_micros FROM campaign"
+  "query": "SELECT campaign.id, campaign.name, metrics.impressions, metrics.clicks, metrics.cost_micros FROM campaign",
+  "startDate": "2026-02-01",
+  "endDate": "2026-02-28"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/search-google-ads?${params}`, {
@@ -39,13 +41,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `customerId` | list | yes | Customer ID to query (without dashes). Example: `1234567890`. |
 | `query` | string | yes | GAQL query to execute. Use field names from the Google Ads Fields reference. Default: `SELECT campaign.id, campaign.name, metrics.impressions, metrics.clicks, metrics.cost_micros FROM campaign`. Example: `SELECT campaign.id, campaign.name, metrics.impressions, metrics.clicks, metrics.cost_micros FROM campaign`. |
-
-### Advanced
-
-| Key | Type | Required | Description |
-| --- | --- | --- | --- |
-| `startDate` | string | no | Optional start date for automatic segments.date filter (YYYY-MM-DD). Example: `2026-02-01`. |
-| `endDate` | string | no | Optional end date for automatic segments.date filter (YYYY-MM-DD). Example: `2026-02-28`. |
+| `startDate` | string | yes | Start date for the automatic segments.date filter (YYYY-MM-DD). Example: `2026-02-01`. |
+| `endDate` | string | yes | End date for the automatic segments.date filter (YYYY-MM-DD). Example: `2026-02-28`. |
 
 ## Response
 

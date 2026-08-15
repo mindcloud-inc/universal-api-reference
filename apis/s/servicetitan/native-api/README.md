@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 97 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 100 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -42,7 +42,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (97 documented)
+## Endpoints (100 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -104,6 +104,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Get Projects](actions/get-projects.md) | `GET /jpm/v2/tenant/{{credentials.tenant}}/projects` |  |
 | [Get Purchase Orders](actions/get-purchase-orders.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/purchase-orders` |  |
 | [Get Report](actions/get-report.md) | `GET reporting/v2/tenant/{{credentials.tenant}}/report-category/:report_category/reports/:reportId` | [docs](https://developer.servicetitan.io/docs/apis/tenant-reporting-v2/endpoints/ReportCategoryReports_Get) |
+| [Get Report Category Reports](actions/get-report-category-reports.md) | `POST reporting/v2/tenant/{{credentials.tenant}}/report-category/:category/reports/:reportId/data` | [docs](https://developer.servicetitan.io/docs/apis/tenant-forms-v2/endpoints/Jobs_CreateAttachment) |
 | [Get Report Data](actions/get-report-data.md) | `POST reporting/v2/tenant/{{credentials.tenant}}/report-category/:report_category/reports/:reportId/data` | [docs](https://developer.servicetitan.io/docs/apis/tenant-reporting-v2/endpoints/ReportCategoryReports_GetData) |
 | [Get Returns](actions/get-returns.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/returns` |  |
 | [Get Services by Id](actions/get-service-by-id.md) | `GET pricebook/v2/tenant/{{credentials.tenant}}/services/:id` |  |
@@ -120,7 +121,9 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [List Activity Types](actions/list-activity-types.md) | `GET timesheets/v2/tenant/{{credentials.tenant}}/activity-types` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-timesheets-v2&operation=ActivityTypes_GetList) |
 | [List Customer Contact](actions/list-customer-contact.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers/:contactId/contacts` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_GetContactList) |
 | [List Customers Contacts](actions/list-customers-contacts.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers/contacts` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_GetContactList) |
+| [List Customers With External Data](actions/list-customers-with-external-data.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers` | [docs](https://developer.servicetitan.io/docs/apis/tenant-crm-v2/endpoints/Customers_GetList) |
 | [List Dynamic Set Values](actions/list-dynamic-set-values.md) | `GET reporting/v2/tenant/{{credentials.tenant}}/dynamic-value-sets/:dynamicSetId` | [docs](https://developer.servicetitan.io/docs/apis/tenant-reporting-v2/endpoints/DynamicValueSets_GetDynamicSet) |
+| [List Gross Pay Items](actions/list-gross-pay-items.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/gross-pay-items` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/GrossPayItems_GetList) |
 | [List Inventory Adjustments](actions/list-inventory-adjustments.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/adjustments` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Adjustments_GetList) |
 | [List Memberships](actions/list-memberships.md) | `GET memberships/v2/tenant/{{credentials.tenant}}/memberships` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-memberships-v2&operation=CustomerMemberships_GetList) |
 | [List Non-Job Payroll Timesheets](actions/list-non-job-payroll-timesheets.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/non-job-timesheets` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-payroll-v2&operation=Timesheets_GetNonJobTimesheets) |

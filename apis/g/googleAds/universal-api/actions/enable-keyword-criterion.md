@@ -17,6 +17,9 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/
   -d '{
   "connectionId": "$CONNECTION_ID",
   "customerId": "1234567890",
+  "operations[]": [
+    {}
+  ],
   "operations[].update.resourceName": "Ava Chen"
 }'
 ```
@@ -31,6 +34,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/googleAd
   body: JSON.stringify({
     connectionId,
     "customerId": "1234567890",
+    "operations[]": [{}],
     "operations[].update.resourceName": "Ava Chen"
   })
 });
@@ -45,7 +49,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `customerId` | list | yes | Example: `1234567890`. |
-| `operations[]` | array<object> | no | List of mutate operations. |
+| `operations[]` | array<object> | yes | List of mutate operations. |
 | `operations[].update` | object | no | Update payload for each mutate operation. |
 | `operations[].update.resourceName` | string | yes |  |
 

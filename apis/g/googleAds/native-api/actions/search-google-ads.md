@@ -16,5 +16,5 @@ Searches Google Ads using a custom GAQL query.
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | Customer ID to query (without dashes). |
 | `query` | body | `string` | yes | GAQL query to execute. Use field names from the Google Ads Fields reference. |
-| `startDate` | body | `string` | no | Optional start date for automatic segments.date filter (YYYY-MM-DD). |
-| `endDate` | body | `string` | no | Optional end date for automatic segments.date filter (YYYY-MM-DD). |
+| `startDate` | body | `string` | yes | Start date for the automatic segments.date filter (YYYY-MM-DD). |
+| `endDate` | body | `string` | yes | End date for the automatic segments.date filter (YYYY-MM-DD). |

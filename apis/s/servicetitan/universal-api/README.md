@@ -4,7 +4,7 @@ ServiceTitan through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 97
+- **Actions:** 100
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (97)
+## Actions (100)
 
 ### Access Tokens
 
@@ -74,6 +74,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Get Customers](actions/get-customers.md) | GET |  |
 | [List Customer Contact](actions/list-customer-contact.md) | GET | Retrieves contacts from ServiceTitan for a customer. |
 | [List Customers Contacts](actions/list-customers-contacts.md) | GET | Retrieves customer contacts from ServiceTitan. |
+| [List Customers With External Data](actions/list-customers-with-external-data.md) | GET |  |
 | [Update Costumer](actions/update-costumer.md) | PUT | Updates an existing customer in ServiceTitan. |
 
 ### Discount And Fees
@@ -81,6 +82,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Discount and Fees](actions/get-discount-and-fees.md) | GET | Retrieves pricebook discounts and fees from ServiceTitan. |
+
+### Employee Payroll Runs
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Gross Pay Items](actions/list-gross-pay-items.md) | GET | Retrieves gross pay items from ServiceTitan. |
 
 ### Form Submissions
 
@@ -131,6 +138,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Create Job Note](actions/create-job-note.md) | POST |  |
 | [Export Job Notes](actions/export-job-notes.md) | GET |  |
 | [Get Job Notes](actions/get-job-notes.md) | GET |  |
+| [Get Report Category Reports](actions/get-report-category-reports.md) | POST |  |
 | [Update Job](actions/update-job.md) | PUT | Updates an existing job in ServiceTitan. |
 | [Upload Job Attachment](actions/upload-job-attachment.md) | POST | https://developer.servicetitan.io/docs/apis/tenant-forms-v2/endpoints/Jobs_CreateAttachment |
 

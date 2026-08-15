@@ -11,14 +11,16 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Google A
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/get-ad-group-performance?connectionId=$CONNECTION_ID&customerId=1234567890" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/get-ad-group-performance?connectionId=$CONNECTION_ID&customerId=1234567890&startDate=2026-02-01&endDate=2026-02-28" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "customerId": "1234567890"
+  "customerId": "1234567890",
+  "startDate": "2026-02-01",
+  "endDate": "2026-02-28"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleAds/latest/actions/get-ad-group-performance?${params}`, {
@@ -42,8 +44,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `startDate` | string | no | Start date for the reporting window (YYYY-MM-DD). Example: `2026-02-01`. |
-| `endDate` | string | no | End date for the reporting window (YYYY-MM-DD). Example: `2026-02-28`. |
+| `startDate` | string | yes | Start date for the reporting window (YYYY-MM-DD). Example: `2026-02-01`. |
+| `endDate` | string | yes | End date for the reporting window (YYYY-MM-DD). Example: `2026-02-28`. |
 
 ## Response
 

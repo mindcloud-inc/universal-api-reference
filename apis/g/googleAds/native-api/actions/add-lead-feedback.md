@@ -12,7 +12,7 @@
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `surveyAnswer` | body | `list<string>` | no |
+| `surveyAnswer` | body | `list<string>` | yes |
 | `surveyDissatisfied.otherReasonComment` | body | `string` | no |
 | `surveySatisfied.otherReasonComment` | body | `string` | no |
 | `surveyDissatisfied` | body | `object` | no |

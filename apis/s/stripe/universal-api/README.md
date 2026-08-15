@@ -4,7 +4,7 @@ Accept payments, manage subscriptions, invoice customers, and reconcile revenue.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/stripe/latest
 - **Category:** Commerce / Payments & Billing
-- **Actions:** 25
+- **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://stripe.com
 - **Vendor API docs:** https://docs.stripe.com/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (25)
+## Actions (26)
 
 ### Checkout Session Line Item
 
@@ -62,6 +62,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | [Get Balance Transactions](actions/get-balance-transactions.md) | GET |  |
 | [List Payouts](actions/list-payouts.md) | GET |  |
 | [Retrieve Payment Method](actions/new-action1.md) | GET |  |
+| [Retrieve SetupIntent](actions/retrieve-setup-intent.md) | GET |  |
 
 ### Subscription
 

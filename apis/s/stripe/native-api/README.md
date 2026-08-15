@@ -1,6 +1,6 @@
 # Stripe: Native API Reference
 
-A consolidated summary of Stripe's API configuration and 25 documented operations, with links to official documentation.
+A consolidated summary of Stripe's API configuration and 26 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.stripe.com/api
 - **API base URL:** `https://api.stripe.com/v1`
@@ -46,7 +46,7 @@ Responses from this API use JSON.
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `starting_after` in the query string as the pagination cursor.
 
-## Endpoints (25 documented)
+## Endpoints (26 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -70,6 +70,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Retrieve Payment Method](actions/new-action1.md) | `GET payment_methods/:paymentMethodId` |  |
 | [Retrieve Checkout Session](actions/retrieve-checkout-session.md) | `GET checkout/sessions/:session` | [docs](https://docs.stripe.com/api/checkout/sessions/retrieve) |
 | [Retrieve Customer](actions/retrieve-customer.md) | `GET customers/:customer` | [docs](https://docs.stripe.com/api/customers/retrieve) |
+| [Retrieve SetupIntent](actions/retrieve-setup-intent.md) | `GET setup_intents/:setupIntent` | [docs](https://docs.stripe.com/api/setup_intents/retrieve) |
 | [Retrieve Subscription](actions/retrieve-subscription.md) | `GET subscriptions/:subscription_exposed_id` | [docs](https://docs.stripe.com/api/subscriptions/retrieve) |
 | [Search Customers](actions/search-customers.md) | `GET customers/search` | [docs](https://docs.stripe.com/api/customers/search) |
 | [Search Payment Intents](actions/search-payment-intents.md) | `GET payment_intents/search` | [docs](https://docs.stripe.com/api/payment_intents/search) |

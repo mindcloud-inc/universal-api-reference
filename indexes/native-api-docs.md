@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3198 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3200 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -922,6 +922,7 @@ The official vendor API documentation for each of the 3198 apps in this repo. Ea
 - [EZ Texting](../apis/e/eZTexting/native-api) - https://developers.eztexting.com/docs/getting-started
 - [EzzyCRM](../apis/e/ezzyCRM/native-api) - https://ezzycrm.com/api/GetApiDocument.aspx
 - [Fabric](../apis/f/fabric/native-api) - https://developers.fabric.so/api-reference
+- [Faire](../apis/f/Faire/native-api) - https://faire.github.io/external-api-docs/#introduction
 - [Fairing](../apis/f/fairing/native-api) - https://docs.fairing.co/reference/api
 - [Faithlife](../apis/f/faithlife/native-api) - https://developer.faithlife.com/
 - [fal.ai](../apis/f/falai/native-api) - https://fal.ai/docs/api-reference/platform-apis
@@ -2357,6 +2358,7 @@ The official vendor API documentation for each of the 3198 apps in this repo. Ea
 - [SalesViewer](../apis/s/salesViewer/native-api) - https://salesviewer.github.io/salesviewer-api/
 - [Samedi](../apis/s/samedi/native-api) - https://api-docs.samedi.de/booking-api/
 - [Samply](../apis/s/samply/native-api) - https://docs.samply.app/api/introduction.html
+- [Samsara](../apis/s/samsara/native-api) - https://developers.samsara.com/reference
 - [Sandbox](../apis/s/sandbox/native-api) - https://developer.sandbox.co.in/
 - [SAP ERP (S/4HANA)](../apis/s/sAPERPS4HANA/native-api) - https://api.sap.com/api/API_BUSINESS_PARTNER/overview
 - [Sapling](../apis/s/sapling/native-api) - https://sapling.ai/docs/api/

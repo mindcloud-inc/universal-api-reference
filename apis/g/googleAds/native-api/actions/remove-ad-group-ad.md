@@ -15,7 +15,7 @@ Deletes an ad group ad from Google Ads.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | — |
-| `operations[]` | body | `array<object>` | no | List of mutate operations. |
+| `operations[]` | body | `array<object>` | yes | List of mutate operations. |
 | `operations[].remove` | body | `string` | yes | — |
 | `partialFailure` | body | `boolean` | no | — |
 | `responseContentType` | body | `list` | no | Accepted values: `MUTABLE_RESOURCE`, `RESOURCE_NAME_ONLY`, `UNSPECIFIED`. |

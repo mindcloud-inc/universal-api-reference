@@ -14,8 +14,8 @@ Creates, updates, or removes resources in Google Ads.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `customerId` | path | `list` | no | — |
-| `mutateOperations[]` | body | `array<object>` | no | Required. The list of operations to perform on individual resources. |
+| `customerId` | path | `list` | yes | — |
+| `mutateOperations[]` | body | `array<object>` | yes | Required. The list of operations to perform on individual resources. |
 | `partialFailure` | body | `boolean` | no | If true, successful operations will be carried out and invalid operations will return errors. If false, all operations will be carried out in one transaction if and only if they are all valid. Default is false. Format: `toggle`. |
 | `validateOnly` | body | `boolean` | no | If true, the request is validated but not executed. Only errors are returned, not results. Format: `toggle`. |
 | `responseContentType` | body | `list` | no | The response content type setting. Determines whether the mutable resource or just the resource name should be returned post mutation. The mutable resource will only be returned if the resource has the appropriate response field. For example, MutateCampaignResult.campaign. |

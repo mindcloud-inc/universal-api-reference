@@ -17,6 +17,10 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions
   -d '{
   "connectionId": "$CONNECTION_ID",
   "customerId": "1234567890",
+  "operations[].create.name": "Ava Chen",
+  "operations[]": [
+    "string"
+  ],
   "operations[].create.campaign": "customers/1234567890/campaigns/9876543210"
 }'
 ```
@@ -31,6 +35,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/googleAd
   body: JSON.stringify({
     connectionId,
     "customerId": "1234567890",
+    "operations[].create.name": "Ava Chen",
+    "operations[]": ["string"],
     "operations[].create.campaign": "customers/1234567890/campaigns/9876543210"
   })
 });
@@ -46,8 +52,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `customerId` | list | yes | Customer ID where the ad group will be created (without dashes). Example: `1234567890`. |
 | `operations[].create` | object | no |  |
-| `operations[].create.name` | string | no |  |
-| `operations[]` | array | no |  |
+| `operations[].create.name` | string | yes |  |
+| `operations[]` | array | yes |  |
 | `operations[].create.campaign` | string | yes | Campaign resource name for the ad group, format customers/{customer_id}/campaigns/{campaign_id}. Example: `customers/1234567890/campaigns/9876543210`. |
 | `operations[].create.status` | string | no | Example: `ENABLED, PAUSED`. |
 | `operations[].create.cpcBidMicros` | number | no | Example: `1000000`. |

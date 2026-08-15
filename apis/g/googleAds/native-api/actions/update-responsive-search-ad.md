@@ -15,7 +15,7 @@ Updates an existing responsive search ad in Google Ads.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | `list` | yes | — |
-| `operations[]` | body | `array<object>` | no | List of mutate operations. |
+| `operations[]` | body | `array<object>` | yes | List of mutate operations. |
 | `operations[].update` | body | `object` | no | Update payload for each mutate operation. |
 | `operations[].update.resourceName` | body | `string` | yes | — |
 | `operations[].update.status` | body | `list` | no | Accepted values: `ENABLED`, `PAUSED`, `REMOVED`, `UNKNOWN`, `UNSPECIFIED`. |

@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3198 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3200 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -899,6 +899,7 @@ Machine-readable API descriptions for 3198 apps. Universal API specifications ar
 | [EZ Texting](../apis/e/eZTexting) | [OpenAPI 3.1](../apis/e/eZTexting/universal-api/openapi.json) |  |
 | [EzzyCRM](../apis/e/ezzyCRM) | [OpenAPI 3.1](../apis/e/ezzyCRM/universal-api/openapi.json) |  |
 | [Fabric](../apis/f/fabric) | [OpenAPI 3.1](../apis/f/fabric/universal-api/openapi.json) |  |
+| [Faire](../apis/f/Faire) | [OpenAPI 3.1](../apis/f/Faire/universal-api/openapi.json) | [Provider OpenAPI](https://faire.github.io/external-api-docs/#introduction) |
 | [Fairing](../apis/f/fairing) | [OpenAPI 3.1](../apis/f/fairing/universal-api/openapi.json) |  |
 | [Faithlife](../apis/f/faithlife) | [OpenAPI 3.1](../apis/f/faithlife/universal-api/openapi.json) |  |
 | [fal.ai](../apis/f/falai) | [OpenAPI 3.1](../apis/f/falai/universal-api/openapi.json) | [Provider OpenAPI](https://api.fal.ai/v1/openapi.json) |
@@ -2298,6 +2299,7 @@ Machine-readable API descriptions for 3198 apps. Universal API specifications ar
 | [SalesViewer](../apis/s/salesViewer) | [OpenAPI 3.1](../apis/s/salesViewer/universal-api/openapi.json) | [Provider OpenAPI](https://salesviewer.github.io/salesviewer-api/swagger/salesviewer-api.swagger.json) |
 | [Samedi](../apis/s/samedi) | [OpenAPI 3.1](../apis/s/samedi/universal-api/openapi.json) |  |
 | [Samply](../apis/s/samply) | [OpenAPI 3.1](../apis/s/samply/universal-api/openapi.json) |  |
+| [Samsara](../apis/s/samsara) | [OpenAPI 3.1](../apis/s/samsara/universal-api/openapi.json) | [Provider OpenAPI](https://developers.samsara.com/openapi/samsara-api.json) |
 | [Sandbox](../apis/s/sandbox) | [OpenAPI 3.1](../apis/s/sandbox/universal-api/openapi.json) |  |
 | [SAP ERP (S/4HANA)](../apis/s/sAPERPS4HANA) | [OpenAPI 3.1](../apis/s/sAPERPS4HANA/universal-api/openapi.json) | [Provider OpenAPI](https://api.sap.com/odata/1.0/catalog.svc/APIContent.APIs('API_BUSINESS_PARTNER')/$value?type=json) |
 | [Sapling](../apis/s/sapling) | [OpenAPI 3.1](../apis/s/sapling/universal-api/openapi.json) |  |

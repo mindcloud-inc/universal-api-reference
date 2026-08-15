@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 65
+- **Actions:** 67
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (65)
+## Actions (67)
 
 ### Accounts Payable
 
@@ -122,6 +122,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | [Add Receipt Batch](actions/add-receipt-batch.md) | POST |  |
 | [Add Receipt Batch Entry](actions/add-receipt-batch-entry.md) | POST |  |
 | [Search Batches](actions/search-batches.md) | GET |  |
+| [Upsert Cost Adjustment Batch](actions/upsert-cost-adjustment-batch.md) | POST |  |
 | [Upsert Receipt Batch](actions/upsert-receipt-batch.md) | POST |  |
 
 ### Payroll
@@ -133,6 +134,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | [Add Non-Contract Invoice](actions/add-non-contract-invoice.md) | POST | Adds a Non-Contract based invoice. |
 | [Get Timecard Batch by Ryvit ID](actions/get-timecard-batch-by-ryvit-id.md) | GET |  |
 | [List PR Objects](actions/list-pr-objects.md) | GET | Represents data found in Viewpoint® Vista™ PR programs. |
+| [Post Cost Adjustment Batch](actions/post-cost-adjustment-batch.md) | POST |  |
 | [Post Invoice Batch](actions/post-invoice-batch.md) | POST | Validate and post an AR Batch |
 | [Post Payment Batch](actions/post-payment-batch.md) | POST | Validate and post an AR Batch |
 | [Search PR Objects](actions/search-pr-objects.md) | GET | Search objects found in Viewpoint® Vista™ Payroll (PR) programs. |

@@ -29,3 +29,4 @@ This operation supports [pagination](../README.md#pagination).
 | `Work_Type_Code` | body | `string` | no |
 | `Document_No` | body | `string` | no |
 | `Description_2` | body | `string` | no |
+| `Tax_Group_Code` | body | `string` | no |

@@ -53,6 +53,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `Work_Type_Code` | string | no |  |
 | `Document_No` | string | no |  |
 | `Description_2` | string | no |  |
+| `Tax_Group_Code` | string | no |  |
 
 ## Response
 

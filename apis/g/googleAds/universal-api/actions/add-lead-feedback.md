@@ -16,6 +16,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
+  "surveyAnswer": "string",
   "customerId": "string",
   "leadId": "string"
 }'
@@ -30,6 +31,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/googleAd
   },
   body: JSON.stringify({
     connectionId,
+    "surveyAnswer": "string",
     "customerId": "string",
     "leadId": "string"
   })
@@ -44,7 +46,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `surveyAnswer` | list<string> | no |  |
+| `surveyAnswer` | list<string> | yes |  |
 | `surveyDissatisfied.otherReasonComment` | string | no |  |
 | `surveySatisfied.otherReasonComment` | string | no |  |
 | `surveyDissatisfied` | object | no |  |

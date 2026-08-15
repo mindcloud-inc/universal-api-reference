@@ -17,6 +17,9 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/googleAds/latest/actions
   -d '{
   "connectionId": "$CONNECTION_ID",
   "customerId": "1234567890",
+  "operations[]": [
+    {}
+  ],
   "operations[].create.adGroup": "string",
   "operations[].create.label": "string"
 }'
@@ -32,6 +35,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/googleAd
   body: JSON.stringify({
     connectionId,
     "customerId": "1234567890",
+    "operations[]": [{}],
     "operations[].create.adGroup": "string",
     "operations[].create.label": "string"
   })
@@ -47,7 +51,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `customerId` | list | yes | Example: `1234567890`. |
-| `operations[]` | array<object> | no | List of mutate operations. |
+| `operations[]` | array<object> | yes | List of mutate operations. |
 | `operations[].create` | object | no | Create payload for each mutate operation. |
 | `operations[].create.adGroup` | string | yes |  |
 | `operations[].create.label` | string | yes |  |
