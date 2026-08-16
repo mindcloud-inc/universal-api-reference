@@ -21,5 +21,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 - [List Checkout Session Line Items](actions/list-checkout-session-line-items.md)
 - [List Customers](actions/list-customers.md)
 - [List Payment Intents](actions/list-payment-intents.md)
+- [List Products](actions/list-products.md)
 - [Search Customers](actions/search-customers.md)
 - [Search Payment Intents](actions/search-payment-intents.md)

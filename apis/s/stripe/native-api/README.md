@@ -1,6 +1,6 @@
 # Stripe: Native API Reference
 
-A consolidated summary of Stripe's API configuration and 26 documented operations, with links to official documentation.
+A consolidated summary of Stripe's API configuration and 28 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.stripe.com/api
 - **API base URL:** `https://api.stripe.com/v1`
@@ -46,7 +46,7 @@ Responses from this API use JSON.
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `starting_after` in the query string as the pagination cursor.
 
-## Endpoints (26 documented)
+## Endpoints (28 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -62,11 +62,13 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Expire Checkout Session](actions/expire-checkout-session.md) | `POST checkout/sessions/:session/expire` | [docs](https://docs.stripe.com/api/checkout/sessions/expire) |
 | [Get Balance Transactions](actions/get-balance-transactions.md) | `GET /balance_transactions?payout={{payoutId}}&limit={{limit}}&expand[]=data.source&expand[]=data.source.charge` |  |
 | [Get Payment Intent](actions/get-payment-intent.md) | `GET payment_intents/:intent` | [docs](https://docs.stripe.com/api/payment_intents/retrieve) |
+| [Get Product](actions/get-product.md) | `GET products/:id` | [docs](https://docs.stripe.com/api/products/retrieve) |
 | [List Checkout Session Line Items](actions/list-checkout-session-line-items.md) | `GET checkout/sessions/:session/line_items` | [docs](https://docs.stripe.com/api/checkout/sessions/line_items) |
 | [List Customers](actions/list-customers.md) | `GET customers` | [docs](https://docs.stripe.com/api/customers/list) |
 | [List Invoices](actions/list-invoices.md) | `GET invoices` | [docs](https://docs.stripe.com/api/invoices/list) |
 | [List Payment Intents](actions/list-payment-intents.md) | `GET payment_intents` | [docs](https://docs.stripe.com/api/payment_intents/list) |
 | [List Payouts](actions/list-payouts.md) | `GET /payouts?arrival_date[gte]={{arrivalDateGte}}&arrival_date[lte]={{arrivalDateLte}}&status={{status}}&limit={{limit}}` |  |
+| [List Products](actions/list-products.md) | `GET products` | [docs](https://docs.stripe.com/api/products/list) |
 | [Retrieve Payment Method](actions/new-action1.md) | `GET payment_methods/:paymentMethodId` |  |
 | [Retrieve Checkout Session](actions/retrieve-checkout-session.md) | `GET checkout/sessions/:session` | [docs](https://docs.stripe.com/api/checkout/sessions/retrieve) |
 | [Retrieve Customer](actions/retrieve-customer.md) | `GET customers/:customer` | [docs](https://docs.stripe.com/api/customers/retrieve) |
