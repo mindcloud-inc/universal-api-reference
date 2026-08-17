@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3200 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3201 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -3065,6 +3065,7 @@ Machine-readable API descriptions for 3200 apps. Universal API specifications ar
 | [Zendesk](../apis/z/zendesk) | [OpenAPI 3.1](../apis/z/zendesk/universal-api/openapi.json) |  |
 | [Zenkit](../apis/z/zenkit) | [OpenAPI 3.1](../apis/z/zenkit/universal-api/openapi.json) |  |
 | [Zenlogin](../apis/z/zenlogin) | [OpenAPI 3.1](../apis/z/zenlogin/universal-api/openapi.json) |  |
+| [Zenoti](../apis/z/zenoti) | [OpenAPI 3.1](../apis/z/zenoti/universal-api/openapi.json) |  |
 | [Zenvoices](../apis/z/zenvoices) | [OpenAPI 3.1](../apis/z/zenvoices/universal-api/openapi.json) | [Provider OpenAPI](https://app.zenvoices.com/swagger/public-v1/swagger.json) |
 | [Zeo Route Planner](../apis/z/zeoRoutePlanner) | [OpenAPI 3.1](../apis/z/zeoRoutePlanner/universal-api/openapi.json) |  |
 | [Zeplin](../apis/z/zeplin) | [OpenAPI 3.1](../apis/z/zeplin/universal-api/openapi.json) |  |

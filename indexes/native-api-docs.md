@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3200 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3201 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -3147,6 +3147,7 @@ The official vendor API documentation for each of the 3200 apps in this repo. Ea
 - [Zendesk](../apis/z/zendesk/native-api) - https://developer.zendesk.com/api-reference/
 - [Zenkit](../apis/z/zenkit/native-api) - https://app.zenkit.com/docs/api
 - [Zenlogin](../apis/z/zenlogin/native-api) - https://zenlogin.co/docs
+- [Zenoti](../apis/z/zenoti/native-api) - https://docs.zenoti.com/reference/generate-an-access-token
 - [ZenRows](../apis/z/zenRows/native-api) - https://docs.zenrows.com/first-steps/welcome
 - [Zenvoices](../apis/z/zenvoices/native-api) - https://www.zenvoices.com/blog/public-api-docs/
 - [Zeo Route Planner](../apis/z/zeoRoutePlanner/native-api) - https://api.zeorouteplanner.com/

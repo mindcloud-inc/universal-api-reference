@@ -1,6 +1,6 @@
 # Sales & CRM apps
 
-170 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+171 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AeroLeads** · [Universal API reference](../../apis/a/aeroLeads/universal-api) · [Native API reference](../../apis/a/aeroLeads/native-api) · [Native API docs](https://aeroleads.com/api)
 - **Agendor** · [Universal API reference](../../apis/a/agendor/universal-api) · [Native API reference](../../apis/a/agendor/native-api) · [Native API docs](https://api.agendor.com.br/docs/)
@@ -170,5 +170,6 @@
 - **Wasi** · [Universal API reference](../../apis/w/wasi/universal-api) · [Native API reference](../../apis/w/wasi/native-api) · [Native API docs](https://api.wasi.co/docs/en/guide/)
 - **WEEEK** · [Universal API reference](../../apis/w/wEEEK/universal-api) · [Native API reference](../../apis/w/wEEEK/native-api) · [Native API docs](https://developers.weeek.net/)
 - **Wiza** · [Universal API reference](../../apis/w/wiza/universal-api) · [Native API reference](../../apis/w/wiza/native-api) · [Native API docs](https://docs.wiza.co)
+- **Zenoti** · [Universal API reference](../../apis/z/zenoti/universal-api) · [Native API reference](../../apis/z/zenoti/native-api) · [Native API docs](https://docs.zenoti.com/reference/generate-an-access-token)
 - **Zixflow** · [Universal API reference](../../apis/z/zixflow/universal-api) · [Native API reference](../../apis/z/zixflow/native-api) · [Native API docs](https://docs.zixflow.com/api-reference/introduction)
 - **Zoho CRM** · [Universal API reference](../../apis/z/zohoCRM/universal-api) · [Native API reference](../../apis/z/zohoCRM/native-api) · [Native API docs](https://www.zoho.com/crm/developer/docs/api/v8/)
