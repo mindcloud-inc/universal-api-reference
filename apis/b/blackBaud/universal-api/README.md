@@ -3,7 +3,7 @@
 Blackbaud Altru SKY API integration for read-only sales, transactions, and customer data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/blackBaud/latest
-- **Actions:** 22
+- **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.blackbaud.com/
 - **Vendor API docs:** https://developer.blackbaud.com/skyapi/docs/getting-started
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/blackBaud/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (22)
+## Actions (23)
 
 ### Activities
 
@@ -103,6 +103,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/blackBaud/latest/actions/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Phone Types](actions/get-phone-types.md) | GET |  |
+
+### Revenue Transaction
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Search Revenue Transactions](actions/search-revenue-transactions.md) | GET |  |
 
 ### Tickets
 

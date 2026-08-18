@@ -49,6 +49,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `select` | string | no | Comma-separated Microsoft Graph message fields to return. Default: `id,subject,receivedDateTime,sentDateTime,bodyPreview,hasAttachments,importance,isRead,from,sender,toRecipients,ccRecipients,bccRecipients,webLink`. |
 | `expand` | string | no | Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted. Default: `attachments($select=id,name,contentType,isInline)`. Example: `attachments($select=id,name,contentType,isInline)`. |
 | `filter` | string | no | Optional Microsoft Graph OData filter expression. |
+| `$count` | string | no | Default: `true`. |
 
 ## Response
 

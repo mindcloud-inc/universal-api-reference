@@ -59,6 +59,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `lockBatch` | boolean | no | Keep the batch locked after processing the action. |
+| `batchCustomId` | string | no | Optional Batch Custom ID sent to Trimble as __batch. |
 
 ## Response
 

@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Microsoft Exchange Universal API",
-    "version": "0.0.3",
+    "version": "0.0.6",
     "description": "Connect to Microsoft Exchange mail through Microsoft Graph."
   },
   "servers": [
@@ -1523,6 +1523,425 @@
         }
       }
     },
+    "/v1/universal/microsoftExchange/latest/actions/get-user-folder-name": {
+      "get": {
+        "operationId": "microsoftExchange.get-user-folder-name",
+        "summary": "Get User Folder Name",
+        "description": "Finds messages in a user's mailbox.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/microsoftExchange/latest/actions/get-user-folder-name"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userIdOrPrincipalName",
+            "in": "query",
+            "required": true,
+            "description": "The Microsoft Graph user id or userPrincipalName for the mailbox whose folder messages should be listed. Use the Entra user id when the mail address differs from the userPrincipalName.",
+            "schema": {
+              "type": "string",
+              "description": "The Microsoft Graph user id or userPrincipalName for the mailbox whose folder messages should be listed. Use the Entra user id when the mail address differs from the userPrincipalName.",
+              "example": "user@company.com or Entra user id"
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of messages to return.",
+            "schema": {
+              "type": "number",
+              "description": "Maximum number of messages to return.",
+              "default": 10
+            }
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated Microsoft Graph message fields to return.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated Microsoft Graph message fields to return.",
+              "default": "id,subject,receivedDateTime,sentDateTime,bodyPreview,hasAttachments,importance,isRead,from,sender,toRecipients,ccRecipients,bccRecipients,webLink",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "description": "Optional Microsoft Graph OData filter expression.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Microsoft Graph OData filter expression.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "true",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "parentFolderId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attachments": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "contentType": {
+                                  "type": "string",
+                                  "description": "The attachment content type."
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "The attachment ID."
+                                },
+                                "isInline": {
+                                  "type": "boolean",
+                                  "description": "Whether the attachment is inline content, such as an embedded image."
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "The attachment file name or inline content name."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "bccRecipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "emailAddress": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "type": "string",
+                                      "description": "The email address of a Bcc recipient."
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "The display name of a Bcc recipient."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "bodyPreview": {
+                            "type": "string",
+                            "description": "A text preview of the message body."
+                          },
+                          "ccRecipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "emailAddress": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "type": "string",
+                                      "description": "The email address of a Cc recipient."
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "The display name of a Cc recipient."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "from": {
+                            "type": "object",
+                            "properties": {
+                              "emailAddress": {
+                                "type": "object",
+                                "properties": {
+                                  "address": {
+                                    "type": "string",
+                                    "description": "The sender email address."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "The display name of the sender."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hasAttachments": {
+                            "type": "boolean",
+                            "description": "Whether the message has non-inline attachments according to Microsoft Graph. Inline-only attachments can still appear in attachments[]."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The Microsoft Graph message ID."
+                          },
+                          "importance": {
+                            "type": "string",
+                            "description": "The message importance level."
+                          },
+                          "isRead": {
+                            "type": "boolean",
+                            "description": "Whether the message has been read."
+                          },
+                          "receivedDateTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the message was received."
+                          },
+                          "sender": {
+                            "type": "object",
+                            "properties": {
+                              "emailAddress": {
+                                "type": "object",
+                                "properties": {
+                                  "address": {
+                                    "type": "string",
+                                    "description": "The sending account email address."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "The display name of the sending account."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "sentDateTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the message was sent."
+                          },
+                          "subject": {
+                            "type": "string",
+                            "description": "The message subject line."
+                          },
+                          "toRecipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "emailAddress": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "type": "string",
+                                      "description": "The email address of a To recipient."
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "The display name of a To recipient."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "webLink": {
+                            "type": "string",
+                            "description": "A link to open the message in Outlook on the web."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/microsoftExchange/latest/actions/list-child-mail-folders": {
       "get": {
         "operationId": "microsoftExchange.list-child-mail-folders",
@@ -2841,13 +3260,13 @@
         }
       }
     },
-    "/v1/universal/microsoftExchange/latest/actions/list-user-messages-in-folder": {
+    "/v1/universal/microsoftExchange/latest/actions/list-user-folders": {
       "get": {
-        "operationId": "microsoftExchange.list-user-messages-in-folder",
-        "summary": "List User Messages in Folder",
-        "description": "Finds messages in a user's mail folder in Microsoft Exchange.",
+        "operationId": "microsoftExchange.list-user-folders",
+        "summary": "List User Folders",
+        "description": "Finds messages in a user's mailbox.",
         "externalDocs": {
-          "url": "https://mindcloud.co/docs/universal/rest/microsoftExchange/latest/actions/list-user-messages-in-folder"
+          "url": "https://mindcloud.co/docs/universal/rest/microsoftExchange/latest/actions/list-user-folders"
         },
         "security": [
           {
@@ -2876,18 +3295,6 @@
             }
           },
           {
-            "name": "mailFolderId",
-            "in": "query",
-            "required": true,
-            "description": "The Microsoft Graph mail folder ID or lowercase well-known folder name, such as inbox or sentitems. If a well-known name is not found for a mailbox, list that user's folders and pass the returned folder id.",
-            "schema": {
-              "type": "string",
-              "description": "The Microsoft Graph mail folder ID or lowercase well-known folder name, such as inbox or sentitems. If a well-known name is not found for a mailbox, list that user's folders and pass the returned folder id.",
-              "example": "sentitems",
-              "default": "inbox"
-            }
-          },
-          {
             "name": "top",
             "in": "query",
             "required": false,
@@ -2899,19 +3306,6 @@
             }
           },
           {
-            "name": "orderBy",
-            "in": "query",
-            "required": false,
-            "description": "Optional Microsoft Graph $orderby expression. Use sentDateTime desc for sentitems and receivedDateTime desc for inbox.",
-            "schema": {
-              "type": "string",
-              "description": "Optional Microsoft Graph $orderby expression. Use sentDateTime desc for sentitems and receivedDateTime desc for inbox.",
-              "example": "receivedDateTime desc",
-              "default": "receivedDateTime desc",
-              "x-mindcloud-advanced": true
-            }
-          },
-          {
             "name": "select",
             "in": "query",
             "required": false,
@@ -2919,20 +3313,7 @@
             "schema": {
               "type": "string",
               "description": "Comma-separated Microsoft Graph message fields to return.",
-              "default": "id,subject,receivedDateTime,sentDateTime,bodyPreview,hasAttachments,importance,isRead,from,sender,toRecipients,ccRecipients,bccRecipients,webLink",
-              "x-mindcloud-advanced": true
-            }
-          },
-          {
-            "name": "expand",
-            "in": "query",
-            "required": false,
-            "description": "Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted.",
-            "schema": {
-              "type": "string",
-              "description": "Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted.",
-              "example": "attachments($select=id,name,contentType,isInline)",
-              "default": "attachments($select=id,name,contentType,isInline)",
+              "default": "id,displayName,parentFolderId",
               "x-mindcloud-advanced": true
             }
           },
@@ -2944,6 +3325,16 @@
             "schema": {
               "type": "string",
               "description": "Optional Microsoft Graph OData filter expression.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "true",
               "x-mindcloud-advanced": true
             }
           },
@@ -3150,6 +3541,821 @@
                           "webLink": {
                             "type": "string",
                             "description": "A link to open the message in Outlook on the web."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/microsoftExchange/latest/actions/list-user-messages-in-folder": {
+      "get": {
+        "operationId": "microsoftExchange.list-user-messages-in-folder",
+        "summary": "List User Messages in Folder",
+        "description": "Finds messages in a user's mail folder in Microsoft Exchange.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/microsoftExchange/latest/actions/list-user-messages-in-folder"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userIdOrPrincipalName",
+            "in": "query",
+            "required": true,
+            "description": "The Microsoft Graph user id or userPrincipalName for the mailbox whose folder messages should be listed. Use the Entra user id when the mail address differs from the userPrincipalName.",
+            "schema": {
+              "type": "string",
+              "description": "The Microsoft Graph user id or userPrincipalName for the mailbox whose folder messages should be listed. Use the Entra user id when the mail address differs from the userPrincipalName.",
+              "example": "user@company.com or Entra user id"
+            }
+          },
+          {
+            "name": "mailFolderId",
+            "in": "query",
+            "required": true,
+            "description": "The Microsoft Graph mail folder ID or lowercase well-known folder name, such as inbox or sentitems. If a well-known name is not found for a mailbox, list that user's folders and pass the returned folder id.",
+            "schema": {
+              "type": "string",
+              "description": "The Microsoft Graph mail folder ID or lowercase well-known folder name, such as inbox or sentitems. If a well-known name is not found for a mailbox, list that user's folders and pass the returned folder id.",
+              "example": "sentitems",
+              "default": "inbox"
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of messages to return.",
+            "schema": {
+              "type": "number",
+              "description": "Maximum number of messages to return.",
+              "default": 10
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "description": "Optional Microsoft Graph $orderby expression. Use sentDateTime desc for sentitems and receivedDateTime desc for inbox.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Microsoft Graph $orderby expression. Use sentDateTime desc for sentitems and receivedDateTime desc for inbox.",
+              "example": "receivedDateTime desc",
+              "default": "receivedDateTime desc",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated Microsoft Graph message fields to return.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated Microsoft Graph message fields to return.",
+              "default": "id,subject,receivedDateTime,sentDateTime,bodyPreview,hasAttachments,importance,isRead,from,sender,toRecipients,ccRecipients,bccRecipients,webLink",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "required": false,
+            "description": "Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted.",
+              "example": "attachments($select=id,name,contentType,isInline)",
+              "default": "attachments($select=id,name,contentType,isInline)",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "description": "Optional Microsoft Graph OData filter expression.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Microsoft Graph OData filter expression.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "true",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "attachments": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "contentType": {
+                                  "type": "string",
+                                  "description": "The attachment content type."
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "The attachment ID."
+                                },
+                                "isInline": {
+                                  "type": "boolean",
+                                  "description": "Whether the attachment is inline content, such as an embedded image."
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "The attachment file name or inline content name."
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "bccRecipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "emailAddress": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "type": "string",
+                                      "description": "The email address of a Bcc recipient."
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "The display name of a Bcc recipient."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "bodyPreview": {
+                            "type": "string",
+                            "description": "A text preview of the message body."
+                          },
+                          "ccRecipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "emailAddress": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "type": "string",
+                                      "description": "The email address of a Cc recipient."
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "The display name of a Cc recipient."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "from": {
+                            "type": "object",
+                            "properties": {
+                              "emailAddress": {
+                                "type": "object",
+                                "properties": {
+                                  "address": {
+                                    "type": "string",
+                                    "description": "The sender email address."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "The display name of the sender."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hasAttachments": {
+                            "type": "boolean",
+                            "description": "Whether the message has non-inline attachments according to Microsoft Graph. Inline-only attachments can still appear in attachments[]."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The Microsoft Graph message ID."
+                          },
+                          "importance": {
+                            "type": "string",
+                            "description": "The message importance level."
+                          },
+                          "isRead": {
+                            "type": "boolean",
+                            "description": "Whether the message has been read."
+                          },
+                          "receivedDateTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the message was received."
+                          },
+                          "sender": {
+                            "type": "object",
+                            "properties": {
+                              "emailAddress": {
+                                "type": "object",
+                                "properties": {
+                                  "address": {
+                                    "type": "string",
+                                    "description": "The sending account email address."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "The display name of the sending account."
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "sentDateTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the message was sent."
+                          },
+                          "subject": {
+                            "type": "string",
+                            "description": "The message subject line."
+                          },
+                          "toRecipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "emailAddress": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "type": "string",
+                                      "description": "The email address of a To recipient."
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "description": "The display name of a To recipient."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "webLink": {
+                            "type": "string",
+                            "description": "A link to open the message in Outlook on the web."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/microsoftExchange/latest/actions/list-user-messages-in-mailbox": {
+      "get": {
+        "operationId": "microsoftExchange.list-user-messages-in-mailbox",
+        "summary": "List User Messages in Mailbox",
+        "description": "Finds messages in a user's mailbox.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/microsoftExchange/latest/actions/list-user-messages-in-mailbox"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userIdOrPrincipalName",
+            "in": "query",
+            "required": true,
+            "description": "The Microsoft Graph user id or userPrincipalName for the mailbox whose folder messages should be listed. Use the Entra user id when the mail address differs from the userPrincipalName.",
+            "schema": {
+              "type": "string",
+              "description": "The Microsoft Graph user id or userPrincipalName for the mailbox whose folder messages should be listed. Use the Entra user id when the mail address differs from the userPrincipalName.",
+              "example": "user@company.com or Entra user id"
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of messages to return.",
+            "schema": {
+              "type": "number",
+              "description": "Maximum number of messages to return.",
+              "default": 10
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "description": "Optional Microsoft Graph $orderby expression. Use sentDateTime desc for sentitems and receivedDateTime desc for inbox.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Microsoft Graph $orderby expression. Use sentDateTime desc for sentitems and receivedDateTime desc for inbox.",
+              "example": "receivedDateTime desc",
+              "default": "receivedDateTime desc",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated Microsoft Graph message fields to return.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated Microsoft Graph message fields to return.",
+              "default": "id,subject,receivedDateTime,sentDateTime,bodyPreview,hasAttachments,importance,isRead,from,sender,toRecipients,ccRecipients,bccRecipients,webLink",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "required": false,
+            "description": "Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted.",
+              "example": "attachments($select=id,name,contentType,isInline)",
+              "default": "attachments($select=id,name,contentType,isInline)",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "description": "Optional Microsoft Graph OData filter expression.",
+            "schema": {
+              "type": "string",
+              "description": "Optional Microsoft Graph OData filter expression.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "true",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "@odata": {
+                            "type": "object",
+                            "properties": {
+                              "etag": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "from": {
+                            "type": "object",
+                            "properties": {
+                              "emailAddress": {
+                                "type": "object",
+                                "properties": {
+                                  "address": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "hasAttachments": {
+                            "type": "boolean"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "parentFolderId": {
+                            "type": "string"
+                          },
+                          "receivedDateTime": {
+                            "type": "string"
+                          },
+                          "sender": {
+                            "type": "object",
+                            "properties": {
+                              "emailAddress": {
+                                "type": "object",
+                                "properties": {
+                                  "address": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "sentDateTime": {
+                            "type": "string"
+                          },
+                          "toRecipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "emailAddress": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
                           }
                         },
                         "additionalProperties": false

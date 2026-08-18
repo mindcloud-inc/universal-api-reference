@@ -4,7 +4,7 @@ Accept payments, manage subscriptions, invoice customers, and reconcile revenue.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/stripe/latest
 - **Category:** Commerce / Payments & Billing
-- **Actions:** 28
+- **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://stripe.com
 - **Vendor API docs:** https://docs.stripe.com/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (28)
+## Actions (30)
 
 ### Checkout Session Line Item
 
@@ -61,8 +61,14 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | --- | --- | --- |
 | [Get Balance Transactions](actions/get-balance-transactions.md) | GET |  |
 | [List Payouts](actions/list-payouts.md) | GET |  |
-| [Retrieve Payment Method](actions/new-action1.md) | GET |  |
 | [Retrieve SetupIntent](actions/retrieve-setup-intent.md) | GET |  |
+
+### Payment Methods
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Retrieve Payment Method](actions/new-action1.md) | GET |  |
+| [Retrieve Payment Method – Southern Botanical](actions/retrieve-payment-method-southern-botanical.md) | GET |  |
 
 ### Product
 
@@ -89,6 +95,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | [Confirm Payment Intent](actions/confirm-payment-intent.md) | PUT | Confirms an existing payment intent in Stripe. |
 | [Create Payment Intent](actions/create-payment-intent.md) | POST | Creates a new payment intent in Stripe. |
 | [Get Payment Intent](actions/get-payment-intent.md) | GET | Retrieves a payment intent from your Stripe account. |
+| [Get Payment Intent – Southern Botanical](actions/get-payment-intent-southern-botanical.md) | GET |  |
 | [List Payment Intents](actions/list-payment-intents.md) | GET | Retrieves payment intents from your Stripe account. |
 | [Search Payment Intents](actions/search-payment-intents.md) | GET | Finds payment intents in Stripe by search query. |
 

@@ -20,3 +20,4 @@ Upsert TimeCard Batch
 | `PREndDate` | body | `string` | yes | Payroll period end date. Format: YYYY-MM-DD. |
 | `Notes` | body | `string` | no | Optional notes for the timecard batch. Maximum length: 0. |
 | `__lockBatch` | body | `boolean` | no | Keep the batch locked after processing the action. Maximum length: 0. |
+| `__batch` | body | `string` | no | Optional Batch Custom ID sent to Trimble as __batch. |

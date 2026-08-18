@@ -1,6 +1,6 @@
 # Microsoft Exchange Universal API Arguments
 
-Arguments are the inputs a Microsoft Exchange action needs. Each [action page](README.md#actions-19) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Microsoft Exchange action needs. Each [action page](README.md#actions-22) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 
@@ -10,7 +10,7 @@ Pass action arguments as flat fields beside the Universal API controls:
 | --- | --- |
 | Action fields | `GET` and `DELETE`: query parameters. `POST`, `PUT`, and `PATCH`: JSON body fields. |
 | `connectionId` | `GET` and `DELETE`: query string. `POST`, `PUT`, and `PATCH`: JSON body. |
-| `fields` | Query parameters on every HTTP method; never JSON body fields. |
+| `limit`, `offset`, `fields` | Query parameters on every HTTP method; never JSON body fields. |
 
 ## Data types
 
@@ -34,6 +34,7 @@ Beyond each action's own arguments, these parameters work uniformly:
 | Parameter | Purpose | Details |
 | --- | --- | --- |
 | `connectionId` | Which connection to act through | [authentication.md](authentication.md) |
+| `limit` / `offset` | Pagination on list actions | [pagination.md](pagination.md) |
 | `fields` | Response field selection, e.g. `fields=id,name,profile.email` | Works on any read action |
 
 ## Field selection

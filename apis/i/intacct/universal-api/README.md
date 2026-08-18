@@ -4,7 +4,7 @@ Sage Intacct through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/intacct/latest
 - **Category:** Commerce / Accounting
-- **Actions:** 24
+- **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.sage.com/en-us/sage-business-cloud/intacct/
 - **Vendor API docs:** https://developer.intacct.com/api/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ch
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (24)
+## Actions (25)
 
 ### Bills
 
@@ -86,6 +86,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ch
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create So Transaction](actions/create-so-transaction.md) | POST |  |
+
+### Orders
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Order Entry Document](actions/create-order-entry-document.md) | POST | Creates a new Order Entry document. |
 
 ### Other
 

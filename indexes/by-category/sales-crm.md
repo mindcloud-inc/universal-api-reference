@@ -1,6 +1,6 @@
 # Sales & CRM apps
 
-171 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+172 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AeroLeads** · [Universal API reference](../../apis/a/aeroLeads/universal-api) · [Native API reference](../../apis/a/aeroLeads/native-api) · [Native API docs](https://aeroleads.com/api)
 - **Agendor** · [Universal API reference](../../apis/a/agendor/universal-api) · [Native API reference](../../apis/a/agendor/native-api) · [Native API docs](https://api.agendor.com.br/docs/)
@@ -20,6 +20,7 @@
 - **BoardCRM** · [Universal API reference](../../apis/b/boardCRM/universal-api) · [Native API reference](../../apis/b/boardCRM/native-api) · [Native API docs](https://dev.boardcrm.io/)
 - **Boost** · [Universal API reference](../../apis/b/boost/universal-api) · [Native API reference](../../apis/b/boost/native-api) · [Native API docs](https://apidoc.boost.space/)
 - **Captain Data** · [Universal API reference](../../apis/c/captainData/universal-api) · [Native API reference](../../apis/c/captainData/native-api) · [Native API docs](https://docs.captaindata.com/v1/introduction)
+- **Centerpoint** · [Universal API reference](../../apis/c/centerpoint/universal-api) · [Native API reference](../../apis/c/centerpoint/native-api) · [Native API docs](https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1)
 - **CentralStationCRM** · [Universal API reference](../../apis/c/centralStationCRM/universal-api) · [Native API reference](../../apis/c/centralStationCRM/native-api) · [Native API docs](https://api.centralstationcrm.net/api-docs/index.html)
 - **Cin7 Core** · [Universal API reference](../../apis/c/cin7core/universal-api) · [Native API reference](../../apis/c/cin7core/native-api) · [Native API docs](https://dearinventory.docs.apiary.io/#)
 - **Cliengo** · [Universal API reference](../../apis/c/cliengo/universal-api) · [Native API reference](../../apis/c/cliengo/native-api) · [Native API docs](https://developers.cliengo.com/reference)

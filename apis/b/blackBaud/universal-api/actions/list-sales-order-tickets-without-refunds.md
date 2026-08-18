@@ -54,5 +54,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native BlackBaud API, this operation is `GET alt-slsmg/sales/{sales_order_id}/tickets` (base URL `https://api.sky.blackbaud.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-sales-order-tickets-without-refunds.md) for the provider-specific parameters and requirements.
+Through the native BlackBaud API, this operation is `GET alt-slsmg/sales/:sales_order_id/tickets` (base URL `https://api.sky.blackbaud.com/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-sales-order-tickets-without-refunds.md) for the provider-specific parameters and requirements.
 

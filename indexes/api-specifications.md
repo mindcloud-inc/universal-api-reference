@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3201 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3203 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -373,6 +373,7 @@ Machine-readable API descriptions for 3201 apps. Universal API specifications ar
 | [CDC Content Services](../apis/c/cDCContentServices) | [OpenAPI 3.1](../apis/c/cDCContentServices/universal-api/openapi.json) |  |
 | [CDR Platform](../apis/c/cDRPlatform) | [OpenAPI 3.1](../apis/c/cDRPlatform/universal-api/openapi.json) | [Provider OpenAPI](https://api.cdrplatform.com/schema/?format=json) |
 | [Census Bureau](../apis/c/censusBureau) | [OpenAPI 3.1](../apis/c/censusBureau/universal-api/openapi.json) |  |
+| [Centerpoint](../apis/c/centerpoint) | [OpenAPI 3.1](../apis/c/centerpoint/universal-api/openapi.json) |  |
 | [Centers for Disease Control and Prevention](../apis/c/centersForDiseaseControlAndPrevention) | [OpenAPI 3.1](../apis/c/centersForDiseaseControlAndPrevention/universal-api/openapi.json) |  |
 | [CentralStationCRM](../apis/c/centralStationCRM) | [OpenAPI 3.1](../apis/c/centralStationCRM/universal-api/openapi.json) | [Provider OpenAPI](https://api.centralstationcrm.net/api-docs/v1/swagger.json) |
 | [Cerbo](../apis/c/cerbo) | [OpenAPI 3.1](../apis/c/cerbo/universal-api/openapi.json) |  |
@@ -899,6 +900,7 @@ Machine-readable API descriptions for 3201 apps. Universal API specifications ar
 | [EZ Texting](../apis/e/eZTexting) | [OpenAPI 3.1](../apis/e/eZTexting/universal-api/openapi.json) |  |
 | [EzzyCRM](../apis/e/ezzyCRM) | [OpenAPI 3.1](../apis/e/ezzyCRM/universal-api/openapi.json) |  |
 | [Fabric](../apis/f/fabric) | [OpenAPI 3.1](../apis/f/fabric/universal-api/openapi.json) |  |
+| [Facebook](../apis/f/facebook) | [OpenAPI 3.1](../apis/f/facebook/universal-api/openapi.json) |  |
 | [Faire](../apis/f/Faire) | [OpenAPI 3.1](../apis/f/Faire/universal-api/openapi.json) | [Provider OpenAPI](https://faire.github.io/external-api-docs/#introduction) |
 | [Fairing](../apis/f/fairing) | [OpenAPI 3.1](../apis/f/fairing/universal-api/openapi.json) |  |
 | [Faithlife](../apis/f/faithlife) | [OpenAPI 3.1](../apis/f/faithlife/universal-api/openapi.json) |  |

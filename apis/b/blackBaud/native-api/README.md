@@ -1,6 +1,6 @@
 # BlackBaud: Native API Reference
 
-A consolidated summary of BlackBaud's API configuration and 22 documented operations, with links to official documentation.
+A consolidated summary of BlackBaud's API configuration and 23 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.blackbaud.com/skyapi/docs/getting-started
 - **API base URL:** `https://api.sky.blackbaud.com/`
@@ -37,7 +37,15 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
-## Endpoints (22 documented)
+## Pagination
+
+Use `limit` in the query string to set the page size. Use `start_row_index` in the query string as the record offset.
+
+## Sorting
+
+Set the sort field with `sort_parameter` in the query string. Set the direction separately with `sort_order`. Use `asc` for ascending order and `desc` for descending order. Only one sort field is accepted.
+
+## Endpoints (23 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -58,8 +66,9 @@ Shared headers:
 | [Get Phone Types](actions/get-phone-types.md) | `GET constituent/v1/phonetypes` | [docs](https://developer.blackbaud.com/skyapi/renxt/constituent/entities) |
 | [List Currencies](actions/list-currencies.md) | `GET alt-adnmg/currencies/list` | [docs](https://developer.sky.blackbaud.com/api) |
 | [List Order Ticket Details](actions/list-order-ticket-details.md) | `GET alt-slsmg/sales/{sales_order_id}/orders` | [docs](https://developer.sky.blackbaud.com/api#api=alt-slsmg) |
-| [List Sales Order Tickets Without Refunds](actions/list-sales-order-tickets-without-refunds.md) | `GET alt-slsmg/sales/{sales_order_id}/tickets` | [docs](https://developer.sky.blackbaud.com/api#api=alt-slsmg) |
+| [List Sales Order Tickets Without Refunds](actions/list-sales-order-tickets-without-refunds.md) | `GET alt-slsmg/sales/:sales_order_id/tickets` | [docs](https://developer.sky.blackbaud.com/api#api=alt-slsmg) |
 | [Search Constituents](actions/search-constituents.md) | `GET constituent/v1/constituents/search` | [docs](https://developer.blackbaud.com/skyapi/renxt/constituent/entities) |
 | [Search Constituents Duplicate](actions/search-constituents-duplicate.md) | `GET constituent/v1/constituents/duplicatesearch` | [docs](https://developer.blackbaud.com/skyapi/renxt/constituent/entities) |
 | [Search For A Constituent](actions/search-for-a-constituent.md) | `GET alt-conmg/constituents/search` | [docs](https://learn.microsoft.com/en-us/connectors/blackbaudaltruconsti/) |
+| [Search Revenue Transactions](actions/search-revenue-transactions.md) | `GET alt-revmg/revenuetransactions/search` | [docs](https://developer.blackbaud.com/skyapi/products/altru/revenue) |
 | [View Order Patron](actions/view-order-patron.md) | `GET alt-slsmg/orders/{sales_order_id}/view` | [docs](https://developer.sky.blackbaud.com/api#api=alt-slsmg) |

@@ -1,6 +1,6 @@
 # Microsoft Exchange: Native API Reference
 
-A consolidated summary of Microsoft Exchange's API configuration and 19 documented operations, with links to official documentation.
+A consolidated summary of Microsoft Exchange's API configuration and 22 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0
 - **API base URL:** `https://graph.microsoft.com`
@@ -45,7 +45,7 @@ Authorization: Bearer <custom.accessToken>
 
 Use `$top` in the query string to set the page size (default 25; accepted range 1–999). Use `$skiptoken` in the query string as the pagination cursor. Follow the complete next-page URL returned by the API.
 
-## Endpoints (19 documented)
+## Endpoints (22 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -56,12 +56,15 @@ Use `$top` in the query string to set the page size (default 25; accepted range 
 | [Forward Message](actions/forward-message.md) | `POST /v1.0/me/messages/{{messageId}}/forward` | [docs](https://learn.microsoft.com/en-us/graph/api/message-forward?view=graph-rest-1.0) |
 | [Get Message](actions/get-message.md) | `GET /v1.0/me/messages/{{messageId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/message-get?view=graph-rest-1.0) |
 | [Get Message Attachment](actions/get-message-attachment.md) | `GET /v1.0/me/messages/{{messageId}}/attachments/{{attachmentId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/attachment-get?view=graph-rest-1.0) |
+| [Get User Folder Name](actions/get-user-folder-name.md) | `GET https://graph.microsoft.com/v1.0/users/:userIdOrPrincipalName/mailFolders/:parentFolderId` | [docs](https://learn.microsoft.com/en-us/graph/api/mailfolder-get?view=graph-rest-1.0&tabs=http) |
 | [List Child Mail Folders](actions/list-child-mail-folders.md) | `GET /v1.0/me/mailFolders/{{mailFolderId}}/childFolders` | [docs](https://learn.microsoft.com/en-us/graph/api/mailfolder-list-childfolders?view=graph-rest-1.0) |
 | [List Inbox Messages](actions/list-inbox-messages.md) | `GET /v1.0/me/mailFolders/inbox/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/mailfolder-list-messages?view=graph-rest-1.0) |
 | [List Mail Folders](actions/list-mail-folders.md) | `GET /v1.0/me/mailFolders` | [docs](https://learn.microsoft.com/en-us/graph/api/user-list-mailfolders?view=graph-rest-1.0) |
 | [List Message Attachments](actions/list-message-attachments.md) | `GET /v1.0/me/messages/{{messageId}}/attachments` | [docs](https://learn.microsoft.com/en-us/graph/api/message-list-attachments?view=graph-rest-1.0) |
 | [List Messages in Folder](actions/list-messages-in-folder.md) | `GET /v1.0/me/mailFolders/{{mailFolderId}}/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/mailfolder-list-messages?view=graph-rest-1.0) |
+| [List User Folders](actions/list-user-folders.md) | `GET https://graph.microsoft.com/v1.0/users/:userIdOrPrincipalName/mailFolders` | [docs](https://learn.microsoft.com/en-us/graph/api/mailfolder-get?view=graph-rest-1.0&tabs=http) |
 | [List User Messages in Folder](actions/list-user-messages-in-folder.md) | `GET /v1.0/users/:userIdOrPrincipalName/mailFolders/:mailFolderId/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/mailfolder-list-messages?view=graph-rest-1.0&tabs=http) |
+| [List User Messages in Mailbox](actions/list-user-messages-in-mailbox.md) | `GET /v1.0/users/:userIdOrPrincipalName/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/mailfolder-list-messages?view=graph-rest-1.0&tabs=http) |
 | [Move Message](actions/move-message.md) | `POST /v1.0/me/messages/{{messageId}}/move` | [docs](https://learn.microsoft.com/en-us/graph/api/message-move?view=graph-rest-1.0) |
 | [Reply All to Message](actions/reply-all-to-message.md) | `POST /v1.0/me/messages/{{messageId}}/replyAll` | [docs](https://learn.microsoft.com/en-us/graph/api/message-replyall?view=graph-rest-1.0) |
 | [Reply to Message](actions/reply-to-message.md) | `POST /v1.0/me/messages/{{messageId}}/reply` | [docs](https://learn.microsoft.com/en-us/graph/api/message-reply?view=graph-rest-1.0) |

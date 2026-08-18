@@ -1,6 +1,6 @@
 # Sage Intacct: Native API Reference
 
-A consolidated summary of Sage Intacct's API configuration and 24 documented operations, with links to official documentation.
+A consolidated summary of Sage Intacct's API configuration and 25 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.intacct.com/api/
 - **API base URL:** `https://api.intacct.com/ia/xml/xmlgw.phtml`
@@ -39,7 +39,7 @@ Responses from this API use XML.
 
 Use `pagesize` in the request body to set the page size (default 100; accepted range 1–1000). Use `offset` in the request body as the record offset.
 
-## Endpoints (24 documented)
+## Endpoints (25 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -49,6 +49,7 @@ Use `pagesize` in the request body to set the page size (default 100; accepted r
 | [Create Invoice](actions/create-invoice.md) | `POST` | [docs](https://developer.intacct.com/api/accounts-receivable/invoices/#create-invoice-legacy) |
 | [Create Item](actions/create-item.md) | `POST` |  |
 | [Create Item New](actions/create-item-2.md) | `POST` |  |
+| [Create Order Entry Document](actions/create-order-entry-document.md) | `POST https://api.intacct.com/ia/api/v1/objects/order-entry/document:::documentName` | [docs](https://developer.sage.com/intacct/apis/intacct/1/intacct-openapi/groups/order-entry/groups/documents/tags/order_entry_documents/paths/create-order-entry-named-document) |
 | [Create Sales Invoice](actions/create-sales-invoice.md) | `POST` | [docs](https://developer.intacct.com/api/accounts-receivable/invoices/#create-invoice-legacy) |
 | [Create So Transaction](actions/create-so-transaction.md) | `POST https://api.intacct.com/ia/xml/xmlgw.phtml` | [docs](https://developer.intacct.com/api/order-entry/order-entry-transactions/#create-order-entry-transaction-legacy) |
 | [Create Bill Item](actions/createbillitem.md) | `POST` |  |

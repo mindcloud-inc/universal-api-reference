@@ -20,3 +20,4 @@ Finds messages in a user's mail folder in Microsoft Exchange.
 | `$select` | query | `string` | no | Comma-separated Microsoft Graph message fields to return. |
 | `$expand` | query | `string` | no | Optional Microsoft Graph $expand expression. The default returns attachment metadata including isInline so inline images can be counted. |
 | `$filter` | query | `string` | no | Optional Microsoft Graph OData filter expression. |
+| `$count` | query | `string` | no | — |

@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3201 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3203 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -382,6 +382,7 @@ The official vendor API documentation for each of the 3201 apps in this repo. Ea
 - [CDC Content Services](../apis/c/cDCContentServices/native-api) - https://tools.cdc.gov/api/docs/info.aspx
 - [CDR Platform](../apis/c/cDRPlatform/native-api) - https://cdrplatform.com/docs/open-api-schema
 - [Census Bureau](../apis/c/censusBureau/native-api) - https://www.census.gov/data/developers/guidance/api-user-guide.html
+- [Centerpoint](../apis/c/centerpoint/native-api) - https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1
 - [Centers for Disease Control and Prevention](../apis/c/centersForDiseaseControlAndPrevention/native-api) - https://tools.cdc.gov/api/docs/info.aspx
 - [CentralStationCRM](../apis/c/centralStationCRM/native-api) - https://api.centralstationcrm.net/api-docs/index.html
 - [Cerbo](../apis/c/cerbo/native-api) - https://docs.cer.bo/
@@ -922,6 +923,7 @@ The official vendor API documentation for each of the 3201 apps in this repo. Ea
 - [EZ Texting](../apis/e/eZTexting/native-api) - https://developers.eztexting.com/docs/getting-started
 - [EzzyCRM](../apis/e/ezzyCRM/native-api) - https://ezzycrm.com/api/GetApiDocument.aspx
 - [Fabric](../apis/f/fabric/native-api) - https://developers.fabric.so/api-reference
+- [Facebook](../apis/f/facebook/native-api)
 - [Faire](../apis/f/Faire/native-api) - https://faire.github.io/external-api-docs/#introduction
 - [Fairing](../apis/f/fairing/native-api) - https://docs.fairing.co/reference/api
 - [Faithlife](../apis/f/faithlife/native-api) - https://developer.faithlife.com/

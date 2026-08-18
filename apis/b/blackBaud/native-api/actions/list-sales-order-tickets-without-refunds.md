@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `alt-slsmg/sales/{sales_order_id}/tickets`
+- **Path:** `alt-slsmg/sales/:sales_order_id/tickets`
 - **Base URL:** `https://api.sky.blackbaud.com/`
 - **Official documentation:** [List Sales Order Tickets Without Refunds](https://developer.sky.blackbaud.com/api#api=alt-slsmg)
 
