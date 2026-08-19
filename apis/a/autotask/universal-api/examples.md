@@ -54,16 +54,15 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "amount": 1,
-  "companyID": 1,
-  "cost": 1,
-  "ownerResourceID": 1,
-  "probability": 1,
-  "projectedCloseDate": "2026-05-07T12:00:00.000Z",
-  "stage": 1,
-  "startDate": "2026-05-07T12:00:00.000Z",
-  "status": 1,
-  "title": "string",
+  "companyId": "12345",
+  "title": "Managed services renewal",
+  "ownerResourceId": "12345",
+  "amount": "0",
+  "cost": "0",
+  "probability": "50",
+  "projectedCloseDate": "2026-09-30",
+  "stage": "1",
+  "status": "1",
   "useQuoteTotals": true
 }'
 ```
@@ -77,16 +76,15 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/autotask
   },
   body: JSON.stringify({
     connectionId,
-    "amount": 1,
-    "companyID": 1,
-    "cost": 1,
-    "ownerResourceID": 1,
-    "probability": 1,
-    "projectedCloseDate": "2026-05-07T12:00:00.000Z",
-    "stage": 1,
-    "startDate": "2026-05-07T12:00:00.000Z",
-    "status": 1,
-    "title": "string",
+    "companyId": "12345",
+    "title": "Managed services renewal",
+    "ownerResourceId": "12345",
+    "amount": "0",
+    "cost": "0",
+    "probability": "50",
+    "projectedCloseDate": "2026-09-30",
+    "stage": "1",
+    "status": "1",
     "useQuoteTotals": true
   })
 });

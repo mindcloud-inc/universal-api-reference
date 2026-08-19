@@ -173,7 +173,7 @@
 - **Evil Insult** · [Universal API reference](../../apis/e/evilInsult/universal-api) · [Native API reference](../../apis/e/evilInsult/native-api) · [Native API docs](https://evilinsult.com/api)
 - **eWeLink** · [Universal API reference](../../apis/e/eWeLink/universal-api) · [Native API reference](../../apis/e/eWeLink/native-api) · [Native API docs](https://github.com/CoolKit-Technologies/eWeLink-API/blob/main/en/APICenterV2.md)
 - **Excuser** · [Universal API reference](../../apis/e/excuser/universal-api) · [Native API reference](../../apis/e/excuser/native-api)
-- **Facebook** · [Universal API reference](../../apis/f/facebook/universal-api) · [Native API reference](../../apis/f/facebook/native-api)
+- **Facebook** · [Universal API reference](../../apis/f/facebook/universal-api) · [Native API reference](../../apis/f/facebook/native-api) · [Native API docs](https://developers.facebook.com/docs/)
 - **Faithlife** · [Universal API reference](../../apis/f/faithlife/universal-api) · [Native API reference](../../apis/f/faithlife/native-api) · [Native API docs](https://developer.faithlife.com/)
 - **Famulor AI - Voice Agent** · [Universal API reference](../../apis/f/famulorAIVoiceAgent/universal-api) · [Native API reference](../../apis/f/famulorAIVoiceAgent/native-api) · [Native API docs](https://docs.famulor.io/en/api-reference/introduction.md)
 - **FDIC** · [Universal API reference](../../apis/f/fDIC/universal-api) · [Native API reference](../../apis/f/fDIC/native-api) · [Native API docs](https://api.fdic.gov/banks/docs)

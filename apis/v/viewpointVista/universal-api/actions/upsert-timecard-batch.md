@@ -53,13 +53,13 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `prGroup` | number | yes | Vista payroll group for the batch. |
 | `prEndDate` | string | yes | Payroll period end date. Format: YYYY-MM-DD. |
 | `notes` | string | no | Optional notes for the timecard batch. |
+| `batchCustomId` | string | no | Optional custom ID for identifying the same timecard batch across Upsert calls. |
 
 ### Advanced
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `lockBatch` | boolean | no | Keep the batch locked after processing the action. |
-| `batchCustomId` | string | no | Optional Batch Custom ID sent to Trimble as __batch. |
 
 ## Response
 

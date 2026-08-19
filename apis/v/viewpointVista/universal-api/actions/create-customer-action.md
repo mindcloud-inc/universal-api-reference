@@ -43,6 +43,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `ARCo` | number | no |  |
 | `Customer` | object | no |  |
 | `Name` | string | no |  |
+| `RecType` | number | no | Receivable Type key for the AR company. Optional; Vista uses the company default when omitted. |
 | `MailingAddress` | object | no |  |
 | `BillingAddress` | object | no |  |
 | `PayTerms` | string | no |  |

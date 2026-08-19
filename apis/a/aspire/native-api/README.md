@@ -1,6 +1,6 @@
 # Aspire: Native API Reference
 
-A consolidated summary of Aspire's API configuration and 151 documented operations, with links to official documentation.
+A consolidated summary of Aspire's API configuration and 153 documented operations, with links to official documentation.
 
 - **Official docs:** https://guide.youraspire.com/apidocs
 - **API base URL:** `https://{environment}.youraspire.com/`
@@ -49,7 +49,7 @@ Set the sort field with `$orderby` in the query string. Use `asc` for ascending 
 
 Wait 60000 ms before the first retry. Stop after 14 attempts. Multiply the delay by 3 after each failed attempt.
 
-## Endpoints (151 documented)
+## Endpoints (153 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -69,6 +69,7 @@ Wait 60000 ms before the first retry. Stop after 14 attempts. Multiply the delay
 | [Create Opportunity Lost Reason](actions/create-opportunity-lost-reason.md) | `POST OpportunityLostReasons` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/OpportunityLostReasons/OpportunityLostReasons_Create) |
 | [Create Opportunity Tag](actions/create-opportunity-tag.md) | `POST OpportunityTags` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/OpportunityTags/OpportunityTags_Create) |
 | [Create Partial Payment](actions/create-partial-payment.md) | `POST PartialPayments` | [docs](https://guide.youraspire.com/v1-api/apidocs/en/partialpayments-4) |
+| [Create Partial Payment Item](actions/create-partial-payment-item.md) | `POST PartialPayments` | [docs](https://guide.youraspire.com/v1-api/apidocs/en/partialpayments-4) |
 | [Create Pay Codes](actions/create-pay-codes.md) | `POST PayCodes` | [docs](https://guide.youraspire.com/apidocs/paycodes-10) |
 | [Create Pay Rate](actions/create-pay-rate.md) | `POST PayRates` | [docs](https://guide.youraspire.com/apidocs/payrates-6) |
 | [Create Pay Rate Override Pay Codes](actions/create-pay-rate-override-pay-codes.md) | `POST PayRateOverridePayCodes` | [docs](https://guide.youraspire.com/apidocs/payrates-5) |
@@ -152,6 +153,7 @@ Wait 60000 ms before the first retry. Stop after 14 attempts. Multiply the delay
 | [List Payment Categories](actions/list-payment-categories.md) | `GET PaymentCategories` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/PaymentCategories/PaymentCategories_Get) |
 | [List Payment Terms](actions/list-payment-terms.md) | `GET PaymentTerms` | [docs](https://guide.youraspire.com/apidocs/paymentterms-3) |
 | [List Payments](actions/list-payments.md) | `GET Payments` | [docs](https://guide.youraspire.com/apidocs/payments-4) |
+| [List Payments Item](actions/list-payments-item.md) | `GET Payments` | [docs](https://guide.youraspire.com/apidocs/payments-4) |
 | [List Properties](actions/list-properties.md) | `GET Properties` | [docs](https://guide.youraspire.com/apidocs/properties-2) |
 | [List Property Availabilities](actions/list-property-availabilities.md) | `GET PropertyAvailabilities` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/PropertyAvailabilities/PropertyAvailabilities_Get) |
 | [List Property Contacts](actions/list-property-contacts.md) | `GET PropertyContacts` | [docs](https://guide.youraspire.com/apidocs/propertycontacts-5) |

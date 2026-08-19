@@ -1,6 +1,6 @@
 # Facebook: Get Owned Pages
 
-
+Retrieve a list of Pages owned by the specified business account.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/facebook/latest/actions/get-owned-pages
@@ -40,9 +40,29 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Facebook API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "accessToken": "string",
+      "id": "string",
+      "name": "Ava Chen"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `accessToken` | string |  |
+| `id` | string |  |
+| `name` | string |  |
 
 ## Native endpoint
 
-Through the native Facebook API, this operation is `GET :businessId/owned_pages?fields=id,name,access_token` (base URL `https://graph.facebook.com/v23.0/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-owned-pages.md) for the provider-specific parameters and requirements.
+Through the native Facebook API, this operation is `GET :businessId/owned_pages?fields=id,name,access_token` (base URL `https://graph.facebook.com/v25.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-owned-pages.md) for the provider-specific parameters and requirements.
 

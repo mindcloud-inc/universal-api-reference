@@ -44,6 +44,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `CompanyContact.Phone` | string | no |  |
 | `CompanyContact.Fax` | string | no |  |
 | `Name` | string | no |  |
+| `RecType` | number | no | Receivable Type key for the AR company. Optional; Vista uses the company default when omitted. |
 | `CompanyContact.Contact` | string | no |  |
 | `MailingAddress` | object | no |  |
 | `BillingAddress` | object | no |  |

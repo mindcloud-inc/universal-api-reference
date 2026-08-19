@@ -923,7 +923,7 @@ The official vendor API documentation for each of the 3203 apps in this repo. Ea
 - [EZ Texting](../apis/e/eZTexting/native-api) - https://developers.eztexting.com/docs/getting-started
 - [EzzyCRM](../apis/e/ezzyCRM/native-api) - https://ezzycrm.com/api/GetApiDocument.aspx
 - [Fabric](../apis/f/fabric/native-api) - https://developers.fabric.so/api-reference
-- [Facebook](../apis/f/facebook/native-api)
+- [Facebook](../apis/f/facebook/native-api) - https://developers.facebook.com/docs/
 - [Faire](../apis/f/Faire/native-api) - https://faire.github.io/external-api-docs/#introduction
 - [Fairing](../apis/f/fairing/native-api) - https://docs.fairing.co/reference/api
 - [Faithlife](../apis/f/faithlife/native-api) - https://developer.faithlife.com/

@@ -21,7 +21,7 @@ Register an OAuth application with the provider to obtain client credentials and
 2. Exchange the returned authorization code with a POST request to https://oauth2.sky.blackbaud.com/token.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
-Requested scopes: `altr.r rnxt.r`.
+Requested scopes: `altr.r rnxt.r alt.w`.
 
 The flow supports refresh tokens. Refresh expired access tokens with a POST request to https://oauth2.sky.blackbaud.com/token.
 

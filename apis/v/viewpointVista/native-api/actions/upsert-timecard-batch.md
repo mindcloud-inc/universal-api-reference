@@ -19,5 +19,5 @@ Upsert TimeCard Batch
 | `PRGroup` | body | `number` | yes | Vista payroll group for the batch. |
 | `PREndDate` | body | `string` | yes | Payroll period end date. Format: YYYY-MM-DD. |
 | `Notes` | body | `string` | no | Optional notes for the timecard batch. Maximum length: 0. |
+| `__batch` | body | `string` | no | Optional custom ID for identifying the same timecard batch across Upsert calls. |
 | `__lockBatch` | body | `boolean` | no | Keep the batch locked after processing the action. Maximum length: 0. |
-| `__batch` | body | `string` | no | Optional Batch Custom ID sent to Trimble as __batch. |

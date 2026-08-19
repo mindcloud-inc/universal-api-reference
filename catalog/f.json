@@ -1958,13 +1958,18 @@
   {
     "name": "Facebook",
     "slug": "facebook",
+    "description": "Connect Facebook Pages, Meta Business assets, and advertising data to workflows.",
     "iconUrl": "https://images.mindcloud.co/apps/icons/facebook_1782742775472.png",
-    "version": "0.0.15",
+    "websiteUrl": "https://www.facebook.com/business",
+    "nativeBaseUrl": "https://www.facebook.com",
+    "nativeDocumentationUrl": "https://developers.facebook.com/docs/",
+    "version": "0.0.20",
     "authentication": [
       {
         "type": "oAuth2",
         "name": "OAuth 2.0",
         "scopes": "pages_read_user_content read_insights pages_read_engagement ads_read pages_show_list business_management",
+        "documentationUrl": "https://developers.facebook.com/documentation/facebook-login/guides/access-tokens",
         "oauth": {
           "authorizeUrl": "https://www.facebook.com/v24.0/dialog/oauth",
           "accessTokenUrl": "https://graph.facebook.com/v24.0/oauth/access_token",
@@ -1976,13 +1981,25 @@
       {
         "name": "REST",
         "type": "rest",
-        "baseUrl": "https://graph.facebook.com/v23.0/",
+        "baseUrl": "https://graph.facebook.com/v25.0",
         "headers": [
           {
             "name": "Content-Type",
             "value": "application/json; charset=utf-8"
           }
         ],
+        "pagination": {
+          "limit": {
+            "parameter": "limit",
+            "location": "query"
+          },
+          "offset": {
+            "type": "cursor",
+            "parameter": "after",
+            "location": "query",
+            "useFullUrl": true
+          }
+        },
         "responses": [
           {
             "parser": "auto"
@@ -1992,22 +2009,95 @@
     ],
     "actions": [
       {
-        "name": "Ad Campaign Query",
-        "slug": "ad-campaign-query",
+        "name": "Ad Account Ads Query",
+        "slug": "ad-account-ads-query",
+        "operation": "read",
         "method": "GET",
+        "model": "ad",
         "native": {
           "method": "GET",
-          "path": ":accountID/?fields=id,account_id,name,account_status,business,balance,amount_spent",
-          "baseUrl": "https://graph.facebook.com/v23.0/",
+          "path": "https://graph.facebook.com/v23.0/:adAccountID/ads",
+          "baseUrl": "https://graph.facebook.com/v25.0",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "adAccountID",
+              "name": "Ad Account ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "multipleValues": {
+                "format": "array"
+              }
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "schemaDynamic": true,
+        "arguments": [
+          {
+            "key": "adAccountID",
+            "name": "Ad Account ID",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "example": "id,name",
+            "multipleValues": {
+              "format": "array"
+            }
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Ad Campaign Query",
+        "slug": "ad-campaign-query",
+        "operation": "read",
+        "method": "GET",
+        "model": "adCampaign",
+        "native": {
+          "method": "GET",
+          "path": "/:accountID",
+          "baseUrl": "https://graph.facebook.com/v25.0",
           "apiName": "REST",
           "apiType": "rest",
           "arguments": [
             {
               "key": "accountID",
-              "name": "accountID",
+              "name": "Ad Account ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The Meta ad account ID, including the act_ prefix."
+            },
+            {
+              "key": "fields",
+              "name": "Fields",
               "dataType": "string",
               "location": "query",
-              "required": true
+              "required": false,
+              "multipleValues": {
+                "format": "array"
+              }
             }
           ]
         },
@@ -2019,10 +2109,21 @@
         "arguments": [
           {
             "key": "accountID",
-            "name": "accountID",
+            "name": "Ad Account ID",
             "dataType": "string",
             "required": true,
-            "defaultValue": "act_112816323599903"
+            "description": "The Meta ad account ID, including the act_ prefix.",
+            "example": "act_1234567890"
+          },
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false,
+            "example": "id,account_id,name,account_status,business,balance,amount_spent",
+            "multipleValues": {
+              "format": "array"
+            }
           }
         ],
         "responseSchema": []
@@ -2033,10 +2134,11 @@
         "operation": "read",
         "method": "GET",
         "model": "page",
+        "description": "Retrieve a list of Pages owned by the specified business account.",
         "native": {
           "method": "GET",
           "path": ":businessId/owned_pages?fields=id,name,access_token",
-          "baseUrl": "https://graph.facebook.com/v23.0/",
+          "baseUrl": "https://graph.facebook.com/v25.0",
           "apiName": "REST",
           "apiType": "rest",
           "arguments": [
@@ -2062,33 +2164,57 @@
             "required": true
           }
         ],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "accessToken",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
       },
       {
-        "name": "Get Page Ratings",
-        "slug": "get-page-ratings",
+        "name": "Get Page",
+        "slug": "get-page",
+        "operation": "read",
         "method": "GET",
+        "model": "page",
+        "group": "Page",
+        "documentationUrl": "https://developers.facebook.com/docs/graph-api/reference/page/",
         "native": {
           "method": "GET",
-          "path": ":pageId/ratings",
-          "baseUrl": "https://graph.facebook.com/v23.0/",
+          "path": ":pageId",
+          "baseUrl": "https://graph.facebook.com/v25.0",
           "apiName": "REST",
           "apiType": "rest",
           "arguments": [
             {
               "key": "pageId",
-              "name": "pageId",
+              "name": "Page ID",
               "dataType": "string",
               "location": "param",
-              "required": false
+              "required": true,
+              "description": "The Facebook Page ID."
             },
             {
-              "key": "access_token",
-              "internalKey": "AccessToken",
-              "name": "Page Access Token",
+              "key": "fields",
+              "name": "Fields",
               "dataType": "string",
               "location": "query",
-              "required": true
+              "required": false,
+              "description": "Fields returned for the Page.",
+              "multipleValues": {
+                "format": "string"
+              }
             }
           ]
         },
@@ -2100,18 +2226,423 @@
         "arguments": [
           {
             "key": "pageId",
-            "name": "pageId",
+            "name": "Page ID",
             "dataType": "string",
-            "required": false
+            "required": true,
+            "description": "The Facebook Page ID.",
+            "example": "102424701587913"
           },
           {
-            "key": "AccessToken",
-            "name": "Page Access Token",
+            "key": "fields",
+            "name": "Fields",
             "dataType": "string",
-            "required": true
+            "required": false,
+            "advanced": true,
+            "description": "Fields returned for the Page.",
+            "example": "id,name,category,link,fan_count",
+            "defaultValue": "id",
+            "multipleValues": {
+              "format": "string"
+            }
           }
         ],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "category",
+            "dataType": "string",
+            "description": "Page category.",
+            "mockType": "string"
+          },
+          {
+            "key": "fan_count",
+            "dataType": "number",
+            "description": "Number of people who like the Page.",
+            "mockType": "number"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Page ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "link",
+            "dataType": "string",
+            "description": "Public Page URL.",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "Page name.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Get Page Insights",
+        "slug": "get-page-insights",
+        "operation": "read",
+        "method": "GET",
+        "model": "page",
+        "description": "Get analytics and metrics for a Page.",
+        "documentationUrl": "https://developers.facebook.com/docs/graph-api/reference/v25.0/insights",
+        "native": {
+          "method": "GET",
+          "path": "/:pageId/insights",
+          "baseUrl": "https://graph.facebook.com/v25.0",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "breakdown",
+              "name": "Breakdown",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "A valid breakdown for an insights endpoint."
+            },
+            {
+              "key": "pageId",
+              "name": "Page ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "date_preset",
+              "internalKey": "datePreset",
+              "name": "Date Preset",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "enum:\ntoday, yesterday, this_month, last_month, this_quarter, maximum, data_maximum, last_3d, last_7d, last_14d, last_28d, last_30d, last_90d, last_week_mon_sun, last_week_sun_sat, last_quarter, last_year, this_week_mon_today, this_week_sun_today, this_year"
+            },
+            {
+              "key": "metric",
+              "name": "Metric",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "A valid metric for an insights endpoint.\n\nThis is not an exhaustive list of available metrics. For a full list of available metrics, refer to [Page Insights](https://developers.facebook.com/docs/graph-api/reference/v25.0/insights).",
+              "multipleValues": {
+                "format": "array"
+              }
+            },
+            {
+              "key": "period",
+              "name": "Period",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "enum:\nday\nweek\ndays_28\nmonth\nlifetime\ntotal_over_range"
+            },
+            {
+              "key": "since",
+              "name": "Since",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "datetime"
+            },
+            {
+              "key": "until",
+              "name": "Until",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "datetime"
+            },
+            {
+              "key": "show_description_from_api_doc",
+              "internalKey": "showApiDescription",
+              "name": "Show API Description",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "Default value: false\nshow_description_from_api_doc"
+            },
+            {
+              "key": "pageAccessToken",
+              "name": "Page Access Token",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "breakdown",
+            "name": "Breakdown",
+            "dataType": "string",
+            "required": false,
+            "description": "A valid breakdown for an insights endpoint."
+          },
+          {
+            "key": "pageId",
+            "name": "Page ID",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "datePreset",
+            "name": "Date Preset",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "enum:\ntoday, yesterday, this_month, last_month, this_quarter, maximum, data_maximum, last_3d, last_7d, last_14d, last_28d, last_30d, last_90d, last_week_mon_sun, last_week_sun_sat, last_quarter, last_year, this_week_mon_today, this_week_sun_today, this_year"
+          },
+          {
+            "key": "metric",
+            "name": "Metric",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "A valid metric for an insights endpoint.\n\nThis is not an exhaustive list of available metrics. For a full list of available metrics, refer to [Page Insights](https://developers.facebook.com/docs/graph-api/reference/v25.0/insights).",
+            "multipleValues": {
+              "format": "array"
+            }
+          },
+          {
+            "key": "period",
+            "name": "Period",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "enum:\nday\nweek\ndays_28\nmonth\nlifetime\ntotal_over_range"
+          },
+          {
+            "key": "since",
+            "name": "Since",
+            "dataType": "string",
+            "required": false,
+            "description": "datetime"
+          },
+          {
+            "key": "until",
+            "name": "Until",
+            "dataType": "string",
+            "required": false,
+            "description": "datetime"
+          },
+          {
+            "key": "showApiDescription",
+            "name": "Show API Description",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true,
+            "description": "Default value: false\nshow_description_from_api_doc"
+          },
+          {
+            "key": "pageAccessToken",
+            "name": "Page Access Token",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "description",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "period",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "title",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "values[].endTime",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "values[].value",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Ad Accounts",
+        "slug": "list-ad-accounts",
+        "operation": "read",
+        "method": "GET",
+        "model": "account",
+        "description": "Retrieve a list of the advertising accounts to which the authenticated user has access.",
+        "documentationUrl": "https://developers.facebook.com/docs/graph-api/reference/user/adaccounts/",
+        "native": {
+          "method": "GET",
+          "path": "me/adaccounts",
+          "baseUrl": "https://graph.facebook.com/v25.0",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "string",
+              "location": "query",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "accountId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Businesses",
+        "slug": "list-businesses",
+        "operation": "read",
+        "method": "GET",
+        "model": "account",
+        "description": "Retrieve a list of the business accounts to which the authenticated user has access.",
+        "documentationUrl": "https://developers.facebook.com/docs/graph-api/reference/user/businesses/",
+        "native": {
+          "method": "GET",
+          "path": "/me/businesses",
+          "baseUrl": "https://graph.facebook.com/v25.0",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "multipleValues": {
+                "format": "string"
+              }
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false,
+            "example": "id, name",
+            "multipleValues": {
+              "format": "string"
+            }
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Pages",
+        "slug": "list-pages",
+        "operation": "read",
+        "method": "GET",
+        "model": "page",
+        "group": "Page",
+        "description": "List pages you manage/own",
+        "documentationUrl": "https://developers.facebook.com/docs/graph-api/reference/user/accounts/",
+        "native": {
+          "method": "GET",
+          "path": "me/accounts",
+          "baseUrl": "https://graph.facebook.com/v25.0",
+          "apiName": "REST",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "category",
+            "dataType": "string",
+            "description": "Page category.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Page ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "Page name.",
+            "mockType": "string"
+          },
+          {
+            "key": "tasks",
+            "dataType": "array",
+            "itemDataType": "string",
+            "description": "Tasks the connected user can perform on the Page.",
+            "mockType": "array"
+          }
+        ]
       }
     ],
     "universalOpenApiPath": "apis/f/facebook/universal-api/openapi.json"

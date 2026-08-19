@@ -10,13 +10,14 @@
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `ARCo` | body | `number` | no |
-| `Customer` | body | `object` | no |
-| `Name` | body | `string` | no |
-| `MailingAddress` | body | `object` | no |
-| `BillingAddress` | body | `object` | no |
-| `PayTerms` | body | `string` | no |
-| `CompanyContact` | body | `object` | no |
-| `__custom_fields` | body | `object` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `ARCo` | body | `number` | no | — |
+| `Customer` | body | `object` | no | — |
+| `Name` | body | `string` | no | — |
+| `RecType` | body | `number` | no | Receivable Type key for the AR company. Optional; Vista uses the company default when omitted. |
+| `MailingAddress` | body | `object` | no | — |
+| `BillingAddress` | body | `object` | no | — |
+| `PayTerms` | body | `string` | no | — |
+| `CompanyContact` | body | `object` | no | — |
+| `__custom_fields` | body | `object` | no | — |

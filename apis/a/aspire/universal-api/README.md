@@ -4,7 +4,7 @@ Field service software to drive growth
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aspire/latest
 - **Category:** Human Resources / HRIS
-- **Actions:** 151
+- **Actions:** 153
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.youraspire.com/
 - **Vendor API docs:** https://guide.youraspire.com/apidocs
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (151)
+## Actions (153)
 
 ### Activity
 
@@ -291,7 +291,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Partial Payment](actions/create-partial-payment.md) | POST |  |
+| [Create Partial Payment Item](actions/create-partial-payment-item.md) | POST |  |
 | [List Payments](actions/list-payments.md) | GET |  |
+| [List Payments Item](actions/list-payments-item.md) | GET |  |
 
 ### Payrolls
 

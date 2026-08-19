@@ -46,7 +46,7 @@ Responses from this API use JSON.
 | --- | --- | --- |
 | [Count Opportunities](actions/count-opportunities.md) | `GET /Opportunities/query/count` | [docs](https://autotask.net/help/developerhelp/content/apis/rest/entities/OpportunitiesEntity.htm) |
 | [Count Projects](actions/count-projects.md) | `GET /Projects/query/count` | [docs](https://autotask.net/help/developerhelp/content/APIs/REST/Entities/ProjectsEntity.htm) |
-| [Create Opportunity](actions/create-opportunity.md) | `POST /Opportunities` | [docs](https://autotask.net/help/developerhelp/content/apis/rest/entities/OpportunitiesEntity.htm) |
+| [Create Opportunity](actions/create-opportunity.md) | `POST /Opportunities` | [docs](https://www.autotask.net/help/developerhelp/Content/APIs/REST/Entities/OpportunitiesEntity.htm) |
 | [Create Opportunity Attachment](actions/create-opportunity-attachment.md) | `POST /Opportunities/{opportunityId}/Attachments` | [docs](https://www.autotask.net/help/DeveloperHelp/Content/APIs/REST/API_Calls/REST_Attachments.htm) |
 | [Get Company](actions/get-company.md) | `GET /Companies/{id}` | [docs](https://autotask.net/help/developerhelp/content/APIs/REST/Entities/CompaniesEntity.htm) |
 | [Get Contact](actions/get-contact.md) | `GET /Contacts/{id}` | [docs](https://autotask.net/help/DeveloperHelp/Content/APIs/REST/Entities/ContactsEntity.htm) |
