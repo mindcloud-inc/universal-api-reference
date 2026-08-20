@@ -16,7 +16,8 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "customerCode": "string"
+  "customerCode": "string",
+  "name": "Ava Chen"
 }'
 ```
 
@@ -29,7 +30,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
   },
   body: JSON.stringify({
     connectionId,
-    "customerCode": "string"
+    "customerCode": "string",
+    "name": "Ava Chen"
   })
 });
 
@@ -42,37 +44,37 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `customerCode` | string | yes | Customer Code. |
-| `name` | string | no | Customer Name. |
-| `alphaSort` | string | no | Customer Alpha Ref. |
-| `type` | string | no | Customer Type. |
-| `address1` | string | no | Address 1. |
-| `address2` | string | no | Address 2. |
-| `city` | string | no | City. |
-| `state` | string | no | State. |
-| `zipCode` | string | no | Zip Code. |
-| `phone` | string | no | Phone Number. |
-| `faxPhone` | string | no | Fax number. |
-| `contact1` | string | no | Contact 1. |
-| `contact2` | string | no | Contact 2. |
-| `contact3` | string | no | Contact 3. |
-| `salesperson` | string | no | Salesman Code. |
-| `termsCode` | string | no | Terms Code. |
-| `standardRetentionPercent` | number | no | Default Retention (Holdback) percent. |
-| `taxableFlag` | string | no | Taxable flag (Y/N). |
-| `salesTaxCode` | string | no | Sales tax code. |
-| `resaleNumber` | string | no | Resale certificate number. |
-| `resaleExpDate` | date | no | Resale expiration date. |
-| `statementFlag` | string | no | Send statement flag (Y/N). |
-| `financeChargeTranCode` | string | no | Finance Charge Code. |
-| `financeCharge` | number | no | Finance Charge percent. |
-| `priceLevelMaterial` | number | no | Work Order Material Level. |
-| `priceLevelLabor` | number | no | Work Order Labor Level. |
-| `creditLimit` | number | no | Credit Limit. |
-| `dateCreated` | date | no | Date Established. |
-| `Email1` | string | no | Customer Email. |
-| `markupCode` | string | no | Non-stock Markup Code. |
-| `userDefinedFields` | object | no | User-defined fields object for UDF1 through UDF20. |
+| `address1` | string | no |  |
+| `address2` | string | no |  |
+| `alphaSort` | string | no |  |
+| `city` | string | no |  |
+| `customerCode` | string | yes |  |
+| `name` | string | yes |  |
+| `type` | string | no |  |
+| `state` | string | no |  |
+| `zipCode` | string | no |  |
+| `phone` | string | no |  |
+| `faxPhone` | string | no |  |
+| `contact1` | string | no |  |
+| `contact2` | string | no |  |
+| `contact3` | string | no |  |
+| `salesperson` | string | no |  |
+| `termsCode` | string | no | Default: `NET30`. |
+| `standardRetentionPercent` | number | no |  |
+| `taxableFlag` | list | no |  |
+| `salesTaxCode` | string | no | Default: `\"\"`. |
+| `resaleNumber` | string | no |  |
+| `resaleExpDate` | date | no |  |
+| `statementFlag` | list | no |  |
+| `financeChargeTranCode` | string | no |  |
+| `financeCharge` | number | no |  |
+| `priceLevelMaterial` | list<number> | no |  |
+| `priceLevelLabor` | list<number> | no |  |
+| `creditLimit` | number | no |  |
+| `dateCreated` | date | no |  |
+| `Email1` | string | no |  |
+| `markupCode` | string | no |  |
+| `userDefinedFields` | object | no | UDF1 — UDF20 |
 
 ## Response
 

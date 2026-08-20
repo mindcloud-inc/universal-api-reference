@@ -2,7 +2,7 @@
 
 ![Last sync](https://img.shields.io/github/last-commit/mindcloud-inc/universal-api-reference?label=last%20sync)
 
-The API surface of **3,203 apps** — **75,727 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
+The API surface of **3,203 apps** — **75,769 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
 
 ```bash
 git clone https://github.com/mindcloud-inc/universal-api-reference.git
@@ -24,7 +24,7 @@ APIs are filthy things. If there is one true REST standard, precious few compani
 - HTTP methods & status codes
 - Native-API mapping (endpoint, quirks, source docs)
 
-Averaged out, that's ~23.6 documented endpoints per app — most integration platforms cover 7–8.
+Averaged out, that's ~23.7 documented endpoints per app — most integration platforms cover 7–8.
 
 ## What's in this repo
 

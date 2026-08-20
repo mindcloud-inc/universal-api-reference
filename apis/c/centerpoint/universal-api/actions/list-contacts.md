@@ -8,7 +8,7 @@ GET https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-co
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Centerpoint `connectionId` ([setup](../authentication.md)).
 
-This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [filtering](../filtering.md) (`where`), [sorting](../sorting.md) (`sort`).
 
 ## Example request
 
@@ -33,7 +33,20 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpo
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields[profiles]` | string | no | Optional fields profiles query parameter. |
+| `fields[companies]` | string | no | Optional fields companies query parameter. |
+| `include` | string | no | Optional include query parameter. |
 
 ## Response
 
@@ -47,12 +60,18 @@ const { success, data } = await response.json();
         "companyId": 1,
         "companyName": "Ava Chen",
         "createdAt": "string",
+        "custom": {
+          "primarycontactonsite": {}
+        },
+        "customWithLabels": {
+          "primaryContactOnSite": {}
+        },
         "deletedAt": {},
-        "email": {},
+        "email": "ava@example.com",
         "externalId": "string",
         "fax": {},
         "groupId": 1,
-        "imageId": {},
+        "imageId": 1,
         "importId": {},
         "isActive": true,
         "isBilling": true,
@@ -91,13 +110,66 @@ const { success, data } = await response.json();
         "name": "Ava Chen",
         "office": {},
         "officeExt": {},
-        "position": "string",
+        "options": {
+          "productionNotifications": {
+            "email": true,
+            "sms": true
+          },
+          "productionNotificationsCompany": {
+            "email": true,
+            "sms": true
+          },
+          "productionNotificationsCorporate": {
+            "email": true,
+            "sms": true
+          },
+          "productionNotificationsNonCorporate": {
+            "email": true,
+            "sms": true
+          },
+          "productionNotificationsProperty": {
+            "email": true,
+            "sms": true
+          },
+          "propertyIds": [
+            {}
+          ],
+          "serviceNotifications": {
+            "email": true,
+            "sms": true
+          },
+          "serviceNotificationsCompany": {
+            "email": true,
+            "sms": true
+          },
+          "serviceNotificationsCorporate": {
+            "email": true,
+            "sms": true
+          },
+          "serviceNotificationsNonCorporate": {
+            "email": true,
+            "sms": true
+          },
+          "serviceNotificationsNonTexas": {
+            "email": true,
+            "sms": true
+          },
+          "serviceNotificationsProperty": {
+            "email": true,
+            "sms": true
+          },
+          "serviceNotificationsTexas": {
+            "email": true,
+            "sms": true
+          }
+        },
+        "position": {},
         "propertyCount": 1,
-        "recentActivity": {},
+        "recentActivity": "string",
         "roles": "string",
         "timezone": "string",
         "updatedAt": "string",
-        "userRoleId": {}
+        "userRoleId": 1
       },
       "id": "string",
       "type": "string"
@@ -115,12 +187,14 @@ const { success, data } = await response.json();
 | `attributes.companyId` | number |  |
 | `attributes.companyName` | string |  |
 | `attributes.createdAt` | string |  |
+| `attributes.custom.primarycontactonsite` | object |  |
+| `attributes.customWithLabels.primaryContactOnSite` | object |  |
 | `attributes.deletedAt` | object |  |
-| `attributes.email` | object |  |
+| `attributes.email` | string |  |
 | `attributes.externalId` | string |  |
 | `attributes.fax` | object |  |
 | `attributes.groupId` | number |  |
-| `attributes.imageId` | object |  |
+| `attributes.imageId` | number |  |
 | `attributes.importId` | object |  |
 | `attributes.isActive` | boolean |  |
 | `attributes.isBilling` | boolean |  |
@@ -157,13 +231,38 @@ const { success, data } = await response.json();
 | `attributes.name` | string |  |
 | `attributes.office` | object |  |
 | `attributes.officeExt` | object |  |
-| `attributes.position` | string |  |
+| `attributes.options.productionNotifications.email` | boolean |  |
+| `attributes.options.productionNotifications.sms` | boolean |  |
+| `attributes.options.productionNotificationsCompany.email` | boolean |  |
+| `attributes.options.productionNotificationsCompany.sms` | boolean |  |
+| `attributes.options.productionNotificationsCorporate.email` | boolean |  |
+| `attributes.options.productionNotificationsCorporate.sms` | boolean |  |
+| `attributes.options.productionNotificationsNonCorporate.email` | boolean |  |
+| `attributes.options.productionNotificationsNonCorporate.sms` | boolean |  |
+| `attributes.options.productionNotificationsProperty.email` | boolean |  |
+| `attributes.options.productionNotificationsProperty.sms` | boolean |  |
+| `attributes.options.propertyIds` | array<object> |  |
+| `attributes.options.serviceNotifications.email` | boolean |  |
+| `attributes.options.serviceNotifications.sms` | boolean |  |
+| `attributes.options.serviceNotificationsCompany.email` | boolean |  |
+| `attributes.options.serviceNotificationsCompany.sms` | boolean |  |
+| `attributes.options.serviceNotificationsCorporate.email` | boolean |  |
+| `attributes.options.serviceNotificationsCorporate.sms` | boolean |  |
+| `attributes.options.serviceNotificationsNonCorporate.email` | boolean |  |
+| `attributes.options.serviceNotificationsNonCorporate.sms` | boolean |  |
+| `attributes.options.serviceNotificationsNonTexas.email` | boolean |  |
+| `attributes.options.serviceNotificationsNonTexas.sms` | boolean |  |
+| `attributes.options.serviceNotificationsProperty.email` | boolean |  |
+| `attributes.options.serviceNotificationsProperty.sms` | boolean |  |
+| `attributes.options.serviceNotificationsTexas.email` | boolean |  |
+| `attributes.options.serviceNotificationsTexas.sms` | boolean |  |
+| `attributes.position` | object |  |
 | `attributes.propertyCount` | number |  |
-| `attributes.recentActivity` | object |  |
+| `attributes.recentActivity` | string |  |
 | `attributes.roles` | string |  |
 | `attributes.timezone` | string |  |
 | `attributes.updatedAt` | string |  |
-| `attributes.userRoleId` | object |  |
+| `attributes.userRoleId` | number |  |
 | `id` | string |  |
 | `type` | string |  |
 

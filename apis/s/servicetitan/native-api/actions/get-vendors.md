@@ -15,16 +15,17 @@ This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `ids` | query | `string` | no |
-| `active` | query | `string` | no |
-| `createdBefore` | query | `string` | no |
-| `createdOnOrAfter` | query | `string` | no |
-| `externalDataApplicationGuid` | query | `string` | no |
-| `externalDataKey` | query | `string` | no |
-| `externalDataValues` | query | `string` | no |
-| `includeTotal` | query | `boolean` | no |
-| `modifiedBefore` | query | `string` | no |
-| `modifiedOnOrAfter` | query | `string` | no |
-| `sort` | query | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `ids` | query | `string` | no | — |
+| `name` | query | `string` | no | Returns vendors whose name contains the supplied value (partial, case-insensitive match). |
+| `active` | query | `string` | no | — |
+| `createdBefore` | query | `string` | no | — |
+| `createdOnOrAfter` | query | `string` | no | — |
+| `externalDataApplicationGuid` | query | `string` | no | — |
+| `externalDataKey` | query | `string` | no | — |
+| `externalDataValues` | query | `string` | no | — |
+| `includeTotal` | query | `boolean` | no | — |
+| `modifiedBefore` | query | `string` | no | — |
+| `modifiedOnOrAfter` | query | `string` | no | — |
+| `sort` | query | `string` | no | — |

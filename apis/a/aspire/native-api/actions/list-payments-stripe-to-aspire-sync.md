@@ -1,11 +1,11 @@
-# List Payments Item with Aspire
+# List Payments – Stripe to Aspire Sync with Aspire
 
 ## Endpoint
 
 - **Method:** `GET`
 - **Path:** `Payments`
 - **Base URL:** `https://{environment}.youraspire.com/`
-- **Official documentation:** [List Payments Item](https://guide.youraspire.com/apidocs/payments-4)
+- **Official documentation:** [List Payments – Stripe to Aspire Sync](https://guide.youraspire.com/apidocs/payments-4)
 
 ## Capabilities
 

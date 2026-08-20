@@ -3,7 +3,7 @@
 
 
 ```
-PATCH https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/update-location-tags
+PUT https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/update-location-tags
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a ServiceTitan `connectionId` ([setup](../authentication.md)).
@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a ServiceT
 ## Example request
 
 ```bash
-curl -X PATCH "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/update-location-tags" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/update-location-tags" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -22,7 +22,7 @@ curl -X PATCH "https://connect.mindcloud.co/v1/universal/servicetitan/latest/act
 
 ```js
 const response = await fetch('https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/update-location-tags', {
-  method: 'PATCH',
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'

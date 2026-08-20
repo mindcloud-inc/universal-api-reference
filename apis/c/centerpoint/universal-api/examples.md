@@ -2,21 +2,22 @@
 
 These examples use the MindCloud API key and Centerpoint connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get cost_code
+## Get Budget Type
 
 
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-cost-code?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-budget-type?connectionId=$CONNECTION_ID&BUDGET_TYPE_ID=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  "BUDGET_TYPE_ID": "1"
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-cost-code?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-budget-type?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -33,13 +34,12 @@ Example response:
   "data": [
     {
       "attributes": {
+        "code": "string",
+        "color": "string",
         "createdAt": "string",
         "deletedAt": {},
         "name": "Ava Chen",
-        "spent": 1,
-        "type": "string",
-        "updatedAt": "string",
-        "value": 1
+        "updatedAt": "string"
       },
       "id": "string",
       "type": "string"
@@ -49,7 +49,7 @@ Example response:
 }
 ```
 
-See the full [Get cost_code action reference](actions/get-cost-code.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/centerpoint/latest/actions/get-cost-code).
+See the full [Get Budget Type action reference](actions/get-budget-type.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/centerpoint/latest/actions/get-budget-type).
 
 ## Create Company
 

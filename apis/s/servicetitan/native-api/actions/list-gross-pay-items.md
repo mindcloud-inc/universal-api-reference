@@ -17,6 +17,14 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `modifiedOnOrAfter` | query | `string` | no |
-| `employeeId` | query | `string` | no |
+| `employeeId` | query | `number` | no |
+| `sort` | query | `string` | no |
 | `payrollIds` | query | `string` | no |
+| `pageSize` | query | `number` | no |
+| `dateOnOrAfter` | query | `string` | no |
+| `dateOnOrBefore` | query | `string` | no |
+| `createdOnOrAfter` | query | `string` | no |
+| `createdBefore` | query | `string` | no |
+| `modifiedOnOrAfter` | query | `string` | no |
+| `modifiedOnOrBefore` | query | `string` | no |
+| `modifiedBefore` | query | `string` | no |

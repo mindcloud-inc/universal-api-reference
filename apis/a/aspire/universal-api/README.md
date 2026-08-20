@@ -291,9 +291,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Partial Payment](actions/create-partial-payment.md) | POST |  |
-| [Create Partial Payment Item](actions/create-partial-payment-item.md) | POST |  |
+| [Create Partial Payment – Stripe to Aspire Sync](actions/create-partial-payment-stripe-to-aspire-sync.md) | POST |  |
 | [List Payments](actions/list-payments.md) | GET |  |
-| [List Payments Item](actions/list-payments-item.md) | GET |  |
+| [List Payments – Stripe to Aspire Sync](actions/list-payments-stripe-to-aspire-sync.md) | GET |  |
 
 ### Payrolls
 

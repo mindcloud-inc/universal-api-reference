@@ -4,7 +4,7 @@ Manage MarketTime orders, inventory, customers, items, and shipments
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/marketTime/latest
 - **Category:** Commerce
-- **Actions:** 4
+- **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.markettime.com/
 - **Vendor API docs:** https://publicapi.markettime.com/swagger-ui/index.html
@@ -22,7 +22,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/marketTime/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (4)
+## Actions (5)
+
+### Item
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Items by Item ID](actions/list-items-by-item-id.md) | GET |  |
 
 ### Item Inventory
 

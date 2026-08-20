@@ -8,7 +8,7 @@ GET https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-se
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Centerpoint `connectionId` ([setup](../authentication.md)).
 
-This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [filtering](../filtering.md) (`where`), [sorting](../sorting.md) (`sort`).
 
 ## Example request
 
@@ -41,6 +41,21 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `updatedAfter` | string | no | Example: 2025-01-13 10:00:00 |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields[productions]` | string | no | Optional fields productions query parameter. |
+| `fields[properties]` | string | no | Optional fields properties query parameter. |
+| `fields[buildingDivisions]` | string | no | Optional fields building divisions query parameter. |
+| `fields[companies]` | string | no | Optional fields companies query parameter. |
+| `fields[profiles]` | string | no | Optional fields profiles query parameter. |
+| `fields[employees]` | string | no | Optional fields employees query parameter. |
+| `fields[locations]` | string | no | Optional fields locations query parameter. |
+| `fields[subcontractorProfiles]` | string | no | Optional fields subcontractor profiles query parameter. |
+| `fields[workflowStages]` | string | no | Optional fields workflow stages query parameter. |
+| `include` | string | no | Optional include query parameter. |
+
 ## Response
 
 ```json
@@ -60,6 +75,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "completedAt": {},
         "cost": 1,
         "createdAt": "string",
+        "customWithLabels": [
+          {}
+        ],
         "deletedAt": {},
         "description": {},
         "displayStatus": "string",
@@ -79,6 +97,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "invoicePurchaseOrder": {},
         "isApprovalRequired": {},
         "laborTravelTotal": 1,
+        "latestPaidDate": {},
         "latestStageTransitionedAt": "string",
         "leadDeadAt": {},
         "leadOpenedAt": "string",
@@ -94,8 +113,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "opportunityType": "string",
         "options": {
           "importBatchId": 1,
-          "lumpSumSitebid": true,
-          "notifications": "string",
           "originalContractAmount": 1
         },
         "price": 1,
@@ -137,6 +154,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.completedAt` | object |  |
 | `attributes.cost` | number |  |
 | `attributes.createdAt` | string |  |
+| `attributes.customWithLabels` | array<object> |  |
 | `attributes.deletedAt` | object |  |
 | `attributes.description` | object |  |
 | `attributes.displayStatus` | string |  |
@@ -156,6 +174,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.invoicePurchaseOrder` | object |  |
 | `attributes.isApprovalRequired` | object |  |
 | `attributes.laborTravelTotal` | number |  |
+| `attributes.latestPaidDate` | object |  |
 | `attributes.latestStageTransitionedAt` | string |  |
 | `attributes.leadDeadAt` | object |  |
 | `attributes.leadOpenedAt` | string |  |
@@ -170,8 +189,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.openedAt` | object |  |
 | `attributes.opportunityType` | string |  |
 | `attributes.options.importBatchId` | number |  |
-| `attributes.options.lumpSumSitebid` | boolean |  |
-| `attributes.options.notifications` | string |  |
 | `attributes.options.originalContractAmount` | number |  |
 | `attributes.price` | number |  |
 | `attributes.profileId` | object |  |

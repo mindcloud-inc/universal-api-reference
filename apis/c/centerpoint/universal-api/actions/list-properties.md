@@ -43,6 +43,15 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filter[updated_at][gt]` | string | no |  |
 | `include` | string | no | e.g. = manager,company,primaryContractor,location,integrationRelations |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields[properties]` | string | no | Optional fields properties query parameter. |
+| `fields[profiles]` | string | no | Optional fields profiles query parameter. |
+| `fields[companies]` | string | no | Optional fields companies query parameter. |
+| `fields[locations]` | string | no | Optional fields locations query parameter. |
+
 ## Response
 
 ```json
@@ -50,55 +59,50 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "data": [
-        {
-          "attributes": {
-            "accountId": 1,
-            "closeRate": "string",
-            "combinedMeasurement": "string",
-            "companyId": 1,
-            "county": "string",
-            "createdAt": "string",
-            "deletedAt": {},
-            "externalId": "string",
-            "importId": {},
-            "isVisible": true,
-            "latitude": 1,
-            "locality": "string",
-            "locationId": 1,
-            "longitude": 1,
-            "managerId": 1,
-            "name": "Ava Chen",
-            "options": {
-              "serviceWorkInstructions": "string"
-            },
-            "postalCode": "string",
-            "primaryBuildingId": 1,
-            "primaryContractorId": {},
-            "recentActivity": "string",
-            "region": "string",
-            "squares": 1,
-            "streetAddress": "string",
-            "subpremise": {},
-            "timezone": "string",
-            "updatedAt": "string",
-            "uuid": "string",
-            "weightedAverageScore": "string"
-          },
-          "id": "string",
-          "type": "string"
-        }
-      ],
-      "meta": {
-        "page": {
-          "currentPage": 1,
-          "from": 1,
-          "lastPage": 1,
-          "perPage": 1,
-          "to": 1,
-          "total": 1
-        }
-      }
+      "attributes": {
+        "accountId": 1,
+        "closeRate": {},
+        "combinedMeasurement": "string",
+        "companyId": 1,
+        "county": "string",
+        "createdAt": "string",
+        "custom": {
+          "kkclevel": {},
+          "primaryonsitecontact": {},
+          "roofaccess": {},
+          "stagingandparkinglocation": {}
+        },
+        "customWithLabels": {
+          "maintenancePlanLevel": {},
+          "primaryOnsiteContact": {},
+          "roofAccess": {},
+          "stagingAndParkingLocation": {}
+        },
+        "deletedAt": {},
+        "externalId": "string",
+        "importId": {},
+        "isVisible": true,
+        "latitude": 1,
+        "locality": "string",
+        "locationId": 1,
+        "longitude": 1,
+        "managerId": {},
+        "name": "Ava Chen",
+        "postalCode": "string",
+        "primaryBuildingId": 1,
+        "primaryContractorId": {},
+        "recentActivity": "string",
+        "region": "string",
+        "squares": 1,
+        "streetAddress": "string",
+        "subpremise": {},
+        "timezone": "string",
+        "updatedAt": "string",
+        "uuid": "string",
+        "weightedAverageScore": {}
+      },
+      "id": "string",
+      "type": "string"
     }
   ],
   "meta": {}
@@ -109,43 +113,44 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `data[].attributes.accountId` | number |  |
-| `data[].attributes.closeRate` | string |  |
-| `data[].attributes.combinedMeasurement` | string |  |
-| `data[].attributes.companyId` | number |  |
-| `data[].attributes.county` | string |  |
-| `data[].attributes.createdAt` | string |  |
-| `data[].attributes.deletedAt` | object |  |
-| `data[].attributes.externalId` | string |  |
-| `data[].attributes.importId` | object |  |
-| `data[].attributes.isVisible` | boolean |  |
-| `data[].attributes.latitude` | number |  |
-| `data[].attributes.locality` | string |  |
-| `data[].attributes.locationId` | number |  |
-| `data[].attributes.longitude` | number |  |
-| `data[].attributes.managerId` | number |  |
-| `data[].attributes.name` | string |  |
-| `data[].attributes.options.serviceWorkInstructions` | string |  |
-| `data[].attributes.postalCode` | string |  |
-| `data[].attributes.primaryBuildingId` | number |  |
-| `data[].attributes.primaryContractorId` | object |  |
-| `data[].attributes.recentActivity` | string |  |
-| `data[].attributes.region` | string |  |
-| `data[].attributes.squares` | number |  |
-| `data[].attributes.streetAddress` | string |  |
-| `data[].attributes.subpremise` | object |  |
-| `data[].attributes.timezone` | string |  |
-| `data[].attributes.updatedAt` | string |  |
-| `data[].attributes.uuid` | string |  |
-| `data[].attributes.weightedAverageScore` | string |  |
-| `data[].id` | string |  |
-| `data[].type` | string |  |
-| `meta.page.currentPage` | number |  |
-| `meta.page.from` | number |  |
-| `meta.page.lastPage` | number |  |
-| `meta.page.perPage` | number |  |
-| `meta.page.to` | number |  |
-| `meta.page.total` | number |  |
+| `attributes.accountId` | number |  |
+| `attributes.closeRate` | object |  |
+| `attributes.combinedMeasurement` | string |  |
+| `attributes.companyId` | number |  |
+| `attributes.county` | string |  |
+| `attributes.createdAt` | string |  |
+| `attributes.custom.kkclevel` | object |  |
+| `attributes.custom.primaryonsitecontact` | object |  |
+| `attributes.custom.roofaccess` | object |  |
+| `attributes.custom.stagingandparkinglocation` | object |  |
+| `attributes.customWithLabels.maintenancePlanLevel` | object |  |
+| `attributes.customWithLabels.primaryOnsiteContact` | object |  |
+| `attributes.customWithLabels.roofAccess` | object |  |
+| `attributes.customWithLabels.stagingAndParkingLocation` | object |  |
+| `attributes.deletedAt` | object |  |
+| `attributes.externalId` | string |  |
+| `attributes.importId` | object |  |
+| `attributes.isVisible` | boolean |  |
+| `attributes.latitude` | number |  |
+| `attributes.locality` | string |  |
+| `attributes.locationId` | number |  |
+| `attributes.longitude` | number |  |
+| `attributes.managerId` | object |  |
+| `attributes.name` | string |  |
+| `attributes.postalCode` | string |  |
+| `attributes.primaryBuildingId` | number |  |
+| `attributes.primaryContractorId` | object |  |
+| `attributes.recentActivity` | string |  |
+| `attributes.region` | string |  |
+| `attributes.squares` | number |  |
+| `attributes.streetAddress` | string |  |
+| `attributes.subpremise` | object |  |
+| `attributes.timezone` | string |  |
+| `attributes.updatedAt` | string |  |
+| `attributes.uuid` | string |  |
+| `attributes.weightedAverageScore` | object |  |
+| `id` | string |  |
+| `type` | string |  |
 
 ## Native endpoint
 

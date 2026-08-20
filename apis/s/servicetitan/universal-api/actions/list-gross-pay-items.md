@@ -39,9 +39,17 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `modifiedOnOrAfter` | string | no |  |
-| `employeeId` | string | no |  |
+| `employeeId` | number | no |  |
+| `sort` | string | no |  |
 | `payrollIds` | string | no |  |
+| `pageSize` | number | no |  |
+| `dateOnOrAfter` | string | no |  |
+| `dateOnOrBefore` | string | no |  |
+| `createdOnOrAfter` | string | no |  |
+| `createdBefore` | string | no |  |
+| `modifiedOnOrAfter` | string | no |  |
+| `modifiedOnOrBefore` | string | no |  |
+| `modifiedBefore` | string | no |  |
 
 ## Response
 

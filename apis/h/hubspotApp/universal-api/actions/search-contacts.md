@@ -42,6 +42,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filterGroups[].filters[].propertyName` | list<string> | no | The contact property to filter on. |
 | `filterGroups[].filters[].operator` | list | no | The comparison operator used by the filter. One of: `BETWEEN`, `CONTAINS_TOKEN`, `EQ`, `GT`, `GTE`, `HAS_PROPERTY`, `IN`, `LT`, `LTE`, `NEQ`, `NOT_CONTAINS_TOKEN`, `NOT_HAS_PROPERTY`, `NOT_IN`. |
 | `filterGroups[].filters[].value` | string | no | The primary comparison value used by the filter. |
+| `properties` | list<string> | no | Select the contact properties to include in the response. Accepts multiple values as an array. |
 
 ### Advanced
 
@@ -52,7 +53,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `after` | string | no | The paging cursor for the next set of search results. |
 | `limit` | number | no | The maximum number of contacts to return. |
 | `sorts[]` | array<string> | no | Fields used to sort the returned contacts. |
-| `properties[]` | array<string> | no | Contact properties to include in the response. |
 
 ## Response
 

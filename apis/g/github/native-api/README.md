@@ -38,7 +38,7 @@ Responses from this API use JSON.
 
 ## Pagination
 
-Use `per_page` in the query string to set the page size. Use `page` in the query string to choose the page; numbering starts at 1. Follow the complete next-page URL returned by the API.
+Use `per_page` in the query string to set the page size. Use `page` in the query string to choose the page; numbering starts at 1.
 
 ## Filtering
 

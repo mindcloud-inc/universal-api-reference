@@ -40,6 +40,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ids` | string | no |  |
+| `name` | string | no | Returns vendors whose name contains the supplied value (partial, case-insensitive match). |
 | `active` | string | no |  |
 | `createdBefore` | string | no |  |
 | `createdOnOrAfter` | string | no |  |

@@ -168,6 +168,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Get Location By Id](actions/get-location-by-id.md) | GET | Retrieves a location from ServiceTitan by ID. |
 | [Get Locations](actions/get-locations.md) | GET |  |
 
+### Locations
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Update Location Tags](actions/update-location-tags.md) | PUT |  |
+
 ### Marketing
 
 | Action | Method | Description |
@@ -195,7 +201,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Add Customer Tag](actions/add-customer-tag.md) | POST |  |
 | [List Payroll by Employee ID](actions/list-payroll-by-employee-id.md) | GET | Retrieves payrolls from ServiceTitan for an employee. |
 | [List Payroll by Technician ID](actions/list-payroll-by-technician-id.md) | GET | Retrieves payrolls from ServiceTitan for a technician. |
-| [Update Location Tags](actions/update-location-tags.md) | PATCH |  |
 
 ### Payroll Runs
 

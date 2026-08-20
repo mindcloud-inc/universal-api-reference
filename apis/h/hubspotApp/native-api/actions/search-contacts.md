@@ -28,4 +28,4 @@ This operation supports [filtering](../README.md#filtering).
 | `after` | body | `string` | no | The paging cursor for the next set of search results. |
 | `limit` | body | `number` | no | The maximum number of contacts to return. |
 | `sorts[]` | body | `array<string>` | no | Fields used to sort the returned contacts. |
-| `properties[]` | body | `array<string>` | no | Contact properties to include in the response. |
+| `properties` | body | `list<string>` | no | Select the contact properties to include in the response. Send multiple values as a array. |

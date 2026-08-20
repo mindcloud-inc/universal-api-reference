@@ -42,12 +42,64 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filter[subjectId]` | number | no |  |
 | `filter[subjectType]` | string | no |  |
 | `filter[tag]` | string | no | Default: `Photos`. |
-| `include` | string | no |  |
 | `sort` | string | no | Default: `-createdAt`. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields[profiles]` | string | no |  |
+| `fields[employees]` | string | no |  |
+| `fields[buildingDivisions]` | string | no |  |
+| `include` | string | no |  |
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Centerpoint API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "attributes": {
+        "archivedAt": {},
+        "createdAt": "string",
+        "deletedAt": {},
+        "pinToTop": true,
+        "subjectId": 1,
+        "subjectType": "string",
+        "updatedAt": "string"
+      },
+      "id": "string",
+      "relationships": {
+        "file": {
+          "data": {
+            "id": "string",
+            "type": "string"
+          }
+        }
+      },
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `attributes.archivedAt` | object |  |
+| `attributes.createdAt` | string |  |
+| `attributes.deletedAt` | object |  |
+| `attributes.pinToTop` | boolean |  |
+| `attributes.subjectId` | number |  |
+| `attributes.subjectType` | string |  |
+| `attributes.updatedAt` | string |  |
+| `id` | string |  |
+| `relationships.file.data.id` | string |  |
+| `relationships.file.data.type` | string |  |
+| `type` | string |  |
 
 ## Native endpoint
 

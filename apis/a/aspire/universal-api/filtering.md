@@ -68,7 +68,7 @@ Combine conditions with `;` for AND and `,` for OR. For example, `where=status==
 - [List Payment Categories](actions/list-payment-categories.md)
 - [List Payment Terms](actions/list-payment-terms.md)
 - [List Payments](actions/list-payments.md)
-- [List Payments Item](actions/list-payments-item.md)
+- [List Payments – Stripe to Aspire Sync](actions/list-payments-stripe-to-aspire-sync.md)
 - [List Properties](actions/list-properties.md)
 - [List Property Availabilities](actions/list-property-availabilities.md)
 - [List Property Contacts](actions/list-property-contacts.md)

@@ -1,4 +1,4 @@
-# Centerpoint: Get Single Company
+# Centerpoint: Get Company
 
 
 
@@ -38,6 +38,15 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `COMPANY_ID` | string | yes |  |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields[companies]` | string | no | Optional fields companies query parameter. |
+| `fields[profiles]` | string | no | Optional fields profiles query parameter. |
+| `fields[employees]` | string | no | Optional fields employees query parameter. |
+| `include` | string | no | Optional include query parameter. |
+
 ## Response
 
 ```json
@@ -48,7 +57,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
       "attributes": {
         "accountId": 1,
         "closeRate": "string",
-        "country": {},
+        "country": "string",
         "county": "string",
         "createdAt": "string",
         "custom": {
@@ -65,8 +74,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "longitude": 1,
         "name": "Ava Chen",
         "options": {
-          "autoGenerateExternalIds": true,
-          "billingAddress": "string",
           "dailyProgressReportIncludedWork": "string",
           "dailyProgressReportTimeOfDay": "string",
           "isHideProductPriceFromTechnicians": true,
@@ -84,7 +91,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "timezone": "string",
         "type": "string",
         "updatedAt": "string",
-        "website": "string"
+        "website": {}
       },
       "id": "string",
       "type": "string"
@@ -100,7 +107,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- |
 | `attributes.accountId` | number |  |
 | `attributes.closeRate` | string |  |
-| `attributes.country` | object |  |
+| `attributes.country` | string |  |
 | `attributes.county` | string |  |
 | `attributes.createdAt` | string |  |
 | `attributes.custom.licensed` | object |  |
@@ -112,8 +119,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.locality` | string |  |
 | `attributes.longitude` | number |  |
 | `attributes.name` | string |  |
-| `attributes.options.autoGenerateExternalIds` | boolean |  |
-| `attributes.options.billingAddress` | string |  |
 | `attributes.options.dailyProgressReportIncludedWork` | string |  |
 | `attributes.options.dailyProgressReportTimeOfDay` | string |  |
 | `attributes.options.isHideProductPriceFromTechnicians` | boolean |  |
@@ -130,7 +135,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.timezone` | string |  |
 | `attributes.type` | string |  |
 | `attributes.updatedAt` | string |  |
-| `attributes.website` | string |  |
+| `attributes.website` | object |  |
 | `id` | string |  |
 | `type` | string |  |
 

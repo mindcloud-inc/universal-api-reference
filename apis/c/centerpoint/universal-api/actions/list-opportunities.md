@@ -43,6 +43,22 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filter[updatedAt][gte]` | string | no |  |
 | `include` | string | no |  |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields[productions]` | string | no | Optional fields productions query parameter. |
+| `fields[properties]` | string | no | Optional fields properties query parameter. |
+| `fields[companies]` | string | no | Optional fields companies query parameter. |
+| `fields[profiles]` | string | no | Optional fields profiles query parameter. |
+| `fields[employees]` | string | no | Optional fields employees query parameter. |
+| `fields[leadTypes]` | string | no | Optional fields lead types query parameter. |
+| `fields[workflowStages]` | string | no | Optional fields workflow stages query parameter. |
+| `fields[buildingDivisions]` | string | no | Optional fields building divisions query parameter. |
+| `reports[0]` | string | no | Optional reports 0 query parameter. |
+| `reports[1]` | string | no | Optional reports 1 query parameter. |
+| `reports[2]` | string | no | Optional reports 2 query parameter. |
+
 ## Response
 
 ```json
@@ -62,6 +78,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "completedAt": {},
         "cost": 1,
         "createdAt": "string",
+        "customWithLabels": [
+          {}
+        ],
         "deletedAt": {},
         "description": {},
         "displayStatus": "string",
@@ -81,6 +100,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "invoicePurchaseOrder": {},
         "isApprovalRequired": {},
         "laborTravelTotal": 1,
+        "latestPaidDate": {},
         "latestStageTransitionedAt": "string",
         "leadDeadAt": {},
         "leadOpenedAt": "string",
@@ -96,8 +116,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "opportunityType": "string",
         "options": {
           "importBatchId": 1,
-          "lumpSumSitebid": true,
-          "notifications": "string",
           "originalContractAmount": 1
         },
         "price": 1,
@@ -139,6 +157,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.completedAt` | object |  |
 | `attributes.cost` | number |  |
 | `attributes.createdAt` | string |  |
+| `attributes.customWithLabels` | array<object> |  |
 | `attributes.deletedAt` | object |  |
 | `attributes.description` | object |  |
 | `attributes.displayStatus` | string |  |
@@ -158,6 +177,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.invoicePurchaseOrder` | object |  |
 | `attributes.isApprovalRequired` | object |  |
 | `attributes.laborTravelTotal` | number |  |
+| `attributes.latestPaidDate` | object |  |
 | `attributes.latestStageTransitionedAt` | string |  |
 | `attributes.leadDeadAt` | object |  |
 | `attributes.leadOpenedAt` | string |  |
@@ -172,8 +192,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.openedAt` | object |  |
 | `attributes.opportunityType` | string |  |
 | `attributes.options.importBatchId` | number |  |
-| `attributes.options.lumpSumSitebid` | boolean |  |
-| `attributes.options.notifications` | string |  |
 | `attributes.options.originalContractAmount` | number |  |
 | `attributes.price` | number |  |
 | `attributes.profileId` | object |  |

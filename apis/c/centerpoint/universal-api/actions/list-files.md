@@ -1,9 +1,9 @@
-# Centerpoint: Get Single File
+# Centerpoint: List Files
 
 
 
 ```
-GET https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-single-file
+GET https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-files
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Centerpoint `connectionId` ([setup](../authentication.md)).
@@ -11,17 +11,16 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Centerpo
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-single-file?connectionId=$CONNECTION_ID&fileId=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-files?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId,
-  "fileId": "string"
+  connectionId
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-single-file?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-files?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -30,13 +29,7 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpo
 const { success, data } = await response.json();
 ```
 
-## Inputs
 
-Arguments are sent as query string parameters ([conventions](../arguments.md)).
-
-| Key | Type | Required | Description |
-| --- | --- | --- | --- |
-| `fileId` | string | yes |  |
 
 ## Response
 
@@ -48,16 +41,16 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
       "attributes": {
         "createdAt": "string",
         "deletedAt": {},
-        "height": 1,
+        "height": {},
         "latitude": 1,
         "longitude": 1,
         "mimeType": "string",
-        "thumbnailUrl": {},
+        "thumbnailUrl": "https://example.com",
         "title": {},
         "updatedAt": "string",
         "url": "https://example.com",
         "variety": "string",
-        "width": 1
+        "width": {}
       },
       "id": "string",
       "type": "string"
@@ -73,20 +66,20 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- |
 | `attributes.createdAt` | string |  |
 | `attributes.deletedAt` | object |  |
-| `attributes.height` | number |  |
+| `attributes.height` | object |  |
 | `attributes.latitude` | number |  |
 | `attributes.longitude` | number |  |
 | `attributes.mimeType` | string |  |
-| `attributes.thumbnailUrl` | object |  |
+| `attributes.thumbnailUrl` | string |  |
 | `attributes.title` | object |  |
 | `attributes.updatedAt` | string |  |
 | `attributes.url` | string |  |
 | `attributes.variety` | string |  |
-| `attributes.width` | number |  |
+| `attributes.width` | object |  |
 | `id` | string |  |
 | `type` | string |  |
 
 ## Native endpoint
 
-Through the native Centerpoint API, this operation is `GET files/:fileId` (base URL `https://api.centerpointconnect.io/centerpoint/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-single-file.md) for the provider-specific parameters and requirements.
+Through the native Centerpoint API, this operation is `GET files` (base URL `https://api.centerpointconnect.io/centerpoint/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-files.md) for the provider-specific parameters and requirements.
 

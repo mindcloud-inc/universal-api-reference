@@ -1,11 +1,11 @@
-# Create Partial Payment Item with Aspire
+# Create Partial Payment – Stripe to Aspire Sync with Aspire
 
 ## Endpoint
 
 - **Method:** `POST`
 - **Path:** `PartialPayments`
 - **Base URL:** `https://{environment}.youraspire.com/`
-- **Official documentation:** [Create Partial Payment Item](https://guide.youraspire.com/v1-api/apidocs/en/partialpayments-4)
+- **Official documentation:** [Create Partial Payment – Stripe to Aspire Sync](https://guide.youraspire.com/v1-api/apidocs/en/partialpayments-4)
 
 ## Parameters
 
