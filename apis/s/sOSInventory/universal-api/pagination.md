@@ -22,4 +22,5 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actio
 - [List Invoices](actions/list-invoices.md)
 - [List Locations](actions/list-locations.md)
 - [List Purchase Orders](actions/list-purchase-orders.md)
+- [List Shipments](actions/list-shipments.md)
 - [List Vendors](actions/list-vendors.md)

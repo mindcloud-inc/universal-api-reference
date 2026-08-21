@@ -1,6 +1,6 @@
 # SOS Inventory: List Shipments
 
-Retrieves shipments from SOS Inventory.
+Retrieves customers from SOS Inventory.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actions/list-shipments
@@ -8,16 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actions/list-s
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a SOS Inventory `connectionId` ([setup](../authentication.md)).
 
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actions/list-shipments?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actions/list-shipments?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  limit: '25',
+  offset: '0'
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actions/list-shipments?${params}`, {
@@ -29,7 +33,16 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/sOSInven
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `archived` | string | no | Use yes to return archived records only or no to return active records only. |
+| `email` | string | no | Filter by the customer's email. |
+| `name` | string | no | Filter by matches on the name or fullname fields. |
+| `query` | string | no | Filter by matches on name, fullname, or notes. |
 
 ## Response
 
@@ -38,117 +51,82 @@ const { success, data } = await response.json();
   "success": true,
   "data": [
     {
+      "altPhone": "string",
       "archived": true,
-      "assignedToUser": {},
       "billing": {
-        "address": {
-          "city": {},
-          "country": {},
-          "line1": {},
-          "line2": {},
-          "line3": {},
-          "line4": {},
-          "line5": {},
-          "postalCode": {},
-          "stateProvince": {}
-        },
-        "addressName": "Ava Chen",
-        "addressType": "string",
-        "company": {},
-        "contact": {},
-        "email": {},
-        "phone": {}
+        "city": {},
+        "country": {},
+        "line1": {},
+        "line2": {},
+        "line3": {},
+        "line4": {},
+        "line5": {},
+        "postalCode": {},
+        "stateProvince": {}
       },
-      "channel": {},
-      "comment": "string",
-      "customer": {
-        "id": 1,
-        "name": "Ava Chen"
+      "billWithParent": true,
+      "businessLicense": "string",
+      "companyName": "Ava Chen",
+      "contact": {
+        "firstName": {},
+        "lastName": {},
+        "middleName": {},
+        "suffix": {},
+        "title": {}
       },
-      "customerMessage": "string",
-      "customerNotes": "string",
-      "customerPO": "string",
+      "contractorNumber": "string",
+      "creditHold": true,
+      "currency": {},
+      "customerType": {},
       "customFields": {},
-      "date": "string",
-      "department": {},
-      "forceToShipStation": true,
-      "hasSignature": true,
+      "email": "ava@example.com",
+      "expMonth": {},
+      "expYear": {},
+      "fax": "string",
+      "foundUsVia": "string",
+      "fullname": "Ava Chen",
+      "hasCardOnFile": true,
+      "hasChildren": true,
       "id": 1,
+      "isInQuickBooks": true,
       "keys": {},
-      "lines": [
-        {
-          "altAmount": 1,
-          "amount": 1,
-          "backOrdered": 1,
-          "bin": {},
-          "class": {},
-          "cost": {},
-          "description": "string",
-          "duedate": "string",
-          "id": 1,
-          "invoiced": 1,
-          "item": {
-            "id": 1,
-            "name": "Ava Chen"
-          },
-          "job": {},
-          "lineNumber": 1,
-          "linkedTransaction": {},
-          "listPrice": {},
-          "lot": {},
-          "margin": {},
-          "percentdiscount": {},
-          "picked": 1,
-          "produced": 1,
-          "quantity": 1,
-          "returned": 1,
-          "shipped": 1,
-          "tax": {},
-          "unitprice": 1,
-          "uom": {},
-          "volume": 1,
-          "volumeunit": "string",
-          "weight": 1,
-          "weightunit": "string",
-          "workcenter": {}
-        }
-      ],
-      "linkedTransaction": {},
-      "location": {
-        "id": 1,
-        "name": "Ava Chen"
-      },
-      "number": "string",
-      "priority": {},
-      "shipBy": "string",
+      "lastFour": {},
+      "lastSync": "string",
+      "mobile": "string",
+      "name": "Ava Chen",
+      "notes": "string",
+      "parent": {},
+      "paymentMethod": {},
+      "phone": "string",
+      "portalPassword": "string",
+      "priceTier": {},
+      "resaleNumber": "string",
+      "salesRep": {},
       "shipping": {
-        "address": {
-          "city": {},
-          "country": {},
-          "line1": {},
-          "line2": {},
-          "line3": {},
-          "line4": {},
-          "line5": {},
-          "postalCode": {},
-          "stateProvince": {}
-        },
-        "addressName": "Ava Chen",
-        "addressType": "string",
-        "company": {},
-        "contact": {},
-        "email": {},
-        "phone": {}
+        "city": {},
+        "country": {},
+        "line1": {},
+        "line2": {},
+        "line3": {},
+        "line4": {},
+        "line5": {},
+        "postalCode": {},
+        "stateProvince": {}
       },
-      "shippingAmount": 1,
-      "shippingMethod": {},
       "starred": 1,
+      "sublevel": 1,
       "summaryOnly": true,
+      "syncMessage": {},
       "syncToken": 1,
-      "total": 1,
-      "trackingLink": "https://example.com",
-      "trackingNumber": "string",
-      "values": {}
+      "tax": {
+        "taxable": true,
+        "taxCode": {},
+        "taxExemptReasonId": {}
+      },
+      "terms": {},
+      "tokenType": {},
+      "values": {},
+      "website": "string"
     }
   ],
   "meta": {}
@@ -159,101 +137,76 @@ const { success, data } = await response.json();
 
 | Key | Type | Description |
 | --- | --- | --- |
+| `altPhone` | string |  |
 | `archived` | boolean |  |
-| `assignedToUser` | object |  |
-| `billing.address.city` | object |  |
-| `billing.address.country` | object |  |
-| `billing.address.line1` | object |  |
-| `billing.address.line2` | object |  |
-| `billing.address.line3` | object |  |
-| `billing.address.line4` | object |  |
-| `billing.address.line5` | object |  |
-| `billing.address.postalCode` | object |  |
-| `billing.address.stateProvince` | object |  |
-| `billing.addressName` | string |  |
-| `billing.addressType` | string |  |
-| `billing.company` | object |  |
-| `billing.contact` | object |  |
-| `billing.email` | object |  |
-| `billing.phone` | object |  |
-| `channel` | object |  |
-| `comment` | string |  |
-| `customer.id` | number |  |
-| `customer.name` | string |  |
-| `customerMessage` | string |  |
-| `customerNotes` | string |  |
-| `customerPO` | string |  |
+| `billing.city` | object |  |
+| `billing.country` | object |  |
+| `billing.line1` | object |  |
+| `billing.line2` | object |  |
+| `billing.line3` | object |  |
+| `billing.line4` | object |  |
+| `billing.line5` | object |  |
+| `billing.postalCode` | object |  |
+| `billing.stateProvince` | object |  |
+| `billWithParent` | boolean |  |
+| `businessLicense` | string |  |
+| `companyName` | string |  |
+| `contact.firstName` | object |  |
+| `contact.lastName` | object |  |
+| `contact.middleName` | object |  |
+| `contact.suffix` | object |  |
+| `contact.title` | object |  |
+| `contractorNumber` | string |  |
+| `creditHold` | boolean |  |
+| `currency` | object |  |
+| `customerType` | object |  |
 | `customFields` | object |  |
-| `date` | string |  |
-| `department` | object |  |
-| `forceToShipStation` | boolean |  |
-| `hasSignature` | boolean |  |
+| `email` | string |  |
+| `expMonth` | object |  |
+| `expYear` | object |  |
+| `fax` | string |  |
+| `foundUsVia` | string |  |
+| `fullname` | string |  |
+| `hasCardOnFile` | boolean |  |
+| `hasChildren` | boolean |  |
 | `id` | number |  |
+| `isInQuickBooks` | boolean |  |
 | `keys` | object |  |
-| `lines[].altAmount` | number |  |
-| `lines[].amount` | number |  |
-| `lines[].backOrdered` | number |  |
-| `lines[].bin` | object |  |
-| `lines[].class` | object |  |
-| `lines[].cost` | object |  |
-| `lines[].description` | string |  |
-| `lines[].duedate` | string |  |
-| `lines[].id` | number |  |
-| `lines[].invoiced` | number |  |
-| `lines[].item.id` | number |  |
-| `lines[].item.name` | string |  |
-| `lines[].job` | object |  |
-| `lines[].lineNumber` | number |  |
-| `lines[].linkedTransaction` | object |  |
-| `lines[].listPrice` | object |  |
-| `lines[].lot` | object |  |
-| `lines[].margin` | object |  |
-| `lines[].percentdiscount` | object |  |
-| `lines[].picked` | number |  |
-| `lines[].produced` | number |  |
-| `lines[].quantity` | number |  |
-| `lines[].returned` | number |  |
-| `lines[].shipped` | number |  |
-| `lines[].tax` | object |  |
-| `lines[].unitprice` | number |  |
-| `lines[].uom` | object |  |
-| `lines[].volume` | number |  |
-| `lines[].volumeunit` | string |  |
-| `lines[].weight` | number |  |
-| `lines[].weightunit` | string |  |
-| `lines[].workcenter` | object |  |
-| `linkedTransaction` | object |  |
-| `location.id` | number |  |
-| `location.name` | string |  |
-| `number` | string |  |
-| `priority` | object |  |
-| `shipBy` | string |  |
-| `shipping.address.city` | object |  |
-| `shipping.address.country` | object |  |
-| `shipping.address.line1` | object |  |
-| `shipping.address.line2` | object |  |
-| `shipping.address.line3` | object |  |
-| `shipping.address.line4` | object |  |
-| `shipping.address.line5` | object |  |
-| `shipping.address.postalCode` | object |  |
-| `shipping.address.stateProvince` | object |  |
-| `shipping.addressName` | string |  |
-| `shipping.addressType` | string |  |
-| `shipping.company` | object |  |
-| `shipping.contact` | object |  |
-| `shipping.email` | object |  |
-| `shipping.phone` | object |  |
-| `shippingAmount` | number |  |
-| `shippingMethod` | object |  |
+| `lastFour` | object |  |
+| `lastSync` | string |  |
+| `mobile` | string |  |
+| `name` | string |  |
+| `notes` | string |  |
+| `parent` | object |  |
+| `paymentMethod` | object |  |
+| `phone` | string |  |
+| `portalPassword` | string |  |
+| `priceTier` | object |  |
+| `resaleNumber` | string |  |
+| `salesRep` | object |  |
+| `shipping.city` | object |  |
+| `shipping.country` | object |  |
+| `shipping.line1` | object |  |
+| `shipping.line2` | object |  |
+| `shipping.line3` | object |  |
+| `shipping.line4` | object |  |
+| `shipping.line5` | object |  |
+| `shipping.postalCode` | object |  |
+| `shipping.stateProvince` | object |  |
 | `starred` | number |  |
+| `sublevel` | number |  |
 | `summaryOnly` | boolean |  |
+| `syncMessage` | object |  |
 | `syncToken` | number |  |
-| `total` | number |  |
-| `trackingLink` | string |  |
-| `trackingNumber` | string |  |
+| `tax.taxable` | boolean |  |
+| `tax.taxCode` | object |  |
+| `tax.taxExemptReasonId` | object |  |
+| `terms` | object |  |
+| `tokenType` | object |  |
 | `values` | object |  |
+| `website` | string |  |
 
 ## Native endpoint
 
-Through the native SOS Inventory API, this operation is `GET /api/v2/shipment` (base URL `https://api.sosinventory.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-shipments.md) for the provider-specific parameters and requirements.
+Through the native SOS Inventory API, this operation is `GET /api/v2/shipment` (base URL `https://api.sosinventory.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-shipments.md) for the provider-specific parameters and requirements.
 

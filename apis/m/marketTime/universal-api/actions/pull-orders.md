@@ -39,6 +39,10 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `filters[]` | array | no |  |
+| `filters[].field` | list | no |  |
+| `filters[].operator` | string | no |  |
+| `filters[].value` | string | no |  |
 
 ### Advanced
 

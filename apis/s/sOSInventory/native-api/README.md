@@ -68,7 +68,7 @@ Use `maxresults` in the query string to set the page size (default 200; accepted
 | [List Locations](actions/list-locations.md) | `GET /api/v2/location` | [docs](https://developer.sosinventory.com/apidoc/Configuration) |
 | [List Purchase Orders](actions/list-purchase-orders.md) | `GET /api/v2/purchaseorder` | [docs](https://developer.sosinventory.com/apidoc/PurchaseOrder) |
 | [List Sales Orders](actions/list-sales-orders.md) | `GET /api/v2/salesorder` | [docs](https://developer.sosinventory.com/apidoc/SalesOrder) |
-| [List Shipments](actions/list-shipments.md) | `GET /api/v2/shipment` | [docs](https://developer.sosinventory.com/apidoc/Shipment) |
+| [List Shipments](actions/list-shipments.md) | `GET /api/v2/shipment` | [docs](https://developer.sosinventory.com/apidoc/Customer) |
 | [List Transfers](actions/list-transfers.md) | `GET /api/v2/transfer` | [docs](https://developer.sosinventory.com/apidoc/Transfer) |
 | [List Vendors](actions/list-vendors.md) | `GET /api/v2/vendor` | [docs](https://developer.sosinventory.com/apidoc/Vendor) |
 | [Update Customer](actions/update-customer.md) | `PUT /api/v2/customer/:id` | [docs](https://developer.sosinventory.com/apidoc/Customer) |
