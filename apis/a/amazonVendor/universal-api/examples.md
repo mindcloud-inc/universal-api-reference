@@ -2,22 +2,22 @@
 
 These examples use the MindCloud API key and Amazon Vendor connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Direct Fulfillment Shipping Label
+## Get Direct Fulfillment Packing Slip
 
 
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actions/get-direct-fulfillment-shipping-label?connectionId=$CONNECTION_ID&purchaseOrderNumber=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actions/get-direct-fulfillment-packing-slip?connectionId=$CONNECTION_ID&purchaseOrderNumber=e.g.%20UvgABdBjQ" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "purchaseOrderNumber": "string"
+  "purchaseOrderNumber": "e.g. UvgABdBjQ"
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actions/get-direct-fulfillment-shipping-label?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actions/get-direct-fulfillment-packing-slip?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -36,7 +36,7 @@ Example response:
 }
 ```
 
-See the full [Get Direct Fulfillment Shipping Label action reference](actions/get-direct-fulfillment-shipping-label.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/amazonVendor/latest/actions/get-direct-fulfillment-shipping-label).
+See the full [Get Direct Fulfillment Packing Slip action reference](actions/get-direct-fulfillment-packing-slip.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/amazonVendor/latest/actions/get-direct-fulfillment-packing-slip).
 
 ## Create Direct Fulfillment Shipping Labels
 

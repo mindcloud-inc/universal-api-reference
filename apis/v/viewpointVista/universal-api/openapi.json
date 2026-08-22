@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Viewpoint Vista Universal API",
-    "version": "0.0.60",
+    "version": "0.0.61",
     "description": "Call Viewpoint Vista actions through MindCloud's Universal API."
   },
   "servers": [
@@ -284,6 +284,208 @@
         }
       }
     },
+    "/v1/universal/viewpointVista/latest/actions/add-many-for-the-cost-adjustment-batch-entries": {
+      "post": {
+        "operationId": "viewpointVista.add-many-for-the-cost-adjustment-batch-entries",
+        "summary": "Add Many for the Cost Adjustment Batch Entries",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/add-many-for-the-cost-adjustment-batch-entries"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "items[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "postCacheChanges": {
+                    "type": "boolean",
+                    "description": "provide true to have the action posting any cache updates as part of the action processing. False if omitted"
+                  },
+                  "items[]": {
+                    "type": "array",
+                    "items": {},
+                    "description": "array of objects"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "operation": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/viewpointVista/latest/actions/add-many-payroll-timecard-entries": {
       "post": {
         "operationId": "viewpointVista.add-many-payroll-timecard-entries",
@@ -327,6 +529,9 @@
                     "type": "number",
                     "description": "Key to pr/time_batches(Co, Mth, BatchId)."
                   },
+                  "items[].data.TypeDetails.Job.JCCo": {
+                    "type": "number"
+                  },
                   "items[].data.TypeDetails.Type": {
                     "type": "string",
                     "description": "Based on the Type chosen - additional details can be specified by adding them as custom fields."
@@ -353,9 +558,19 @@
                     "format": "date-time",
                     "description": "Key to pr/time_batches(Co, Mth, BatchId).\n\nFormat `YYYY-MM-01`"
                   },
+                  "items[].data.TypeDetails.Job": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "items[].data.TypeDetails.Job.Job": {
+                    "type": "string"
+                  },
                   "items[].data.BatchId": {
                     "type": "number",
                     "description": "Key to pr/time_batches(Co, Mth, BatchId)."
+                  },
+                  "items[].data.TypeDetails.Job.Phase": {
+                    "type": "string"
                   },
                   "items[].data.Employee": {
                     "type": "number",

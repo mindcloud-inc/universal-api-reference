@@ -1,6 +1,6 @@
 # Amazon Vendor: Native API Reference
 
-A consolidated summary of Amazon Vendor's API configuration and 11 documented operations, with links to official documentation.
+A consolidated summary of Amazon Vendor's API configuration and 12 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
 - **API base URL:** `https://sellingpartnerapi-{region}.amazon.com`
@@ -36,11 +36,12 @@ Shared headers:
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `nextToken` in the query string as the pagination cursor.
 
-## Endpoints (11 documented)
+## Endpoints (12 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Create Direct Fulfillment Shipping Labels](actions/create-direct-fulfillment-shipping-labels.md) | `POST /vendor/directFulfillment/shipping/2021-12-28/shippingLabels/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/createshippinglabels) |
+| [Get Direct Fulfillment Packing Slip](actions/get-direct-fulfillment-packing-slip.md) | `GET /vendor/directFulfillment/shipping/2021-12-28/packingSlips/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getpackingslip-1) |
 | [Get Direct Fulfillment Shipping Label](actions/get-direct-fulfillment-shipping-label.md) | `GET /vendor/directFulfillment/shipping/2021-12-28/shippingLabels/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getshippinglabel-1) |
 | [Get Direct Fulfillment Transaction Status](actions/get-direct-fulfillment-transaction-status.md) | `GET /vendor/directFulfillment/transactions/2021-12-28/transactions/:transactionId` | [docs](https://developer-docs.amazon.com/sp-api/reference/gettransactionstatus-1) |
 | [Get Purchase Order](actions/get-purchase-order.md) | `GET /vendor/orders/v1/purchaseOrders/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getpurchaseorder) |

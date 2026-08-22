@@ -56,11 +56,15 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `items[].callerMetadata` | object | no | Use this value to add any properties you may need to reference in case of success and or error. |
 | `items[].data.Co` | number | yes | Key to pr/time_batches(Co, Mth, BatchId). |
+| `items[].data.TypeDetails.Job.JCCo` | number | no |  |
 | `items[].data.TypeDetails.Type` | list<string> | no | Based on the Type chosen - additional details can be specified by adding them as custom fields. |
 | `items[]` | array<object> | no | One to 1000 timebatch entry objects. Each item should include the Vista timebatch entry `data` and optional `callerMetadata` |
 | `items[].data` | object | no |  |
 | `items[].data.Mth` | date | yes | Key to pr/time_batches(Co, Mth, BatchId). Format `YYYY-MM-01` |
+| `items[].data.TypeDetails.Job` | object | no |  |
+| `items[].data.TypeDetails.Job.Job` | string | no |  |
 | `items[].data.BatchId` | number | yes | Key to pr/time_batches(Co, Mth, BatchId). |
+| `items[].data.TypeDetails.Job.Phase` | string | no |  |
 | `items[].data.Employee` | number | yes | Key to pr/employees(PRCo, Employee). |
 | `items[].data.PostDate` | date | yes | Date you are entering time for. Format: `YYYY-MM-DD` |
 | `items[].data.Hours` | string | yes | Hours. |

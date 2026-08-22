@@ -16,12 +16,16 @@ Add an array of time batch entries
 | --- | --- | --- | --- | --- |
 | `items[].callerMetadata` | body | `object` | no | Use this value to add any properties you may need to reference in case of success and or error. |
 | `items[].data.Co` | body | `number` | yes | Key to pr/time_batches(Co, Mth, BatchId). |
+| `items[].data.TypeDetails.Job.JCCo` | body | `number` | no | — |
 | `items[].data.TypeDetails.Type` | body | `list<string>` | no | Based on the Type chosen - additional details can be specified by adding them as custom fields. |
 | `postCacheChanges` | body | `boolean` | no | Set true to post cache updates as part of action processing. False if omitted. |
 | `items[]` | body | `array<object>` | no | One to 1000 timebatch entry objects. Each item should include the Vista timebatch entry `data` and optional `callerMetadata` |
 | `items[].data` | body | `object` | no | — |
 | `items[].data.Mth` | body | `date` | yes | Key to pr/time_batches(Co, Mth, BatchId).  Format `YYYY-MM-01` |
+| `items[].data.TypeDetails.Job` | body | `object` | no | — |
+| `items[].data.TypeDetails.Job.Job` | body | `string` | no | — |
 | `items[].data.BatchId` | body | `number` | yes | Key to pr/time_batches(Co, Mth, BatchId). |
+| `items[].data.TypeDetails.Job.Phase` | body | `string` | no | — |
 | `items[].data.Employee` | body | `number` | yes | Key to pr/employees(PRCo, Employee). |
 | `items[].data.PostDate` | body | `date` | yes | Date you are entering time for.  Format: `YYYY-MM-DD` |
 | `items[].data.Hours` | body | `string` | yes | Hours. |

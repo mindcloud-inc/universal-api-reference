@@ -18,5 +18,5 @@ This operation supports [pagination](../README.md#pagination).
 | `filters[]` | body | `array` | no | — |
 | `filters[].field` | body | `list` | no | — |
 | `excludeOrderDetails` | query | `boolean` | no | Exclude line details from the response. |
-| `filters[].operator` | body | `string` | no | — |
+| `filters[].operator` | body | `list` | no | — |
 | `filters[].value` | body | `string` | no | — |

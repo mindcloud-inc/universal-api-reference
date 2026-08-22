@@ -4,7 +4,7 @@ Amazon Vendor through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/amazonVendor/latest
 - **Category:** Commerce
-- **Actions:** 11
+- **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developer.amazonservices.com/
 - **Vendor API docs:** https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
@@ -15,14 +15,14 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Direct Fulfillment Shipping Label](actions/get-direct-fulfillment-shipping-label.md):
+For example, to [Get Direct Fulfillment Packing Slip](actions/get-direct-fulfillment-packing-slip.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actions/get-direct-fulfillment-shipping-label?connectionId=$CONNECTION_ID&purchaseOrderNumber=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actions/get-direct-fulfillment-packing-slip?connectionId=$CONNECTION_ID&purchaseOrderNumber=e.g.%20UvgABdBjQ" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (11)
+## Actions (12)
 
 ### Invoices
 
@@ -34,6 +34,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Get Direct Fulfillment Packing Slip](actions/get-direct-fulfillment-packing-slip.md) | GET |  |
 | [Get Purchase Order](actions/get-purchase-order.md) | GET |  |
 | [Get Purchase Orders](actions/get-purchase-orders.md) | GET |  |
 | [List Direct Fulfillment Orders](actions/list-direct-fulfillment-orders.md) | GET |  |
