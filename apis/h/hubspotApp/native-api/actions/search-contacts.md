@@ -12,7 +12,7 @@ Finds contacts in HubSpot.
 
 ## Capabilities
 
-This operation supports [filtering](../README.md#filtering).
+This operation supports [pagination](../README.md#pagination), [filtering](../README.md#filtering), and [sorting](../README.md#sorting).
 
 ## Parameters
 
@@ -27,5 +27,5 @@ This operation supports [filtering](../README.md#filtering).
 | `filterGroups[].filters[].highValue` | body | `string` | no | The upper bound used by range filters. |
 | `after` | body | `string` | no | The paging cursor for the next set of search results. |
 | `limit` | body | `number` | no | The maximum number of contacts to return. |
-| `sorts[]` | body | `array<string>` | no | Fields used to sort the returned contacts. |
+| `sorts[]` | body | `array<object>` | no | Fields used to sort the returned contacts. |
 | `properties` | body | `list<string>` | no | Select the contact properties to include in the response. Send multiple values as a array. |

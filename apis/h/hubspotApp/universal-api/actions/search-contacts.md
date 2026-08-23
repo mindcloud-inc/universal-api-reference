@@ -8,18 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/search-c
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a HubSpot `connectionId` ([setup](../authentication.md)).
 
-This action also supports [filtering](../filtering.md) (`where`).
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [filtering](../filtering.md) (`where`), [sorting](../sorting.md) (`sort`).
 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/search-contacts?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/search-contacts?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  limit: '25',
+  offset: '0'
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/search-contacts?${params}`, {
@@ -52,7 +54,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filterGroups[].filters[].highValue` | string | no | The upper bound used by range filters. |
 | `after` | string | no | The paging cursor for the next set of search results. |
 | `limit` | number | no | The maximum number of contacts to return. |
-| `sorts[]` | array<string> | no | Fields used to sort the returned contacts. |
+| `sorts[]` | array<object> | no | Fields used to sort the returned contacts. |
 
 ## Response
 
@@ -86,5 +88,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native HubSpot API, this operation is `POST crm/v3/objects/contacts/search` (base URL `https://api.hubapi.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/search-contacts.md) for the provider-specific parameters and requirements.
+Through the native HubSpot API, this operation is `POST crm/v3/objects/contacts/search` (base URL `https://api.hubapi.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/search-contacts.md) for the provider-specific parameters and requirements.
 

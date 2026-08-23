@@ -63,11 +63,15 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 ## Pagination
 
 - **REST - Query Pagination:** Use `limit` in the query string to set the page size (default 100; accepted range 10–100). Use `after` in the query string as the pagination cursor.
-- **REST - Body Pagination:** Use `limit` in the request body to set the page size (default 200; accepted range 10–200). Use `after` in the request body as the pagination cursor.
+- **REST - Body Pagination:** Use `limit` in the request body to set the page size (default 10; accepted range 1–200). Use `after` in the request body as the pagination cursor.
 
 ## Filtering
 
 - **REST - Body Pagination:** Send filters in the request body. Supported operators: `between`, `contain`, `eq`, `exist`, `gt`, `gte`, `lt`, `lte`, `ncontain`, `ne`, `nexist`.
+
+## Sorting
+
+- **REST - Body Pagination:** Set the sort field with `sort` in the request body. Use `ASCENDING` for ascending order and `DESCENDING` for descending order. Multiple sort fields can be combined.
 
 ## Endpoints (77 documented)
 
