@@ -4,7 +4,7 @@ Faire through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/Faire/latest
 - **Category:** Commerce
-- **Actions:** 3
+- **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://faire.github.io/external-api-docs/#introduction
 
@@ -21,12 +21,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/Faire/latest/actions/list
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (3)
+## Actions (5)
+
+### Inventory Levels
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get product inventory by SKUs](actions/get-product-inventory-by-skus.md) | GET |  |
 
 ### Sales Orders
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add Shipments to Order](actions/add-shipments-to-order.md) | POST |  |
 | [List a single Order](actions/list-a-single-order.md) | GET |  |
 | [List Orders](actions/list-orders.md) | GET |  |
 | [Update inventory by SKUs](actions/update-inventory.md) | GET |  |

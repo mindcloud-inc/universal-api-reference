@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Faire Universal API",
-    "version": "0.0.57",
+    "version": "0.0.59",
     "description": "Call Faire actions through MindCloud's Universal API."
   },
   "servers": [
@@ -20,6 +20,438 @@
     }
   ],
   "paths": {
+    "/v1/universal/Faire/latest/actions/add-shipments-to-order": {
+      "post": {
+        "operationId": "Faire.add-shipments-to-order",
+        "summary": "Add Shipments to Order",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/Faire/latest/actions/add-shipments-to-order"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "orderId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "orderId": {
+                    "type": "string",
+                    "description": "The ID of the order to add shipments to.",
+                    "example": "bo_bxdmjbwxid"
+                  },
+                  "shipments[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "A list of shipments to add to the order."
+                  },
+                  "shipments[].orderId": {
+                    "type": "string",
+                    "description": "The ID of the order the shipment is attached to.",
+                    "example": "bo_bxdmjbwxid",
+                    "x-mindcloud-advanced": true
+                  },
+                  "shipments[].carrier": {
+                    "type": "string",
+                    "description": "The carrier used to ship the order. Accepted values are case insensitive; Faire may also attempt to recognize other carrier names.\nCarriers: CANADA_POST, DHL_ECOMMERCE, DHL_EXPRESS, FEDEX, PUROLATOR, UPS, USPS, POSTNL, CANPAR, INTERLINK_EXPRESS, GSO, ROYAL_MAIL, DPD, DPDUK, PARCELFORCE, AUSTRALIA_POST, EVRI, and LA_POSTE",
+                    "example": "fedex",
+                    "x-mindcloud-advanced": true
+                  },
+                  "shipments[].trackingCode": {
+                    "type": "string",
+                    "description": "The tracking code for the shipment; its format varies by carrier.",
+                    "example": "94029300101029282",
+                    "x-mindcloud-advanced": true
+                  },
+                  "shipments[].makerCost": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "The cost the brand paid to ship the order.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "shipments[].makerCost.amountMinor": {
+                    "type": "number",
+                    "description": "The amount in the smallest unit of the currency, such as cents for USD.",
+                    "example": 4999,
+                    "x-mindcloud-advanced": true
+                  },
+                  "shipments[].makerCost.currency": {
+                    "type": "string",
+                    "description": "The currency in ISO 4217 format, such as USD.",
+                    "example": "USD",
+                    "x-mindcloud-advanced": true
+                  },
+                  "shipments[].shippingType": {
+                    "type": "string",
+                    "description": "How the shipment is handled: the brand ships it or uses Faire's shipping service.",
+                    "enum": [
+                      "SHIP_ON_YOUR_OWN",
+                      "SHIP_WITH_FAIRE"
+                    ],
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/Faire/latest/actions/get-product-inventory-by-skus": {
+      "get": {
+        "operationId": "Faire.get-product-inventory-by-skus",
+        "summary": "Get product inventory by SKUs",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/Faire/latest/actions/get-product-inventory-by-skus"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skus",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated product variant SKUs.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated product variant SKUs. Pass multiple values separated by `,`.",
+              "example": "SKU-1,SKU-2"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/Faire/latest/actions/list-a-single-order": {
       "get": {
         "operationId": "Faire.list-a-single-order",
