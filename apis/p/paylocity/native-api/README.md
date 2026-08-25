@@ -14,7 +14,7 @@ Any API that is not a Weblink API
 
 - **Client Id:** `clientId` · required
 - **Client Secret:** `clientSecret` · required
-- **Connection:** `connection` · required
+- **Connection:** `connection` · required · Allowed values: `https://dc1demogwext.paylocity.com/`, `https://dc1prodgwext.paylocity.com/`.
 
 Send these headers with each API request:
 

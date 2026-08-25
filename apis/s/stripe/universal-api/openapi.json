@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Stripe Universal API",
-    "version": "0.0.48",
+    "version": "0.0.50",
     "description": "Accept payments, manage subscriptions, invoice customers, and reconcile revenue."
   },
   "servers": [
@@ -1531,6 +1531,375 @@
                           "customer": {
                             "type": "string",
                             "description": "Customer ID"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "Checkout session ID"
+                          },
+                          "mode": {
+                            "type": "string",
+                            "description": "Checkout mode"
+                          },
+                          "object": {
+                            "type": "string",
+                            "description": "Stripe object type"
+                          },
+                          "paymentStatus": {
+                            "type": "string",
+                            "description": "Payment status"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Session status"
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "Hosted checkout URL"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/stripe/latest/actions/create-checkout-session-sync": {
+      "post": {
+        "operationId": "stripe.create-checkout-session-sync",
+        "summary": "Create Checkout Session sync",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/stripe/latest/actions/create-checkout-session-sync"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "mode",
+                  "successUrl",
+                  "cancelUrl",
+                  "paymentMethodTypes[]",
+                  "lineItemQuantity",
+                  "priceDataCurrency",
+                  "unitAmount",
+                  "productName",
+                  "clientReferenceId",
+                  "contractVersion",
+                  "mindcloudRequestId",
+                  "paymentKind",
+                  "aspireOpportunityNumber",
+                  "aspireOpportunityRevision",
+                  "aspireBillingCompany",
+                  "aspireBillingContact",
+                  "aspireProperty",
+                  "aspireBranchName",
+                  "aspireInvoiceNumber",
+                  "depositPercent",
+                  "depositBasisCents",
+                  "serviceAmountCents",
+                  "serviceTaxCents",
+                  "cardFeeCents",
+                  "cardFeeTaxCents",
+                  "currency"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "mode": {
+                    "type": "string",
+                    "description": "Checkout mode. The workflow supplies payment for hosted payment requests.",
+                    "enum": [
+                      "payment",
+                      "setup",
+                      "subscription"
+                    ]
+                  },
+                  "customer": {
+                    "type": "string",
+                    "description": "Stripe Customer ID, supplied dynamically."
+                  },
+                  "customerEmail": {
+                    "type": "string",
+                    "description": "Customer email when no Stripe Customer ID is supplied."
+                  },
+                  "successUrl": {
+                    "type": "string",
+                    "description": "Hosted Checkout success redirect URL."
+                  },
+                  "cancelUrl": {
+                    "type": "string",
+                    "description": "Hosted Checkout cancellation redirect URL."
+                  },
+                  "paymentMethodTypes[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Allowed Stripe payment method types. Phase A workflow supplies card only."
+                  },
+                  "lineItemQuantity": {
+                    "type": "number",
+                    "description": "Quantity for the single inline-price Checkout line item."
+                  },
+                  "priceDataCurrency": {
+                    "type": "string",
+                    "description": "Lowercase currency code for the inline Stripe Price."
+                  },
+                  "unitAmount": {
+                    "type": "number",
+                    "description": "Customer charge amount in integer cents, supplied dynamically."
+                  },
+                  "productName": {
+                    "type": "string",
+                    "description": "Customer-visible payment request name, supplied dynamically."
+                  },
+                  "clientReferenceId": {
+                    "type": "string",
+                    "description": "Unique MindCloud request ID used to reconcile the Checkout Session."
+                  },
+                  "contractVersion": {
+                    "type": "string",
+                    "description": "Exact Stripe to Aspire metadata contract version."
+                  },
+                  "mindcloudRequestId": {
+                    "type": "string",
+                    "description": "Unique request identifier matching the payment reference contract."
+                  },
+                  "paymentKind": {
+                    "type": "string",
+                    "description": "Payment kind: deposit or invoice."
+                  },
+                  "aspireOpportunityNumber": {
+                    "type": "string",
+                    "description": "Aspire Opportunity number audit link."
+                  },
+                  "aspireOpportunityRevision": {
+                    "type": "string",
+                    "description": "Aspire Opportunity revision."
+                  },
+                  "aspireBillingCompany": {
+                    "type": "string",
+                    "description": "Aspire billing company; use the exact non-empty sentinel \"none\" only when the billing contact is populated."
+                  },
+                  "aspireBillingContact": {
+                    "type": "string",
+                    "description": "Aspire billing contact; use the exact non-empty sentinel \"none\" only when the billing company is populated."
+                  },
+                  "aspireProperty": {
+                    "type": "string",
+                    "description": "Aspire property audit context."
+                  },
+                  "aspireBranchName": {
+                    "type": "string",
+                    "description": "Aspire branch name."
+                  },
+                  "aspireInvoiceNumber": {
+                    "type": "string",
+                    "description": "Use the exact non-empty sentinel \"none\" for deposits; use a positive integer string for invoice payments."
+                  },
+                  "depositPercent": {
+                    "type": "string",
+                    "description": "Deposit percentage string for deposits; use the exact non-empty sentinel \"none\" for invoice payments."
+                  },
+                  "depositBasisCents": {
+                    "type": "string",
+                    "description": "Positive canonical integer-cent basis for deposits; use the exact non-empty sentinel \"none\" for invoice payments."
+                  },
+                  "serviceAmountCents": {
+                    "type": "string",
+                    "description": "Canonical non-negative integer service amount in cents."
+                  },
+                  "serviceTaxCents": {
+                    "type": "string",
+                    "description": "Canonical non-negative integer service sales tax in cents."
+                  },
+                  "cardFeeCents": {
+                    "type": "string",
+                    "description": "Canonical non-negative integer customer card fee in cents."
+                  },
+                  "cardFeeTaxCents": {
+                    "type": "string",
+                    "description": "Canonical non-negative integer sales tax on the card fee in cents."
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Exact lowercase metadata currency code."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "amountTotal": {
+                            "type": "number",
+                            "description": "Total amount in integer cents"
+                          },
+                          "created": {
+                            "type": "number",
+                            "description": "Creation timestamp in seconds"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "Session currency"
+                          },
+                          "customer": {
+                            "type": "string",
+                            "description": "Stripe Customer ID"
                           },
                           "id": {
                             "type": "string",
@@ -3232,12 +3601,12 @@
         }
       }
     },
-    "/v1/universal/stripe/latest/actions/get-payment-intent-southern-botanical": {
+    "/v1/universal/stripe/latest/actions/get-payment-intent-sync": {
       "get": {
-        "operationId": "stripe.get-payment-intent-southern-botanical",
-        "summary": "Get Payment Intent – Southern Botanical",
+        "operationId": "stripe.get-payment-intent-sync",
+        "summary": "Get Payment Intent sync",
         "externalDocs": {
-          "url": "https://mindcloud.co/docs/universal/rest/stripe/latest/actions/get-payment-intent-southern-botanical"
+          "url": "https://mindcloud.co/docs/universal/rest/stripe/latest/actions/get-payment-intent-sync"
         },
         "security": [
           {
@@ -6189,12 +6558,12 @@
         }
       }
     },
-    "/v1/universal/stripe/latest/actions/retrieve-payment-method-southern-botanical": {
+    "/v1/universal/stripe/latest/actions/retrieve-payment-method-sync": {
       "get": {
-        "operationId": "stripe.retrieve-payment-method-southern-botanical",
-        "summary": "Retrieve Payment Method – Southern Botanical",
+        "operationId": "stripe.retrieve-payment-method-sync",
+        "summary": "Retrieve Payment Method sync",
         "externalDocs": {
-          "url": "https://mindcloud.co/docs/universal/rest/stripe/latest/actions/retrieve-payment-method-southern-botanical"
+          "url": "https://mindcloud.co/docs/universal/rest/stripe/latest/actions/retrieve-payment-method-sync"
         },
         "security": [
           {

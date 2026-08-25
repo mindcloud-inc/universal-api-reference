@@ -68,6 +68,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `__custom_fields` | object | no |  |
 | `MiscDistributions[]` | array | no |  |
 | `LineItems[]` | array | no |  |
+| `DueDate` | string | no | Due Date. Format: YYYY-MM-DD. |
 
 ## Response
 

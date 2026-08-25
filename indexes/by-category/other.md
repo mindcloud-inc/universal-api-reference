@@ -1,6 +1,6 @@
 # Other apps
 
-577 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+578 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -307,6 +307,7 @@
 - **Microsoft Exchange** · [Universal API reference](../../apis/m/microsoftExchange/universal-api) · [Native API reference](../../apis/m/microsoftExchange/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0)
 - **Microsoft Intune** · [Universal API reference](../../apis/m/microsoftIntune/universal-api) · [Native API reference](../../apis/m/microsoftIntune/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0)
 - **Microsoft SharePoint Online** · [Universal API reference](../../apis/m/microsoftSharePointOnline/universal-api) · [Native API reference](../../apis/m/microsoftSharePointOnline/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0)
+- **MindCloud** · [Universal API reference](../../apis/m/mindCloud/universal-api) · [Native API reference](../../apis/m/mindCloud/native-api)
 - **Minerstat** · [Universal API reference](../../apis/m/minerstat/universal-api) · [Native API reference](../../apis/m/minerstat/native-api) · [Native API docs](https://api.minerstat.com/)
 - **ModelsLab** · [Universal API reference](../../apis/m/modelsLab/universal-api) · [Native API reference](../../apis/m/modelsLab/native-api) · [Native API docs](https://docs.modelslab.com)
 - **Monday** · [Universal API reference](../../apis/m/monday/universal-api) · [Native API reference](../../apis/m/monday/native-api)

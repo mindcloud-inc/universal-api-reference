@@ -45,71 +45,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-```json
-{
-  "success": true,
-  "data": [
-    {
-      "address": {
-        "country": "string",
-        "county": "string",
-        "label": "string",
-        "line1": "string",
-        "locality": "string",
-        "postalCode": "string",
-        "state": "string",
-        "type": "string"
-      },
-      "clientId": 1,
-      "companyId": "string",
-      "dba": "string",
-      "ein": "string",
-      "entityType": "string",
-      "industryType": "string",
-      "naics": 1,
-      "parentCompanySetId": "string",
-      "phone": "string",
-      "relationships": [
-        {
-          "description": "string",
-          "relationshipType": "string"
-        }
-      ],
-      "serviceStartDate": "string",
-      "status": "string",
-      "webTimeCo": "string"
-    }
-  ],
-  "meta": {}
-}
-```
-
-### Response fields
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `address.country` | string |  |
-| `address.county` | string |  |
-| `address.label` | string |  |
-| `address.line1` | string |  |
-| `address.locality` | string |  |
-| `address.postalCode` | string |  |
-| `address.state` | string |  |
-| `address.type` | string |  |
-| `clientId` | number |  |
-| `companyId` | string |  |
-| `dba` | string |  |
-| `ein` | string |  |
-| `entityType` | string |  |
-| `industryType` | string |  |
-| `naics` | number |  |
-| `parentCompanySetId` | string |  |
-| `phone` | string |  |
-| `relationships[].description` | string |  |
-| `relationships[].relationshipType` | string |  |
-| `serviceStartDate` | string |  |
-| `status` | string |  |
-| `webTimeCo` | string |  |
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Paylocity API returns.
 
 ## Native endpoint
 

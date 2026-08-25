@@ -16,6 +16,7 @@ A consolidated summary of Microsoft SQL's API configuration, with links to offic
 - **Username:** `username` · required
 - **Password:** `password` · optional
 - **Encryption:** `encrypt` · optional
+- **Trust Server Certificate:** `trustServerCertificate` · optional
 - **Timeout:** `timeout` · optional
 - **Use ODBC:** `odbc` · optional
 

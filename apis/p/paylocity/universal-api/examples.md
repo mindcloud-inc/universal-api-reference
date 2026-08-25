@@ -2,22 +2,24 @@
 
 These examples use the MindCloud API key and Paylocity connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Company Information
+## List Employees
 
-
+Retrieves the list of employees of a company
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/get-company-information?connectionId=$CONNECTION_ID&companyId=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/list-employees?connectionId=$CONNECTION_ID&limit=25&offset=0&companyId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
+  limit: '25',
+  offset: '0',
   "companyId": "string"
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/get-company-information?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/list-employees?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -36,7 +38,7 @@ Example response:
 }
 ```
 
-See the full [Get Company Information action reference](actions/get-company-information.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/paylocity/latest/actions/get-company-information).
+See the full [List Employees action reference](actions/list-employees.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/paylocity/latest/actions/list-employees).
 
 ## Create Employee Punch
 

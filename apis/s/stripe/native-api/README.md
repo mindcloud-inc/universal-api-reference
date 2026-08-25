@@ -1,6 +1,6 @@
 # Stripe: Native API Reference
 
-A consolidated summary of Stripe's API configuration and 30 documented operations, with links to official documentation.
+A consolidated summary of Stripe's API configuration and 31 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.stripe.com/api
 - **API base URL:** `https://api.stripe.com/v1`
@@ -46,7 +46,7 @@ Responses from this API use JSON.
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `starting_after` in the query string as the pagination cursor.
 
-## Endpoints (30 documented)
+## Endpoints (31 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -56,13 +56,14 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Confirm Payment Intent](actions/confirm-payment-intent.md) | `POST payment_intents/:intent/confirm` | [docs](https://docs.stripe.com/api/payment_intents/confirm) |
 | [Create Checkout Session](actions/create-checkout-session.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
 | [Create Variable-Amount Checkout Session](actions/create-checkout-session-copy.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
+| [Create Checkout Session sync](actions/create-checkout-session-sync.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
 | [Create Customer](actions/create-customer.md) | `POST customers` | [docs](https://docs.stripe.com/api/customers/create) |
 | [Create Payment Intent](actions/create-payment-intent.md) | `POST payment_intents` | [docs](https://docs.stripe.com/api/payment_intents/create) |
 | [Create Subscription](actions/create-subscription.md) | `POST subscriptions` | [docs](https://docs.stripe.com/api/subscriptions/create) |
 | [Expire Checkout Session](actions/expire-checkout-session.md) | `POST checkout/sessions/:session/expire` | [docs](https://docs.stripe.com/api/checkout/sessions/expire) |
 | [Get Balance Transactions](actions/get-balance-transactions.md) | `GET /balance_transactions?payout={{payoutId}}&limit={{limit}}&expand[]=data.source&expand[]=data.source.charge` |  |
 | [Get Payment Intent](actions/get-payment-intent.md) | `GET payment_intents/:intent` | [docs](https://docs.stripe.com/api/payment_intents/retrieve) |
-| [Get Payment Intent – Southern Botanical](actions/get-payment-intent-southern-botanical.md) | `GET payment_intents/:intent` | [docs](https://docs.stripe.com/api/payment_intents/retrieve) |
+| [Get Payment Intent sync](actions/get-payment-intent-sync.md) | `GET payment_intents/:intent` | [docs](https://docs.stripe.com/api/payment_intents/retrieve) |
 | [Get Product](actions/get-product.md) | `GET products/:id` | [docs](https://docs.stripe.com/api/products/retrieve) |
 | [List Checkout Session Line Items](actions/list-checkout-session-line-items.md) | `GET checkout/sessions/:session/line_items` | [docs](https://docs.stripe.com/api/checkout/sessions/line_items) |
 | [List Customers](actions/list-customers.md) | `GET customers` | [docs](https://docs.stripe.com/api/customers/list) |
@@ -73,7 +74,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Retrieve Payment Method](actions/new-action1.md) | `GET payment_methods/:paymentMethodId` |  |
 | [Retrieve Checkout Session](actions/retrieve-checkout-session.md) | `GET checkout/sessions/:session` | [docs](https://docs.stripe.com/api/checkout/sessions/retrieve) |
 | [Retrieve Customer](actions/retrieve-customer.md) | `GET customers/:customer` | [docs](https://docs.stripe.com/api/customers/retrieve) |
-| [Retrieve Payment Method – Southern Botanical](actions/retrieve-payment-method-southern-botanical.md) | `GET payment_methods/:paymentMethodId` | [docs](https://docs.stripe.com/api/payment_methods/retrieve) |
+| [Retrieve Payment Method sync](actions/retrieve-payment-method-sync.md) | `GET payment_methods/:paymentMethodId` | [docs](https://docs.stripe.com/api/payment_methods/retrieve) |
 | [Retrieve SetupIntent](actions/retrieve-setup-intent.md) | `GET setup_intents/:setupIntent` | [docs](https://docs.stripe.com/api/setup_intents/retrieve) |
 | [Retrieve Subscription](actions/retrieve-subscription.md) | `GET subscriptions/:subscription_exposed_id` | [docs](https://docs.stripe.com/api/subscriptions/retrieve) |
 | [Search Customers](actions/search-customers.md) | `GET customers/search` | [docs](https://docs.stripe.com/api/customers/search) |

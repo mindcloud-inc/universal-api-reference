@@ -12,10 +12,10 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Company Information](actions/get-company-information.md):
+For example, to [List Employees](actions/list-employees.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/get-company-information?connectionId=$CONNECTION_ID&companyId=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/paylocity/latest/actions/list-employees?connectionId=$CONNECTION_ID&limit=25&offset=0&companyId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 

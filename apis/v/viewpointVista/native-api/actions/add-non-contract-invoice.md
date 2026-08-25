@@ -30,3 +30,4 @@ Adds a Non-Contract based invoice.
 | `__custom_fields` | body | `object` | no | — |
 | `MiscDistributions[]` | body | `array` | no | — |
 | `LineItems[]` | body | `array` | no | — |
+| `DueDate` | body | `string` | no | Due Date. Format: YYYY-MM-DD. |

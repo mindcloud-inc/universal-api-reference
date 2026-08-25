@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3203 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3204 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1659,6 +1659,7 @@ The official vendor API documentation for each of the 3203 apps in this repo. Ea
 - [Milvus Vector Store](../apis/m/milvusVectorStore/native-api) - https://docs.zilliz.com/reference/restful/data-plane-v2
 - [Mime Automation](../apis/m/mimeAutomation/native-api) - https://learn.microsoft.com/en-us/connectors/mimeautomationip/
 - [1minAI](../apis/m/minAI/native-api) - https://docs.1min.ai/docs/api/intro
+- [MindCloud](../apis/m/mindCloud/native-api)
 - [Mindee](../apis/m/mindee/native-api) - https://docs.mindee.com/integrations/api-reference
 - [MindMe](../apis/m/mindMe/native-api) - https://www.mindmemobile.com/platform/app/
 - [MindStudio](../apis/m/mindStudio/native-api) - https://university.mindstudio.ai/docs/developers/api-reference
