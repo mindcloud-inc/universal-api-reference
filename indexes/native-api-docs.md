@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3204 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3205 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -25,6 +25,7 @@ The official vendor API documentation for each of the 3204 apps in this repo. Ea
 - [ActiveTrail](../apis/a/activeTrail/native-api) - https://webapi.mymarketing.co.il/api/docs/Guides
 - [ActivityInfo](../apis/a/activityInfo/native-api) - https://www.activityinfo.org/support/docs/api/index.html
 - [ActivitySmith](../apis/a/activitySmith/native-api) - https://activitysmith.com/docs
+- [Acumatica](../apis/a/acumatica/native-api) - https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
 - [Acumbamail](../apis/a/acumbamail/native-api) - https://acumbamail.com/apidoc/
 - [Adafruit IO](../apis/a/adafruitIO/native-api) - https://io.adafruit.com/api/docs/
 - [Adalo](../apis/a/adalo/native-api) - https://help.adalo.com/integrations/the-adalo-api

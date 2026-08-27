@@ -5,10 +5,10 @@ Adds a Non-Contract based invoice.
 ## Endpoint
 
 - **Method:** `POST`
-- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ar/2/data/batch_entries/actions/add_noncntrct_inv_v2`
+- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ar/2/data/batch_entries/actions/add_non-contract_inv`
 - **Base URL:** `https://api.xchange.trimble.com/connect/`
 - **API:** REST
-- **Official documentation:** [Add Non-Contract Invoice](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionsupsert)
+- **Official documentation:** [Add Non-Contract Invoice](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatch_entriesactionsadd_non-contract_inv)
 
 ## Parameters
 

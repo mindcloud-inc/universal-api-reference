@@ -43,18 +43,23 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `recordId` | string | yes | Lead record ID to convert. Example: `7323083000000731821`. |
+| `data[]` | array | no |  |
+| `data[].Accounts` | object | no |  |
+| `data[].Contacts` | object | no |  |
+| `data[].move_attachments_to` | object | no |  |
+| `data[].assign_to` | object | no |  |
 
 ### Advanced
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `data[].Accounts.id` | string | no | Existing account ID to associate during conversion. Example: `7323083000000098001`. |
+| `data[].assign_to.id` | string | no | User ID for the converted record owner. Example: `7323083000000097001`. |
+| `data[].Contacts.id` | string | no | Existing contact ID to associate during conversion. Example: `7323083000000099001`. |
+| `data[].move_attachments_to.apiName` | list | no | Module that should receive converted lead attachments. One of: `Accounts`, `Contacts`, `Deals`. Example: `Contacts`. |
 | `data[].overwrite` | boolean | no | Overwrite existing mapped values during conversion. |
 | `data[].notifyLeadOwner` | boolean | no | Notify the lead owner about the conversion. |
 | `data[].notifyNewEntityOwner` | boolean | no | Notify the owner of the newly created record. |
-| `data[].moveAttachmentsTo.apiName` | list | no | Module that should receive converted lead attachments. One of: `Accounts`, `Contacts`, `Deals`. Example: `Contacts`. |
-| `data[].assignTo.id` | string | no | User ID for the converted record owner. Example: `7323083000000097001`. |
-| `data[].accounts.id` | string | no | Existing account ID to associate during conversion. Example: `7323083000000098001`. |
-| `data[].contacts.id` | string | no | Existing contact ID to associate during conversion. Example: `7323083000000099001`. |
 
 ## Response
 

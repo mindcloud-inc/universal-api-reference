@@ -47,7 +47,14 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `data[]` | array<object> | yes | Account records to create. |
+| `data[].A2ZAccountID` | string | no |  |
 | `data[].accountName` | string | yes | Example: `MindCloud Wizard Account 20260311 1`. |
+| `data[].Shipping_Street` | string | no |  |
+| `data[].Shipping_Street_2` | string | no |  |
+| `data[].Shipping_City` | string | no |  |
+| `data[].Shipping_State` | string | no |  |
+| `data[].Shipping_Postcode` | string | no |  |
+| `data[].Website` | string | no |  |
 
 ## Response
 

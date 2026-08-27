@@ -8,8 +8,6 @@ GET https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/sear
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoint Vista `connectionId` ([setup](../authentication.md)).
 
-This action also supports [filtering](../filtering.md) (`where`).
-
 ## Example request
 
 ```bash
@@ -41,6 +39,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `modifiedUtcAfter` | date | no |  |
 | `object` | list<string> | yes | Specify the type of Object from the Human Resources V2 Direct API that you'd like to retrieve. |
 | `modifiedUtcBefore` | date | no |  |
+| `filters[]` | array<object> | no |  |
+| `filters` | object | no |  |
+| `filters[].operator` | string | no |  |
+| `filters[].propertyName` | string | no |  |
+| `filters[].value` | string | no |  |
+| `filters[].numberValue` | number | no |  |
 
 ## Response
 

@@ -47,8 +47,16 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `data[]` | array<object> | yes | Account records to update. |
+| `data[].A2ZAccountID` | string | no |  |
 | `data[].id` | string | yes |  |
+| `data[].Shipping_Postcode` | string | no |  |
+| `data[].Shipping_Street_2` | string | no |  |
 | `data[].accountName` | string | no | Example: `MindCloud Wizard Account 20260311 1 Updated`. |
+| `data[].Account_Name` | string | no |  |
+| `data[].Website` | string | no |  |
+| `data[].Shipping_Street` | string | no |  |
+| `data[].Shipping_City` | string | no |  |
+| `data[].Shipping_State` | string | no |  |
 
 ## Response
 

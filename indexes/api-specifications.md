@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3204 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3205 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -27,6 +27,7 @@ Machine-readable API descriptions for 3204 apps. Universal API specifications ar
 | [ActiveTrail](../apis/a/activeTrail) | [OpenAPI 3.1](../apis/a/activeTrail/universal-api/openapi.json) |  |
 | [ActivityInfo](../apis/a/activityInfo) | [OpenAPI 3.1](../apis/a/activityInfo/universal-api/openapi.json) |  |
 | [ActivitySmith](../apis/a/activitySmith) | [OpenAPI 3.1](../apis/a/activitySmith/universal-api/openapi.json) |  |
+| [Acumatica](../apis/a/acumatica) | [OpenAPI 3.1](../apis/a/acumatica/universal-api/openapi.json) |  |
 | [Acumbamail](../apis/a/acumbamail) | [OpenAPI 3.1](../apis/a/acumbamail/universal-api/openapi.json) |  |
 | [Adafruit IO](../apis/a/adafruitIO) | [OpenAPI 3.1](../apis/a/adafruitIO/universal-api/openapi.json) |  |
 | [Adalo](../apis/a/adalo) | [OpenAPI 3.1](../apis/a/adalo/universal-api/openapi.json) |  |

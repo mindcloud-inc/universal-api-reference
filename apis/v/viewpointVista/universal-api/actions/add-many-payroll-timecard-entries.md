@@ -17,10 +17,10 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/ac
   -d '{
   "connectionId": "$CONNECTION_ID",
   "items[].data.Co": 1,
-  "items[].data.Mth": "2026-05-07T12:00:00.000Z",
+  "items[].data.Mth": "string",
   "items[].data.BatchId": 1,
   "items[].data.Employee": 1,
-  "items[].data.PostDate": "2026-05-07T12:00:00.000Z",
+  "items[].data.PostDate": "string",
   "items[].data.Hours": "string",
   "items[].data.TypeDetails": {}
 }'
@@ -36,10 +36,10 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
   body: JSON.stringify({
     connectionId,
     "items[].data.Co": 1,
-    "items[].data.Mth": "2026-05-07T12:00:00.000Z",
+    "items[].data.Mth": "string",
     "items[].data.BatchId": 1,
     "items[].data.Employee": 1,
-    "items[].data.PostDate": "2026-05-07T12:00:00.000Z",
+    "items[].data.PostDate": "string",
     "items[].data.Hours": "string",
     "items[].data.TypeDetails": {}
   })
@@ -60,13 +60,13 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `items[].data.TypeDetails.Type` | list<string> | no | Based on the Type chosen - additional details can be specified by adding them as custom fields. |
 | `items[]` | array<object> | no | One to 1000 timebatch entry objects. Each item should include the Vista timebatch entry `data` and optional `callerMetadata` |
 | `items[].data` | object | no |  |
-| `items[].data.Mth` | date | yes | Key to pr/time_batches(Co, Mth, BatchId). Format `YYYY-MM-01` |
+| `items[].data.Mth` | string | yes | Key to pr/time_batches(Co, Mth, BatchId). Format `YYYY-MM-01` and is sent as a literal calendar date. |
 | `items[].data.TypeDetails.Job` | object | no |  |
 | `items[].data.TypeDetails.Job.Job` | string | no |  |
 | `items[].data.BatchId` | number | yes | Key to pr/time_batches(Co, Mth, BatchId). |
 | `items[].data.TypeDetails.Job.Phase` | string | no |  |
 | `items[].data.Employee` | number | yes | Key to pr/employees(PRCo, Employee). |
-| `items[].data.PostDate` | date | yes | Date you are entering time for. Format: `YYYY-MM-DD` |
+| `items[].data.PostDate` | string | yes | Date you are entering time for. Format `YYYY-MM-DD` and is sent as a literal calendar date. |
 | `items[].data.Hours` | string | yes | Hours. |
 | `items[].data.TypeDetails` | object | yes | Provide the object based on the entry type. Options for $.TypeDetails.Type: `J-Job`, `M-Mechanic`, `S-SM Work Order`. |
 | `items[].data.PaySeq` | number | no | ( Optional ) If omitted, the first Pay Sequence setup for the Pay Period associated to this batch. |

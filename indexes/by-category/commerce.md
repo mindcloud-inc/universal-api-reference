@@ -1,10 +1,11 @@
 # Commerce apps
 
-293 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+294 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
 - **Abstract VAT Validator** · [Universal API reference](../../apis/a/abstractVATValidator/universal-api) · [Native API reference](../../apis/a/abstractVATValidator/native-api) · [Native API docs](https://docs.abstractapi.com/api/vat-validation)
+- **Acumatica** · [Universal API reference](../../apis/a/acumatica/universal-api) · [Native API reference](../../apis/a/acumatica/native-api) · [Native API docs](https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6)
 - **Agiliron** · [Universal API reference](../../apis/a/agiliron/universal-api) · [Native API reference](../../apis/a/agiliron/native-api) · [Native API docs](https://api.agiliron.com/reference)
 - **Airwallex** · [Universal API reference](../../apis/a/airwallex/universal-api) · [Native API reference](../../apis/a/airwallex/native-api) · [Native API docs](https://www.airwallex.com/docs/developer-tools/api)
 - **Alegra** · [Universal API reference](../../apis/a/alegra/universal-api) · [Native API reference](../../apis/a/alegra/native-api) · [Native API docs](https://developer.alegra.com/)

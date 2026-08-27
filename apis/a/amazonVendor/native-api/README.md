@@ -1,6 +1,6 @@
 # Amazon Vendor: Native API Reference
 
-A consolidated summary of Amazon Vendor's API configuration and 12 documented operations, with links to official documentation.
+A consolidated summary of Amazon Vendor's API configuration and 13 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
 - **API base URL:** `https://sellingpartnerapi-{region}.amazon.com`
@@ -36,7 +36,7 @@ Shared headers:
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `nextToken` in the query string as the pagination cursor.
 
-## Endpoints (12 documented)
+## Endpoints (13 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -44,6 +44,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Get Direct Fulfillment Packing Slip](actions/get-direct-fulfillment-packing-slip.md) | `GET /vendor/directFulfillment/shipping/2021-12-28/packingSlips/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getpackingslip-1) |
 | [Get Direct Fulfillment Shipping Label](actions/get-direct-fulfillment-shipping-label.md) | `GET /vendor/directFulfillment/shipping/2021-12-28/shippingLabels/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getshippinglabel-1) |
 | [Get Direct Fulfillment Transaction Status](actions/get-direct-fulfillment-transaction-status.md) | `GET /vendor/directFulfillment/transactions/2021-12-28/transactions/:transactionId` | [docs](https://developer-docs.amazon.com/sp-api/reference/gettransactionstatus-1) |
+| [Get Order](actions/get-order.md) | `GET /vendor/directFulfillment/orders/2021-12-28/purchaseOrders/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getorder-2) |
 | [Get Purchase Order](actions/get-purchase-order.md) | `GET /vendor/orders/v1/purchaseOrders/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getpurchaseorder) |
 | [Get Purchase Orders](actions/get-purchase-orders.md) | `GET /vendor/orders/v1/purchaseOrders` | [docs](https://developer-docs.amazon.com/sp-api/reference/getpurchaseorders) |
 | [List Direct Fulfillment Orders](actions/list-direct-fulfillment-orders.md) | `GET /vendor/directFulfillment/orders/2021-12-28/purchaseOrders` | [docs](https://developer-docs.amazon.com/sp-api/reference/getorders-2) |

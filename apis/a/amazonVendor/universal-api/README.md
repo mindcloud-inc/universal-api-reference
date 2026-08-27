@@ -4,7 +4,7 @@ Amazon Vendor through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/amazonVendor/latest
 - **Category:** Commerce
-- **Actions:** 12
+- **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developer.amazonservices.com/
 - **Vendor API docs:** https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (12)
+## Actions (13)
 
 ### Invoices
 
@@ -35,6 +35,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actio
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Direct Fulfillment Packing Slip](actions/get-direct-fulfillment-packing-slip.md) | GET |  |
+| [Get Order](actions/get-order.md) | GET |  |
 | [Get Purchase Order](actions/get-purchase-order.md) | GET |  |
 | [Get Purchase Orders](actions/get-purchase-orders.md) | GET |  |
 | [List Direct Fulfillment Orders](actions/list-direct-fulfillment-orders.md) | GET |  |

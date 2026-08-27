@@ -20,7 +20,6 @@ Combine conditions with `;` for AND and `,` for OR. For example, `where=status==
 - [Search EM Objects](actions/search-em-objects.md)
 - [Search GL Objects](actions/search-gl-objects.md)
 - [Search HQ Objects](actions/search-hq-objects.md)
-- [Search HR Objects](actions/search-hr-objects.md)
 - [Search IN Objects](actions/search-in-objects.md)
 - [Search JC Objects](actions/search-jc-objects.md)
 - [Search MS Objects](actions/search-ms-objects.md)

@@ -49,6 +49,22 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `data[]` | array<object> | yes | Contact records to create. |
 | `data[].lastName` | string | yes | Example: `Wizard Contact 20260311 1`. |
 | `data[].email` | string | no | Example: `wizard.contact.20260311.1@example.com`. |
+| `data[].a2zContactID` | string | no |  |
+| `data[].company` | string | no |  |
+| `data[].firstName` | string | no |  |
+| `data[].middleName` | string | no |  |
+| `data[].title` | string | no |  |
+| `data[].website` | string | no |  |
+| `data[].mailingCity` | string | no |  |
+| `data[].mailingCountry` | string | no |  |
+| `data[].mailingZip` | string | no |  |
+| `data[].mailingState` | string | no |  |
+| `data[].mailingStreet` | string | no |  |
+| `data[].mailingStreet2` | string | no |  |
+| `data[].accountName` | string | no |  |
+| `data[].contactType` | string | no |  |
+| `data[].tpe27ConfirmedExhibitor` | boolean | no |  |
+| `data[].confirmedExhibitor` | boolean | no |  |
 
 ## Response
 

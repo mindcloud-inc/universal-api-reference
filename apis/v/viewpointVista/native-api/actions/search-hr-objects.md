@@ -10,10 +10,6 @@ Search objects found in Viewpoint® Vista™ Human Resources (HR) programs.
 - **API:** REST
 - **Official documentation:** [Search HR Objects](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache)
 
-## Capabilities
-
-This operation supports [filtering](../README.md#filtering).
-
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |
@@ -21,3 +17,9 @@ This operation supports [filtering](../README.md#filtering).
 | `modifiedUtcAfter` | body | `date` | no | — |
 | `object` | path | `list<string>` | yes | Specify the type of Object from the Human Resources V2 Direct API that you'd like to retrieve. |
 | `modifiedUtcBefore` | body | `date` | no | — |
+| `filters[]` | body | `array<object>` | no | — |
+| `filters` | body | `object` | no | — |
+| `filters[].operator` | body | `string` | no | — |
+| `filters[].propertyName` | body | `string` | no | — |
+| `filters[].value` | body | `string` | no | — |
+| `filters[].numberValue` | body | `number` | no | — |
