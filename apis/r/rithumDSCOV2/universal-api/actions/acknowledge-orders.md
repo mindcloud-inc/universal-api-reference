@@ -34,7 +34,14 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/rithumDS
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | no |  |
+| `type` | string | no |  |
 
 ## Response
 

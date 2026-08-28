@@ -4,7 +4,7 @@ Autotask: Manage companies, opportunities, projects, contacts, resources, and at
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/autotask/latest
 - **Category:** IT Operations / IT Service Management
-- **Actions:** 25
+- **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.kaseya.com/products/
 - **Vendor API docs:** https://www.autotask.net/help/developerhelp/Content/APIs/REST/REST_API_Home.htm
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/t
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (25)
+## Actions (35)
 
 ### Company
 
@@ -35,8 +35,15 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/t
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Count Contacts](actions/count-contacts.md) | GET |  |
+| [Create Contact](actions/create-contact.md) | POST |  |
+| [Delete Contact](actions/delete-contact.md) | DELETE |  |
 | [Get Contact](actions/get-contact.md) | GET |  |
+| [Get Contact Entity Information](actions/get-contact-entity-information.md) | GET |  |
+| [Get Contact Fields](actions/get-contact-fields.md) | GET |  |
+| [Get Contact User-Defined Fields](actions/get-contact-user-defined-fields.md) | GET |  |
 | [List Contacts](actions/list-contacts.md) | GET |  |
+| [Update Contact](actions/update-contact.md) | PUT |  |
 
 ### Opportunity
 
@@ -81,7 +88,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/t
 | --- | --- | --- |
 | [Count Projects](actions/count-projects.md) | GET |  |
 | [Get Project](actions/get-project.md) | GET |  |
+| [Get Project Entity Information](actions/get-project-entity-information.md) | GET |  |
 | [List Projects](actions/list-projects.md) | GET |  |
+| [Update Project](actions/update-project.md) | PUT |  |
 
 ### Project Attachment
 
@@ -101,6 +110,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/t
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Project User-Defined Fields](actions/get-project-user-defined-fields.md) | GET |  |
+
+### Projects
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Project](actions/create-project.md) | POST |  |
 
 ### Resource
 

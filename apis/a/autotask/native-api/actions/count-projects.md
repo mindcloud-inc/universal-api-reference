@@ -11,4 +11,4 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `search` | query | `string` | yes | Autotask search JSON, for example {"filter":[{"op":"exist","field":"id"}]}. |
+| `search` | query | `string` | no | Autotask search JSON, for example {"filter":[{"op":"exist","field":"id"}]}. |

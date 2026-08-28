@@ -1660,7 +1660,7 @@ The official vendor API documentation for each of the 3205 apps in this repo. Ea
 - [Milvus Vector Store](../apis/m/milvusVectorStore/native-api) - https://docs.zilliz.com/reference/restful/data-plane-v2
 - [Mime Automation](../apis/m/mimeAutomation/native-api) - https://learn.microsoft.com/en-us/connectors/mimeautomationip/
 - [1minAI](../apis/m/minAI/native-api) - https://docs.1min.ai/docs/api/intro
-- [MindCloud](../apis/m/mindCloud/native-api)
+- [MindCloud](../apis/m/mindCloud/native-api) - https://mindcloud.co/docs/api/rest/introduction
 - [Mindee](../apis/m/mindee/native-api) - https://docs.mindee.com/integrations/api-reference
 - [MindMe](../apis/m/mindMe/native-api) - https://www.mindmemobile.com/platform/app/
 - [MindStudio](../apis/m/mindStudio/native-api) - https://university.mindstudio.ai/docs/developers/api-reference

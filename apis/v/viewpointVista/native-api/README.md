@@ -1,6 +1,6 @@
 # Viewpoint Vista: Native API Reference
 
-A consolidated summary of Viewpoint Vista's API configuration and 68 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Vista's API configuration and 69 documented operations, with links to official documentation.
 
 - **Official docs:** https://direct-api.xchange.trimble.com/reference/setup
 - **REST base URL:** `https://api.xchange.trimble.com/connect/`
@@ -53,7 +53,7 @@ Shared headers:
 
 - **REST:** Send filters in the request body.
 
-## Endpoints (68 documented)
+## Endpoints (69 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -70,6 +70,7 @@ Shared headers:
 | [Create Contract](actions/create-contract.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/contracts/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd) |
 | [Create Customer Action](actions/create-customer-action.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/customers/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2datacustomersactionsadd) |
 | [Create JC Job](actions/create-jc-job.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/jobs/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd) |
+| [Create Job Phases](actions/create-job-phases.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/job_phases/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajob_phasesactionsadd) |
 | [Get Action Instance](actions/get-action-instance.md) | Action Instance REST | `GET v1/direct/actions/:action_key_value` | [docs](https://direct-api.xchange.trimble.com/reference/get-directactionsaction_key_value) |
 | [Get Customer by RyvitId](actions/get-customer-by-ryvit-id.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/sm/2/data/customers/cache/__ryvitId/:ryvitId_value` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache__ryvitidryvitid_value) |
 | [Get Customer by SMCo, CustGroup, Customer](actions/get-customer-by-sm-co-cust-group-customer.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/sm/2/data/customers/cache/natural/:SMCo/:CustGroup/:Customer` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datacustomerscachesearchsearch) |

@@ -39,6 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `sortBy` | list<string> | no |  |
 | `createdAtMin` | string | no |  |
 | `excludedStates` | string | no |  |
 | `shipAfterMax` | string | no |  |

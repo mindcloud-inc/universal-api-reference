@@ -60,7 +60,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `estArrival` | string | no |  |
 | `dispatchStatusCode` | string | no |  |
 | `summaryDescription` | string | no |  |
-| `orderedDate` | number | no |  |
+| `orderedDate` | string | no |  |
 | `timeEntered` | string | no |  |
 | `requestedDate` | string | no |  |
 | `estimatedCompleteTime` | number | no |  |

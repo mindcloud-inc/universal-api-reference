@@ -44,31 +44,25 @@ Example response:
 
 See the full [Test Connection action reference](actions/test-connection.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/autotask/latest/actions/test-connection).
 
-## Create Opportunity
+## Create Contact
 
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/create-opportunity" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/create-contact" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "companyId": "12345",
-  "title": "Managed services renewal",
-  "ownerResourceId": "12345",
-  "amount": "0",
-  "cost": "0",
-  "probability": "50",
-  "projectedCloseDate": "2026-09-30",
-  "stage": "1",
-  "status": "1",
-  "useQuoteTotals": true
+  "companyId": 1,
+  "firstName": "Ava",
+  "lastName": "Chen",
+  "isActive": 1
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/autotask/latest/actions/create-opportunity', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/autotask/latest/actions/create-contact', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -76,16 +70,10 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/autotask
   },
   body: JSON.stringify({
     connectionId,
-    "companyId": "12345",
-    "title": "Managed services renewal",
-    "ownerResourceId": "12345",
-    "amount": "0",
-    "cost": "0",
-    "probability": "50",
-    "projectedCloseDate": "2026-09-30",
-    "stage": "1",
-    "status": "1",
-    "useQuoteTotals": true
+    "companyId": 1,
+    "firstName": "Ava",
+    "lastName": "Chen",
+    "isActive": 1
   })
 });
 
@@ -102,4 +90,4 @@ Example response:
 }
 ```
 
-See the full [Create Opportunity action reference](actions/create-opportunity.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/autotask/latest/actions/create-opportunity).
+See the full [Create Contact action reference](actions/create-contact.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/autotask/latest/actions/create-contact).

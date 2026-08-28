@@ -32,7 +32,7 @@ Example response:
   "success": true,
   "data": [
     {
-      "message": "string"
+      "hello": "string"
     }
   ],
   "meta": {}

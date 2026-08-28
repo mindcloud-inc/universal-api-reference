@@ -17,10 +17,11 @@
 | `vendorContacts[].name` | body | `string` | no |
 | `active` | body | `boolean` | no |
 | `address.unit` | body | `string` | no |
-| `externalData.externalData[]` | body | `array` | no |
 | `externalData.externalData[].key` | body | `string` | no |
+| `externalData.patchMode` | body | `object` | no |
 | `vendorContacts[].email` | body | `string` | no |
 | `address.city` | body | `string` | no |
+| `externalData.externalData[]` | body | `array` | no |
 | `memo` | body | `string` | no |
 | `address.state` | body | `string` | no |
 | `firstName` | body | `string` | no |

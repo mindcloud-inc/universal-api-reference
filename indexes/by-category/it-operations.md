@@ -1,6 +1,6 @@
 # IT Operations apps
 
-391 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+392 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbyy** · [Universal API reference](../../apis/a/abbyy/universal-api) · [Native API reference](../../apis/a/abbyy/native-api) · [Native API docs](https://support.abbyy.com/hc/en-us/articles/360017269420-API-reference)
 - **Abstract IP Intelligence** · [Universal API reference](../../apis/a/abstractIPIntelligence/universal-api) · [Native API reference](../../apis/a/abstractIPIntelligence/native-api) · [Native API docs](https://docs.abstractapi.com/api/ip-intelligence)
@@ -213,6 +213,7 @@
 - **Merge Agent Handler** · [Universal API reference](../../apis/m/mergeAgentHandler/universal-api) · [Native API reference](../../apis/m/mergeAgentHandler/native-api) · [Native API docs](https://docs.merge.dev/merge-agent-handler/agent-handler)
 - **Middesk** · [Universal API reference](../../apis/m/middesk/universal-api) · [Native API reference](../../apis/m/middesk/native-api) · [Native API docs](https://docs.middesk.com/build/api-keys)
 - **Milvus Vector Store** · [Universal API reference](../../apis/m/milvusVectorStore/universal-api) · [Native API reference](../../apis/m/milvusVectorStore/native-api) · [Native API docs](https://docs.zilliz.com/reference/restful/data-plane-v2)
+- **MindCloud** · [Universal API reference](../../apis/m/mindCloud/universal-api) · [Native API reference](../../apis/m/mindCloud/native-api) · [Native API docs](https://mindcloud.co/docs/api/rest/introduction)
 - **mittwald** · [Universal API reference](../../apis/m/mittwaldAPI/universal-api) · [Native API reference](../../apis/m/mittwaldAPI/native-api) · [Native API docs](https://api.mittwald.de/v2/openapi.json)
 - **Moderation API** · [Universal API reference](../../apis/m/moderationAPI/universal-api) · [Native API reference](../../apis/m/moderationAPI/native-api) · [Native API docs](https://docs.moderationapi.com/)
 - **Morph** · [Universal API reference](../../apis/m/morph/universal-api) · [Native API reference](../../apis/m/morph/native-api) · [Native API docs](https://docs.morphllm.com/introduction)

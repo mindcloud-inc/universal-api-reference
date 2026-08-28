@@ -11,14 +11,13 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Autotask
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/count-projects?connectionId=$CONNECTION_ID&search=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/autotask/latest/actions/count-projects?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId,
-  "search": "string"
+  connectionId
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/autotask/latest/actions/count-projects?${params}`, {
@@ -36,7 +35,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `search` | string | yes | Autotask search JSON, for example {"filter":[{"op":"exist","field":"id"}]}. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `search` | string | no | Autotask search JSON, for example {"filter":[{"op":"exist","field":"id"}]}. |
 
 ## Response
 

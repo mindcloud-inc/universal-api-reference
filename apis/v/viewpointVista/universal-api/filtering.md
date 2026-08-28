@@ -12,7 +12,6 @@ Combine conditions with `;` for AND and `,` for OR. For example, `where=status==
 
 ## Viewpoint Vista actions that support filtering
 
-- [Search AP Objects](actions/search-ap-objects.md)
 - [Search AR Objects](actions/search-ar-objects.md)
 - [Search Batch Entries](actions/search-batch-entries.md)
 - [Search Batches](actions/search-batches.md)

@@ -4,7 +4,7 @@ Centerpoint through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/centerpoint/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 65
+- **Actions:** 66
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://app.centerpointconnect.com/
 - **Vendor API docs:** https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/action
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (65)
+## Actions (66)
 
 ### Budget Entry
 
@@ -60,6 +60,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/action
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Building Photo](actions/get-building-photo.md) | GET |  |
+
+### Companies
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Update Company](actions/update-company.md) | PUT |  |
 
 ### Company
 

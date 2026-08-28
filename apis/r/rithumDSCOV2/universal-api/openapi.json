@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Rithum DSCO Universal API",
-    "version": "0.0.3",
+    "version": "0.0.6",
     "description": "Rithum DSCO provides commerce operations APIs for suppliers and retailers to manage orders, inventory, catalog data, shipments, invoices, returns, warehouses, trading partners, conversations, shipping labels, and related marketplace workflows."
   },
   "servers": [
@@ -238,6 +238,12 @@
                   "connectionId": {
                     "type": "string",
                     "description": "The MindCloud connection ID for this app."
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
                   }
                 },
                 "additionalProperties": false
@@ -788,6 +794,211 @@
         }
       }
     },
+    "/v1/universal/rithumDSCOV2/latest/actions/create-invoice-small-batch": {
+      "post": {
+        "operationId": "rithumDSCOV2.create-invoice-small-batch",
+        "summary": "Create Invoice Small Batch",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/rithumDSCOV2/latest/actions/create-invoice-small-batch"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "invoices[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "invoices[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Array of invoice objects to create in one small batch request."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "eventDate": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp of the batch request."
+                          },
+                          "requestId": {
+                            "type": "string",
+                            "description": "DSCO request ID for the small batch invoice request."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Invoice batch creation status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/rithumDSCOV2/latest/actions/create-order": {
       "post": {
         "operationId": "rithumDSCOV2.create-order",
@@ -850,6 +1061,267 @@
                           "status": {
                             "type": "string",
                             "description": "Order status."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/rithumDSCOV2/latest/actions/create-shipment-small-batch": {
+      "post": {
+        "operationId": "rithumDSCOV2.create-shipment-small-batch",
+        "summary": "Create Shipment Small Batch",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/rithumDSCOV2/latest/actions/create-shipment-small-batch"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "shipments[]",
+                  "shipments[].lineItems[]",
+                  "shipments[].trackingNumber",
+                  "shipments[].lineItems[].quantity"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "dscoOrderId": {
+                    "type": "string",
+                    "description": "DSCO order ID. Provide this or poNumber or supplierOrderNumber to identify the order."
+                  },
+                  "poNumber": {
+                    "type": "string",
+                    "description": "Purchase order number. Provide this or dscoOrderId or supplierOrderNumber to identify the order."
+                  },
+                  "supplierOrderNumber": {
+                    "type": "string",
+                    "description": "Supplier order number. Provide this or dscoOrderId or poNumber to identify the order."
+                  },
+                  "shipments[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Array of shipment objects to add to the order."
+                  },
+                  "shipments[].lineItems[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Line items included in the shipment."
+                  },
+                  "shipments[].trackingNumber": {
+                    "type": "string",
+                    "description": "Carrier tracking number for the shipment."
+                  },
+                  "shipments[].lineItems[].quantity": {
+                    "type": "number",
+                    "description": "Quantity of this line item included in the shipment."
+                  },
+                  "shipments[].shipDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Shipment date in ISO 8601 format."
+                  },
+                  "shipments[].lineItems[].lineNumber": {
+                    "type": "number",
+                    "description": "Order line number for the shipped item when needed to disambiguate the item."
+                  },
+                  "shipments[].lineItems[].sku": {
+                    "type": "string",
+                    "description": "SKU of the shipped item. One item identifier is required on each shipment line item."
+                  },
+                  "shipments[].shipCarrier": {
+                    "type": "string",
+                    "description": "Carrier name for the shipment."
+                  },
+                  "shipments[].shipMethod": {
+                    "type": "string",
+                    "description": "Shipping method for the shipment."
+                  },
+                  "shipments[].warehouseCode": {
+                    "type": "string",
+                    "description": "Warehouse code for the shipment."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "eventDate": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Timestamp of the batch request."
+                          },
+                          "requestId": {
+                            "type": "string",
+                            "description": "DSCO request ID for the small batch shipment request."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Shipment batch creation status."
                           }
                         },
                         "additionalProperties": false
@@ -4042,9 +4514,9 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "message": {
+                          "hello": {
                             "type": "string",
-                            "description": "DSCO hello-world connection test response message."
+                            "description": "DSCO hello-world connection test response text."
                           }
                         },
                         "additionalProperties": false

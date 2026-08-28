@@ -39,7 +39,7 @@ Send these additional headers for this operation:
 | `Est_Arrival` | body | `string` | no |
 | `Dispatch_Status_Code` | body | `string` | no |
 | `Summary_Description` | body | `string` | no |
-| `Ordered_Date` | body | `number` | no |
+| `Ordered_Date` | body | `string` | no |
 | `Time_Entered` | body | `string` | no |
 | `Requested_Date` | body | `string` | no |
 | `Estimated_Complete_Time` | body | `number` | no |

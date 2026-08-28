@@ -1617,7 +1617,7 @@ Machine-readable API descriptions for 3205 apps. Universal API specifications ar
 | [Milvus Vector Store](../apis/m/milvusVectorStore) | [OpenAPI 3.1](../apis/m/milvusVectorStore/universal-api/openapi.json) |  |
 | [Mime Automation](../apis/m/mimeAutomation) | [OpenAPI 3.1](../apis/m/mimeAutomation/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/microsoft/PowerPlatformConnectors/dev/independent-publisher-connectors/Mime%20Automation/apiDefinition.swagger.json) |
 | [1minAI](../apis/m/minAI) | [OpenAPI 3.1](../apis/m/minAI/universal-api/openapi.json) |  |
-| [MindCloud](../apis/m/mindCloud) | [OpenAPI 3.1](../apis/m/mindCloud/universal-api/openapi.json) |  |
+| [MindCloud](../apis/m/mindCloud) | [OpenAPI 3.1](../apis/m/mindCloud/universal-api/openapi.json) | [Provider OpenAPI](https://connect.mindcloud.co/v2/openapi.json) |
 | [Mindee](../apis/m/mindee) | [OpenAPI 3.1](../apis/m/mindee/universal-api/openapi.json) | [Provider OpenAPI](https://api-v2.mindee.net/openapi.json) |
 | [MindMe](../apis/m/mindMe) | [OpenAPI 3.1](../apis/m/mindMe/universal-api/openapi.json) | [Provider OpenAPI](https://prodapi.mindmemobile.com/swagger/v1/swagger.json) |
 | [MindStudio](../apis/m/mindStudio) | [OpenAPI 3.1](../apis/m/mindStudio/universal-api/openapi.json) |  |

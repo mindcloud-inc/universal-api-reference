@@ -38,7 +38,7 @@ const { success, data } = await response.json();
   "success": true,
   "data": [
     {
-      "message": "string"
+      "hello": "string"
     }
   ],
   "meta": {}
@@ -49,7 +49,7 @@ const { success, data } = await response.json();
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `message` | string | DSCO hello-world connection test response message. |
+| `hello` | string | DSCO hello-world connection test response text. |
 
 ## Native endpoint
 

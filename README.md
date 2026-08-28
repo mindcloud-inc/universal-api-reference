@@ -2,7 +2,7 @@
 
 ![Last sync](https://img.shields.io/github/last-commit/mindcloud-inc/universal-api-reference?label=last%20sync)
 
-The API surface of **3,205 apps** — **75,805 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
+The API surface of **3,205 apps** — **75,858 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
 
 ```bash
 git clone https://github.com/mindcloud-inc/universal-api-reference.git
@@ -67,7 +67,7 @@ Full disclosure: MindCloud sells a [Universal API and MCP](https://mindcloud.co/
 [A (187)](apis/a) · [B (147)](apis/b) · [C (286)](apis/c) · [D (170)](apis/d) · [E (131)](apis/e) · [F (138)](apis/f) · [G (118)](apis/g) · [H (90)](apis/h) · [I (95)](apis/i) · [J (25)](apis/j) · [K (47)](apis/k) · [L (124)](apis/l) · [M (169)](apis/m) · [N (86)](apis/n) · [O (93)](apis/o) · [P (251)](apis/p) · [Q (33)](apis/q) · [R (149)](apis/r) · [S (361)](apis/s) · [T (174)](apis/t) · [U (59)](apis/u) · [V (74)](apis/v) · [W (96)](apis/w) · [X (13)](apis/x) · [Y (22)](apis/y) · [Z (67)](apis/z)
 
 **By category:**
-[Communication (180)](indexes/by-category/communication.md) · [Productivity (372)](indexes/by-category/productivity.md) · [IT Operations (391)](indexes/by-category/it-operations.md) · [Sales & CRM (172)](indexes/by-category/sales-crm.md) · [Commerce (294)](indexes/by-category/commerce.md) · [Marketing (394)](indexes/by-category/marketing.md) · [Content & Files (71)](indexes/by-category/content-files.md) · [Support (181)](indexes/by-category/support.md) · [Human Resources (77)](indexes/by-category/human-resources.md) · [Business Intelligence (259)](indexes/by-category/business-intelligence.md) · [Artificial Intelligence (204)](indexes/by-category/artificial-intelligence.md) · [Website & App Building (32)](indexes/by-category/website-app-building.md) · [Other (578)](indexes/by-category/other.md)
+[Communication (180)](indexes/by-category/communication.md) · [Productivity (372)](indexes/by-category/productivity.md) · [IT Operations (392)](indexes/by-category/it-operations.md) · [Sales & CRM (172)](indexes/by-category/sales-crm.md) · [Commerce (294)](indexes/by-category/commerce.md) · [Marketing (394)](indexes/by-category/marketing.md) · [Content & Files (71)](indexes/by-category/content-files.md) · [Support (181)](indexes/by-category/support.md) · [Human Resources (77)](indexes/by-category/human-resources.md) · [Business Intelligence (259)](indexes/by-category/business-intelligence.md) · [Artificial Intelligence (204)](indexes/by-category/artificial-intelligence.md) · [Website & App Building (32)](indexes/by-category/website-app-building.md) · [Other (577)](indexes/by-category/other.md)
 
 ## Missing an app? Found a bug?
 

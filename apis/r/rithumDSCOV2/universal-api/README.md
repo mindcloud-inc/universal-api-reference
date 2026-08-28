@@ -4,7 +4,7 @@ Rithum DSCO provides commerce operations APIs for suppliers and retailers to man
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/rithumDSCOV2/latest
 - **Category:** Commerce
-- **Actions:** 22
+- **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.rithum.com/
 - **Vendor API docs:** https://api.dsco.io/doc/v3/reference/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/rithumDSCOV2/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (22)
+## Actions (24)
 
 ### Assortment
 
@@ -64,6 +64,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/rithumDSCOV2/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Invoice Small Batch](actions/create-invoice-small-batch.md) | POST |  |
 | [Get Invoice](actions/get-invoice-by-id.md) | GET | Retrieves an invoice from Rithum DSCO. |
 | [Create Invoice](actions/single-invoice.md) | POST | Creates an invoice in Rithum DSCO. |
 
@@ -93,6 +94,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/rithumDSCOV2/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Shipment Small Batch](actions/create-shipment-small-batch.md) | POST |  |
 | [Create Shipment](actions/single-shipment.md) | POST | Creates a shipment in Rithum DSCO. |
 
 ### Warehouse

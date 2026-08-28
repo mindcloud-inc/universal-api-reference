@@ -288422,7 +288422,7 @@
       "format": "openapi",
       "url": "https://api.dsco.io/doc/v3/dsco-api-spec.yaml"
     },
-    "version": "0.0.3",
+    "version": "0.0.6",
     "authentication": [
       {
         "type": "oAuth2",
@@ -288433,23 +288433,25 @@
         "documentationUrl": "https://api.dsco.io/doc/v3/reference/#tag/OAuth2/operation/getAccessToken",
         "oauth": {
           "accessTokenUrl": "https://api.dsco.io/api/v3/oauth2/token",
-          "accessTokenMethod": "POST"
+          "accessTokenMethod": "POST",
+          "machineToMachine": true
         },
         "setupGuide": {
           "title": "Connect Rithum DSCO",
-          "beforeYouBegin": "You need the Rithum DSCO OAuth2 Client ID and Client Secret for the target supplier account. For this build, Linear GRA-16088 says the values are stored in 1Password item Rithum for accountId 1000015324 / CE Overstock LLC.",
+          "beforeYouBegin": "You need the Rithum DSCO OAuth2 Client ID and Client Secret for the DSCO account you want to connect.",
+          "docsUrl": "https://api.dsco.io/doc/v3/reference/#tag/OAuth2/operation/getAccessToken",
           "steps": [
             {
-              "title": "Open the stored provider credentials",
-              "description": "Open the 1Password item named Rithum and locate the Client ID and Client Secret fields for the DSCO supplier account."
+              "title": "Get your DSCO API credentials",
+              "description": "Obtain the OAuth2 Client ID and Client Secret for the DSCO account you want to connect from Rithum."
             },
             {
-              "title": "Create the MindCloud connection",
-              "description": "Create a Rithum DSCO V2 connection and enter the Client ID and Client Secret exactly as stored. Leave scope blank; Rithum currently does not use scope for this client-credentials flow."
+              "title": "Enter the credentials in the connection form",
+              "description": "In the connection form, paste the Client ID and Client Secret exactly as provided. Leave Scope blank unless Rithum instructs you to use one for your account."
             },
             {
-              "title": "Test the connection",
-              "description": "Run the connection test action after saving the connection."
+              "title": "Save and test the connection",
+              "description": "Save the connection, then run the connection test action to confirm the connection can mint a bearer token from the DSCO OAuth2 token endpoint and authenticate a request."
             }
           ]
         }
@@ -288532,14 +288534,43 @@
           "method": "POST",
           "path": "order/acknowledge",
           "baseUrl": "https://api.dsco.io/api/v3",
-          "apiType": "rest"
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "id",
+              "name": "id",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "type",
+              "name": "type",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            }
+          ]
         },
         "supports": {
           "pagination": false,
           "filtering": false,
           "sorting": false
         },
-        "arguments": [],
+        "arguments": [
+          {
+            "key": "id",
+            "name": "id",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "type",
+            "name": "type",
+            "dataType": "string",
+            "required": false
+          }
+        ],
         "responseSchema": [
           {
             "key": "requestId",
@@ -288627,6 +288658,67 @@
         ]
       },
       {
+        "name": "Create Invoice Small Batch",
+        "slug": "create-invoice-small-batch",
+        "operation": "create",
+        "method": "POST",
+        "model": "accounting.invoice",
+        "group": "Invoice",
+        "documentationUrl": "https://api.dsco.io/doc/v3/reference/#tag/Invoice/operation/createInvoiceSmallBatch",
+        "native": {
+          "method": "POST",
+          "path": "invoice/batch/small",
+          "baseUrl": "https://api.dsco.io/api/v3",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "invoices[]",
+              "name": "invoices",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Array of invoice objects to create in one small batch request."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "invoices[]",
+            "name": "invoices",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "Array of invoice objects to create in one small batch request."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "eventDate",
+            "dataType": "date",
+            "description": "Timestamp of the batch request.",
+            "mockType": "date"
+          },
+          {
+            "key": "requestId",
+            "dataType": "string",
+            "description": "DSCO request ID for the small batch invoice request.",
+            "mockType": "string"
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "description": "Invoice batch creation status.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
         "name": "Create Order",
         "slug": "create-order",
         "operation": "create",
@@ -288658,6 +288750,249 @@
             "key": "status",
             "dataType": "string",
             "description": "Order status.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Shipment Small Batch",
+        "slug": "create-shipment-small-batch",
+        "operation": "create",
+        "method": "POST",
+        "model": "accounting.salesOrder",
+        "group": "Shipment",
+        "documentationUrl": "https://api.dsco.io/doc/v3/reference/#tag/Order/operation/createShipmentSmallBatch",
+        "native": {
+          "method": "POST",
+          "path": "order/shipment/batch/small",
+          "baseUrl": "https://api.dsco.io/api/v3",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "dscoOrderId",
+              "name": "dscoOrderId",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "DSCO order ID. Provide this or poNumber or supplierOrderNumber to identify the order."
+            },
+            {
+              "key": "poNumber",
+              "name": "poNumber",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Purchase order number. Provide this or dscoOrderId or supplierOrderNumber to identify the order."
+            },
+            {
+              "key": "supplierOrderNumber",
+              "name": "supplierOrderNumber",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Supplier order number. Provide this or dscoOrderId or poNumber to identify the order."
+            },
+            {
+              "key": "shipments[]",
+              "name": "shipments",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Array of shipment objects to add to the order."
+            },
+            {
+              "key": "shipments[].lineItems[]",
+              "name": "lineItems",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "Line items included in the shipment."
+            },
+            {
+              "key": "shipments[].trackingNumber",
+              "name": "trackingNumber",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Carrier tracking number for the shipment."
+            },
+            {
+              "key": "shipments[].lineItems[].quantity",
+              "name": "quantity",
+              "dataType": "number",
+              "location": "body",
+              "required": true,
+              "description": "Quantity of this line item included in the shipment."
+            },
+            {
+              "key": "shipments[].shipDate",
+              "name": "shipDate",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "Shipment date in ISO 8601 format."
+            },
+            {
+              "key": "shipments[].lineItems[].lineNumber",
+              "name": "lineNumber",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Order line number for the shipped item when needed to disambiguate the item."
+            },
+            {
+              "key": "shipments[].lineItems[].sku",
+              "name": "sku",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "SKU of the shipped item. One item identifier is required on each shipment line item."
+            },
+            {
+              "key": "shipments[].shipCarrier",
+              "name": "shipCarrier",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Carrier name for the shipment."
+            },
+            {
+              "key": "shipments[].shipMethod",
+              "name": "shipMethod",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Shipping method for the shipment."
+            },
+            {
+              "key": "shipments[].warehouseCode",
+              "name": "warehouseCode",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Warehouse code for the shipment."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "dscoOrderId",
+            "name": "dscoOrderId",
+            "dataType": "string",
+            "required": false,
+            "description": "DSCO order ID. Provide this or poNumber or supplierOrderNumber to identify the order."
+          },
+          {
+            "key": "poNumber",
+            "name": "poNumber",
+            "dataType": "string",
+            "required": false,
+            "description": "Purchase order number. Provide this or dscoOrderId or supplierOrderNumber to identify the order."
+          },
+          {
+            "key": "supplierOrderNumber",
+            "name": "supplierOrderNumber",
+            "dataType": "string",
+            "required": false,
+            "description": "Supplier order number. Provide this or dscoOrderId or poNumber to identify the order."
+          },
+          {
+            "key": "shipments[]",
+            "name": "shipments",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "Array of shipment objects to add to the order."
+          },
+          {
+            "key": "shipments[].lineItems[]",
+            "name": "lineItems",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "Line items included in the shipment."
+          },
+          {
+            "key": "shipments[].trackingNumber",
+            "name": "trackingNumber",
+            "dataType": "string",
+            "required": true,
+            "description": "Carrier tracking number for the shipment."
+          },
+          {
+            "key": "shipments[].lineItems[].quantity",
+            "name": "quantity",
+            "dataType": "number",
+            "required": true,
+            "description": "Quantity of this line item included in the shipment."
+          },
+          {
+            "key": "shipments[].shipDate",
+            "name": "shipDate",
+            "dataType": "date",
+            "required": false,
+            "description": "Shipment date in ISO 8601 format."
+          },
+          {
+            "key": "shipments[].lineItems[].lineNumber",
+            "name": "lineNumber",
+            "dataType": "number",
+            "required": false,
+            "description": "Order line number for the shipped item when needed to disambiguate the item."
+          },
+          {
+            "key": "shipments[].lineItems[].sku",
+            "name": "sku",
+            "dataType": "string",
+            "required": false,
+            "description": "SKU of the shipped item. One item identifier is required on each shipment line item."
+          },
+          {
+            "key": "shipments[].shipCarrier",
+            "name": "shipCarrier",
+            "dataType": "string",
+            "required": false,
+            "description": "Carrier name for the shipment."
+          },
+          {
+            "key": "shipments[].shipMethod",
+            "name": "shipMethod",
+            "dataType": "string",
+            "required": false,
+            "description": "Shipping method for the shipment."
+          },
+          {
+            "key": "shipments[].warehouseCode",
+            "name": "warehouseCode",
+            "dataType": "string",
+            "required": false,
+            "description": "Warehouse code for the shipment."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "eventDate",
+            "dataType": "date",
+            "description": "Timestamp of the batch request.",
+            "mockType": "date"
+          },
+          {
+            "key": "requestId",
+            "dataType": "string",
+            "description": "DSCO request ID for the small batch shipment request.",
+            "mockType": "string"
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "description": "Shipment batch creation status.",
             "mockType": "string"
           }
         ]
@@ -289667,9 +290002,9 @@
         "arguments": [],
         "responseSchema": [
           {
-            "key": "message",
+            "key": "hello",
             "dataType": "string",
-            "description": "DSCO hello-world connection test response message.",
+            "description": "DSCO hello-world connection test response text.",
             "mockType": "string"
           }
         ]

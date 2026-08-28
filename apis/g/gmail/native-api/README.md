@@ -1,6 +1,6 @@
 # Google Mail: Native API Reference
 
-A consolidated summary of Google Mail's API configuration and 33 documented operations, with links to official documentation.
+A consolidated summary of Google Mail's API configuration and 34 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.google.com/workspace/gmail/api/reference/rest
 - **API base URL:** `https://gmail.googleapis.com/gmail/v1/users/:userId`
@@ -39,7 +39,7 @@ Use `maxResults` in the query string to set the page size (default 100; accepted
 
 Wait 30000 ms before the first retry. Stop after 5 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (33 documented)
+## Endpoints (34 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -51,6 +51,7 @@ Wait 30000 ms before the first retry. Stop after 5 attempts. Multiply the delay 
 | [Get Draft](actions/get-draft.md) | `GET /drafts/:id` | [docs](https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/get) |
 | [Get Email](actions/get-email.md) | `GET /messages/:id` | [docs](https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/get) |
 | [Get Email Attachment](actions/get-email-attachment.md) | `GET /messages/:messageId/attachments/:id` | [docs](https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages.attachments/get) |
+| [Get Email Signature](actions/get-email-signature.md) | `GET /settings/sendAs` | [docs](https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages.attachments/get) |
 | [Get Filter](actions/get-filter.md) | `GET /settings/filters/:id` | [docs](https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters/get) |
 | [Get Label](actions/get-label.md) | `GET /labels/:labelId` | [docs](https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.labels/get) |
 | [Get Profile](actions/get-profile.md) | `GET /profile` | [docs](https://developers.google.com/workspace/gmail/api/reference/rest/v1/users/getProfile) |

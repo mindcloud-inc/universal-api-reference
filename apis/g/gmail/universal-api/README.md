@@ -4,7 +4,7 @@ Send email, organize inboxes, search messages, and collaborate faster.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gmail/latest
 - **Category:** Communication / Team Messaging
-- **Actions:** 33
+- **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mail.google.com/
 - **Vendor API docs:** https://developers.google.com/workspace/gmail/api/reference/rest
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/gmail/latest/actions/list
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (33)
+## Actions (34)
 
 ### Authenticate
 
@@ -46,6 +46,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/gmail/latest/actions/list
 | [Get Draft](actions/get-draft.md) | GET | Retrieves a Gmail draft. |
 | [Get Email](actions/get-email.md) | GET | Retrieves a Gmail message. |
 | [Get Email Attachment](actions/get-email-attachment.md) | GET | Retrieves a Gmail message attachment. |
+| [Get Email Signature](actions/get-email-signature.md) | GET | Retrieves a Gmail signature. |
 | [Get Filter](actions/get-filter.md) | GET | Retrieves a filter from Gmail settings. |
 | [Get Thread](actions/get-thread.md) | GET | Retrieves a Gmail thread. |
 | [Get Vacation Settings](actions/get-vacation-settings.md) | GET | Retrieves vacation responder settings from Gmail. |

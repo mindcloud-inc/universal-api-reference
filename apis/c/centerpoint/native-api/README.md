@@ -1,6 +1,6 @@
 # Centerpoint: Native API Reference
 
-A consolidated summary of Centerpoint's API configuration and 65 documented operations, with links to official documentation.
+A consolidated summary of Centerpoint's API configuration and 66 documented operations, with links to official documentation.
 
 - **Official docs:** https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1
 - **API base URL:** `https://api.centerpointconnect.io/centerpoint/`
@@ -53,7 +53,7 @@ Send filters in the query string. Supported operators: `eq`, `gt`, `lt`.
 
 Set the sort field with `sort` in the query string. Use `ascending` for ascending order and `-` for descending order. Prefix the field name to select its direction. Multiple sort fields can be combined.
 
-## Endpoints (65 documented)
+## Endpoints (66 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -120,5 +120,6 @@ Set the sort field with `sort` in the query string. Use `ascending` for ascendin
 | [List Tax Codes](actions/list-tax-codes.md) | `GET tax_codes` | [docs](https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1/3dea94894ff94ee0588950e6f813f214/docs#/operations/tax_codesGET) |
 | [List Warranties](actions/list-warranties.md) | `GET warranties` | [docs](https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1/3dea94894ff94ee0588950e6f813f214/docs#/operations/warrantiesGET) |
 | [List Work Time Entries](actions/list-work-time-entries.md) | `GET work_time_entries` | [docs](https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1/3dea94894ff94ee0588950e6f813f214/docs#/operations/work_time_entriesGET) |
+| [Update Company](actions/update-company.md) | `PATCH companies/:COMPANY_ID` | [docs](https://api-portal.centerpointconnect.io/portal/catalogue-products/premium-access-product-1/3dea94894ff94ee0588950e6f813f214/docs#/operations/companies/{COMPANY_ID}PATCH) |
 | [Update Invoice](actions/update-invoice.md) | `PATCH invoices/:INVOICE_ID` | [docs](https://api-portal.centerpointconnect.io/portal/catalogue-products/premium-access-product-1/3dea94894ff94ee0588950e6f813f214/docs#/operations/invoices/{INVOICE_ID}PATCH) |
 | [Update Property](actions/update-property.md) | `PATCH properties/:PROPERTY_ID` | [docs](https://api-portal.centerpointconnect.io/portal/catalogue-products/premium-access-product-1/3dea94894ff94ee0588950e6f813f214/docs#/operations/properties/%7BPROPERTY_ID%7DPATCH) |

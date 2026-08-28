@@ -1,6 +1,6 @@
 # Rithum DSCO: Native API Reference
 
-A consolidated summary of Rithum DSCO's API configuration and 22 documented operations, with links to official documentation.
+A consolidated summary of Rithum DSCO's API configuration and 24 documented operations, with links to official documentation.
 
 - **Official docs:** https://api.dsco.io/doc/v3/reference/
 - **OpenAPI specification:** https://api.dsco.io/doc/v3/dsco-api-spec.yaml
@@ -17,6 +17,8 @@ Register an OAuth application with the provider to obtain client credentials and
 1. Exchange the returned authorization code with a POST request to https://api.dsco.io/api/v3/oauth2/token.
 2. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
+
+A machine-to-machine flow is configured.
 
 [Official authentication documentation](https://api.dsco.io/doc/v3/reference/#tag/OAuth2/operation/getAccessToken)
 
@@ -37,7 +39,7 @@ Responses from this API use JSON.
 
 Retry responses with status codes `408,429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts.
 
-## Endpoints (22 documented)
+## Endpoints (24 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -45,7 +47,9 @@ Retry responses with status codes `408,429,500,502,503,504`. Wait 1000 ms before
 | [Acknowledge Orders](actions/acknowledge-orders.md) | `POST order/acknowledge` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Order/operation/acknowledgeOrders) |
 | [Cancel Order Item](actions/cancel-order-item.md) | `POST order/item/cancel` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Order/operation/cancelOrderItem) |
 | [Create Assortment](actions/create-assortment.md) | `POST assortment` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Assortment/operation/createAssortment) |
+| [Create Invoice Small Batch](actions/create-invoice-small-batch.md) | `POST invoice/batch/small` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Invoice/operation/createInvoiceSmallBatch) |
 | [Create Order](actions/create-order.md) | `POST order` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Order/operation/createOrder) |
+| [Create Shipment Small Batch](actions/create-shipment-small-batch.md) | `POST order/shipment/batch/small` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Order/operation/createShipmentSmallBatch) |
 | [Delete Assortment](actions/delete-assortment.md) | `DELETE assortment/:id` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Assortment/operation/deleteAssortment) |
 | [Get Assortment](actions/get-assortment.md) | `GET assortment/:id` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Assortment/operation/getAssortment) |
 | [List Assortments](actions/get-assortments.md) | `GET assortment` | [docs](https://api.dsco.io/doc/v3/reference/#tag/Assortment/operation/getAssortments) |

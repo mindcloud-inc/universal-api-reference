@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 68
+- **Actions:** 69
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (68)
+## Actions (69)
 
 ### Accounts Payable
 
@@ -100,6 +100,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | --- | --- | --- |
 | [List JC Objects](actions/list-jc-objects.md) | GET | Represents data found in Viewpoint® Vista™ JC programs. |
 | [Search JC Objects](actions/search-jc-objects.md) | GET | Search objects found in Viewpoint® Vista™ Job Cost (JC) programs. |
+
+### Job Phase
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Job Phases](actions/create-job-phases.md) | POST |  |
 
 ### Jobs
 

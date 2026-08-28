@@ -15,6 +15,7 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
+| `sortBy` | query | `list<string>` | no |
 | `created_at_min` | query | `string` | no |
 | `excluded_states` | query | `string` | no |
 | `ship_after_max` | query | `string` | no |

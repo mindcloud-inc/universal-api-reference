@@ -47,10 +47,11 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `vendorContacts[].name` | string | no |  |
 | `active` | boolean | no |  |
 | `address.unit` | string | no |  |
-| `externalData.externalData[]` | array | no |  |
 | `externalData.externalData[].key` | string | no |  |
+| `externalData.patchMode` | object | no |  |
 | `vendorContacts[].email` | string | no |  |
 | `address.city` | string | no |  |
+| `externalData.externalData[]` | array | no |  |
 | `memo` | string | no |  |
 | `address.state` | string | no |  |
 | `firstName` | string | no |  |
