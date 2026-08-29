@@ -4,7 +4,7 @@ ServiceTitan through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 100
+- **Actions:** 102
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (100)
+## Actions (102)
 
 ### Access Tokens
 
@@ -42,6 +42,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Update GL Account](actions/update-gl-account.md) | PUT |  |
 | [Update Payment](actions/update-payment.md) | PUT | Updates an existing payment in ServiceTitan. |
 | [Update Payment Status](actions/update-payment-status.md) | PUT | Updates a payment status in ServiceTitan. |
+
+### Ap Bill
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Mark AP Bills as Exported](actions/mark-ap-bills-as-exported.md) | PUT |  |
 
 ### Appointment
 
@@ -201,6 +207,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Add Customer Tag](actions/add-customer-tag.md) | POST |  |
 | [List Payroll by Employee ID](actions/list-payroll-by-employee-id.md) | GET | Retrieves payrolls from ServiceTitan for an employee. |
 | [List Payroll by Technician ID](actions/list-payroll-by-technician-id.md) | GET | Retrieves payrolls from ServiceTitan for a technician. |
+
+### Payments
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Update Payment Custom Fields](actions/new-action2.md) | PUT |  |
 
 ### Payroll Runs
 

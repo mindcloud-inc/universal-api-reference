@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3205 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3206 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -187,6 +187,7 @@ The official vendor API documentation for each of the 3205 apps in this repo. Ea
 - [AvoSMS](../apis/a/avoSMS/native-api) - https://www.avosms.com/en/api/documentation
 - [AWeber](../apis/a/aWeber/native-api) - https://api.aweber.com/
 - [Awork](../apis/a/awork/native-api) - https://developers.awork.com/
+- [AXL](../apis/a/aXL/native-api) - https://axl.tech/developers/api
 - [Ayrshare](../apis/a/ayrshare/native-api) - https://www.ayrshare.com/docs/apis/overview
 - [Azure SQL](../apis/a/azuresql/native-api) - https://learn.microsoft.com/en-us/azure/azure-sql/
 - [B2B Wave](../apis/b/b2BWave/native-api) - https://docs.b2bwave.com/category/97-api

@@ -1,6 +1,6 @@
 # Amazon Vendor: Native API Reference
 
-A consolidated summary of Amazon Vendor's API configuration and 13 documented operations, with links to official documentation.
+A consolidated summary of Amazon Vendor's API configuration and 15 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
 - **API base URL:** `https://sellingpartnerapi-{region}.amazon.com`
@@ -36,7 +36,7 @@ Shared headers:
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–100). Use `nextToken` in the query string as the pagination cursor.
 
-## Endpoints (13 documented)
+## Endpoints (15 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -47,9 +47,11 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Get Order](actions/get-order.md) | `GET /vendor/directFulfillment/orders/2021-12-28/purchaseOrders/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getorder-2) |
 | [Get Purchase Order](actions/get-purchase-order.md) | `GET /vendor/orders/v1/purchaseOrders/:purchaseOrderNumber` | [docs](https://developer-docs.amazon.com/sp-api/reference/getpurchaseorder) |
 | [Get Purchase Orders](actions/get-purchase-orders.md) | `GET /vendor/orders/v1/purchaseOrders` | [docs](https://developer-docs.amazon.com/sp-api/reference/getpurchaseorders) |
+| [Get Transaction Status](actions/get-transaction-status.md) | `GET /vendor/directFulfillment/transactions/v1/transactions/:transactionId` | [docs](https://developer-docs.amazon.com/sp-api/reference/gettransactionstatus) |
 | [List Direct Fulfillment Orders](actions/list-direct-fulfillment-orders.md) | `GET /vendor/directFulfillment/orders/2021-12-28/purchaseOrders` | [docs](https://developer-docs.amazon.com/sp-api/reference/getorders-2) |
 | [Submit Direct Fulfillment Acknowledgements](actions/submit-direct-fulfillment-acknowledgements.md) | `POST /vendor/directFulfillment/orders/2021-12-28/acknowledgements` | [docs](https://developer-docs.amazon.com/sp-api/reference/submitacknowledgement-2) |
 | [Submit Direct Fulfillment Invoices](actions/submit-direct-fulfillment-invoices.md) | `POST /vendor/directFulfillment/payments/v1/invoices` | [docs](https://developer-docs.amazon.com/sp-api/reference/submitinvoice) |
 | [Submit Direct Fulfillment Shipment Confirmations](actions/submit-direct-fulfillment-shipment-confirmations.md) | `POST /vendor/directFulfillment/shipping/v1/shipmentConfirmations` | [docs](https://developer-docs.amazon.com/sp-api/reference/submitshipmentconfirmations-1) |
+| [Submit Inventory Update](actions/submit-inventory-update.md) | `POST /vendor/directFulfillment/inventory/v1/warehouses/:warehouseId/items` | [docs](https://developer-docs.amazon.com/sp-api/reference/submitinventoryupdate) |
 | [Submit Purchase Order Acknowledgements](actions/submit-purchase-order-acknowledgements.md) | `POST /vendor/orders/v1/acknowledgements` | [docs](https://developer-docs.amazon.com/sp-api/reference/submitacknowledgement) |
 | [Submit Shipment Confirmations](actions/submit-shipment-confirmations.md) | `POST /vendor/shipping/v1/shipmentConfirmations` | [docs](https://developer-docs.amazon.com/sp-api/reference/submitshipmentconfirmations) |

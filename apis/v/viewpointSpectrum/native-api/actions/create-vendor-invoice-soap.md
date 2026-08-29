@@ -20,23 +20,23 @@ Send these additional headers for this operation:
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `batchCode` | body | `string` | no | — |
-| `vendorCode` | body | `string` | yes | Maximum length: 10. |
+| `vendorCode` | body | `string` | yes | Maximum length: 20. |
 | `GL_Date` | body | `string` | no | — |
-| `contractNumber` | body | `string` | no | Maximum length: 10. |
+| `contractNumber` | body | `string` | no | Maximum length: 20. |
 | `invoiceNumber` | body | `string` | no | Maximum length: 30. |
 | `invoiceTypeCode` | body | `string` | no | Maximum length: 30. |
 | `invoiceDate` | body | `string` | no | — |
 | `invoiceAmount` | body | `string` | no | Maximum length: 25. |
-| `salesTaxAmount` | body | `string` | no | Maximum length: 2. |
-| `retentionAmount` | body | `string` | no | Maximum length: 10. |
-| `paymentDueDate` | body | `string` | no | Maximum length: 14. |
+| `salesTaxAmount` | body | `string` | no | Maximum length: 20. |
+| `retentionAmount` | body | `string` | no | Maximum length: 20. |
+| `paymentDueDate` | body | `string` | no | Maximum length: 20. |
 | `status` | body | `string` | no | — |
-| `discountDueDate` | body | `string` | no | Maximum length: 14. |
+| `discountDueDate` | body | `string` | no | Maximum length: 20. |
 | `discountAmount` | body | `string` | no | Maximum length: 20. |
 | `remarks` | body | `string` | no | Maximum length: 20. |
 | `apGlAccount` | body | `string` | no | Maximum length: 20. |
 | `distributionGlAccount` | body | `string` | no | Maximum length: 20. |
-| `jobNumber` | body | `string` | no | Maximum length: 1. |
+| `jobNumber` | body | `string` | no | Maximum length: 20. |
 | `phaseCode` | body | `string` | no | — |
 | `costType` | body | `string` | no | — |
 | `equipmentCode` | body | `string` | no | — |
@@ -49,7 +49,7 @@ Send these additional headers for this operation:
 | `woComponent` | body | `string` | no | — |
 | `woServiceContract` | body | `string` | no | — |
 | `woUnitPrice` | body | `string` | no | — |
-| `taxCode` | body | `string` | no | — |
+| `taxCode` | body | `string` | no | Maximum length: 50. |
 | `vatCode` | body | `string` | no | — |
 | `totalVatAmount` | body | `string` | no | — |
 | `liabilityCostCenter` | body | `string` | no | — |

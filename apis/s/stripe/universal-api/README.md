@@ -36,7 +36,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | --- | --- | --- |
 | [Create Checkout Session](actions/create-checkout-session.md) | POST | Creates a new checkout session in Stripe. |
 | [Create Variable-Amount Checkout Session](actions/create-checkout-session-copy.md) | POST | Creates a new checkout session in Stripe. |
-| [Create Checkout Session sync](actions/create-checkout-session-sync.md) | POST |  |
+| [Create Setup Checkout Session – Stripe to Aspire Sync](actions/create-setup-checkout-session-stripe-to-aspire-sync.md) | POST |  |
 | [Expire Checkout Session](actions/expire-checkout-session.md) | PUT | Expires an existing checkout session in Stripe. |
 | [Retrieve Checkout Session](actions/retrieve-checkout-session.md) | GET | Retrieves a checkout session from Stripe. |
 

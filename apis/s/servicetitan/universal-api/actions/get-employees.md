@@ -44,7 +44,41 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native ServiceTitan API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "active": true,
+      "customFields": [
+        {
+          "name": "Ava Chen",
+          "typeId": 1,
+          "value": "string"
+        }
+      ],
+      "email": "ava@example.com",
+      "id": 1,
+      "name": "Ava Chen"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `active` | boolean | Whether the employee is active. |
+| `customFields` | object | Custom-field object container. |
+| `customFields[]` | array<object> | Employee custom fields returned by ServiceTitan. |
+| `customFields[].name` | string | Custom-field name. |
+| `customFields[].typeId` | number | Custom-field type ID. |
+| `customFields[].value` | string | Custom-field value. |
+| `email` | string | Employee email address. |
+| `id` | number | Employee ID. |
+| `name` | string | Employee name. |
 
 ## Native endpoint
 

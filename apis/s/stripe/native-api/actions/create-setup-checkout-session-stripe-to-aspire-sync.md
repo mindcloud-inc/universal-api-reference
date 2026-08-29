@@ -1,26 +1,21 @@
-# Create Checkout Session sync with Stripe
+# Create Setup Checkout Session – Stripe to Aspire Sync with Stripe
 
 ## Endpoint
 
 - **Method:** `POST`
 - **Path:** `checkout/sessions`
 - **Base URL:** `https://api.stripe.com/v1`
-- **Official documentation:** [Create Checkout Session sync](https://docs.stripe.com/api/checkout/sessions/create)
+- **Official documentation:** [Create Setup Checkout Session – Stripe to Aspire Sync](https://docs.stripe.com/api/checkout/sessions/create)
 
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `mode` | body | `list<string>` | yes | Checkout mode. The workflow supplies payment for hosted payment requests. Accepted values: `payment`, `setup`, `subscription`. |
 | `customer` | body | `string` | no | Stripe Customer ID, supplied dynamically. |
 | `customer_email` | body | `string` | no | Customer email when no Stripe Customer ID is supplied. |
 | `success_url` | body | `string` | yes | Hosted Checkout success redirect URL. |
 | `cancel_url` | body | `string` | yes | Hosted Checkout cancellation redirect URL. |
-| `payment_method_types[]` | body | `array<string>` | yes | Allowed Stripe payment method types. Phase A workflow supplies card only. |
-| `line_item_quantity` | body | `number` | yes | Quantity for the single inline-price Checkout line item. |
-| `price_data_currency` | body | `string` | yes | Lowercase currency code for the inline Stripe Price. |
-| `unit_amount` | body | `number` | yes | Customer charge amount in integer cents, supplied dynamically. |
-| `product_name` | body | `string` | yes | Customer-visible payment request name, supplied dynamically. |
+| `payment_method_types[]` | body | `array<string>` | yes | Allowed Stripe payment method types. Each value must be card or us_bank_account. Send multiple values as a array. |
 | `client_reference_id` | body | `string` | yes | Unique MindCloud request ID used to reconcile the Checkout Session. |
 | `meta_contract_version` | body | `string` | yes | Exact Stripe to Aspire metadata contract version. |
 | `meta_mindcloud_request_id` | body | `string` | yes | Unique request identifier matching the payment reference contract. |

@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3205 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3206 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -183,6 +183,7 @@ Machine-readable API descriptions for 3205 apps. Universal API specifications ar
 | [AvoSMS](../apis/a/avoSMS) | [OpenAPI 3.1](../apis/a/avoSMS/universal-api/openapi.json) |  |
 | [AWeber](../apis/a/aWeber) | [OpenAPI 3.1](../apis/a/aWeber/universal-api/openapi.json) | [Provider OpenAPI](https://api.aweber.com/swagger.yaml) |
 | [Awork](../apis/a/awork) | [OpenAPI 3.1](../apis/a/awork/universal-api/openapi.json) | [Provider OpenAPI](https://api.awork.com/openapi/v1) |
+| [AXL](../apis/a/aXL) | [OpenAPI 3.1](../apis/a/aXL/universal-api/openapi.json) | [Provider OpenAPI](https://cdn.app.axl.tech/openapi/schemas/en.json) |
 | [Ayrshare](../apis/a/ayrshare) | [OpenAPI 3.1](../apis/a/ayrshare/universal-api/openapi.json) |  |
 | [B2B Wave](../apis/b/b2BWave) | [OpenAPI 3.1](../apis/b/b2BWave/universal-api/openapi.json) |  |
 | [Backendless](../apis/b/backendless) | [OpenAPI 3.1](../apis/b/backendless/universal-api/openapi.json) |  |

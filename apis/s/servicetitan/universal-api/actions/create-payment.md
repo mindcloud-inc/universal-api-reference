@@ -48,6 +48,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `referenceNumber` | string | no |  |
 | `memo` | string | no |  |
 | `syncStatus` | string | no |  |
+| `customFields[]` | array<object> | no | ServiceTitan payment custom fields. Use VistaID type 13614166 to store the Vista receipt identifier. |
 
 ## Response
 

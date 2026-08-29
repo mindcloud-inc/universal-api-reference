@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 100 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 102 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -42,7 +42,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (100 documented)
+## Endpoints (102 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -135,7 +135,9 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [List Report Categories](actions/list-report-categories.md) | `GET reporting/v2/tenant/{{credentials.tenant}}/report-categories` | [docs](https://developer.servicetitan.io/docs/apis/tenant-reporting-v2/endpoints/ReportCategories_GetCategories) |
 | [List Reports](actions/list-reports.md) | `GET reporting/v2/tenant/{{credentials.tenant}}/report-category/:report_category/reports` | [docs](https://developer.servicetitan.io/docs/apis/tenant-reporting-v2/endpoints/ReportCategoryReports_GetReports) |
 | [List Timesheet Codes](actions/list-timesheet-codes.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/timesheet-codes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-payroll-v2&operation=Payrolls_GetList) |
+| [Mark AP Bills as Exported](actions/mark-ap-bills-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/ap-bills/markasexported` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApBills_MarkAsExported) |
 | [Mark Invoice as Exported](actions/mark-invoice-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/invoices/markasexported` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-accounting-v2&operation=Invoices_GetList) |
+| [Update Payment Custom Fields](actions/new-action2.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/payments/custom-fields` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Payments_UpdateCustomFields) |
 | [Add Vendor](actions/post-vendor.md) | `POST inventory/v2/tenant/{{credentials.tenant}}/vendors` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Vendors_Create) |
 | [Update Costumer](actions/update-costumer.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` |  |
 | [Update Customer Membership](actions/update-customer-membership.md) | `PATCH memberships/v2/tenant/{{credentials.tenant}}/memberships/:membershipId` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-memberships-v2&operation=CustomerMemberships_Update) |

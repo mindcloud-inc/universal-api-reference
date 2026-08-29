@@ -56,9 +56,9 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Confirm Payment Intent](actions/confirm-payment-intent.md) | `POST payment_intents/:intent/confirm` | [docs](https://docs.stripe.com/api/payment_intents/confirm) |
 | [Create Checkout Session](actions/create-checkout-session.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
 | [Create Variable-Amount Checkout Session](actions/create-checkout-session-copy.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
-| [Create Checkout Session sync](actions/create-checkout-session-sync.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
 | [Create Customer](actions/create-customer.md) | `POST customers` | [docs](https://docs.stripe.com/api/customers/create) |
 | [Create Payment Intent](actions/create-payment-intent.md) | `POST payment_intents` | [docs](https://docs.stripe.com/api/payment_intents/create) |
+| [Create Setup Checkout Session – Stripe to Aspire Sync](actions/create-setup-checkout-session-stripe-to-aspire-sync.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
 | [Create Subscription](actions/create-subscription.md) | `POST subscriptions` | [docs](https://docs.stripe.com/api/subscriptions/create) |
 | [Expire Checkout Session](actions/expire-checkout-session.md) | `POST checkout/sessions/:session/expire` | [docs](https://docs.stripe.com/api/checkout/sessions/expire) |
 | [Get Balance Transactions](actions/get-balance-transactions.md) | `GET /balance_transactions?payout={{payoutId}}&limit={{limit}}&expand[]=data.source&expand[]=data.source.charge` |  |

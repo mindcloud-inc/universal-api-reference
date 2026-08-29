@@ -1,9 +1,9 @@
-# Stripe: Create Checkout Session sync
+# Stripe: Create Setup Checkout Session – Stripe to Aspire Sync
 
 
 
 ```
-POST https://connect.mindcloud.co/v1/universal/stripe/latest/actions/create-checkout-session-sync
+POST https://connect.mindcloud.co/v1/universal/stripe/latest/actions/create-setup-checkout-session-stripe-to-aspire-sync
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Stripe `connectionId` ([setup](../authentication.md)).
@@ -11,21 +11,16 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Stripe `
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/create-checkout-session-sync" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/create-setup-checkout-session-stripe-to-aspire-sync" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "mode": "payment",
   "successUrl": "https://example.com",
   "cancelUrl": "https://example.com",
   "paymentMethodTypes[]": [
     "string"
   ],
-  "lineItemQuantity": 1,
-  "priceDataCurrency": "string",
-  "unitAmount": 1,
-  "productName": "Ava Chen",
   "clientReferenceId": "string",
   "contractVersion": "string",
   "mindcloudRequestId": "string",
@@ -48,7 +43,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/cr
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/stripe/latest/actions/create-checkout-session-sync', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/stripe/latest/actions/create-setup-checkout-session-stripe-to-aspire-sync', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -56,14 +51,9 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/stripe/l
   },
   body: JSON.stringify({
     connectionId,
-    "mode": "payment",
     "successUrl": "https://example.com",
     "cancelUrl": "https://example.com",
     "paymentMethodTypes[]": ["string"],
-    "lineItemQuantity": 1,
-    "priceDataCurrency": "string",
-    "unitAmount": 1,
-    "productName": "Ava Chen",
     "clientReferenceId": "string",
     "contractVersion": "string",
     "mindcloudRequestId": "string",
@@ -94,16 +84,11 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mode` | list<string> | yes | Checkout mode. The workflow supplies payment for hosted payment requests. One of: `payment`, `setup`, `subscription`. |
 | `customer` | string | no | Stripe Customer ID, supplied dynamically. |
 | `customerEmail` | string | no | Customer email when no Stripe Customer ID is supplied. |
 | `successUrl` | string | yes | Hosted Checkout success redirect URL. |
 | `cancelUrl` | string | yes | Hosted Checkout cancellation redirect URL. |
-| `paymentMethodTypes[]` | array<string> | yes | Allowed Stripe payment method types. Phase A workflow supplies card only. |
-| `lineItemQuantity` | number | yes | Quantity for the single inline-price Checkout line item. |
-| `priceDataCurrency` | string | yes | Lowercase currency code for the inline Stripe Price. |
-| `unitAmount` | number | yes | Customer charge amount in integer cents, supplied dynamically. |
-| `productName` | string | yes | Customer-visible payment request name, supplied dynamically. |
+| `paymentMethodTypes[]` | array<string> | yes | Allowed Stripe payment method types. Each value must be card or us_bank_account. Accepts multiple values as an array. |
 | `clientReferenceId` | string | yes | Unique MindCloud request ID used to reconcile the Checkout Session. |
 | `contractVersion` | string | yes | Exact Stripe to Aspire metadata contract version. |
 | `mindcloudRequestId` | string | yes | Unique request identifier matching the payment reference contract. |
@@ -163,5 +148,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Stripe API, this operation is `POST checkout/sessions` (base URL `https://api.stripe.com/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-checkout-session-sync.md) for the provider-specific parameters and requirements.
+Through the native Stripe API, this operation is `POST checkout/sessions` (base URL `https://api.stripe.com/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-setup-checkout-session-stripe-to-aspire-sync.md) for the provider-specific parameters and requirements.
 
