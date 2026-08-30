@@ -1,6 +1,6 @@
 # HubSpot: Native API Reference
 
-A consolidated summary of HubSpot's API configuration and 77 documented operations, with links to official documentation.
+A consolidated summary of HubSpot's API configuration and 93 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
 - **REST - Query Pagination base URL:** `https://api.hubapi.com`
@@ -16,7 +16,7 @@ Register an OAuth application with the provider to obtain client credentials and
 2. Exchange the returned authorization code with a POST request to https://api.hubapi.com/oauth/v1/token.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
-Requested scopes: `crm.schemas.companies.write crm.schemas.quotes.read crm.objects.line_items.read crm.schemas.deals.read crm.objects.line_items.write crm.schemas.deals.write crm.schemas.line_items.read crm.schemas.orders.read crm.objects.orders.write oauth crm.objects.owners.read crm.objects.orders.read crm.objects.invoices.read crm.schemas.invoices.read account-info.security.read crm.objects.products.read tickets crm.objects.contacts.write crm.objects.products.write crm.schemas.custom.read crm.objects.invoices.write crm.objects.custom.read crm.objects.custom.write crm.objects.companies.write crm.lists.write crm.objects.companies.read crm.schemas.listings.read crm.lists.read settings.users.read crm.objects.deals.read crm.schemas.contacts.read crm.objects.deals.write crm.objects.quotes.write crm.objects.contacts.read crm.schemas.companies.read crm.objects.quotes.read`.
+Requested scopes: `oauth account-info.security.read accounting crm.lists.read crm.lists.write crm.objects.companies.read crm.objects.companies.write crm.objects.contacts.read crm.objects.contacts.write crm.objects.deals.read crm.objects.deals.write crm.objects.invoices.read crm.objects.invoices.write crm.objects.line_items.read crm.objects.line_items.write crm.objects.orders.read crm.objects.orders.write crm.objects.owners.read crm.objects.products.read crm.objects.products.write crm.objects.quotes.read crm.objects.quotes.write crm.objects.users.read crm.objects.users.write crm.objects.custom.read crm.objects.custom.write crm.objects.projects.read crm.objects.projects.write crm.schemas.companies.read crm.schemas.companies.write crm.schemas.contacts.read crm.schemas.custom.read crm.schemas.deals.read crm.schemas.deals.write crm.schemas.invoices.read crm.schemas.line_items.read crm.schemas.orders.read crm.schemas.quotes.read crm.schemas.projects.read external_integrations.forms.access files forms integration-sync sales-email-read settings.users.read tickets`.
 
 The flow supports refresh tokens. Refresh expired access tokens with a POST request to https://api.hubapi.com/oauth/v1/token.
 
@@ -73,16 +73,21 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 
 - **REST - Body Pagination:** Set the sort field with `sort` in the request body. Use `ASCENDING` for ascending order and `DESCENDING` for descending order. Multiple sort fields can be combined.
 
-## Endpoints (77 documented)
+## Endpoints (93 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
 | [Add User](actions/add-user.md) | REST - Query Pagination | `POST settings/v3/users/` | [docs](https://developers.hubspot.com/docs/api-reference/settings-user-provisioning-v3/users/post-settings-v3-users-) |
+| [Archive Project by ID](actions/archive-project-by-id.md) | REST - Query Pagination | `DELETE crm/objects/2026-03/projects/:projectId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/projects/guide) |
+| [Archive Task by ID](actions/archive-task-by-id.md) | REST - Query Pagination | `DELETE crm/objects/2026-03/tasks/:taskId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/activities/tasks/guide) |
+| [Associate Task with Project](actions/associate-task-with-project.md) | REST - Query Pagination | `PUT crm/objects/2026-03/tasks/:taskId/associations/default/projects/:projectId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/associations/associate-records/guide) |
 | [Batch Create Orders](actions/batch-create-orders.md) | REST - Query Pagination | `POST crm/v3/objects/orders/batch/create` | [docs](https://developers.hubspot.com/docs/api-reference/crm-orders-v3/batch/post-crm-v3-objects-orders-batch-create) |
 | [Batch Read Contacts](actions/batch-read-contacts.md) | REST - Query Pagination | `POST crm/v3/objects/contacts/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/batch/post-crm-v3-objects-contacts-batch-read) |
 | [Batch Read Engagements](actions/batch-read-engagements.md) | REST - Query Pagination | `POST crm/v3/objects/:engagementType/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/crm-objects-v3/batch/post-crm-v3-objects-objectType-batch-read) |
 | [Batch Read Line Items](actions/batch-read-line-items.md) | REST - Query Pagination | `POST crm/v3/objects/line_items/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/crm-line-items-v3/batch/post-crm-v3-objects-line_items-batch-read) |
 | [Batch Read Notes](actions/batch-read-notes.md) | REST - Query Pagination | `POST crm/v3/objects/notes/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/crm-notes-v3/batch/post-crm-v3-objects-notes-batch-read) |
+| [Batch Read Projects](actions/batch-read-projects.md) | REST - Query Pagination | `POST crm/objects/2026-03/projects/batch/read` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/using-object-apis) |
+| [Batch Update Projects](actions/batch-update-projects.md) | REST - Query Pagination | `POST crm/objects/2026-03/projects/batch/update` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/using-object-apis) |
 | [Batch Upsert Contacts](actions/batch-upsert-contacts.md) | REST - Query Pagination | `POST crm/objects/2026-03/contacts/batch/upsert` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/contacts/batch/upsert-contacts) |
 | [Create Company](actions/create-company.md) | REST - Query Pagination | `POST crm/v3/objects/companies` | [docs](https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/post-crm-v3-objects-companies) |
 | [Create Contact](actions/create-contact.md) | REST - Query Pagination | `POST crm/v3/objects/contacts` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/basic/post-crm-v3-objects-contacts) |
@@ -94,8 +99,10 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [Create Object Schema](actions/create-object-schema.md) | REST - Query Pagination | `POST crm-object-schemas/v3/schemas` | [docs](https://developers.hubspot.com/docs/api-reference/crm-schemas-v3/core/post-crm-object-schemas-v3-schemas) |
 | [Create Pipeline Stage](actions/create-pipeline-stage.md) | REST - Query Pagination | `POST crm/v3/pipelines/:objectType/:pipelineId/stages` | [docs](https://developers.hubspot.com/docs/api-reference/crm-pipelines-v3/pipeline-stages/post-crm-v3-pipelines-objectType-pipelineId-stages) |
 | [Create Product](actions/create-product.md) | REST - Query Pagination | `POST crm/v3/objects/products` | [docs](https://developers.hubspot.com/docs/api-reference/crm-products-v3/basic/post-crm-v3-objects-products) |
+| [Create Project](actions/create-project.md) | REST - Query Pagination | `POST crm/objects/2026-03/projects` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/projects/guide) |
 | [Create Property](actions/create-property.md) | REST - Query Pagination | `POST crm/v3/properties/:objectType` | [docs](https://developers.hubspot.com/docs/api-reference/crm-properties-v3/core/post-crm-v3-properties-objectType) |
 | [Create Quote](actions/create-quote.md) | REST - Query Pagination | `POST crm/v3/objects/quotes` | [docs](https://developers.hubspot.com/docs/api-reference/crm-quotes-v3/basic/post-crm-v3-objects-quotes) |
+| [Create Task](actions/create-task.md) | REST - Query Pagination | `POST crm/objects/2026-03/tasks` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/activities/tasks/guide) |
 | [Delete Association](actions/delete-association.md) | REST - Query Pagination | `DELETE crm/v4/objects/:objectType/:objectId/associations/:toObjectType/:toObjectId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-associations-v4/basic/delete-crm-v4-objects-objectType-objectId-associations-toObjectType-toObjectId) |
 | [Delete Company by ID](actions/delete-company-by-id.md) | REST - Query Pagination | `DELETE crm/v3/objects/companies/:companyId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/delete-crm-v3-objects-companies-companyId) |
 | [Delete Contact by ID](actions/delete-contact-by-id.md) | REST - Query Pagination | `DELETE crm/v3/objects/contacts/:contactId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/basic/delete-crm-v3-objects-contacts-contactId) |
@@ -112,10 +119,12 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [Get Owner](actions/get-owner.md) | REST - Query Pagination | `GET crm/v3/owners/:ownerId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-crm-owners-v3/owners/get-crm-v3-owners-ownerId) |
 | [Get Pipeline by ID](actions/get-pipeline-by-id.md) | REST - Query Pagination | `GET crm/v3/pipelines/:objectType/:pipelineId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-pipelines-v3/pipelines/get-crm-v3-pipelines-objectType-pipelineId) |
 | [Get Pipeline Stage by ID](actions/get-pipeline-stage-by-id.md) | REST - Query Pagination | `GET crm/v3/pipelines/:objectType/:pipelineId/stages/:stageId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-pipelines-v3/pipeline-stages/get-crm-v3-pipelines-objectType-pipelineId-stages-stageId) |
+| [Get Project by ID](actions/get-project-by-id.md) | REST - Query Pagination | `GET crm/objects/2026-03/projects/:projectId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/projects/guide) |
 | [Get Property Details](actions/get-property-details.md) | REST - Query Pagination | `GET crm/v3/properties/:objectType/:propertyName` | [docs](https://developers.hubspot.com/docs/api-reference/crm-properties-v3/core/get-crm-v3-properties-objectType-propertyName) |
 | [Get Quote by ID](actions/get-quote-by-id.md) | REST - Query Pagination | `GET crm/v3/objects/quotes/:quoteId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-quotes-v3/basic/get-crm-v3-objects-quotes-quoteId) |
 | [Get Shipping Method](actions/get-shipping-method.md) | REST - Query Pagination | `GET crm/v3/properties/deals/shipping_method` | [docs](https://developers.hubspot.com/docs/api-reference/crm-properties-v3/core/get-crm-v3-properties-objectType-propertyName) |
 | [Get Subscription by ID](actions/get-subscription-by-id.md) | REST - Query Pagination | `GET crm/v3/objects/subscriptions/:subscriptionId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/commerce-subscriptions/get-commerce-subscription) |
+| [Get Task by ID](actions/get-task-by-id.md) | REST - Query Pagination | `GET crm/objects/2026-03/tasks/:taskId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/activities/tasks/guide) |
 | [Get Ticket by ID](actions/get-ticket-by-id.md) | REST - Query Pagination | `GET crm/v3/objects/tickets/:ticketId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-tickets-v3/basic/get-crm-v3-objects-tickets-ticketId) |
 | [Get User](actions/get-user.md) | REST - Query Pagination | `GET crm/v3/objects/users/:userId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-users-v3/basic/get-crm-v3-objects-users-userId) |
 | [List Associations](actions/list-associations.md) | REST - Query Pagination | `GET crm/v4/objects/:fromObject/:objectId/associations/:toObjectType` | [docs](https://developers.hubspot.com/docs/api-reference/crm-associations-v4/guide) |
@@ -132,10 +141,13 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [List Forms](actions/list-forms.md) | REST - Query Pagination | `GET forms/v2/forms` | [docs](https://developers.hubspot.com/docs/api-reference/legacy/forms-v2/forms/get-forms-v2-forms) |
 | [List Owners](actions/list-owners.md) | REST - Query Pagination | `GET crm/v3/owners/` | [docs](https://developers.hubspot.com/docs/api-reference/crm-crm-owners-v3/owners/get-crm-v3-owners-) |
 | [List Pipelines](actions/list-pipelines.md) | REST - Query Pagination | `GET crm/v3/pipelines/:objectType` | [docs](https://developers.hubspot.com/docs/api-reference/crm-pipelines-v3/pipelines/get-crm-v3-pipelines-objectType) |
+| [List Projects](actions/list-projects.md) | REST - Query Pagination | `GET crm/objects/2026-03/projects` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/projects/guide) |
 | [List Properties](actions/list-properties.md) | REST - Query Pagination | `GET crm/v3/properties/:objectType` | [docs](https://developers.hubspot.com/docs/api-reference/crm-properties-v3/core/get-crm-v3-properties-objectType) |
 | [List Subscriptions](actions/list-subscriptions.md) | REST - Query Pagination | `GET crm/v3/objects/subscriptions` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/commerce-subscriptions/get-commerce-subscriptions) |
+| [List Tasks](actions/list-tasks.md) | REST - Query Pagination | `GET crm/objects/2026-03/tasks` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/activities/tasks/guide) |
 | [List Tickets](actions/list-tickets.md) | REST - Query Pagination | `GET crm/v3/objects/tickets` | [docs](https://developers.hubspot.com/docs/api-reference/crm-tickets-v3/basic/get-crm-v3-objects-tickets) |
 | [List Users](actions/list-users.md) | REST - Query Pagination | `GET settings/v3/users` | [docs](https://developers.hubspot.com/docs/api-reference/settings-user-provisioning-v3/users/get-settings-v3-users-) |
+| [Remove Task from Project](actions/remove-task-from-project.md) | REST - Query Pagination | `DELETE crm/objects/2026-03/tasks/:taskId/associations/projects/:projectId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/associations/associate-records/guide) |
 | [Search Companies](actions/search-companies.md) | REST - Body Pagination | `POST crm/v3/objects/companies/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-companies-v3/search/post-crm-v3-objects-companies-search) |
 | [Search Contacts](actions/search-contacts.md) | REST - Body Pagination | `POST crm/v3/objects/contacts/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/search/post-crm-v3-objects-contacts-search) |
 | [Search Deals](actions/search-deals.md) | REST - Body Pagination | `POST crm/v3/objects/deals/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-deals-v3/search/post-crm-v3-objects-0-3-search) |
@@ -145,7 +157,9 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [Search Lists](actions/search-lists.md) | REST - Body Pagination | `POST crm/v3/lists/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-lists-v3/lists/post-crm-v3-lists-search) |
 | [Search Orders](actions/search-orders.md) | REST - Body Pagination | `POST crm/v3/objects/orders/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-orders-v3/search/post-crm-v3-objects-orders-search) |
 | [Search Products](actions/search-products.md) | REST - Body Pagination | `POST crm/v3/objects/products/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-products-v3/search/post-crm-v3-objects-products-search) |
+| [Search Projects](actions/search-projects.md) | REST - Query Pagination | `POST crm/objects/2026-03/projects/search` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/projects/search/search-projects) |
 | [Search Subscriptions](actions/search-subscriptions.md) | REST - Body Pagination | `POST crm/v3/objects/subscriptions/search` | [docs](https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/commerce-subscriptions/search/search-commerce-subscriptions) |
+| [Search Tasks](actions/search-tasks.md) | REST - Query Pagination | `POST crm/objects/2026-03/tasks/search` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/activities/tasks/guide) |
 | [Search Tickets](actions/search-tickets.md) | REST - Body Pagination | `POST crm/v3/objects/tickets/search` | [docs](https://developers.hubspot.com/docs/api-reference/crm-tickets-v3/search/post-crm-v3-objects-tickets-search) |
 | [Update Company by ID](actions/update-company-by-id.md) | REST - Query Pagination | `PATCH crm/v3/objects/companies/:companyId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/patch-crm-v3-objects-companies-companyId) |
 | [Update Contact by ID](actions/update-contact-by-id.md) | REST - Query Pagination | `PATCH crm/v3/objects/contacts/:contactId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/basic/patch-crm-v3-objects-contacts-contactId) |
@@ -153,4 +167,6 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [Update Deal by ID](actions/update-deal-by-id.md) | REST - Query Pagination | `PATCH crm/v3/objects/deals/:dealId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-deals-v3/basic/patch-crm-v3-objects-deals-dealId) |
 | [Update Engagement by ID](actions/update-engagement-by-id.md) | REST - Query Pagination | `PATCH crm/v3/objects/:engagementType/:engagementId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-objects-v3/basic/patch-crm-v3-objects-objectType-objectId) |
 | [Update Invoice by ID](actions/update-invoice-by-id.md) | REST - Query Pagination | `PATCH crm/v3/objects/invoices/:invoiceId` | [docs](https://developers.hubspot.com/docs/api-reference/crm-invoices-v3/basic/patch-crm-v3-objects-invoices-invoiceId) |
+| [Update Project by ID](actions/update-project-by-id.md) | REST - Query Pagination | `PATCH crm/objects/2026-03/projects/:projectId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/projects/guide) |
+| [Update Task by ID](actions/update-task-by-id.md) | REST - Query Pagination | `PATCH crm/objects/2026-03/tasks/:taskId` | [docs](https://developers.hubspot.com/docs/api-reference/latest/crm/activities/tasks/guide) |
 | [Upload Files](actions/upload-files.md) | REST - Query Pagination | `POST files/v3/files` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/basic/get-crm-v3-objects-contacts) |

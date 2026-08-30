@@ -4,7 +4,7 @@ Manage contacts, track deals, run campaigns, and support customers.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hubspotApp/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 77
+- **Actions:** 93
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.hubspot.com/
 - **Vendor API docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (77)
+## Actions (93)
 
 ### Account Info
 
@@ -202,6 +202,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 | [Create Product](actions/create-product.md) | POST | Creates a new product in HubSpot. |
 | [Search Products](actions/search-products.md) | GET | Finds products in HubSpot. |
 
+### Project
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Archive Project by ID](actions/archive-project-by-id.md) | DELETE |  |
+| [Batch Read Projects](actions/batch-read-projects.md) | GET |  |
+| [Batch Update Projects](actions/batch-update-projects.md) | PUT |  |
+| [Create Project](actions/create-project.md) | POST |  |
+| [Get Project by ID](actions/get-project-by-id.md) | GET |  |
+| [List Projects](actions/list-projects.md) | GET |  |
+| [Search Projects](actions/search-projects.md) | GET |  |
+| [Update Project by ID](actions/update-project-by-id.md) | PUT |  |
+
 ### Property
 
 | Action | Method | Description |
@@ -228,6 +241,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 | [Get Subscription by ID](actions/get-subscription-by-id.md) | GET |  |
 | [List Subscriptions](actions/list-subscriptions.md) | GET |  |
 | [Search Subscriptions](actions/search-subscriptions.md) | GET |  |
+
+### Task
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Archive Task by ID](actions/archive-task-by-id.md) | DELETE |  |
+| [Associate Task with Project](actions/associate-task-with-project.md) | PUT |  |
+| [Create Task](actions/create-task.md) | POST |  |
+| [Get Task by ID](actions/get-task-by-id.md) | GET |  |
+| [List Tasks](actions/list-tasks.md) | GET |  |
+| [Remove Task from Project](actions/remove-task-from-project.md) | PUT |  |
+| [Search Tasks](actions/search-tasks.md) | GET |  |
+| [Update Task by ID](actions/update-task-by-id.md) | PUT |  |
 
 ### Ticket
 
