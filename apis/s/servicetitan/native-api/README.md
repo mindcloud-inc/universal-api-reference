@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 102 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 103 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -42,7 +42,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (102 documented)
+## Endpoints (103 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -139,6 +139,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Mark Invoice as Exported](actions/mark-invoice-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/invoices/markasexported` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-accounting-v2&operation=Invoices_GetList) |
 | [Update Payment Custom Fields](actions/new-action2.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/payments/custom-fields` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Payments_UpdateCustomFields) |
 | [Add Vendor](actions/post-vendor.md) | `POST inventory/v2/tenant/{{credentials.tenant}}/vendors` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Vendors_Create) |
+| [Update AP Bill Custom Fields](actions/update-ap-bill-custom-fields.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/ap-bills/custom-fields` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApBills_UpdateCustomFields) |
 | [Update Costumer](actions/update-costumer.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` |  |
 | [Update Customer Membership](actions/update-customer-membership.md) | `PATCH memberships/v2/tenant/{{credentials.tenant}}/memberships/:membershipId` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-memberships-v2&operation=CustomerMemberships_Update) |
 | [Update GL Account](actions/update-gl-account.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/gl-accounts/:id` |  |

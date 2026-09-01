@@ -4,7 +4,7 @@ ServiceTitan through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 102
+- **Actions:** 103
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (102)
+## Actions (103)
 
 ### Access Tokens
 
@@ -48,6 +48,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | Action | Method | Description |
 | --- | --- | --- |
 | [Mark AP Bills as Exported](actions/mark-ap-bills-as-exported.md) | PUT |  |
+| [Update AP Bill Custom Fields](actions/update-ap-bill-custom-fields.md) | PUT |  |
 
 ### Appointment
 

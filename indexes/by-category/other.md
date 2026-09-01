@@ -1,6 +1,6 @@
 # Other apps
 
-577 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+578 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -24,6 +24,7 @@
 - **All Things Considered Podcast** · [Universal API reference](../../apis/a/allThingsConsideredPodcast/universal-api) · [Native API reference](../../apis/a/allThingsConsideredPodcast/native-api) · [Native API docs](https://www.npr.org/programs/all-things-considered/archive)
 - **Alpha TransForm** · [Universal API reference](../../apis/a/alphaTransForm/universal-api) · [Native API reference](../../apis/a/alphaTransForm/native-api) · [Native API docs](https://documentation.alphasoftware.com/TransFormDocumentation/pages/Ref/API/index.xml)
 - **Alpha Vantage** · [Universal API reference](../../apis/a/alphaVantage/universal-api) · [Native API reference](../../apis/a/alphaVantage/native-api) · [Native API docs](https://www.alphavantage.co/documentation/)
+- **Amark** · [Universal API reference](../../apis/a/amarkAWL/universal-api) · [Native API reference](../../apis/a/amarkAWL/native-api)
 - **Ambee** · [Universal API reference](../../apis/a/ambee/universal-api) · [Native API reference](../../apis/a/ambee/native-api) · [Native API docs](https://docs.ambeedata.com/apis/overview)
 - **Amiibo API** · [Universal API reference](../../apis/a/amiiboAPI/universal-api) · [Native API reference](../../apis/a/amiiboAPI/native-api) · [Native API docs](https://github.com/N3evin/AmiiboAPI)
 - **Api2Convert** · [Universal API reference](../../apis/a/api2Convert/universal-api) · [Native API reference](../../apis/a/api2Convert/native-api) · [Native API docs](https://api.api2convert.com/v2/schema)

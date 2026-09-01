@@ -21,3 +21,4 @@ Creates a new payment in ServiceTitan.
 | `memo` | body | `string` | no | — |
 | `syncStatus` | body | `string` | no | — |
 | `customFields[]` | body | `array<object>` | no | ServiceTitan payment custom fields. Use VistaID type 13614166 to store the Vista receipt identifier. |
+| `splits[]` | body | `array` | no | — |

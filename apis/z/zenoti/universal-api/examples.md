@@ -7,13 +7,15 @@ These examples use the MindCloud API key and Zenoti connection described in [aut
 This API retrieves an organization's list of active centers.
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/list-centers?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/list-centers?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  limit: '25',
+  offset: '0'
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/list-centers?${params}`, {

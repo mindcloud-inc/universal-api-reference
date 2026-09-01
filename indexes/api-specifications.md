@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3206 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3207 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -91,6 +91,7 @@ Machine-readable API descriptions for 3206 apps. Universal API specifications ar
 | [Alto](../apis/a/alto) | [OpenAPI 3.1](../apis/a/alto/universal-api/openapi.json) | [Provider OpenAPI](https://api.alto.zoopla.co.uk/MergedDocs) |
 | [AltText.Ai](../apis/a/altTextAi) | [OpenAPI 3.1](../apis/a/altTextAi/universal-api/openapi.json) | [Provider OpenAPI](https://alttext.ai/openapi.yml) |
 | [AltTextify](../apis/a/altTextify) | [OpenAPI 3.1](../apis/a/altTextify/universal-api/openapi.json) |  |
+| [Amark](../apis/a/amarkAWL) | [OpenAPI 3.1](../apis/a/amarkAWL/universal-api/openapi.json) |  |
 | [Amazing Marvin](../apis/a/amazingMarvin) | [OpenAPI 3.1](../apis/a/amazingMarvin/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/amazingmarvin/MarvinAPI/master/marvin-api.yaml) |
 | [Amazon Seller](../apis/a/amazonSeller) | [OpenAPI 3.1](../apis/a/amazonSeller/universal-api/openapi.json) |  |
 | [Amazon Vendor](../apis/a/amazonVendor) | [OpenAPI 3.1](../apis/a/amazonVendor/universal-api/openapi.json) |  |

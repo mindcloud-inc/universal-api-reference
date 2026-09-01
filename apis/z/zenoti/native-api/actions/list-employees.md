@@ -7,6 +7,10 @@
 - **Base URL:** `https://api.zenoti.com/v1/`
 - **Official documentation:** [List Employees](https://docs.zenoti.com/reference/list-all-employees-of-a-center)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required |

@@ -6,6 +6,10 @@
 - **Path:** `reports/packages/benefits/flat_file`
 - **Base URL:** `https://api.zenoti.com/v1/`
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

@@ -8,16 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/get-sales-ac
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Zenoti `connectionId` ([setup](../authentication.md)).
 
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/get-sales-accrual-report?connectionId=$CONNECTION_ID&startDate=2026-05-07T12%3A00%3A00.000Z&endDate=2026-05-07T12%3A00%3A00.000Z" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/get-sales-accrual-report?connectionId=$CONNECTION_ID&limit=25&offset=0&startDate=2026-05-07T12%3A00%3A00.000Z&endDate=2026-05-07T12%3A00%3A00.000Z" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
+  limit: '25',
+  offset: '0',
   "startDate": "2026-05-07T12:00:00.000Z",
   "endDate": "2026-05-07T12:00:00.000Z"
 });
@@ -57,5 +61,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Zenoti API, this operation is `POST reports/sales/accrual_basis/flat_file` (base URL `https://api.zenoti.com/v1/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-sales-accrual-report.md) for the provider-specific parameters and requirements.
+Through the native Zenoti API, this operation is `POST reports/sales/accrual_basis/flat_file` (base URL `https://api.zenoti.com/v1/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/get-sales-accrual-report.md) for the provider-specific parameters and requirements.
 

@@ -7,6 +7,10 @@
 - **Base URL:** `https://api.zenoti.com/v1/`
 - **Official documentation:** [List Center Employee Schedules](https://docs.zenoti.com/reference/retrieve-the-schedules-of-employees-of-a-center)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

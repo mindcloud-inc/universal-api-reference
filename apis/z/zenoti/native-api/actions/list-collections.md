@@ -7,6 +7,10 @@
 - **Base URL:** `https://api.zenoti.com/v1/`
 - **Official documentation:** [Get Collections Report](https://linear.app/mindcloud/issue/MC-1685/create-the-zenoti-app)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

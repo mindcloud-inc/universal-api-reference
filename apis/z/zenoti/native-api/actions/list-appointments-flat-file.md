@@ -9,6 +9,10 @@ Returns a simpler result than List Appointments
 - **Base URL:** `https://api.zenoti.com/v1/`
 - **Official documentation:** [Get Appointments Report](none)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

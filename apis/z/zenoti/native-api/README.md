@@ -23,7 +23,11 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
-The total page count is read from `data.pageInfo.total`.
+The current page number is read from `data.pageInfo.page`.
+
+## Pagination
+
+Use `Size` in the query string to set the page size (default 25; accepted range 1–100). Use `Page` in the query string to choose the page; numbering starts at 1.
 
 ## Retry behavior
 

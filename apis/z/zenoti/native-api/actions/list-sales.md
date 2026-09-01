@@ -7,6 +7,10 @@
 - **Base URL:** `https://api.zenoti.com/v1/`
 - **Official documentation:** [Get Sales Report](None)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

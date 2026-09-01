@@ -47,7 +47,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `paymentId` | string | yes | Example: `123456`. |
-| `customFieldName` | string | yes | Example: `VistaID`. |
+| `customFieldName` | string | yes | Exact name of the ServiceTitan Payment custom field. For the United Mechanical production tenant, use Vista ID. Default: `Vista ID`. Example: `VistaID`. |
 | `customFieldValue` | string | yes | Example: `1:2026-08-01T00:00:00:4257:1382`. |
 
 ## Response

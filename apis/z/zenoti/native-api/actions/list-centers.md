@@ -8,3 +8,7 @@ This API retrieves an organization's list of active centers.
 - **Path:** `centers`
 - **Base URL:** `https://api.zenoti.com/v1/`
 - **Official documentation:** [List Centers](https://docs.zenoti.com/reference/list-all-centers)
+
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).

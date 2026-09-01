@@ -18,7 +18,7 @@ Read more in [authentication.md](authentication.md).
 For example, to [List Centers](actions/list-centers.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/list-centers?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/list-centers?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -56,7 +56,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/lis
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get Sales Accrual Report](actions/get-sales-accrual-report.md) | GET |  |
 | [List Centers](actions/list-centers.md) | GET | This API retrieves an organization's list of active centers. |
 | [Get Memberships Report](actions/list-memberships.md) | GET |  |
 | [List Services](actions/list-services.md) | GET |  |
@@ -79,6 +78,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zenoti/latest/actions/lis
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Purchases By Guest](actions/list-purchases-by-guest.md) | GET |  |
+
+### Reports
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Sales Accrual Report](actions/get-sales-accrual-report.md) | GET |  |
 
 ### Schedule
 

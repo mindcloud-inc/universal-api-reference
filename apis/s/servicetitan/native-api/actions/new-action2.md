@@ -9,8 +9,8 @@
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `paymentId` | body | `string` | yes |
-| `customFieldName` | body | `string` | yes |
-| `customFieldValue` | body | `string` | yes |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `paymentId` | body | `string` | yes | — |
+| `customFieldName` | body | `string` | yes | Exact name of the ServiceTitan Payment custom field. For the United Mechanical production tenant, use Vista ID. |
+| `customFieldValue` | body | `string` | yes | — |

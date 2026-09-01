@@ -7,6 +7,10 @@
 - **Base URL:** `https://api.zenoti.com/v1/`
 - **Official documentation:** [List Guest Memberships](https://docs.zenoti.com/reference/list-all-memberships-of-a-guest)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required |

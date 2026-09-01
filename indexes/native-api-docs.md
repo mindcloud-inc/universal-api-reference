@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3206 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3207 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -91,6 +91,7 @@ The official vendor API documentation for each of the 3206 apps in this repo. Ea
 - [AltText.Ai](../apis/a/altTextAi/native-api) - https://alttext.ai/docs/
 - [Alt Text Generator](../apis/a/altTextGenerator/native-api) - https://www.alttextlab.com/docs
 - [AltTextify](../apis/a/altTextify/native-api) - https://apidoc.alttextify.net/
+- [Amark](../apis/a/amarkAWL/native-api)
 - [Amazing Marvin](../apis/a/amazingMarvin/native-api) - https://github.com/amazingmarvin/MarvinAPI/wiki/Marvin-API
 - [Amazon Seller](../apis/a/amazonSeller/native-api) - https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
 - [Amazon Vendor](../apis/a/amazonVendor/native-api) - https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
