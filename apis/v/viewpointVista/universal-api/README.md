@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 70
+- **Actions:** 75
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (70)
+## Actions (75)
 
 ### Accounts Payable
 
@@ -44,6 +44,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Action Instance](actions/get-action-instance.md) | GET | Vista processes write operations asynchronously. This endpoint allows the integration to confirm whether a batch or time entry was… |
+
+### Batch
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Post PO Purchase Order Batch](actions/post-po-purchase-order-batch.md) | POST | Validate and post an PO Purchase Order Batch |
+| [Upsert Purchase Order Batch](actions/upsert-purchase-order-batch.md) | POST | Upsert Purchase Order Batch |
 
 ### Contracts
 
@@ -99,6 +106,18 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | --- | --- | --- |
 | [List IN Objects](actions/list-in-objects.md) | GET | Represents data found in Viewpoint® Vista™ IN programs. |
 | [Search IN Objects](actions/search-in-objects.md) | GET | Search objects found in Viewpoint® Vista™ Inventory (IN) programs. |
+
+### Invoice Batch
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Add AP Invoice Batch](actions/add-ap-invoice-batch.md) | POST |  |
+
+### Invoice Batch Entry
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Add AP Invoice Batch Entry](actions/add-ap-invoice-batch-entry.md) | POST |  |
 
 ### Job Cost
 
@@ -173,6 +192,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Add PO Purchase Order](actions/add-po-purchase-order.md) | POST | Adds a Purchase Order |
 | [List PO Objects](actions/list-po-objects.md) | GET | Represents data found in Viewpoint® Vista™ PO programs. |
 | [Search PO Objects](actions/search-po-objects.md) | GET | Search objects found in Viewpoint® Vista™ Search (PO) programs. |
 

@@ -1,5 +1,7 @@
 # Create List From Template with ClickUp
 
+Creates a List in ClickUp from a Folder template.
+
 ## Endpoint
 
 - **Method:** `POST`

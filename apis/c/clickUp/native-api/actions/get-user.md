@@ -1,5 +1,7 @@
 # Get User with ClickUp
 
+Retrieves details for a ClickUp Workspace user.
+
 ## Endpoint
 
 - **Method:** `GET`

@@ -1,6 +1,6 @@
 # ClickUp: Create Task From Template
 
-
+Creates a task from a ClickUp task template.
 
 ```
 POST https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/create-task-from-template

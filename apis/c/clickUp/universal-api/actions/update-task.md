@@ -1,6 +1,6 @@
 # ClickUp: Update Task
 
-
+Updates an existing task in ClickUp.
 
 ```
 PUT https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/update-task

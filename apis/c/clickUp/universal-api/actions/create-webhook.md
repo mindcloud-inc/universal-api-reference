@@ -1,6 +1,6 @@
 # ClickUp: Create Webhook
 
-
+Creates a webhook in ClickUp for selected events.
 
 ```
 POST https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/create-webhook

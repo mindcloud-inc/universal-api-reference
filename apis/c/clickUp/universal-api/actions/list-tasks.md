@@ -1,6 +1,6 @@
 # ClickUp: List Tasks
 
-
+Retrieves tasks from a specific ClickUp List.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/list-tasks

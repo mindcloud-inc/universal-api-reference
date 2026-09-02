@@ -21,8 +21,8 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/ac
   "BatchId": 1,
   "CustGroup": 1,
   "Customer": 1,
-  "JCCo": 1,
   "Contract": "string",
+  "JCCo": 1,
   "TransDate": "string"
 }'
 ```
@@ -41,8 +41,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
     "BatchId": 1,
     "CustGroup": 1,
     "Customer": 1,
-    "JCCo": 1,
     "Contract": "string",
+    "JCCo": 1,
     "TransDate": "string"
   })
 });
@@ -62,9 +62,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `CustGroup` | number | yes |  |
 | `Customer` | number | yes |  |
 | `RecType` | number | no |  |
-| `CustRef` | string | no |  |
-| `JCCo` | number | yes |  |
 | `Contract` | string | yes |  |
+| `JCCo` | number | yes |  |
 | `CustRef` | string | no |  |
 | `Invoice` | string | no |  |
 | `Description` | string | no |  |

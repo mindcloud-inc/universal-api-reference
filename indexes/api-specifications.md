@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3207 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3208 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1337,6 +1337,7 @@ Machine-readable API descriptions for 3207 apps. Universal API specifications ar
 | [Jaldi](../apis/j/jaldi) | [OpenAPI 3.1](../apis/j/jaldi/universal-api/openapi.json) |  |
 | [JANDI](../apis/j/jANDI) | [OpenAPI 3.1](../apis/j/jANDI/universal-api/openapi.json) |  |
 | [JetAPI](../apis/j/jetAPI) | [OpenAPI 3.1](../apis/j/jetAPI/universal-api/openapi.json) |  |
+| [Jetbuilt](../apis/j/jetbuilt) | [OpenAPI 3.1](../apis/j/jetbuilt/universal-api/openapi.json) |  |
 | [JigsawStack](../apis/j/jigsawStack) | [OpenAPI 3.1](../apis/j/jigsawStack/universal-api/openapi.json) |  |
 | [Jira Software Cloud](../apis/j/jiraSoftwareCloud) | [OpenAPI 3.1](../apis/j/jiraSoftwareCloud/universal-api/openapi.json) | [Provider OpenAPI](https://developer.atlassian.com/cloud/jira/platform/swagger.v3.json) |
 | [Jitbit Helpdesk](../apis/j/jitbitHelpdesk) | [OpenAPI 3.1](../apis/j/jitbitHelpdesk/universal-api/openapi.json) |  |

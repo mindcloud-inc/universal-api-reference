@@ -50,29 +50,23 @@ Example response:
 
 See the full [Get Action Instance action reference](actions/get-action-instance.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/get-action-instance).
 
-## Add AR Contract Invoice V1
+## Add AP Invoice Batch
 
-Adds a Contract based invoice.
+
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ar-contract-invoice-v1" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ap-invoice-batch" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
   "co": 1,
-  "mth": "2026-05-01",
-  "BatchId": 1,
-  "CustGroup": 1,
-  "Customer": 1,
-  "JCCo": 1,
-  "Contract": "string",
-  "TransDate": "string"
+  "mth": "2026-09-01"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ar-contract-invoice-v1', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-ap-invoice-batch', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -81,13 +75,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
   body: JSON.stringify({
     connectionId,
     "co": 1,
-    "mth": "2026-05-01",
-    "BatchId": 1,
-    "CustGroup": 1,
-    "Customer": 1,
-    "JCCo": 1,
-    "Contract": "string",
-    "TransDate": "string"
+    "mth": "2026-09-01"
   })
 });
 
@@ -99,15 +87,9 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "id": "string",
-      "operation": "string",
-      "status": "string"
-    }
-  ],
+  "data": [],
   "meta": {}
 }
 ```
 
-See the full [Add AR Contract Invoice V1 action reference](actions/add-ar-contract-invoice-v1.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/add-ar-contract-invoice-v1).
+See the full [Add AP Invoice Batch action reference](actions/add-ap-invoice-batch.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/add-ap-invoice-batch).

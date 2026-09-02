@@ -1,6 +1,6 @@
 # ClickUp: Create List From Template
 
-
+Creates a List in ClickUp from a Folder template.
 
 ```
 POST https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/create-list-from-template

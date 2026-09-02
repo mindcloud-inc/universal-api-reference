@@ -1,6 +1,6 @@
 # ClickUp: Get View Tasks
 
-
+Retrieves visible tasks from a ClickUp view.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/get-view-tasks

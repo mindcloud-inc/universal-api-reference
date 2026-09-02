@@ -1,6 +1,6 @@
 # ClickUp: Get Task
 
-
+Retrieves details for a task from ClickUp.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/get-task

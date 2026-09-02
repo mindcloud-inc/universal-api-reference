@@ -1,5 +1,7 @@
 # Create Webhook with ClickUp
 
+Creates a webhook in ClickUp for selected events.
+
 ## Endpoint
 
 - **Method:** `POST`

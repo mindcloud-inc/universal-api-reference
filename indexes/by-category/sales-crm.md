@@ -1,6 +1,6 @@
 # Sales & CRM apps
 
-172 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+173 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AeroLeads** · [Universal API reference](../../apis/a/aeroLeads/universal-api) · [Native API reference](../../apis/a/aeroLeads/native-api) · [Native API docs](https://aeroleads.com/api)
 - **Agendor** · [Universal API reference](../../apis/a/agendor/universal-api) · [Native API reference](../../apis/a/agendor/native-api) · [Native API docs](https://api.agendor.com.br/docs/)
@@ -79,6 +79,7 @@
 - **Implisense** · [Universal API reference](../../apis/i/implisenseAPI/universal-api) · [Native API reference](../../apis/i/implisenseAPI/native-api) · [Native API docs](https://docs.implisense.com/api/)
 - **Insightly** · [Universal API reference](../../apis/i/insightly/universal-api) · [Native API reference](../../apis/i/insightly/native-api) · [Native API docs](https://api.insightly.com/v3.1/Help)
 - **Jaldi** · [Universal API reference](../../apis/j/jaldi/universal-api) · [Native API reference](../../apis/j/jaldi/native-api) · [Native API docs](https://jalditech.com/support/)
+- **Jetbuilt** · [Universal API reference](../../apis/j/jetbuilt/universal-api) · [Native API reference](../../apis/j/jetbuilt/native-api) · [Native API docs](https://api.jetbuilt.com/customers#introduction)
 - **Karma CRM** · [Universal API reference](../../apis/k/karmaCRM/universal-api) · [Native API reference](../../apis/k/karmaCRM/native-api) · [Native API docs](https://docs.karmacrm.com/)
 - **Keap** · [Universal API reference](../../apis/k/keap/universal-api) · [Native API reference](../../apis/k/keap/native-api) · [Native API docs](https://developer.keap.com/docs/restv2/)
 - **Klenty** · [Universal API reference](../../apis/k/klenty/universal-api) · [Native API reference](../../apis/k/klenty/native-api) · [Native API docs](https://support.klenty.com/en/collections/5599717-webhooks-apis)

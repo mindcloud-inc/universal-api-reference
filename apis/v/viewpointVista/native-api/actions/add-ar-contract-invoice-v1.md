@@ -20,9 +20,8 @@ Adds a Contract based invoice.
 | `CustGroup` | body | `number` | yes | — |
 | `Customer` | body | `number` | yes | — |
 | `RecType` | body | `number` | no | — |
-| `CustRef` | path | `string` | no | — |
-| `JCCo` | body | `number` | yes | — |
 | `Contract` | body | `string` | yes | — |
+| `JCCo` | body | `number` | yes | — |
 | `CustRef` | body | `string` | no | — |
 | `Invoice` | body | `string` | no | — |
 | `Description` | body | `string` | no | — |

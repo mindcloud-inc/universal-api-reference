@@ -1,6 +1,6 @@
 # ClickUp: Native API Reference
 
-A consolidated summary of ClickUp's API configuration and 25 documented operations, with links to official documentation.
+A consolidated summary of ClickUp's API configuration and 28 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.clickup.com/reference/
 - **OpenAPI specification:** https://developer.clickup.com/openapi/clickup-api-v2-reference.json
@@ -55,7 +55,7 @@ Send filters in the query string. Supported operators: `eq`, `gt`, `gte`, `lt`, 
 
 Set the sort field with `order_by` in the query string. Set the direction separately with `reverse`. Use `false` for ascending order and `true` for descending order. Only one sort field is accepted.
 
-## Endpoints (25 documented)
+## Endpoints (28 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -67,6 +67,7 @@ Set the sort field with `order_by` in the query string. Set the direction separa
 | [Create Task From Template](actions/create-task-from-template.md) | `POST list/:list_id/taskTemplate/:template_id` | [docs](https://developer.clickup.com/reference/createtaskfromtemplate) |
 | [Create Webhook](actions/create-webhook.md) | `POST team/:team_id/webhook` | [docs](https://developer.clickup.com/reference/createwebhook) |
 | [Delete Task](actions/delete-task.md) | `DELETE task/:task_id` | [docs](https://developer.clickup.com/reference/deletetask) |
+| [Delete Webhook](actions/delete-webhook.md) | `DELETE webhook/:webhook_id` | [docs](https://developer.clickup.com/reference/getwebhooks) |
 | [Get List](actions/get-list.md) | `GET list/:list_id` | [docs](https://developer.clickup.com/reference/getlist) |
 | [Get Task](actions/get-task.md) | `GET task/:task_id` | [docs](https://developer.clickup.com/reference/gettask) |
 | [Get User](actions/get-user.md) | `GET team/:team_id/user/:user_id` | [docs](https://developer.clickup.com/reference/getuser) |
@@ -80,7 +81,9 @@ Set the sort field with `order_by` in the query string. Set the direction separa
 | [List Spaces](actions/list-spaces.md) | `GET team/:team_id/space` | [docs](https://developer.clickup.com/reference/getspaces) |
 | [List Task Templates](actions/list-task-templates.md) | `GET team/:team_id/taskTemplate` | [docs](https://developer.clickup.com/reference/gettasktemplates) |
 | [List Tasks](actions/list-tasks.md) | `GET list/:list_id/task` | [docs](https://developer.clickup.com/reference/gettasks) |
+| [List Webhook](actions/list-webhook.md) | `GET team/:team_id/webhook` | [docs](https://developer.clickup.com/reference/getwebhooks) |
 | [Remove Custom Field Value](actions/remove-custom-field-value.md) | `DELETE task/:task_id/field/:field_id` | [docs](https://developer.clickup.com/reference/removecustomfieldvalue) |
 | [Search Workspace Docs](actions/search-workspace-docs.md) | `GET https://api.clickup.com/api/v3/workspaces/:workspace_id/docs` | [docs](https://developer.clickup.com/reference/searchdocspublic) |
 | [Set Custom Field Value](actions/set-custom-field-value.md) | `POST task/:task_id/field/:field_id` | [docs](https://developer.clickup.com/reference/setcustomfieldvalue) |
 | [Update Task](actions/update-task.md) | `PUT task/:task_id` | [docs](https://developer.clickup.com/reference/updatetask) |
+| [Update Webhook](actions/update-webhook.md) | `PUT webhook/:webhook_id` | [docs](https://developer.clickup.com/reference/getwebhooks) |

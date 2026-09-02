@@ -1,5 +1,7 @@
 # Create List with ClickUp
 
+Creates a new List in a ClickUp Folder.
+
 ## Endpoint
 
 - **Method:** `POST`

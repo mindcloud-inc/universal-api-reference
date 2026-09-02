@@ -1,5 +1,7 @@
 # Create Task From Template with ClickUp
 
+Creates a task from a ClickUp task template.
+
 ## Endpoint
 
 - **Method:** `POST`

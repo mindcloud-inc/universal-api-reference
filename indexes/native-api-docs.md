@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3207 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3208 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1371,6 +1371,7 @@ The official vendor API documentation for each of the 3207 apps in this repo. Ea
 - [JANDI](../apis/j/jANDI/native-api) - https://support.jandi.com/en/categories/Connect-3c9dda43
 - [Jestor](../apis/j/jestor/native-api) - https://docs.jestor.com/reference/getting-started-with-your-api
 - [JetAPI](../apis/j/jetAPI/native-api) - https://docs.jetapi.io/
+- [Jetbuilt](../apis/j/jetbuilt/native-api) - https://api.jetbuilt.com/customers#introduction
 - [JigsawStack](../apis/j/jigsawStack/native-api) - https://jigsawstack.com/docs/api-reference/all-models
 - [Jira Software Cloud](../apis/j/jiraSoftwareCloud/native-api) - https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 - [Jitbit Helpdesk](../apis/j/jitbitHelpdesk/native-api) - https://www.jitbit.com/docs/api/

@@ -1,6 +1,6 @@
 # ClickUp: Search Workspace Docs
 
-
+Finds Docs in a ClickUp Workspace.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/search-workspace-docs

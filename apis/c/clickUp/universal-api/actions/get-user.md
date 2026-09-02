@@ -1,6 +1,6 @@
 # ClickUp: Get User
 
-
+Retrieves details for a ClickUp Workspace user.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/get-user

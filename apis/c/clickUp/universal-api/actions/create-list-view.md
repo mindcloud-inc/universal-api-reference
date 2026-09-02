@@ -1,6 +1,6 @@
 # ClickUp: Create List View
 
-
+Creates a new view for a ClickUp List.
 
 ```
 POST https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/create-list-view

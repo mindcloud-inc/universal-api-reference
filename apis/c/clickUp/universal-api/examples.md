@@ -63,7 +63,7 @@ See the full [List Authorized Workspaces action reference](actions/list-authoriz
 
 ## Create List
 
-
+Creates a new List in a ClickUp Folder.
 
 ```bash
 curl -X POST "https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/create-list" \

@@ -1,5 +1,7 @@
 # Get View Tasks with ClickUp
 
+Retrieves visible tasks from a ClickUp view.
+
 ## Endpoint
 
 - **Method:** `GET`

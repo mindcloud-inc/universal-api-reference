@@ -1,5 +1,7 @@
 # Create List View with ClickUp
 
+Creates a new view for a ClickUp List.
+
 ## Endpoint
 
 - **Method:** `POST`

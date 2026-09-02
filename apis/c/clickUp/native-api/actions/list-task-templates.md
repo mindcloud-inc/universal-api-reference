@@ -1,5 +1,7 @@
 # List Task Templates with ClickUp
 
+Retrieves task templates from a ClickUp Workspace.
+
 ## Endpoint
 
 - **Method:** `GET`

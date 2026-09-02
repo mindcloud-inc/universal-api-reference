@@ -1,5 +1,7 @@
 # Get List with ClickUp
 
+Retrieves details for a List from ClickUp.
+
 ## Endpoint
 
 - **Method:** `GET`

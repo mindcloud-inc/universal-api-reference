@@ -1,5 +1,7 @@
 # Search Workspace Docs with ClickUp
 
+Finds Docs in a ClickUp Workspace.
+
 ## Endpoint
 
 - **Method:** `GET`

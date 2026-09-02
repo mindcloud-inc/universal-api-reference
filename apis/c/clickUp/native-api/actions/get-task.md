@@ -1,5 +1,7 @@
 # Get Task with ClickUp
 
+Retrieves details for a task from ClickUp.
+
 ## Endpoint
 
 - **Method:** `GET`

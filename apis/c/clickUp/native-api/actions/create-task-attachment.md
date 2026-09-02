@@ -1,5 +1,7 @@
 # Create Task Attachment with ClickUp
 
+Uploads a file attachment to a ClickUp task.
+
 ## Endpoint
 
 - **Method:** `POST`

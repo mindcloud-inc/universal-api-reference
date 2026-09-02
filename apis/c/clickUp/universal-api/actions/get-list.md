@@ -1,6 +1,6 @@
 # ClickUp: Get List
 
-
+Retrieves details for a List from ClickUp.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/get-list

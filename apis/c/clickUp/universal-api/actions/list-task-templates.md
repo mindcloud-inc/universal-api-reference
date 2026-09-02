@@ -1,6 +1,6 @@
 # ClickUp: List Task Templates
 
-
+Retrieves task templates from a ClickUp Workspace.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/list-task-templates

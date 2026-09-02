@@ -1,5 +1,7 @@
 # Update Task with ClickUp
 
+Updates an existing task in ClickUp.
+
 ## Endpoint
 
 - **Method:** `PUT`

@@ -4,7 +4,7 @@ Manage projects, track tasks, chat with teams, and automate work.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clickUp/latest
 - **Category:** Support / Ticketing
-- **Actions:** 25
+- **Actions:** 28
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://clickup.com
 - **Vendor API docs:** https://developer.clickup.com/reference/
@@ -22,13 +22,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/li
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (25)
+## Actions (28)
 
 ### Attachments
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create Task Attachment](actions/create-task-attachment.md) | POST |  |
+| [Create Task Attachment](actions/create-task-attachment.md) | POST | Uploads a file attachment to a ClickUp task. |
 
 ### Custom Field
 
@@ -47,7 +47,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/li
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Search Workspace Docs](actions/search-workspace-docs.md) | GET |  |
+| [Search Workspace Docs](actions/search-workspace-docs.md) | GET | Finds Docs in a ClickUp Workspace. |
 
 ### Folders
 
@@ -59,9 +59,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/li
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create List](actions/create-list.md) | POST |  |
-| [Create List From Template](actions/create-list-from-template.md) | POST |  |
-| [Get List](actions/get-list.md) | GET |  |
+| [Create List](actions/create-list.md) | POST | Creates a new List in a ClickUp Folder. |
+| [Create List From Template](actions/create-list-from-template.md) | POST | Creates a List in ClickUp from a Folder template. |
+| [Get List](actions/get-list.md) | GET | Retrieves details for a List from ClickUp. |
 | [List Folderless Lists](actions/list-folderless-lists.md) | GET | View the Lists without a Folder |
 | [List Lists](actions/list-lists.md) | GET | View the Lists within a Folder. |
 
@@ -69,19 +69,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/li
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [List Task Templates](actions/list-task-templates.md) | GET |  |
+| [List Task Templates](actions/list-task-templates.md) | GET | Retrieves task templates from a ClickUp Workspace. |
 
 ### Tasks
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Task](actions/create-task.md) | POST | Create a new task. |
-| [Create Task From Template](actions/create-task-from-template.md) | POST |  |
+| [Create Task From Template](actions/create-task-from-template.md) | POST | Creates a task from a ClickUp task template. |
 | [Delete Task](actions/delete-task.md) | DELETE | Delete a task from Workspace. |
-| [Get Task](actions/get-task.md) | GET |  |
+| [Get Task](actions/get-task.md) | GET | Retrieves details for a task from ClickUp. |
 | [List Filtered Team Tasks](actions/list-filtered-team-tasks.md) | GET | View the tasks that meet specific criteria from a Workspace. |
-| [List Tasks](actions/list-tasks.md) | GET |  |
-| [Update Task](actions/update-task.md) | PUT |  |
+| [List Tasks](actions/list-tasks.md) | GET | Retrieves tasks from a specific ClickUp List. |
+| [Update Task](actions/update-task.md) | PUT | Updates an existing task in ClickUp. |
 
 ### Teams
 
@@ -93,20 +93,23 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/li
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get User](actions/get-user.md) | GET |  |
+| [Get User](actions/get-user.md) | GET | Retrieves details for a ClickUp Workspace user. |
 
 ### Views
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create List View](actions/create-list-view.md) | POST |  |
-| [Get View Tasks](actions/get-view-tasks.md) | GET |  |
+| [Create List View](actions/create-list-view.md) | POST | Creates a new view for a ClickUp List. |
+| [Get View Tasks](actions/get-view-tasks.md) | GET | Retrieves visible tasks from a ClickUp view. |
 
 ### Webhook
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create Webhook](actions/create-webhook.md) | POST |  |
+| [Create Webhook](actions/create-webhook.md) | POST | Creates a webhook in ClickUp for selected events. |
+| [Delete Webhook](actions/delete-webhook.md) | DELETE | Delete a configured webhook in ClickUp. |
+| [List Webhook](actions/list-webhook.md) | GET | Lists a team webhooks in ClickUp for selected events. |
+| [Update Webhook](actions/update-webhook.md) | PUT | Update a configured webhook in ClickUp. |
 
 ### Workspaces
 

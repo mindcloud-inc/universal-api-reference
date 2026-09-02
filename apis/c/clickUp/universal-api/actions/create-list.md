@@ -1,6 +1,6 @@
 # ClickUp: Create List
 
-
+Creates a new List in a ClickUp Folder.
 
 ```
 POST https://connect.mindcloud.co/v1/universal/clickUp/latest/actions/create-list
