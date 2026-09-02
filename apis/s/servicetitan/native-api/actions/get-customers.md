@@ -27,3 +27,6 @@ This operation supports [pagination](../README.md#pagination).
 | `active` | query | `boolean` | no | — |
 | `ids` | query | `string` | no | — |
 | `excludeAccountingChangesFromModifiedDateRange` | query | `boolean` | no | Excludes accounting changes such as balance adjustments from the modified date range. |
+| `externalDataApplicationGuid` | query | `string` | no | — |
+| `externalDataKey` | query | `string` | no | — |
+| `externalDataValues` | query | `string` | no | — |

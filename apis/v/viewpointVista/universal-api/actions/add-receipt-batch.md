@@ -17,7 +17,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/ac
   -d '{
   "connectionId": "$CONNECTION_ID",
   "co": 1,
-  "mth": "string"
+  "mth": "2026-05-07T12:00:00.000Z"
 }'
 ```
 
@@ -31,7 +31,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
   body: JSON.stringify({
     connectionId,
     "co": 1,
-    "mth": "string"
+    "mth": "2026-05-07T12:00:00.000Z"
   })
 });
 
@@ -44,20 +44,9 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `co` | number | yes | AR company for the receipt batch. |
-| `mth` | string | yes | Posting month for the receipt batch. Format: YYYY-MM-01. |
+| `co` | number | yes | AR company for the receipt batch. Allowed range: 1 to 255. |
+| `mth` | date | yes | Posting month for the receipt batch. Format: YYYY-MM-01. |
 | `notes` | string | no | Optional notes for the receipt batch. |
-| `BatchId` | number | no |  |
-| `Customer` | number | no |  |
-| `TransDate` | date | no |  |
-| `CheckNo` | string | no |  |
-| `CheckDate` | date | no |  |
-| `CreditAmt` | string | no |  |
-| `CMCo` | number | no |  |
-| `CMDeposit` | string | no |  |
-| `Notes` | string | no |  |
-| `__custom_fields` | object | no |  |
-| `LineItems[]` | array | no |  |
 
 ## Response
 

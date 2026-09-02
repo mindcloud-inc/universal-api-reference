@@ -41,6 +41,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `active` | boolean | no |  |
 | `name` | string | no |  |
+| `ids` | string | no |  |
 
 ## Response
 

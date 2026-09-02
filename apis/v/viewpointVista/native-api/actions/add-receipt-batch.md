@@ -12,17 +12,6 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `Co` | body | `number` | yes | AR company for the receipt batch. |
-| `Mth` | body | `string` | yes | Posting month for the receipt batch. Format: YYYY-MM-01. |
+| `Co` | body | `number` | yes | AR company for the receipt batch. Allowed range: 1 to 255. |
+| `Mth` | body | `date` | yes | Posting month for the receipt batch. Format: YYYY-MM-01. |
 | `Notes` | body | `string` | no | Optional notes for the receipt batch. |
-| `BatchId` | body | `number` | no | — |
-| `Customer` | body | `number` | no | — |
-| `TransDate` | body | `date` | no | — |
-| `CheckNo` | body | `string` | no | — |
-| `CheckDate` | body | `date` | no | — |
-| `CreditAmt` | body | `string` | no | — |
-| `CMCo` | body | `number` | no | — |
-| `CMDeposit` | body | `string` | no | — |
-| `Notes` | body | `string` | no | — |
-| `__custom_fields` | body | `object` | no | — |
-| `LineItems[]` | body | `array` | no | — |

@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 69
+- **Actions:** 70
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (69)
+## Actions (70)
 
 ### Accounts Payable
 
@@ -58,6 +58,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | --- | --- | --- |
 | [List DM Objects](actions/list-dm-objects.md) | GET | Represents data found in Viewpoint® Vista™ DM programs. |
 | [Search DM Objects](actions/search-dm-objects.md) | GET | Search objects found in the Viewpoint® Vista™ Document Management ( DM ) programs. |
+
+### Employee
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Update Employee](actions/update-employee.md) | PUT |  |
 
 ### Equipment Management
 

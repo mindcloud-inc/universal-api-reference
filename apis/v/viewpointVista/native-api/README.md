@@ -1,6 +1,6 @@
 # Viewpoint Vista: Native API Reference
 
-A consolidated summary of Viewpoint Vista's API configuration and 69 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Vista's API configuration and 70 documented operations, with links to official documentation.
 
 - **Official docs:** https://direct-api.xchange.trimble.com/reference/setup
 - **REST base URL:** `https://api.xchange.trimble.com/connect/`
@@ -53,7 +53,7 @@ Shared headers:
 
 - **REST:** Send filters in the request body.
 
-## Endpoints (69 documented)
+## Endpoints (70 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -119,6 +119,7 @@ Shared headers:
 | [Search UD Objects](actions/search-ud-objects.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/cache/search` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache) |
 | [Update Contract](actions/update-contract.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/contracts/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd) |
 | [Update Customer Action](actions/update-customer-action.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/customers/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2datacustomersactionsadd) |
+| [Update Employee](actions/update-employee.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/pr/2/data/employees/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2dataemployeesactionschange) |
 | [Update JC Job](actions/update-jc-job.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/jobs/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd) |
 | [Update Vendor](actions/update-vendor.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/vendors/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaap2datavendorsactionschange) |
 | [Upsert AR Invoice Batch](actions/upsert-ar-invoice-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batches/actions/add_invoice` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatchesactionsadd_invoice) |

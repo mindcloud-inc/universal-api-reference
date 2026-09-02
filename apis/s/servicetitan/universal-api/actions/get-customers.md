@@ -52,6 +52,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `active` | boolean | no |  |
 | `ids` | string | no |  |
 | `excludeAccountingChangesFromModifiedDateRange` | boolean | no | Excludes accounting changes such as balance adjustments from the modified date range. |
+| `externalDataApplicationGuid` | string | no |  |
+| `externalDataKey` | string | no |  |
+| `externalDataValues` | string | no |  |
 
 ## Response
 

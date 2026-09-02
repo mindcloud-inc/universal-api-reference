@@ -17,3 +17,4 @@ This operation supports [pagination](../README.md#pagination).
 | --- | --- | --- | --- |
 | `active` | query | `boolean` | no |
 | `name` | query | `string` | no |
+| `ids` | query | `string` | no |
