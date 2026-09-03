@@ -4,7 +4,7 @@ Accept payments, manage subscriptions, invoice customers, and reconcile revenue.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/stripe/latest
 - **Category:** Commerce / Payments & Billing
-- **Actions:** 31
+- **Actions:** 56
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://stripe.com
 - **Vendor API docs:** https://docs.stripe.com/api
@@ -22,7 +22,32 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (31)
+## Actions (56)
+
+### Balance
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Retrieve Balance](actions/retrieve-balance.md) | GET |  |
+
+### Billing Portal Session
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Billing Portal Session](actions/create-billing-portal-session.md) | POST |  |
+
+### Charge
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Charges](actions/list-charges.md) | GET |  |
+| [Retrieve Charge](actions/retrieve-charge.md) | GET |  |
+
+### Checkout Session
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Checkout Sessions](actions/list-checkout-sessions.md) | GET |  |
 
 ### Checkout Session Line Item
 
@@ -40,6 +65,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | [Expire Checkout Session](actions/expire-checkout-session.md) | PUT | Expires an existing checkout session in Stripe. |
 | [Retrieve Checkout Session](actions/retrieve-checkout-session.md) | GET | Retrieves a checkout session from Stripe. |
 
+### Credit Note
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Credit Notes](actions/list-credit-notes.md) | GET |  |
+| [Retrieve Credit Note](actions/retrieve-credit-note.md) | GET |  |
+
 ### Customers
 
 | Action | Method | Description |
@@ -49,6 +81,34 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | [Retrieve Customer](actions/retrieve-customer.md) | GET | Retrieves a customer from your Stripe account. |
 | [Search Customers](actions/search-customers.md) | GET | Finds customers in Stripe by search query. |
 | [Update Customer](actions/update-customer.md) | PUT | Updates an existing customer in Stripe. |
+
+### Dispute
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Disputes](actions/list-disputes.md) | GET |  |
+| [Retrieve Dispute](actions/retrieve-dispute.md) | GET |  |
+
+### Event
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Events](actions/list-events.md) | GET |  |
+| [Retrieve Event](actions/retrieve-event.md) | GET |  |
+
+### Invoice
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Preview Invoice](actions/create-preview-invoice.md) | POST |  |
+| [Retrieve Invoice](actions/retrieve-invoice.md) | GET |  |
+| [Search Invoices](actions/search-invoices.md) | GET |  |
+
+### Invoice Line Item
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Invoice Line Items](actions/list-invoice-line-items.md) | GET |  |
 
 ### Invoices
 
@@ -64,6 +124,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | [List Payouts](actions/list-payouts.md) | GET |  |
 | [Retrieve SetupIntent](actions/retrieve-setup-intent.md) | GET |  |
 
+### Payment Method
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Customer Payment Methods](actions/list-customer-payment-methods.md) | GET |  |
+
 ### Payment Methods
 
 | Action | Method | Description |
@@ -71,12 +137,28 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | [Retrieve Payment Method](actions/new-action1.md) | GET |  |
 | [Retrieve Payment Method sync](actions/retrieve-payment-method-sync.md) | GET |  |
 
+### Price
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Prices](actions/list-prices.md) | GET |  |
+| [Retrieve Price](actions/retrieve-price.md) | GET |  |
+| [Search Prices](actions/search-prices.md) | GET |  |
+
 ### Product
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Product](actions/get-product.md) | GET |  |
 | [List Products](actions/list-products.md) | GET |  |
+| [Search Products](actions/search-products.md) | GET |  |
+
+### Refund
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Refunds](actions/list-refunds.md) | GET |  |
+| [Retrieve Refund](actions/retrieve-refund.md) | GET |  |
 
 ### Subscription
 
@@ -84,8 +166,16 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/lis
 | --- | --- | --- |
 | [Cancel Subscription](actions/cancel-subscription.md) | DELETE | Cancels an existing subscription in Stripe. |
 | [Create Subscription](actions/create-subscription.md) | POST | Creates a new subscription in Stripe. |
+| [List Subscriptions](actions/list-subscriptions.md) | GET |  |
 | [Retrieve Subscription](actions/retrieve-subscription.md) | GET | Retrieves a subscription from your Stripe account. |
 | [Update Subscription](actions/update-subscription.md) | PUT | Updates an existing subscription in Stripe. |
+
+### Subscription Schedule
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Subscription Schedules](actions/list-subscription-schedules.md) | GET |  |
+| [Retrieve Subscription Schedule](actions/retrieve-subscription-schedule.md) | GET |  |
 
 ### Transactions
 
