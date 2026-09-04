@@ -37,7 +37,7 @@ Send these additional headers for this operation:
 | `termsCode` | body | `string` | no | Maximum length: 1. |
 | `standardRetentionPercent` | body | `number` | no | — |
 | `taxableFlag` | body | `list` | no | — |
-| `salesTaxCode` | body | `string` | no | Maximum length: 15. |
+| `salesTaxCode` | body | `string` | no | Maximum length: 20. |
 | `resaleNumber` | body | `string` | no | Maximum length: 15. |
 | `resaleExpDate` | body | `date` | no | — |
 | `statementFlag` | body | `list` | no | — |

@@ -1,10 +1,10 @@
 # <img src="https://images.mindcloud.co/apps/icons/service-titan_1777386591371.png" alt="ServiceTitan logo" width="28" height="28"> ServiceTitan: Universal API
 
-ServiceTitan through the MindCloud Universal API.
+ServiceTitan is a cloud-based software platform for home and commercial service businesses that manages customers, jobs, scheduling, dispatching, invoicing, payments, and other field service operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 103
+- **Actions:** 104
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (103)
+## Actions (104)
 
 ### Access Tokens
 
@@ -107,6 +107,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Forms](actions/get-forms.md) | GET |  |
+
+### Inventories
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Vendor Bills](actions/get-vendor-bills.md) | GET | Retrieves vendor bills from ServiceTitan. |
 
 ### Inventory
 

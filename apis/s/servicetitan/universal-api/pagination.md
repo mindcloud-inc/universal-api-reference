@@ -49,6 +49,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 - [Get Services](actions/get-services.md)
 - [Get Tasks](actions/get-tasks.md)
 - [Get Technicians](actions/get-technicians.md)
+- [Get Vendor Bills](actions/get-vendor-bills.md)
 - [List Vendors](actions/get-vendors.md)
 - [Get Call Reasons](actions/job-booking-get-call-reasons.md)
 - [Get Jobs](actions/job-planning-get-jobs.md)

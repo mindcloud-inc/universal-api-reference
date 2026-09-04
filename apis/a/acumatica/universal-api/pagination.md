@@ -19,5 +19,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 ## Acumatica actions that support pagination
 
 - [List Projects](actions/list-projects.md)
+- [List Sales Orders](actions/list-sales-orders.md)
 - [Search By Entity](actions/search-by-entity.md)
 - [Search By Generic Inquiry](actions/search-by-generic-inquiry.md)

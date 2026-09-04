@@ -5,7 +5,11 @@
 - **Method:** `GET`
 - **Path:** `/entity/{endpointName}/{endpointVersion}/SalesOrder`
 - **Base URL:** `{uRL}`
-- **Official documentation:** [List Sales Orders](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb)
+- **Official documentation:** [List Sales Orders](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-the-List-of-Records-in-Batches)
+
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
 
 ## Headers
 

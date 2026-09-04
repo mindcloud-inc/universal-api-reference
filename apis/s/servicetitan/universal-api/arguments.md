@@ -1,6 +1,6 @@
 # ServiceTitan Universal API Arguments
 
-Arguments are the inputs a ServiceTitan action needs. Each [action page](README.md#actions-103) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a ServiceTitan action needs. Each [action page](README.md#actions-104) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 103 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 104 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -18,6 +18,7 @@ ServiceTitan uses the OAuth 2.0 client-credentials flow. Exchange the client ID 
 - **App Key:** `appKey` · required
 - **Tenant:** `tenant` · required
 - **Development Environment:** `developmentEnvironment` · optional · Use this to switch to the dev environment for testing
+- **App GUID:** `appGUID` · optional
 
 Send these headers with each API request:
 
@@ -42,7 +43,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (103 documented)
+## Endpoints (104 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -111,6 +112,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Get Services](actions/get-services.md) | `GET pricebook/v2/tenant/{{credentials.tenant}}/services` |  |
 | [Get Tasks](actions/get-tasks.md) | `GET taskmanagement/v2/tenant/{{credentials.tenant}}/tasks` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-task-management-v2&operation=Tasks_GetTasks) |
 | [Get Technicians](actions/get-technicians.md) | `GET settings/v2/tenant/{{credentials.tenant}}/technicians` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-settings-v2&operation=Technicians_GetList) |
+| [Get Vendor Bills](actions/get-vendor-bills.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/inventory-bills` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-accounting-v2&operation=Invoices_GetList) |
 | [List Vendors](actions/get-vendors.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/vendors` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Vendors_GetList) |
 | [Get Call Reasons](actions/job-booking-get-call-reasons.md) | `GET jbce/v2/tenant/{{credentials.tenant}}/call-reasons` |  |
 | [Get Job](actions/job-planning-get-job.md) | `GET jpm/v2/tenant/{{credentials.tenant}}/jobs/:jobId` |  |

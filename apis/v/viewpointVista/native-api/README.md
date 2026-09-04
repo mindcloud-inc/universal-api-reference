@@ -1,6 +1,6 @@
 # Viewpoint Vista: Native API Reference
 
-A consolidated summary of Viewpoint Vista's API configuration and 75 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Vista's API configuration and 76 documented operations, with links to official documentation.
 
 - **Official docs:** https://direct-api.xchange.trimble.com/reference/setup
 - **REST base URL:** `https://api.xchange.trimble.com/connect/`
@@ -53,7 +53,7 @@ Shared headers:
 
 - **REST:** Send filters in the request body.
 
-## Endpoints (75 documented)
+## Endpoints (76 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -97,6 +97,7 @@ Shared headers:
 | [List SL Objects](actions/list-sl-objects.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/cache` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache) |
 | [List SM Objects](actions/list-sm-objects.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/cache` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache) |
 | [List UD Objects](actions/list-ud-objects.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/cache` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache) |
+| [Post AP Invoice Batch](actions/post-ap-invoice-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ap/2/data/inv_batches/actions/post` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaap2datainv_batchesactionspost) |
 | [Post Cost Adjustment Batch](actions/post-cost-adjustment-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/cost_adj_batches/actions/upsert` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionsupsert) |
 | [Post Invoice Batch](actions/post-invoice-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batches/actions/post_invoice` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionsupsert) |
 | [Post Payment Batch](actions/post-payment-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batches/actions/post_receipt` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionsupsert) |

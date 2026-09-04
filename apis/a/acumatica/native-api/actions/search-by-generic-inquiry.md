@@ -5,7 +5,7 @@ This need to be a PUT
 
 ## Endpoint
 
-- **Method:** `PUT`
+- **Method:** `GET`
 - **Path:** `/entity/{endpointName}/{endpointVersion}/:entity`
 - **Base URL:** `{uRL}`
 - **Official documentation:** [Search By Generic Inquiry](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb)

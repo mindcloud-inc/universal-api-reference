@@ -11,14 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Centerpo
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-service?connectionId=$CONNECTION_ID&SERVICE_ID=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-service?connectionId=$CONNECTION_ID&SERVICE_ID=2254838" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "SERVICE_ID": "string"
+  "SERVICE_ID": "2254838"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-service?${params}`, {
@@ -36,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `SERVICE_ID` | string | yes | The service id to retrieve. |
+| `SERVICE_ID` | string | yes | The service id to retrieve. Default: `2254838`. |
 
 ### Advanced
 
@@ -50,7 +50,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `fields[buildingDivisions]` | string | no | Optional fields building divisions query parameter. |
 | `fields[properties]` | string | no | Optional fields properties query parameter. |
 | `fields[primaryProposal]` | string | no | Optional fields primary proposal query parameter. |
-| `include` | string | no | Optional include query parameter. |
+| `include` | string | no | Optional include query parameter. Default: `workflowStage`. |
 
 ## Response
 

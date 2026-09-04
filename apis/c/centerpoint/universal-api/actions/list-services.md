@@ -54,7 +54,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `fields[locations]` | string | no | Optional fields locations query parameter. |
 | `fields[subcontractorProfiles]` | string | no | Optional fields subcontractor profiles query parameter. |
 | `fields[workflowStages]` | string | no | Optional fields workflow stages query parameter. |
-| `include` | string | no | Optional include query parameter. |
+| `include` | string | no | Optional include query parameter. Default: `workflowStage`. |
 
 ## Response
 
@@ -75,11 +75,34 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "completedAt": {},
         "cost": 1,
         "createdAt": "string",
-        "customWithLabels": [
-          {}
-        ],
+        "custom": {
+          "biddueprojected": {},
+          "billinginfo": {},
+          "billinginfoline": {},
+          "customerworkorder": {},
+          "isthisabudgetedjob": {},
+          "nationalaccountrepname": {},
+          "probability": {},
+          "salesforcejobnumber": {},
+          "teamschannellink": {},
+          "technicianqualitycontrol": {},
+          "typeofproject": {}
+        },
+        "customWithLabels": {
+          "bidDueProjected": {},
+          "billingInfoLine1": {},
+          "billingInfoLine2": {},
+          "customerWorkOrder#": {},
+          "isThisABudgetedJob?": {},
+          "nationalAccountRepName": {},
+          "probability%": {},
+          "salesforceJobNumber": {},
+          "teamsChannelLink": {},
+          "technicianQualityControl": {},
+          "typeOfProject": {}
+        },
         "deletedAt": {},
-        "description": {},
+        "description": "string",
         "displayStatus": "string",
         "domain": "string",
         "dueAt": {},
@@ -92,7 +115,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "forecasted": "string",
         "forecastedAt": {},
         "heldAt": {},
-        "importId": "string",
+        "importId": {},
         "invoicedAt": {},
         "invoicePurchaseOrder": {},
         "isApprovalRequired": {},
@@ -102,8 +125,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "leadDeadAt": {},
         "leadOpenedAt": "string",
         "leadPendingAt": "string",
-        "leadQuotedAt": {},
-        "leadSoldAt": {},
+        "leadQuotedAt": "string",
+        "leadSoldAt": "string",
         "leadTypeId": {},
         "materialTotal": 1,
         "name": "Ava Chen",
@@ -112,11 +135,10 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "openedAt": {},
         "opportunityType": "string",
         "options": {
-          "importBatchId": 1,
           "originalContractAmount": 1
         },
         "price": 1,
-        "profileId": {},
+        "profileId": 1,
         "projectedCloseDate": {},
         "propertyId": 1,
         "propertyName": "Ava Chen",
@@ -134,6 +156,14 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "workType": {}
       },
       "id": "string",
+      "relationships": {
+        "workflowStage": {
+          "data": {
+            "id": "string",
+            "type": "string"
+          }
+        }
+      },
       "type": "string"
     }
   ],
@@ -154,9 +184,30 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.completedAt` | object |  |
 | `attributes.cost` | number |  |
 | `attributes.createdAt` | string |  |
-| `attributes.customWithLabels` | array<object> |  |
+| `attributes.custom.biddueprojected` | object |  |
+| `attributes.custom.billinginfo` | object |  |
+| `attributes.custom.billinginfoline` | object |  |
+| `attributes.custom.customerworkorder` | object |  |
+| `attributes.custom.isthisabudgetedjob` | object |  |
+| `attributes.custom.nationalaccountrepname` | object |  |
+| `attributes.custom.probability` | object |  |
+| `attributes.custom.salesforcejobnumber` | object |  |
+| `attributes.custom.teamschannellink` | object |  |
+| `attributes.custom.technicianqualitycontrol` | object |  |
+| `attributes.custom.typeofproject` | object |  |
+| `attributes.customWithLabels.bidDueProjected` | object |  |
+| `attributes.customWithLabels.billingInfoLine1` | object |  |
+| `attributes.customWithLabels.billingInfoLine2` | object |  |
+| `attributes.customWithLabels.customerWorkOrder#` | object |  |
+| `attributes.customWithLabels.isThisABudgetedJob?` | object |  |
+| `attributes.customWithLabels.nationalAccountRepName` | object |  |
+| `attributes.customWithLabels.probability%` | object |  |
+| `attributes.customWithLabels.salesforceJobNumber` | object |  |
+| `attributes.customWithLabels.teamsChannelLink` | object |  |
+| `attributes.customWithLabels.technicianQualityControl` | object |  |
+| `attributes.customWithLabels.typeOfProject` | object |  |
 | `attributes.deletedAt` | object |  |
-| `attributes.description` | object |  |
+| `attributes.description` | string |  |
 | `attributes.displayStatus` | string |  |
 | `attributes.domain` | string |  |
 | `attributes.dueAt` | object |  |
@@ -169,7 +220,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.forecasted` | string |  |
 | `attributes.forecastedAt` | object |  |
 | `attributes.heldAt` | object |  |
-| `attributes.importId` | string |  |
+| `attributes.importId` | object |  |
 | `attributes.invoicedAt` | object |  |
 | `attributes.invoicePurchaseOrder` | object |  |
 | `attributes.isApprovalRequired` | object |  |
@@ -179,8 +230,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.leadDeadAt` | object |  |
 | `attributes.leadOpenedAt` | string |  |
 | `attributes.leadPendingAt` | string |  |
-| `attributes.leadQuotedAt` | object |  |
-| `attributes.leadSoldAt` | object |  |
+| `attributes.leadQuotedAt` | string |  |
+| `attributes.leadSoldAt` | string |  |
 | `attributes.leadTypeId` | object |  |
 | `attributes.materialTotal` | number |  |
 | `attributes.name` | string |  |
@@ -188,10 +239,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.namePrefix` | object |  |
 | `attributes.openedAt` | object |  |
 | `attributes.opportunityType` | string |  |
-| `attributes.options.importBatchId` | number |  |
 | `attributes.options.originalContractAmount` | number |  |
 | `attributes.price` | number |  |
-| `attributes.profileId` | object |  |
+| `attributes.profileId` | number |  |
 | `attributes.projectedCloseDate` | object |  |
 | `attributes.propertyId` | number |  |
 | `attributes.propertyName` | string |  |
@@ -208,6 +258,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.workRate` | number |  |
 | `attributes.workType` | object |  |
 | `id` | string |  |
+| `relationships.workflowStage.data.id` | string |  |
+| `relationships.workflowStage.data.type` | string |  |
 | `type` | string |  |
 
 ## Native endpoint

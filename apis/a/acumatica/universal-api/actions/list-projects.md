@@ -59,9 +59,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "assets": {
-        "value": 1
-      },
       "attributes": [
         {
           "attributeDescription": {
@@ -84,28 +81,49 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
           }
         }
       ],
-      "customer": {
-        "value": "string"
+      "billingAndAllocationSettings": {
+        "allocationRule": {},
+        "automaticallyReleaseARDocuments": {
+          "value": true
+        },
+        "billingPeriod": {
+          "value": "string"
+        },
+        "billingRule": {
+          "value": "string"
+        },
+        "branch": {
+          "value": "string"
+        },
+        "createProFormaOnBilling": {
+          "value": true
+        },
+        "custom": {},
+        "id": "string",
+        "lastBillingDate": {
+          "value": "string"
+        },
+        "nextBillingDate": {},
+        "note": {},
+        "rateTable": {
+          "value": "string"
+        },
+        "retainage": {
+          "value": 1
+        },
+        "rowNumber": 1,
+        "runAllocationOnReleaseOfProjectTransactions": {
+          "value": true
+        },
+        "terms": {
+          "value": "string"
+        },
+        "useTMRevenueBudgetLimits": {
+          "value": true
+        }
       },
-      "description": {
-        "value": "string"
-      },
-      "expenses": {
-        "value": 1
-      },
-      "hold": {
-        "value": true
-      },
+      "custom": {},
       "id": "string",
-      "income": {
-        "value": 1
-      },
-      "lastModifiedDateTime": {
-        "value": "string"
-      },
-      "liabilities": {
-        "value": 1
-      },
       "Links": {
         "files:put": "https://example.com",
         "self": "https://example.com"
@@ -116,13 +134,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
       "projectID": {
         "value": "string"
       },
-      "projectTemplateID": {
-        "value": "string"
-      },
-      "rowNumber": 1,
-      "status": {
-        "value": "string"
-      }
+      "rowNumber": 1
     }
   ],
   "meta": {}
@@ -133,7 +145,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `assets.value` | number |  |
 | `attributes[].attributeDescription.value` | string |  |
 | `attributes[].attributeID.value` | string |  |
 | `attributes[].id` | string |  |
@@ -142,21 +153,30 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes[].rowNumber` | number |  |
 | `attributes[].value.value` | string |  |
 | `attributes[].valueDescription.value` | string |  |
-| `customer.value` | string |  |
-| `description.value` | string |  |
-| `expenses.value` | number |  |
-| `hold.value` | boolean |  |
+| `billingAndAllocationSettings.allocationRule` | object |  |
+| `billingAndAllocationSettings.automaticallyReleaseARDocuments.value` | boolean |  |
+| `billingAndAllocationSettings.billingPeriod.value` | string |  |
+| `billingAndAllocationSettings.billingRule.value` | string |  |
+| `billingAndAllocationSettings.branch.value` | string |  |
+| `billingAndAllocationSettings.createProFormaOnBilling.value` | boolean |  |
+| `billingAndAllocationSettings.custom` | object |  |
+| `billingAndAllocationSettings.id` | string |  |
+| `billingAndAllocationSettings.lastBillingDate.value` | string |  |
+| `billingAndAllocationSettings.nextBillingDate` | object |  |
+| `billingAndAllocationSettings.note` | object |  |
+| `billingAndAllocationSettings.rateTable.value` | string |  |
+| `billingAndAllocationSettings.retainage.value` | number |  |
+| `billingAndAllocationSettings.rowNumber` | number |  |
+| `billingAndAllocationSettings.runAllocationOnReleaseOfProjectTransactions.value` | boolean |  |
+| `billingAndAllocationSettings.terms.value` | string |  |
+| `billingAndAllocationSettings.useTMRevenueBudgetLimits.value` | boolean |  |
+| `custom` | object |  |
 | `id` | string |  |
-| `income.value` | number |  |
-| `lastModifiedDateTime.value` | string |  |
-| `liabilities.value` | number |  |
 | `Links.files:put` | string |  |
 | `Links.self` | string |  |
 | `note.value` | string |  |
 | `projectID.value` | string |  |
-| `projectTemplateID.value` | string |  |
 | `rowNumber` | number |  |
-| `status.value` | string |  |
 
 ## Native endpoint
 

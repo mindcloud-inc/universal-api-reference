@@ -5,7 +5,7 @@ Search the 'Default' Acumatica Endpoint for a Specific Entity
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `/entity/:webServiceEndpoint/:endpointVersion/:entity`
+- **Path:** `/entity/{endpointName}/{endpointVersion}/:entity`
 - **Base URL:** `{uRL}`
 - **Official documentation:** [Search By Entity](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb)
 
@@ -29,6 +29,4 @@ Send these additional headers for this operation:
 | `$select` | query | `string` | no | When you retrieve records from Acumatica ERP you use the $select parameter to specify the fields of the entity to be returned. By default, ALL fields of the entity are returned. Send multiple values as a array. |
 | `entity` | path | `list<string>` | yes | The top-level entity to retrieve. Example: "Project" or "User" Accepted values: `Contacts`, `Customer`, `ProFormaInvoice`, `Project`, `ProjectActivity`, `ProjectBudget`, `ProjectEmployee`, `ProjectEquipment`, `ProjectRetainage`, `ProjectTask`, `ProjectTransaction`, `SalesOrder`. |
 | `$filter` | query | `string` | no | Use the $filter parameter to specify conditions that determine which records should be returned from Acumatica ERP. |
-| `endpointVersion` | path | `list<string>` | yes | — |
 | `$custom` | query | `string` | no | Specify the fields that are not defined in the contract to be returned. For details, see $custom Parameter. |
-| `webServiceEndpoint` | path | `list<string>` | yes | Which Web Service Endpoint configured at Acumatica will be used. "Default" exists in every account, but you can create custom endpoints Accepted values: `Default`. |
