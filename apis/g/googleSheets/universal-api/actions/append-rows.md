@@ -18,11 +18,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/googleSheets/latest/acti
   "connectionId": "$CONNECTION_ID",
   "spreadsheetId": "Select a spreadsheet, or click {} to paste a spreadsheet ID",
   "worksheet": "Select a worksheet, or click {} to enter the worksheet name",
-  "values[]": [
-    [
-      "string"
-    ]
-  ]
+  "values[]": "Map an output array, then fill the column fields for each row"
 }'
 ```
 
@@ -37,7 +33,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/googleSh
     connectionId,
     "spreadsheetId": "Select a spreadsheet, or click {} to paste a spreadsheet ID",
     "worksheet": "Select a worksheet, or click {} to enter the worksheet name",
-    "values[]": [["string"]]
+    "values[]": "Map an output array, then fill the column fields for each row"
   })
 });
 
@@ -52,7 +48,12 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `spreadsheetId` | list<list> | yes | Select a spreadsheet from the list. If you do not see the spreadsheet, click {} and paste the spreadsheet ID from a List Spreadsheets step or directly from the Google Sheets URL. Example: `Select a spreadsheet, or click {} to paste a spreadsheet ID`. |
 | `worksheet` | list<list> | yes | Select a worksheet from the list. If you do not see it, click {} and enter the worksheet tab name. You can get the exact name from a List Spreadsheet Worksheets step. Use the worksheet name, not the worksheet ID. Example: `Select a worksheet, or click {} to enter the worksheet name`. |
-| `values[]` | array<array> | yes | A 2D array of rows to append. Each inner array represents one row. |
+| `values[]` | array<object> | yes | Rows to append to the worksheet. Map an array of row objects from a previous step, then map each column field below (Col 1, Col 2, etc.) from the current row. The action still accepts Google Sheets' native 2D array format when supplied directly. Example: `Map an output array, then fill the column fields for each row`. |
+| `values[].col1` | string | no | First cell value for each appended row. |
+| `values[].col2` | string | no | Second cell value for each appended row. |
+| `values[].col3` | string | no | Third cell value for each appended row. |
+| `values[].col4` | string | no | Fourth cell value for each appended row. |
+| `values[].col5` | string | no | Fifth cell value for each appended row. |
 
 ## Response
 

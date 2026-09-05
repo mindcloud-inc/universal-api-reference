@@ -15,4 +15,9 @@ Appends rows to a Google Sheets worksheet.
 | --- | --- | --- | --- | --- |
 | `spreadsheetId` | path | `list<list>` | yes | Select a spreadsheet from the list. If you do not see the spreadsheet, click {} and paste the spreadsheet ID from a List Spreadsheets step or directly from the Google Sheets URL. |
 | `worksheet` | path | `list<list>` | yes | Select a worksheet from the list. If you do not see it, click {} and enter the worksheet tab name. You can get the exact name from a List Spreadsheet Worksheets step. Use the worksheet name, not the worksheet ID. |
-| `values[]` | body | `array<array>` | yes | A 2D array of rows to append. Each inner array represents one row. |
+| `values[]` | body | `array<object>` | yes | Rows to append to the worksheet. Map an array of row objects from a previous step, then map each column field below (Col 1, Col 2, etc.) from the current row. The action still accepts Google Sheets' native 2D array format when supplied directly. |
+| `values[].col1` | body | `string` | no | First cell value for each appended row. |
+| `values[].col2` | body | `string` | no | Second cell value for each appended row. |
+| `values[].col3` | body | `string` | no | Third cell value for each appended row. |
+| `values[].col4` | body | `string` | no | Fourth cell value for each appended row. |
+| `values[].col5` | body | `string` | no | Fifth cell value for each appended row. |

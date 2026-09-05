@@ -58,11 +58,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/googleSheets/latest/acti
   "connectionId": "$CONNECTION_ID",
   "spreadsheetId": "Select a spreadsheet, or click {} to paste a spreadsheet ID",
   "worksheet": "Select a worksheet, or click {} to enter the worksheet name",
-  "values[]": [
-    [
-      "string"
-    ]
-  ]
+  "values[]": "Map an output array, then fill the column fields for each row"
 }'
 ```
 
@@ -77,7 +73,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/googleSh
     connectionId,
     "spreadsheetId": "Select a spreadsheet, or click {} to paste a spreadsheet ID",
     "worksheet": "Select a worksheet, or click {} to enter the worksheet name",
-    "values[]": [["string"]]
+    "values[]": "Map an output array, then fill the column fields for each row"
   })
 });
 
