@@ -1,4 +1,4 @@
-# Query Ad Accounts with Reddit Lead Ads
+# Query Ad Accounts with Reddit Ads
 
 Finds ad accounts for a business in Reddit Ads.
 

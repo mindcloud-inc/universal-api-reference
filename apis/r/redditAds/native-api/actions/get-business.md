@@ -1,4 +1,4 @@
-# Get Business with Reddit Lead Ads
+# Get Business with Reddit Ads
 
 Retrieves a business from Reddit Ads.
 

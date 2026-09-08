@@ -1,4 +1,4 @@
-# Reddit Lead Ads: List Keyword Suggestions
+# Reddit Ads: List Keyword Suggestions
 
 Retrieves keyword suggestions from input terms in Reddit Ads.
 
@@ -6,7 +6,7 @@ Retrieves keyword suggestions from input terms in Reddit Ads.
 GET https://connect.mindcloud.co/v1/universal/redditAds/latest/actions/list-keyword-suggestions
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Lead Ads `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Ads `connectionId` ([setup](../authentication.md)).
 
 ## Example request
 
@@ -62,5 +62,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Reddit Lead Ads API, this operation is `POST /targeting/keyword_suggestions` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-keyword-suggestions.md) for the provider-specific parameters and requirements.
+Through the native Reddit Ads API, this operation is `POST /targeting/keyword_suggestions` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-keyword-suggestions.md) for the provider-specific parameters and requirements.
 

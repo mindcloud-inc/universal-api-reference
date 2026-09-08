@@ -1,4 +1,4 @@
-# Reddit Lead Ads: Get A Report
+# Reddit Ads: Get A Report
 
 Generates a metrics report in Reddit Ads.
 
@@ -6,7 +6,7 @@ Generates a metrics report in Reddit Ads.
 GET https://connect.mindcloud.co/v1/universal/redditAds/latest/actions/get-a-report
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Lead Ads `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Ads `connectionId` ([setup](../authentication.md)).
 
 This action also supports [pagination](../pagination.md) (`limit`, `offset`).
 
@@ -70,5 +70,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Reddit Lead Ads API, this operation is `POST /ad_accounts/{ad_account_id}/reports` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/get-a-report.md) for the provider-specific parameters and requirements.
+Through the native Reddit Ads API, this operation is `POST /ad_accounts/{ad_account_id}/reports` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/get-a-report.md) for the provider-specific parameters and requirements.
 

@@ -1,4 +1,4 @@
-# Get Ad Account with Reddit Lead Ads
+# Get Ad Account with Reddit Ads
 
 Retrieves an ad account from Reddit Ads.
 

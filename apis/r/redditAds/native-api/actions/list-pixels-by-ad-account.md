@@ -1,4 +1,4 @@
-# List Pixels By Ad Account with Reddit Lead Ads
+# List Pixels By Ad Account with Reddit Ads
 
 Retrieves pixels for an ad account from Reddit Ads.
 

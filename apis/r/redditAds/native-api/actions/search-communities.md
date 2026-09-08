@@ -1,4 +1,4 @@
-# Search Communities with Reddit Lead Ads
+# Search Communities with Reddit Ads
 
 Finds targetable communities in Reddit Ads by name or topic.
 

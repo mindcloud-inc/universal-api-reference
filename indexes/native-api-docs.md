@@ -2244,7 +2244,7 @@ The official vendor API documentation for each of the 3208 apps in this repo. Ea
 - [RecurPost](../apis/r/recurPost/native-api) - https://developers.recurpost.com/
 - [Recut URL Shortener](../apis/r/recutURLShortener/native-api) - https://app.recut.in/developers
 - [Redbooth](../apis/r/redbooth/native-api) - https://redbooth.com/api/api-docs/
-- [Reddit Lead Ads](../apis/r/redditAds/native-api) - https://ads-api.reddit.com/docs/v3/
+- [Reddit Ads](../apis/r/redditAds/native-api) - https://ads-api.reddit.com/docs/v3/
 - [redirect.pizza](../apis/r/redirectpizza/native-api) - https://redirect.pizza/docs
 - [Reepay](../apis/r/reepay/native-api) - https://docs.frisbii.com/reference
 - [Referral Factory](../apis/r/referralFactory/native-api) - https://developers.referral-factory.com/reference

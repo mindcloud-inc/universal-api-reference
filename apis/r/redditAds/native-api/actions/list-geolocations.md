@@ -1,4 +1,4 @@
-# List Geolocations with Reddit Lead Ads
+# List Geolocations with Reddit Ads
 
 Retrieves targetable geolocations from Reddit Ads.
 

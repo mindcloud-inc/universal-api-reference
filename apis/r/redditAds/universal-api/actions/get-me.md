@@ -1,4 +1,4 @@
-# Reddit Lead Ads: Get Me
+# Reddit Ads: Get Me
 
 Retrieves the authenticated user from Reddit Ads.
 
@@ -6,7 +6,7 @@ Retrieves the authenticated user from Reddit Ads.
 GET https://connect.mindcloud.co/v1/universal/redditAds/latest/actions/get-me
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Lead Ads `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Ads `connectionId` ([setup](../authentication.md)).
 
 ## Example request
 
@@ -63,5 +63,5 @@ const { success, data } = await response.json();
 
 ## Native endpoint
 
-Through the native Reddit Lead Ads API, this operation is `GET /me` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-me.md) for the provider-specific parameters and requirements.
+Through the native Reddit Ads API, this operation is `GET /me` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-me.md) for the provider-specific parameters and requirements.
 

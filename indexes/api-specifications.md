@@ -2186,7 +2186,7 @@ Machine-readable API descriptions for 3208 apps. Universal API specifications ar
 | [RecurPost](../apis/r/recurPost) | [OpenAPI 3.1](../apis/r/recurPost/universal-api/openapi.json) |  |
 | [Recut URL Shortener](../apis/r/recutURLShortener) | [OpenAPI 3.1](../apis/r/recutURLShortener/universal-api/openapi.json) |  |
 | [Redbooth](../apis/r/redbooth) | [OpenAPI 3.1](../apis/r/redbooth/universal-api/openapi.json) |  |
-| [Reddit Lead Ads](../apis/r/redditAds) | [OpenAPI 3.1](../apis/r/redditAds/universal-api/openapi.json) | [Provider OpenAPI](https://ads-api.reddit.com/api/v3/openapi.json) |
+| [Reddit Ads](../apis/r/redditAds) | [OpenAPI 3.1](../apis/r/redditAds/universal-api/openapi.json) | [Provider OpenAPI](https://ads-api.reddit.com/api/v3/openapi.json) |
 | [redirect.pizza](../apis/r/redirectpizza) | [OpenAPI 3.1](../apis/r/redirectpizza/universal-api/openapi.json) | [Provider OpenAPI](https://redirect.pizza/api-docs/openapi.yaml) |
 | [Reepay](../apis/r/reepay) | [OpenAPI 3.1](../apis/r/reepay/universal-api/openapi.json) | [Provider OpenAPI](https://api.reepay.com/openapi.json) |
 | [Referral Factory](../apis/r/referralFactory) | [OpenAPI 3.1](../apis/r/referralFactory/universal-api/openapi.json) |  |

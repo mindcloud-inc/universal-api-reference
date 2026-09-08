@@ -1,4 +1,4 @@
-# <img src="https://images.mindcloud.co/apps/icons/reddit-ads_1776112606855.png" alt="Reddit Lead Ads logo" width="28" height="28"> Reddit Lead Ads: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/reddit-ads_1776112606855.png" alt="Reddit Ads logo" width="28" height="28"> Reddit Ads: Universal API
 
 Manage Reddit campaigns, audiences, lead forms, pixels, and reports
 

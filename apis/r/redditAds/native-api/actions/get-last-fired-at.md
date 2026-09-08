@@ -1,4 +1,4 @@
-# Get Last Fired At with Reddit Lead Ads
+# Get Last Fired At with Reddit Ads
 
 Retrieves the last fired time for a Reddit pixel.
 

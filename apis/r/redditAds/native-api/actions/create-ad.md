@@ -1,4 +1,4 @@
-# Create Ad with Reddit Lead Ads
+# Create Ad with Reddit Ads
 
 Creates an ad in Reddit Ads.
 

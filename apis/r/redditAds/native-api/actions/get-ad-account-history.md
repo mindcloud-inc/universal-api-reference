@@ -1,4 +1,4 @@
-# Get Ad Account History with Reddit Lead Ads
+# Get Ad Account History with Reddit Ads
 
 Retrieves the changelog for an ad account in Reddit Ads.
 

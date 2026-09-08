@@ -1,4 +1,4 @@
-# Get Lead Gen Form with Reddit Lead Ads
+# Get Lead Gen Form with Reddit Ads
 
 Retrieves a lead generation form from Reddit Ads.
 

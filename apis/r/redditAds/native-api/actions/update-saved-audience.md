@@ -1,4 +1,4 @@
-# Update Saved Audience with Reddit Lead Ads
+# Update Saved Audience with Reddit Ads
 
 Updates a saved audience in Reddit Ads.
 

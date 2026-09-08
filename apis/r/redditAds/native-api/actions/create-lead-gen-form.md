@@ -1,4 +1,4 @@
-# Create Lead Gen Form with Reddit Lead Ads
+# Create Lead Gen Form with Reddit Ads
 
 Creates a lead generation form in Reddit Ads.
 

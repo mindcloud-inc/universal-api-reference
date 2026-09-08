@@ -1,4 +1,4 @@
-# List Devices with Reddit Lead Ads
+# List Devices with Reddit Ads
 
 Retrieves targetable devices from Reddit Ads.
 

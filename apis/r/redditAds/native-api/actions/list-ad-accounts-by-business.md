@@ -1,4 +1,4 @@
-# List Ad Accounts By Business with Reddit Lead Ads
+# List Ad Accounts By Business with Reddit Ads
 
 Retrieves ad accounts for a business from Reddit Ads.
 

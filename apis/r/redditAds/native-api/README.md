@@ -1,10 +1,28 @@
-# Reddit Lead Ads: Native API Reference
+# Reddit Ads: Native API Reference
 
-A consolidated summary of Reddit Lead Ads's API configuration and 40 documented operations, with links to official documentation.
+A consolidated summary of Reddit Ads's API configuration and 40 documented operations, with links to official documentation.
 
 - **Official docs:** https://ads-api.reddit.com/docs/v3/
 - **OpenAPI specification:** https://ads-api.reddit.com/api/v3/openapi.json
 - **API base URL:** `https://ads-api.reddit.com/api/v3`
+
+## Authentication
+
+### Conversion Access Token
+
+Connect to Reddit's Conversions API using a conversion access token generated in Reddit Events Manager.
+
+### Credentials
+
+- **Conversion Access Token:** `apiKey` · required
+
+Send these headers with each API request:
+
+```http
+Authorization: Bearer <apiKey>
+```
+
+[Official authentication documentation](https://ads-api.reddit.com/docs/v3/guides/programs/capi/direct-integration)
 
 ## Pagination
 
@@ -46,7 +64,7 @@ Use `page.size` in the query string to set the page size (default 100; accepted 
 | [List Pixels By Business](actions/list-pixels-by-business.md) | `GET /businesses/{business_id}/pixels` | [docs](https://ads-api.reddit.com/docs/v3/operations/list-pixels-by-business) |
 | [List Saved Audiences](actions/list-saved-audiences.md) | `GET /ad_accounts/{ad_account_id}/saved_audiences` | [docs](https://ads-api.reddit.com/docs/v3/operations/list-saved-audiences) |
 | [List User Custom Audiences](actions/list-user-custom-audiences.md) | `GET /ad_accounts/{ad_account_id}/custom_audiences` | [docs](https://ads-api.reddit.com/docs/v3/operations/list-user-custom-audiences) |
-| [Post Conversion Events](actions/post-conversion-events.md) | `POST /pixels/{pixel_id}/conversion_events` | [docs](https://ads-api.reddit.com/docs/v3/operations/post-conversion-events) |
+| [Post Conversion Events](actions/post-conversion-events.md) | `POST /pixels/:pixel_id/conversion_events` | [docs](https://ads-api.reddit.com/docs/v3/operations/post-conversion-events) |
 | [Query Ad Accounts](actions/query-ad-accounts.md) | `POST /businesses/{business_id}/ad_accounts/query` | [docs](https://ads-api.reddit.com/docs/v3/operations/query-ad-accounts) |
 | [Search Communities](actions/search-communities.md) | `GET /targeting/communities/search` | [docs](https://ads-api.reddit.com/docs/v3/operations/search-communities) |
 | [Update Ad](actions/update-ad.md) | `PATCH /ads/{ad_id}` | [docs](https://ads-api.reddit.com/docs/v3/operations/update-ad) |

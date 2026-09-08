@@ -1,4 +1,4 @@
-# Get Ad with Reddit Lead Ads
+# Get Ad with Reddit Ads
 
 Retrieves an ad from Reddit Ads.
 

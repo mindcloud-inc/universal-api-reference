@@ -1,4 +1,4 @@
-# Get Campaign with Reddit Lead Ads
+# Get Campaign with Reddit Ads
 
 Retrieves a campaign from Reddit Ads.
 

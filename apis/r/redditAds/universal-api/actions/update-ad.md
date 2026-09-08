@@ -1,4 +1,4 @@
-# Reddit Lead Ads: Update Ad
+# Reddit Ads: Update Ad
 
 Updates an ad in Reddit Ads.
 
@@ -6,7 +6,7 @@ Updates an ad in Reddit Ads.
 PUT https://connect.mindcloud.co/v1/universal/redditAds/latest/actions/update-ad
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Lead Ads `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Ads `connectionId` ([setup](../authentication.md)).
 
 ## Example request
 
@@ -73,5 +73,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Reddit Lead Ads API, this operation is `PATCH /ads/{ad_id}` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-ad.md) for the provider-specific parameters and requirements.
+Through the native Reddit Ads API, this operation is `PATCH /ads/{ad_id}` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-ad.md) for the provider-specific parameters and requirements.
 

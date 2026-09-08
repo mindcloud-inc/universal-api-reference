@@ -1,4 +1,4 @@
-# Update Ad with Reddit Lead Ads
+# Update Ad with Reddit Ads
 
 Updates an ad in Reddit Ads.
 

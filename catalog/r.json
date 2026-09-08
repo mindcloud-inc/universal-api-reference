@@ -111357,7 +111357,7 @@
     "universalOpenApiPath": "apis/r/redbooth/universal-api/openapi.json"
   },
   {
-    "name": "Reddit Lead Ads",
+    "name": "Reddit Ads",
     "slug": "redditAds",
     "category": "Marketing",
     "categoryGroup": "Marketing",
@@ -111370,8 +111370,24 @@
       "format": "openapi",
       "url": "https://ads-api.reddit.com/api/v3/openapi.json"
     },
-    "version": "0.0.4",
-    "authentication": [],
+    "version": "0.0.6",
+    "authentication": [
+      {
+        "type": "apiKey",
+        "name": "Conversion Access Token",
+        "description": "Connect to Reddit's Conversions API using a conversion access token generated in Reddit Events Manager.",
+        "documentationUrl": "https://ads-api.reddit.com/docs/v3/guides/programs/capi/direct-integration",
+        "credentials": [
+          {
+            "key": "apiKey",
+            "name": "Conversion Access Token",
+            "dataType": "string",
+            "required": true,
+            "sensitive": true
+          }
+        ]
+      }
+    ],
     "nativeApis": [
       {
         "type": "rest",
@@ -111390,7 +111406,12 @@
             "location": "query",
             "useFullUrl": true
           }
-        }
+        },
+        "responses": [
+          {
+            "parser": "auto"
+          }
+        ]
       }
     ],
     "actions": [
@@ -113526,7 +113547,7 @@
         "documentationUrl": "https://ads-api.reddit.com/docs/v3/operations/post-conversion-events",
         "native": {
           "method": "POST",
-          "path": "/pixels/{pixel_id}/conversion_events",
+          "path": "/pixels/:pixel_id/conversion_events",
           "baseUrl": "https://ads-api.reddit.com/api/v3",
           "apiType": "rest",
           "arguments": [
@@ -113546,6 +113567,146 @@
               "location": "body",
               "required": true,
               "description": "JSON request body from the Reddit Ads API spec."
+            },
+            {
+              "key": "data.test_id",
+              "internalKey": "data.testId",
+              "name": "Test ID",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional Reddit Events Manager test ID. Leave blank for production events."
+            },
+            {
+              "key": "data.events[]",
+              "name": "Events",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "One or more conversion events; Reddit accepts up to 1,000 events per request."
+            },
+            {
+              "key": "data.events[].event_at",
+              "internalKey": "data.events[].eventAt",
+              "name": "Event At",
+              "dataType": "date",
+              "location": "body",
+              "required": true,
+              "description": "Unix epoch timestamp in milliseconds when the conversion occurred."
+            },
+            {
+              "key": "data.events[].action_source",
+              "internalKey": "data.events[].actionSource",
+              "name": "Action Source",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Channel where the conversion occurred.",
+              "enumValues": [
+                "APP",
+                "OTHER",
+                "PHYSICAL_STORE",
+                "WEBSITE"
+              ]
+            },
+            {
+              "key": "data.events[].type",
+              "name": "Type",
+              "dataType": "object",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "data.events[].type.tracking_type",
+              "internalKey": "data.events[].type.trackingType",
+              "name": "Conversion Event",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Reddit standard conversion type, or CUSTOM for a custom event.",
+              "enumValues": [
+                "ADD_TO_CART",
+                "ADD_TO_WISHLIST",
+                "CUSTOM",
+                "LEAD",
+                "PAGE_VISIT",
+                "PURCHASE",
+                "SEARCH",
+                "SIGN_UP",
+                "VIEW_CONTENT"
+              ]
+            },
+            {
+              "key": "data.events[].type.custom_event_name",
+              "internalKey": "data.events[].type.customEventName",
+              "name": "Custom Event Name",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Enter a name when Conversion Event is Custom, for example DemoBooked or TrialStarted. Leave blank for standard Reddit events."
+            },
+            {
+              "key": "data.events[].click_id",
+              "internalKey": "data.events[].clickId",
+              "name": "Click ID",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Reddit click ID (`rdt_cid`) used to improve attribution."
+            },
+            {
+              "key": "data.events[].event_source_url",
+              "internalKey": "data.events[].eventSourceUrl",
+              "name": "Event Source URL",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "URL where a WEBSITE conversion occurred; include `rdt_cid` when available."
+            },
+            {
+              "key": "data.events[].metadata",
+              "name": "Metadata",
+              "dataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "Optional conversion metadata used for deduplication and revenue reporting."
+            },
+            {
+              "key": "data.events[].metadata.conversion_id",
+              "internalKey": "data.events[].metadata.conversionId",
+              "name": "Conversion ID",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Unique event ID used to deduplicate Pixel and CAPI events."
+            },
+            {
+              "key": "data.events[].metadata.currency",
+              "name": "Currency",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "ISO 4217 currency code for revenue-related events."
+            },
+            {
+              "key": "data.events[].metadata.value",
+              "name": "Value",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Transaction value in the currency's base unit."
+            },
+            {
+              "key": "data.events[].metadata.item_count",
+              "internalKey": "data.events[].metadata.itemCount",
+              "name": "Item Count",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Total number of items for a revenue-related event."
             }
           ]
         },
@@ -113568,6 +113729,135 @@
             "dataType": "object",
             "required": true,
             "description": "JSON request body from the Reddit Ads API spec."
+          },
+          {
+            "key": "data.testId",
+            "name": "Test ID",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional Reddit Events Manager test ID. Leave blank for production events.",
+            "example": "t2_..."
+          },
+          {
+            "key": "data.events[]",
+            "name": "Events",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "One or more conversion events; Reddit accepts up to 1,000 events per request."
+          },
+          {
+            "key": "data.events[].eventAt",
+            "name": "Event At",
+            "dataType": "date",
+            "required": true,
+            "description": "Unix epoch timestamp in milliseconds when the conversion occurred.",
+            "example": "Select event time"
+          },
+          {
+            "key": "data.events[].actionSource",
+            "name": "Action Source",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "description": "Channel where the conversion occurred.",
+            "enumValues": [
+              "APP",
+              "OTHER",
+              "PHYSICAL_STORE",
+              "WEBSITE"
+            ]
+          },
+          {
+            "key": "data.events[].type",
+            "name": "Type",
+            "dataType": "object",
+            "required": true
+          },
+          {
+            "key": "data.events[].type.trackingType",
+            "name": "Conversion Event",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "description": "Reddit standard conversion type, or CUSTOM for a custom event.",
+            "enumValues": [
+              "ADD_TO_CART",
+              "ADD_TO_WISHLIST",
+              "CUSTOM",
+              "LEAD",
+              "PAGE_VISIT",
+              "PURCHASE",
+              "SEARCH",
+              "SIGN_UP",
+              "VIEW_CONTENT"
+            ]
+          },
+          {
+            "key": "data.events[].type.customEventName",
+            "name": "Custom Event Name",
+            "dataType": "string",
+            "required": false,
+            "description": "Enter a name when Conversion Event is Custom, for example DemoBooked or TrialStarted. Leave blank for standard Reddit events.",
+            "example": "DemoBooked"
+          },
+          {
+            "key": "data.events[].clickId",
+            "name": "Click ID",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Reddit click ID (`rdt_cid`) used to improve attribution.",
+            "example": "3184742045291813272"
+          },
+          {
+            "key": "data.events[].eventSourceUrl",
+            "name": "Event Source URL",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "URL where a WEBSITE conversion occurred; include `rdt_cid` when available.",
+            "example": "https://example.com/checkout"
+          },
+          {
+            "key": "data.events[].metadata",
+            "name": "Metadata",
+            "dataType": "object",
+            "required": false,
+            "description": "Optional conversion metadata used for deduplication and revenue reporting."
+          },
+          {
+            "key": "data.events[].metadata.conversionId",
+            "name": "Conversion ID",
+            "dataType": "string",
+            "required": false,
+            "description": "Unique event ID used to deduplicate Pixel and CAPI events.",
+            "example": "Order or event ID"
+          },
+          {
+            "key": "data.events[].metadata.currency",
+            "name": "Currency",
+            "dataType": "string",
+            "required": false,
+            "description": "ISO 4217 currency code for revenue-related events.",
+            "example": "USD"
+          },
+          {
+            "key": "data.events[].metadata.value",
+            "name": "Value",
+            "dataType": "number",
+            "required": false,
+            "description": "Transaction value in the currency's base unit.",
+            "example": "10.99"
+          },
+          {
+            "key": "data.events[].metadata.itemCount",
+            "name": "Item Count",
+            "dataType": "number",
+            "required": false,
+            "description": "Total number of items for a revenue-related event.",
+            "example": "1"
           }
         ],
         "responseSchema": [

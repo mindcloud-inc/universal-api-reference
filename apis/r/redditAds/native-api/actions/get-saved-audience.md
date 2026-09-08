@@ -1,4 +1,4 @@
-# Get Saved Audience with Reddit Lead Ads
+# Get Saved Audience with Reddit Ads
 
 Retrieves a saved audience from Reddit Ads.
 

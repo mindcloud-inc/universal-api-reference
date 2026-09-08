@@ -1,4 +1,4 @@
-# Update Ad Group with Reddit Lead Ads
+# Update Ad Group with Reddit Ads
 
 Updates an ad group in Reddit Ads.
 

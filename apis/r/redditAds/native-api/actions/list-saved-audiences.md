@@ -1,4 +1,4 @@
-# List Saved Audiences with Reddit Lead Ads
+# List Saved Audiences with Reddit Ads
 
 Retrieves saved audiences from Reddit Ads.
 

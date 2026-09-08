@@ -1,4 +1,4 @@
-# List Keyword Suggestions with Reddit Lead Ads
+# List Keyword Suggestions with Reddit Ads
 
 Retrieves keyword suggestions from input terms in Reddit Ads.
 

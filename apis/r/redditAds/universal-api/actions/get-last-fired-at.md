@@ -1,4 +1,4 @@
-# Reddit Lead Ads: Get Last Fired At
+# Reddit Ads: Get Last Fired At
 
 Retrieves the last fired time for a Reddit pixel.
 
@@ -6,7 +6,7 @@ Retrieves the last fired time for a Reddit pixel.
 GET https://connect.mindcloud.co/v1/universal/redditAds/latest/actions/get-last-fired-at
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Lead Ads `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Ads `connectionId` ([setup](../authentication.md)).
 
 ## Example request
 
@@ -60,5 +60,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Reddit Lead Ads API, this operation is `GET /pixels/{pixel_id}/last_fired_at` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-last-fired-at.md) for the provider-specific parameters and requirements.
+Through the native Reddit Ads API, this operation is `GET /pixels/{pixel_id}/last_fired_at` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-last-fired-at.md) for the provider-specific parameters and requirements.
 

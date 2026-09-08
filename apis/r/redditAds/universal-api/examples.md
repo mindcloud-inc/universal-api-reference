@@ -1,6 +1,6 @@
-# Reddit Lead Ads Universal API Examples
+# Reddit Ads Universal API Examples
 
-These examples use the MindCloud API key and Reddit Lead Ads connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
+These examples use the MindCloud API key and Reddit Ads connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
 ## Get Me
 

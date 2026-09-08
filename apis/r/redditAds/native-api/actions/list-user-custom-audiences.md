@@ -1,4 +1,4 @@
-# List User Custom Audiences with Reddit Lead Ads
+# List User Custom Audiences with Reddit Ads
 
 Retrieves custom audiences for an ad account from Reddit Ads.
 

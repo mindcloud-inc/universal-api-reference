@@ -256,7 +256,7 @@
 - **Rebrandly** · [Universal API reference](../../apis/r/rebrandly/universal-api) · [Native API reference](../../apis/r/rebrandly/native-api) · [Native API docs](https://developers.rebrandly.com/)
 - **RecurPost** · [Universal API reference](../../apis/r/recurPost/universal-api) · [Native API reference](../../apis/r/recurPost/native-api) · [Native API docs](https://developers.recurpost.com/)
 - **Recut URL Shortener** · [Universal API reference](../../apis/r/recutURLShortener/universal-api) · [Native API reference](../../apis/r/recutURLShortener/native-api) · [Native API docs](https://app.recut.in/developers)
-- **Reddit Lead Ads** · [Universal API reference](../../apis/r/redditAds/universal-api) · [Native API reference](../../apis/r/redditAds/native-api) · [Native API docs](https://ads-api.reddit.com/docs/v3/)
+- **Reddit Ads** · [Universal API reference](../../apis/r/redditAds/universal-api) · [Native API reference](../../apis/r/redditAds/native-api) · [Native API docs](https://ads-api.reddit.com/docs/v3/)
 - **redirect.pizza** · [Universal API reference](../../apis/r/redirectpizza/universal-api) · [Native API reference](../../apis/r/redirectpizza/native-api) · [Native API docs](https://redirect.pizza/docs)
 - **Referral Factory** · [Universal API reference](../../apis/r/referralFactory/universal-api) · [Native API reference](../../apis/r/referralFactory/native-api) · [Native API docs](https://developers.referral-factory.com/reference)
 - **ReferralHero** · [Universal API reference](../../apis/r/referralHero/universal-api) · [Native API reference](../../apis/r/referralHero/native-api) · [Native API docs](https://support.referralhero.com/integrate/rest-api)

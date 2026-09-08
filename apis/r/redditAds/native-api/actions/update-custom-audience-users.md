@@ -1,4 +1,4 @@
-# Update Custom Audience Users with Reddit Lead Ads
+# Update Custom Audience Users with Reddit Ads
 
 Updates users in a custom audience in Reddit Ads.
 

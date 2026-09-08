@@ -1,4 +1,4 @@
-# Create Saved Audience with Reddit Lead Ads
+# Create Saved Audience with Reddit Ads
 
 Creates a saved audience in Reddit Ads.
 

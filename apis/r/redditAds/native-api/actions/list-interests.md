@@ -1,4 +1,4 @@
-# List Interests with Reddit Lead Ads
+# List Interests with Reddit Ads
 
 Retrieves targetable interests from Reddit Ads.
 

@@ -1,6 +1,6 @@
-# Reddit Lead Ads Universal API Pagination
+# Reddit Ads Universal API Pagination
 
-Paginated list actions accept `limit` and `offset` as query parameters. MindCloud translates them into whatever pagination model Reddit Lead Ads expects, so the request shape stays the same even when the native API uses pages or cursors.
+Paginated list actions accept `limit` and `offset` as query parameters. MindCloud translates them into whatever pagination model Reddit Ads expects, so the request shape stays the same even when the native API uses pages or cursors.
 
 | Parameter | Description |
 | --- | --- |
@@ -16,7 +16,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/redditAds/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Reddit Lead Ads actions that support pagination
+## Reddit Ads actions that support pagination
 
 - [Get A Report](actions/get-a-report.md)
 - [Get Ad Account History](actions/get-ad-account-history.md)

@@ -1,4 +1,4 @@
-# Create Ad Group with Reddit Lead Ads
+# Create Ad Group with Reddit Ads
 
 Creates an ad group in Reddit Ads.
 

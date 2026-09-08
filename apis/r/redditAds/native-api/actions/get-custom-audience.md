@@ -1,4 +1,4 @@
-# Get Custom Audience with Reddit Lead Ads
+# Get Custom Audience with Reddit Ads
 
 Retrieves a custom audience from Reddit Ads.
 

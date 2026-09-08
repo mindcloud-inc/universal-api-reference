@@ -1,4 +1,4 @@
-# Get A Report with Reddit Lead Ads
+# Get A Report with Reddit Ads
 
 Generates a metrics report in Reddit Ads.
 

@@ -1,4 +1,4 @@
-# Create Custom Audience with Reddit Lead Ads
+# Create Custom Audience with Reddit Ads
 
 Creates a custom audience in Reddit Ads.
 

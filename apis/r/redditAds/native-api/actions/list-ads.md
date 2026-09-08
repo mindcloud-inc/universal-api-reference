@@ -1,4 +1,4 @@
-# List Ads with Reddit Lead Ads
+# List Ads with Reddit Ads
 
 Retrieves ads for an ad account from Reddit Ads.
 

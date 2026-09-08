@@ -1,4 +1,4 @@
-# List Campaigns with Reddit Lead Ads
+# List Campaigns with Reddit Ads
 
 Retrieves campaigns for an ad account from Reddit Ads.
 

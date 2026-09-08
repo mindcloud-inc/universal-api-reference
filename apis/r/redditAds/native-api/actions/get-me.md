@@ -1,4 +1,4 @@
-# Get Me with Reddit Lead Ads
+# Get Me with Reddit Ads
 
 Retrieves the authenticated user from Reddit Ads.
 

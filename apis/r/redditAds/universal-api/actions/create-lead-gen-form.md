@@ -1,4 +1,4 @@
-# Reddit Lead Ads: Create Lead Gen Form
+# Reddit Ads: Create Lead Gen Form
 
 Creates a lead generation form in Reddit Ads.
 
@@ -6,7 +6,7 @@ Creates a lead generation form in Reddit Ads.
 POST https://connect.mindcloud.co/v1/universal/redditAds/latest/actions/create-lead-gen-form
 ```
 
-Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Lead Ads `connectionId` ([setup](../authentication.md)).
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Reddit Ads `connectionId` ([setup](../authentication.md)).
 
 ## Example request
 
@@ -73,5 +73,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Reddit Lead Ads API, this operation is `POST /ad_accounts/{ad_account_id}/lead_gen_forms` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-lead-gen-form.md) for the provider-specific parameters and requirements.
+Through the native Reddit Ads API, this operation is `POST /ad_accounts/{ad_account_id}/lead_gen_forms` (base URL `https://ads-api.reddit.com/api/v3`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/create-lead-gen-form.md) for the provider-specific parameters and requirements.
 

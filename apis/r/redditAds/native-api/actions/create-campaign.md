@@ -1,4 +1,4 @@
-# Create Campaign with Reddit Lead Ads
+# Create Campaign with Reddit Ads
 
 Creates a campaign in Reddit Ads.
 

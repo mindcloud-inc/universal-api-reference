@@ -1,4 +1,4 @@
-# List Ad Groups with Reddit Lead Ads
+# List Ad Groups with Reddit Ads
 
 Retrieves ad groups for an ad account from Reddit Ads.
 

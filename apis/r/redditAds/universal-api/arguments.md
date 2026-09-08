@@ -1,6 +1,6 @@
-# Reddit Lead Ads Universal API Arguments
+# Reddit Ads Universal API Arguments
 
-Arguments are the inputs a Reddit Lead Ads action needs. Each [action page](README.md#actions-40) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Reddit Ads action needs. Each [action page](README.md#actions-40) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 
@@ -47,7 +47,7 @@ Selection is applied to each row in `data`. The `id` field is retained whenever 
 
 ## Responses and errors
 
-Every Reddit Lead Ads response uses the same envelope. Single-record actions still return one item inside `data`:
+Every Reddit Ads response uses the same envelope. Single-record actions still return one item inside `data`:
 
 ```json
 {

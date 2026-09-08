@@ -2,8 +2,8 @@
   "openapi": "3.1.2",
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
-    "title": "Reddit Lead Ads Universal API",
-    "version": "0.0.4",
+    "title": "Reddit Ads Universal API",
+    "version": "0.0.6",
     "description": "Manage Reddit campaigns, audiences, lead forms, pixels, and reports"
   },
   "servers": [
@@ -6967,7 +6967,12 @@
                 "required": [
                   "connectionId",
                   "pixelId",
-                  "data"
+                  "data",
+                  "data.events[]",
+                  "data.events[].eventAt",
+                  "data.events[].actionSource",
+                  "data.events[].type",
+                  "data.events[].type.trackingType"
                 ],
                 "properties": {
                   "connectionId": {
@@ -6982,6 +6987,97 @@
                     "type": "object",
                     "additionalProperties": true,
                     "description": "JSON request body from the Reddit Ads API spec."
+                  },
+                  "data.testId": {
+                    "type": "string",
+                    "description": "Optional Reddit Events Manager test ID. Leave blank for production events.",
+                    "example": "t2_...",
+                    "x-mindcloud-advanced": true
+                  },
+                  "data.events[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "One or more conversion events; Reddit accepts up to 1,000 events per request."
+                  },
+                  "data.events[].eventAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Unix epoch timestamp in milliseconds when the conversion occurred.",
+                    "example": "Select event time"
+                  },
+                  "data.events[].actionSource": {
+                    "type": "string",
+                    "description": "Channel where the conversion occurred.",
+                    "enum": [
+                      "APP",
+                      "OTHER",
+                      "PHYSICAL_STORE",
+                      "WEBSITE"
+                    ]
+                  },
+                  "data.events[].type": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "data.events[].type.trackingType": {
+                    "type": "string",
+                    "description": "Reddit standard conversion type, or CUSTOM for a custom event.",
+                    "enum": [
+                      "ADD_TO_CART",
+                      "ADD_TO_WISHLIST",
+                      "CUSTOM",
+                      "LEAD",
+                      "PAGE_VISIT",
+                      "PURCHASE",
+                      "SEARCH",
+                      "SIGN_UP",
+                      "VIEW_CONTENT"
+                    ]
+                  },
+                  "data.events[].type.customEventName": {
+                    "type": "string",
+                    "description": "Enter a name when Conversion Event is Custom, for example DemoBooked or TrialStarted. Leave blank for standard Reddit events.",
+                    "example": "DemoBooked"
+                  },
+                  "data.events[].clickId": {
+                    "type": "string",
+                    "description": "Reddit click ID (`rdt_cid`) used to improve attribution.",
+                    "example": "3184742045291813272",
+                    "x-mindcloud-advanced": true
+                  },
+                  "data.events[].eventSourceUrl": {
+                    "type": "string",
+                    "description": "URL where a WEBSITE conversion occurred; include `rdt_cid` when available.",
+                    "example": "https://example.com/checkout",
+                    "x-mindcloud-advanced": true
+                  },
+                  "data.events[].metadata": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional conversion metadata used for deduplication and revenue reporting."
+                  },
+                  "data.events[].metadata.conversionId": {
+                    "type": "string",
+                    "description": "Unique event ID used to deduplicate Pixel and CAPI events.",
+                    "example": "Order or event ID"
+                  },
+                  "data.events[].metadata.currency": {
+                    "type": "string",
+                    "description": "ISO 4217 currency code for revenue-related events.",
+                    "example": "USD"
+                  },
+                  "data.events[].metadata.value": {
+                    "type": "number",
+                    "description": "Transaction value in the currency's base unit.",
+                    "example": 10.99
+                  },
+                  "data.events[].metadata.itemCount": {
+                    "type": "number",
+                    "description": "Total number of items for a revenue-related event.",
+                    "example": 1
                   }
                 },
                 "additionalProperties": false

@@ -1,4 +1,4 @@
-# List My Businesses with Reddit Lead Ads
+# List My Businesses with Reddit Ads
 
 Retrieves businesses for the authenticated user from Reddit Ads.
 

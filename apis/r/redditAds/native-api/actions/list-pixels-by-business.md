@@ -1,4 +1,4 @@
-# List Pixels By Business with Reddit Lead Ads
+# List Pixels By Business with Reddit Ads
 
 Retrieves pixels for a business from Reddit Ads.
 
