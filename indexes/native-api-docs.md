@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3208 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3209 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -3018,6 +3018,7 @@ The official vendor API documentation for each of the 3208 apps in this repo. Ea
 - [WakaTime](../apis/w/wakaTime/native-api) - https://wakatime.com/developers
 - [Walla Form](../apis/w/wallaForm/native-api) - https://home.walla.my/en/help-center/%EC%9D%91%EB%8B%B5-api
 - [Walls.io](../apis/w/wallsio/native-api) - https://github.com/DieSocialisten/Walls.io-API-Docs
+- [Walmart](../apis/w/walmart/native-api) - https://developer.walmart.com/us-marketplace/reference
 - [WaniKani](../apis/w/waniKani/native-api) - https://docs.api.wanikani.com/20170710/
 - [Wasabi](../apis/w/wasabi/native-api) - https://docs.wasabi.com/apidocs/wasabi-api
 - [Wasi](../apis/w/wasi/native-api) - https://api.wasi.co/docs/en/guide/

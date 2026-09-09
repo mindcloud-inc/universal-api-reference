@@ -1,6 +1,6 @@
 # Commerce apps
 
-295 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+296 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -277,6 +277,7 @@
 - **Ventrata** · [Universal API reference](../../apis/v/ventrata/universal-api) · [Native API reference](../../apis/v/ventrata/native-api) · [Native API docs](https://docs.ventrata.com/)
 - **Visma eAccounting** · [Universal API reference](../../apis/v/vismaEAccounting/universal-api) · [Native API reference](../../apis/v/vismaEAccounting/native-api) · [Native API docs](https://eaccountingapi.vismaonline.com/scalar/v2)
 - **VosFactures** · [Universal API reference](../../apis/v/vosFactures/universal-api) · [Native API reference](../../apis/v/vosFactures/native-api) · [Native API docs](https://app.vosfactures.fr/api)
+- **Walmart** · [Universal API reference](../../apis/w/walmart/universal-api) · [Native API reference](../../apis/w/walmart/native-api) · [Native API docs](https://developer.walmart.com/us-marketplace/reference)
 - **Webshipper** · [Universal API reference](../../apis/w/webshipper/universal-api) · [Native API reference](../../apis/w/webshipper/native-api) · [Native API docs](https://docs.webshipper.io/)
 - **WeForest** · [Universal API reference](../../apis/w/weForest/universal-api) · [Native API reference](../../apis/w/weForest/native-api) · [Native API docs](https://docs.weforest.org)
 - **WeSupply** · [Universal API reference](../../apis/w/weSupply/universal-api) · [Native API reference](../../apis/w/weSupply/native-api) · [Native API docs](https://documenter.getpostman.com/view/11859344/T17AiAYq)

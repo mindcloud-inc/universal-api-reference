@@ -3,9 +3,9 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `/entity/{endpointName}/{endpointVersion}/PurchaseOrder`
+- **Path:** `/entity/{endpointName}/{endpointVersion}/PurchaseOrder/:id`
 - **Base URL:** `{uRL}`
-- **Official documentation:** [Get Purchase Order](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb)
+- **Official documentation:** [Get Purchase Order](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-a-Record-by-ID)
 
 ## Headers
 
@@ -17,7 +17,9 @@ Send these additional headers for this operation:
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `$filter` | query | `string` | no |
-| `$expand` | query | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | yes | The Acumatica entity ID (GUID) returned in the record's id field. |
+| `$select` | query | `string` | no | Comma-separated entity fields to return. |
+| `$expand` | query | `string` | no | Comma-separated detail or linked entities to expand. |
+| `$custom` | query | `string` | no | Comma-separated custom fields to return. |

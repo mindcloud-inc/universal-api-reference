@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3208 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3209 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -2938,6 +2938,7 @@ Machine-readable API descriptions for 3208 apps. Universal API specifications ar
 | [WakaTime](../apis/w/wakaTime) | [OpenAPI 3.1](../apis/w/wakaTime/universal-api/openapi.json) |  |
 | [Walla Form](../apis/w/wallaForm) | [OpenAPI 3.1](../apis/w/wallaForm/universal-api/openapi.json) | [Provider OpenAPI](https://walla-api.data-lab.workers.dev/doc) |
 | [Walls.io](../apis/w/wallsio) | [OpenAPI 3.1](../apis/w/wallsio/universal-api/openapi.json) |  |
+| [Walmart](../apis/w/walmart) | [OpenAPI 3.1](../apis/w/walmart/universal-api/openapi.json) |  |
 | [WaniKani](../apis/w/waniKani) | [OpenAPI 3.1](../apis/w/waniKani/universal-api/openapi.json) |  |
 | [Wasabi](../apis/w/wasabi) | [OpenAPI 3.1](../apis/w/wasabi/universal-api/openapi.json) |  |
 | [Wasi](../apis/w/wasi) | [OpenAPI 3.1](../apis/w/wasi/universal-api/openapi.json) |  |

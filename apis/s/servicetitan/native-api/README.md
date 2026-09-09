@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 104 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 107 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -43,7 +43,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (104 documented)
+## Endpoints (107 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -90,6 +90,9 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Get Item Receipts](actions/get-item-receipts.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/receipts` |  |
 | [Get Job Notes](actions/get-job-notes.md) | `GET jpm/v2/tenant/{{credentials.tenant}}/jobs/:jobId/notes` |  |
 | [Get Job Types](actions/get-job-types.md) | `GET https://api.servicetitan.io/jpm/v2/tenant/{{credentials.tenant}}/job-types` |  |
+| [Get Journal Entries](actions/get-journal-entries.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/journal-entries` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_GetList) |
+| [Get Journal Entries Details](actions/get-journal-entries-details.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/journal-entries/:id/details` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_GetDetails) |
+| [Get Journal Entries Summary](actions/get-journal-entries-summary.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/journal-entries/:id/details` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_GetSummary) |
 | [Get Lead Notes](actions/get-lead-notes.md) | `GET crm/v2/tenant/{{credentials.tenant}}/leads/:leadId/notes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Leads_GetNotes) |
 | [Get Location By Id](actions/get-location-by-id.md) | `GET crm/v2/tenant/{{credentials.tenant}}/locations/:id` |  |
 | [Get Locations](actions/get-locations.md) | `GET crm/v2/tenant/{{credentials.tenant}}/locations` |  |

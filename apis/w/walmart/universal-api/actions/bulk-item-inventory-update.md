@@ -1,0 +1,83 @@
+# Walmart: Bulk Item Inventory Update
+
+Upload a feed file to update inventory for multiple SKUs.
+
+```
+PUT https://connect.mindcloud.co/v1/universal/walmart/latest/actions/bulk-item-inventory-update
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Walmart `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/walmart/latest/actions/bulk-item-inventory-update" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "feedType": "inventory"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/walmart/latest/actions/bulk-item-inventory-update', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "feedType": "inventory"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `Inventory[].quantity.unit` | string | no | EACH Default: `EACH`. |
+| `Inventory[].sku` | string | no |  |
+| `Inventory[].quantity` | object | no |  |
+| `Inventory[].quantity.amount` | number | no |  |
+| `Inventory[]` | array<object> | no |  |
+| `Inventory[].inventoryAvailableDate` | string | no | YYYY-MM-DD |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `feedType` | list | yes | -`inventory` - Single ship node per file (spec 1.4). JSON or XML. -`MP_INVENTORY` - Multiple ship nodes per SKU (spec 1.5). JSON only. Default: `inventory`. |
+| `InventoryHeader` | object | no |  |
+| `InventoryHeader.version` | string | no | Default: `1.4`. |
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "feedId": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `feedId` | string | A unique identifier, which is returned by the Bulk Upload API, used to track and manage the status of the feed file. |
+
+## Native endpoint
+
+Through the native Walmart API, this operation is `POST /v3/feeds` (base URL `https://{{credentials.environment}}.walmartapis.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/bulk-item-inventory-update.md) for the provider-specific parameters and requirements.
+

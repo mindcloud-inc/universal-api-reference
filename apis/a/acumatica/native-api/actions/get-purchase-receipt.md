@@ -1,11 +1,15 @@
-# Get Purchase Receipt with Acumatica
+# List Purchase Receipts with Acumatica
 
 ## Endpoint
 
 - **Method:** `GET`
 - **Path:** `/entity/{endpointName}/{endpointVersion}/PurchaseReceipt`
 - **Base URL:** `{uRL}`
-- **Official documentation:** [Get Purchase Receipt](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb)
+- **Official documentation:** [List Purchase Receipts](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-Records-by-Conditions)
+
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
 
 ## Headers
 
@@ -17,7 +21,9 @@ Send these additional headers for this operation:
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `$expand` | query | `string` | no |
-| `$filter` | query | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `$select` | query | `string` | no | Comma-separated entity fields to return. |
+| `$expand` | query | `string` | no | Comma-separated detail or linked entities to expand. |
+| `$filter` | query | `string` | no | Acumatica OData filter expression used to qualify returned records. |
+| `$custom` | query | `string` | no | Comma-separated custom fields to return. |
