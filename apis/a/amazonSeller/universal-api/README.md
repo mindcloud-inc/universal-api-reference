@@ -4,7 +4,7 @@ Manage Amazon listings, inventory, orders, and shipments
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/amazonSeller/latest
 - **Category:** Commerce
-- **Actions:** 37
+- **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
 
@@ -21,13 +21,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/amazonSeller/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (37)
+## Actions (38)
 
 ### Catalog Items
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Search Catalog Items by Identifier](actions/search-catalog-items-by-identifier.md) | GET | Finds catalog items in Amazon Seller by identifier. |
+
+### Feeds
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Download FBM Report Document (Presigned URL)](actions/download-fbm-report-document-presigned-url.md) | GET | Downloads an FBM report document from Amazon Seller. |
 
 ### Financial Event
 

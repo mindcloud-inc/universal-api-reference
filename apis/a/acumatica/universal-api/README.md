@@ -4,7 +4,7 @@ An intuitive Cloud ERP system to power your whole business.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/acumatica/latest
 - **Category:** Commerce / ERP
-- **Actions:** 55
+- **Actions:** 59
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.acumatica.com/
 - **Vendor API docs:** https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (55)
+## Actions (59)
 
 ### Bill
 
@@ -125,7 +125,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 | [Create/Update Shipment](actions/create-update-shipment.md) | PUT |  |
 | [Purchase Receipt](actions/purchase-receipt.md) | PUT |  |
 | [Release Purchase Receipt](actions/release-purchase-receipt.md) | PUT |  |
-| [Reopen Shipment](actions/reopen-shipment.md) | POST |  |
 
 ### Purchase Receipt
 
@@ -137,14 +136,15 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Cancel Sales Order](actions/cancel-sales-order.md) | PUT |  |
 | [Create or Update Sales Order](actions/create-or-update-sales-order.md) | PUT |  |
 | [Delete Sales Order](actions/delete-sales-order.md) | DELETE |  |
+| [Reopen Sales Order](actions/reopen-sales-order.md) | PUT |  |
 
 ### Sales Orders
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Confirm Shipment](actions/confirm-shipment.md) | PUT |  |
 | [Get Inventory Quantity Available](actions/get-inventory-quantity-available.md) | PUT |  |
 | [Get Sales Order](actions/get-sales-order.md) | GET |  |
 | [List Sales Orders](actions/list-sales-orders.md) | GET |  |
@@ -161,8 +161,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Confirm Shipment](actions/confirm-shipment.md) | PUT |  |
+| [Correct Shipment](actions/correct-shipment.md) | PUT |  |
 | [Get Shipment](actions/get-shipment.md) | GET |  |
 | [List Shipments](actions/list-shipments.md) | GET |  |
+| [Prepare Invoice from Shipment](actions/prepare-invoice-from-shipment.md) | POST |  |
+| [Update Shipment Inventory](actions/update-shipment-inventory.md) | PUT |  |
 
 ### Stock Item
 

@@ -1,6 +1,6 @@
 # Amazon Seller: Native API Reference
 
-A consolidated summary of Amazon Seller's API configuration and 37 documented operations, with links to official documentation.
+A consolidated summary of Amazon Seller's API configuration and 38 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references
 - **REST base URL:** `https://{environment}-{region}.amazon.com`
@@ -133,7 +133,7 @@ Responses from this API use JSON.
 
 - **REST:** Stop after 3 attempts. Multiply the delay by 3 after each failed attempt.
 
-## Endpoints (37 documented)
+## Endpoints (38 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -142,6 +142,7 @@ Responses from this API use JSON.
 | [Create FBM Listings Inventory Report](actions/create-fbm-listings-inventory-report.md) | REST | `POST reports/2021-06-30/reports` | [docs](https://developer-docs.amazon.com/sp-api/docs/reports-api-v2021-06-30-reference#createreport) |
 | [Create Fulfillment Order](actions/create-fulfillment-order.md) | REST | `POST https://sellingpartnerapi-na.amazon.com/fba/outbound/2020-07-01/fulfillmentOrders` | [docs](https://developer-docs.amazon.com/sp-api/reference/confirmshipment) |
 | [Create Shipment](actions/create-shipment.md) | REST | `POST mfn/v0/shipments` | [docs](https://developer-docs.amazon.com/sp-api/reference/getorders) |
+| [Download FBM Report Document (Presigned URL)](actions/download-fbm-report-document-presigned-url.md) | REST | `GET :downloadUrl` | [docs](https://developer-docs.amazon.com/sp-api/docs/reports-api-v2021-06-30-reference#getreportdocument) |
 | [Get Account](actions/get-account.md) | REST | `GET sellers/v1/account` | [docs](https://developer-docs.amazon.com/sp-api/reference/getaccount) |
 | [Get Bill of Lading](actions/get-bill-of-lading.md) | REST | `GET fba/inbound/v0/shipments/:shipmentId/billOfLading` | [docs](https://developer-docs.amazon.com/sp-api/reference/getbilloflading) |
 | [Get Eligible Shipment Services](actions/get-eligible-shipment-services.md) | REST | `POST mfn/v0/eligibleShippingServices` | [docs](https://developer-docs.amazon.com/sp-api/reference/getorders) |
@@ -164,7 +165,7 @@ Responses from this API use JSON.
 | [List Financial Events by Order ID](actions/list-financial-events-by-order-id.md) | REST | `GET finances/v0/orders/:orderId/financialEvents` | [docs](https://developer-docs.amazon.com/sp-api/reference/listfinancialeventsbyorderid) |
 | [List Inbound Plans](actions/list-inbound-plans.md) | pageSize / paginationToken | `GET inbound/fba/2024-03-20/inboundPlans` | [docs](https://developer-docs.amazon.com/sp-api/reference/listinboundplans) |
 | [List Shipments](actions/list-inbound-shipments.md) | QueryType / NextToken | `GET fba/inbound/v0/shipments` | [docs](https://developer-docs.amazon.com/sp-api/reference/getshipments) |
-| [List Settlement Report List](actions/list-settlement-report-list.md) | REST | `GET reports/2021-06-30/reports` | [docs](https://developer-docs.amazon.com/sp-api/docs/reports-api-v2021-06-30-reference#getreports) |
+| [List Settlement Report List](actions/list-settlement-report-list.md) | pageSize / nextToken | `GET reports/2021-06-30/reports` | [docs](https://developer-docs.amazon.com/sp-api/docs/reports-api-v2021-06-30-reference#getreports) |
 | [List Transactions](actions/list-transactions.md) | REST | `GET finances/2024-06-19/transactions` | [docs](https://developer-docs.amazon.com/sp-api/reference/listtransactions) |
 | [Patch Listings Item](actions/patch-listings-item.md) | REST | `PATCH listings/2021-08-01/items/:sellerId/:sku` | [docs](https://developer-docs.amazon.com/sp-api/reference/patchlistingsitem) |
 | [Search Catalog Items by Identifier](actions/search-catalog-items-by-identifier.md) | REST | `GET catalog/2022-04-01/items` | [docs](https://developer-docs.amazon.com/sp-api/reference/searchcatalogitems) |

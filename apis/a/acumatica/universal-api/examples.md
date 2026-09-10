@@ -51,28 +51,32 @@ Example response:
 
 See the full [List Acumatica Endpoints action reference](actions/get-acumatica-erp-endpoints.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/acumatica/latest/actions/get-acumatica-erp-endpoints).
 
-## Confirm Shipment
+## Cancel Sales Order
 
 
 
 ```bash
-curl -X PUT "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/confirm-shipment" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/cancel-sales-order" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "entity.OrderType.value": "string",
+  "entity.OrderNbr.value": "string"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/confirm-shipment', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/cancel-sales-order', {
   method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "entity.OrderType.value": "string",
+    "entity.OrderNbr.value": "string"
   })
 });
 
@@ -84,9 +88,13 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "success": true
+    }
+  ],
   "meta": {}
 }
 ```
 
-See the full [Confirm Shipment action reference](actions/confirm-shipment.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/acumatica/latest/actions/confirm-shipment).
+See the full [Cancel Sales Order action reference](actions/cancel-sales-order.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/acumatica/latest/actions/cancel-sales-order).

@@ -39,12 +39,11 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `reportTypes` | list | no | One of: `GET_V2_SETTLEMENT_REPORT_DATA_FLAT_FILE_V2`. Accepts multiple values as an array. |
-| `processingStatuses` | string | no | Accepts multiple values as an array. |
+| `reportType` | list | no | One of: `GET_V2_SETTLEMENT_REPORT_DATA_FLAT_FILE_V2`. |
+| `processingStatuses` | list | no | Accepts multiple values as an array. |
 | `createdSince` | date | no |  |
 | `createdUntil` | date | no |  |
-| `nextToken` | string | no |  |
-| `pageSize` | number | no |  |
+| `marketplaces` | list | no | Accepts multiple values as an array. |
 
 ## Response
 

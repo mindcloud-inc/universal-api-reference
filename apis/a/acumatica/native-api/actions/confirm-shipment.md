@@ -2,10 +2,10 @@
 
 ## Endpoint
 
-- **Method:** `PUT`
+- **Method:** `POST`
 - **Path:** `/entity/{endpointName}/{endpointVersion}/Shipment/ConfirmShipment`
 - **Base URL:** `{uRL}`
-- **Official documentation:** [Confirm Shipment](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb)
+- **Official documentation:** [Confirm Shipment](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration)
 
 ## Headers
 
@@ -19,5 +19,6 @@ Send these additional headers for this operation:
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `ShipmentNbr` | body | `object` | no |
-| `ShipmentNbr.value` | body | `string` | no |
+| `entity` | body | `object` | no |
+| `entity.ShipmentNbr` | body | `object` | no |
+| `entity.ShipmentNbr.value` | body | `string` | yes |

@@ -39,16 +39,18 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `unit` | string | no |  |
 | `city` | string | no |  |
+| `state` | string | no |  |
 | `country` | string | no |  |
 | `phone` | string | no |  |
-| `state` | string | no |  |
-| `unit` | string | no |  |
 | `name` | string | no |  |
 | `modifiedOnOrAfter` | string | no |  |
+| `modifiedBefore` | string | no |  |
 | `street` | string | no |  |
 | `zip` | string | no |  |
 | `createdOnOrAfter` | string | no |  |
+| `createdBefore` | string | no |  |
 | `active` | boolean | no |  |
 | `ids` | string | no |  |
 | `excludeAccountingChangesFromModifiedDateRange` | boolean | no | Excludes accounting changes such as balance adjustments from the modified date range. |

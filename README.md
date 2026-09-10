@@ -2,7 +2,7 @@
 
 ![Last sync](https://img.shields.io/github/last-commit/mindcloud-inc/universal-api-reference?label=last%20sync)
 
-The API surface of **3,209 apps** — **76,104 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
+The API surface of **3,209 apps** — **76,109 endpoints** — documented in one uniform, greppable format. Every app gets the same treatment: authentication, pagination, filtering, sorting, argument conventions, response formats, and a mapping back to the vendor's native API. One file per endpoint.
 
 ```bash
 git clone https://github.com/mindcloud-inc/universal-api-reference.git
