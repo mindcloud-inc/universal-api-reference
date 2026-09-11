@@ -5,7 +5,7 @@ Retrieves contacts from ServiceTitan for a customer.
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `crm/v2/tenant/{tenant}/customers/:contactId/contacts`
+- **Path:** `crm/v2/tenant/{tenant}/customers/:customerId/contacts`
 - **Base URL:** `https://{baseUrl}/`
 - **Official documentation:** [List Customer Contact](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_GetContactList)
 
@@ -17,5 +17,5 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `contactId` | path | `string` | no |
+| `customerId` | path | `string` | yes |
 | `includeTotal` | query | `boolean` | no |

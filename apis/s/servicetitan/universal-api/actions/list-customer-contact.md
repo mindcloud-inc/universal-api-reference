@@ -13,7 +13,7 @@ This action also supports [pagination](../pagination.md) (`limit`, `offset`).
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/list-customer-contact?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/list-customer-contact?connectionId=$CONNECTION_ID&limit=25&offset=0&customerId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -21,7 +21,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 const params = new URLSearchParams({
   connectionId,
   limit: '25',
-  offset: '0'
+  offset: '0',
+  "customerId": "string"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/list-customer-contact?${params}`, {
@@ -39,7 +40,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `contactId` | string | no |  |
+| `customerId` | string | yes |  |
 | `includeTotal` | boolean | no |  |
 
 ## Response
@@ -84,5 +85,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native ServiceTitan API, this operation is `GET crm/v2/tenant/{{credentials.tenant}}/customers/:contactId/contacts` (base URL `https://{{credentials.baseUrl}}/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-customer-contact.md) for the provider-specific parameters and requirements.
+Through the native ServiceTitan API, this operation is `GET crm/v2/tenant/{{credentials.tenant}}/customers/:customerId/contacts` (base URL `https://{{credentials.baseUrl}}/`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-customer-contact.md) for the provider-specific parameters and requirements.
 

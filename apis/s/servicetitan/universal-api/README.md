@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 107
+- **Actions:** 110
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (107)
+## Actions (110)
 
 ### Access Tokens
 
@@ -220,8 +220,11 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Customer Tag](actions/add-customer-tag.md) | POST |  |
+| [Get Payment Terms](actions/get-payment-terms.md) | GET | Retrieves payment terms from ServiceTitan. |
+| [Get Technician Payroll Settings](actions/get-technician-payroll-settings.md) | GET | Retrieves payroll settings from ServiceTitan for a technician. |
 | [List Payroll by Employee ID](actions/list-payroll-by-employee-id.md) | GET | Retrieves payrolls from ServiceTitan for an employee. |
 | [List Payroll by Technician ID](actions/list-payroll-by-technician-id.md) | GET | Retrieves payrolls from ServiceTitan for a technician. |
+| [Update Technician Payroll Settings](actions/update-technician-payroll-settings.md) | PUT |  |
 
 ### Payments
 

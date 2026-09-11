@@ -1,6 +1,6 @@
 # Commerce apps
 
-296 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+297 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -20,6 +20,7 @@
 - **Becon** · [Universal API reference](../../apis/b/becon/universal-api) · [Native API reference](../../apis/b/becon/native-api) · [Native API docs](https://bcon.global/integrations/api/)
 - **Bexio** · [Universal API reference](../../apis/b/bexio/universal-api) · [Native API reference](../../apis/b/bexio/native-api) · [Native API docs](https://docs.bexio.com/)
 - **Big Cartel** · [Universal API reference](../../apis/b/bigCartel/universal-api) · [Native API reference](../../apis/b/bigCartel/native-api) · [Native API docs](https://developers.bigcartel.com/api/v1/)
+- **BigCommerce (B2B)** · [Universal API reference](../../apis/b/bigCommerceB2B/universal-api) · [Native API reference](../../apis/b/bigCommerceB2B/native-api) · [Native API docs](https://developer.bigcommerce.com/b2b-edition/apis)
 - **Billage** · [Universal API reference](../../apis/b/billage/universal-api) · [Native API reference](../../apis/b/billage/native-api) · [Native API docs](https://app.getbillage.com/api/documentation.html)
 - **Billforward** · [Universal API reference](../../apis/b/billforward/universal-api) · [Native API reference](../../apis/b/billforward/native-api) · [Native API docs](https://app.billforward.net/#/api/docs/intro)
 - **Billingo** · [Universal API reference](../../apis/b/billingo/universal-api) · [Native API reference](../../apis/b/billingo/native-api) · [Native API docs](https://developers.billingo.hu/)

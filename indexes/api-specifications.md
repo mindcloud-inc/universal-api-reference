@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3209 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3212 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -225,6 +225,8 @@ Machine-readable API descriptions for 3209 apps. Universal API specifications ar
 | [Beyond Presence](../apis/b/beyondPresence) | [OpenAPI 3.1](../apis/b/beyondPresence/universal-api/openapi.json) |  |
 | [BHuman](../apis/b/bHuman) | [OpenAPI 3.1](../apis/b/bHuman/universal-api/openapi.json) |  |
 | [Big Cartel](../apis/b/bigCartel) | [OpenAPI 3.1](../apis/b/bigCartel/universal-api/openapi.json) |  |
+| [BigCommerce](../apis/b/bigcommerce) | [OpenAPI 3.1](../apis/b/bigcommerce/universal-api/openapi.json) |  |
+| [BigCommerce (B2B)](../apis/b/bigCommerceB2B) | [OpenAPI 3.1](../apis/b/bigCommerceB2B/universal-api/openapi.json) |  |
 | [BigDataCloud](../apis/b/bigDataCloud) | [OpenAPI 3.1](../apis/b/bigDataCloud/universal-api/openapi.json) |  |
 | [Bigin by Zoho CRM](../apis/b/biginByZohoCRM) | [OpenAPI 3.1](../apis/b/biginByZohoCRM/universal-api/openapi.json) |  |
 | [Bigjpg](../apis/b/bigjpg) | [OpenAPI 3.1](../apis/b/bigjpg/universal-api/openapi.json) |  |
@@ -1928,6 +1930,7 @@ Machine-readable API descriptions for 3209 apps. Universal API specifications ar
 | [Pencil Spaces](../apis/p/pencilSpaces) | [OpenAPI 3.1](../apis/p/pencilSpaces/universal-api/openapi.json) | [Provider OpenAPI](https://api.swaggerhub.com/apis/Pencil/pencil-spaces-api/1.1.0/swagger.json) |
 | [People Data Labs](../apis/p/peopleDataLabs) | [OpenAPI 3.1](../apis/p/peopleDataLabs/universal-api/openapi.json) |  |
 | [PeopleDB](../apis/p/peopleDB) | [OpenAPI 3.1](../apis/p/peopleDB/universal-api/openapi.json) | [Provider OpenAPI](https://docs.peopledb.co/openapi.yaml) |
+| [Peplink](../apis/p/peplink) | [OpenAPI 3.1](../apis/p/peplink/universal-api/openapi.json) |  |
 | [Perfit](../apis/p/perfit) | [OpenAPI 3.1](../apis/p/perfit/universal-api/openapi.json) |  |
 | [Perigon](../apis/p/perigon) | [OpenAPI 3.1](../apis/p/perigon/universal-api/openapi.json) |  |
 | [Permit.io](../apis/p/permitio) | [OpenAPI 3.1](../apis/p/permitio/universal-api/openapi.json) | [Provider OpenAPI](https://api.permit.io/v2/openapi.json) |

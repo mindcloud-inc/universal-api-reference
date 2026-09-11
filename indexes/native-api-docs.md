@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3209 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3212 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -230,6 +230,8 @@ The official vendor API documentation for each of the 3209 apps in this repo. Ea
 - [Beyond Presence](../apis/b/beyondPresence/native-api) - https://docs.bey.dev/api-reference
 - [BHuman](../apis/b/bHuman/native-api) - https://github.com/bhuman-ai/public_api
 - [Big Cartel](../apis/b/bigCartel/native-api) - https://developers.bigcartel.com/api/v1/
+- [BigCommerce](../apis/b/bigcommerce/native-api)
+- [BigCommerce (B2B)](../apis/b/bigCommerceB2B/native-api) - https://developer.bigcommerce.com/b2b-edition/apis
 - [BigDataCloud](../apis/b/bigDataCloud/native-api) - https://www.bigdatacloud.com/support/getting-started
 - [Bigin by Zoho CRM](../apis/b/biginByZohoCRM/native-api) - https://www.bigin.com/developer/docs/apis/v2/
 - [Bigjpg](../apis/b/bigjpg/native-api) - https://bigjpg.com/
@@ -1978,6 +1980,7 @@ The official vendor API documentation for each of the 3209 apps in this repo. Ea
 - [Pencil Spaces](../apis/p/pencilSpaces/native-api) - https://api.pencilspaces.com/guide
 - [People Data Labs](../apis/p/peopleDataLabs/native-api) - https://docs.peopledatalabs.com/
 - [PeopleDB](../apis/p/peopleDB/native-api) - https://docs.peopledb.co
+- [Peplink](../apis/p/peplink/native-api)
 - [Perfit](../apis/p/perfit/native-api) - https://developers.myperfit.com/
 - [Perigon](../apis/p/perigon/native-api) - https://docs.perigon.io/docs/getting-started
 - [Permit.io](../apis/p/permitio/native-api) - https://api.permit.io/scalar

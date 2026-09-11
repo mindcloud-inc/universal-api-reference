@@ -44,16 +44,17 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address1` | string | no |  |
-| `address2` | string | no |  |
-| `alphaSort` | string | no |  |
-| `city` | string | no |  |
 | `customerCode` | string | yes |  |
 | `name` | string | yes |  |
+| `alphaSort` | string | no |  |
 | `type` | string | no |  |
+| `address1` | string | no |  |
+| `address2` | string | no |  |
+| `city` | string | no |  |
 | `state` | string | no |  |
 | `zipCode` | string | no |  |
 | `phone` | string | no |  |
+| `customerEmail` | string | no |  |
 | `faxPhone` | string | no |  |
 | `contact1` | string | no |  |
 | `contact2` | string | no |  |
@@ -72,7 +73,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `priceLevelLabor` | list<number> | no |  |
 | `creditLimit` | number | no |  |
 | `dateCreated` | date | no |  |
-| `Email1` | string | no |  |
 | `markupCode` | string | no |  |
 | `userDefinedFields` | object | no | UDF1 — UDF20 |
 
