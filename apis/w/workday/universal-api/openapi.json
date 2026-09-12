@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Workday Universal API",
-    "version": "0.0.11",
+    "version": "0.0.13",
     "description": "Workday scaffold based on the attached Time Tracking v5 OpenAPI spec. Current scope covers worker retrieval plus worker time block retrieval and create/update shells for timesheet-style entries."
   },
   "servers": [
@@ -20,6 +20,257 @@
     }
   ],
   "paths": {
+    "/v1/universal/workday/latest/actions/create-timesheet-entry": {
+      "post": {
+        "operationId": "workday.create-timesheet-entry",
+        "summary": "Create Timesheet Entry",
+        "description": "Create a worker time block in Workday Time Tracking for a specific worker using either quantity-based or clock-in and clock-out entry fields.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/workday/latest/actions/create-timesheet-entry"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "workerId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "workerId": {
+                    "type": "string",
+                    "description": "The Workday ID of the worker for whom the time block will be created."
+                  },
+                  "calendarDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Required for hourly entry together with Reported Quantity."
+                  },
+                  "reportedQuantity": {
+                    "type": "number",
+                    "description": "Required for hourly entry together with Calendar Date."
+                  },
+                  "inTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Required for in/out entry together with Out Time, In Time Zone ID, and Out Time Zone ID."
+                  },
+                  "outTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Required for in/out entry together with In Time, In Time Zone ID, and Out Time Zone ID."
+                  },
+                  "inTimeZone": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the in time zone."
+                  },
+                  "inTimeZone.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected in time zone reference."
+                  },
+                  "outTimeZone": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the out time zone."
+                  },
+                  "outTimeZone.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected out time zone reference."
+                  },
+                  "timeEntryCode": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the selected time entry code."
+                  },
+                  "timeEntryCode.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected time entry code reference."
+                  },
+                  "project": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the selected project."
+                  },
+                  "project.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected project reference."
+                  },
+                  "projectPlanTask": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the selected project plan task."
+                  },
+                  "projectPlanTask.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected project plan task reference."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/workday/latest/actions/get-job-profiles": {
       "get": {
         "operationId": "workday.get-job-profiles",
@@ -84,6 +335,281 @@
                       "items": {
                         "type": "object",
                         "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/workday/latest/actions/get-person": {
+      "get": {
+        "operationId": "workday.get-person",
+        "summary": "Get Person",
+        "description": "Get a single person from the Workday Person API by Workday person ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/workday/latest/actions/get-person"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "personId",
+            "in": "query",
+            "required": true,
+            "description": "The Workday person ID. You can use a returned person id from Get Workers or Get People.",
+            "schema": {
+              "type": "string",
+              "description": "The Workday person ID. You can use a returned person id from Get Workers or Get People."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "additionalNames": {
+                            "type": "string",
+                            "description": "URL for the person's additional names resource."
+                          },
+                          "audioNamePronunciation": {
+                            "type": "string",
+                            "description": "URL for the person's audio name pronunciation resource."
+                          },
+                          "homeAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's home addresses resource."
+                          },
+                          "homeEmails": {
+                            "type": "string",
+                            "description": "URL for the person's home emails resource."
+                          },
+                          "homeInstantMessengers": {
+                            "type": "string",
+                            "description": "URL for the person's home instant messengers resource."
+                          },
+                          "homePhones": {
+                            "type": "string",
+                            "description": "URL for the person's home phones resource."
+                          },
+                          "homeWebAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's home web addresses resource."
+                          },
+                          "href": {
+                            "type": "string",
+                            "description": "A link to the person instance."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The id for Person."
+                          },
+                          "legalName": {
+                            "type": "string",
+                            "description": "URL for the person's legal name resource."
+                          },
+                          "personalInformation": {
+                            "type": "string",
+                            "description": "URL for the person's personal information resource."
+                          },
+                          "photos": {
+                            "type": "string",
+                            "description": "URL for the person's photos resource."
+                          },
+                          "preferredName": {
+                            "type": "string",
+                            "description": "URL for the person's preferred name resource."
+                          },
+                          "socialNetworks": {
+                            "type": "string",
+                            "description": "URL for the person's social networks resource."
+                          },
+                          "universal_ID": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "The person's universal ID metadata when available."
+                          },
+                          "workAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's work addresses resource."
+                          },
+                          "workEmails": {
+                            "type": "string",
+                            "description": "URL for the person's work emails resource."
+                          },
+                          "workInstantMessengers": {
+                            "type": "string",
+                            "description": "URL for the person's work instant messengers resource."
+                          },
+                          "workPhones": {
+                            "type": "string",
+                            "description": "URL for the person's work phones resource."
+                          },
+                          "workWebAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's work web addresses resource."
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "meta": {
@@ -1120,6 +1646,552 @@
         }
       }
     },
+    "/v1/universal/workday/latest/actions/list-people": {
+      "get": {
+        "operationId": "workday.list-people",
+        "summary": "List People",
+        "description": "List people from the Workday Person API, optionally filtering by universal ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/workday/latest/actions/list-people"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "universalId",
+            "in": "query",
+            "required": false,
+            "description": "Optional universal ID filter for the person you want to retrieve.",
+            "schema": {
+              "type": "string",
+              "description": "Optional universal ID filter for the person you want to retrieve."
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "additionalNames": {
+                            "type": "string",
+                            "description": "URL for the person's additional names resource."
+                          },
+                          "audioNamePronunciation": {
+                            "type": "string",
+                            "description": "URL for the person's audio name pronunciation resource."
+                          },
+                          "homeAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's home addresses resource."
+                          },
+                          "homeEmails": {
+                            "type": "string",
+                            "description": "URL for the person's home emails resource."
+                          },
+                          "homeInstantMessengers": {
+                            "type": "string",
+                            "description": "URL for the person's home instant messengers resource."
+                          },
+                          "homePhones": {
+                            "type": "string",
+                            "description": "URL for the person's home phones resource."
+                          },
+                          "homeWebAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's home web addresses resource."
+                          },
+                          "href": {
+                            "type": "string",
+                            "description": "A link to the person instance."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The id for Person."
+                          },
+                          "legalName": {
+                            "type": "string",
+                            "description": "URL for the person's legal name resource."
+                          },
+                          "personalInformation": {
+                            "type": "string",
+                            "description": "URL for the person's personal information resource."
+                          },
+                          "photos": {
+                            "type": "string",
+                            "description": "URL for the person's photos resource."
+                          },
+                          "preferredName": {
+                            "type": "string",
+                            "description": "URL for the person's preferred name resource."
+                          },
+                          "socialNetworks": {
+                            "type": "string",
+                            "description": "URL for the person's social networks resource."
+                          },
+                          "universal_ID": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "The person's universal ID metadata when available."
+                          },
+                          "workAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's work addresses resource."
+                          },
+                          "workEmails": {
+                            "type": "string",
+                            "description": "URL for the person's work emails resource."
+                          },
+                          "workInstantMessengers": {
+                            "type": "string",
+                            "description": "URL for the person's work instant messengers resource."
+                          },
+                          "workPhones": {
+                            "type": "string",
+                            "description": "URL for the person's work phones resource."
+                          },
+                          "workWebAddresses": {
+                            "type": "string",
+                            "description": "URL for the person's work web addresses resource."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/workday/latest/actions/list-time-tracking-workers": {
+      "get": {
+        "operationId": "workday.list-time-tracking-workers",
+        "summary": "List Time Tracking Workers",
+        "description": "List workers from Workday Time Tracking with optional search, organization visibility filtering, and pagination.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/workday/latest/actions/list-time-tracking-workers"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "Search workers by name or worker ID. The search is case-insensitive.",
+            "schema": {
+              "type": "string",
+              "description": "Search workers by name or worker ID. The search is case-insensitive."
+            }
+          },
+          {
+            "name": "filterByOrgVisibility",
+            "in": "query",
+            "required": false,
+            "description": "Only return workers whose supervisory organizations are visible to the processing user.",
+            "schema": {
+              "type": "boolean",
+              "description": "Only return workers whose supervisory organizations are visible to the processing user.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "includeTerminatedWorkers",
+            "in": "query",
+            "required": false,
+            "description": "Include terminated workers in the output.",
+            "schema": {
+              "type": "boolean",
+              "description": "Include terminated workers in the output.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "additionalJobs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "Additional job assignments when present."
+                          },
+                          "descriptor": {
+                            "type": "string",
+                            "description": "The display name of the worker."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The Workday ID of the worker."
+                          },
+                          "person": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Basic person contact information."
+                          },
+                          "primaryJob": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Current primary job details."
+                          },
+                          "workerId": {
+                            "type": "string",
+                            "description": "The worker ID."
+                          },
+                          "workerType": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Worker type details."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/workday/latest/actions/list-worker-organizations": {
       "get": {
         "operationId": "workday.list-worker-organizations",
@@ -1162,6 +2234,608 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/workday/latest/actions/list-worker-time-blocks": {
+      "get": {
+        "operationId": "workday.list-worker-time-blocks",
+        "summary": "List Worker Time Blocks",
+        "description": "List worker time blocks from Workday Time Tracking so you can review timesheet-style entries by worker, date range, status, project, or task.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/workday/latest/actions/list-worker-time-blocks"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "worker",
+            "in": "query",
+            "required": false,
+            "description": "The Workday ID of the worker for the time block filter.",
+            "schema": {
+              "type": "string",
+              "description": "The Workday ID of the worker for the time block filter."
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "required": false,
+            "description": "Start date of the time block date range filter.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Start date of the time block date range filter."
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "required": false,
+            "description": "End date of the time block date range filter.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "End date of the time block date range filter."
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "The Workday ID of the approval status for the time block filter.",
+            "schema": {
+              "type": "string",
+              "description": "The Workday ID of the approval status for the time block filter.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "phase",
+            "in": "query",
+            "required": false,
+            "description": "The Workday ID of the project plan phase filter.",
+            "schema": {
+              "type": "string",
+              "description": "The Workday ID of the project plan phase filter.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "project",
+            "in": "query",
+            "required": false,
+            "description": "The Workday ID of the project filter.",
+            "schema": {
+              "type": "string",
+              "description": "The Workday ID of the project filter.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "projectPlanTask",
+            "in": "query",
+            "required": false,
+            "description": "The Workday ID of the project plan task filter.",
+            "schema": {
+              "type": "string",
+              "description": "The Workday ID of the project plan task filter.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "calendarDate": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "The calendar date for the time block."
+                          },
+                          "comment": {
+                            "type": "string",
+                            "description": "Comment on the time block when present."
+                          },
+                          "descriptor": {
+                            "type": "string",
+                            "description": "The display name of the worker time block."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The ID for the worker time block."
+                          },
+                          "inTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Clock-in time for in/out time blocks."
+                          },
+                          "inTimeZone": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Time zone information for the in time."
+                          },
+                          "outTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Clock-out time for in/out time blocks."
+                          },
+                          "outTimeZone": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Time zone information for the out time."
+                          },
+                          "project": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Project details when the time block is project-based."
+                          },
+                          "projectPlanTask": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Project plan task details when applicable."
+                          },
+                          "reportedQuantity": {
+                            "type": "number",
+                            "description": "Reported quantity for quantity-based time blocks."
+                          },
+                          "status": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Approval status details for the time block."
+                          },
+                          "timeEntryCode": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Time entry code details when applicable."
+                          },
+                          "worker": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Worker details for the time block."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/workday/latest/actions/update-timesheet-entry": {
+      "put": {
+        "operationId": "workday.update-timesheet-entry",
+        "summary": "Update Timesheet Entry",
+        "description": "Update an existing worker time block in Workday Time Tracking for a specific worker and time block ID.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/workday/latest/actions/update-timesheet-entry"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "workerId",
+                  "timesheetEntryId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "workerId": {
+                    "type": "string",
+                    "description": "The Workday ID of the worker whose time block will be updated."
+                  },
+                  "timesheetEntryId": {
+                    "type": "string",
+                    "description": "The Workday ID of the worker time block to update."
+                  },
+                  "calendarDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Required for hourly entry together with Reported Quantity."
+                  },
+                  "reportedQuantity": {
+                    "type": "number",
+                    "description": "Required for hourly entry together with Calendar Date."
+                  },
+                  "inTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Required for in/out entry together with Out Time, In Time Zone ID, and Out Time Zone ID."
+                  },
+                  "outTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Required for in/out entry together with In Time, In Time Zone ID, and Out Time Zone ID."
+                  },
+                  "inTimeZone": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the in time zone."
+                  },
+                  "inTimeZone.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected in time zone reference."
+                  },
+                  "outTimeZone": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the out time zone."
+                  },
+                  "outTimeZone.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected out time zone reference."
+                  },
+                  "timeEntryCode": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the selected time entry code."
+                  },
+                  "timeEntryCode.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected time entry code reference."
+                  },
+                  "project": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the selected project."
+                  },
+                  "project.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected project reference."
+                  },
+                  "projectPlanTask": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Reference object for the selected project plan task."
+                  },
+                  "projectPlanTask.id": {
+                    "type": "string",
+                    "description": "The Workday ID for the selected project plan task reference."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful response.",

@@ -59,7 +59,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `invoiceDate` | date | yes |  |
 | `termsCode` | string | no |  |
 | `salespersonCode` | number | no |  |
-| `salesTaxCode` | number | no |  |
+| `salesTaxCode` | string | no |  |
 | `taxableFlag` | string | no |  |
 | `retentionPercent` | string | no |  |
 | `printJobAddressFlag` | string | no |  |

@@ -3,7 +3,7 @@
 Ramp through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ramp/latest
-- **Actions:** 6
+- **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://docs.ramp.com/developer-api/v1/overview/introduction
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/ramp/latest/actions/list-
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (6)
+## Actions (8)
 
 ### Other
 
@@ -42,4 +42,11 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/ramp/latest/actions/list-
 | [Get Transaction](actions/get-transaction.md) | GET |  |
 | [List Transactions](actions/list-transactions.md) | GET |  |
 | [Upload a new memo for a transaction](actions/upload-transaction-memo.md) | PUT |  |
+
+### Webhook Events
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Verify Webhook Endpoint](actions/new-action1.md) | POST |  |
+| [Subscribe To Events](actions/subscribe-to-events.md) | POST | This actions is used in conjunction with the Verify Webhook Endpoint action to register a webhook event in Ramp |
 

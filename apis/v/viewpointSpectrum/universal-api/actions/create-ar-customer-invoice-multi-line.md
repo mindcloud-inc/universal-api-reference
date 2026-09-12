@@ -3,7 +3,7 @@
 
 
 ```
-POST https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/create-ar-customer-invoice-multi-line
+PUT https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/create-ar-customer-invoice-multi-line
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoint Spectrum `connectionId` ([setup](../authentication.md)).
@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoin
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/create-ar-customer-invoice-multi-line" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/create-ar-customer-invoice-multi-line" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -22,7 +22,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest
 
 ```js
 const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/create-ar-customer-invoice-multi-line', {
-  method: 'POST',
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'

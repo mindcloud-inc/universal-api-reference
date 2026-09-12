@@ -40,6 +40,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Work Order Site Address](actions/add-work-order-site-address.md) | POST |  |
+| [Create AR Customer Invoice Multi-Line](actions/create-ar-customer-invoice-multi-line.md) | PUT |  |
 | [Create Customer Invoice](actions/create-customer-invoice.md) | POST |  |
 | [Create Vendor Invoice](actions/create-vendor-invoice.md) | POST |  |
 | [Create Work Orders](actions/create-work-orders.md) | POST |  |
@@ -50,7 +51,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 | --- | --- | --- |
 | [Add Cash Receipts](actions/add-cash-receipts.md) | POST |  |
 | [Add Cash Receipts (SOAP)](actions/add-cash-receipts-soap.md) | POST |  |
-| [Create AR Customer Invoice Multi-Line](actions/create-ar-customer-invoice-multi-line.md) | POST |  |
 | [Create Vendor Invoice Multi-Line](actions/create-vendor-invoice-multi-line.md) | POST |  |
 
 ### Purchase Orders

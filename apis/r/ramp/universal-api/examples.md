@@ -37,30 +37,32 @@ Example response:
 
 See the full [List Vendors action reference](actions/list-vendors.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/ramp/latest/actions/list-vendors).
 
-## Upload a new memo for a transaction
+## Verify Webhook Endpoint
 
 
 
 ```bash
-curl -X PUT "https://connect.mindcloud.co/v1/universal/ramp/latest/actions/upload-transaction-memo" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/ramp/latest/actions/new-action1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "memo": "string"
+  "challenge": "string",
+  "webhookId": "string"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/ramp/latest/actions/upload-transaction-memo', {
-  method: 'PUT',
+const response = await fetch('https://connect.mindcloud.co/v1/universal/ramp/latest/actions/new-action1', {
+  method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     connectionId,
-    "memo": "string"
+    "challenge": "string",
+    "webhookId": "string"
   })
 });
 
@@ -72,14 +74,9 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "id": "string",
-      "memo": "string"
-    }
-  ],
+  "data": [],
   "meta": {}
 }
 ```
 
-See the full [Upload a new memo for a transaction action reference](actions/upload-transaction-memo.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/ramp/latest/actions/upload-transaction-memo).
+See the full [Verify Webhook Endpoint action reference](actions/new-action1.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/ramp/latest/actions/new-action1).

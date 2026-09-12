@@ -19,7 +19,7 @@
 | `items[]` | body | `array<object>` | yes | A list of inventory items with updated details, including quantity available. Send multiple values as a array. |
 | `buyerProductIdentifier` | body | `string` | no | The buyer-selected product identifier for the item. Submit either this value or the vendor product identifier. |
 | `vendorProductIdentifier` | body | `string` | no | The vendor-selected product identifier for the item. Submit either this value or the buyer product identifier. |
-| `availableQuantity` | body | `object` | yes | Total item quantity available in the warehouse. |
+| `availableQuantity` | body | `object` | no | Total item quantity available in the warehouse. |
 | `amount` | body | `number` | no | Quantity of units available for a specific item. |
-| `unitOfMeasure` | body | `string` | yes | Unit of measure for the available quantity. |
+| `unitOfMeasure` | body | `string` | no | Unit of measure for the available quantity. |
 | `isObsolete` | body | `boolean` | no | When true, the item is permanently unavailable. |

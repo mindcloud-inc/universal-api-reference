@@ -36,7 +36,7 @@ Use `$limit` in the query string to set the page size (default 25; accepted rang
 | [Add Cash Receipts](actions/add-cash-receipts.md) | `POST /ws/AddCash_Receipts` |  |
 | [Add Cash Receipts (SOAP)](actions/add-cash-receipts-soap.md) | `POST /ws/AddCash_Receipts` |  |
 | [Add Work Order Site Address](actions/add-work-order-site-address.md) | `POST ws/AddWOSiteAddress` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
-| [Create AR Customer Invoice Multi-Line](actions/create-ar-customer-invoice-multi-line.md) | `POST customer/invoice` |  |
+| [Create AR Customer Invoice Multi-Line](actions/create-ar-customer-invoice-multi-line.md) | `POST customer/invoice` | [docs](https://help.trimble.com/doc/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/multi-line-customer-invoice) |
 | [Create Customer](actions/create-customer.md) | `POST ws/AddCustomer` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
 | [Create Customer Invoice](actions/create-customer-invoice.md) | `POST ws/AddARInvoice` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices) |
 | [Create Purchase Order](actions/create-purchase-order.md) | `POST purchaseOrders` | [docs](https://help.trimble.com/doc/spectrum/spectrum/api-web-services/list-of-web-services/purchase-order-services/purchase-order-batch) |

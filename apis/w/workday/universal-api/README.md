@@ -4,7 +4,7 @@ Workday scaffold based on the attached Time Tracking v5 OpenAPI spec. Current sc
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/workday/latest
 - **Category:** Human Resources / HRIS
-- **Actions:** 6
+- **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.workday.com
 - **Vendor API docs:** https://community.workday.com/sites/default/files/file-hosting/restapi/index.html
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/workday/latest/actions/ge
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (6)
+## Actions (12)
 
 ### Access Tokens
 
@@ -35,8 +35,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/workday/latest/actions/ge
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Job Profiles](actions/get-job-profiles.md) | GET |  |
+| [Get Person](actions/get-person.md) | GET | Get a single person from the Workday Person API by Workday person ID. |
 | [Get Worker](actions/get-worker.md) | GET | Get a single worker from Workday Time Tracking by Workday worker ID. |
 | [Get Workers](actions/get-workers.md) | GET | List workers from Workday Time Tracking with optional name or worker ID search, visibility filtering, and pagination. |
 | [Get Workers History](actions/get-workers-history.md) | GET |  |
+| [List People](actions/list-people.md) | GET | List people from the Workday Person API, optionally filtering by universal ID. |
+| [List Time Tracking Workers](actions/list-time-tracking-workers.md) | GET | List workers from Workday Time Tracking with optional search, organization visibility filtering, and pagination. |
 | [List Worker Organizations](actions/list-worker-organizations.md) | GET |  |
+
+### Timesheet Entries
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Timesheet Entry](actions/create-timesheet-entry.md) | POST | Create a worker time block in Workday Time Tracking for a specific worker using either quantity-based or clock-in and clock-out entry… |
+| [List Worker Time Blocks](actions/list-worker-time-blocks.md) | GET | List worker time blocks from Workday Time Tracking so you can review timesheet-style entries by worker, date range, status, project, or… |
+| [Update Timesheet Entry](actions/update-timesheet-entry.md) | PUT | Update an existing worker time block in Workday Time Tracking for a specific worker and time block ID. |
 

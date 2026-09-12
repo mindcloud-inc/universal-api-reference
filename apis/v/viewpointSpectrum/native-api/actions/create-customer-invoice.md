@@ -28,7 +28,7 @@ Send these additional headers for this operation:
 | `Invoice_Date` | body | `date` | yes |
 | `Terms_Code` | body | `string` | no |
 | `Salesperson_Code` | body | `number` | no |
-| `Sales_Tax_Code` | body | `number` | no |
+| `Sales_Tax_Code` | body | `string` | no |
 | `Taxable_Flag` | body | `string` | no |
 | `Retention_Percent` | body | `string` | no |
 | `Print_Job_Address_Flag` | body | `string` | no |

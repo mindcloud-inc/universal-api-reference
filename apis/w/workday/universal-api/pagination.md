@@ -20,3 +20,5 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/workday/latest/actions/ge
 
 - [Get Workers](actions/get-workers.md)
 - [Get Workers History](actions/get-workers-history.md)
+- [List Time Tracking Workers](actions/list-time-tracking-workers.md)
+- [List Worker Time Blocks](actions/list-worker-time-blocks.md)

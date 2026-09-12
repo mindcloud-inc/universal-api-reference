@@ -14,6 +14,7 @@ Replaces matching text in a Google Docs document.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `documentId` | path | `list<string>` | yes | ID of the document to update |
-| `requests[0].replaceAllText.containsText.text` | body | `string` | yes | Text to find |
-| `requests[0].replaceAllText.replaceText` | body | `string` | yes | Replacement text |
-| `requests[0].replaceAllText.containsText.matchCase` | body | `boolean` | no | Whether text matching should be case-sensitive |
+| `replacements[].findText` | body | `string` | yes | Text to find |
+| `replacements[].matchCase` | body | `boolean` | no | Whether text matching should be case-sensitive |
+| `replacements[].replaceWith` | body | `string` | yes | Replacement text |
+| `replacements[]` | body | `array<object>` | yes | — |

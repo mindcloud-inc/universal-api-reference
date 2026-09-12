@@ -17,8 +17,11 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/googleDocs/latest/actions
   -d '{
   "connectionId": "$CONNECTION_ID",
   "documentId": "string",
-  "findText": "string",
-  "replaceWith": "string"
+  "replacements[].findText": "string",
+  "replacements[].replaceWith": "string",
+  "replacements[]": [
+    {}
+  ]
 }'
 ```
 
@@ -32,8 +35,9 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/googleDo
   body: JSON.stringify({
     connectionId,
     "documentId": "string",
-    "findText": "string",
-    "replaceWith": "string"
+    "replacements[].findText": "string",
+    "replacements[].replaceWith": "string",
+    "replacements[]": [{}]
   })
 });
 
@@ -47,14 +51,15 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `documentId` | list<string> | yes | ID of the document to update |
-| `findText` | string | yes | Text to find |
-| `replaceWith` | string | yes | Replacement text |
+| `replacements[].findText` | string | yes | Text to find |
+| `replacements[].replaceWith` | string | yes | Replacement text |
+| `replacements[]` | array<object> | yes |  |
 
 ### Advanced
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `matchCase` | boolean | no | Whether text matching should be case-sensitive Default: `false`. |
+| `replacements[].matchCase` | boolean | no | Whether text matching should be case-sensitive Default: `false`. |
 
 ## Response
 

@@ -22,9 +22,7 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/amazonVendor/latest/actio
   "inventory.isFullUpdate": "False",
   "inventory.items[]": [
     {}
-  ],
-  "inventory.items[].availableQuantity": {},
-  "inventory.items[].availableQuantity.unitOfMeasure": "Each"
+  ]
 }'
 ```
 
@@ -41,9 +39,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/amazonVe
     "inventory.sellingParty": {},
     "inventory.sellingParty.partyId": "VENDORID",
     "inventory.isFullUpdate": "False",
-    "inventory.items[]": [{}],
-    "inventory.items[].availableQuantity": {},
-    "inventory.items[].availableQuantity.unitOfMeasure": "Each"
+    "inventory.items[]": [{}]
   })
 });
 
@@ -64,9 +60,9 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `inventory.items[]` | array<object> | yes | A list of inventory items with updated details, including quantity available. Accepts multiple values as an array. |
 | `inventory.items[].buyerProductIdentifier` | string | no | The buyer-selected product identifier for the item. Submit either this value or the vendor product identifier. Example: `ABCD4562`. |
 | `inventory.items[].vendorProductIdentifier` | string | no | The vendor-selected product identifier for the item. Submit either this value or the buyer product identifier. Example: `7Q89K11`. |
-| `inventory.items[].availableQuantity` | object | yes | Total item quantity available in the warehouse. |
+| `inventory.items[].availableQuantity` | object | no | Total item quantity available in the warehouse. |
 | `inventory.items[].availableQuantity.amount` | number | no | Quantity of units available for a specific item. Example: `10`. |
-| `inventory.items[].availableQuantity.unitOfMeasure` | string | yes | Unit of measure for the available quantity. Example: `Each`. |
+| `inventory.items[].availableQuantity.unitOfMeasure` | string | no | Unit of measure for the available quantity. Example: `Each`. |
 
 ### Advanced
 
