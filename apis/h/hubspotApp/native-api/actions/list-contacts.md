@@ -18,7 +18,7 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `properties[]` | query | `array<string>` | no | Contact properties to return in the response. |
-| `propertiesWithHistory[]` | query | `array<string>` | no | Contact properties to return with value history. |
-| `associations[]` | query | `array<string>` | no | Associated object types to include as associated IDs. |
+| `properties` | query | `list<string>` | no | Contact properties to return in the response. Select properties from the lookup when available; HubSpot requires internal property names. Common labels such as Lead Source and lifecycle-stage date-entered labels are normalized automatically. Send multiple values as a string separated by `,`. |
+| `propertiesWithHistory` | query | `list<string>` | no | Contact properties to return with value history. Select properties from the lookup when available; HubSpot requires internal property names. Common labels such as Lead Source and lifecycle-stage date-entered labels are normalized automatically. Send multiple values as a string separated by `,`. |
+| `associations` | query | `string<string>` | no | Associated object types to include as associated IDs. Send multiple values as a string separated by `,`. |
 | `archived` | query | `boolean` | no | Whether to return only archived contact records. |

@@ -39,14 +39,14 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `properties[]` | array<string> | no | Contact properties to return in the response. |
+| `properties` | list<string> | no | Contact properties to return in the response. Select properties from the lookup when available; HubSpot requires internal property names. Common labels such as Lead Source and lifecycle-stage date-entered labels are normalized automatically. Accepts multiple values in one string, delimited by `,`. |
 
 ### Advanced
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `propertiesWithHistory[]` | array<string> | no | Contact properties to return with value history. |
-| `associations[]` | array<string> | no | Associated object types to include as associated IDs. |
+| `propertiesWithHistory` | list<string> | no | Contact properties to return with value history. Select properties from the lookup when available; HubSpot requires internal property names. Common labels such as Lead Source and lifecycle-stage date-entered labels are normalized automatically. Accepts multiple values in one string, delimited by `,`. |
+| `associations` | string<string> | no | Associated object types to include as associated IDs. Accepts multiple values in one string, delimited by `,`. |
 | `archived` | boolean | no | Whether to return only archived contact records. |
 
 ## Response
