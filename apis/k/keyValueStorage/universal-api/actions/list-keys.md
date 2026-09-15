@@ -39,6 +39,10 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `namespace` | list | yes |  |
 | `limit` | number | no | Maximum keys to return. Defaults to 1000, capped at 5000. |
 | `offset` | number | no | Number of keys to skip. Combine with Limit to page through a large namespace. |
+| `createdOnFrom` | date | no |  |
+| `createdOnTo` | date | no |  |
+| `updatedOnFrom` | date | no |  |
+| `updatedOnTo` | date | no |  |
 
 ## Response
 

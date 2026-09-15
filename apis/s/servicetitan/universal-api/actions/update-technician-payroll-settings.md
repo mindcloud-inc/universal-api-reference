@@ -17,8 +17,7 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -d '{
   "connectionId": "$CONNECTION_ID",
   "technician": 1,
-  "hourlyRate": 1,
-  "customFields[].typeId": 1
+  "hourlyRate": 1
 }'
 ```
 
@@ -32,8 +31,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/servicet
   body: JSON.stringify({
     connectionId,
     "technician": 1,
-    "hourlyRate": 1,
-    "customFields[].typeId": 1
+    "hourlyRate": 1
   })
 });
 
@@ -52,7 +50,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `managerId` | number | no | Optional manager employee ID. |
 | `hireDate` | date | no | Optional hire date and time. |
 | `isIncludedInPayroll` | boolean | no | Whether the technician is included in payroll processing. |
-| `customFields[].typeId` | number | yes | Custom payroll field definition ID. |
+| `customFields[].typeId` | number | no | Custom payroll field definition ID. |
 | `customFields[].value` | string | no | Optional custom payroll field value. |
 
 ### Advanced

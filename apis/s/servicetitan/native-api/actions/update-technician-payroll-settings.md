@@ -18,5 +18,5 @@
 | `hireDate` | body | `date` | no | Optional hire date and time. |
 | `isIncludedInPayroll` | body | `boolean` | no | Whether the technician is included in payroll processing. |
 | `customFields[]` | body | `array<object>` | no | Optional custom payroll-field values to update for the technician. |
-| `customFields[].typeId` | body | `number` | yes | Custom payroll field definition ID. |
+| `customFields[].typeId` | body | `number` | no | Custom payroll field definition ID. |
 | `customFields[].value` | body | `string` | no | Optional custom payroll field value. |
