@@ -1,6 +1,6 @@
 # Other apps
 
-580 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+581 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -39,6 +39,7 @@
 - **Availity** · [Universal API reference](../../apis/a/availity/universal-api) · [Native API reference](../../apis/a/availity/native-api) · [Native API docs](https://developer.availity.com/blog/2025/3/25/hipaa-transactions)
 - **Bacon Ipsum** · [Universal API reference](../../apis/b/baconIpsum/universal-api) · [Native API reference](../../apis/b/baconIpsum/native-api) · [Native API docs](https://baconipsum.com/json-api/)
 - **Bannertize** · [Universal API reference](../../apis/b/bannertize/universal-api) · [Native API reference](../../apis/b/bannertize/native-api) · [Native API docs](https://docs.bannertize.com/)
+- **BarTender** · [Universal API reference](../../apis/b/barTender/universal-api) · [Native API reference](../../apis/b/barTender/native-api) · [Native API docs](https://help.seagullscientific.com/BarTenderCloud/Help/en/Content/API/API_Doc_BTC_API_Documentation_LP.htm)
 - **BBC Sport - Rugby** · [Universal API reference](../../apis/b/bBCSportRugby/universal-api) · [Native API reference](../../apis/b/bBCSportRugby/native-api) · [Native API docs](https://support.bbc.co.uk/platform/feeds/SportFeeds.htm)
 - **Beatoven AI** · [Universal API reference](../../apis/b/beatovenAI/universal-api) · [Native API reference](../../apis/b/beatovenAI/native-api) · [Native API docs](https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md)
 - **Beds24** · [Universal API reference](../../apis/b/beds24/universal-api) · [Native API reference](../../apis/b/beds24/native-api) · [Native API docs](https://wiki.beds24.com/index.php/API_V2.0)

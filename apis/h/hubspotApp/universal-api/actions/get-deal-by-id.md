@@ -37,7 +37,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `dealId` | string | yes | The unique ID of the deal to retrieve. |
-| `properties[]` | array<string> | no | Deal properties to return in the response. Accepts multiple values as an array. |
+| `properties` | string<string> | no | Deal properties to return in the response. Accepts multiple values as an array. |
 | `propertiesWithHistory[]` | array<string> | no | Deal properties to return with value history. |
 | `associations` | string<string> | no | Associated object types to include as associated IDs. Accepts multiple values as an array. |
 | `archived` | boolean | no | Whether to return archived deal records. |

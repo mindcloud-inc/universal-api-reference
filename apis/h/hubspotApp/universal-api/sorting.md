@@ -7,3 +7,5 @@ Sortable list actions accept a `sort` query parameter containing a comma-separat
 ## HubSpot actions that support sorting
 
 - [Search Contacts](actions/search-contacts.md)
+- [Search Projects](actions/search-projects.md)
+- [Search Tasks](actions/search-tasks.md)

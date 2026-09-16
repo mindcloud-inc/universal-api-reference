@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "HubSpot Universal API",
-    "version": "0.1.3",
+    "version": "0.1.12",
     "description": "Manage contacts, track deals, run campaigns, and support customers."
   },
   "servers": [
@@ -8717,7 +8717,7 @@
             }
           },
           {
-            "name": "properties[]",
+            "name": "properties",
             "in": "query",
             "required": false,
             "description": "Deal properties to return in the response.",
@@ -18371,131 +18371,59 @@
             }
           },
           {
-            "name": "filterGroups[].filters[]",
+            "name": "emailContains",
             "in": "query",
             "required": false,
-            "description": "Add a Property, Operator, and Value to filter your search results. Add additional filters in the same group for AND logic.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": true
-              },
-              "description": "Add a Property, Operator, and Value to filter your search results. Add additional filters in the same group for AND logic."
-            },
-            "style": "form",
-            "explode": false
-          },
-          {
-            "name": "filterGroups[].filters[].propertyName",
-            "in": "query",
-            "required": false,
-            "description": "The contact property to filter on.",
+            "description": "Filter contacts whose email contains this value. For a domain, enter @mindcloud.co; the action sends HubSpot an email CONTAINS_TOKEN filter with the correct wildcard format.",
             "schema": {
               "type": "string",
-              "description": "The contact property to filter on."
+              "description": "Filter contacts whose email contains this value. For a domain, enter @mindcloud.co; the action sends HubSpot an email CONTAINS_TOKEN filter with the correct wildcard format.",
+              "example": "@mindcloud.co"
             }
           },
           {
-            "name": "filterGroups[].filters[].operator",
+            "name": "filterPropertyName",
             "in": "query",
             "required": false,
-            "description": "The comparison operator used by the filter.",
+            "description": "Choose any contact property to filter search results by.",
             "schema": {
               "type": "string",
-              "description": "The comparison operator used by the filter.",
+              "description": "Choose any contact property to filter search results by."
+            }
+          },
+          {
+            "name": "filterOperator",
+            "in": "query",
+            "required": false,
+            "description": "Choose how to compare the selected contact property to the filter value.",
+            "schema": {
+              "type": "string",
+              "description": "Choose how to compare the selected contact property to the filter value.",
               "enum": [
-                "BETWEEN",
                 "CONTAINS_TOKEN",
                 "EQ",
                 "GT",
                 "GTE",
                 "HAS_PROPERTY",
-                "IN",
                 "LT",
                 "LTE",
                 "NEQ",
                 "NOT_CONTAINS_TOKEN",
-                "NOT_HAS_PROPERTY",
-                "NOT_IN"
-              ]
+                "NOT_HAS_PROPERTY"
+              ],
+              "default": "EQ"
             }
           },
           {
-            "name": "filterGroups[].filters[].value",
+            "name": "filterValue",
             "in": "query",
             "required": false,
-            "description": "The primary comparison value used by the filter.",
+            "description": "Enter the value to search for in the selected contact property.",
             "schema": {
               "type": "string",
-              "description": "The primary comparison value used by the filter."
+              "description": "Enter the value to search for in the selected contact property.",
+              "example": "Alice"
             }
-          },
-          {
-            "name": "filterGroups[].filters[].values[]",
-            "in": "query",
-            "required": false,
-            "description": "Multiple comparison values for list-style operators.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "description": "Multiple comparison values for list-style operators.",
-              "x-mindcloud-advanced": true
-            },
-            "style": "form",
-            "explode": false
-          },
-          {
-            "name": "filterGroups[].filters[].highValue",
-            "in": "query",
-            "required": false,
-            "description": "The upper bound used by range filters.",
-            "schema": {
-              "type": "string",
-              "description": "The upper bound used by range filters.",
-              "x-mindcloud-advanced": true
-            }
-          },
-          {
-            "name": "after",
-            "in": "query",
-            "required": false,
-            "description": "The paging cursor for the next set of search results.",
-            "schema": {
-              "type": "string",
-              "description": "The paging cursor for the next set of search results.",
-              "x-mindcloud-advanced": true
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "description": "The maximum number of contacts to return.",
-            "schema": {
-              "type": "number",
-              "description": "The maximum number of contacts to return.",
-              "x-mindcloud-advanced": true
-            }
-          },
-          {
-            "name": "sorts[]",
-            "in": "query",
-            "required": false,
-            "description": "Fields used to sort the returned contacts.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": true
-              },
-              "description": "Fields used to sort the returned contacts.",
-              "x-mindcloud-advanced": true
-            },
-            "style": "form",
-            "explode": false
           },
           {
             "name": "properties",
@@ -18511,6 +18439,108 @@
             },
             "style": "form",
             "explode": false
+          },
+          {
+            "name": "filterGroups[].filters[]",
+            "in": "query",
+            "required": false,
+            "description": "Raw HubSpot filter group filters for advanced searches. Use these when you need multiple filters, AND/OR groups, IN/NOT_IN, or BETWEEN filtering.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "description": "Raw HubSpot filter group filters for advanced searches. Use these when you need multiple filters, AND/OR groups, IN/NOT_IN, or BETWEEN filtering.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "filterGroups[].filters[].propertyName",
+            "in": "query",
+            "required": false,
+            "description": "The HubSpot contact property name for an advanced raw filter.",
+            "schema": {
+              "type": "string",
+              "description": "The HubSpot contact property name for an advanced raw filter.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "filterGroups[].filters[].operator",
+            "in": "query",
+            "required": false,
+            "description": "The HubSpot search operator for an advanced raw filter.",
+            "schema": {
+              "type": "string",
+              "description": "The HubSpot search operator for an advanced raw filter.",
+              "enum": [
+                "BETWEEN",
+                "CONTAINS_TOKEN",
+                "EQ",
+                "GT",
+                "GTE",
+                "HAS_PROPERTY",
+                "IN",
+                "LT",
+                "LTE",
+                "NEQ",
+                "NOT_CONTAINS_TOKEN",
+                "NOT_HAS_PROPERTY",
+                "NOT_IN"
+              ],
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "filterGroups[].filters[].value",
+            "in": "query",
+            "required": false,
+            "description": "The primary comparison value for an advanced raw filter. Required for operators such as EQ, CONTAINS_TOKEN, and the lower bound of BETWEEN.",
+            "schema": {
+              "type": "string",
+              "description": "The primary comparison value for an advanced raw filter. Required for operators such as EQ, CONTAINS_TOKEN, and the lower bound of BETWEEN.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "filterGroups[].filters[].values[]",
+            "in": "query",
+            "required": false,
+            "description": "Multiple values for IN or NOT_IN advanced filters.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Multiple values for IN or NOT_IN advanced filters.",
+              "x-mindcloud-advanced": true
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "filterGroups[].filters[].highValue",
+            "in": "query",
+            "required": false,
+            "description": "The upper bound for BETWEEN advanced filters.",
+            "schema": {
+              "type": "string",
+              "description": "The upper bound for BETWEEN advanced filters.",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
           },
           {
             "name": "offset",
@@ -21239,6 +21269,15 @@
             "explode": false
           },
           {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Fields to sort by, with an optional direction for each field.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "fields",
             "in": "query",
             "required": false,
@@ -21935,6 +21974,15 @@
             },
             "style": "form",
             "explode": false
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Fields to sort by, with an optional direction for each field.",
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "fields",

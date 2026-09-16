@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 110
+- **Actions:** 111
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (110)
+## Actions (111)
 
 ### Access Tokens
 
@@ -57,6 +57,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Get Appointment Assignments](actions/get-appointment-assignments.md) | GET |  |
 | [Get Appointment by Id](actions/get-appointment-by-id.md) | GET | Retrieves an appointment from ServiceTitan by ID. |
 | [Get Appointments](actions/get-appointments.md) | GET |  |
+
+### Bills
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List AP Bills](actions/list-ap-bills.md) | GET | Lists AP bills with line items and accounting details. Filter by bill type, sync status, and creation or modification dates. |
 
 ### Booking
 

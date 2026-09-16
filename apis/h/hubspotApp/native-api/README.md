@@ -71,6 +71,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 
 ## Sorting
 
+- **REST - Query Pagination:** Set the sort field with `sort` in the request body. Only one sort field is accepted.
 - **REST - Body Pagination:** Set the sort field with `sort` in the request body. Use `ASCENDING` for ascending order and `DESCENDING` for descending order. Multiple sort fields can be combined.
 
 ## Endpoints (93 documented)

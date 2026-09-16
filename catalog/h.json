@@ -168125,7 +168125,7 @@
     "websiteUrl": "https://www.hubspot.com/",
     "nativeBaseUrl": "https://app.hubspot.com",
     "nativeDocumentationUrl": "https://developers.hubspot.com/docs/api-reference/latest/overview",
-    "version": "0.1.3",
+    "version": "0.1.12",
     "authentication": [
       {
         "type": "oAuth2",
@@ -168179,6 +168179,10 @@
             "parameter": "after",
             "location": "query"
           }
+        },
+        "sorting": {
+          "location": "body",
+          "parameter": "sort"
         },
         "responses": [
           {
@@ -173661,9 +173665,9 @@
               "description": "The unique ID of the deal to retrieve."
             },
             {
-              "key": "properties[]",
+              "key": "properties",
               "name": "Properties",
-              "dataType": "array",
+              "dataType": "string",
               "itemDataType": "string",
               "location": "query",
               "required": false,
@@ -173725,9 +173729,9 @@
             "description": "The unique ID of the deal to retrieve."
           },
           {
-            "key": "properties[]",
+            "key": "properties",
             "name": "Properties",
-            "dataType": "array",
+            "dataType": "string",
             "itemDataType": "string",
             "required": false,
             "description": "Deal properties to return in the response.",
@@ -178391,30 +178395,87 @@
               "description": "The text to search across default searchable contact properties."
             },
             {
-              "key": "filterGroups[].filters[]",
-              "name": "Filters",
-              "dataType": "array",
-              "itemDataType": "object",
+              "key": "emailContains",
+              "name": "Email Contains",
+              "dataType": "string",
               "location": "body",
               "required": false,
-              "description": "Add a Property, Operator, and Value to filter your search results. Add additional filters in the same group for AND logic."
+              "description": "Filter contacts whose email contains this value. For a domain, enter @mindcloud.co; the action sends HubSpot an email CONTAINS_TOKEN filter with the correct wildcard format."
             },
             {
-              "key": "filterGroups[].filters[].propertyName",
-              "name": "Property",
+              "key": "filterPropertyName",
+              "name": "Filter Property",
               "dataType": "list",
               "itemDataType": "string",
               "location": "body",
               "required": false,
-              "description": "The contact property to filter on."
+              "description": "Choose any contact property to filter search results by."
             },
             {
-              "key": "filterGroups[].filters[].operator",
-              "name": "Operator",
+              "key": "filterOperator",
+              "name": "Filter Operator",
               "dataType": "list",
               "location": "body",
               "required": false,
-              "description": "The comparison operator used by the filter.",
+              "description": "Choose how to compare the selected contact property to the filter value.",
+              "enumValues": [
+                "CONTAINS_TOKEN",
+                "EQ",
+                "GT",
+                "GTE",
+                "HAS_PROPERTY",
+                "LT",
+                "LTE",
+                "NEQ",
+                "NOT_CONTAINS_TOKEN",
+                "NOT_HAS_PROPERTY"
+              ]
+            },
+            {
+              "key": "filterValue",
+              "name": "Filter Value",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Enter the value to search for in the selected contact property."
+            },
+            {
+              "key": "properties",
+              "name": "Returned Properties",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Select the contact properties to include in the response.",
+              "multipleValues": {
+                "format": "array"
+              }
+            },
+            {
+              "key": "filterGroups[].filters[]",
+              "name": "Advanced Filter Groups",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "Raw HubSpot filter group filters for advanced searches. Use these when you need multiple filters, AND/OR groups, IN/NOT_IN, or BETWEEN filtering."
+            },
+            {
+              "key": "filterGroups[].filters[].propertyName",
+              "name": "Advanced Filter Property",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "The HubSpot contact property name for an advanced raw filter."
+            },
+            {
+              "key": "filterGroups[].filters[].operator",
+              "name": "Advanced Filter Operator",
+              "dataType": "list",
+              "location": "body",
+              "required": false,
+              "description": "The HubSpot search operator for an advanced raw filter.",
               "enumValues": [
                 "BETWEEN",
                 "CONTAINS_TOKEN",
@@ -178433,65 +178494,28 @@
             },
             {
               "key": "filterGroups[].filters[].value",
-              "name": "Value",
+              "name": "Advanced Filter Value",
               "dataType": "string",
               "location": "body",
               "required": false,
-              "description": "The primary comparison value used by the filter."
+              "description": "The primary comparison value for an advanced raw filter. Required for operators such as EQ, CONTAINS_TOKEN, and the lower bound of BETWEEN."
             },
             {
               "key": "filterGroups[].filters[].values[]",
-              "name": "Values",
+              "name": "Advanced Filter Values",
               "dataType": "array",
               "itemDataType": "string",
               "location": "body",
               "required": false,
-              "description": "Multiple comparison values for list-style operators."
+              "description": "Multiple values for IN or NOT_IN advanced filters."
             },
             {
               "key": "filterGroups[].filters[].highValue",
-              "name": "High Value",
+              "name": "Advanced Filter High Value",
               "dataType": "string",
               "location": "body",
               "required": false,
-              "description": "The upper bound used by range filters."
-            },
-            {
-              "key": "after",
-              "name": "After",
-              "dataType": "string",
-              "location": "body",
-              "required": false,
-              "description": "The paging cursor for the next set of search results."
-            },
-            {
-              "key": "limit",
-              "name": "Limit",
-              "dataType": "number",
-              "location": "body",
-              "required": false,
-              "description": "The maximum number of contacts to return."
-            },
-            {
-              "key": "sorts[]",
-              "name": "Sorts",
-              "dataType": "array",
-              "itemDataType": "object",
-              "location": "body",
-              "required": false,
-              "description": "Fields used to sort the returned contacts."
-            },
-            {
-              "key": "properties",
-              "name": "Returned Properties",
-              "dataType": "list",
-              "itemDataType": "string",
-              "location": "body",
-              "required": false,
-              "description": "Select the contact properties to include in the response.",
-              "multipleValues": {
-                "format": "array"
-              }
+              "description": "The upper bound for BETWEEN advanced filters."
             }
           ]
         },
@@ -178509,27 +178533,85 @@
             "description": "The text to search across default searchable contact properties."
           },
           {
-            "key": "filterGroups[].filters[]",
-            "name": "Filters",
-            "dataType": "array",
-            "itemDataType": "object",
+            "key": "emailContains",
+            "name": "Email Contains",
+            "dataType": "string",
             "required": false,
-            "description": "Add a Property, Operator, and Value to filter your search results. Add additional filters in the same group for AND logic."
+            "description": "Filter contacts whose email contains this value. For a domain, enter @mindcloud.co; the action sends HubSpot an email CONTAINS_TOKEN filter with the correct wildcard format.",
+            "example": "@mindcloud.co"
           },
           {
-            "key": "filterGroups[].filters[].propertyName",
-            "name": "Property",
+            "key": "filterPropertyName",
+            "name": "Filter Property",
             "dataType": "list",
             "itemDataType": "string",
             "required": false,
-            "description": "The contact property to filter on."
+            "description": "Choose any contact property to filter search results by."
+          },
+          {
+            "key": "filterOperator",
+            "name": "Filter Operator",
+            "dataType": "list",
+            "required": false,
+            "description": "Choose how to compare the selected contact property to the filter value.",
+            "defaultValue": "EQ",
+            "enumValues": [
+              "CONTAINS_TOKEN",
+              "EQ",
+              "GT",
+              "GTE",
+              "HAS_PROPERTY",
+              "LT",
+              "LTE",
+              "NEQ",
+              "NOT_CONTAINS_TOKEN",
+              "NOT_HAS_PROPERTY"
+            ]
+          },
+          {
+            "key": "filterValue",
+            "name": "Filter Value",
+            "dataType": "string",
+            "required": false,
+            "description": "Enter the value to search for in the selected contact property.",
+            "example": "Alice"
+          },
+          {
+            "key": "properties",
+            "name": "Returned Properties",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Select the contact properties to include in the response.",
+            "multipleValues": {
+              "format": "array"
+            }
+          },
+          {
+            "key": "filterGroups[].filters[]",
+            "name": "Advanced Filter Groups",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false,
+            "advanced": true,
+            "description": "Raw HubSpot filter group filters for advanced searches. Use these when you need multiple filters, AND/OR groups, IN/NOT_IN, or BETWEEN filtering."
+          },
+          {
+            "key": "filterGroups[].filters[].propertyName",
+            "name": "Advanced Filter Property",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "The HubSpot contact property name for an advanced raw filter."
           },
           {
             "key": "filterGroups[].filters[].operator",
-            "name": "Operator",
+            "name": "Advanced Filter Operator",
             "dataType": "list",
             "required": false,
-            "description": "The comparison operator used by the filter.",
+            "advanced": true,
+            "description": "The HubSpot search operator for an advanced raw filter.",
             "enumValues": [
               "BETWEEN",
               "CONTAINS_TOKEN",
@@ -178548,63 +178630,28 @@
           },
           {
             "key": "filterGroups[].filters[].value",
-            "name": "Value",
+            "name": "Advanced Filter Value",
             "dataType": "string",
             "required": false,
-            "description": "The primary comparison value used by the filter."
+            "advanced": true,
+            "description": "The primary comparison value for an advanced raw filter. Required for operators such as EQ, CONTAINS_TOKEN, and the lower bound of BETWEEN."
           },
           {
             "key": "filterGroups[].filters[].values[]",
-            "name": "Values",
+            "name": "Advanced Filter Values",
             "dataType": "array",
             "itemDataType": "string",
             "required": false,
             "advanced": true,
-            "description": "Multiple comparison values for list-style operators."
+            "description": "Multiple values for IN or NOT_IN advanced filters."
           },
           {
             "key": "filterGroups[].filters[].highValue",
-            "name": "High Value",
+            "name": "Advanced Filter High Value",
             "dataType": "string",
             "required": false,
             "advanced": true,
-            "description": "The upper bound used by range filters."
-          },
-          {
-            "key": "after",
-            "name": "After",
-            "dataType": "string",
-            "required": false,
-            "advanced": true,
-            "description": "The paging cursor for the next set of search results."
-          },
-          {
-            "key": "limit",
-            "name": "Limit",
-            "dataType": "number",
-            "required": false,
-            "advanced": true,
-            "description": "The maximum number of contacts to return."
-          },
-          {
-            "key": "sorts[]",
-            "name": "Sorts",
-            "dataType": "array",
-            "itemDataType": "object",
-            "required": false,
-            "advanced": true,
-            "description": "Fields used to sort the returned contacts."
-          },
-          {
-            "key": "properties",
-            "name": "Returned Properties",
-            "dataType": "list",
-            "itemDataType": "string",
-            "required": false,
-            "description": "Select the contact properties to include in the response.",
-            "multipleValues": {
-              "format": "array"
-            }
+            "description": "The upper bound for BETWEEN advanced filters."
           }
         ],
         "responseSchema": [
@@ -180427,7 +180474,7 @@
         "supports": {
           "pagination": false,
           "filtering": false,
-          "sorting": false
+          "sorting": true
         },
         "arguments": [
           {
@@ -180904,7 +180951,7 @@
         "supports": {
           "pagination": false,
           "filtering": false,
-          "sorting": false
+          "sorting": true
         },
         "arguments": [
           {

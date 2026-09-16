@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3212 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3213 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -195,6 +195,7 @@ Machine-readable API descriptions for 3212 apps. Universal API specifications ar
 | [Bannerbite](../apis/b/bannerbite) | [OpenAPI 3.1](../apis/b/bannerbite/universal-api/openapi.json) |  |
 | [Bannertize](../apis/b/bannertize) | [OpenAPI 3.1](../apis/b/bannertize/universal-api/openapi.json) |  |
 | [Baremetrics](../apis/b/baremetrics) | [OpenAPI 3.1](../apis/b/baremetrics/universal-api/openapi.json) |  |
+| [BarTender](../apis/b/barTender) | [OpenAPI 3.1](../apis/b/barTender/universal-api/openapi.json) | [Provider OpenAPI](https://am1.bartendercloud.com/api-gateway/swagger/ActionsServiceDocument/swagger.yaml) |
 | [Basalt](../apis/b/basalt) | [OpenAPI 3.1](../apis/b/basalt/universal-api/openapi.json) |  |
 | [Base64.ai](../apis/b/base64ai) | [OpenAPI 3.1](../apis/b/base64ai/universal-api/openapi.json) |  |
 | [Basecamp](../apis/b/basecamp) | [OpenAPI 3.1](../apis/b/basecamp/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/basecamp/basecamp-sdk/main/openapi.json) |

@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3212 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3213 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -200,6 +200,7 @@ The official vendor API documentation for each of the 3212 apps in this repo. Ea
 - [Bannerbite](../apis/b/bannerbite/native-api) - https://developer.bannerbite.com/
 - [Bannertize](../apis/b/bannertize/native-api) - https://docs.bannertize.com/
 - [Baremetrics](../apis/b/baremetrics/native-api) - https://developers.baremetrics.com/reference
+- [BarTender](../apis/b/barTender/native-api) - https://help.seagullscientific.com/BarTenderCloud/Help/en/Content/API/API_Doc_BTC_API_Documentation_LP.htm
 - [Basalt](../apis/b/basalt/native-api) - https://docs.getbasalt.ai/v1/api-reference/introduction
 - [Base64.ai](../apis/b/base64ai/native-api) - https://apidoc.base64.ai/
 - [Basecamp](../apis/b/basecamp/native-api) - https://github.com/basecamp/bc3-api

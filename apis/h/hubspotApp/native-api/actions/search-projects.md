@@ -8,6 +8,10 @@
 - **API:** REST - Query Pagination
 - **Official documentation:** [Search Projects](https://developers.hubspot.com/docs/api-reference/latest/crm/objects/projects/search/search-projects)
 
+## Capabilities
+
+This operation supports [sorting](../README.md#sorting).
+
 ## Parameters
 
 | Parameter | Location | Type | Required |

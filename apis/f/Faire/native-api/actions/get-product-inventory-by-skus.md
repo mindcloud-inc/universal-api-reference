@@ -11,4 +11,4 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `skus` | query | `string` | no | Comma-separated product variant SKUs. Send multiple values as a string separated by `,`. |
+| `skus` | query | `string` | no | Comma-separated product variant SKUs. Send multiple values as a string separated by `&skus=`. |

@@ -18,3 +18,4 @@ This operation supports [pagination](../README.md#pagination).
 | `number` | query | `string` | no |
 | `status` | query | `string` | no |
 | `ids` | query | `string` | no |
+| `jobIds` | query | `string` | no |

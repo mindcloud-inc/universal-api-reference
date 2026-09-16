@@ -15,7 +15,7 @@ Retrieves a deal from HubSpot by ID.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `dealId` | path | `string` | yes | The unique ID of the deal to retrieve. |
-| `properties[]` | query | `array<string>` | no | Deal properties to return in the response. Send multiple values as a array. |
+| `properties` | query | `string<string>` | no | Deal properties to return in the response. Send multiple values as a array. |
 | `propertiesWithHistory[]` | query | `array<string>` | no | Deal properties to return with value history. |
 | `associations` | query | `string<string>` | no | Associated object types to include as associated IDs. Send multiple values as a array. |
 | `archived` | query | `boolean` | no | Whether to return archived deal records. |

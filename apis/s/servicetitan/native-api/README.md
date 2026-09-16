@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 110 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 111 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -43,7 +43,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (110 documented)
+## Endpoints (111 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -126,6 +126,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [List Activity Categories](actions/list-activity-categories.md) | `GET timesheets/v2/tenant/{{credentials.tenant}}/activity-categories` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-timesheets-v2&operation=ActivityTypes_GetList) |
 | [List Activity Codes](actions/list-activity-codes.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/activity-codes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-payroll-v2&operation=Payrolls_GetList) |
 | [List Activity Types](actions/list-activity-types.md) | `GET timesheets/v2/tenant/{{credentials.tenant}}/activity-types` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-timesheets-v2&operation=ActivityTypes_GetList) |
+| [List AP Bills](actions/list-ap-bills.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/ap-bills` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApBills_GetListPaginated) |
 | [List Customer Contact](actions/list-customer-contact.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers/:customerId/contacts` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_GetContactList) |
 | [List Customers Contacts](actions/list-customers-contacts.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers/contacts` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_GetContactList) |
 | [List Customers With External Data](actions/list-customers-with-external-data.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers` | [docs](https://developer.servicetitan.io/docs/apis/tenant-crm-v2/endpoints/Customers_GetList) |

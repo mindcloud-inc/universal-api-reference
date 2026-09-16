@@ -35,11 +35,53 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `skus` | string | no | Comma-separated product variant SKUs. Accepts multiple values in one string, delimited by `,`. Example: `SKU-1,SKU-2`. |
+| `skus` | string | no | Comma-separated product variant SKUs. Accepts multiple values in one string, delimited by `&skus=`. Example: `SKU`. |
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Faire API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "response": [
+        {
+          "response": {
+            "inventories": {
+              "PMC63": {
+                "available_quantity": {
+                  "quantity": 1,
+                  "type": "string"
+                },
+                "committed_quantity": {
+                  "quantity": 1,
+                  "type": "string"
+                },
+                "on_hand_quantity": {
+                  "quantity": 1,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `response[].response.inventories.PMC63.available_quantity.quantity` | number |  |
+| `response[].response.inventories.PMC63.available_quantity.type` | string |  |
+| `response[].response.inventories.PMC63.committed_quantity.quantity` | number |  |
+| `response[].response.inventories.PMC63.committed_quantity.type` | string |  |
+| `response[].response.inventories.PMC63.on_hand_quantity.quantity` | number |  |
+| `response[].response.inventories.PMC63.on_hand_quantity.type` | string |  |
 
 ## Native endpoint
 

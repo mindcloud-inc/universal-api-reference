@@ -20,6 +20,6 @@ This operation supports [pagination](../README.md#pagination).
 | --- | --- | --- | --- | --- |
 | `reportTypes` | query | `list` | no | Accepted values: `GET_V2_SETTLEMENT_REPORT_DATA_FLAT_FILE_V2`. |
 | `processingStatuses` | query | `list` | no | Send multiple values as a array. |
-| `createdSince` | query | `date` | no | — |
-| `createdUntil` | query | `date` | no | — |
+| `createdSince` | query | `string` | no | — |
+| `createdUntil` | query | `string` | no | — |
 | `marketplaces` | query | `list` | no | Send multiple values as a array. |

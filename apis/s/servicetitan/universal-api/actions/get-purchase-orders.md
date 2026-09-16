@@ -43,6 +43,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `number` | string | no |  |
 | `status` | string | no |  |
 | `ids` | string | no |  |
+| `jobIds` | string | no |  |
 
 ## Response
 
