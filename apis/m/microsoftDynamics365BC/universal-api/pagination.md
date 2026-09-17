@@ -19,6 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 ## Microsoft Dynamics 365 BC actions that support pagination
 
 - [Create Credit Memo Itens ODataV4](actions/create-credit-memo-itens-o-data-v4.md)
+- [Get Aged Transactions](actions/get-aged-transactions.md)
 - [Get Inventory By Location SSI](actions/get-inventory-by-location-ssi.md)
 - [List Bank Deposits Line ODataV4](actions/list-bank-deposits-line-o-data-v4.md)
 - [List Bank Deposits ODataV4](actions/list-bank-deposits-o-data-v4.md)

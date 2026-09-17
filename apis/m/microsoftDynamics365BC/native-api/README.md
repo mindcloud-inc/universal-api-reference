@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 52 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 53 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (52 documented)
+## Endpoints (53 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -82,6 +82,7 @@ Response data is read from `value`.
 | [Create Sales Order Line](actions/create-sales-orders-lines.md) | REST | `POST v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_create) |
 | [Create Ship-to Addresses SSI](actions/create-ship-to-addresses-ssi.md) | REST (Copy) | `POST v2.0/companies(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [Delete Sales Invoice Line Item](actions/delete-sales-invoice-line-item.md) | REST | `DELETE v2.0/companies(:companyId)/salesInvoices(:salesInvoiceId)/salesInvoiceLines(:lineItemId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
+| [Get Aged Transactions](actions/get-aged-transactions.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/ssi/aapi/v2.0/companies(:companyID)/atsagedAccountsReceivables` |  |
 | [Get Inventory By Location SSI](actions/get-inventory-by-location-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/inventoryQtyByLocationsSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [Get Ship-to Addresses SSI](actions/get-ship-to-addresses-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [List Bank Deposits Line ODataV4](actions/list-bank-deposits-line-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudBankDepositLines` |  |

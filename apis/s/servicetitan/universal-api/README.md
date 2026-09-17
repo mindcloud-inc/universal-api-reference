@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 111
+- **Actions:** 112
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (111)
+## Actions (112)
 
 ### Access Tokens
 
@@ -71,6 +71,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Create Booking](actions/create-booking.md) | POST |  |
 | [Get Booking Providers](actions/get-booking-providers.md) | GET |  |
 | [Get Bookings](actions/get-bookings.md) | GET |  |
+
+### Credit Notes
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Vendor AP Credits](actions/get-vendor-ap-credits.md) | GET | Retrieves vendor bills from ServiceTitan. |
 
 ### Customer
 
