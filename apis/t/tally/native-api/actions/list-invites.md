@@ -5,7 +5,7 @@
 - **Method:** `GET`
 - **Path:** `organizations/:organizationId/invites`
 - **Base URL:** `https://api.tally.so`
-- **Official documentation:** [List Invites](https://developers.tally.so/api-reference/endpoint/organizations/invites/delete)
+- **Official documentation:** [List Invites](https://developers.tally.so/api-reference/endpoint/organizations/invites/get)
 
 ## Parameters
 

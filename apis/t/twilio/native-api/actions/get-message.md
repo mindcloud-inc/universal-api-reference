@@ -11,6 +11,6 @@ Retrieves a message from Twilio.
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `MessageSid` | path | `string` | yes |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `MessageSid` | path | `string` | yes | Twilio Message SID to retrieve. |

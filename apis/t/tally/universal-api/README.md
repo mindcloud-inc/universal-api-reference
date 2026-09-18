@@ -65,5 +65,5 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/tally/latest/actions/get-
 | [Delete Workspace](actions/delete-workspace.md) | DELETE |  |
 | [Get Workspace](actions/get-workspace.md) | GET |  |
 | [List Workspaces](actions/list-workspaces.md) | GET |  |
-| [Update Workspace](actions/update-workspace.md) | GET |  |
+| [Update Workspace](actions/update-workspace.md) | PUT |  |
 

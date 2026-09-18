@@ -15,8 +15,10 @@ This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `To` | query | `string` | no |
-| `From` | query | `string` | no |
-| `DateSent` | query | `date` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `To` | query | `string` | no | Filter by recipient phone number in E.164 format. |
+| `From` | query | `string` | no | Filter by sender phone number or sender address. |
+| `DateSent` | query | `string` | no | Filter messages sent on this GMT date (YYYY-MM-DD). |
+| `DateSent<` | query | `string` | no | Return messages sent on or before this GMT date (YYYY-MM-DD). |
+| `DateSent>` | query | `string` | no | Return messages sent on or after this GMT date (YYYY-MM-DD). |

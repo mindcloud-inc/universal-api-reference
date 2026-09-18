@@ -57,6 +57,13 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `data[].Shipping_Street` | string | no |  |
 | `data[].Shipping_City` | string | no |  |
 | `data[].Shipping_State` | string | no |  |
+| `data[].Billing_Street` | string | no |  |
+| `data[].Street_2` | string | no |  |
+| `data[].Billing_City` | string | no |  |
+| `data[].Billing_State` | string | no |  |
+| `data[].Post_Code` | string | no |  |
+| `data[].Billing_Country` | string | no |  |
+| `data[].Acct_Typ` | list | no | One of: `Advertisor`, `Association`, `Attendee`, `Confirmed Exhibitor`, `Exhibitor`, `Lead`, `Subscriber`. Accepts multiple values as an array. |
 
 ## Response
 

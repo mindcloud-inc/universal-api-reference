@@ -39,8 +39,37 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `modifiedOnOrAfter` | string | no |  |
-| `syncStatuses` | string | no |  |
+| `modifiedOnOrAfter` | string | no | Returns modified on or after this UTC timestamp. |
+| `syncStatuses` | string | no | Sync status collection filter: Pending, Posted, or Exported. Accepts multiple values in one string, delimited by `,`. |
+| `active` | list<string> | no | Active-state filter: True, Any, or False. One of: `Any`, `False`, `True`. |
+| `ids` | string | no | Return IDs to retrieve, up to 50. Accepts multiple values in one string, delimited by `,`. |
+| `number` | string | no | Return number filter. |
+| `referenceNumber` | string | no | Reference number filter. |
+| `jobId` | number | no | Job ID filter. |
+| `purchaseOrderId` | number | no | Purchase order ID filter. |
+| `batchId` | number | no | Batch ID filter. |
+| `vendorIds` | string | no | Vendor ID collection filter. Accepts multiple values in one string, delimited by `,`. |
+| `businessUnitIds` | string | no | Business unit ID collection filter. Accepts multiple values in one string, delimited by `,`. |
+| `inventoryLocationIds` | string | no | Inventory location ID collection filter. Accepts multiple values in one string, delimited by `,`. |
+| `returnDateOnOrAfter` | string | no | Returns with a return date on or after this timestamp. |
+| `returnDateBefore` | string | no | Returns with a return date before this timestamp. |
+| `createdOnOrAfter` | string | no | Returns created on or after this UTC timestamp. |
+| `createdBefore` | string | no | Returns created before this UTC timestamp. |
+| `modifiedBefore` | string | no | Returns modified before this UTC timestamp. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `customFields.Fields` | object | no | Custom-field name and value pairs to filter by. |
+| `customFields.Operator` | list<string> | no | How custom-field filters are combined: And or Or. One of: `And`, `Or`. |
+| `page` | number | no | Page number, starting from 1. |
+| `pageSize` | number | no | Number of records per page; ServiceTitan defaults to 50. |
+| `includeTotal` | boolean | no | Whether to include the total matching record count. |
+| `sort` | list<string> | no | Sort by Id, CreatedOn, or ModifiedOn. Prefix with + for ascending or - for descending. One of: `+CreatedOn`, `+Id`, `+ModifiedOn`, `-CreatedOn`, `-Id`, `-ModifiedOn`. |
+| `externalDataApplicationGuid` | string | no | Application GUID whose external data should be returned. |
+| `externalDataKey` | string | no | External data key; requires External Data Values. |
+| `externalDataValues` | string | no | External data values; requires External Data Key and accepts up to 50. Accepts multiple values in one string, delimited by `,`. |
 
 ## Response
 

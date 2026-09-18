@@ -1,6 +1,6 @@
 # Productivity apps
 
-372 apps in the Productivity category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+373 apps in the Productivity category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AbcSubmit** · [Universal API reference](../../apis/a/abcSubmit/universal-api) · [Native API reference](../../apis/a/abcSubmit/native-api) · [Native API docs](https://www.abcsubmit.com/site/api-documentation/)
 - **ACLU** · [Universal API reference](../../apis/a/aCLU/universal-api) · [Native API reference](../../apis/a/aCLU/native-api) · [Native API docs](https://www.thetorturedatabase.org/api)
@@ -130,6 +130,7 @@
 - **GitScrum** · [Universal API reference](../../apis/g/gitScrum/universal-api) · [Native API reference](../../apis/g/gitScrum/native-api) · [Native API docs](https://docs.gitscrum.com/en/api/)
 - **GiveForms** · [Universal API reference](../../apis/g/giveForms/universal-api) · [Native API reference](../../apis/g/giveForms/native-api) · [Native API docs](https://www.giveforms.com/support-article/rest-api)
 - **Glasp** · [Universal API reference](../../apis/g/glasp/universal-api) · [Native API reference](../../apis/g/glasp/native-api) · [Native API docs](https://glasp.co/docs/apis)
+- **GoCanvas** · [Universal API reference](../../apis/g/goCanvas/universal-api) · [Native API reference](../../apis/g/goCanvas/native-api) · [Native API docs](https://api.gocanvas.com/api/v3/docs)
 - **GoodDay.work** · [Universal API reference](../../apis/g/goodDaywork/universal-api) · [Native API reference](../../apis/g/goodDaywork/native-api) · [Native API docs](https://www.goodday.work/developers/api-v2)
 - **Good Grants** · [Universal API reference](../../apis/g/goodGrants/universal-api) · [Native API reference](../../apis/g/goodGrants/native-api) · [Native API docs](https://apidocs.goodgrants.com)
 - **Google Calendar** · [Universal API reference](../../apis/g/googleCalendar/universal-api) · [Native API reference](../../apis/g/googleCalendar/native-api) · [Native API docs](https://developers.google.com/workspace/calendar/api/v3/reference)

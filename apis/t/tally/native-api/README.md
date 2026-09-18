@@ -35,15 +35,15 @@ Shared headers:
 
 Use `limit` in the query string to set the page size (default 50; accepted range 1–500). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Sorting
+## Retry behavior
 
-Send sorting in the query string. Only one sort field is accepted.
+Retry responses with status codes `429`. Wait 60000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
 ## Endpoints (18 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
-| [Cancel Invite](actions/cancel-invite.md) | `GET organizations/:organizationId/invites/:inviteId` | [docs](https://developers.tally.so/api-reference/endpoint/organizations/invites/delete) |
+| [Cancel Invite](actions/cancel-invite.md) | `DELETE organizations/:organizationId/invites/:inviteId` | [docs](https://developers.tally.so/api-reference/endpoint/organizations/invites/delete) |
 | [Create Invite](actions/create-invite.md) | `POST organizations/:organizationId/invites` | [docs](https://developers.tally.so/api-reference/endpoint/organizations/invites/post) |
 | [Create Workspace](actions/create-workspace.md) | `POST workspaces` | [docs](https://developers.tally.so/api-reference/endpoint/workspaces/post) |
 | [Delete Form](actions/delete-form.md) | `DELETE forms/:formId` | [docs](https://developers.tally.so/api-reference/endpoint/forms/delete) |
@@ -57,7 +57,7 @@ Send sorting in the query string. Only one sort field is accepted.
 | [List Form Questions](actions/list-form-questions.md) | `GET forms/:formId/questions` | [docs](https://developers.tally.so/api-reference/endpoint/forms/questions/list) |
 | [List Form Submissions](actions/list-form-submissions.md) | `GET forms/:formId/submissions` | [docs](https://developers.tally.so/api-reference/endpoint/forms/submissions/list) |
 | [List Forms](actions/list-forms.md) | `GET forms` | [docs](https://developers.tally.so/api-reference/endpoint/forms/list) |
-| [List Invites](actions/list-invites.md) | `GET organizations/:organizationId/invites` | [docs](https://developers.tally.so/api-reference/endpoint/organizations/invites/delete) |
+| [List Invites](actions/list-invites.md) | `GET organizations/:organizationId/invites` | [docs](https://developers.tally.so/api-reference/endpoint/organizations/invites/get) |
 | [List Users](actions/list-users.md) | `GET organizations/:organizationId/users` | [docs](https://developers.tally.so/api-reference/endpoint/organizations/users/get) |
 | [List Workspaces](actions/list-workspaces.md) | `GET workspaces` | [docs](https://developers.tally.so/api-reference/endpoint/workspaces/list) |
 | [Update Workspace](actions/update-workspace.md) | `PATCH workspaces/:workspaceId` | [docs](https://developers.tally.so/api-reference/endpoint/workspaces/patch) |

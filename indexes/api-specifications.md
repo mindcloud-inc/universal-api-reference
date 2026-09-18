@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3213 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3215 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1085,6 +1085,7 @@ Machine-readable API descriptions for 3213 apps. Universal API specifications ar
 | [GNews](../apis/g/gNews) | [OpenAPI 3.1](../apis/g/gNews/universal-api/openapi.json) |  |
 | [Go4Clients](../apis/g/go4Clients) | [OpenAPI 3.1](../apis/g/go4Clients/universal-api/openapi.json) |  |
 | [GoAffPro](../apis/g/goAffPro) | [OpenAPI 3.1](../apis/g/goAffPro/universal-api/openapi.json) |  |
+| [GoCanvas](../apis/g/goCanvas) | [OpenAPI 3.1](../apis/g/goCanvas/universal-api/openapi.json) |  |
 | [GoCardless](../apis/g/goCardless) | [OpenAPI 3.1](../apis/g/goCardless/universal-api/openapi.json) |  |
 | [GoDaddy CRM](../apis/g/goDaddyCRM) | [OpenAPI 3.1](../apis/g/goDaddyCRM/universal-api/openapi.json) |  |
 | [GoDial](../apis/g/goDial) | [OpenAPI 3.1](../apis/g/goDial/universal-api/openapi.json) |  |
@@ -1897,6 +1898,7 @@ Machine-readable API descriptions for 3213 apps. Universal API specifications ar
 | [Pastebin](../apis/p/pastebin) | [OpenAPI 3.1](../apis/p/pastebin/universal-api/openapi.json) |  |
 | [Pastefy](../apis/p/pastefy) | [OpenAPI 3.1](../apis/p/pastefy/universal-api/openapi.json) |  |
 | [Patreon](../apis/p/patreon) | [OpenAPI 3.1](../apis/p/patreon/universal-api/openapi.json) |  |
+| [Paycom](../apis/p/paycom) | [OpenAPI 3.1](../apis/p/paycom/universal-api/openapi.json) |  |
 | [Paycove](../apis/p/paycove) | [OpenAPI 3.1](../apis/p/paycove/universal-api/openapi.json) |  |
 | [Payfunnels](../apis/p/payfunnels) | [OpenAPI 3.1](../apis/p/payfunnels/universal-api/openapi.json) |  |
 | [Payhip](../apis/p/payhip) | [OpenAPI 3.1](../apis/p/payhip/universal-api/openapi.json) |  |

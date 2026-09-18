@@ -24,3 +24,10 @@ Updates an existing account in Zoho CRM.
 | `data[].Shipping_Street` | body | `string` | no | — |
 | `data[].Shipping_City` | body | `string` | no | — |
 | `data[].Shipping_State` | body | `string` | no | — |
+| `data[].Billing_Street` | body | `string` | no | — |
+| `data[].Street_2` | body | `string` | no | — |
+| `data[].Billing_City` | body | `string` | no | — |
+| `data[].Billing_State` | body | `string` | no | — |
+| `data[].Post_Code` | body | `string` | no | — |
+| `data[].Billing_Country` | body | `string` | no | — |
+| `data[].Acct_Typ` | body | `list` | no | Accepted values: `Advertisor`, `Association`, `Attendee`, `Confirmed Exhibitor`, `Exhibitor`, `Lead`, `Subscriber`. Send multiple values as a array. |

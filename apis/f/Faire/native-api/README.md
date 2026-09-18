@@ -41,7 +41,7 @@ Use `limit` in the query string to set the page size (default 50; minimum 50). U
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Add Shipments to Order](actions/add-shipments-to-order.md) | `POST orders/:orderId/shipments` | [docs](https://developers.faire.com/docs#/paths/orders-order_id--shipments/post) |
-| [Get product inventory by SKUs](actions/get-product-inventory-by-skus.md) | `GET product-inventory/by-skus` | [docs](https://developers.faire.com/docs#/paths/product-inventory-by-skus/get) |
+| [Get product inventory by SKUs](actions/get-product-inventory-by-skus.md) | `GET product-inventory/by-skus?skus=:skus` | [docs](https://developers.faire.com/docs#/paths/product-inventory-by-skus/get) |
 | [List a single Order](actions/list-a-single-order.md) | `GET orders/:id` | [docs](https://faire.github.io/external-api-docs/#get-all-orders) |
 | [List Orders](actions/list-orders.md) | `GET orders` | [docs](https://faire.github.io/external-api-docs/#get-all-orders) |
 | [Update inventory by SKUs](actions/update-inventory.md) | `PATCH product-inventory/by-skus` | [docs](https://faire.github.io/external-api-docs/#get-all-orders) |

@@ -11,6 +11,6 @@
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `inventories[].sku` | query | `string` | no |
-| `inventories[].onHandquantity` | query | `number` | no |
-| `inventories[]` | query | `array` | no |
+| `inventories[].sku` | body | `string` | no |
+| `inventories[].onHandquantity` | body | `number` | no |
+| `inventories[]` | body | `array` | no |

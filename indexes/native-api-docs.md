@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3213 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3215 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1111,6 +1111,7 @@ The official vendor API documentation for each of the 3213 apps in this repo. Ea
 - [GNews](../apis/g/gNews/native-api) - https://docs.gnews.io
 - [Go4Clients](../apis/g/go4Clients/native-api) - https://apidoc.go4clients.com/
 - [GoAffPro](../apis/g/goAffPro/native-api) - https://api.goaffpro.com/docs/admin/
+- [GoCanvas](../apis/g/goCanvas/native-api) - https://api.gocanvas.com/api/v3/docs
 - [GoCardless](../apis/g/goCardless/native-api) - https://developer.gocardless.com/api-reference/
 - [GoDaddy CRM](../apis/g/goDaddyCRM/native-api) - https://developer.godaddy.com/doc
 - [GoDial](../apis/g/goDial/native-api) - https://godial.stoplight.io/docs/godial/cd4edf0828dd6-go-dial-crm-external-api
@@ -1946,6 +1947,7 @@ The official vendor API documentation for each of the 3213 apps in this repo. Ea
 - [Pastebin](../apis/p/pastebin/native-api) - https://pastebin.com/doc_api
 - [Pastefy](../apis/p/pastefy/native-api) - https://docs.pastefy.app/api
 - [Patreon](../apis/p/patreon/native-api) - https://docs.patreon.com
+- [Paycom](../apis/p/paycom/native-api) - https://drive.google.com/drive/folders/1Ug5PtxNyl2okfXJvsiZqWyqhZwS3XkBY?usp=sharing
 - [Paycove](../apis/p/paycove/native-api) - https://docs.paycove.io/
 - [Payfunnels](../apis/p/payfunnels/native-api) - https://api.payfunnels.com/api/docs/
 - [Payhip](../apis/p/payhip/native-api) - https://payhip.com/api-reference

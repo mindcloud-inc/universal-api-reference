@@ -57,9 +57,9 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `data[].assign_to.id` | string | no | User ID for the converted record owner. Example: `7323083000000097001`. |
 | `data[].Contacts.id` | string | no | Existing contact ID to associate during conversion. Example: `7323083000000099001`. |
 | `data[].move_attachments_to.apiName` | list | no | Module that should receive converted lead attachments. One of: `Accounts`, `Contacts`, `Deals`. Example: `Contacts`. |
-| `data[].overwrite` | boolean | no | Overwrite existing mapped values during conversion. |
 | `data[].notifyLeadOwner` | boolean | no | Notify the lead owner about the conversion. |
 | `data[].notifyNewEntityOwner` | boolean | no | Notify the owner of the newly created record. |
+| `data[].overwrite` | boolean | no | Overwrite existing mapped values during conversion. |
 
 ## Response
 

@@ -85,5 +85,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Faire API, this operation is `GET product-inventory/by-skus` (base URL `https://www.faire.com/external-api/v2/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-product-inventory-by-skus.md) for the provider-specific parameters and requirements.
+Through the native Faire API, this operation is `GET product-inventory/by-skus?skus=:skus` (base URL `https://www.faire.com/external-api/v2/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-product-inventory-by-skus.md) for the provider-specific parameters and requirements.
 

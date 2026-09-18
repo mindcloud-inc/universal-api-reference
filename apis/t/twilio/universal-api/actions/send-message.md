@@ -44,10 +44,19 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `to` | string | yes |  |
-| `body` | string | yes |  |
-| `from` | string | no | Default: `{{credentials.twilioPhoneNumber}}`. |
-| `messagingServiceSid` | string | no | Default: `{{credentials.twilioMessagingServiceSid}}`. |
+| `to` | string | yes | Recipient phone number in E.164 format. |
+| `body` | string | yes | SMS text content. |
+| `from` | string | no | Optional sender phone number or sender address. Uses the connection default when configured. Default: `{{credentials.twilioPhoneNumber}}`. |
+| `messagingServiceSid` | string | no | Optional Twilio Messaging Service SID. Leave blank unless this workflow uses a Messaging Service. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `statusCallback` | string | no | Optional URL to receive Twilio message status callbacks. |
+| `validityPeriod` | number | no | Optional maximum queue time in seconds (1-36000). |
+| `smartEncoded` | boolean | no | Replace supported Unicode characters with GSM-7 equivalents when enabled. |
+| `provideFeedback` | boolean | no | Indicate that this workflow will provide delivery feedback to Twilio. |
 
 ## Response
 
@@ -73,10 +82,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
       "priceUnit": "string",
       "sid": "string",
       "status": "string",
-      "subresourceUris": {
-        "feedback": "string",
-        "media": "string"
-      },
+      "subresourceUris": {},
       "to": "string",
       "uri": "string"
     }
@@ -89,27 +95,26 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `accountSid` | string |  |
-| `apiVersion` | string |  |
-| `body` | string |  |
-| `dateCreated` | string |  |
-| `dateSent` | string |  |
-| `dateUpdated` | string |  |
-| `direction` | string |  |
-| `errorCode` | number |  |
-| `errorMessage` | string |  |
-| `from` | string |  |
-| `messagingServiceSid` | string |  |
-| `numMedia` | string |  |
-| `numSegments` | string |  |
-| `price` | string |  |
-| `priceUnit` | string |  |
-| `sid` | string |  |
-| `status` | string |  |
-| `subresourceUris.feedback` | string |  |
-| `subresourceUris.media` | string |  |
-| `to` | string |  |
-| `uri` | string |  |
+| `accountSid` | string | Twilio account SID associated with the message. |
+| `apiVersion` | string | Twilio API version used to process the message. |
+| `body` | string | Message text content. |
+| `dateCreated` | string | Timestamp when the message was created. |
+| `dateSent` | string | Timestamp when the message was sent or received. |
+| `dateUpdated` | string | Timestamp when the message was last updated. |
+| `direction` | string | Message direction. |
+| `errorCode` | number | Twilio error code when delivery fails. |
+| `errorMessage` | string | Twilio error description when delivery fails. |
+| `from` | string | Sender phone number or sender address. |
+| `messagingServiceSid` | string | Twilio Messaging Service SID, when used. |
+| `numMedia` | string | Number of media attachments. |
+| `numSegments` | string | Number of SMS segments. |
+| `price` | string | Message price, when available. |
+| `priceUnit` | string | Currency for the message price. |
+| `sid` | string | Twilio Message SID. |
+| `status` | string | Current message delivery status. |
+| `subresourceUris` | object | URIs for related Twilio message resources. |
+| `to` | string | Recipient phone number or channel address. |
+| `uri` | string | Twilio message resource URI. |
 
 ## Native endpoint
 

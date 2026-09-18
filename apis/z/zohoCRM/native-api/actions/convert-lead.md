@@ -17,7 +17,6 @@ Converts a lead into CRM records in Zoho CRM.
 | `data[].assign_to.id` | body | `string` | no | User ID for the converted record owner. |
 | `data[].Contacts.id` | body | `string` | no | Existing contact ID to associate during conversion. |
 | `data[].move_attachments_to.api_name` | body | `list` | no | Module that should receive converted lead attachments. Accepted values: `Accounts`, `Contacts`, `Deals`. |
-| `data[].overwrite` | body | `boolean` | no | Overwrite existing mapped values during conversion. |
 | `record_id` | path | `string` | yes | Lead record ID to convert. |
 | `data[]` | body | `array` | no | — |
 | `data[].notify_lead_owner` | body | `boolean` | no | Notify the lead owner about the conversion. |
@@ -26,3 +25,4 @@ Converts a lead into CRM records in Zoho CRM.
 | `data[].Contacts` | body | `object` | no | — |
 | `data[].move_attachments_to` | body | `object` | no | — |
 | `data[].assign_to` | body | `object` | no | — |
+| `data[].overwrite` | body | `boolean` | no | Overwrite existing mapped values during conversion. |

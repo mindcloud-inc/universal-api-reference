@@ -45,5 +45,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Tally API, this operation is `GET organizations/:organizationId/invites/:inviteId` (base URL `https://api.tally.so`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/cancel-invite.md) for the provider-specific parameters and requirements.
+Through the native Tally API, this operation is `DELETE organizations/:organizationId/invites/:inviteId` (base URL `https://api.tally.so`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/cancel-invite.md) for the provider-specific parameters and requirements.
 

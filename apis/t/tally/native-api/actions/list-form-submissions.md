@@ -7,6 +7,10 @@
 - **Base URL:** `https://api.tally.so`
 - **Official documentation:** [List Form Submissions](https://developers.tally.so/api-reference/endpoint/forms/submissions/list)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

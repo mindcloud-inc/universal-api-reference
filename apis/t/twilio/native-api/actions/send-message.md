@@ -11,9 +11,13 @@ Sends a new message with Twilio.
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `To` | body | `string` | yes |
-| `Body` | body | `string` | yes |
-| `From` | body | `string` | no |
-| `MessagingServiceSid` | body | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `To` | body | `string` | yes | Recipient phone number in E.164 format. |
+| `Body` | body | `string` | yes | SMS text content. |
+| `From` | body | `string` | no | Optional sender phone number or sender address. Uses the connection default when configured. |
+| `MessagingServiceSid` | body | `string` | no | Optional Twilio Messaging Service SID. Leave blank unless this workflow uses a Messaging Service. |
+| `StatusCallback` | body | `string` | no | Optional URL to receive Twilio message status callbacks. |
+| `ValidityPeriod` | body | `number` | no | Optional maximum queue time in seconds (1-36000). |
+| `SmartEncoded` | body | `boolean` | no | Replace supported Unicode characters with GSM-7 equivalents when enabled. |
+| `ProvideFeedback` | body | `boolean` | no | Indicate that this workflow will provide delivery feedback to Twilio. |

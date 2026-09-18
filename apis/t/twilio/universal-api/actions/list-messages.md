@@ -39,9 +39,11 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `to` | string | no |  |
-| `from` | string | no |  |
-| `dateSent` | date | no |  |
+| `to` | string | no | Filter by recipient phone number in E.164 format. |
+| `from` | string | no | Filter by sender phone number or sender address. |
+| `dateSent` | string | no | Filter messages sent on this GMT date (YYYY-MM-DD). Example: `YYYY-MM-DD`. |
+| `dateSentBefore` | string | no | Return messages sent on or before this GMT date (YYYY-MM-DD). Example: `YYYY-MM-DD`. |
+| `dateSentAfter` | string | no | Return messages sent on or after this GMT date (YYYY-MM-DD). Example: `YYYY-MM-DD`. |
 
 ## Response
 
@@ -50,40 +52,25 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "end": 1,
-      "firstPageUri": "string",
-      "messages": [
-        {
-          "accountSid": "string",
-          "apiVersion": "string",
-          "body": "string",
-          "dateCreated": "string",
-          "dateSent": "string",
-          "dateUpdated": "string",
-          "direction": "string",
-          "errorCode": 1,
-          "errorMessage": "string",
-          "from": "string",
-          "messagingServiceSid": "string",
-          "numMedia": "string",
-          "numSegments": "string",
-          "price": "string",
-          "priceUnit": "string",
-          "sid": "string",
-          "status": "string",
-          "subresourceUris": {
-            "feedback": "string",
-            "media": "string"
-          },
-          "to": "string",
-          "uri": "string"
-        }
-      ],
-      "nextPageUri": "string",
-      "page": 1,
-      "pageSize": 1,
-      "previousPageUri": "string",
-      "start": 1,
+      "accountSid": "string",
+      "apiVersion": "string",
+      "body": "string",
+      "dateCreated": "string",
+      "dateSent": "string",
+      "dateUpdated": "string",
+      "direction": "string",
+      "errorCode": 1,
+      "errorMessage": "string",
+      "from": "string",
+      "messagingServiceSid": "string",
+      "numMedia": "string",
+      "numSegments": "string",
+      "price": "string",
+      "priceUnit": "string",
+      "sid": "string",
+      "status": "string",
+      "subresourceUris": {},
+      "to": "string",
       "uri": "string"
     }
   ],
@@ -95,35 +82,26 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `end` | number |  |
-| `firstPageUri` | string |  |
-| `messages[].accountSid` | string |  |
-| `messages[].apiVersion` | string |  |
-| `messages[].body` | string |  |
-| `messages[].dateCreated` | string |  |
-| `messages[].dateSent` | string |  |
-| `messages[].dateUpdated` | string |  |
-| `messages[].direction` | string |  |
-| `messages[].errorCode` | number |  |
-| `messages[].errorMessage` | string |  |
-| `messages[].from` | string |  |
-| `messages[].messagingServiceSid` | string |  |
-| `messages[].numMedia` | string |  |
-| `messages[].numSegments` | string |  |
-| `messages[].price` | string |  |
-| `messages[].priceUnit` | string |  |
-| `messages[].sid` | string |  |
-| `messages[].status` | string |  |
-| `messages[].subresourceUris.feedback` | string |  |
-| `messages[].subresourceUris.media` | string |  |
-| `messages[].to` | string |  |
-| `messages[].uri` | string |  |
-| `nextPageUri` | string |  |
-| `page` | number |  |
-| `pageSize` | number |  |
-| `previousPageUri` | string |  |
-| `start` | number |  |
-| `uri` | string |  |
+| `accountSid` | string | Twilio account SID associated with the message. |
+| `apiVersion` | string | Twilio API version used to process the message. |
+| `body` | string | Message text content. |
+| `dateCreated` | string | Timestamp when the message was created. |
+| `dateSent` | string | Timestamp when the message was sent or received. |
+| `dateUpdated` | string | Timestamp when the message was last updated. |
+| `direction` | string | Message direction. |
+| `errorCode` | number | Twilio error code when delivery fails. |
+| `errorMessage` | string | Twilio error description when delivery fails. |
+| `from` | string | Sender phone number or sender address. |
+| `messagingServiceSid` | string | Twilio Messaging Service SID, when used. |
+| `numMedia` | string | Number of media attachments. |
+| `numSegments` | string | Number of SMS segments. |
+| `price` | string | Message price, when available. |
+| `priceUnit` | string | Currency for the message price. |
+| `sid` | string | Twilio Message SID. |
+| `status` | string | Current message delivery status. |
+| `subresourceUris` | object | URIs for related Twilio message resources. |
+| `to` | string | Recipient phone number or channel address. |
+| `uri` | string | Twilio message resource URI. |
 
 ## Native endpoint
 

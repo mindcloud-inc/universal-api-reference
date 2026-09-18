@@ -2,7 +2,7 @@
 
 ## Endpoint
 
-- **Method:** `GET`
+- **Method:** `DELETE`
 - **Path:** `organizations/:organizationId/invites/:inviteId`
 - **Base URL:** `https://api.tally.so`
 - **Official documentation:** [Cancel Invite](https://developers.tally.so/api-reference/endpoint/organizations/invites/delete)

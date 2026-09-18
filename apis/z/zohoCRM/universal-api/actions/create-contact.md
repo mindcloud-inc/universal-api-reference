@@ -60,11 +60,11 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `data[].mailingZip` | string | no |  |
 | `data[].mailingState` | string | no |  |
 | `data[].mailingStreet` | string | no |  |
-| `data[].mailingStreet2` | string | no |  |
 | `data[].accountName` | string | no |  |
 | `data[].contactType` | string | no |  |
 | `data[].tpe27ConfirmedExhibitor` | boolean | no |  |
 | `data[].confirmedExhibitor` | boolean | no |  |
+| `data[].street2` | string | no |  |
 
 ## Response
 
