@@ -34,7 +34,7 @@
 | `purchaseOrders[].FOB` | body | `string` | no | FOB text. Blank defaults from Purchase Order Installation. |
 | `purchaseOrders[].Ordered_By` | body | `string` | no | Ordered by, up to 20 characters. |
 | `purchaseOrders[].Confirmed_By` | body | `string` | no | Confirmed by. Blank defaults from Purchase Order Installation. |
-| `purchaseOrders[].PO_Order_Date` | body | `date` | no | Order date in MM/DD/CCYY format. Blank defaults to the current PO processing date. |
+| `purchaseOrders[].PO_Order_Date` | body | `string` | no | Order date in MM/DD/CCYY format. Blank defaults to the current PO processing date. |
 | `purchaseOrders[].Batch_Code` | body | `string` | no | Batch code. Blank defaults to the operator code from Authorization_ID. |
 | `purchaseOrders[].Terms_Code` | body | `string` | no | Payment terms basis. A = Based on invoice date, B = Based on first of next month. |
 | `purchaseOrders[].Payment_Days` | body | `number` | no | Payment number of days. Must be non-negative. |
@@ -45,7 +45,7 @@
 | `purchaseOrders[].Resale_Flag` | body | `string` | no | For resale flag. Y = For resale, N = Not for resale. |
 | `purchaseOrders[].Tax_Code` | body | `string` | no | Default sales/use tax code. Must exist in the company when used. |
 | `purchaseOrders[].Routing_Code` | body | `string` | no | Routing code. Must exist in the company when used. |
-| `purchaseOrders[].PO_Delivery_Date` | body | `date` | no | Delivery date in MM/DD/CCYY format. |
+| `purchaseOrders[].PO_Delivery_Date` | body | `string` | no | Delivery date in MM/DD/CCYY format. |
 | `purchaseOrders[].PO_Method` | body | `string` | no | Receiving method. Must be 1 or 2 when supplied. |
 | `purchaseOrders[].PO_Type` | body | `string` | no | Pricing type. U = Unit price, L = Lump sum. |
 | `purchaseOrders[].Bank_Account_Code` | body | `string` | no | Credit card account code. Must be a credit-card type account when used. |
@@ -63,6 +63,6 @@
 | `purchaseOrders[].poDetails[].Phase_Code` | body | `string` | no | Phase code. Required unless this is a message-only line or non-job purchase. |
 | `purchaseOrders[].poDetails[].Cost_Type` | body | `string` | no | Cost type. Required unless this is a message-only line or non-job purchase. |
 | `purchaseOrders[].poDetails[].Tax_Code` | body | `string` | no | Detail sales/use tax code. Must exist in the company when used. |
-| `purchaseOrders[].poDetails[].Delivery_Date` | body | `date` | no | Detail delivery date in MM/DD/CCYY format. |
+| `purchaseOrders[].poDetails[].Delivery_Date` | body | `string` | no | Detail delivery date in MM/DD/CCYY format. |
 | `purchaseOrders[].poDetails[].Message` | body | `string` | no | Message text. Required for message-only lines; up to 250 characters. |
 | `purchaseOrders[].poDetails[].Cost_Center` | body | `string` | no | Detail cost center. Must be valid if cost centers are enabled. |

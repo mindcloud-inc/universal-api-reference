@@ -29,7 +29,7 @@ Updates an existing contact in Zoho CRM.
 | `data[].Mailing_State` | body | `string` | no | — |
 | `data[].Mailing_Street` | body | `string` | no | — |
 | `data[].Account_Name` | body | `string` | no | — |
-| `data[].Contact_Type` | body | `string` | no | — |
+| `data[].Contact_Type` | body | `array<string>` | no | Accepted values: `Booth Contact`, `General Contact`, `Invoice Contact`, `Logistics Contact`, `Marketing Contact`, `Primary Contact`, `Shipping Contact`, `Sponsorship Contact`. Send multiple values as a array. |
 | `data[].TPE27_Confirmed_Exhibitor` | body | `boolean` | no | — |
 | `data[].Confirmed_Exhibitor` | body | `boolean` | no | — |
-| `Street_2` | body | `string` | no | — |
+| `data[].Street_2` | body | `string` | no | — |

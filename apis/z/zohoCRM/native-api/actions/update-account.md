@@ -30,4 +30,5 @@ Updates an existing account in Zoho CRM.
 | `data[].Billing_State` | body | `string` | no | — |
 | `data[].Post_Code` | body | `string` | no | — |
 | `data[].Billing_Country` | body | `string` | no | — |
-| `data[].Acct_Typ` | body | `list` | no | Accepted values: `Advertisor`, `Association`, `Attendee`, `Confirmed Exhibitor`, `Exhibitor`, `Lead`, `Subscriber`. Send multiple values as a array. |
+| `data[].Acct_Typ` | body | `array<string>` | no | Accepted values: `Advertisor`, `Association`, `Attendee`, `Confirmed Exhibitor`, `Exhibitor`, `Lead`, `Subscriber`. Send multiple values as a array. |
+| `data[].Confirmed_Exhibitor_Events` | body | `string` | no | — |

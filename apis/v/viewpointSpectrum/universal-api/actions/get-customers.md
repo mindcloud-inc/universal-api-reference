@@ -60,6 +60,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
       "Name": "Ava Chen",
       "Phone_Number": {},
       "Price_Level_Material": {},
+      "Sales_Tax_Code": "string",
       "State": "string",
       "Status": "string",
       "Taxable_Flag": {},
@@ -88,6 +89,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `Name` | string |  |
 | `Phone_Number` | object |  |
 | `Price_Level_Material` | object |  |
+| `Sales_Tax_Code` | string |  |
 | `State` | string |  |
 | `Status` | string |  |
 | `Taxable_Flag` | object |  |

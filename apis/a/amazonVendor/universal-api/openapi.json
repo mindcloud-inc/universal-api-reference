@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Amazon Vendor Universal API",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "description": "Call Amazon Vendor actions through MindCloud's Universal API."
   },
   "servers": [
@@ -2787,16 +2787,24 @@
                 "type": "object",
                 "required": [
                   "connectionId",
-                  "warehouseId",
-                  "inventory.sellingParty",
                   "inventory.sellingParty.partyId",
+                  "warehouseId",
                   "inventory.isFullUpdate",
-                  "inventory.items[]"
+                  "inventory.items[]",
+                  "inventory.sellingParty"
                 ],
                 "properties": {
                   "connectionId": {
                     "type": "string",
                     "description": "The MindCloud connection ID for this app."
+                  },
+                  "inventory.items[].buyerProductIdentifier": {
+                    "type": "string",
+                    "description": "The buyer-selected product identifier for the item. Submit either this value or the vendor product identifier."
+                  },
+                  "inventory.sellingParty.partyId": {
+                    "type": "string",
+                    "description": "Assigned identification for the party."
                   },
                   "warehouseId": {
                     "type": "string",
@@ -2807,15 +2815,10 @@
                     "additionalProperties": true,
                     "description": "Inventory details required to update some or all items for the requested warehouse."
                   },
-                  "inventory.sellingParty": {
-                    "type": "object",
-                    "additionalProperties": true,
-                    "description": "ID of the selling party or vendor."
-                  },
-                  "inventory.sellingParty.partyId": {
+                  "inventory.items[].vendorProductIdentifier": {
                     "type": "string",
-                    "description": "Assigned identification for the party.",
-                    "example": "VENDORID"
+                    "description": "The vendor-selected product identifier for the item. Submit either this value or the buyer product identifier.",
+                    "example": "7Q89K11"
                   },
                   "inventory.isFullUpdate": {
                     "type": "boolean",
@@ -2823,26 +2826,21 @@
                   },
                   "inventory.items[]": {
                     "type": "array",
-                    "items": {
-                      "type": "object",
-                      "additionalProperties": true
-                    },
-                    "description": "A list of inventory items with updated details, including quantity available."
-                  },
-                  "inventory.items[].buyerProductIdentifier": {
-                    "type": "string",
-                    "description": "The buyer-selected product identifier for the item. Submit either this value or the vendor product identifier.",
-                    "example": "ABCD4562"
-                  },
-                  "inventory.items[].vendorProductIdentifier": {
-                    "type": "string",
-                    "description": "The vendor-selected product identifier for the item. Submit either this value or the buyer product identifier.",
-                    "example": "7Q89K11"
+                    "items": {}
                   },
                   "inventory.items[].availableQuantity": {
                     "type": "object",
                     "additionalProperties": true,
                     "description": "Total item quantity available in the warehouse."
+                  },
+                  "inventory.sellingParty": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "inventory.items[].isObsolete": {
+                    "type": "boolean",
+                    "description": "When true, the item is permanently unavailable.",
+                    "x-mindcloud-advanced": true
                   },
                   "inventory.items[].availableQuantity.amount": {
                     "type": "number",
@@ -2852,12 +2850,8 @@
                   "inventory.items[].availableQuantity.unitOfMeasure": {
                     "type": "string",
                     "description": "Unit of measure for the available quantity.",
-                    "example": "Each"
-                  },
-                  "inventory.items[].isObsolete": {
-                    "type": "boolean",
-                    "description": "When true, the item is permanently unavailable.",
-                    "x-mindcloud-advanced": true
+                    "example": "Each",
+                    "default": "Each"
                   }
                 },
                 "additionalProperties": false

@@ -49,7 +49,7 @@ Use `$limit` in the query string to set the page size (default 25; accepted rang
 | [Get Customers](actions/get-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |
 | [List Customers](actions/list-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |
 | [List Vendors](actions/list-vendors.md) | `GET vendors/{{credentials.companyID}}` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/get-vendors) |
-| [Update Customer](actions/update-customer.md) | `POST ws/AddCustomer` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
+| [Update Customer](actions/update-customer.md) | `POST ws/customer/updatecustomer` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
 | [Update Vendor](actions/update-vendor.md) | `POST ws/UpdateVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/update-vendor) |
 | [Update Vendor (SOAP)](actions/update-vendor-soap.md) | `POST ws/UpdateVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/update-vendor) |
 | [Upsert Customer Bill-To](actions/upsert-customer-bill-to.md) | `POST ws/CustomerBillto` |  |

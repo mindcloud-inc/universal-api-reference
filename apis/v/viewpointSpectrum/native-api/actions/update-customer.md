@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `POST`
-- **Path:** `ws/AddCustomer`
+- **Path:** `ws/customer/updatecustomer`
 - **Base URL:** `{url}:8482/`
 - **Official documentation:** [Update Customer](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer)
 

@@ -11,15 +11,15 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| `inventory.items[].buyerProductIdentifier` | body | `string` | no | The buyer-selected product identifier for the item. Submit either this value or the vendor product identifier. |
+| `inventory.sellingParty.partyId` | body | `string` | yes | Assigned identification for the party. |
 | `warehouseId` | path | `string` | yes | Identifier for the warehouse for which to update inventory. |
 | `inventory` | body | `object` | no | Inventory details required to update some or all items for the requested warehouse. |
-| `sellingParty` | body | `object` | yes | ID of the selling party or vendor. |
-| `partyId` | body | `string` | yes | Assigned identification for the party. |
-| `isFullUpdate` | body | `boolean` | yes | When true, this request contains a full feed; otherwise it contains a partial feed. A full feed must include all warehouse items, and omitted items become unavailable. A partial feed should include only items whose inventory must change; other items remain unchanged. |
-| `items[]` | body | `array<object>` | yes | A list of inventory items with updated details, including quantity available. Send multiple values as a array. |
-| `buyerProductIdentifier` | body | `string` | no | The buyer-selected product identifier for the item. Submit either this value or the vendor product identifier. |
-| `vendorProductIdentifier` | body | `string` | no | The vendor-selected product identifier for the item. Submit either this value or the buyer product identifier. |
-| `availableQuantity` | body | `object` | no | Total item quantity available in the warehouse. |
-| `amount` | body | `number` | no | Quantity of units available for a specific item. |
-| `unitOfMeasure` | body | `string` | no | Unit of measure for the available quantity. |
-| `isObsolete` | body | `boolean` | no | When true, the item is permanently unavailable. |
+| `inventory.items[].vendorProductIdentifier` | body | `string` | no | The vendor-selected product identifier for the item. Submit either this value or the buyer product identifier. |
+| `inventory.isFullUpdate` | body | `boolean` | yes | When true, this request contains a full feed; otherwise it contains a partial feed. A full feed must include all warehouse items, and omitted items become unavailable. A partial feed should include only items whose inventory must change; other items remain unchanged. |
+| `inventory.items[]` | body | `array` | yes | — |
+| `inventory.items[].availableQuantity` | body | `object` | no | Total item quantity available in the warehouse. |
+| `inventory.sellingParty` | body | `object` | yes | — |
+| `inventory.items[].isObsolete` | body | `boolean` | no | When true, the item is permanently unavailable. |
+| `inventory.items[].availableQuantity.amount` | body | `number` | no | Quantity of units available for a specific item. |
+| `inventory.items[].availableQuantity.unitOfMeasure` | body | `string` | no | Unit of measure for the available quantity. |
