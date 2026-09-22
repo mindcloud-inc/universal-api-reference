@@ -51,10 +51,11 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "accounts": [
-        {}
-      ],
-      "nextPageToken": "string"
+      "createTime": "string",
+      "displayName": "Ava Chen",
+      "name": "Ava Chen",
+      "regionCode": "string",
+      "updateTime": "string"
     }
   ],
   "meta": {}
@@ -65,8 +66,11 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `accounts` | array<object> | Accessible Google Analytics accounts |
-| `nextPageToken` | string |  |
+| `createTime` | string | Time the account was created |
+| `displayName` | string | Human-readable display name of the account |
+| `name` | string | Account resource name, such as accounts/226916501 |
+| `regionCode` | string | Country region code associated with the account |
+| `updateTime` | string | Time the account was last updated |
 
 ## Native endpoint
 

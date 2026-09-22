@@ -1,4 +1,4 @@
-# Aspire: List Oportunity Service Items
+# Aspire: List Opportunity Service Items
 
 Individual equipment, labor/subcontractors, or materials within the scope of a service on an estimate.
 

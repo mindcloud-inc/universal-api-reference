@@ -1,6 +1,6 @@
 # Pipedrive: Native API Reference
 
-A consolidated summary of Pipedrive's API configuration and 34 documented operations, with links to official documentation.
+A consolidated summary of Pipedrive's API configuration and 36 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.pipedrive.com/docs/api/v1
 - **API base URL:** `{api_domain}/api`
@@ -44,7 +44,7 @@ Responses from this API use JSON. Response data is read from `data`. The next-pa
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–500). Use `cursor` in the query string as the pagination cursor.
 
-## Endpoints (34 documented)
+## Endpoints (36 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -64,6 +64,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Get All Deal Fields](actions/get-all-deal-fields.md) | `GET v2/dealFields` | [docs](https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields) |
 | [Get All Product Fields](actions/get-all-deal-fields-copy.md) | `GET v2/productFields` | [docs](https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields) |
 | [Get Deal](actions/get-deal.md) | `GET v2/deals/:id` | [docs](https://developers.pipedrive.com/docs/api/v1/Deals#getDeal) |
+| [Get Deal Stage](actions/get-deal-stage.md) | `GET v2/stages/:id` | [docs](https://developers.pipedrive.com/docs/api/v1/Deals#getDeal) |
 | [Get Deals Summary](actions/get-deals-summary.md) | `GET v1/deals/summary` | [docs](https://developers.pipedrive.com/docs/api/v1/Deals#getDealsSummary) |
 | [Get Leads](actions/get-leads.md) | `GET v1/leads` | [docs](https://developers.pipedrive.com/docs/api/v1/Leads) |
 | [Get Organization](actions/get-organization.md) | `GET v2/organizations/:id` | [docs](https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganization) |
@@ -71,6 +72,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Get Person](actions/get-person.md) | `GET v2/persons/:id` | [docs](https://developers.pipedrive.com/docs/api/v1/Persons#getPerson) |
 | [Get Persons](actions/get-persons.md) | `GET v2/persons` | [docs](https://developers.pipedrive.com/docs/api/v1/Persons#getPersons) |
 | [Get Products](actions/get-products.md) | `GET v2/products` | [docs](https://developers.pipedrive.com/docs/api/v1/Products) |
+| [Get User](actions/get-user.md) | `GET v1/users/:id` | [docs](https://developers.pipedrive.com/docs/api/v1/Persons#getPerson) |
 | [List Deals](actions/list-deals.md) | `GET v2/deals` | [docs](https://developers.pipedrive.com/docs/api/v1/Deals#getDealsCollection) |
 | [Search Deals](actions/search-deals.md) | `GET v2/deals/search` | [docs](https://developers.pipedrive.com/docs/api/v1/Deals#searchDeals) |
 | [Search Leads](actions/search-leads.md) | `GET v2/leads/search` | [docs](https://developers.pipedrive.com/docs/api/v1/Leads) |

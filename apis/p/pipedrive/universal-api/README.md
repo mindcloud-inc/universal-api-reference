@@ -4,7 +4,7 @@ Manage deals, activities, contacts, and sales pipelines
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pipedrive/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 34
+- **Actions:** 36
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pipedrive.com
 - **Vendor API docs:** https://developers.pipedrive.com/docs/api/v1
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (34)
+## Actions (36)
 
 ### Activity
 
@@ -54,6 +54,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
 | [Convert Lead To Deal](actions/convert-lead-to-deal.md) | POST | Converts a lead to a deal in Pipedrive. |
 | [Delete Deal](actions/delete-deal.md) | DELETE | Deletes an existing deal from Pipedrive. |
 | [Get Deal](actions/get-deal.md) | GET | Retrieves a deal from Pipedrive. |
+| [Get Deal Stage](actions/get-deal-stage.md) | GET | Retrieves a deal from Pipedrive. |
 | [Get Deals Summary](actions/get-deals-summary.md) | GET | Retrieves deal summary metrics from Pipedrive. |
 | [List Deals](actions/list-deals.md) | GET | Retrieves deals from Pipedrive. |
 | [Search Deals](actions/search-deals.md) | GET | Finds deals in Pipedrive by search term. |
@@ -84,6 +85,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
 | [Add Person](actions/add-person.md) | POST | Creates a new person in Pipedrive. |
 | [Get Person](actions/get-person.md) | GET | Retrieves a person from Pipedrive. |
 | [Get Persons](actions/get-persons.md) | GET | Retrieves person records from Pipedrive. |
+| [Get User](actions/get-user.md) | GET | Retrieves a person from Pipedrive. |
 | [Search Persons](actions/search-persons.md) | GET | Finds people in Pipedrive by search term. |
 | [Update Person](actions/update-person.md) | PUT | Updates an existing person in Pipedrive. |
 

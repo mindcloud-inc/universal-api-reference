@@ -30,7 +30,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/dToolsSI/latest/actions/l
 | [Get Partial Project by Id](actions/get-partial-project.md) | GET |  |
 | [Get Project by Id](actions/get-project.md) | GET |  |
 | [List Client Info](actions/list-client-info.md) | GET | Get clients published by a SI user. |
-| [List Subscribed Projects](actions/list-subscribed-projects.md) | GET |  |
 | [Publish Projects](actions/publish-projects.md) | POST |  |
 | [Update Project](actions/update-project.md) | POST |  |
+
+### Projects
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Subscribed Projects](actions/list-subscribed-projects.md) | GET |  |
 

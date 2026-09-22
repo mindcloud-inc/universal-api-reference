@@ -1,5 +1,7 @@
 # List Properties with Google Analytics
 
+Lists Google Analytics properties for an account.
+
 ## Endpoint
 
 - **Method:** `GET`

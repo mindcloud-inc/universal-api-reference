@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3215 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3216 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -291,6 +291,7 @@ Machine-readable API descriptions for 3215 apps. Universal API specifications ar
 | [BotStar](../apis/b/botStar) | [OpenAPI 3.1](../apis/b/botStar/universal-api/openapi.json) | [Provider OpenAPI](https://apis.botstar.com/docs/public-api.yaml) |
 | [Botster](../apis/b/botster) | [OpenAPI 3.1](../apis/b/botster/universal-api/openapi.json) |  |
 | [Bouncify](../apis/b/bouncify) | [OpenAPI 3.1](../apis/b/bouncify/universal-api/openapi.json) |  |
+| [Box](../apis/b/box) | [OpenAPI 3.1](../apis/b/box/universal-api/openapi.json) |  |
 | [BoxHero](../apis/b/boxHero) | [OpenAPI 3.1](../apis/b/boxHero/universal-api/openapi.json) |  |
 | [Braintree](../apis/b/braintree) | [OpenAPI 3.1](../apis/b/braintree/universal-api/openapi.json) |  |
 | [Braintrust](../apis/b/braintrust) | [OpenAPI 3.1](../apis/b/braintrust/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/braintrustdata/braintrust-openapi/main/openapi/spec.yaml) |

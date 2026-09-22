@@ -233,7 +233,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
 | --- | --- | --- |
 | [Create Estimate](actions/create-estimate.md) | POST | Retrieves takeoff groups from your Aspire account. |
 | [Create Opportunity](actions/create-new-opportunity.md) | POST | Updates an existing pay code in your Aspire account. |
-| [List Oportunity Service Items](actions/list-oportunity-service-items.md) | GET | Individual equipment, labor/subcontractors, or materials within the scope of a service on an estimate. |
+| [List Opportunity Service Items](actions/list-oportunity-service-items.md) | GET | Individual equipment, labor/subcontractors, or materials within the scope of a service on an estimate. |
 | [List Opportunities](actions/list-opportunities.md) | GET |  |
 | [List Opportunity Service Groups](actions/list-opportunity-service-groups.md) | GET |  |
 | [List Opportunity Status](actions/list-opportunity-status.md) | GET | Retrieves opportunity statuses from your Aspire account. |

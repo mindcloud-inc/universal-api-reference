@@ -43,6 +43,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `sortBy` | string | no | Sort field for returned deals. |
 | `sortDirection` | string | no | Sort direction: asc or desc. |
 | `updatedSince` | string | no | Return deals updated after this timestamp. |
+| `customFields` | string | no |  |
 
 ## Response
 

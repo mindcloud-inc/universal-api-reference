@@ -138,7 +138,7 @@ Wait 60000 ms before the first retry. Stop after 14 attempts. Multiply the delay
 | [List Job Statuses](actions/list-job-statuses.md) | `GET JobStatuses` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/JobStatuses/JobStatuses_Get) |
 | [List Jobs](actions/list-jobs.md) | `GET Jobs` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/Jobs/Jobs_Get) |
 | [List Localities](actions/list-localities.md) | `GET Localities` | [docs](https://guide.youraspire.com/apidocs) |
-| [List Oportunity Service Items](actions/list-oportunity-service-items.md) | `GET OpportunityServiceItems` | [docs](https://guide.youraspire.com/apidocs/opportunityserviceitems-3) |
+| [List Opportunity Service Items](actions/list-oportunity-service-items.md) | `GET OpportunityServiceItems` | [docs](https://guide.youraspire.com/apidocs/opportunityserviceitems-3) |
 | [List Opportunities](actions/list-opportunities.md) | `GET Opportunities` | [docs](https://guide.youraspire.com/apidocs/opportunities-2) |
 | [List Opportunity Lost Reasons](actions/list-opportunity-lost-reasons.md) | `GET OpportunityLostReasons` | [docs](https://cloud-api.youraspire.com/swagger/index.html#/OpportunityLostReasons/OpportunityLostReasons_Get) |
 | [List Opportunity Service Groups](actions/list-opportunity-service-groups.md) | `GET OpportunityServiceGroups` | [docs](https://guide.youraspire.com/apidocs/opportunityservicegroups-5) |

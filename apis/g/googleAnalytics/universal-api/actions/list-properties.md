@@ -1,6 +1,6 @@
 # Google Analytics: List Properties
 
-
+Lists Google Analytics properties for an account.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/list-properties

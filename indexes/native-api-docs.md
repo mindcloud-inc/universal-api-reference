@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3215 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3216 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -297,6 +297,7 @@ The official vendor API documentation for each of the 3215 apps in this repo. Ea
 - [BotStar](../apis/b/botStar/native-api) - https://apis.botstar.com/docs/
 - [Botster](../apis/b/botster/native-api) - https://botster.io/info/api-docs
 - [Bouncify](../apis/b/bouncify/native-api) - https://bouncify.io/docs/api-docs/
+- [Box](../apis/b/box/native-api) - https://developer.box.com/reference
 - [BoxHero](../apis/b/boxHero/native-api) - https://rest.boxhero-app.com/docs/api
 - [Braintree](../apis/b/braintree/native-api) - https://developer.paypal.com/braintree/graphql/reference/
 - [Braintrust](../apis/b/braintrust/native-api) - https://www.braintrust.dev/docs/api-reference

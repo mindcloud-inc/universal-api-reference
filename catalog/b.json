@@ -261930,6 +261930,1572 @@
     "universalOpenApiPath": "apis/b/bouncify/universal-api/openapi.json"
   },
   {
+    "name": "Box",
+    "slug": "box",
+    "category": "Storage",
+    "categoryGroup": "Content & Files",
+    "description": "Connect Box to search content, inspect the authenticated user, and work with files and folders through the Box API.",
+    "iconUrl": "https://images.mindcloud.co/apps/icons/box-api-logo_1784316303050.jpeg",
+    "websiteUrl": "https://www.box.com/",
+    "nativeBaseUrl": "https://api.box.com/2.0",
+    "nativeDocumentationUrl": "https://developer.box.com/reference",
+    "version": "0.0.17",
+    "authentication": [
+      {
+        "type": "oAuth2",
+        "name": "OAuth 2.0",
+        "description": "Connect a Box user account through the standard OAuth 2.0 authorization-code flow.",
+        "scopes": "root_readwrite",
+        "documentationUrl": "https://developer.box.com/guides/authentication/oauth2/oauth2-setup",
+        "credentials": [
+          {
+            "key": "clientId",
+            "name": "Client Id",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "clientSecret",
+            "name": "Client Secret",
+            "dataType": "string",
+            "required": true
+          }
+        ],
+        "oauth": {
+          "authorizeUrl": "https://account.box.com/api/oauth2/authorize",
+          "accessTokenUrl": "https://api.box.com/oauth2/token",
+          "accessTokenMethod": "POST",
+          "refreshTokens": true,
+          "refreshTokenUrl": "https://api.box.com/oauth2/token",
+          "refreshTokenMethod": "POST"
+        },
+        "setupGuide": {
+          "title": "How to set up your Box OAuth 2.0 connection",
+          "beforeYouBegin": "You need a Box developer app that uses User Authentication (OAuth 2.0). In Box Developer Console, configure the exact redirect URI shown in the connection form and enable the Box scopes your workflow needs.",
+          "docsUrl": "https://developer.box.com/guides/authentication/oauth2/oauth2-setup",
+          "glossary": [
+            {
+              "term": "Redirect URI",
+              "definition": "The callback URL that Box sends the user back to after approval. It must exactly match the value configured in your Box app."
+            }
+          ],
+          "steps": [
+            {
+              "title": "Open the Box Developer Console",
+              "description": "Sign in to Box, open Developer Console, and create or open your User Authentication (OAuth 2.0) app.",
+              "breadcrumb": [
+                "Box",
+                "Developer Console"
+              ],
+              "url": "https://app.box.com/developers/console"
+            },
+            {
+              "title": "Configure the redirect URI",
+              "description": "In your Box app configuration, add the exact redirect URI shown in the connection form. Box requires an exact match.",
+              "copyValue": "Use the redirect URI shown in the connection form."
+            },
+            {
+              "title": "Enable the required Box scopes",
+              "description": "For a standard file-management integration, enable Read and write all files and folders stored in Box. Add other scopes only if your workflow truly needs them."
+            },
+            {
+              "title": "Copy your OAuth app credentials",
+              "description": "From the Box app configuration page, copy the Client ID and Client Secret, then paste them into the connection form."
+            },
+            {
+              "title": "Finish the connection",
+              "description": "Save the connection form and continue through the Box approval popup to authorize the account you want this connection to use."
+            }
+          ]
+        }
+      },
+      {
+        "type": "apiKey",
+        "name": "Developer Token",
+        "notes": "Expires Quickly",
+        "notesVariant": "info",
+        "documentationUrl": "https://developer.box.com/guides/authentication/oauth2/oauth2-setup",
+        "credentials": [
+          {
+            "key": "apiKey",
+            "name": "API Key",
+            "dataType": "string",
+            "required": true,
+            "sensitive": true
+          }
+        ]
+      }
+    ],
+    "nativeApis": [
+      {
+        "type": "rest",
+        "baseUrl": "https://api.box.com/2.0",
+        "responses": [
+          {
+            "parser": "auto"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "name": "Commit Upload Session",
+        "slug": "commit-upload-session",
+        "operation": "create",
+        "method": "POST",
+        "model": "file",
+        "documentationUrl": "https://developer.box.com/reference/post-files-upload-sessions-id-commit",
+        "native": {
+          "method": "POST",
+          "path": "https://upload.box.com/api/2.0/files/upload_sessions/:session_id/commit",
+          "useFullUrl": true,
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "session_id",
+              "internalKey": "sessionId",
+              "name": "Upload Session ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Upload session ID returned by Create Upload Session."
+            },
+            {
+              "key": "wholeFileSha1",
+              "name": "Complete File Content",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "The complete file in base64, the same value the parts were sliced from. Box needs a checksum of the whole file to close the upload and this action works it out for you. A 40-character hexadecimal SHA-1 is also accepted if you already have one."
+            },
+            {
+              "key": "parts",
+              "name": "Parts",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true,
+              "description": "List of part objects returned by Upload Part, ordered by offset."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "sessionId",
+            "name": "Upload Session ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Upload session ID returned by Create Upload Session.",
+            "example": "578EAA0B34295198B0E32B085769932C"
+          },
+          {
+            "key": "wholeFileSha1",
+            "name": "Complete File Content",
+            "dataType": "string",
+            "required": true,
+            "description": "The complete file in base64, the same value the parts were sliced from. Box needs a checksum of the whole file to close the upload and this action works it out for you. A 40-character hexadecimal SHA-1 is also accepted if you already have one.",
+            "example": "SGVsbG8gQm94"
+          },
+          {
+            "key": "parts",
+            "name": "Parts",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true,
+            "description": "List of part objects returned by Upload Part, ordered by offset."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "contentCreatedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "contentModifiedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.login",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "description",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "etag",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "fileVersion.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "fileVersion.sha1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "fileVersion.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "itemStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.login",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.login",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parent.etag",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parent.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parent.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parent.sequenceId",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parent.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.entries[].etag",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "pathCollection.entries[].id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.entries[].name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.entries[].sequenceId",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "pathCollection.entries[].type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.totalCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "purgedAt",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "sequenceId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sha1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sharedLink",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "size",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "trashedAt",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Folder",
+        "slug": "create-folder",
+        "operation": "create",
+        "method": "POST",
+        "model": "folder",
+        "group": "Folder",
+        "documentationUrl": "https://developer.box.com/reference/post-folders",
+        "native": {
+          "method": "POST",
+          "path": "/folders",
+          "baseUrl": "https://api.box.com/2.0",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "name",
+              "name": "Name",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "The name of the new folder."
+            },
+            {
+              "key": "parentFolderId",
+              "name": "Parent Folder ID",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Parent Box folder ID. Use `0` to create the folder in the root folder."
+            },
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional comma-separated list of folder fields to include in the response."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "name",
+            "name": "Name",
+            "dataType": "string",
+            "required": true,
+            "description": "The name of the new folder.",
+            "example": "Codex Box Test Folder"
+          },
+          {
+            "key": "parentFolderId",
+            "name": "Parent Folder ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Parent Box folder ID. Use `0` to create the folder in the root folder.",
+            "example": "0",
+            "defaultValue": "0"
+          },
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional comma-separated list of folder fields to include in the response.",
+            "example": "id,type,name,parent,path_collection"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "contentCreatedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "contentModifiedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.login",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "createdBy.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "description",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "etag",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "folderUploadEmail",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "itemCollection.limit",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "itemCollection.offset",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "itemCollection.order[].by",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "itemCollection.order[].direction",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "itemCollection.totalCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "itemStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.login",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modifiedBy.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.login",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ownedBy.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parent.etag",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parent.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parent.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parent.sequenceId",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parent.type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.entries[].etag",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "pathCollection.entries[].id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.entries[].name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.entries[].sequenceId",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "pathCollection.entries[].type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "pathCollection.totalCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "purgedAt",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "sequenceId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sharedLink",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "size",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "trashedAt",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Upload Session",
+        "slug": "create-upload-session",
+        "operation": "create",
+        "method": "POST",
+        "group": "Upload Session",
+        "documentationUrl": "https://developer.box.com/reference/post-files-upload-sessions",
+        "native": {
+          "method": "POST",
+          "path": "https://upload.box.com/api/2.0/files/upload_sessions",
+          "useFullUrl": true,
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "folder_id",
+              "internalKey": "folderId",
+              "name": "Parent Folder ID",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Parent Box folder ID. Use `0` for the root folder."
+            },
+            {
+              "key": "file_size",
+              "internalKey": "fileSize",
+              "name": "File Size",
+              "dataType": "number",
+              "location": "body",
+              "required": true,
+              "description": "Total file size in bytes, not the length of its base64 representation."
+            },
+            {
+              "key": "file_name",
+              "internalKey": "fileName",
+              "name": "File Name",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Name of the file to upload."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "folderId",
+            "name": "Parent Folder ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Parent Box folder ID. Use `0` for the root folder.",
+            "example": "0",
+            "defaultValue": "0"
+          },
+          {
+            "key": "fileSize",
+            "name": "File Size",
+            "dataType": "number",
+            "required": true,
+            "description": "Total file size in bytes, not the length of its base64 representation.",
+            "example": "1048576"
+          },
+          {
+            "key": "fileName",
+            "name": "File Name",
+            "dataType": "string",
+            "required": true,
+            "description": "Name of the file to upload.",
+            "example": "report.csv"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "numPartsProcessed",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "partSize",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "sessionEndpoints.abort",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sessionEndpoints.commit",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sessionEndpoints.listParts",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sessionEndpoints.logEvent",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sessionEndpoints.plan",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sessionEndpoints.status",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sessionEndpoints.uploadPart",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "sessionExpiresAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "totalParts",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Get Current User",
+        "slug": "get-current-user",
+        "operation": "read",
+        "method": "GET",
+        "model": "user",
+        "group": "User",
+        "documentationUrl": "https://developer.box.com/reference/get-users-me",
+        "native": {
+          "method": "GET",
+          "path": "/users/me",
+          "baseUrl": "https://api.box.com/2.0",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "avatar_url",
+            "dataType": "string",
+            "description": "URL of the user's avatar image.",
+            "mockType": "string"
+          },
+          {
+            "key": "created_at",
+            "dataType": "date",
+            "description": "When the user object was created.",
+            "mockType": "date"
+          },
+          {
+            "key": "enterprise",
+            "dataType": "object",
+            "description": "Representation of the user's enterprise.",
+            "mockType": "object"
+          },
+          {
+            "key": "external_app_user_id",
+            "dataType": "string",
+            "description": "External identifier for an app user when present.",
+            "mockType": "string"
+          },
+          {
+            "key": "hostname",
+            "dataType": "string",
+            "description": "Root hostname for Box links for this user.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The unique identifier for this user.",
+            "mockType": "string"
+          },
+          {
+            "key": "is_platform_access_only",
+            "dataType": "boolean",
+            "description": "Whether the user is an App User.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "language",
+            "dataType": "string",
+            "description": "The user's language.",
+            "mockType": "string"
+          },
+          {
+            "key": "login",
+            "dataType": "string",
+            "description": "The primary email address of this user.",
+            "mockType": "string"
+          },
+          {
+            "key": "max_upload_size",
+            "dataType": "number",
+            "description": "The maximum individual file size in bytes the user can upload.",
+            "mockType": "number"
+          },
+          {
+            "key": "modified_at",
+            "dataType": "date",
+            "description": "When the user object was last modified.",
+            "mockType": "date"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "The display name of this user.",
+            "mockType": "string"
+          },
+          {
+            "key": "role",
+            "dataType": "string",
+            "description": "The user's enterprise role.",
+            "mockType": "string"
+          },
+          {
+            "key": "space_amount",
+            "dataType": "number",
+            "description": "The user's total available space in bytes.",
+            "mockType": "number"
+          },
+          {
+            "key": "space_used",
+            "dataType": "number",
+            "description": "The amount of space in use by the user.",
+            "mockType": "number"
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "description": "The user's account status.",
+            "mockType": "string"
+          },
+          {
+            "key": "timezone",
+            "dataType": "string",
+            "description": "The user's timezone.",
+            "mockType": "string"
+          },
+          {
+            "key": "type",
+            "dataType": "string",
+            "description": "Always user.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Get Folder",
+        "slug": "get-folder",
+        "operation": "read",
+        "method": "GET",
+        "model": "folder",
+        "group": "Folder",
+        "documentationUrl": "https://developer.box.com/reference/get-folders-id",
+        "native": {
+          "method": "GET",
+          "path": "/folders/:folder_id",
+          "baseUrl": "https://api.box.com/2.0",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional comma-separated list of folder fields to include in the response."
+            },
+            {
+              "key": "folder_id",
+              "internalKey": "folderId",
+              "name": "Folder ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The Box folder ID. Use `0` for the root folder."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional comma-separated list of folder fields to include in the response.",
+            "example": "id,type,name,parent,path_collection,size"
+          },
+          {
+            "key": "folderId",
+            "name": "Folder ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The Box folder ID. Use `0` for the root folder.",
+            "example": "0"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "created_at",
+            "dataType": "date",
+            "description": "When the folder was created.",
+            "mockType": "date"
+          },
+          {
+            "key": "description",
+            "dataType": "string",
+            "description": "Optional folder description.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The folder ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "item_status",
+            "dataType": "string",
+            "description": "The item status.",
+            "mockType": "string"
+          },
+          {
+            "key": "modified_at",
+            "dataType": "date",
+            "description": "When the folder was last modified.",
+            "mockType": "date"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "The folder name.",
+            "mockType": "string"
+          },
+          {
+            "key": "parent",
+            "dataType": "object",
+            "description": "The parent folder.",
+            "mockType": "object"
+          },
+          {
+            "key": "path_collection",
+            "dataType": "object",
+            "description": "The folder path from the root.",
+            "mockType": "object"
+          },
+          {
+            "key": "size",
+            "dataType": "number",
+            "description": "The total size of the folder contents in bytes.",
+            "mockType": "number"
+          },
+          {
+            "key": "type",
+            "dataType": "string",
+            "description": "Always folder.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Root Folder Items",
+        "slug": "list-root-folder-items",
+        "operation": "read",
+        "method": "GET",
+        "model": "item",
+        "group": "Folder Item",
+        "documentationUrl": "https://developer.box.com/reference/get-folders-id-items",
+        "native": {
+          "method": "GET",
+          "path": "/folders/:folder_id/items",
+          "baseUrl": "https://api.box.com/2.0",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "folder_id",
+              "internalKey": "folderId",
+              "name": "Folder ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Root folder ID. This action is preconfigured to use `0`."
+            },
+            {
+              "key": "limit",
+              "name": "Limit",
+              "dataType": "number",
+              "location": "query",
+              "required": false,
+              "description": "Maximum number of root items to return."
+            },
+            {
+              "key": "offset",
+              "name": "Offset",
+              "dataType": "number",
+              "location": "query",
+              "required": false,
+              "description": "Offset-based pagination start position for root items."
+            },
+            {
+              "key": "usemarker",
+              "name": "Use Marker Pagination",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "Set true to use marker-based pagination for root items."
+            },
+            {
+              "key": "marker",
+              "name": "Marker",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Marker token for the next page of root items."
+            },
+            {
+              "key": "sort",
+              "name": "Sort",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional secondary sort field for root items."
+            },
+            {
+              "key": "direction",
+              "name": "Direction",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Sort direction: ASC or DESC."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "folderId",
+            "name": "Folder ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Root folder ID. This action is preconfigured to use `0`.",
+            "example": "0",
+            "defaultValue": "0"
+          },
+          {
+            "key": "limit",
+            "name": "Limit",
+            "dataType": "number",
+            "required": false,
+            "description": "Maximum number of root items to return.",
+            "example": "100"
+          },
+          {
+            "key": "offset",
+            "name": "Offset",
+            "dataType": "number",
+            "required": false,
+            "description": "Offset-based pagination start position for root items.",
+            "example": "0"
+          },
+          {
+            "key": "usemarker",
+            "name": "Use Marker Pagination",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true,
+            "description": "Set true to use marker-based pagination for root items.",
+            "example": "true"
+          },
+          {
+            "key": "marker",
+            "name": "Marker",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Marker token for the next page of root items.",
+            "example": "AAEAAQ..."
+          },
+          {
+            "key": "sort",
+            "name": "Sort",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional secondary sort field for root items.",
+            "example": "name"
+          },
+          {
+            "key": "direction",
+            "name": "Direction",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Sort direction: ASC or DESC.",
+            "example": "ASC"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "entries",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "The root folder items returned for this page.",
+            "mockType": "array"
+          },
+          {
+            "key": "limit",
+            "dataType": "number",
+            "description": "The page size limit.",
+            "mockType": "number"
+          },
+          {
+            "key": "next_marker",
+            "dataType": "string",
+            "description": "Marker for the next page when marker pagination is active.",
+            "mockType": "string"
+          },
+          {
+            "key": "offset",
+            "dataType": "number",
+            "description": "The offset used for this page when offset pagination is active.",
+            "mockType": "number"
+          },
+          {
+            "key": "total_count",
+            "dataType": "number",
+            "description": "The total number of root items available.",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Search Folders",
+        "slug": "search-folders",
+        "operation": "read",
+        "method": "GET",
+        "model": "folder",
+        "group": "Folder",
+        "documentationUrl": "https://developer.box.com/reference/get-search",
+        "native": {
+          "method": "GET",
+          "path": "/search",
+          "baseUrl": "https://api.box.com/2.0",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "query",
+              "name": "Query",
+              "dataType": "string",
+              "location": "query",
+              "required": true,
+              "description": "The text to search for in folder names and folder metadata."
+            },
+            {
+              "key": "ancestor_folder_ids",
+              "internalKey": "ancestorFolderIds",
+              "name": "Ancestor Folder IDs",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional comma-separated parent folder IDs to limit the search scope."
+            },
+            {
+              "key": "limit",
+              "name": "Limit",
+              "dataType": "number",
+              "location": "query",
+              "required": false,
+              "description": "Maximum number of folder search results to return."
+            },
+            {
+              "key": "offset",
+              "name": "Offset",
+              "dataType": "number",
+              "location": "query",
+              "required": false,
+              "description": "Offset-based pagination start position for folder search results."
+            },
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional comma-separated list of folder fields to include."
+            },
+            {
+              "key": "sort",
+              "name": "Sort",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional search sort field: relevance or modified_at."
+            },
+            {
+              "key": "direction",
+              "name": "Direction",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Search sort direction: DESC or ASC."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "query",
+            "name": "Query",
+            "dataType": "string",
+            "required": true,
+            "description": "The text to search for in folder names and folder metadata.",
+            "example": "contracts"
+          },
+          {
+            "key": "ancestorFolderIds",
+            "name": "Ancestor Folder IDs",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional comma-separated parent folder IDs to limit the search scope.",
+            "example": "0"
+          },
+          {
+            "key": "limit",
+            "name": "Limit",
+            "dataType": "number",
+            "required": false,
+            "description": "Maximum number of folder search results to return.",
+            "example": "100"
+          },
+          {
+            "key": "offset",
+            "name": "Offset",
+            "dataType": "number",
+            "required": false,
+            "description": "Offset-based pagination start position for folder search results.",
+            "example": "0"
+          },
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional comma-separated list of folder fields to include.",
+            "example": "id,type,name,path_collection"
+          },
+          {
+            "key": "sort",
+            "name": "Sort",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional search sort field: relevance or modified_at.",
+            "example": "relevance"
+          },
+          {
+            "key": "direction",
+            "name": "Direction",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Search sort direction: DESC or ASC.",
+            "example": "DESC"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "entries",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "The folders returned by the search.",
+            "mockType": "array"
+          },
+          {
+            "key": "limit",
+            "dataType": "number",
+            "description": "The page size limit.",
+            "mockType": "number"
+          },
+          {
+            "key": "offset",
+            "dataType": "number",
+            "description": "The offset used for this page of folder search results.",
+            "mockType": "number"
+          },
+          {
+            "key": "total_count",
+            "dataType": "number",
+            "description": "The total number of matching folders available.",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Upload Part",
+        "slug": "upload-part",
+        "operation": "update",
+        "method": "PUT",
+        "group": "Upload Part",
+        "documentationUrl": "https://developer.box.com/reference/put-files-upload-sessions-id",
+        "native": {
+          "method": "PUT",
+          "path": "https://upload.box.com/api/2.0/files/upload_sessions/:session_id",
+          "useFullUrl": true,
+          "apiType": "rest",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/octet-stream"
+            }
+          ],
+          "arguments": [
+            {
+              "key": "session_id",
+              "internalKey": "sessionId",
+              "name": "Upload Session ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Upload session ID returned by Create Upload Session."
+            },
+            {
+              "key": "partStart",
+              "name": "Part Start",
+              "dataType": "number",
+              "location": "body",
+              "required": true,
+              "description": "Zero-based byte offset where this part starts."
+            },
+            {
+              "key": "partEnd",
+              "name": "Part End",
+              "dataType": "number",
+              "location": "body",
+              "required": true,
+              "description": "Inclusive byte offset where this part ends."
+            },
+            {
+              "key": "totalFileSize",
+              "name": "Total File Size",
+              "dataType": "number",
+              "location": "body",
+              "required": true,
+              "description": "Total size of the complete file in bytes."
+            },
+            {
+              "key": "file",
+              "name": "Part Content",
+              "dataType": "file",
+              "location": "body",
+              "required": true,
+              "description": "Raw base64 content for this part. It is decoded and sent as the naked request body."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "sessionId",
+            "name": "Upload Session ID",
+            "dataType": "string",
+            "required": true,
+            "description": "Upload session ID returned by Create Upload Session.",
+            "example": "578EAA0B34295198B0E32B085769932C"
+          },
+          {
+            "key": "partStart",
+            "name": "Part Start",
+            "dataType": "number",
+            "required": true,
+            "description": "Zero-based byte offset where this part starts.",
+            "example": "0"
+          },
+          {
+            "key": "partEnd",
+            "name": "Part End",
+            "dataType": "number",
+            "required": true,
+            "description": "Inclusive byte offset where this part ends.",
+            "example": "8388607"
+          },
+          {
+            "key": "totalFileSize",
+            "name": "Total File Size",
+            "dataType": "number",
+            "required": true,
+            "description": "Total size of the complete file in bytes.",
+            "example": "32000000"
+          },
+          {
+            "key": "file",
+            "name": "Part Content",
+            "dataType": "file",
+            "required": true,
+            "description": "Raw base64 content for this part. It is decoded and sent as the naked request body.",
+            "example": "SGVsbG8="
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "part.offset",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "part.partId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "part.sha1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "part.sha512",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "part.size",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      }
+    ],
+    "universalOpenApiPath": "apis/b/box/universal-api/openapi.json"
+  },
+  {
     "name": "BoxHero",
     "slug": "boxHero",
     "category": "Supply Chain",

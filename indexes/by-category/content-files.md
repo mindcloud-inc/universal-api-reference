@@ -1,6 +1,6 @@
 # Content & Files apps
 
-71 apps in the Content & Files category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+72 apps in the Content & Files category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Acronis** · [Universal API reference](../../apis/a/acronis/universal-api) · [Native API reference](../../apis/a/acronis/native-api) · [Native API docs](https://developer.acronis.com/doc/outbound/apis/index.html)
 - **Adafruit IO** · [Universal API reference](../../apis/a/adafruitIO/universal-api) · [Native API reference](../../apis/a/adafruitIO/native-api) · [Native API docs](https://io.adafruit.com/api/docs/)
@@ -8,6 +8,7 @@
 - **Aspera on Cloud** · [Universal API reference](../../apis/a/asperaOnCloud/universal-api) · [Native API reference](../../apis/a/asperaOnCloud/native-api) · [Native API docs](https://developer.ibm.com/apis/catalog/aspera--aspera-on-cloud-api/Introduction)
 - **Audome** · [Universal API reference](../../apis/a/audome/universal-api) · [Native API reference](../../apis/a/audome/native-api) · [Native API docs](https://app.audome.com/api-documentation)
 - **Bitport** · [Universal API reference](../../apis/b/bitport/universal-api) · [Native API reference](../../apis/b/bitport/native-api) · [Native API docs](https://bitport.io/api)
+- **Box** · [Universal API reference](../../apis/b/box/universal-api) · [Native API reference](../../apis/b/box/native-api) · [Native API docs](https://developer.box.com/reference)
 - **Cloudinary** · [Universal API reference](../../apis/c/cloudinary/universal-api) · [Native API reference](../../apis/c/cloudinary/native-api) · [Native API docs](https://cloudinary.com/documentation/cloudinary_references)
 - **CloudPDF** · [Universal API reference](../../apis/c/cloudPDF/universal-api) · [Native API reference](../../apis/c/cloudPDF/native-api) · [Native API docs](https://cloudpdf.io/developers/api-docs)
 - **ComPDFKit PDF Converter** · [Universal API reference](../../apis/c/comPDFKitPDFConverter/universal-api) · [Native API reference](../../apis/c/comPDFKitPDFConverter/native-api) · [Native API docs](https://api.compdf.com/api-reference/overview)

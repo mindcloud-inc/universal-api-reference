@@ -40,7 +40,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/ac
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [List Properties](actions/list-properties.md) | GET |  |
+| [List Properties](actions/list-properties.md) | GET | Lists Google Analytics properties for an account. |
 
 ### Analytics Property Metadata
 

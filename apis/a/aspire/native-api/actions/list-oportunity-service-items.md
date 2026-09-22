@@ -1,4 +1,4 @@
-# List Oportunity Service Items with Aspire
+# List Opportunity Service Items with Aspire
 
 Individual equipment, labor/subcontractors, or materials within the scope of a service on an estimate.
 
@@ -7,7 +7,7 @@ Individual equipment, labor/subcontractors, or materials within the scope of a s
 - **Method:** `GET`
 - **Path:** `OpportunityServiceItems`
 - **Base URL:** `https://{environment}.youraspire.com/`
-- **Official documentation:** [List Oportunity Service Items](https://guide.youraspire.com/apidocs/opportunityserviceitems-3)
+- **Official documentation:** [List Opportunity Service Items](https://guide.youraspire.com/apidocs/opportunityserviceitems-3)
 
 ## Capabilities
 

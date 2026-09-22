@@ -19,3 +19,4 @@ This operation supports [pagination](../README.md#pagination).
 | `status` | query | `string` | no |
 | `ids` | query | `string` | no |
 | `jobIds` | query | `string` | no |
+| `createdOnOrAfter` | query | `string` | no |
