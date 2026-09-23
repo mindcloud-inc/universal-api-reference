@@ -7,13 +7,15 @@ These examples use the MindCloud API key and Google Analytics connection describ
 
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/list-account-summaries?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/list-account-summaries?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  limit: '25',
+  offset: '0'
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/list-account-summaries?${params}`, {
@@ -32,10 +34,12 @@ Example response:
   "success": true,
   "data": [
     {
-      "accountSummaries": [
+      "account": "string",
+      "displayName": "Ava Chen",
+      "name": "Ava Chen",
+      "propertySummaries": [
         {}
-      ],
-      "nextPageToken": "string"
+      ]
     }
   ],
   "meta": {}

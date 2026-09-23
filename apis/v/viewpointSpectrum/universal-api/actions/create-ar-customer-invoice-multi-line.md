@@ -15,15 +15,7 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID",
-  "arInvoices[].multiLineArInvoice.Company_Code": "string",
-  "arInvoices[].multiLineArInvoice.GL_Date": "string",
-  "arInvoices[].multiLineArInvoice.Batch_Code": "string",
-  "arInvoices[].multiLineArInvoice.Customer_Code": "string",
-  "arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Line_Extension": 1,
-  "arInvoices[].multiLineArInvoice.Invoice_Or_Transaction": "string",
-  "arInvoices[].multiLineArInvoice.Transaction_Type": "string",
-  "arInvoices[].multiLineArInvoice.Invoice Date": "string"
+  "connectionId": "$CONNECTION_ID"
 }'
 ```
 
@@ -35,15 +27,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId,
-    "arInvoices[].multiLineArInvoice.Company_Code": "string",
-    "arInvoices[].multiLineArInvoice.GL_Date": "string",
-    "arInvoices[].multiLineArInvoice.Batch_Code": "string",
-    "arInvoices[].multiLineArInvoice.Customer_Code": "string",
-    "arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Line_Extension": 1,
-    "arInvoices[].multiLineArInvoice.Invoice_Or_Transaction": "string",
-    "arInvoices[].multiLineArInvoice.Transaction_Type": "string",
-    "arInvoices[].multiLineArInvoice.Invoice Date": "string"
+    connectionId
   })
 });
 
@@ -58,22 +42,22 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `arInvoices[]` | array | no |  |
 | `arInvoices[].multiLineArInvoice` | object | no |  |
-| `arInvoices[].multiLineArInvoice.Company_Code` | string | yes |  |
+| `arInvoices[].multiLineArInvoice.Company_Code` | string | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail` | object | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Quantity` | number | no |  |
-| `arInvoices[].multiLineArInvoice.GL_Date` | string | yes |  |
+| `arInvoices[].multiLineArInvoice.GL_Date` | string | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Detail_Description` | string | no |  |
-| `arInvoices[].multiLineArInvoice.Batch_Code` | string | yes |  |
+| `arInvoices[].multiLineArInvoice.Batch_Code` | string | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Unit_Of_Measure` | string | no |  |
-| `arInvoices[].multiLineArInvoice.Customer_Code` | string | yes |  |
-| `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Line_Extension` | number | yes |  |
+| `arInvoices[].multiLineArInvoice.Customer_Code` | string | no |  |
+| `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Line_Extension` | number | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.GL_Account` | string | no |  |
 | `arInvoices[].multiLineArInvoice.Job Number` | string | no |  |
-| `arInvoices[].multiLineArInvoice.Invoice_Or_Transaction` | string | yes |  |
+| `arInvoices[].multiLineArInvoice.Invoice_Or_Transaction` | string | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Taxable_Flag` | string | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Income_Cost_Center` | string | no |  |
-| `arInvoices[].multiLineArInvoice.Transaction_Type` | string | yes |  |
-| `arInvoices[].multiLineArInvoice.Invoice Date` | string | yes |  |
+| `arInvoices[].multiLineArInvoice.Transaction_Type` | string | no |  |
+| `arInvoices[].multiLineArInvoice.Invoice Date` | string | no |  |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Message` | string | no |  |
 | `arInvoices[].multiLineArInvoice.Terms_Code` | string | no |  |
 | `arInvoices[].multiLineArInvoice.Salesperson_Code` | string | no |  |

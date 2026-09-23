@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- |
 | `purchaseOrders[]` | body | `array<object>` | yes | Purchase order batch items. |
 | `purchaseOrders[].Company_Code` | body | `string` | yes | Company code. Required; must be a valid company. |
-| `purchaseOrders[].PO_Number` | body | `string` | yes | Purchase order number. Required; leave blank to auto-assign the next PO number. |
+| `purchaseOrders[].PO_Number` | body | `string` | no | Purchase order number. Required; leave blank to auto-assign the next PO number. |
 | `purchaseOrders[].Vendor_Code` | body | `string` | yes | Vendor code. Required; valid vendor code must exist in the company. |
 | `purchaseOrders[].Warehouse_Code` | body | `string` | no | Warehouse code. Required unless no non-direct cost detail records are included. |
 | `purchaseOrders[].Job_Number` | body | `string` | no | Job number. Required unless a valid warehouse code is defined and there are no direct job cost detail records. |

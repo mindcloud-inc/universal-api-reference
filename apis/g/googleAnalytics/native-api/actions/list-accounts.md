@@ -1,5 +1,7 @@
 # List Accounts with Google Analytics
 
+Lists all Google Analytics accounts accessible to the connection.
+
 ## Endpoint
 
 - **Method:** `GET`

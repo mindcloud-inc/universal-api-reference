@@ -16,8 +16,8 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "customerCode": "string",
-  "name": "Ava Chen"
+  "Customer_Code": "string",
+  "Name": "Ava Chen"
 }'
 ```
 
@@ -30,8 +30,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
   },
   body: JSON.stringify({
     connectionId,
-    "customerCode": "string",
-    "name": "Ava Chen"
+    "Customer_Code": "string",
+    "Name": "Ava Chen"
   })
 });
 
@@ -44,28 +44,26 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address1` | string | no |  |
-| `address2` | string | no |  |
+| `Address_1` | string | no |  |
+| `Address_2` | string | no |  |
 | `alphaSort` | string | no |  |
-| `city` | string | no |  |
-| `customerCode` | string | yes |  |
-| `name` | string | yes |  |
+| `City` | string | no |  |
+| `Customer_Code` | string | yes |  |
+| `Name` | string | yes |  |
 | `type` | string | no |  |
-| `state` | string | no |  |
-| `zipCode` | string | no |  |
-| `phone` | string | no |  |
+| `State` | string | no |  |
+| `Zip_Code` | string | no |  |
+| `Phone_Number` | string | no |  |
 | `faxPhone` | string | no |  |
 | `contact1` | string | no |  |
 | `contact2` | string | no |  |
 | `contact3` | string | no |  |
 | `salesperson` | string | no |  |
-| `termsCode` | string | no | Default: `NET30`. |
 | `standardRetentionPercent` | number | no |  |
-| `taxableFlag` | list | no |  |
-| `salesTaxCode` | string | no | Default: `\"\"`. |
+| `Taxable_Flag` | list | no |  |
 | `resaleNumber` | string | no |  |
 | `resaleExpDate` | date | no |  |
-| `statementFlag` | list | no |  |
+| `Statement_Flag` | list | no |  |
 | `financeChargeTranCode` | string | no |  |
 | `financeCharge` | number | no |  |
 | `priceLevelMaterial` | list<number> | no |  |
@@ -75,6 +73,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `Email1` | string | no |  |
 | `markupCode` | string | no |  |
 | `userDefinedFields` | object | no | UDF1 — UDF20 |
+| `Terms_Code` | string | no |  |
+| `Sales_Tax_Code` | string | no |  |
 
 ## Response
 
@@ -82,5 +82,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Viewpoint Spectrum API, this operation is `POST ws/customer/updatecustomer` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-customer.md) for the provider-specific parameters and requirements.
+Through the native Viewpoint Spectrum API, this operation is `POST customer/updatecustomer` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-customer.md) for the provider-specific parameters and requirements.
 

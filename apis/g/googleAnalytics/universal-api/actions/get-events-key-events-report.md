@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Google A
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/get-events-key-events-report?connectionId=$CONNECTION_ID&propertyId=123456789&dateRanges%5B%5D=%5Bobject%20Object%5D" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/get-events-key-events-report?connectionId=$CONNECTION_ID&propertyId=123456789&dateRanges%5B%5D=%5Bobject%20Object%5D&dateRanges%5B%5D.startDate=30daysAgo&dateRanges%5B%5D.endDate=today" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -19,7 +19,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/ac
 const params = new URLSearchParams({
   connectionId,
   "propertyId": "123456789",
-  "dateRanges[]": "[object Object]"
+  "dateRanges[]": "[object Object]",
+  "dateRanges[].startDate": "30daysAgo",
+  "dateRanges[].endDate": "today"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/get-events-key-events-report?${params}`, {
@@ -38,7 +40,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `propertyId` | string | yes | GA4 property ID without the properties/ prefix Example: `123456789`. |
-| `dateRanges[]` | array<object> | yes | GA4 date ranges, such as 30daysAgo through today Default: `[{"endDate":"today","startDate":"30daysAgo"}]`. |
+| `dateRanges[]` | array<object> | yes | One or more GA4 date ranges. Each item is an object with startDate and endDate keys (for example startDate 30daysAgo, endDate today), not a plain date string. Default: `[{"endDate":"today","startDate":"30daysAgo"}]`. |
+| `dateRanges[].startDate` | string | yes | Range start as YYYY-MM-DD or a relative value such as 30daysAgo, yesterday, or today Default: `30daysAgo`. |
+| `dateRanges[].endDate` | string | yes | Range end as YYYY-MM-DD or a relative value such as today or yesterday Default: `today`. |
 
 ### Advanced
 

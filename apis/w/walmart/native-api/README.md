@@ -6,6 +6,7 @@ A consolidated summary of Walmart's API configuration and 90 documented operatio
 - **REST base URL:** `https://{environment}.walmartapis.com`
 - **Simulations base URL:** `https://sandbox.walmartapis.com`
 - **REST (nextCursor) base URL:** `https://{environment}.walmartapis.com`
+- **REST (nextCursor) v2 base URL:** `https://{environment}.walmartapis.com`
 
 ## Authentication
 
@@ -57,14 +58,26 @@ Shared headers:
 
 Responses from this API use JSON.
 
+### REST (nextCursor) v2
+
+Request bodies use JSON.
+
+Shared headers:
+
+| Header | Value |
+| --- | --- |
+| `Content-Type` | `application/json; charset=utf-8` |
+
 ## Pagination
 
 - **REST:** Use `noOfRecords` in the query string to set the page size (default 100; maximum 200). Use `offset` in the query string as the record offset.
 - **REST (nextCursor):** Use `limit` in the query string to set the page size (default 20; maximum 1000). Use `offset` in the query string as the record offset.
+- **REST (nextCursor) v2:** Use `limit` in the query string to set the page size (default 10; accepted range 1–50). Use `nextCursor` in the query string as the pagination cursor.
 
 ## Filtering
 
 - **REST:** Supported operators: `eq`.
+- **REST (nextCursor) v2:** Supported operators: `eq`.
 
 ## Endpoints (90 documented)
 
@@ -132,7 +145,7 @@ Responses from this API use JSON.
 | [List Feed Statuses](actions/list-feed-statuses.md) | REST | `GET /v3/feeds` | [docs](https://developer.walmart.com/us-marketplace/reference/getallfeedstatuses#:~:text=Utilities-,All%20feed%20statuses,-GET) |
 | [List Fulfillment Centers](actions/list-fulfillment-centers.md) | REST | `GET /v3/settings/shipping/shipnodes` | [docs](https://developer.walmart.com/us-marketplace/reference/getallfulfillmentcenters) |
 | [List Inbound Shipments](actions/list-inbound-shipments.md) | REST | `GET /v3/fulfillment/inbound-shipments` | [docs](https://developer.walmart.com/us-marketplace/reference/getinboundshipments) |
-| [List Inventory Levels](actions/list-inventory-levels.md) | REST | `GET /v3/inventories` | [docs](https://developer.walmart.com/us-marketplace/reference/getmultinodeinventoryforallskuandallshipnodes) |
+| [List Inventory Levels](actions/list-inventory-levels.md) | REST (nextCursor) v2 | `GET /v3/inventories` | [docs](https://developer.walmart.com/us-marketplace/reference/getmultinodeinventoryforallskuandallshipnodes) |
 | [List Items](actions/list-items.md) | REST (nextCursor) | `GET /v3/items` | [docs](https://developer.walmart.com/us-marketplace/reference/getallitems) |
 | [List Items - Simulation](actions/list-items-simulation.md) | REST (nextCursor) | `GET /v1/simulations/items` | [docs](https://developer.walmart.com/us-marketplace/reference/getallitems) |
 | [List Price Incentive Items](actions/list-price-incentive-items.md) | REST | `GET /v3/price/incentives` | [docs](https://developer.walmart.com/global-marketplace/reference/getallincentives) |

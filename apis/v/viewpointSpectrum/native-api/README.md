@@ -1,6 +1,6 @@
 # Viewpoint Spectrum: Native API Reference
 
-A consolidated summary of Viewpoint Spectrum's API configuration and 20 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Spectrum's API configuration and 21 documented operations, with links to official documentation.
 
 - **Official docs:** https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services
 - **API base URL:** `{url}:8482/`
@@ -29,7 +29,7 @@ Shared headers:
 
 Use `$limit` in the query string to set the page size (default 25; accepted range 1–500). Use `$skip` in the query string as the record offset.
 
-## Endpoints (20 documented)
+## Endpoints (21 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -49,7 +49,8 @@ Use `$limit` in the query string to set the page size (default 25; accepted rang
 | [Get Customers](actions/get-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |
 | [List Customers](actions/list-customers.md) | `POST ws/GetCustomers` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers) |
 | [List Vendors](actions/list-vendors.md) | `GET vendors/{{credentials.companyID}}` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/get-vendors) |
-| [Update Customer](actions/update-customer.md) | `POST ws/customer/updatecustomer` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
+| [Send Timesheet (SOAP)](actions/send-timesheet-soap.md) | `POST ws/AddPRTimeCard` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor) |
+| [Update Customer](actions/update-customer.md) | `POST customer/updatecustomer` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer) |
 | [Update Vendor](actions/update-vendor.md) | `POST ws/UpdateVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/update-vendor) |
 | [Update Vendor (SOAP)](actions/update-vendor-soap.md) | `POST ws/UpdateVendor` | [docs](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/update-vendor) |
 | [Upsert Customer Bill-To](actions/upsert-customer-bill-to.md) | `POST ws/CustomerBillto` |  |

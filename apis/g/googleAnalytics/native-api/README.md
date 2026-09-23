@@ -31,6 +31,12 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
+The next-page cursor is read from `nextPageToken`.
+
+## Pagination
+
+Use `pageSize` in the query string to set the page size (default 200). Use `pageToken` in the query string as the pagination cursor.
+
 ## Retry behavior
 
 Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.

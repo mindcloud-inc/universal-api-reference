@@ -13,22 +13,22 @@
 | --- | --- | --- | --- | --- |
 | `arInvoices[]` | body | `array` | no | — |
 | `arInvoices[].multiLineArInvoice` | body | `object` | no | — |
-| `arInvoices[].multiLineArInvoice.Company_Code` | body | `string` | yes | Maximum length: 3. |
+| `arInvoices[].multiLineArInvoice.Company_Code` | body | `string` | no | Maximum length: 3. |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail` | body | `object` | no | — |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Quantity` | body | `number` | no | — |
-| `arInvoices[].multiLineArInvoice.GL_Date` | body | `string` | yes | Maximum length: 10. |
+| `arInvoices[].multiLineArInvoice.GL_Date` | body | `string` | no | Maximum length: 10. |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Detail_Description` | body | `string` | no | — |
-| `arInvoices[].multiLineArInvoice.Batch_Code` | body | `string` | yes | Maximum length: 10. |
+| `arInvoices[].multiLineArInvoice.Batch_Code` | body | `string` | no | Maximum length: 10. |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Unit_Of_Measure` | body | `string` | no | — |
-| `arInvoices[].multiLineArInvoice.Customer_Code` | body | `string` | yes | Maximum length: 10. |
-| `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Line_Extension` | body | `number` | yes | — |
+| `arInvoices[].multiLineArInvoice.Customer_Code` | body | `string` | no | Maximum length: 10. |
+| `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Line_Extension` | body | `number` | no | — |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.GL_Account` | body | `string` | no | — |
 | `arInvoices[].multiLineArInvoice.Job Number` | body | `string` | no | Maximum length: 10. |
-| `arInvoices[].multiLineArInvoice.Invoice_Or_Transaction` | body | `string` | yes | Maximum length: 10. |
+| `arInvoices[].multiLineArInvoice.Invoice_Or_Transaction` | body | `string` | no | Maximum length: 10. |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Taxable_Flag` | body | `string` | no | — |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Income_Cost_Center` | body | `string` | no | — |
-| `arInvoices[].multiLineArInvoice.Transaction_Type` | body | `string` | yes | Maximum length: 1. |
-| `arInvoices[].multiLineArInvoice.Invoice Date` | body | `string` | yes | Maximum length: 10. |
+| `arInvoices[].multiLineArInvoice.Transaction_Type` | body | `string` | no | Maximum length: 1. |
+| `arInvoices[].multiLineArInvoice.Invoice Date` | body | `string` | no | Maximum length: 10. |
 | `arInvoices[].multiLineArInvoice.invoiceDetails[].invoiceDetail.Message` | body | `string` | no | — |
 | `arInvoices[].multiLineArInvoice.Terms_Code` | body | `string` | no | Maximum length: 1. |
 | `arInvoices[].multiLineArInvoice.Salesperson_Code` | body | `string` | no | Maximum length: 3. |

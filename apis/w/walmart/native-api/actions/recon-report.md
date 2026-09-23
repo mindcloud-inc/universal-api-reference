@@ -16,6 +16,6 @@ This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `reportDate` | query | `string` | yes |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `reportDate` | query | `string` | yes | Date of the settlement report. |

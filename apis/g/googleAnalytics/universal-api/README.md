@@ -18,7 +18,7 @@ Read more in [authentication.md](authentication.md).
 For example, to [List Account Summaries](actions/list-account-summaries.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/list-account-summaries?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/list-account-summaries?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -28,7 +28,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/ac
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [List Accounts](actions/list-accounts.md) | GET |  |
+| [List Accounts](actions/list-accounts.md) | GET | Lists all Google Analytics accounts accessible to the connection. |
 
 ### Analytics Account Summary
 

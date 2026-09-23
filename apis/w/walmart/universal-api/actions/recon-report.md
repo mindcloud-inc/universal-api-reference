@@ -40,7 +40,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `reportDate` | string | yes | Default: `v1`. Example: `v1`. |
+| `reportDate` | string | yes | Date of the settlement report. Default: `v1`. Example: `v1`. |
 
 ## Response
 

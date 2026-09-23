@@ -1,6 +1,6 @@
 # Google Analytics: List Accounts
 
-
+Lists all Google Analytics accounts accessible to the connection.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/googleAnalytics/latest/actions/list-accounts

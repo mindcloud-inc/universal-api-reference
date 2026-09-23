@@ -20,7 +20,6 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest
     {}
   ],
   "purchaseOrders[].Company_Code": "string",
-  "purchaseOrders[].PO_Number": "string",
   "purchaseOrders[].Vendor_Code": "string"
 }'
 ```
@@ -36,7 +35,6 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
     connectionId,
     "purchaseOrders[]": [{}],
     "purchaseOrders[].Company_Code": "string",
-    "purchaseOrders[].PO_Number": "string",
     "purchaseOrders[].Vendor_Code": "string"
   })
 });
@@ -52,7 +50,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `purchaseOrders[]` | array<object> | yes | Purchase order batch items. |
 | `purchaseOrders[].Company_Code` | string | yes | Company code. Required; must be a valid company. |
-| `purchaseOrders[].PO_Number` | string | yes | Purchase order number. Required; leave blank to auto-assign the next PO number. |
+| `purchaseOrders[].PO_Number` | string | no | Purchase order number. Required; leave blank to auto-assign the next PO number. |
 | `purchaseOrders[].Vendor_Code` | string | yes | Vendor code. Required; valid vendor code must exist in the company. |
 | `purchaseOrders[].Warehouse_Code` | string | no | Warehouse code. Required unless no non-direct cost detail records are included. |
 | `purchaseOrders[].Job_Number` | string | no | Job number. Required unless a valid warehouse code is defined and there are no direct job cost detail records. |

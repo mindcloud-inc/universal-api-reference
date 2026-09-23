@@ -163972,7 +163972,7 @@
     "iconUrl": "https://images.mindcloud.co/apps/icons/como-criar-uma-propriedade-do-google-analytics-4_1758304207339.png",
     "websiteUrl": "https://analytics.google.com/",
     "nativeDocumentationUrl": "https://developers.google.com/analytics",
-    "version": "0.0.20",
+    "version": "0.0.25",
     "authentication": [
       {
         "type": "oAuth2",
@@ -163997,6 +163997,18 @@
             "value": "application/json; charset=utf-8"
           }
         ],
+        "pagination": {
+          "limit": {
+            "parameter": "pageSize",
+            "location": "query",
+            "default": "200"
+          },
+          "offset": {
+            "type": "cursor",
+            "parameter": "pageToken",
+            "location": "query"
+          }
+        },
         "retry": {
           "delayMs": 1000,
           "maxAttempts": 3,
@@ -164005,7 +164017,8 @@
         },
         "responses": [
           {
-            "parser": "auto"
+            "parser": "auto",
+            "cursorKey": "nextPageToken"
           }
         ]
       }
@@ -164597,7 +164610,7 @@
               "itemDataType": "object",
               "location": "body",
               "required": true,
-              "description": "GA4 date ranges, such as 30daysAgo through today"
+              "description": "One or more GA4 date ranges. Each item is an object with startDate and endDate keys (for example startDate 30daysAgo, endDate today), not a plain date string."
             },
             {
               "key": "limit",
@@ -164614,6 +164627,22 @@
               "location": "body",
               "required": false,
               "description": "Zero-based row offset"
+            },
+            {
+              "key": "dateRanges[].startDate",
+              "name": "Start Date",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Range start as YYYY-MM-DD or a relative value such as 30daysAgo, yesterday, or today"
+            },
+            {
+              "key": "dateRanges[].endDate",
+              "name": "End Date",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Range end as YYYY-MM-DD or a relative value such as today or yesterday"
             }
           ]
         },
@@ -164637,7 +164666,7 @@
             "dataType": "array",
             "itemDataType": "object",
             "required": true,
-            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "description": "One or more GA4 date ranges. Each item is an object with startDate and endDate keys (for example startDate 30daysAgo, endDate today), not a plain date string.",
             "defaultValue": [
               {
                 "endDate": "today",
@@ -164662,6 +164691,22 @@
             "advanced": true,
             "description": "Zero-based row offset",
             "defaultValue": "0"
+          },
+          {
+            "key": "dateRanges[].startDate",
+            "name": "Start Date",
+            "dataType": "string",
+            "required": true,
+            "description": "Range start as YYYY-MM-DD or a relative value such as 30daysAgo, yesterday, or today",
+            "defaultValue": "30daysAgo"
+          },
+          {
+            "key": "dateRanges[].endDate",
+            "name": "End Date",
+            "dataType": "string",
+            "required": true,
+            "description": "Range end as YYYY-MM-DD or a relative value such as today or yesterday",
+            "defaultValue": "today"
           }
         ],
         "responseSchema": [
@@ -165190,62 +165235,39 @@
           "path": "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
           "baseUrl": "https://analyticsdata.googleapis.com/v1beta",
           "apiName": "REST",
-          "apiType": "rest",
-          "arguments": [
-            {
-              "key": "pageSize",
-              "name": "Page Size",
-              "dataType": "number",
-              "location": "query",
-              "required": false,
-              "description": "Maximum account summaries to return (up to 200)"
-            },
-            {
-              "key": "pageToken",
-              "name": "Page Token",
-              "dataType": "string",
-              "location": "query",
-              "required": false,
-              "description": "Token from a previous response"
-            }
-          ]
+          "apiType": "rest"
         },
         "supports": {
-          "pagination": false,
+          "pagination": true,
           "filtering": false,
           "sorting": false
         },
-        "arguments": [
-          {
-            "key": "pageSize",
-            "name": "Page Size",
-            "dataType": "number",
-            "required": false,
-            "description": "Maximum account summaries to return (up to 200)",
-            "defaultValue": "50"
-          },
-          {
-            "key": "pageToken",
-            "name": "Page Token",
-            "dataType": "string",
-            "required": false,
-            "advanced": true,
-            "description": "Token from a previous response"
-          }
-        ],
+        "arguments": [],
         "responseSchema": [
           {
-            "key": "accountSummaries",
-            "dataType": "array",
-            "itemDataType": "object",
-            "description": "Accessible account summaries and child property summaries",
-            "mockType": "array"
+            "key": "account",
+            "dataType": "string",
+            "description": "Account resource name, such as accounts/226916501",
+            "mockType": "string"
           },
           {
-            "key": "nextPageToken",
+            "key": "displayName",
             "dataType": "string",
-            "description": "Token for the next page",
+            "description": "Human-readable display name of the account",
             "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "Account summary resource name, such as accountSummaries/226916501",
+            "mockType": "string"
+          },
+          {
+            "key": "propertySummaries",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Property summaries under the account, each with property, displayName, propertyType, parent, and canEdit",
+            "mockType": "array"
           }
         ]
       },
@@ -165256,6 +165278,7 @@
         "method": "GET",
         "model": "crmAccount",
         "group": "Analytics Account",
+        "description": "Lists all Google Analytics accounts accessible to the connection.",
         "documentationUrl": "https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1beta/accounts/list",
         "native": {
           "method": "GET",

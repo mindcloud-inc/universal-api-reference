@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Google Analytics Universal API",
-    "version": "0.0.20",
+    "version": "0.0.25",
     "description": "Read Google Analytics 4 account, property, traffic, engagement, event, conversion, and ecommerce reporting data."
   },
   "servers": [
@@ -1165,14 +1165,14 @@
             "name": "dateRanges[]",
             "in": "query",
             "required": true,
-            "description": "GA4 date ranges, such as 30daysAgo through today",
+            "description": "One or more GA4 date ranges. Each item is an object with startDate and endDate keys (for example startDate 30daysAgo, endDate today), not a plain date string.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "GA4 date ranges, such as 30daysAgo through today",
+              "description": "One or more GA4 date ranges. Each item is an object with startDate and endDate keys (for example startDate 30daysAgo, endDate today), not a plain date string.",
               "default": [
                 {
                   "endDate": "today",
@@ -1205,6 +1205,28 @@
               "description": "Zero-based row offset",
               "default": 0,
               "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "dateRanges[].startDate",
+            "in": "query",
+            "required": true,
+            "description": "Range start as YYYY-MM-DD or a relative value such as 30daysAgo, yesterday, or today",
+            "schema": {
+              "type": "string",
+              "description": "Range start as YYYY-MM-DD or a relative value such as 30daysAgo, yesterday, or today",
+              "default": "30daysAgo"
+            }
+          },
+          {
+            "name": "dateRanges[].endDate",
+            "in": "query",
+            "required": true,
+            "description": "Range end as YYYY-MM-DD or a relative value such as today or yesterday",
+            "schema": {
+              "type": "string",
+              "description": "Range end as YYYY-MM-DD or a relative value such as today or yesterday",
+              "default": "today"
             }
           },
           {
@@ -2464,25 +2486,23 @@
             }
           },
           {
-            "name": "pageSize",
+            "name": "limit",
             "in": "query",
             "required": false,
-            "description": "Maximum account summaries to return (up to 200)",
+            "description": "Maximum number of records to return.",
             "schema": {
-              "type": "number",
-              "description": "Maximum account summaries to return (up to 200)",
-              "default": 50
+              "type": "integer",
+              "minimum": 1
             }
           },
           {
-            "name": "pageToken",
+            "name": "offset",
             "in": "query",
             "required": false,
-            "description": "Token from a previous response",
+            "description": "Number of records to skip before returning results.",
             "schema": {
-              "type": "string",
-              "description": "Token from a previous response",
-              "x-mindcloud-advanced": true
+              "type": "integer",
+              "minimum": 0
             }
           },
           {
@@ -2517,17 +2537,25 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "accountSummaries": {
+                          "account": {
+                            "type": "string",
+                            "description": "Account resource name, such as accounts/226916501"
+                          },
+                          "displayName": {
+                            "type": "string",
+                            "description": "Human-readable display name of the account"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Account summary resource name, such as accountSummaries/226916501"
+                          },
+                          "propertySummaries": {
                             "type": "array",
                             "items": {
                               "type": "object",
                               "additionalProperties": true
                             },
-                            "description": "Accessible account summaries and child property summaries"
-                          },
-                          "nextPageToken": {
-                            "type": "string",
-                            "description": "Token for the next page"
+                            "description": "Property summaries under the account, each with property, displayName, propertyType, parent, and canEdit"
                           }
                         },
                         "additionalProperties": false
@@ -2662,6 +2690,7 @@
       "get": {
         "operationId": "googleAnalytics.list-accounts",
         "summary": "List Accounts",
+        "description": "Lists all Google Analytics accounts accessible to the connection.",
         "externalDocs": {
           "url": "https://mindcloud.co/docs/universal/rest/googleAnalytics/latest/actions/list-accounts"
         },

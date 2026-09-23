@@ -7,7 +7,7 @@ Retrieve the inventory level for every SKU at every ship node.
 - **Method:** `GET`
 - **Path:** `/v3/inventories`
 - **Base URL:** `https://{environment}.walmartapis.com`
-- **API:** REST
+- **API:** REST (nextCursor) v2
 - **Official documentation:** [List Inventory Levels](https://developer.walmart.com/us-marketplace/reference/getmultinodeinventoryforallskuandallshipnodes)
 
 ## Capabilities
