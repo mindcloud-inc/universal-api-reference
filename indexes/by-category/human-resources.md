@@ -1,7 +1,8 @@
 # Human Resources apps
 
-77 apps in the Human Resources category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+78 apps in the Human Resources category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
+- **ADP** · [Universal API reference](../../apis/a/adp/universal-api) · [Native API reference](../../apis/a/adp/native-api) · [Native API docs](https://developers.adp.com/build/api-explorer)
 - **Ashby Job Postings** · [Universal API reference](../../apis/a/ashbyJobPostings/universal-api) · [Native API reference](../../apis/a/ashbyJobPostings/native-api) · [Native API docs](https://developers.ashbyhq.com/docs/public-job-posting-api)
 - **Aspire** · [Universal API reference](../../apis/a/aspire/universal-api) · [Native API reference](../../apis/a/aspire/native-api) · [Native API docs](https://guide.youraspire.com/apidocs)
 - **AssessTEAM** · [Universal API reference](../../apis/a/assessTEAM/universal-api) · [Native API reference](../../apis/a/assessTEAM/native-api) · [Native API docs](https://restapi.assessteam.com/swagger/index.html)

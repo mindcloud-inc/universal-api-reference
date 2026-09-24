@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Sage Intacct Universal API",
-    "version": "1.0.141",
+    "version": "1.0.142",
     "description": "Call Sage Intacct actions through MindCloud's Universal API."
   },
   "servers": [
@@ -84,6 +84,229 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/intacct/latest/actions/create-attachment": {
+      "post": {
+        "operationId": "intacct.create-attachment",
+        "summary": "Create Attachment",
+        "description": "Create a supporting document in a Sage Intacct attachment folder, with optional files encoded as base64.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/intacct/latest/actions/create-attachment"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "attachments[].attachmentdata",
+                  "attachments[].attachmenttype",
+                  "supdocname",
+                  "attachments[].attachmentname",
+                  "supdocfoldername"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "attachments[].attachmentdata": {
+                    "type": "string",
+                    "description": "Base64-encoded binary file content."
+                  },
+                  "supdocid": {
+                    "type": "string",
+                    "description": "Required only when attachment autonumbering is not configured in Sage Intacct."
+                  },
+                  "attachments[].attachmenttype": {
+                    "type": "string",
+                    "description": "File extension without a period, for example pdf."
+                  },
+                  "supdocname": {
+                    "type": "string"
+                  },
+                  "attachments[].attachmentname": {
+                    "type": "string",
+                    "description": "File name without the period or extension."
+                  },
+                  "supdocfoldername": {
+                    "type": "string"
+                  },
+                  "supdocdescription": {
+                    "type": "string"
+                  },
+                  "locationid": {
+                    "type": "string",
+                    "description": "Optional entity location ID for a multi-entity Sage Intacct login."
+                  },
+                  "attachments[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful response.",
@@ -338,221 +561,6 @@
                           }
                         },
                         "additionalProperties": false
-                      }
-                    },
-                    "meta": {
-                      "type": "object",
-                      "additionalProperties": true
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request is invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "success",
-                    "code",
-                    "message"
-                  ],
-                  "properties": {
-                    "success": {
-                      "type": "boolean",
-                      "const": false
-                    },
-                    "code": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The MindCloud API key is missing or invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "success",
-                    "code",
-                    "message"
-                  ],
-                  "properties": {
-                    "success": {
-                      "type": "boolean",
-                      "const": false
-                    },
-                    "code": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "The API key or connection cannot access this action.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "success",
-                    "code",
-                    "message"
-                  ],
-                  "properties": {
-                    "success": {
-                      "type": "boolean",
-                      "const": false
-                    },
-                    "code": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The action failed unexpectedly.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "success",
-                    "code",
-                    "message"
-                  ],
-                  "properties": {
-                    "success": {
-                      "type": "boolean",
-                      "const": false
-                    },
-                    "code": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/universal/intacct/latest/actions/create-file": {
-      "post": {
-        "operationId": "intacct.create-file",
-        "summary": "Create File",
-        "externalDocs": {
-          "url": "https://mindcloud.co/docs/universal/rest/intacct/latest/actions/create-file"
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "connectionId",
-                  "object",
-                  "fields"
-                ],
-                "properties": {
-                  "connectionId": {
-                    "type": "string",
-                    "description": "The MindCloud connection ID for this app."
-                  },
-                  "newfields[].fieldName": {
-                    "type": "string"
-                  },
-                  "newfields[].internalFields[].fieldValue": {
-                    "type": "string"
-                  },
-                  "object": {
-                    "type": "string",
-                    "default": "PROJECT"
-                  },
-                  "fields": {
-                    "type": "string"
-                  },
-                  "newfields[].fieldValue": {
-                    "type": "string"
-                  },
-                  "newfields[].internalFields[].fieldName": {
-                    "type": "string"
-                  },
-                  "entityID": {
-                    "type": "string"
-                  },
-                  "newfields[].fieldIterator": {
-                    "type": "string"
-                  },
-                  "newfields[].internalFields[]": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "additionalProperties": true
-                    }
-                  }
-                },
-                "additionalProperties": false
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "success",
-                    "data",
-                    "meta"
-                  ],
-                  "properties": {
-                    "success": {
-                      "type": "boolean",
-                      "const": true
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "additionalProperties": true
                       }
                     },
                     "meta": {

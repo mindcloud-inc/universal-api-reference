@@ -40,7 +40,20 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `soapEnvelope` | string | no |  |
+| `Company_Code` | string | no |  |
+| `Batch_Code` | string | no |  |
+| `Customer_Code` | string | no |  |
+| `Transaction_Code` | string | no |  |
+| `Reference_Number` | string | no |  |
+| `Reference_Date` | string | no |  |
+| `Transaction_Amount` | string | no |  |
+| `ABA_Number` | string | no |  |
+| `Invoice_Number` | string | no |  |
+| `Invoice_Type` | string | no |  |
+| `Payment_Amount` | string | no |  |
+| `Discount_Taken` | string | no |  |
+| `Cost_Center_Header` | string | no |  |
+| `Overpayment_Flag` | string | no |  |
 
 ## Response
 

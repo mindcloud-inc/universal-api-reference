@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3216 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3218 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -35,6 +35,7 @@ The official vendor API documentation for each of the 3216 apps in this repo. Ea
 - [Addressfinder](../apis/a/addressfinder/native-api) - https://addressfinder.com/au/docs/api/overview
 - [Address Labs](../apis/a/addressLabs/native-api) - https://github.com/addresslabs/api-docs
 - [AddressZen](../apis/a/addressZen/native-api) - https://docs.addresszen.com/
+- [ADP](../apis/a/adp/native-api) - https://developers.adp.com/build/api-explorer
 - [AdPage](../apis/a/adPage/native-api) - https://whitelabel.adpage.io/api/doc
 - [Adrapid](../apis/a/adrapid/native-api) - https://docs.adrapid.com/api/overview
 - [Advanced Scraper](../apis/a/advancedScraper/native-api) - https://marketplace.apilayer.com/adv_scraper-api
@@ -834,6 +835,7 @@ The official vendor API documentation for each of the 3216 apps in this repo. Ea
 - [eGain](../apis/e/eGain/native-api) - https://apidev.egain.com/api-catalog/conversation-conversationmgr/api-bundled/overview/
 - [eGestor](../apis/e/eGestor/native-api) - https://egestor.docs.apiary.io/
 - [e-Gov](../apis/e/eGov/native-api) - https://data.e-gov.go.jp/data/api_guide
+- [EHS Insight](../apis/e/ehsInsight/native-api)
 - [E-junkie](../apis/e/eJunkie/native-api) - https://www.e-junkie.com/wiki/help-products-api
 - [Elastic Cloud](../apis/e/elasticCloud/native-api) - https://www.elastic.co/docs/api/doc/cloud/
 - [Electricity Maps](../apis/e/electricityMaps/native-api) - https://app.electricitymaps.com/developer-hub/api/getting-started

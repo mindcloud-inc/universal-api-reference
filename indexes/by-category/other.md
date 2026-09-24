@@ -1,6 +1,6 @@
 # Other apps
 
-582 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+583 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -158,6 +158,7 @@
 - **EchtPost Postcards** · [Universal API reference](../../apis/e/echtPostPostcards/universal-api) · [Native API reference](../../apis/e/echtPostPostcards/native-api) · [Native API docs](https://hilfe.echtpost.de/article/453/postkartenversand-uber-api-programmierschnittstelle)
 - **edatalia Sign Online** · [Universal API reference](../../apis/e/edataliaSignOnline/universal-api) · [Native API reference](../../apis/e/edataliaSignOnline/native-api) · [Native API docs](https://edatalia.com/kb/api-rest-40/)
 - **eGain** · [Universal API reference](../../apis/e/eGain/universal-api) · [Native API reference](../../apis/e/eGain/native-api) · [Native API docs](https://apidev.egain.com/api-catalog/conversation-conversationmgr/api-bundled/overview/)
+- **EHS Insight** · [Universal API reference](../../apis/e/ehsInsight/universal-api) · [Native API reference](../../apis/e/ehsInsight/native-api)
 - **Email Verifier Api** · [Universal API reference](../../apis/e/emailVerifierApi/universal-api) · [Native API reference](../../apis/e/emailVerifierApi/native-api) · [Native API docs](https://emailverifierapi.com/api-docs/)
 - **EmailVerify.io** · [Universal API reference](../../apis/e/emailVerifyio/universal-api) · [Native API reference](../../apis/e/emailVerifyio/native-api) · [Native API docs](https://www.emailverify.io/api/docs/)
 - **EMnify** · [Universal API reference](../../apis/e/eMnify/universal-api) · [Native API reference](../../apis/e/eMnify/native-api) · [Native API docs](https://docs.emnify.com/developers)

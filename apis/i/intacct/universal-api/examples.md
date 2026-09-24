@@ -37,29 +37,26 @@ Example response:
 
 See the full [Check GLBATCH Duplicate action reference](actions/check-glbatch-duplicate.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/intacct/latest/actions/check-glbatch-duplicate).
 
-## Create Budget
+## Create Attachment
 
-
+Create a supporting document in a Sage Intacct attachment folder, with optional files encoded as base64.
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/create-budget" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/create-attachment" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "budgetId": "2019 Annual Plan",
-  "description": "string",
-  "periodName": "Month Ended January 2019",
-  "budgetItems[]": [
-    "string"
-  ],
-  "budgetItems[].accountNo": "string",
-  "budgetItems[].amount": 1
+  "attachments[].attachmentdata": "string",
+  "attachments[].attachmenttype": "string",
+  "supdocname": "Ava Chen",
+  "attachments[].attachmentname": "Ava Chen",
+  "supdocfoldername": "Ava Chen"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/intacct/latest/actions/create-budget', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/intacct/latest/actions/create-attachment', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -67,12 +64,11 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/intacct/
   },
   body: JSON.stringify({
     connectionId,
-    "budgetId": "2019 Annual Plan",
-    "description": "string",
-    "periodName": "Month Ended January 2019",
-    "budgetItems[]": ["string"],
-    "budgetItems[].accountNo": "string",
-    "budgetItems[].amount": 1
+    "attachments[].attachmentdata": "string",
+    "attachments[].attachmenttype": "string",
+    "supdocname": "Ava Chen",
+    "attachments[].attachmentname": "Ava Chen",
+    "supdocfoldername": "Ava Chen"
   })
 });
 
@@ -84,16 +80,9 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "budgetId": "string",
-      "response": {},
-      "sageRecordNo": 1,
-      "success": true
-    }
-  ],
+  "data": [],
   "meta": {}
 }
 ```
 
-See the full [Create Budget action reference](actions/create-budget.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/intacct/latest/actions/create-budget).
+See the full [Create Attachment action reference](actions/create-attachment.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/intacct/latest/actions/create-attachment).

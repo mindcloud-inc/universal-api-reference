@@ -2,22 +2,23 @@
 
 These examples use the MindCloud API key and Centerpoint connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Budget Type
+## List Properties
 
 
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-budget-type?connectionId=$CONNECTION_ID&BUDGET_TYPE_ID=1" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-properties?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "BUDGET_TYPE_ID": "1"
+  limit: '25',
+  offset: '0'
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-budget-type?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-properties?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -34,12 +35,46 @@ Example response:
   "data": [
     {
       "attributes": {
-        "code": "string",
-        "color": "string",
+        "accountId": 1,
+        "closeRate": {},
+        "combinedMeasurement": "string",
+        "companyId": 1,
+        "county": "string",
         "createdAt": "string",
+        "custom": {
+          "kkclevel": {},
+          "primaryonsitecontact": {},
+          "roofaccess": {},
+          "stagingandparkinglocation": {}
+        },
+        "customWithLabels": {
+          "maintenancePlanLevel": {},
+          "primaryOnsiteContact": {},
+          "roofAccess": {},
+          "stagingAndParkingLocation": {}
+        },
         "deletedAt": {},
+        "externalId": "string",
+        "importId": {},
+        "isVisible": true,
+        "latitude": 1,
+        "locality": "string",
+        "locationId": 1,
+        "longitude": 1,
+        "managerId": {},
         "name": "Ava Chen",
-        "updatedAt": "string"
+        "postalCode": "string",
+        "primaryBuildingId": 1,
+        "primaryContractorId": {},
+        "recentActivity": "string",
+        "region": "string",
+        "squares": 1,
+        "streetAddress": "string",
+        "subpremise": {},
+        "timezone": "string",
+        "updatedAt": "string",
+        "uuid": "string",
+        "weightedAverageScore": {}
       },
       "id": "string",
       "type": "string"
@@ -49,7 +84,7 @@ Example response:
 }
 ```
 
-See the full [Get Budget Type action reference](actions/get-budget-type.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/centerpoint/latest/actions/get-budget-type).
+See the full [List Properties action reference](actions/list-properties.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/centerpoint/latest/actions/list-properties).
 
 ## Create Company
 

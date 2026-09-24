@@ -25,7 +25,7 @@ This operation supports [pagination](../README.md#pagination).
 | `street` | query | `string` | no | — |
 | `zip` | query | `string` | no | — |
 | `createdOnOrAfter` | query | `string` | no | — |
-| `active` | query | `boolean` | no | — |
+| `active` | query | `string` | no | — |
 | `ids` | query | `string` | no | — |
 | `excludeAccountingChangesFromModifiedDateRange` | query | `boolean` | no | Excludes accounting changes such as balance adjustments from the modified date range. |
 | `externalDataApplicationGuid` | query | `string` | no | Returns customer records with external data for this application GUID. |

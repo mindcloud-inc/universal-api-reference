@@ -52,7 +52,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/ch
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create File](actions/create-file.md) | POST |  |
+| [Create Attachment](actions/create-attachment.md) | POST | Create a supporting document in a Sage Intacct attachment folder, with optional files encoded as base64. |
 
 ### General Ledger Batch
 

@@ -58,7 +58,33 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Google Search Console API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "clicks": 1,
+      "ctr": 1,
+      "impressions": 1,
+      "keys": [
+        "string"
+      ],
+      "position": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `clicks` | number | Number of clicks the property received for this row. |
+| `ctr` | number | Click-through rate, calculated as clicks divided by impressions. |
+| `impressions` | number | Number of times the property appeared in search results for this row. |
+| `keys` | array<string> | Dimension values that identify this row, in the order the dimensions were requested. |
+| `position` | number | Average position of the property in search results for this row. |
 
 ## Native endpoint
 

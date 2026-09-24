@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3216 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3218 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -36,6 +36,7 @@ Machine-readable API descriptions for 3216 apps. Universal API specifications ar
 | [Address Auto-Complete by Fetchify](../apis/a/addressAutoCompleteByFetchify) | [OpenAPI 3.1](../apis/a/addressAutoCompleteByFetchify/universal-api/openapi.json) |  |
 | [Addressfinder](../apis/a/addressfinder) | [OpenAPI 3.1](../apis/a/addressfinder/universal-api/openapi.json) | [Provider OpenAPI](https://addressfinder.com/au/docs/assets/files/api-d3266f757ab8175af0284fbcb3a2e99e.yaml) |
 | [AddressZen](../apis/a/addressZen) | [OpenAPI 3.1](../apis/a/addressZen/universal-api/openapi.json) | [Provider OpenAPI](https://openapi.addresszen.com/openapi.json) |
+| [ADP](../apis/a/adp) | [OpenAPI 3.1](../apis/a/adp/universal-api/openapi.json) |  |
 | [AdPage](../apis/a/adPage) | [OpenAPI 3.1](../apis/a/adPage/universal-api/openapi.json) |  |
 | [Adrapid](../apis/a/adrapid) | [OpenAPI 3.1](../apis/a/adrapid/universal-api/openapi.json) | [Provider OpenAPI](https://api.adrapid.com/spec/v1/client-api.yaml) |
 | [Advanced Scraper](../apis/a/advancedScraper) | [OpenAPI 3.1](../apis/a/advancedScraper/universal-api/openapi.json) |  |
@@ -813,6 +814,7 @@ Machine-readable API descriptions for 3216 apps. Universal API specifications ar
 | [eGain](../apis/e/eGain) | [OpenAPI 3.1](../apis/e/eGain/universal-api/openapi.json) | [Provider OpenAPI](https://apidev.egain.com/_bundle/apis/v3/conversation/conversationmgr/api-bundled.yaml) |
 | [eGestor](../apis/e/eGestor) | [OpenAPI 3.1](../apis/e/eGestor/universal-api/openapi.json) |  |
 | [e-Gov](../apis/e/eGov) | [OpenAPI 3.1](../apis/e/eGov/universal-api/openapi.json) |  |
+| [EHS Insight](../apis/e/ehsInsight) | [OpenAPI 3.1](../apis/e/ehsInsight/universal-api/openapi.json) |  |
 | [E-junkie](../apis/e/eJunkie) | [OpenAPI 3.1](../apis/e/eJunkie/universal-api/openapi.json) |  |
 | [Elastic Cloud](../apis/e/elasticCloud) | [OpenAPI 3.1](../apis/e/elasticCloud/universal-api/openapi.json) | [Provider OpenAPI](https://api.elastic-cloud.com/api/v1/api-docs-user/swagger.json) |
 | [Electricity Maps](../apis/e/electricityMaps) | [OpenAPI 3.1](../apis/e/electricityMaps/universal-api/openapi.json) |  |

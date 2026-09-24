@@ -15,3 +15,4 @@ This operation supports [pagination](../README.md#pagination).
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
 | `id` | path | `string` | yes |
+| `externalDataApplicationGuid` | query | `string` | no |

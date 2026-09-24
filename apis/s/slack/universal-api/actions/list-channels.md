@@ -39,7 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `types` | list<string> | no | Accepts multiple values as an array. Default: `public_channel,private_channel`. |
+| `types` | list<string> | no | One of: `im`, `mpim`, `private_channel`, `public_channel`. Accepts multiple values as an array. Default: `public_channel,private_channel`. |
 | `sendAsBot` | boolean | no | Determines if this action should be performed by the current user or the Mindcloud bot. Default: `true`. |
 
 ### Advanced

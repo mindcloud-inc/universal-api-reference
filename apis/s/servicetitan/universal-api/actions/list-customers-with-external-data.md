@@ -49,7 +49,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `street` | string | no |  |
 | `zip` | string | no |  |
 | `createdOnOrAfter` | string | no |  |
-| `active` | boolean | no |  |
+| `active` | string | no |  |
 | `ids` | string | no |  |
 | `excludeAccountingChangesFromModifiedDateRange` | boolean | no | Excludes accounting changes such as balance adjustments from the modified date range. |
 | `externalDataApplicationGuid` | string | no | Returns customer records with external data for this application GUID. |

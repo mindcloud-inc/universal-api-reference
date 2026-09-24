@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 113 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 115 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -43,7 +43,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (113 documented)
+## Endpoints (115 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -68,6 +68,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Export Returns](actions/export-returns.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/export/returns?:from&:includeRecentChanges` |  |
 | [Export Transfers](actions/export-transfers.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/export/transfers?:from&:includeRecentChanges` |  |
 | [Get Access Token](actions/get-access-token.md) | `POST https://{{credentials.authUrl}}/connect/token` |  |
+| [Get AP Credits](actions/get-ap-credits.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/ap-credits` | [docs](https://developer.servicetitan.io/docs/api-resources-accounting/) |
 | [Get Appointment Assignments](actions/get-appointment-assignments.md) | `GET dispatch/v2/tenant/{{credentials.tenant}}/appointment-assignments` |  |
 | [Get Appointment by Id](actions/get-appointment-by-id.md) | `GET https://api.servicetitan.io/jpm/v2/tenant/{{credentials.tenant}}/appointments/:id` |  |
 | [Get Appointments](actions/get-appointments.md) | `GET https://api.servicetitan.io/jpm/v2/tenant/{{credentials.tenant}}/appointments/` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-jpm-v2&operation=Appointments_GetList) |
@@ -75,6 +76,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Get Bookings](actions/get-bookings.md) | `GET crm/v2/tenant/{{credentials.tenant}}/bookings` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Bookings_Create) |
 | [Get Business Units](actions/get-business-units.md) | `GET settings/v2/tenant/{{credentials.tenant}}/business-units` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-settings-v2&operation=BusinessUnits_GetList) |
 | [Get Campaigns](actions/get-campaigns.md) | `GET https://api.servicetitan.io/marketing/v2/tenant/{{credentials.tenant}}/campaigns` |  |
+| [Get Credit Memo](actions/get-credit-memo.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/credit-memos` | [docs](https://developer.servicetitan.io/docs/api-resources-accounting/) |
 | [Get Customer By Id](actions/get-customer-by-id.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers/:id` |  |
 | [Get Customers](actions/get-customers.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers` |  |
 | [Get Discount and Fees](actions/get-discount-and-fees.md) | `GET pricebook/v2/tenant/{{credentials.tenant}}/discounts-and-fees` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-pricebook-v2&operation=DiscountAndFees_GetList) |

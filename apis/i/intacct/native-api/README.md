@@ -44,8 +44,8 @@ Use `pagesize` in the request body to set the page size (default 100; accepted r
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Check GLBATCH Duplicate](actions/check-glbatch-duplicate.md) | `POST` |  |
+| [Create Attachment](actions/create-attachment.md) | `POST` | [docs](https://developer.intacct.com/api/company-console/attachments/#create-attachment-legacy) |
 | [Create Budget](actions/create-budget.md) | `POST /` | [docs](https://developer.intacct.com/api/general-ledger/budgets/) |
-| [Create File](actions/create-file.md) | `POST` |  |
 | [Create Invoice](actions/create-invoice.md) | `POST` | [docs](https://developer.intacct.com/api/accounts-receivable/invoices/#create-invoice-legacy) |
 | [Create Item](actions/create-item.md) | `POST` |  |
 | [Create Item New](actions/create-item-2.md) | `POST` |  |

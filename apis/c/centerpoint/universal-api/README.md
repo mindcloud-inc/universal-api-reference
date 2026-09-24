@@ -15,10 +15,10 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Budget Type](actions/get-budget-type.md):
+For example, to [List Properties](actions/list-properties.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/get-budget-type?connectionId=$CONNECTION_ID&BUDGET_TYPE_ID=1" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/centerpoint/latest/actions/list-properties?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 

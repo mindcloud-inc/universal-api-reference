@@ -17,6 +17,6 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `types` | query | `list<string>` | no | Send multiple values as a array. |
+| `types` | query | `list<string>` | no | Accepted values: `im`, `mpim`, `private_channel`, `public_channel`. Send multiple values as a array. |
 | `exclude_archived` | query | `boolean` | no | Format: `toggle`. |
 | `sendAsBot` | query | `boolean` | no | Determines if this action should be performed by the current user or the Mindcloud bot. Format: `toggle`. |

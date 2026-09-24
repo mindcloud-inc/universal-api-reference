@@ -37,8 +37,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `start_date` | string | no | Start date for the report period. Use YYYY-MM-DD format. Example: `2026-01-01`. |
 | `end_date` | string | no | End date for the report period. Use YYYY-MM-DD format. Example: `2026-03-31`. |
-| `accounting_method` | list | no | Accounting basis to use for the report, such as Cash or Accrual. One of: `0`, `1`. |
-| `summarize_column_by` | list | no | Column grouping for the report, such as Total, Month, or Customers. One of: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`. |
+| `accounting_method` | list | no | Accounting basis to use for the report, such as Cash or Accrual. One of: `Accrual`, `Cash`. |
+| `summarize_column_by` | list | no | Column grouping for the report, such as Total, Month, or Customers. One of: `Classes`, `Customers`, `Days`, `Departments`, `Month`, `Total`, `Vendors`, `Week`. |
 
 ### Advanced
 
