@@ -1,6 +1,6 @@
 # IT Operations apps
 
-392 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+393 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbyy** · [Universal API reference](../../apis/a/abbyy/universal-api) · [Native API reference](../../apis/a/abbyy/native-api) · [Native API docs](https://support.abbyy.com/hc/en-us/articles/360017269420-API-reference)
 - **Abstract IP Intelligence** · [Universal API reference](../../apis/a/abstractIPIntelligence/universal-api) · [Native API reference](../../apis/a/abstractIPIntelligence/native-api) · [Native API docs](https://docs.abstractapi.com/api/ip-intelligence)
@@ -211,6 +211,7 @@
 - **Mendix** · [Universal API reference](../../apis/m/mendix/universal-api) · [Native API reference](../../apis/m/mendix/native-api) · [Native API docs](https://docs.mendix.com/apidocs-mxsdk/apidocs/)
 - **Merge** · [Universal API reference](../../apis/m/merge/universal-api) · [Native API reference](../../apis/m/merge/native-api) · [Native API docs](https://docs.merge.dev/merge-unified/unified-api)
 - **Merge Agent Handler** · [Universal API reference](../../apis/m/mergeAgentHandler/universal-api) · [Native API reference](../../apis/m/mergeAgentHandler/native-api) · [Native API docs](https://docs.merge.dev/merge-agent-handler/agent-handler)
+- **Microsoft Entra** · [Universal API reference](../../apis/m/microsoftEntra/universal-api) · [Native API reference](../../apis/m/microsoftEntra/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/overview)
 - **Middesk** · [Universal API reference](../../apis/m/middesk/universal-api) · [Native API reference](../../apis/m/middesk/native-api) · [Native API docs](https://docs.middesk.com/build/api-keys)
 - **Milvus Vector Store** · [Universal API reference](../../apis/m/milvusVectorStore/universal-api) · [Native API reference](../../apis/m/milvusVectorStore/native-api) · [Native API docs](https://docs.zilliz.com/reference/restful/data-plane-v2)
 - **MindCloud** · [Universal API reference](../../apis/m/mindCloud/universal-api) · [Native API reference](../../apis/m/mindCloud/native-api) · [Native API docs](https://mindcloud.co/docs/api/rest/introduction)

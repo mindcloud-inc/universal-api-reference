@@ -21,8 +21,8 @@ This operation supports [pagination](../README.md#pagination).
 | `createdAt` | body | `string` | no | Date created after |
 | `updatedAt` | body | `string` | no | Date updated after |
 | `updatedBefore` | body | `string` | no | — |
-| `financialStatus` | body | `list` | no | — |
-| `fulfillmentStatus` | body | `list<string>` | no | — |
+| `financialStatus` | body | `list` | no | Accepted values: `authorized`, `expired`, `paid`, `partially_paid`, `partially_refunded`, `pending`, `refunded`, `voided`. |
+| `fulfillmentStatus` | body | `list<string>` | no | Accepted values: `fulfilled`, `on_hold`, `partially_fulfilled`, `restocked`, `scheduled`, `unfulfilled`. |
 | `email` | body | `string` | no | — |
 | `ids[]` | body | `array<string>` | no | — |
 | `names[]` | body | `array<string>` | no | — |

@@ -7,6 +7,7 @@ Replies to an email in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/emails/reply`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Reply To Email](https://developer.instantly.ai/api-reference/email/reply-to-an-email)
 
 ## Parameters

@@ -7,6 +7,7 @@ Finds campaigns in Instantly by contact.
 - **Method:** `GET`
 - **Path:** `/api/v2/campaigns/search-by-contact`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Search Campaigns By Contact](https://developer.instantly.ai/api/v2/campaign/searchbycontact)
 
 ## Parameters

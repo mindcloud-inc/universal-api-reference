@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3218 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3219 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1331,7 +1331,7 @@ The official vendor API documentation for each of the 3218 apps in this repo. Ea
 - [Instafill](../apis/i/instafill/native-api) - https://docs.instafill.ai/docs/api/intro
 - [Instant](../apis/i/instant/native-api) - https://www.instantdb.com/docs/http-api
 - [InstantCard](../apis/i/instantCard/native-api) - https://instantcard.net/api/
-- [Instantly](../apis/i/instantly/native-api) - https://developer.instantly.ai
+- [Instantly](../apis/i/instantly/native-api) - https://developer.instantly.ai/llms.txt
 - [Instapaper](../apis/i/instapaper/native-api) - https://www.instapaper.com/developers/v1/full-api
 - [Instasent](../apis/i/instasent/native-api) - https://instasent.stoplight.io/docs/instasent/8j57yi7wown1z-instasent-product-api
 - [Instatus](../apis/i/instatus/native-api) - https://instatus.com/help/api
@@ -1655,6 +1655,7 @@ The official vendor API documentation for each of the 3218 apps in this repo. Ea
 - [Microsoft 365 Planner](../apis/m/microsoft365Planner/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/planner-overview?view=graph-rest-1.0
 - [Microsoft Clarity](../apis/m/microsoftClarity/native-api) - https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
 - [Microsoft Dynamics 365 BC](../apis/m/microsoftDynamics365BC/native-api)
+- [Microsoft Entra](../apis/m/microsoftEntra/native-api) - https://learn.microsoft.com/en-us/graph/api/overview
 - [Microsoft Exchange](../apis/m/microsoftExchange/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0
 - [Microsoft Intune](../apis/m/microsoftIntune/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0
 - [Microsoft Power BI](../apis/m/microsoftPowerBI/native-api) - https://learn.microsoft.com/en-us/rest/api/power-bi/

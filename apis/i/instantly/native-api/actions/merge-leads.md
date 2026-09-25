@@ -7,6 +7,7 @@ Merges two leads in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/leads/merge`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Merge Leads](https://developer.instantly.ai/api-reference/lead/merge-two-leads)
 
 ## Parameters

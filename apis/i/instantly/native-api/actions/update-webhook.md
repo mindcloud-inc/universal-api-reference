@@ -7,6 +7,7 @@ Updates an existing webhook in Instantly.
 - **Method:** `PATCH`
 - **Path:** `/api/v2/webhooks/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Update Webhook](https://developer.instantly.ai/api/v2/webhook/patchwebhook)
 
 ## Parameters

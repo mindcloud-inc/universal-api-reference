@@ -7,6 +7,7 @@ Retrieves campaigns from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/campaigns`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [List Campaigns](https://developer.instantly.ai/api/v2/campaign/listcampaign)
 
 ## Capabilities

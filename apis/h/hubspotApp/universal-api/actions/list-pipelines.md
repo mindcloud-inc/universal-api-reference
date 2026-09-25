@@ -40,7 +40,37 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native HubSpot API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "archived": true,
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "displayOrder": 1,
+      "id": "string",
+      "label": "string",
+      "stages": [
+        {}
+      ],
+      "updatedAt": "2026-05-07T12:00:00.000Z"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `archived` | boolean | Whether the pipeline is archived. |
+| `createdAt` | date | When the pipeline was created. |
+| `displayOrder` | number | The pipeline display order. |
+| `id` | string | The pipeline ID. |
+| `label` | string | The pipeline display label. |
+| `stages` | array<object> | The stages belonging to the pipeline. |
+| `updatedAt` | date | When the pipeline was last updated. |
 
 ## Native endpoint
 

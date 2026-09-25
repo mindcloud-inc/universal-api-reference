@@ -7,6 +7,7 @@ Adds leads to a campaign or list in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/leads/add`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Add Leads To Campaign Or List](https://developer.instantly.ai/api-reference/lead/add-leads-in-bulk-to-a-campaign-or-list)
 
 ## Parameters

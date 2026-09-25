@@ -7,6 +7,7 @@ Creates a new campaign in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/campaigns`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Create Campaign](https://developer.instantly.ai/api/v2/campaign/createcampaign)
 
 ## Parameters

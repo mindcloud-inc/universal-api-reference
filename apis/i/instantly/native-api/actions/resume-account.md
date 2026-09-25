@@ -7,6 +7,7 @@ Resumes an account in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/accounts/:email/resume`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Resume Account](https://developer.instantly.ai/api/v2/account/resumeaccount)
 
 ## Parameters

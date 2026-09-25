@@ -7,4 +7,5 @@ Retrieves the current workspace from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/workspaces/current`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Current Workspace](https://developer.instantly.ai/api/v2/workspace)

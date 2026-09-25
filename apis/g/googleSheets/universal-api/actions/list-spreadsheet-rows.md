@@ -44,7 +44,29 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Google Sheets API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "majorDimension": "string",
+      "range": "string",
+      "values": [
+        {}
+      ]
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `majorDimension` | string |  |
+| `range` | string |  |
+| `values[]` | object |  |
 
 ## Native endpoint
 

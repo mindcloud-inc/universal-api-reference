@@ -29,6 +29,8 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
+The next-page cursor is read from `paging.next`.
+
 ## Pagination
 
 Use `limit` in the query string to set the page size. Use `after` in the query string as the pagination cursor. Follow the complete next-page URL returned by the API.

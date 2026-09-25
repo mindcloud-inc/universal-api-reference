@@ -23,12 +23,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 
 ## Actions (21)
 
-### Accounts
-
-| Action | Method | Description |
-| --- | --- | --- |
-| [Add Cash Receipts](actions/add-cash-receipts.md) | POST |  |
-
 ### Customers
 
 | Action | Method | Description |
@@ -50,6 +44,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 | [Create Customer Invoice](actions/create-customer-invoice.md) | POST |  |
 | [Create Vendor Invoice](actions/create-vendor-invoice.md) | POST |  |
 | [Create Work Orders](actions/create-work-orders.md) | POST |  |
+
+### Item Receipts
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Add Cash Receipts](actions/add-cash-receipts.md) | POST |  |
 
 ### Other
 

@@ -7,6 +7,7 @@ Retrieves an account from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/accounts/:email`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Account](https://developer.instantly.ai/api/v2/account/getaccount)
 
 ## Parameters

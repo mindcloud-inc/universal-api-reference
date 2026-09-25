@@ -1,6 +1,6 @@
 # Instantly: Get Daily Account Analytics
 
-Retrieves daily account analytics from Instantly.
+Get analytics for the specified sender accounts. Useful for tracking daily sending activity across your accounts.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/instantly/latest/actions/get-daily-account-analytics

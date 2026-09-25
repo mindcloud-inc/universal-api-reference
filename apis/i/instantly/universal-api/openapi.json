@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Instantly Universal API",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Manage outreach campaigns, leads, accounts, and workspace settings"
   },
   "servers": [
@@ -667,7 +667,7 @@
       "post": {
         "operationId": "instantly.create-account",
         "summary": "Create Account",
-        "description": "Creates a new account in Instantly.",
+        "description": "Creates a new sender account in Instantly.",
         "externalDocs": {
           "url": "https://mindcloud.co/docs/universal/rest/instantly/latest/actions/create-account"
         },
@@ -3520,7 +3520,7 @@
       "get": {
         "operationId": "instantly.get-daily-account-analytics",
         "summary": "Get Daily Account Analytics",
-        "description": "Retrieves daily account analytics from Instantly.",
+        "description": "Get analytics for the specified sender accounts. Useful for tracking daily sending activity across your accounts.",
         "externalDocs": {
           "url": "https://mindcloud.co/docs/universal/rest/instantly/latest/actions/get-daily-account-analytics"
         },
@@ -5233,7 +5233,7 @@
       "get": {
         "operationId": "instantly.list-accounts",
         "summary": "List Accounts",
-        "description": "Retrieves accounts from Instantly.",
+        "description": "Retrieves your sending accounts from Instantly.",
         "externalDocs": {
           "url": "https://mindcloud.co/docs/universal/rest/instantly/latest/actions/list-accounts"
         },
@@ -6162,7 +6162,7 @@
       "get": {
         "operationId": "instantly.list-leads",
         "summary": "List Leads",
-        "description": "Retrieves leads from Instantly.",
+        "description": "Retrieve leads from your Instantly workspace with advanced search filters.",
         "externalDocs": {
           "url": "https://mindcloud.co/docs/universal/rest/instantly/latest/actions/list-leads"
         },
@@ -6182,13 +6182,296 @@
             }
           },
           {
+            "name": "queries[].actionType",
+            "in": "query",
+            "required": false,
+            "description": "Available options: `reply`, `email-open`, `last-contacted`, `link-click`, `lead-status`, `lead-status-change`",
+            "schema": {
+              "type": "string",
+              "description": "Available options: `reply`, `email-open`, `last-contacted`, `link-click`, `lead-status`, `lead-status-change`"
+            }
+          },
+          {
+            "name": "queries[].values.leadStatus.condition",
+            "in": "query",
+            "required": false,
+            "description": "Available options: `is`, `is-not`",
+            "schema": {
+              "type": "string",
+              "description": "Available options: `is`, `is-not`",
+              "example": "is-not"
+            }
+          },
+          {
+            "name": "queries[].values.occurrenceCount.condition",
+            "in": "query",
+            "required": false,
+            "description": "Available options: \"more\", \"less\", \"equal\"",
+            "schema": {
+              "type": "string",
+              "description": "Available options: \"more\", \"less\", \"equal\""
+            }
+          },
+          {
+            "name": "queries[].values.occurrenceDays",
+            "in": "query",
+            "required": false,
+            "description": "The specified `actionType` occurred within the last x-days.\nExample: \"link-click\" within the last `14` days.",
+            "schema": {
+              "type": "number",
+              "description": "The specified `actionType` occurred within the last x-days.\nExample: \"link-click\" within the last `14` days."
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "Example: \"John Doe\"\n\nSearch term matched against the lead's email and profile fields (first and last name, company, job title, and similar).\n- Matches whole words, and the beginning of a field's value.\n   - \"smith\" finds \"John Smith\"\n   - \"mith\" does not.\n- Provide `campaign` or `list_id` to also match inside values.",
+            "schema": {
+              "type": "string",
+              "description": "Example: \"John Doe\"\n\nSearch term matched against the lead's email and profile fields (first and last name, company, job title, and similar).\n- Matches whole words, and the beginning of a field's value.\n   - \"smith\" finds \"John Smith\"\n   - \"mith\" does not.\n- Provide `campaign` or `list_id` to also match inside values.",
+              "example": "John Doe"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "description": "Filter criteria for leads.\nFor custom lead labels, use the `interest_status` field.\nHere is the complete list of supported `filter` values formatted as tables, grouped by category:\n\n### 1. Campaign & Sequence Status\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_VAL_CONTACTED` | Contacted | Leads that have received at least one email in the campaign. |\n| `FILTER_VAL_NOT_CONTACTED` | Not Yet Contacted | Leads uploaded to the campaign that haven't been emailed yet. |\n| `FILTER_VAL_ACTIVE` | Active | Leads currently in progress and active in the sequence. |\n| `FILTER_VAL_COMPLETED` | Completed | Leads that completed all scheduled steps in the sequence. |\n| `FILTER_VAL_IN_SUBSEQUENCE` | In Subsequence | Leads branched into and running in a subsequence. |\n| `FILTER_VAL_UNSUBSCRIBED` | Unsubscribed | Leads that clicked unsubscribe or requested to opt out. |\n| `FILTER_VAL_BOUNCED` | Bounced | Leads whose email delivery resulted in a hard or soft bounce. |\n| `FILTER_VAL_SKIPPED` | Skipped | Leads skipped from sending by BounceShield or safety rules. |\n\n---\n\n### 2. Engagement & Activity\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_VAL_REPLIED` | Reply Received | Leads that have sent at least one email reply. |\n| `FILTER_VAL_LINK_CLICKED` | Link Clicked | Leads that clicked a tracked link within an outreach email. |\n| `FILTER_VAL_OPENED_NO_REPLY` | Email Opened, No Reply | Leads that opened one or more emails but have not replied. |\n| `FILTER_VAL_COMPLETED_NO_REPLY` | Completed, No Reply | Leads that finished the entire sequence without ever replying. |\n| `FILTER_VAL_NO_OPENS` | No Email Opened | Leads that were contacted but have not opened any emails. |\n\n---\n\n### 3. Email Verification Status\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_VAL_VALID` | Valid | Leads whose email addresses were verified as safe and deliverable. |\n| `FILTER_VAL_INVALID` | Invalid | Leads verified as invalid, dead, or non-deliverable addresses. |\n| `FILTER_VAL_RISKY` | Risky | Leads identified as catch-all, accept-all, or low-confidence deliverability. |\n\n---\n\n### 4. CRM & Lead Interest Status\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_LEAD_INTERESTED` | Interested | Leads marked with positive interest. |\n| `FILTER_LEAD_NOT_INTERESTED` | Not Interested | Leads marked as not interested in the offer. |\n| `FILTER_LEAD_MEETING_BOOKED` | Meeting Booked | Leads that scheduled or agreed to a meeting. |\n| `FILTER_LEAD_MEETING_COMPLETED` | Meeting Completed | Leads with whom a scheduled meeting has taken place. |\n| `FILTER_LEAD_CLOSED` | Closed / Won | Opportunities successfully closed or won. |\n| `FILTER_LEAD_OUT_OF_OFFICE` | Out of Office | Leads whose reply was identified as an automated out-of-office message. |\n| `FILTER_LEAD_WRONG_PERSON` | Wrong Person | Leads who indicated they are not the appropriate contact. |\n| `FILTER_LEAD_LOST` | Lost | Deals or opportunities marked as lost. |\n| `FILTER_LEAD_NO_SHOW` | No Show | Prospects who did not attend a scheduled meeting. |\n| `FILTER_LEAD_CUSTOM_LABEL_POSITIVE` | Custom Positive Label | Leads tagged with any workspace custom label set to positive interest. |\n| `FILTER_LEAD_CUSTOM_LABEL_NEGATIVE` | Custom Negative Label | Leads tagged with any workspace custom label set to negative interest. |",
+            "schema": {
+              "type": "string",
+              "description": "Filter criteria for leads.\nFor custom lead labels, use the `interest_status` field.\nHere is the complete list of supported `filter` values formatted as tables, grouped by category:\n\n### 1. Campaign & Sequence Status\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_VAL_CONTACTED` | Contacted | Leads that have received at least one email in the campaign. |\n| `FILTER_VAL_NOT_CONTACTED` | Not Yet Contacted | Leads uploaded to the campaign that haven't been emailed yet. |\n| `FILTER_VAL_ACTIVE` | Active | Leads currently in progress and active in the sequence. |\n| `FILTER_VAL_COMPLETED` | Completed | Leads that completed all scheduled steps in the sequence. |\n| `FILTER_VAL_IN_SUBSEQUENCE` | In Subsequence | Leads branched into and running in a subsequence. |\n| `FILTER_VAL_UNSUBSCRIBED` | Unsubscribed | Leads that clicked unsubscribe or requested to opt out. |\n| `FILTER_VAL_BOUNCED` | Bounced | Leads whose email delivery resulted in a hard or soft bounce. |\n| `FILTER_VAL_SKIPPED` | Skipped | Leads skipped from sending by BounceShield or safety rules. |\n\n---\n\n### 2. Engagement & Activity\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_VAL_REPLIED` | Reply Received | Leads that have sent at least one email reply. |\n| `FILTER_VAL_LINK_CLICKED` | Link Clicked | Leads that clicked a tracked link within an outreach email. |\n| `FILTER_VAL_OPENED_NO_REPLY` | Email Opened, No Reply | Leads that opened one or more emails but have not replied. |\n| `FILTER_VAL_COMPLETED_NO_REPLY` | Completed, No Reply | Leads that finished the entire sequence without ever replying. |\n| `FILTER_VAL_NO_OPENS` | No Email Opened | Leads that were contacted but have not opened any emails. |\n\n---\n\n### 3. Email Verification Status\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_VAL_VALID` | Valid | Leads whose email addresses were verified as safe and deliverable. |\n| `FILTER_VAL_INVALID` | Invalid | Leads verified as invalid, dead, or non-deliverable addresses. |\n| `FILTER_VAL_RISKY` | Risky | Leads identified as catch-all, accept-all, or low-confidence deliverability. |\n\n---\n\n### 4. CRM & Lead Interest Status\n\n| Value | Label | Description |\n| :--- | :--- | :--- |\n| `FILTER_LEAD_INTERESTED` | Interested | Leads marked with positive interest. |\n| `FILTER_LEAD_NOT_INTERESTED` | Not Interested | Leads marked as not interested in the offer. |\n| `FILTER_LEAD_MEETING_BOOKED` | Meeting Booked | Leads that scheduled or agreed to a meeting. |\n| `FILTER_LEAD_MEETING_COMPLETED` | Meeting Completed | Leads with whom a scheduled meeting has taken place. |\n| `FILTER_LEAD_CLOSED` | Closed / Won | Opportunities successfully closed or won. |\n| `FILTER_LEAD_OUT_OF_OFFICE` | Out of Office | Leads whose reply was identified as an automated out-of-office message. |\n| `FILTER_LEAD_WRONG_PERSON` | Wrong Person | Leads who indicated they are not the appropriate contact. |\n| `FILTER_LEAD_LOST` | Lost | Deals or opportunities marked as lost. |\n| `FILTER_LEAD_NO_SHOW` | No Show | Prospects who did not attend a scheduled meeting. |\n| `FILTER_LEAD_CUSTOM_LABEL_POSITIVE` | Custom Positive Label | Leads tagged with any workspace custom label set to positive interest. |\n| `FILTER_LEAD_CUSTOM_LABEL_NEGATIVE` | Custom Negative Label | Leads tagged with any workspace custom label set to negative interest. |"
+            }
+          },
+          {
+            "name": "queries[].values",
+            "in": "query",
+            "required": false,
+            "description": "**Example: replied within the last `7` days, more than `2` times.**\n- actionType: \"reply\"\n- occurrence-days: 7\n- occurrence-count.condition: \"more\"\n- occurrence-count.count: 2\n\n**Example: opened an email within the last `14` days, more than `3` times.**\n- actionType: \"email-open\"\n- occurrence-days: 14\n- occurrence-count.condition: \"more\"\n- occurrence-count.count: 3\n\n**Example: contacted within the last `5` days.**\n- actionType: \"last-contacted\"\n- occurrence-days: 5\n\n**Example: clicked a link within the last `10` days, more than `1` time.**\n- actionType: \"link-click\"\n- occurrence-days: 10\n- occurrence-count.condition: \"more\"\n- occurrence-count.count: 1\n\n**Example: lead status is Interested.**\n- actionType: \"lead-status\"\n- lead-status.status: 1\n- lead-status.condition: \"is\"\n\n**Example: lead status changed within the last `3` days, and is Not Interested.**\n- actionType: \"lead-status-change\"\n- occurrence-days: 3\n- lead-status.status: -1\n- lead-status.condition: \"is\"",
+            "schema": {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "**Example: replied within the last `7` days, more than `2` times.**\n- actionType: \"reply\"\n- occurrence-days: 7\n- occurrence-count.condition: \"more\"\n- occurrence-count.count: 2\n\n**Example: opened an email within the last `14` days, more than `3` times.**\n- actionType: \"email-open\"\n- occurrence-days: 14\n- occurrence-count.condition: \"more\"\n- occurrence-count.count: 3\n\n**Example: contacted within the last `5` days.**\n- actionType: \"last-contacted\"\n- occurrence-days: 5\n\n**Example: clicked a link within the last `10` days, more than `1` time.**\n- actionType: \"link-click\"\n- occurrence-days: 10\n- occurrence-count.condition: \"more\"\n- occurrence-count.count: 1\n\n**Example: lead status is Interested.**\n- actionType: \"lead-status\"\n- lead-status.status: 1\n- lead-status.condition: \"is\"\n\n**Example: lead status changed within the last `3` days, and is Not Interested.**\n- actionType: \"lead-status-change\"\n- occurrence-days: 3\n- lead-status.status: -1\n- lead-status.condition: \"is\""
+            }
+          },
+          {
+            "name": "queries[].values.leadStatus.status",
+            "in": "query",
+            "required": false,
+            "description": "Enter a numeric status code:\nNumeric Code (status)\tStatus Label\tCategory\tDescription\n1\tInterested\t\nPositive\nProspect indicated interest in your offer\n2\tMeeting Booked\t\nPositive\nProspect scheduled a meeting/call\n3\tMeeting Completed\t\nPositive\nMeeting took place\n4\tClosed\t\nPositive\nDeal won / customer converted\n0\tOut of Office\t\nNeutral\nAuto-responder or out-of-office message received\n-1\tNot Interested\t\nNegative\nProspect explicitly declined or passed\n-2\tWrong Person\t\nNegative\nContact indicated they are not the relevant person\n-3\tLost\t\nNegative\nDeal lost / opportunity closed without conversion\n-4\tNo Show\t\nNegative\nProspect missed scheduled meeting",
+            "schema": {
+              "type": "string",
+              "description": "Enter a numeric status code:\nNumeric Code (status)\tStatus Label\tCategory\tDescription\n1\tInterested\t\nPositive\nProspect indicated interest in your offer\n2\tMeeting Booked\t\nPositive\nProspect scheduled a meeting/call\n3\tMeeting Completed\t\nPositive\nMeeting took place\n4\tClosed\t\nPositive\nDeal won / customer converted\n0\tOut of Office\t\nNeutral\nAuto-responder or out-of-office message received\n-1\tNot Interested\t\nNegative\nProspect explicitly declined or passed\n-2\tWrong Person\t\nNegative\nContact indicated they are not the relevant person\n-3\tLost\t\nNegative\nDeal lost / opportunity closed without conversion\n-4\tNo Show\t\nNegative\nProspect missed scheduled meeting",
+              "example": "1"
+            }
+          },
+          {
+            "name": "queries[].values.occurrenceCount",
+            "in": "query",
+            "required": false,
+            "description": "How many times did the 'actionType' occur?\nExample: \"more\" than `2` times",
+            "schema": {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "How many times did the 'actionType' occur?\nExample: \"more\" than `2` times"
+            }
+          },
+          {
+            "name": "queries[].values.occurrenceCount.count",
+            "in": "query",
+            "required": false,
+            "description": "Example: 2",
+            "schema": {
+              "type": "number",
+              "description": "Example: 2",
+              "example": 2
+            }
+          },
+          {
+            "name": "campaign",
+            "in": "query",
+            "required": false,
+            "description": "Campaign ID to filter leads.",
+            "schema": {
+              "type": "string",
+              "description": "Campaign ID to filter leads.",
+              "example": "01a0d07f-2f8a-73da-9cb3-5b898b7773d6"
+            }
+          },
+          {
+            "name": "queries[].values.leadStatus",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          {
             "name": "listId",
             "in": "query",
             "required": false,
             "description": "List ID to filter leads.",
             "schema": {
               "type": "string",
-              "description": "List ID to filter leads."
+              "description": "List ID to filter leads.",
+              "example": "01a0d07f-2f8a-73da-9cb3-5b8ad8458a8d"
+            }
+          },
+          {
+            "name": "smartViewId",
+            "in": "query",
+            "required": false,
+            "description": "Smart view ID to filter leads.",
+            "schema": {
+              "type": "string",
+              "description": "Smart view ID to filter leads.",
+              "example": "01a0d07f-4085-7940-8b9d-476c02cc4e69"
+            }
+          },
+          {
+            "name": "enrichmentStatus",
+            "in": "query",
+            "required": false,
+            "description": "Enrichment status to filter leads.\nAvailable options: `1`, `-1`, `11`, `-2` \nHere is what each numeric enum value means:\n\nValue\tStatus Name\tDescription\n1\tEnriched\t\nThe lead has been successfully enriched with additional contact/company data.\n-1\tNo Data\t\nThe enrichment process ran, but no matching enrichment data was found for this lead.\n11\tPending\t\nThe enrichment job is currently queued or in progress.\n-2\tError\t\nAn error occurred while attempting to enrich the lead.",
+            "schema": {
+              "type": "string",
+              "description": "Enrichment status to filter leads.\nAvailable options: `1`, `-1`, `11`, `-2` \nHere is what each numeric enum value means:\n\nValue\tStatus Name\tDescription\n1\tEnriched\t\nThe lead has been successfully enriched with additional contact/company data.\n-1\tNo Data\t\nThe enrichment process ran, but no matching enrichment data was found for this lead.\n11\tPending\t\nThe enrichment job is currently queued or in progress.\n-2\tError\t\nAn error occurred while attempting to enrich the lead."
+            }
+          },
+          {
+            "name": "esgCode",
+            "in": "query",
+            "required": false,
+            "description": "ESG code to filter leads.\n\nAvailable options(string): `0`, `1`, `2`, `3`, `4`, `all`, `none`",
+            "schema": {
+              "type": "string",
+              "description": "ESG code to filter leads.\n\nAvailable options(string): `0`, `1`, `2`, `3`, `4`, `all`, `none`"
+            }
+          },
+          {
+            "name": "inList",
+            "in": "query",
+            "required": false,
+            "description": "Whether the lead is in a list. (true / false)",
+            "schema": {
+              "type": "boolean",
+              "description": "Whether the lead is in a list. (true / false)"
+            }
+          },
+          {
+            "name": "inCampaign",
+            "in": "query",
+            "required": false,
+            "description": "Whether the lead is in a campaign.",
+            "schema": {
+              "type": "boolean",
+              "description": "Whether the lead is in a campaign."
+            }
+          },
+          {
+            "name": "isWebsiteVisitor",
+            "in": "query",
+            "required": false,
+            "description": "Whether the lead is a website visitor",
+            "schema": {
+              "type": "boolean",
+              "description": "Whether the lead is a website visitor"
+            }
+          },
+          {
+            "name": "distinctContacts",
+            "in": "query",
+            "required": false,
+            "description": "Whether to return distinct contacts.\n- true(toggled on): don't return duplicate leads.\n- false(toggled off): show all leads, including duplicates.",
+            "schema": {
+              "type": "boolean",
+              "description": "Whether to return distinct contacts.\n- true(toggled on): don't return duplicate leads.\n- false(toggled off): show all leads, including duplicates."
+            }
+          },
+          {
+            "name": "ids[]",
+            "in": "query",
+            "required": false,
+            "description": "One or more lead IDs to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "One or more lead IDs to include"
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "excludedIds[]",
+            "in": "query",
+            "required": false,
+            "description": "One or more lead IDs to exclude.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "One or more lead IDs to exclude."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "contacts[]",
+            "in": "query",
+            "required": false,
+            "description": "One or more emails the leads needs to have.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "One or more emails the leads needs to have."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "organizationUserIDs[]",
+            "in": "query",
+            "required": false,
+            "description": "One or more organization user IDs to filter leads.",
+            "schema": {
+              "type": "array",
+              "items": {},
+              "description": "One or more organization user IDs to filter leads."
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "queries[]",
+            "in": "query",
+            "required": false,
+            "description": "Find & segment leads based on activity or status, using one or more query conditions\n\nEach query requires an `actionType` and a `value`\n\nExample: Find leads who have\n- reply: within last 14-days, more than 2-times\n- reply: within last 14-days, more than 1-times AND link-click: within last 7 days more than 1-time\n- email-open: within last 30-days, more than 3-times\n- last-contacted: within last 90-days\n- link-click: within last 7-days, more than 1-time\n- lead-status: is \"Interested\"\n- lead-status-change: within last 7-days, to \"Not Interested\"",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "description": "Find & segment leads based on activity or status, using one or more query conditions\n\nEach query requires an `actionType` and a `value`\n\nExample: Find leads who have\n- reply: within last 14-days, more than 2-times\n- reply: within last 14-days, more than 1-times AND link-click: within last 7 days more than 1-time\n- email-open: within last 30-days, more than 3-times\n- last-contacted: within last 90-days\n- link-click: within last 7-days, more than 1-time\n- lead-status: is \"Interested\"\n- lead-status-change: within last 7-days, to \"Not Interested\""
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "startingAfter",
+            "in": "query",
+            "required": false,
+            "description": "Forward pagination cursor.\nWhen `distinct_contacts` is:\n- `false`, provide the `id` value from the last lead of the previous page;\n- `true`, provide the lead's email.",
+            "schema": {
+              "type": "string",
+              "description": "Forward pagination cursor.\nWhen `distinct_contacts` is:\n- `false`, provide the `id` value from the last lead of the previous page;\n- `true`, provide the lead's email.",
+              "x-mindcloud-advanced": true
             }
           },
           {
@@ -6199,7 +6482,18 @@
             "schema": {
               "type": "number",
               "description": "Number of leads to return.",
-              "default": 10
+              "example": 10,
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
             }
           },
           {
@@ -6234,37 +6528,74 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "company_name": {
+                          "companyDomain": {
+                            "type": "string"
+                          },
+                          "companyName": {
                             "type": "string"
                           },
                           "email": {
                             "type": "string"
                           },
-                          "first_name": {
+                          "emailClickCount": {
+                            "type": "number"
+                          },
+                          "emailOpenCount": {
+                            "type": "number"
+                          },
+                          "emailReplyCount": {
+                            "type": "number"
+                          },
+                          "espCode": {
+                            "type": "number"
+                          },
+                          "firstName": {
                             "type": "string"
                           },
                           "id": {
                             "type": "string"
                           },
-                          "last_name": {
+                          "lastName": {
                             "type": "string"
                           },
-                          "list_id": {
+                          "listId": {
                             "type": "string"
                           },
                           "organization": {
                             "type": "string"
                           },
+                          "payload": {
+                            "type": "object",
+                            "properties": {
+                              "email": {
+                                "type": "string"
+                              },
+                              "firstName": {
+                                "type": "string"
+                              },
+                              "lastName": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "personalization": {
+                            "type": "string"
+                          },
                           "status": {
                             "type": "number"
                           },
-                          "timestamp_created": {
-                            "type": "string",
-                            "format": "date-time"
+                          "timestampCreated": {
+                            "type": "string"
                           },
-                          "timestamp_updated": {
-                            "type": "string",
-                            "format": "date-time"
+                          "timestampUpdated": {
+                            "type": "string"
+                          },
+                          "uploadMethod": {
+                            "type": "string"
+                          },
+                          "website": {
+                            "type": "string"
                           }
                         },
                         "additionalProperties": false

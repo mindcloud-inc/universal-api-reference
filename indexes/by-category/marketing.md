@@ -143,7 +143,7 @@
 - **Influencers.club** · [Universal API reference](../../apis/i/influencersclub/universal-api) · [Native API reference](../../apis/i/influencersclub/native-api) · [Native API docs](https://docs.influencers.club)
 - **InsightIQ** · [Universal API reference](../../apis/i/insightIQ/universal-api) · [Native API reference](../../apis/i/insightIQ/native-api) · [Native API docs](https://docs.insightiq.ai/docs/api-reference/api)
 - **Insites** · [Universal API reference](../../apis/i/insites/universal-api) · [Native API reference](../../apis/i/insites/native-api) · [Native API docs](https://help.insites.com/en/collections/4740612-api-webhooks)
-- **Instantly** · [Universal API reference](../../apis/i/instantly/universal-api) · [Native API reference](../../apis/i/instantly/native-api) · [Native API docs](https://developer.instantly.ai)
+- **Instantly** · [Universal API reference](../../apis/i/instantly/universal-api) · [Native API reference](../../apis/i/instantly/native-api) · [Native API docs](https://developer.instantly.ai/llms.txt)
 - **Instasent** · [Universal API reference](../../apis/i/instasent/universal-api) · [Native API reference](../../apis/i/instasent/native-api) · [Native API docs](https://instasent.stoplight.io/docs/instasent/8j57yi7wown1z-instasent-product-api)
 - **Invidious** · [Universal API reference](../../apis/i/invidious/universal-api) · [Native API reference](../../apis/i/invidious/native-api) · [Native API docs](https://docs.invidious.io/api/)
 - **Invision Community** · [Universal API reference](../../apis/i/invisionCommunity/universal-api) · [Native API reference](../../apis/i/invisionCommunity/native-api) · [Native API docs](https://invisioncommunity.com/developers/rest-api/index/)

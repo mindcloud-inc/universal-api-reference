@@ -7,6 +7,7 @@ Retrieves an email from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/emails/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Email](https://developer.instantly.ai/api-reference/email/get-email)
 
 ## Parameters

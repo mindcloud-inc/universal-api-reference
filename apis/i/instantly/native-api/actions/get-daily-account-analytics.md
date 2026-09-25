@@ -1,12 +1,13 @@
 # Get Daily Account Analytics with Instantly
 
-Retrieves daily account analytics from Instantly.
+Get analytics for the specified sender accounts. Useful for tracking daily sending activity across your accounts.
 
 ## Endpoint
 
 - **Method:** `GET`
 - **Path:** `/api/v2/accounts/analytics/daily`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Daily Account Analytics](https://developer.instantly.ai/api/v2/account/getdailyaccountanalytics)
 
 ## Parameters

@@ -46,7 +46,41 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Google Search Console API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "contents": [
+        {}
+      ],
+      "errors": "string",
+      "isPending": true,
+      "isSitemapsIndex": true,
+      "lastDownloaded": "string",
+      "lastSubmitted": "string",
+      "path": "string",
+      "type": "string",
+      "warnings": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `contents` | array<object> | Per-content-type submission and indexing counts for the sitemap. |
+| `errors` | string | Number of errors reported for the sitemap. |
+| `isPending` | boolean | Whether the sitemap was submitted but processing has not finished. |
+| `isSitemapsIndex` | boolean | Whether the sitemap is a sitemap index file. |
+| `lastDownloaded` | string | Date and time Google last downloaded the sitemap. |
+| `lastSubmitted` | string | Date and time the sitemap was last submitted, if any. |
+| `path` | string | The URL of the sitemap. |
+| `type` | string | The sitemap type reported by the provider. |
+| `warnings` | string | Number of warnings reported for the sitemap. |
 
 ## Native endpoint
 

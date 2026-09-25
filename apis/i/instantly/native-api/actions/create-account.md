@@ -1,12 +1,13 @@
 # Create Account with Instantly
 
-Creates a new account in Instantly.
+Creates a new sender account in Instantly.
 
 ## Endpoint
 
 - **Method:** `POST`
 - **Path:** `/api/v2/accounts`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Create Account](https://developer.instantly.ai/api/v2/account/createaccount)
 
 ## Parameters

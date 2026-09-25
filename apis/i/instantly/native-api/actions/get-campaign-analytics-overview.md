@@ -7,6 +7,7 @@ Retrieves campaign analytics overview from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/campaigns/analytics/overview`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Campaign Analytics Overview](https://developer.instantly.ai/api/v2/campaign/getcampaignanalyticsoverview)
 
 ## Parameters

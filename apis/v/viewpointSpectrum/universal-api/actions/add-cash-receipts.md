@@ -15,7 +15,9 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "Company_Code": "string",
+  "Customer_Code": "string"
 }'
 ```
 
@@ -27,7 +29,9 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/viewpoin
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "Company_Code": "string",
+    "Customer_Code": "string"
   })
 });
 
@@ -40,9 +44,9 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `Company_Code` | string | no |  |
+| `Company_Code` | string | yes |  |
 | `Batch_Code` | string | no |  |
-| `Customer_Code` | string | no |  |
+| `Customer_Code` | string | yes |  |
 | `Transaction_Code` | string | no |  |
 | `Reference_Number` | string | no |  |
 | `Reference_Date` | string | no |  |

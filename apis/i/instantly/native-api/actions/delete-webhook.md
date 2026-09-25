@@ -7,6 +7,7 @@ Deletes a webhook from Instantly.
 - **Method:** `DELETE`
 - **Path:** `/api/v2/webhooks/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Delete Webhook](https://developer.instantly.ai/api-reference/webhook/delete-webhook)
 
 ## Parameters

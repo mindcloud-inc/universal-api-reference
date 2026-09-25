@@ -43,7 +43,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filter` | string | no |  |
 | `orderBy` | string | no |  |
 | `select` | string | no |  |
-| `select` | string | no |  |
 
 ## Response
 

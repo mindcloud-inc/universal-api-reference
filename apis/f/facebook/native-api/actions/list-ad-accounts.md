@@ -9,6 +9,10 @@ Retrieve a list of the advertising accounts to which the authenticated user has 
 - **Base URL:** `https://graph.facebook.com/v25.0`
 - **Official documentation:** [List Ad Accounts](https://developers.facebook.com/docs/graph-api/reference/user/adaccounts/)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required |

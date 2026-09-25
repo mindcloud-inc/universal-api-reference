@@ -1,6 +1,6 @@
 # Instantly: List Accounts
 
-Retrieves accounts from Instantly.
+Retrieves your sending accounts from Instantly.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/instantly/latest/actions/list-accounts

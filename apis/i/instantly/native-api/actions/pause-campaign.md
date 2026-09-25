@@ -7,6 +7,7 @@ Pauses a campaign in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/campaigns/:id/pause`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Pause Campaign](https://developer.instantly.ai/api/v2/campaign/pausecampaign)
 
 ## Parameters

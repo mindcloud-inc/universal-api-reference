@@ -21,4 +21,4 @@ This operation supports [pagination](../README.md#pagination).
 | `filterByFormula` | query | `string` | no | — |
 | `tableId` | path | `list<string>` | yes | — |
 | `sort[0][field]` | query | `string` | no | Enter a Field name to sort by. |
-| `sort[0][direction]` | query | `list<string>` | no | — |
+| `sort[0][direction]` | query | `list<string>` | no | Accepted values: `asc`, `desc`. |

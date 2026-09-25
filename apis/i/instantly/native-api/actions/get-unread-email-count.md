@@ -7,4 +7,5 @@ Retrieves unread email counts from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/emails/unread/count`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Unread Email Count](https://developer.instantly.ai/api/v2/email/countunreademails)

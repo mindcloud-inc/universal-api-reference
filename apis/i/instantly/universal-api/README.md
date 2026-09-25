@@ -7,7 +7,7 @@ Manage outreach campaigns, leads, accounts, and workspace settings
 - **Actions:** 48
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://instantly.ai
-- **Vendor API docs:** https://developer.instantly.ai
+- **Vendor API docs:** https://developer.instantly.ai/llms.txt
 
 ## Quickstart
 
@@ -28,9 +28,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/instantly/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create Account](actions/create-account.md) | POST | Creates a new account in Instantly. |
 | [Get Account](actions/get-account.md) | GET | Retrieves an account from Instantly. |
-| [List Accounts](actions/list-accounts.md) | GET | Retrieves accounts from Instantly. |
+| [List Accounts](actions/list-accounts.md) | GET | Retrieves your sending accounts from Instantly. |
 | [Pause Account](actions/pause-account.md) | PUT | Pauses an account in Instantly. |
 | [Resume Account](actions/resume-account.md) | PUT | Resumes an account in Instantly. |
 | [Update Account](actions/update-account.md) | PUT | Updates an existing account in Instantly. |
@@ -39,13 +38,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/instantly/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get Daily Account Analytics](actions/get-daily-account-analytics.md) | GET | Retrieves daily account analytics from Instantly. |
+| [Get Daily Account Analytics](actions/get-daily-account-analytics.md) | GET | Get analytics for the specified sender accounts. Useful for tracking daily sending activity across your accounts. |
 
 ### Account Vitals
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Test Account Vitals](actions/test-account-vitals.md) | GET | Retrieves account vitals test results from Instantly. |
+
+### Accounts
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Account](actions/create-account.md) | POST | Creates a new sender account in Instantly. |
 
 ### Campaign
 
@@ -94,7 +99,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/instantly/latest/actions/
 | [Create Lead](actions/create-lead.md) | POST | Creates a new lead in Instantly. |
 | [Delete Lead](actions/delete-lead.md) | DELETE | Deletes an existing lead from Instantly. |
 | [Get Lead](actions/get-lead.md) | GET | Retrieves a lead from Instantly. |
-| [List Leads](actions/list-leads.md) | GET | Retrieves leads from Instantly. |
+| [List Leads](actions/list-leads.md) | GET | Retrieve leads from your Instantly workspace with advanced search filters. |
 | [Merge Leads](actions/merge-leads.md) | PUT | Merges two leads in Instantly. |
 | [Move Leads](actions/move-leads.md) | PUT | Moves leads to a campaign or list in Instantly. |
 | [Update Lead](actions/update-lead.md) | PUT | Updates an existing lead in Instantly. |

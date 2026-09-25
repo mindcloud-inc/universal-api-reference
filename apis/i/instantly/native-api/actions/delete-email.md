@@ -7,6 +7,7 @@ Deletes an email from Instantly.
 - **Method:** `DELETE`
 - **Path:** `/api/v2/emails/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Delete Email](https://developer.instantly.ai/api/v2/email/deleteemail)
 
 ## Parameters

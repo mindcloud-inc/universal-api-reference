@@ -8,16 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/facebook/latest/actions/list-ad-ac
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Facebook `connectionId` ([setup](../authentication.md)).
 
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/list-ad-accounts?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/list-ad-accounts?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  limit: '25',
+  offset: '0'
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/facebook/latest/actions/list-ad-accounts?${params}`, {
@@ -61,5 +65,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Facebook API, this operation is `GET me/adaccounts` (base URL `https://graph.facebook.com/v25.0`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-ad-accounts.md) for the provider-specific parameters and requirements.
+Through the native Facebook API, this operation is `GET me/adaccounts` (base URL `https://graph.facebook.com/v25.0`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-ad-accounts.md) for the provider-specific parameters and requirements.
 

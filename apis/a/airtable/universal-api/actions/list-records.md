@@ -45,7 +45,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filterByFormula` | string | no |  |
 | `tableId` | list<string> | yes |  |
 | `sort[0][field]` | string | no | Enter a Field name to sort by. |
-| `sort[0][direction]` | list<string> | no |  |
+| `sort[0][direction]` | list<string> | no | One of: `asc`, `desc`. |
 
 ## Response
 

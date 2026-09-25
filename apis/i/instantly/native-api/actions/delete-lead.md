@@ -7,6 +7,7 @@ Deletes an existing lead from Instantly.
 - **Method:** `DELETE`
 - **Path:** `/api/v2/leads/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Delete Lead](https://developer.instantly.ai/api-reference/lead/delete-lead)
 
 ## Parameters

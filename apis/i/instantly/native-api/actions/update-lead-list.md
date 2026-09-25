@@ -7,6 +7,7 @@ Updates an existing lead list in Instantly.
 - **Method:** `PATCH`
 - **Path:** `/api/v2/lead-lists/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Update Lead List](https://developer.instantly.ai/api/v2/leadlist)
 
 ## Parameters

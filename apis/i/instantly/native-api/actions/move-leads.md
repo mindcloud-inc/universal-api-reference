@@ -7,6 +7,7 @@ Moves leads to a campaign or list in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/leads/move`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Move Leads](https://developer.instantly.ai/api-reference/lead/move-leads-to-a-campaign-or-list)
 
 ## Parameters

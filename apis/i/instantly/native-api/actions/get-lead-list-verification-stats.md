@@ -7,6 +7,7 @@ Retrieves lead list verification stats from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/lead-lists/:id/verification-stats`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Lead List Verification Stats](https://developer.instantly.ai/api/v2/leadlist)
 
 ## Parameters

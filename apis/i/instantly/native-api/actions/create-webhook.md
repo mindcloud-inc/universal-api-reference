@@ -7,6 +7,7 @@ Creates a new webhook in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/webhooks`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Create Webhook](https://developer.instantly.ai/api/v2/webhook/createwebhook)
 
 ## Parameters

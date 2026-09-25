@@ -52,6 +52,35 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `wageCode` | string | no | Vendor email. |
 | `costCenter` | string | no | Contact phone. |
 | `equipmentCode` | string | no |  |
+| `woNumber` | string | no |  |
+| `woEquipment` | string | no |  |
+| `woComponent` | string | no |  |
+| `sCContract` | string | no |  |
+| `pmWorkOrder` | string | no |  |
+| `pmEquipment` | string | no |  |
+| `pmAssembly` | string | no |  |
+| `pmComponent` | string | no |  |
+| `shiftCode` | string | no |  |
+| `workLocality` | string | no |  |
+| `notes` | string | no |  |
+| `unionCode` | string | no |  |
+| `classCode` | string | no |  |
+| `tradeCode` | string | no |  |
+| `taxLocality` | string | no |  |
+| `taxState` | string | no |  |
+| `workerCompCode` | string | no |  |
+| `workCounty` | string | no |  |
+| `locality` | string | no |  |
+| `state` | string | no |  |
+| `hoursEmployee` | string | no |  |
+| `message` | string | no |  |
+| `interCompanyCode` | string | no |  |
+| `additionalJTDQuantity` | string | no |  |
+| `workDate` | string | no |  |
+| `payRateCode` | string | no |  |
+| `crewNumber` | string | no |  |
+| `costCategoryCode` | string | no |  |
+| `payRate` | string | no |  |
 
 ## Response
 
@@ -59,5 +88,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Viewpoint Spectrum API, this operation is `POST ws/AddPRTimeCard` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/send-timesheet-soap.md) for the provider-specific parameters and requirements.
+Through the native Viewpoint Spectrum API, this operation is `POST ws/PreTimeCard` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/send-timesheet-soap.md) for the provider-specific parameters and requirements.
 

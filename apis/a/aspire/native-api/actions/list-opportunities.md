@@ -19,4 +19,3 @@ This operation supports [pagination](../README.md#pagination), [filtering](../RE
 | `$filter` | query | `string` | no |
 | `$orderby` | query | `string` | no |
 | `$select` | query | `string` | no |
-| `select` | query | `string` | no |

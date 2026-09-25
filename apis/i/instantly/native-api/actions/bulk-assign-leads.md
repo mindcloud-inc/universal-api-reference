@@ -7,6 +7,7 @@ Assigns leads to users in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/leads/bulk-assign`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Bulk Assign Leads](https://developer.instantly.ai/api-reference/lead/bulk-assign-leads-to-organization-users)
 
 ## Parameters

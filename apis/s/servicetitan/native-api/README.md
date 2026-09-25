@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 115 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 116 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -43,7 +43,7 @@ Shared headers:
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (115 documented)
+## Endpoints (116 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -153,6 +153,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Update AP Bill Custom Fields](actions/update-ap-bill-custom-fields.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/ap-bills/custom-fields` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApBills_UpdateCustomFields) |
 | [Update Costumer](actions/update-costumer.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` |  |
 | [Update Customer Membership](actions/update-customer-membership.md) | `PATCH memberships/v2/tenant/{{credentials.tenant}}/memberships/:membershipId` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-memberships-v2&operation=CustomerMemberships_Update) |
+| [Update Employee](actions/update-employee.md) | `PATCH settings/v2/tenant/{{credentials.tenant}}/employees/:id` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-settings-v2&operation=Employees_GetList) |
 | [Update Employee Payroll Settings](actions/update-employee-payroll-settings.md) | `PUT payroll/v2/tenant/{{credentials.tenant}}/employees/:employee/payroll-settings` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/PayrollSettings_UpdateEmployeePayrollSettings) |
 | [Update GL Account](actions/update-gl-account.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/gl-accounts/:id` |  |
 | [Update Job](actions/update-job.md) | `PATCH jpm/v2/tenant/{{credentials.tenant}}/jobs/:jobId` | [docs](https://developer.servicetitan.io/docs/apis/tenant-jpm-v2/endpoints/Jobs_Update) |

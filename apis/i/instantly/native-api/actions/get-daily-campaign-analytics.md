@@ -7,6 +7,7 @@ Retrieves daily campaign analytics from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/campaigns/analytics/daily`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Daily Campaign Analytics](https://developer.instantly.ai/api/v2/campaign/getdailycampaignanalytics)
 
 ## Parameters

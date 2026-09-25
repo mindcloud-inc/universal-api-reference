@@ -7,6 +7,7 @@ Marks an email thread as read in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/emails/threads/:thread_id/mark-as-read`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Mark Email Thread As Read](https://developer.instantly.ai/api/v2/email/markallemailsinathreadasread)
 
 ## Parameters

@@ -7,6 +7,7 @@ Retrieves webhooks from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/webhooks`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [List Webhooks](https://developer.instantly.ai/api/v2/webhook/listwebhooks)
 
 ## Capabilities

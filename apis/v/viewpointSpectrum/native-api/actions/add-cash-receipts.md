@@ -18,9 +18,9 @@ Send these additional headers for this operation:
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `Company_Code` | body | `string` | no |
+| `Company_Code` | body | `string` | yes |
 | `Batch_Code` | body | `string` | no |
-| `Customer_Code` | body | `string` | no |
+| `Customer_Code` | body | `string` | yes |
 | `Transaction_Code` | body | `string` | no |
 | `Reference_Number` | body | `string` | no |
 | `Reference_Date` | body | `string` | no |

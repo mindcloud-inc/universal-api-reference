@@ -7,6 +7,7 @@ Forwards an email in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/emails/forward`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Forward Email](https://developer.instantly.ai/api-reference/email/forward-an-email)
 
 ## Parameters

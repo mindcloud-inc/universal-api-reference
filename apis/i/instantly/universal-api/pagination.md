@@ -22,4 +22,5 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/instantly/latest/actions/
 - [List Campaigns](actions/list-campaigns.md)
 - [List Emails](actions/list-emails.md)
 - [List Lead Lists](actions/list-lead-lists.md)
+- [List Leads](actions/list-leads.md)
 - [List Webhooks](actions/list-webhooks.md)

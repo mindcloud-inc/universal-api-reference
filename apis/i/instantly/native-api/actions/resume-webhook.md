@@ -7,6 +7,7 @@ Resumes a webhook in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/webhooks/:id/resume`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Resume Webhook](https://developer.instantly.ai/api-reference/webhook/resume-a-webhook)
 
 ## Parameters

@@ -7,6 +7,7 @@ Updates a lead interest status in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/leads/update-interest-status`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Update Lead Interest Status](https://developer.instantly.ai/api-reference/lead/update-the-interest-status-of-a-lead)
 
 ## Parameters

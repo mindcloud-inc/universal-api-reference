@@ -42,8 +42,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `createdAt` | string | no | Date created after |
 | `updatedAt` | string | no | Date updated after |
 | `updatedBefore` | string | no |  |
-| `financialStatus` | list | no |  |
-| `fulfillmentStatus` | list<string> | no |  |
+| `financialStatus` | list | no | One of: `authorized`, `expired`, `paid`, `partially_paid`, `partially_refunded`, `pending`, `refunded`, `voided`. |
+| `fulfillmentStatus` | list<string> | no | One of: `fulfilled`, `on_hold`, `partially_fulfilled`, `restocked`, `scheduled`, `unfulfilled`. |
 | `email` | string | no |  |
 
 ### Advanced

@@ -7,6 +7,7 @@ Updates an existing email in Instantly.
 - **Method:** `PATCH`
 - **Path:** `/api/v2/emails/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Update Email](https://developer.instantly.ai/api/v2/email/patchemail)
 
 ## Parameters

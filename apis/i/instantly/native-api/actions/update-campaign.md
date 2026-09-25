@@ -7,6 +7,7 @@ Updates an existing campaign in Instantly.
 - **Method:** `PATCH`
 - **Path:** `/api/v2/campaigns/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Update Campaign](https://developer.instantly.ai/api/v2/campaign/patchcampaign)
 
 ## Parameters

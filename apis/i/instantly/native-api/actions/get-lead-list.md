@@ -7,6 +7,7 @@ Retrieves a lead list from Instantly.
 - **Method:** `GET`
 - **Path:** `/api/v2/lead-lists/:id`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Get Lead List](https://developer.instantly.ai/api/v2/leadlist)
 
 ## Parameters

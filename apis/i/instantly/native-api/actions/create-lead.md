@@ -7,6 +7,7 @@ Creates a new lead in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/leads`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Create Lead](https://developer.instantly.ai/api-reference/lead/create-lead)
 
 ## Parameters

@@ -1,6 +1,6 @@
 # Instantly: Create Account
 
-Creates a new account in Instantly.
+Creates a new sender account in Instantly.
 
 ```
 POST https://connect.mindcloud.co/v1/universal/instantly/latest/actions/create-account

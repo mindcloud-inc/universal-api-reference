@@ -7,6 +7,7 @@ Sends a test email from Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/emails/test`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Send Test Email](https://developer.instantly.ai/api/v2/email/sendtestemail)
 
 ## Parameters

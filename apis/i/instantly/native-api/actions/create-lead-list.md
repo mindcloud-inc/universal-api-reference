@@ -7,6 +7,7 @@ Creates a new lead list in Instantly.
 - **Method:** `POST`
 - **Path:** `/api/v2/lead-lists`
 - **Base URL:** `https://api.instantly.ai`
+- **API:** rest
 - **Official documentation:** [Create Lead List](https://developer.instantly.ai/api-reference/leadlist/create-lead-list)
 
 ## Parameters

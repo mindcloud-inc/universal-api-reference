@@ -12,10 +12,11 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/list-pages?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/list-ad-accounts?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## Facebook actions that support pagination
 
+- [List Ad Accounts](actions/list-ad-accounts.md)
 - [List Pages](actions/list-pages.md)
