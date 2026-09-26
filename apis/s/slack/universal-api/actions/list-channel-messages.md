@@ -50,6 +50,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `inclusive` | boolean | no | Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified. |
 | `latest` | date | no | Only messages before this Unix timestamp will be included in results. |
 | `oldest` | date | no | Only messages after this Unix timestamp will be included in results. |
+| `sendAsBot` | boolean | no | Determines if this action should be performed by the current user or the Mindcloud bot. Default: `true`. |
 
 ## Response
 

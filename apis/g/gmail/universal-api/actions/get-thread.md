@@ -36,9 +36,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | string | yes | (Required) The ID of the thread to retrieve. |
+| `id` | list<string> | yes | (Required) The ID of the thread to retrieve. |
 | `fields` | string | no | e.g. historyId,messages(id,labelIds,internalDate,snippet,payload/headers) |
-| `format` | list<string> | no |  |
+| `format` | list<string> | no | One of: `full`, `metadata`, `minimal`. |
 | `metadataHeaders` | string | no | Accepts multiple values as an array. |
 
 ## Response

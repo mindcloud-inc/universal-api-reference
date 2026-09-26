@@ -52,31 +52,29 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "user": {
-        "companyReferenceId": {},
-        "createdAt": "string",
-        "email": "ava@example.com",
-        "expiresAt": {},
-        "firstName": "Ava",
-        "id": 1,
-        "lastName": "Chen",
-        "metricUnits": true,
-        "mobileCurrentSignInAt": {},
-        "mobileLastActiveAt": {},
-        "mobileLastSignInAt": {},
-        "phone": "string",
-        "phone2": {},
-        "phoneCountryCode": "string",
-        "phoneCountryCode2": {},
-        "phoneExt": "string",
-        "role": "string",
-        "status": "string",
-        "timeZone": "string",
-        "updatedAt": "string",
-        "webCurrentSignInAt": "string",
-        "webLastActiveAt": "string",
-        "webLastSignInAt": "string"
-      }
+      "companyReferenceId": {},
+      "createdAt": "string",
+      "email": "ava@example.com",
+      "expiresAt": {},
+      "firstName": "Ava",
+      "id": 1,
+      "lastName": "Chen",
+      "metricUnits": true,
+      "mobileCurrentSignInAt": {},
+      "mobileLastActiveAt": {},
+      "mobileLastSignInAt": {},
+      "phone": "string",
+      "phone2": {},
+      "phoneCountryCode": "string",
+      "phoneCountryCode2": {},
+      "phoneExt": "string",
+      "role": "string",
+      "status": "string",
+      "timeZone": "string",
+      "updatedAt": "string",
+      "webCurrentSignInAt": "string",
+      "webLastActiveAt": "string",
+      "webLastSignInAt": "string"
     }
   ],
   "meta": {}
@@ -87,29 +85,29 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `user.companyReferenceId` | object |  |
-| `user.createdAt` | string |  |
-| `user.email` | string |  |
-| `user.expiresAt` | object |  |
-| `user.firstName` | string |  |
-| `user.id` | number |  |
-| `user.lastName` | string |  |
-| `user.metricUnits` | boolean |  |
-| `user.mobileCurrentSignInAt` | object |  |
-| `user.mobileLastActiveAt` | object |  |
-| `user.mobileLastSignInAt` | object |  |
-| `user.phone` | string |  |
-| `user.phone2` | object |  |
-| `user.phoneCountryCode` | string |  |
-| `user.phoneCountryCode2` | object |  |
-| `user.phoneExt` | string |  |
-| `user.role` | string |  |
-| `user.status` | string |  |
-| `user.timeZone` | string |  |
-| `user.updatedAt` | string |  |
-| `user.webCurrentSignInAt` | string |  |
-| `user.webLastActiveAt` | string |  |
-| `user.webLastSignInAt` | string |  |
+| `companyReferenceId` | object |  |
+| `createdAt` | string |  |
+| `email` | string |  |
+| `expiresAt` | object |  |
+| `firstName` | string |  |
+| `id` | number |  |
+| `lastName` | string |  |
+| `metricUnits` | boolean |  |
+| `mobileCurrentSignInAt` | object |  |
+| `mobileLastActiveAt` | object |  |
+| `mobileLastSignInAt` | object |  |
+| `phone` | string |  |
+| `phone2` | object |  |
+| `phoneCountryCode` | string |  |
+| `phoneCountryCode2` | object |  |
+| `phoneExt` | string |  |
+| `role` | string |  |
+| `status` | string |  |
+| `timeZone` | string |  |
+| `updatedAt` | string |  |
+| `webCurrentSignInAt` | string |  |
+| `webLastActiveAt` | string |  |
+| `webLastSignInAt` | string |  |
 
 ## Native endpoint
 

@@ -44,7 +44,41 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native HubSpot API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "archived": true,
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "email": "ava@example.com",
+      "firstName": "Ava",
+      "id": "string",
+      "lastName": "Chen",
+      "type": "string",
+      "updatedAt": "2026-05-07T12:00:00.000Z",
+      "userId": 1,
+      "userIdIncludingInactive": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `archived` | boolean | Whether the owner is archived. |
+| `createdAt` | date | When the owner was created. |
+| `email` | string | The owner's email address. |
+| `firstName` | string | The owner's first name. |
+| `id` | string | The owner record ID. |
+| `lastName` | string | The owner's last name. |
+| `type` | string | The owner type. |
+| `updatedAt` | date | When the owner was last updated. |
+| `userId` | number | The owner's user ID. |
+| `userIdIncludingInactive` | number | The owner's user ID including inactive users. |
 
 ## Native endpoint
 

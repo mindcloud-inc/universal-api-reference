@@ -48,47 +48,45 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "vehicle": {
-        "availabilityDetails": {
-          "availabilityStatus": "string",
-          "updatedAt": "string",
-          "updatedByUser": {}
-        },
-        "carbCtcEmissionStatus": {},
-        "carbCtcTestEnabled": {},
-        "companyId": 1,
-        "createdAt": "string",
-        "currentDriver": {},
-        "driverFacingCamera": 1,
-        "eldDevice": {
-          "id": 1,
-          "identifier": "string",
-          "model": "string"
-        },
-        "fuelType": "string",
-        "groupIds": [
-          1
-        ],
-        "id": 1,
-        "ifta": true,
-        "incabAlertLiveStreamEnable": 1,
-        "incabAudioRecording": 1,
-        "licensePlateCountryCode": {},
-        "licensePlateNumber": "string",
-        "licensePlateState": "string",
-        "make": "string",
-        "metricUnits": true,
-        "model": "string",
-        "notes": "string",
-        "number": "string",
-        "permanentDriver": {},
-        "preventAutoOdometerEntry": true,
-        "registrationExpiryDate": {},
-        "status": "string",
+      "availabilityDetails": {
+        "availabilityStatus": "string",
         "updatedAt": "string",
-        "vin": "string",
-        "year": "string"
-      }
+        "updatedByUser": {}
+      },
+      "carbCtcEmissionStatus": {},
+      "carbCtcTestEnabled": {},
+      "companyId": 1,
+      "createdAt": "string",
+      "currentDriver": {},
+      "driverFacingCamera": 1,
+      "eldDevice": {
+        "id": 1,
+        "identifier": "string",
+        "model": "string"
+      },
+      "fuelType": "string",
+      "groupIds": [
+        1
+      ],
+      "id": 1,
+      "ifta": true,
+      "incabAlertLiveStreamEnable": 1,
+      "incabAudioRecording": 1,
+      "licensePlateCountryCode": {},
+      "licensePlateNumber": "string",
+      "licensePlateState": "string",
+      "make": "string",
+      "metricUnits": true,
+      "model": "string",
+      "notes": "string",
+      "number": "string",
+      "permanentDriver": {},
+      "preventAutoOdometerEntry": true,
+      "registrationExpiryDate": {},
+      "status": "string",
+      "updatedAt": "string",
+      "vin": "string",
+      "year": "string"
     }
   ],
   "meta": {}
@@ -99,39 +97,39 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `vehicle.availabilityDetails.availabilityStatus` | string |  |
-| `vehicle.availabilityDetails.updatedAt` | string |  |
-| `vehicle.availabilityDetails.updatedByUser` | object |  |
-| `vehicle.carbCtcEmissionStatus` | object |  |
-| `vehicle.carbCtcTestEnabled` | object |  |
-| `vehicle.companyId` | number |  |
-| `vehicle.createdAt` | string |  |
-| `vehicle.currentDriver` | object |  |
-| `vehicle.driverFacingCamera` | number |  |
-| `vehicle.eldDevice.id` | number |  |
-| `vehicle.eldDevice.identifier` | string |  |
-| `vehicle.eldDevice.model` | string |  |
-| `vehicle.fuelType` | string |  |
-| `vehicle.groupIds[]` | number |  |
-| `vehicle.id` | number |  |
-| `vehicle.ifta` | boolean |  |
-| `vehicle.incabAlertLiveStreamEnable` | number |  |
-| `vehicle.incabAudioRecording` | number |  |
-| `vehicle.licensePlateCountryCode` | object |  |
-| `vehicle.licensePlateNumber` | string |  |
-| `vehicle.licensePlateState` | string |  |
-| `vehicle.make` | string |  |
-| `vehicle.metricUnits` | boolean |  |
-| `vehicle.model` | string |  |
-| `vehicle.notes` | string |  |
-| `vehicle.number` | string |  |
-| `vehicle.permanentDriver` | object |  |
-| `vehicle.preventAutoOdometerEntry` | boolean |  |
-| `vehicle.registrationExpiryDate` | object |  |
-| `vehicle.status` | string |  |
-| `vehicle.updatedAt` | string |  |
-| `vehicle.vin` | string |  |
-| `vehicle.year` | string |  |
+| `availabilityDetails.availabilityStatus` | string |  |
+| `availabilityDetails.updatedAt` | string |  |
+| `availabilityDetails.updatedByUser` | object |  |
+| `carbCtcEmissionStatus` | object |  |
+| `carbCtcTestEnabled` | object |  |
+| `companyId` | number |  |
+| `createdAt` | string |  |
+| `currentDriver` | object |  |
+| `driverFacingCamera` | number |  |
+| `eldDevice.id` | number |  |
+| `eldDevice.identifier` | string |  |
+| `eldDevice.model` | string |  |
+| `fuelType` | string |  |
+| `groupIds[]` | number |  |
+| `id` | number |  |
+| `ifta` | boolean |  |
+| `incabAlertLiveStreamEnable` | number |  |
+| `incabAudioRecording` | number |  |
+| `licensePlateCountryCode` | object |  |
+| `licensePlateNumber` | string |  |
+| `licensePlateState` | string |  |
+| `make` | string |  |
+| `metricUnits` | boolean |  |
+| `model` | string |  |
+| `notes` | string |  |
+| `number` | string |  |
+| `permanentDriver` | object |  |
+| `preventAutoOdometerEntry` | boolean |  |
+| `registrationExpiryDate` | object |  |
+| `status` | string |  |
+| `updatedAt` | string |  |
+| `vin` | string |  |
+| `year` | string |  |
 
 ## Native endpoint
 

@@ -41,9 +41,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `driverIds` | list<number> | no | Filter events by one or more driver IDs. Accepts multiple values as an array. |
 | `vehicleIds` | list<number> | no | Filter events by one or more vehicle IDs. Accepts multiple values as an array. |
-| `eventTypes` | list<string> | no | Filter events by Motive event type. Accepts multiple values as an array. |
-| `startDate` | date | no | Fetch events from this date onward. |
-| `endDate` | date | no | Fetch events up to this date. |
+| `eventTypes` | string | no | Filter events by Motive event type. |
+| `startDate` | string | no | Fetch events from this date onward. |
+| `endDate` | string | no | Fetch events up to this date. |
 | `updatedAfter` | date | no | Return events updated after the given timestamp. |
 
 ## Response

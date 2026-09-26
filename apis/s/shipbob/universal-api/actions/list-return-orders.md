@@ -43,6 +43,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `referenceIds` | string | no | Comma-separated return reference IDs or RMA numbers. Accepts multiple values in one string, delimited by `,`. Example: `RMA-1001,RMA-1002`. |
 | `status` | list<string> | no | One or more return statuses: AwaitingArrival, Arrived, Processing, Completed, or Cancelled. One of: `Arrived`, `AwaitingArrival`, `Cancelled`, `Completed`, `Processing`. Accepts multiple values in one string, delimited by `,`. |
 | `trackingNumbers` | string | no | Comma-separated return tracking numbers. Accepts multiple values in one string, delimited by `,`. Example: `1Z9999W99999999999`. |
+| `Limit` | number | no |  |
 
 ### Advanced
 
@@ -58,6 +59,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `storeOrderIds` | string | no | Comma-separated store order IDs. Accepts multiple values in one string, delimited by `,`. Example: `ORDER-1001,ORDER-1002`. |
 | `completedStartDate` | date | no | Return orders completed on or after this ISO 8601 date and time. |
 | `completedEndDate` | date | no | Return orders completed on or before this ISO 8601 date and time. |
+| `Cursor` | number | no |  |
 
 ## Response
 

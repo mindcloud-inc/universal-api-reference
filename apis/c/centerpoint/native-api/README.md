@@ -53,6 +53,10 @@ Send filters in the query string. Supported operators: `eq`, `gt`, `lt`.
 
 Set the sort field with `sort` in the query string. Use `ascending` for ascending order and `-` for descending order. Prefix the field name to select its direction. Multiple sort fields can be combined.
 
+## Retry behavior
+
+Retry responses with status codes `408,429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
+
 ## Endpoints (66 documented)
 
 | Operation | Method & path | Vendor docs |

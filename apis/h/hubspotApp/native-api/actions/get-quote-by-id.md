@@ -16,3 +16,4 @@ Retrieves a quote from HubSpot by ID.
 | --- | --- | --- | --- | --- |
 | `quoteId` | path | `string` | yes | HubSpot quote record ID. |
 | `properties` | query | `string<string>` | no | Send multiple values as a string separated by `,`. |
+| `associations` | query | `string<string>` | no | Associated object types to include as associated IDs, such as line_items. Send multiple values as a string separated by `,`. |

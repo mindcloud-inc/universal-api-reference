@@ -42,12 +42,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `status` | string | no | Filter by resolution status of the ticket. You can specify multiple status values here. Accepts multiple values as an array. |
 | `channel` | list<string> | no | Filter by Channel through which the tickets originated. You can specify multiple channels. Accepts multiple values as an array. |
 | `priority` | string | no | Filter tickets by Priority. Accepts multiple values as an array. |
-| `receivedInDays` | list<number> | no | Fetches recent tickets based on `Customer Response Time`. |
+| `receivedInDays` | list<number> | no | Fetches recent tickets based on `Customer Response Time`. One of: `15`, `30`, `90`. |
 | `assignee` | list<string> | no | Filter tickets by assignee. Allowed Values: - `Unassiged` - 1 or more valid `assigneeIds` One of: `Unassigned`. Accepts multiple values as an array. |
 | `departmentIds` | list<number> | no | Select the department(s) from which the tickets need to be queried. Accepts multiple values as an array. |
 | `teamIds` | string | no | Filter Tickets by Teams. Allowed Values: - `Unassigned` - 1 or more valid `teamId` Accepts multiple values as an array. |
 | `viewIds` | number | no | ID of the View to apply while fetching the resources. |
-| `include` | list<string> | no | Specify any additional information you'd like to retrieve related to the tickets. Accepts multiple values as an array. |
+| `include` | list<string> | no | Specify any additional information you'd like to retrieve related to the tickets. One of: `assignee`, `contacts`, `departments`, `isRead`, `products`, `team`. Accepts multiple values as an array. |
 | `fields` | string | no | Specify fields in your portal that you want to retrieve. (both pre-defined and custom fields are allowed) Accepts multiple values as an array. |
 
 ## Response

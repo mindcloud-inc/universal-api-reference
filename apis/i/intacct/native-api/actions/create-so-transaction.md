@@ -11,12 +11,12 @@
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `newfields[].fieldName` | body | `string` | no |
-| `newfields[].internalFields[].fieldValue` | body | `string` | no |
+| `fields[].fieldName` | body | `string` | no |
+| `fields[].internalFields[].fieldValue` | body | `string` | no |
 | `transactiontype` | body | `string` | yes |
-| `fields` | body | `string<object>` | yes |
-| `newfields[].fieldValue` | body | `string` | no |
-| `newfields[].internalFields[].fieldName` | body | `string` | no |
+| `fields[]` | body | `array<object>` | yes |
+| `fields[].fieldValue` | body | `string` | no |
+| `fields[].internalFields[].fieldName` | body | `string` | no |
 | `entityID` | body | `string` | no |
-| `newfields[].fieldIterator` | body | `string` | no |
-| `newfields[].internalFields[]` | body | `array<object>` | no |
+| `fields[].fieldIterator` | body | `string` | no |
+| `fields[].internalFields[]` | body | `array<object>` | no |

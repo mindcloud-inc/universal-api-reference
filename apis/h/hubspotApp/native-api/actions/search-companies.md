@@ -30,4 +30,3 @@ This operation supports [pagination](../README.md#pagination).
 | `filterGroups[].filters[].highValue` | body | `string` | no | — |
 | `properties[]` | body | `array<string>` | no | Company properties to include in the response. |
 | `filterGroups` | body | `object<object>` | no | Provide the full HubSpot filterGroups array, for example [{"filters":[{"propertyName":"hs_object_id","operator":"EQ","value":"123"}]}]. |
-| `properties[]` | body | `array<string>` | no | — |

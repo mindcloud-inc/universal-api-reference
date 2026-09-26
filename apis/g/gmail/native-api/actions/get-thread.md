@@ -13,7 +13,7 @@ Retrieves a Gmail thread.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `id` | path | `string` | yes | (Required) The ID of the thread to retrieve. |
+| `id` | path | `list<string>` | yes | (Required) The ID of the thread to retrieve. |
 | `fields` | query | `string` | no | e.g. historyId,messages(id,labelIds,internalDate,snippet,payload/headers) |
-| `format` | query | `list<string>` | no | — |
+| `format` | query | `list<string>` | no | Accepted values: `full`, `metadata`, `minimal`. |
 | `metadataHeaders` | query | `string` | no | Send multiple values as a array. |

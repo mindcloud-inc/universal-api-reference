@@ -45,7 +45,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `filterGroups[].filters[].operator` | list | no |  |
 | `filterGroups[].filters[].value` | string | no |  |
 | `filterGroups` | object<object> | no | Provide the full HubSpot filterGroups array, for example [{"filters":[{"propertyName":"hs_object_id","operator":"EQ","value":"123"}]}]. |
-| `properties[]` | array<string> | no |  |
 
 ### Advanced
 

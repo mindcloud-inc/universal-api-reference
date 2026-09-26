@@ -17,7 +17,9 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/intacct/latest/actions/c
   -d '{
   "connectionId": "$CONNECTION_ID",
   "transactiontype": "string",
-  "fields": "string"
+  "fields[]": [
+    {}
+  ]
 }'
 ```
 
@@ -31,7 +33,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/intacct/
   body: JSON.stringify({
     connectionId,
     "transactiontype": "string",
-    "fields": "string"
+    "fields[]": [{}]
   })
 });
 
@@ -44,15 +46,15 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `newfields[].fieldName` | string | no |  |
-| `newfields[].internalFields[].fieldValue` | string | no |  |
+| `fields[].fieldName` | string | no |  |
+| `fields[].internalFields[].fieldValue` | string | no |  |
 | `transactiontype` | string | yes |  |
-| `fields` | string<object> | yes |  |
-| `newfields[].fieldValue` | string | no |  |
-| `newfields[].internalFields[].fieldName` | string | no |  |
+| `fields[]` | array<object> | yes |  |
+| `fields[].fieldValue` | string | no |  |
+| `fields[].internalFields[].fieldName` | string | no |  |
 | `entityID` | string | no |  |
-| `newfields[].fieldIterator` | string | no |  |
-| `newfields[].internalFields[]` | array<object> | no |  |
+| `fields[].fieldIterator` | string | no |  |
+| `fields[].internalFields[]` | array<object> | no |  |
 
 ## Response
 

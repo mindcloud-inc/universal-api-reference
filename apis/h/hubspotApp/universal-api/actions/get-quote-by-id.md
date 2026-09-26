@@ -39,6 +39,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `quoteId` | string | yes | HubSpot quote record ID. |
 | `properties` | string<string> | no | Accepts multiple values in one string, delimited by `,`. |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `associations` | string<string> | no | Associated object types to include as associated IDs, such as line_items. Accepts multiple values in one string, delimited by `,`. |
+
 ## Response
 
 ```json
@@ -47,6 +53,14 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "data": [
     {
       "archived": true,
+      "associations": {
+        "lineItems": {
+          "results": {
+            "id": "string",
+            "type": "string"
+          }
+        }
+      },
       "createdAt": "2026-05-07T12:00:00.000Z",
       "id": "string",
       "properties": {},
@@ -63,6 +77,11 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Description |
 | --- | --- | --- |
 | `archived` | boolean | Whether the quote is archived. |
+| `associations` | object | Associations returned when associated object types are requested. |
+| `associations.lineItems` | object | Line item association results for the quote. |
+| `associations.lineItems.results` | array<object> | Associated line item records. |
+| `associations.lineItems.results.id` | string | The associated line item record ID. |
+| `associations.lineItems.results.type` | string | The HubSpot association type identifier. |
 | `createdAt` | date | When the quote was created. |
 | `id` | string | The quote record ID. |
 | `properties` | object | The returned quote properties. |

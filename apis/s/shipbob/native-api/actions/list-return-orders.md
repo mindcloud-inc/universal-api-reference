@@ -30,3 +30,5 @@ This operation supports [pagination](../README.md#pagination) and [sorting](../R
 | `StoreOrderIds` | query | `string` | no | Comma-separated store order IDs. Send multiple values as a string separated by `,`. |
 | `CompletedStartDate` | query | `date` | no | Return orders completed on or after this ISO 8601 date and time. |
 | `CompletedEndDate` | query | `date` | no | Return orders completed on or before this ISO 8601 date and time. |
+| `Limit` | query | `number` | no | — |
+| `Cursor` | query | `number` | no | — |

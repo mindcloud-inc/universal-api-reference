@@ -22,3 +22,4 @@ This operation supports [pagination](../README.md#pagination).
 | `inclusive` | body | `boolean` | no | Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified. Format: `toggle`. |
 | `latest` | body | `date` | no | Only messages before this Unix timestamp will be included in results. |
 | `oldest` | body | `date` | no | Only messages after this Unix timestamp will be included in results. |
+| `sendAsBot` | body | `boolean` | no | Determines if this action should be performed by the current user or the Mindcloud bot. Format: `toggle`. |

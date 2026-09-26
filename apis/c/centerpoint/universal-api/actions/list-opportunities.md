@@ -137,6 +137,20 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "workType": {}
       },
       "id": "string",
+      "relationships": {
+        "leadType": {
+          "data": {
+            "id": "string",
+            "type": "string"
+          }
+        },
+        "workflowStage": {
+          "data": {
+            "id": "string",
+            "type": "string"
+          }
+        }
+      },
       "type": "string"
     }
   ],
@@ -211,6 +225,10 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `attributes.workRate` | number |  |
 | `attributes.workType` | object |  |
 | `id` | string |  |
+| `relationships.leadType.data.id` | string |  |
+| `relationships.leadType.data.type` | string |  |
+| `relationships.workflowStage.data.id` | string |  |
+| `relationships.workflowStage.data.type` | string |  |
 | `type` | string |  |
 
 ## Native endpoint
