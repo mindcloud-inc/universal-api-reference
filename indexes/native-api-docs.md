@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3219 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3220 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -554,6 +554,7 @@ The official vendor API documentation for each of the 3219 apps in this repo. Ea
 - [Congress.gov](../apis/c/congressgov/native-api) - https://github.com/LibraryOfCongress/api.congress.gov
 - [Connecteam](../apis/c/connecteam/native-api) - https://developer.connecteam.com/docs/introduction-1
 - [ConnectPay](../apis/c/connectPay/native-api) - https://docs.connectpay.com/docs/
+- [ConnectSafely](../apis/c/connectSafely/native-api) - https://connectsafely.ai/docs/api
 - [Consider This Podcast](../apis/c/considerThisPodcast/native-api) - https://www.npr.org/podcasts/510355/considerthis
 - [Constant Contact](../apis/c/constantContact/native-api) - https://developer.constantcontact.com/api_guide/index.html
 - [Conta Azul](../apis/c/contaAzulAPI/native-api) - https://developers.contaazul.com/auth
