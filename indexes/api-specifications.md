@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3219 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3220 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -542,6 +542,7 @@ Machine-readable API descriptions for 3219 apps. Universal API specifications ar
 | [Congress.gov](../apis/c/congressgov) | [OpenAPI 3.1](../apis/c/congressgov/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/LibraryOfCongress/api.congress.gov/main/Documentation/swagger.json) |
 | [Connecteam](../apis/c/connecteam) | [OpenAPI 3.1](../apis/c/connecteam/universal-api/openapi.json) |  |
 | [ConnectPay](../apis/c/connectPay) | [OpenAPI 3.1](../apis/c/connectPay/universal-api/openapi.json) |  |
+| [ConnectSafely](../apis/c/connectSafely) |  | [Provider OpenAPI](https://connectsafely.ai/docs/api/openapi.yaml) |
 | [Consider This Podcast](../apis/c/considerThisPodcast) | [OpenAPI 3.1](../apis/c/considerThisPodcast/universal-api/openapi.json) |  |
 | [Constant Contact](../apis/c/constantContact) | [OpenAPI 3.1](../apis/c/constantContact/universal-api/openapi.json) | [Provider OpenAPI](https://api.cc.email/v3/swagger.yaml) |
 | [Conta Azul](../apis/c/contaAzulAPI) | [OpenAPI 3.1](../apis/c/contaAzulAPI/universal-api/openapi.json) | [Provider OpenAPI](https://developers.contaazul.com/open-api-docs/open-api-person) |

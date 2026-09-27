@@ -1,6 +1,6 @@
 # Marketing apps
 
-394 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+395 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Absinthe** · [Universal API reference](../../apis/a/absinthe/universal-api) · [Native API reference](../../apis/a/absinthe/native-api) · [Native API docs](https://api.absinthe.network/doc)
 - **ActiveCampaign** · [Universal API reference](../../apis/a/activeCampaign/universal-api) · [Native API reference](../../apis/a/activeCampaign/native-api) · [Native API docs](https://developers.activecampaign.com/reference/overview)
@@ -56,6 +56,7 @@
 - **CodeQR - Link and QR Analytics** · [Universal API reference](../../apis/c/codeQRLinkAndQRAnalytics/universal-api) · [Native API reference](../../apis/c/codeQRLinkAndQRAnalytics/native-api) · [Native API docs](https://docs.codeqr.io/api-reference/introduction)
 - **condoo** · [Universal API reference](../../apis/c/condoo/universal-api) · [Native API reference](../../apis/c/condoo/native-api) · [Native API docs](https://trk.condoo.systems/en/api-documentation)
 - **Conexteo** · [Universal API reference](../../apis/c/conexteo/universal-api) · [Native API reference](../../apis/c/conexteo/native-api) · [Native API docs](https://developers.conexteo.com)
+- **ConnectSafely** · [Native API reference](../../apis/c/connectSafely/native-api) · [Native API docs](https://connectsafely.ai/docs/api)
 - **Constant Contact** · [Universal API reference](../../apis/c/constantContact/universal-api) · [Native API reference](../../apis/c/constantContact/native-api) · [Native API docs](https://developer.constantcontact.com/api_guide/index.html)
 - **Contentful** · [Universal API reference](../../apis/c/contentful/universal-api) · [Native API reference](../../apis/c/contentful/native-api) · [Native API docs](https://www.contentful.com/developers/docs/references/content-management-api/)
 - **ContentStudio** · [Universal API reference](../../apis/c/contentStudio/universal-api) · [Native API reference](../../apis/c/contentStudio/native-api) · [Native API docs](https://api-prod.contentstudio.io/guide)
