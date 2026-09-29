@@ -12,13 +12,14 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/get-appointment-assignments?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actions/get-ap-credits?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## ServiceTitan actions that support pagination
 
 - [Create Customer](actions/create-customer.md)
+- [Get AP Credits](actions/get-ap-credits.md)
 - [Get Appointment Assignments](actions/get-appointment-assignments.md)
 - [Get Appointments](actions/get-appointments.md)
 - [Get Bookings](actions/get-bookings.md)

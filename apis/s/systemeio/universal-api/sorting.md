@@ -7,5 +7,6 @@ Sortable list actions accept a `sort` query parameter containing a comma-separat
 ## Systeme.io actions that support sorting
 
 - [List Community Memberships](actions/list-community-memberships.md)
+- [List Contact Fields](actions/list-contact-fields.md)
 - [List Contacts](actions/list-contacts.md)
 - [List Tags](actions/list-tags.md)

@@ -19,5 +19,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/systemeio/latest/actions/
 ## Systeme.io actions that support pagination
 
 - [List Community Memberships](actions/list-community-memberships.md)
+- [List Contact Fields](actions/list-contact-fields.md)
 - [List Contacts](actions/list-contacts.md)
 - [List Tags](actions/list-tags.md)

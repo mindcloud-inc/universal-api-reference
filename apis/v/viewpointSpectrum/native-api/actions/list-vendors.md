@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `vendors/{companyID}`
+- **Path:** `vendors/:company`
 - **Base URL:** `{url}:8482/`
 - **Official documentation:** [List Vendors](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/get-vendors)
 
@@ -11,6 +11,8 @@
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
+| `pCompany_Code` | query | `string` | no |
+| `company` | path | `string` | no |
 | `pCity` | query | `string` | no |
 | `pCostCenter` | query | `string` | no |
 | `pName` | query | `string` | no |

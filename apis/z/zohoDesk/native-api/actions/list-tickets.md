@@ -22,7 +22,7 @@ This operation supports [pagination](../README.md#pagination).
 | `priority` | query | `string` | no | Filter tickets by Priority. Send multiple values as a array. |
 | `receivedInDays` | query | `list<number>` | no | Fetches recent tickets based on `Customer Response Time`. Accepted values: `15`, `30`, `90`. |
 | `assignee` | query | `list<string>` | no | Filter tickets by assignee.  Allowed Values: - `Unassiged` - 1 or more valid `assigneeIds` Accepted values: `Unassigned`. Send multiple values as a array. |
-| `departmentIds` | query | `list<number>` | no | Select the department(s) from which the tickets need to be queried. Send multiple values as a array. |
+| `departmentIds` | query | `list<string>` | no | Select the department(s) from which the tickets need to be queried. Send multiple values as a string separated by `,`. |
 | `teamIds` | query | `string` | no | Filter Tickets by Teams.   Allowed Values: - `Unassigned` - 1 or more valid `teamId` Send multiple values as a array. |
 | `viewIds` | query | `number` | no | ID of the View to apply while fetching the resources. |
 | `include` | query | `list<string>` | no | Specify any additional information you'd like to retrieve related to the tickets. Accepted values: `assignee`, `contacts`, `departments`, `isRead`, `products`, `team`. Send multiple values as a array. |

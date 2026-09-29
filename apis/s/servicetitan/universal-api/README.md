@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 116
+- **Actions:** 117
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (116)
+## Actions (117)
 
 ### Access Tokens
 
@@ -274,6 +274,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Get Project Statuses](actions/get-project-statuses.md) | GET | Retrieves project statuses from ServiceTitan. |
 | [Get Project Sub Statuses](actions/get-project-sub-statuses.md) | GET | Retrieves project substatuses from ServiceTitan. |
 | [Get Project Types](actions/get-project-types.md) | GET |  |
+
+### Purchase Order
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Update Purchase Order](actions/update-purchase-order.md) | PUT |  |
 
 ### Reports
 

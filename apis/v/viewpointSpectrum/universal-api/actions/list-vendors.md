@@ -35,6 +35,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `companyCode` | string | no |  |
+| `company` | string | no |  |
 | `pCity` | string | no |  |
 | `pCostCenter` | string | no |  |
 | `pName` | string | no |  |
@@ -121,5 +123,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Viewpoint Spectrum API, this operation is `GET vendors/{{credentials.companyID}}` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-vendors.md) for the provider-specific parameters and requirements.
+Through the native Viewpoint Spectrum API, this operation is `GET vendors/:company` (base URL `{{credentials.url}}:8482/`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-vendors.md) for the provider-specific parameters and requirements.
 

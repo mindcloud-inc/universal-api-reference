@@ -32,6 +32,10 @@ The flow supports refresh tokens. Refresh expired access tokens with a POST requ
 
 Use `limit` in the query string to set the page size (default 10; accepted range 1–100). Use `from` in the query string as the record offset; numbering starts at 0.
 
+## Retry behavior
+
+Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
+
 ## Endpoints (27 documented)
 
 | Operation | Method & path | Vendor docs |

@@ -13,4 +13,4 @@ Retrieves a Gmail message.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `id` | path | `string` | yes | The immutable ID of the message.. Use the List Emails action to find this value. |
+| `id` | path | `list<string>` | yes | The immutable ID of the message.. Use the List Emails action to find this value. |

@@ -36,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | string | yes | The immutable ID of the message.. Use the List Emails action to find this value. |
+| `id` | list<string> | yes | The immutable ID of the message.. Use the List Emails action to find this value. |
 
 ## Response
 
