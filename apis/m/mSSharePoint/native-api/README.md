@@ -1,6 +1,6 @@
 # MS SharePoint: Native API Reference
 
-A consolidated summary of MS SharePoint's API configuration and 24 documented operations, with links to official documentation.
+A consolidated summary of MS SharePoint's API configuration and 26 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0
 - **API base URL:** `https://graph.microsoft.com`
@@ -31,12 +31,13 @@ Use `$top` in the query string to set the page size (default 100; minimum 1). Us
 
 Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (24 documented)
+## Endpoints (26 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Create Folder](actions/create-folder.md) | `POST /v1.0/drives/{{driveId}}/root/children` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-post-children?view=graph-rest-1.0) |
 | [Create List Item](actions/create-list-item.md) | `POST /v1.0/sites/{{siteId}}/lists/{{listId}}/items` | [docs](https://learn.microsoft.com/en-us/graph/api/listitem-create?view=graph-rest-1.0) |
+| [Create Upload Session](actions/create-upload-session.md) | `POST /v1.0/drives/:driveId/items/:parentItemId:/:fileName:/createUploadSession` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-createuploadsession?view=graph-rest-1.0#example-1-create-an-upload-session) |
 | [Delete Drive Item](actions/delete-drive-item.md) | `DELETE /v1.0/drives/{{driveId}}/items/{{itemId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-delete?view=graph-rest-1.0) |
 | [Delete List Item](actions/delete-list-item.md) | `DELETE /v1.0/sites/{{siteId}}/lists/{{listId}}/items/{{itemId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/listitem-delete?view=graph-rest-1.0) |
 | [Download File](actions/download-file.md) | `GET /v1.0/drives/{{driveId}}/items/{{itemId}}/content` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-get-content?view=graph-rest-1.0) |
@@ -49,8 +50,8 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [Get Site](actions/get-site.md) | `GET /v1.0/sites/{{siteId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/site-get?view=graph-rest-1.0) |
 | [Get Site By Path](actions/get-site-by-path.md) | `GET /v1.0/sites/{{hostname}}:/{{relativePath}}` | [docs](https://learn.microsoft.com/en-us/graph/api/site-getbypath?view=graph-rest-1.0) |
 | [List Drive Item Permissions](actions/list-drive-item-permissions.md) | `GET /v1.0/drives/{{driveId}}/items/{{itemId}}/permissions` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-list-permissions?view=graph-rest-1.0) |
-| [List Drive Root Items](actions/list-drive-root-items.md) | `GET /v1.0/drives/{{driveId}}/root/children` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0) |
-| [List Folder Items](actions/list-folder-items.md) | `GET /v1.0/drives/{{driveId}}/root:/{{folderPath}}:/children` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0) |
+| [List Drive Root Items](actions/list-drive-root-items.md) | `GET /v1.0/drives/:driveId/root/children` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0) |
+| [List Folder Items](actions/list-folder-items.md) | `GET /v1.0/drives/:driveId/root:/:folderPath:/children` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0) |
 | [List List Columns](actions/list-list-columns.md) | `GET /v1.0/sites/{{siteId}}/lists/{{listId}}/columns` | [docs](https://learn.microsoft.com/en-us/graph/api/list-list-columns?view=graph-rest-1.0) |
 | [List List Items](actions/list-list-items.md) | `GET /v1.0/sites/{{siteId}}/lists/{{listId}}/items` | [docs](https://learn.microsoft.com/en-us/graph/api/listitem-list?view=graph-rest-1.0) |
 | [List Site Drives](actions/list-site-drives.md) | `GET /v1.0/sites/{{siteId}}/drives` | [docs](https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0) |
@@ -58,4 +59,5 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [List Subsites](actions/list-subsites.md) | `GET /v1.0/sites/{{siteId}}/sites` | [docs](https://learn.microsoft.com/en-us/graph/api/site-list-subsites?view=graph-rest-1.0) |
 | [Search Drive Items](actions/search-drive-items.md) | `GET /v1.0/drives/{{driveId}}/root/search(q='{{query}}')` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-search?view=graph-rest-1.0) |
 | [Search Sites](actions/search-sites.md) | `GET /v1.0/sites` | [docs](https://learn.microsoft.com/en-us/graph/api/site-search?view=graph-rest-1.0) |
+| [Upload Bytes to Upload Session](actions/upload-bytes-to-upload-session.md) | `PUT :uploadUrl` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-createuploadsession?view=graph-rest-1.0#example-2-upload-bytes-to-the-upload-session) |
 | [Upload File](actions/upload-file.md) | `PUT /v1.0/drives/{{driveId}}/root:/{{folderPath}}/{{fileName}}:/content` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-put-content?view=graph-rest-1.0) |

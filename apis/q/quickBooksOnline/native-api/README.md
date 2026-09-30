@@ -37,6 +37,10 @@ Shared headers:
 
 Responses from this API use JSON.
 
+## Filtering
+
+Send filters in the query string. Supported operators: `contains`, `eq`.
+
 ## Retry behavior
 
 Wait 10000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.

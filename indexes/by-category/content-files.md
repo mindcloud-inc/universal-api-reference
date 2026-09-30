@@ -1,6 +1,6 @@
 # Content & Files apps
 
-72 apps in the Content & Files category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+73 apps in the Content & Files category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Acronis** · [Universal API reference](../../apis/a/acronis/universal-api) · [Native API reference](../../apis/a/acronis/native-api) · [Native API docs](https://developer.acronis.com/doc/outbound/apis/index.html)
 - **Adafruit IO** · [Universal API reference](../../apis/a/adafruitIO/universal-api) · [Native API reference](../../apis/a/adafruitIO/native-api) · [Native API docs](https://io.adafruit.com/api/docs/)
@@ -35,6 +35,7 @@
 - **Mendeley** · [Universal API reference](../../apis/m/mendeley/universal-api) · [Native API reference](../../apis/m/mendeley/native-api) · [Native API docs](https://dev.mendeley.com/)
 - **MinIO** · [Universal API reference](../../apis/m/minIO/universal-api) · [Native API reference](../../apis/m/minIO/native-api) · [Native API docs](https://docs.min.io/community/minio-object-store/)
 - **mintBlue** · [Universal API reference](../../apis/m/mintBlue/universal-api) · [Native API reference](../../apis/m/mintBlue/native-api) · [Native API docs](https://mintblue.gitlab.io/sdk/)
+- **MS SharePoint** · [Universal API reference](../../apis/m/mSSharePoint/universal-api) · [Native API reference](../../apis/m/mSSharePoint/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0)
 - **Microsoft SQL** · [Universal API reference](../../apis/m/mssql/universal-api) · [Native API reference](../../apis/m/mssql/native-api) · [Native API docs](https://learn.microsoft.com/en-us/sql/)
 - **NASA Image and Video Library** · [Universal API reference](../../apis/n/nASAImageAndVideoLibrary/universal-api) · [Native API reference](../../apis/n/nASAImageAndVideoLibrary/native-api) · [Native API docs](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf)
 - **National Science Foundation** · [Universal API reference](../../apis/n/nationalScienceFoundation/universal-api) · [Native API reference](../../apis/n/nationalScienceFoundation/native-api) · [Native API docs](https://resources.research.gov/common/webapi/awardapisearch-v1.htm)

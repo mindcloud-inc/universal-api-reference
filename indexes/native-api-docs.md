@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3219 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3221 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -962,6 +962,7 @@ The official vendor API documentation for each of the 3219 apps in this repo. Ea
 - [Fidel API](../apis/f/fidelAPI/native-api) - https://docs.fidelapi.com/docs/select
 - [Figma](../apis/f/figma/native-api) - https://developers.figma.com/docs/rest-api/
 - [FileCloud](../apis/f/fileCloud/native-api) - https://fcapi-v1.filecloud.com/
+- [File Converter](../apis/f/fileConverter/native-api)
 - [File (CSV, JSON, Excel, Feather, Parquet)](../apis/f/fileCSVJSONExcelFeatherParquet/native-api) - https://docs.airbyte.com/integrations/sources/file
 - [File.io](../apis/f/fileio/native-api) - https://www.file.io/developers
 - [Files.com](../apis/f/filescom/native-api) - https://www.files.com/docs/sdk-and-apis
@@ -1654,6 +1655,7 @@ The official vendor API documentation for each of the 3219 apps in this repo. Ea
 - [Microsoft 365 People](../apis/m/microsoft365People/native-api) - https://learn.microsoft.com/en-us/graph/
 - [Microsoft 365 Planner](../apis/m/microsoft365Planner/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/planner-overview?view=graph-rest-1.0
 - [Microsoft Clarity](../apis/m/microsoftClarity/native-api) - https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+- [Microsoft Dynamics 365](../apis/m/microsoftDynamics365/native-api)
 - [Microsoft Dynamics 365 BC](../apis/m/microsoftDynamics365BC/native-api)
 - [Microsoft Entra](../apis/m/microsoftEntra/native-api) - https://learn.microsoft.com/en-us/graph/api/overview
 - [Microsoft Exchange](../apis/m/microsoftExchange/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0

@@ -5,7 +5,7 @@ Retrieves items from a SharePoint drive root folder.
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `/v1.0/drives/{{driveId}}/root/children`
+- **Path:** `/v1.0/drives/:driveId/root/children`
 - **Base URL:** `https://graph.microsoft.com`
 - **Official documentation:** [List Drive Root Items](https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0)
 

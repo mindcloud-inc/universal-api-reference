@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3219 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3221 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -938,6 +938,7 @@ Machine-readable API descriptions for 3219 apps. Universal API specifications ar
 | [Fidel API](../apis/f/fidelAPI) | [OpenAPI 3.1](../apis/f/fidelAPI/universal-api/openapi.json) |  |
 | [Figma](../apis/f/figma) | [OpenAPI 3.1](../apis/f/figma/universal-api/openapi.json) |  |
 | [FileCloud](../apis/f/fileCloud) | [OpenAPI 3.1](../apis/f/fileCloud/universal-api/openapi.json) | [Provider OpenAPI](https://fcapi-v1.filecloud.com/fc_api_v1_openapi-23.261.yaml) |
+| [File Converter](../apis/f/fileConverter) | [OpenAPI 3.1](../apis/f/fileConverter/universal-api/openapi.json) |  |
 | [File (CSV, JSON, Excel, Feather, Parquet)](../apis/f/fileCSVJSONExcelFeatherParquet) | [OpenAPI 3.1](../apis/f/fileCSVJSONExcelFeatherParquet/universal-api/openapi.json) |  |
 | [File.io](../apis/f/fileio) | [OpenAPI 3.1](../apis/f/fileio/universal-api/openapi.json) | [Provider OpenAPI](https://www.file.io/developers) |
 | [Files.com](../apis/f/filescom) | [OpenAPI 3.1](../apis/f/filescom/universal-api/openapi.json) |  |
@@ -1611,6 +1612,7 @@ Machine-readable API descriptions for 3219 apps. Universal API specifications ar
 | [Microsoft 365 People](../apis/m/microsoft365People) | [OpenAPI 3.1](../apis/m/microsoft365People/universal-api/openapi.json) |  |
 | [Microsoft 365 Planner](../apis/m/microsoft365Planner) | [OpenAPI 3.1](../apis/m/microsoft365Planner/universal-api/openapi.json) |  |
 | [Microsoft Clarity](../apis/m/microsoftClarity) | [OpenAPI 3.1](../apis/m/microsoftClarity/universal-api/openapi.json) |  |
+| [Microsoft Dynamics 365](../apis/m/microsoftDynamics365) | [OpenAPI 3.1](../apis/m/microsoftDynamics365/universal-api/openapi.json) |  |
 | [Microsoft Dynamics 365 BC](../apis/m/microsoftDynamics365BC) | [OpenAPI 3.1](../apis/m/microsoftDynamics365BC/universal-api/openapi.json) |  |
 | [Microsoft Entra](../apis/m/microsoftEntra) | [OpenAPI 3.1](../apis/m/microsoftEntra/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml) |
 | [Microsoft Exchange](../apis/m/microsoftExchange) | [OpenAPI 3.1](../apis/m/microsoftExchange/universal-api/openapi.json) |  |

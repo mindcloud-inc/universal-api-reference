@@ -46,7 +46,33 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native HubSpot API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "archived": true,
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "id": "string",
+      "properties": {},
+      "updatedAt": "2026-05-07T12:00:00.000Z",
+      "url": "https://example.com"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `archived` | boolean | Whether the ticket is archived. |
+| `createdAt` | date | When the ticket was created. |
+| `id` | string | The ticket record ID. |
+| `properties` | object | The returned ticket properties. |
+| `updatedAt` | date | When the ticket was last updated. |
+| `url` | string | The HubSpot record URL. |
 
 ## Native endpoint
 

@@ -86,5 +86,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native MS SharePoint API, this operation is `GET /v1.0/drives/{{driveId}}/root:/{{folderPath}}:/children` (base URL `https://graph.microsoft.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-folder-items.md) for the provider-specific parameters and requirements.
+Through the native MS SharePoint API, this operation is `GET /v1.0/drives/:driveId/root:/:folderPath:/children` (base URL `https://graph.microsoft.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-folder-items.md) for the provider-specific parameters and requirements.
 

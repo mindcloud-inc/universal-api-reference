@@ -51,7 +51,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `driveId` | string | yes | Microsoft Graph drive ID. |
 | `folderPath` | string | yes | Folder path relative to the drive root. |
 | `fileName` | string | yes | Name of the file to upload. |
-| `file` | string | yes | Raw content to upload as the file body. |
+| `file` | file | yes | The file to upload, as base64, a URL, or binary. It is sent as the file's binary content. |
 
 ## Response
 

@@ -16,4 +16,4 @@ Uploads a file to SharePoint.
 | `driveId` | path | `string` | yes | Microsoft Graph drive ID. |
 | `folderPath` | path | `string` | yes | Folder path relative to the drive root. |
 | `fileName` | path | `string` | yes | Name of the file to upload. |
-| `file` | body | `string` | yes | Raw content to upload as the file body. |
+| `file` | body | `file` | yes | The file to upload, as base64, a URL, or binary. It is sent as the file's binary content. |

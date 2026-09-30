@@ -1,6 +1,6 @@
 # Other apps
 
-583 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+584 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -184,6 +184,7 @@
 - **Felt** · [Universal API reference](../../apis/f/felt/universal-api) · [Native API reference](../../apis/f/felt/native-api) · [Native API docs](https://developers.felt.com/rest-api/getting-started)
 - **Festivo** · [Universal API reference](../../apis/f/festivo/universal-api) · [Native API reference](../../apis/f/festivo/native-api) · [Native API docs](https://docs.getfestivo.com/docs/products/public-holidays-api/intro/)
 - **Figma** · [Universal API reference](../../apis/f/figma/universal-api) · [Native API reference](../../apis/f/figma/native-api) · [Native API docs](https://developers.figma.com/docs/rest-api/)
+- **File Converter** · [Universal API reference](../../apis/f/fileConverter/universal-api) · [Native API reference](../../apis/f/fileConverter/native-api)
 - **Fillout** · [Universal API reference](../../apis/f/fillout/universal-api) · [Native API reference](../../apis/f/fillout/native-api) · [Native API docs](https://support.fillout.com/help/database/api)
 - **Final Space** · [Universal API reference](../../apis/f/finalSpace/universal-api) · [Native API reference](../../apis/f/finalSpace/native-api)
 - **Fingertip** · [Universal API reference](../../apis/f/fingertip/universal-api) · [Native API reference](../../apis/f/fingertip/native-api) · [Native API docs](https://docs.fingertip.com/rest-api)
@@ -307,6 +308,7 @@
 - **Microsoft 365 Excel** · [Universal API reference](../../apis/m/microsoft365Excel/universal-api) · [Native API reference](../../apis/m/microsoft365Excel/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/excel?view=graph-rest-1.0)
 - **Microsoft 365 Outlook** · [Universal API reference](../../apis/m/microsoft365Outlook/universal-api) · [Native API reference](../../apis/m/microsoft365Outlook/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/use-the-api)
 - **Microsoft 365 People** · [Universal API reference](../../apis/m/microsoft365People/universal-api) · [Native API reference](../../apis/m/microsoft365People/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/)
+- **Microsoft Dynamics 365** · [Universal API reference](../../apis/m/microsoftDynamics365/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365/native-api)
 - **Microsoft Dynamics 365 BC** · [Universal API reference](../../apis/m/microsoftDynamics365BC/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365BC/native-api)
 - **Microsoft Exchange** · [Universal API reference](../../apis/m/microsoftExchange/universal-api) · [Native API reference](../../apis/m/microsoftExchange/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0)
 - **Microsoft Intune** · [Universal API reference](../../apis/m/microsoftIntune/universal-api) · [Native API reference](../../apis/m/microsoftIntune/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0)
@@ -319,7 +321,6 @@
 - **Moorcheh** · [Universal API reference](../../apis/m/moorcheh/universal-api) · [Native API reference](../../apis/m/moorcheh/native-api) · [Native API docs](https://docs.moorcheh.ai/api-reference/introduction)
 - **Morf** · [Universal API reference](../../apis/m/morf/universal-api) · [Native API reference](../../apis/m/morf/native-api) · [Native API docs](https://www.morf.health/docs/events/payloads/morf/track)
 - **Motive** · [Universal API reference](../../apis/m/motive/universal-api) · [Native API reference](../../apis/m/motive/native-api) · [Native API docs](https://developer.gomotive.com/reference/getting-started-with-your-api)
-- **MS SharePoint** · [Universal API reference](../../apis/m/mSSharePoint/universal-api) · [Native API reference](../../apis/m/mSSharePoint/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0)
 - **Mux** · [Universal API reference](../../apis/m/mux/universal-api) · [Native API reference](../../apis/m/mux/native-api) · [Native API docs](https://www.mux.com/docs/core/mux-fundamentals)
 - **MyMeet.io** · [Universal API reference](../../apis/m/myMeetio/universal-api) · [Native API reference](../../apis/m/myMeetio/native-api) · [Native API docs](https://app.mymeet.io/admin/integrations/api/view-documentation)
 - **Mythic Text** · [Universal API reference](../../apis/m/mythicText/universal-api) · [Native API reference](../../apis/m/mythicText/native-api) · [Native API docs](https://mythictext.com/docs)

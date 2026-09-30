@@ -3,7 +3,8 @@
 Connect to SharePoint sites, lists, drives, files, and permissions through Microsoft Graph.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mSSharePoint/latest
-- **Actions:** 24
+- **Category:** Content & Files / Storage
+- **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/microsoft-365/sharepoint/collaboration
 - **Vendor API docs:** https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0
@@ -21,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/mSSharePoint/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (24)
+## Actions (26)
 
 ### Columns
 
@@ -96,4 +97,11 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/mSSharePoint/latest/actio
 | [Get Site By Path](actions/get-site-by-path.md) | GET | Retrieves a SharePoint site by path. |
 | [List Subsites](actions/list-subsites.md) | GET | Retrieves subsites for a SharePoint site. |
 | [Search Sites](actions/search-sites.md) | GET | Finds SharePoint sites by search term. |
+
+### Upload Session
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Upload Session](actions/create-upload-session.md) | POST |  |
+| [Upload Bytes to Upload Session](actions/upload-bytes-to-upload-session.md) | PUT |  |
 
