@@ -4,7 +4,7 @@ Connect to SharePoint sites, lists, drives, files, and permissions through Micro
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mSSharePoint/latest
 - **Category:** Content & Files / Storage
-- **Actions:** 26
+- **Actions:** 27
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/microsoft-365/sharepoint/collaboration
 - **Vendor API docs:** https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/mSSharePoint/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (26)
+## Actions (27)
 
 ### Columns
 
@@ -36,6 +36,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/mSSharePoint/latest/actio
 | --- | --- | --- |
 | [Delete Drive Item](actions/delete-drive-item.md) | DELETE | Deletes a SharePoint drive item. |
 | [Get Drive Item](actions/get-drive-item.md) | GET | Retrieves a SharePoint drive item. |
+| [Get Drive Item By Path](actions/get-drive-item-by-path.md) | GET | Retrieves a SharePoint drive item using it's path relative to the root folder. |
 | [List Drive Root Items](actions/list-drive-root-items.md) | GET | Retrieves items from a SharePoint drive root folder. |
 | [List Folder Items](actions/list-folder-items.md) | GET | Retrieves items from a SharePoint folder. |
 | [Search Drive Items](actions/search-drive-items.md) | GET | Finds drive items in SharePoint by search term. |

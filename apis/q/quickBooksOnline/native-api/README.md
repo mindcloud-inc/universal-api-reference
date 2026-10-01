@@ -1,6 +1,6 @@
 # QuickBooks Online: Native API Reference
 
-A consolidated summary of QuickBooks Online's API configuration and 32 documented operations, with links to official documentation.
+A consolidated summary of QuickBooks Online's API configuration and 35 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities
 - **API base URL:** `https://:quickbooksEnvironment/v3/company/:realmId`
@@ -37,20 +37,25 @@ Shared headers:
 
 Responses from this API use JSON.
 
+## Pagination
+
+Use `maxresults` in the query string to set the page size (default 100; accepted range 1–1000). Use `startposition` in the query string as the record offset; numbering starts at 1.
+
 ## Filtering
 
-Send filters in the query string. Supported operators: `contains`, `eq`.
+Send filters in the request body. Supported operators: `between`, `contain`, `contains`, `empty`, `eq`, `exist`, `gt`, `gte`, `includes`, `lt`, `lte`, `ncontain`, `ne`, `nempty`, `nexist`.
 
 ## Retry behavior
 
 Wait 10000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (32 documented)
+## Endpoints (35 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Create Account](actions/create-account.md) | `POST /account` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#create-an-account) |
 | [Create Bill](actions/create-bill.md) | `POST /billpayment` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill#create-a-bill) |
+| [Create Budget](actions/create-budget.md) | `POST /budget` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/budget) |
 | [Create Customer](actions/create-customer.md) | `POST /customer` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#create-a-customer) |
 | [Create Invoice](actions/create-invoice.md) | `POST /invoice` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#create-an-invoice) |
 | [Create Item](actions/create-item.md) | `POST /item` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item#create-an-item) |
@@ -58,6 +63,7 @@ Wait 10000 ms before the first retry. Stop after 3 attempts. Multiply the delay 
 | [Create Vendor](actions/create-vendor.md) | `POST /vendor` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendor#create-a-vendor) |
 | [Get Account](actions/get-account.md) | `GET /account/:accountId` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#read-an-account) |
 | [Get Bill](actions/get-bill.md) | `GET /bill/:billId` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill#read-a-bill) |
+| [Get Budget](actions/get-budget.md) | `GET /budget/:budgetId` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/budget) |
 | [Get Customer](actions/get-customer.md) | `GET /customer/:customerId` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#read-a-customer) |
 | [Get Invoice](actions/get-invoice.md) | `GET /invoice/:invoiceId` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#read-an-invoice) |
 | [Get Item](actions/get-item.md) | `GET /item/:itemId` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item#read-an-item) |
@@ -70,6 +76,7 @@ Wait 10000 ms before the first retry. Stop after 3 attempts. Multiply the delay 
 | [Get Vendor](actions/get-vendor.md) | `GET /vendor/:vendorId` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendor#read-a-vendor) |
 | [List Accounts](actions/list-accounts.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) |
 | [List Bills](actions/list-bills.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) |
+| [List Budgets](actions/list-budgets.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/budget) |
 | [List Customers](actions/list-customers.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) |
 | [List Invoices](actions/list-invoices.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/invoice#query-an-invoice) |
 | [List Items](actions/list-items.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) |

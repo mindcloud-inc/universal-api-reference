@@ -108301,7 +108301,7 @@
     "iconUrl": "https://images.mindcloud.co/apps/icons/gmail-default-1_1779719609775.png",
     "websiteUrl": "https://mail.google.com/",
     "nativeDocumentationUrl": "https://developers.google.com/workspace/gmail/api/reference/rest",
-    "version": "0.0.500",
+    "version": "0.0.501",
     "authentication": [
       {
         "type": "oAuth2",
@@ -108997,6 +108997,12 @@
             "mockType": "string"
           },
           {
+            "key": "htmlContent",
+            "dataType": "string",
+            "description": "Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body.",
+            "mockType": "string"
+          },
+          {
             "key": "labelIds[]",
             "dataType": "string",
             "mockType": "string"
@@ -109638,6 +109644,12 @@
             "key": "historyId",
             "dataType": "string",
             "mockType": "alphanumeric"
+          },
+          {
+            "key": "htmlContent",
+            "dataType": "string",
+            "description": "Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body.",
+            "mockType": "string"
           },
           {
             "key": "labelIds[]",
@@ -110378,7 +110390,7 @@
               "dataType": "string",
               "location": "body",
               "required": false,
-              "description": "Plain-text email body, if both Body Text and Body Email are used, Body Text will be rendered above Body HTML."
+              "description": "Plain-text alternative to Body HTML. Email clients select the supported representation when both are provided."
             },
             {
               "key": "bodyHtml",
@@ -110386,7 +110398,7 @@
               "dataType": "string",
               "location": "body",
               "required": false,
-              "description": "HTML email body, if both Body Text and Body Email are used, Body Text will be rendered above Body HTML."
+              "description": "HTML email body. Map htmlContent from Get Email to retain the original markup."
             },
             {
               "key": "attachmentFile",
@@ -110437,6 +110449,38 @@
               "description": "Optional Gmail thread ID to reply in an existing thread."
             },
             {
+              "key": "attachments[]",
+              "name": "Attachments",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "Add one item per attachment. Each item contains Filename, MIME Type, and Base64 Data. For Gmail attachments, use the data returned by Get Email Attachment."
+            },
+            {
+              "key": "attachments[].filename",
+              "name": "Filename",
+              "dataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "attachments[].mimeType",
+              "name": "MIME Type",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Defaults to application/octet-stream."
+            },
+            {
+              "key": "attachments[].data",
+              "name": "Base64 Data",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "File content encoded as base64 or base64url. Accepts the data returned by Get Email Attachment; do not supply a URL or an attachment ID."
+            },
+            {
               "key": "attachmentFilename",
               "name": "Attachment Filename",
               "dataType": "string",
@@ -110481,7 +110525,7 @@
             "name": "Body Text",
             "dataType": "string",
             "required": false,
-            "description": "Plain-text email body, if both Body Text and Body Email are used, Body Text will be rendered above Body HTML.",
+            "description": "Plain-text alternative to Body HTML. Email clients select the supported representation when both are provided.",
             "example": "Hello,\n\nJust following up..."
           },
           {
@@ -110489,7 +110533,7 @@
             "name": "Body HTML",
             "dataType": "string",
             "required": false,
-            "description": "HTML email body, if both Body Text and Body Email are used, Body Text will be rendered above Body HTML.",
+            "description": "HTML email body. Map htmlContent from Get Email to retain the original markup.",
             "example": "<p>Hello from MindCloud</p>"
           },
           {
@@ -110538,6 +110582,34 @@
             "required": false,
             "description": "Optional Gmail thread ID to reply in an existing thread.",
             "example": "19c7cd447accadc2"
+          },
+          {
+            "key": "attachments[]",
+            "name": "Attachments",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false,
+            "description": "Add one item per attachment. Each item contains Filename, MIME Type, and Base64 Data. For Gmail attachments, use the data returned by Get Email Attachment."
+          },
+          {
+            "key": "attachments[].filename",
+            "name": "Filename",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "attachments[].mimeType",
+            "name": "MIME Type",
+            "dataType": "string",
+            "required": false,
+            "description": "Defaults to application/octet-stream."
+          },
+          {
+            "key": "attachments[].data",
+            "name": "Base64 Data",
+            "dataType": "string",
+            "required": true,
+            "description": "File content encoded as base64 or base64url. Accepts the data returned by Get Email Attachment; do not supply a URL or an attachment ID."
           },
           {
             "key": "attachmentFilename",
@@ -198870,7 +198942,7 @@
     "description": "Build spreadsheets, analyze data, collaborate in real time, and visualize insights.",
     "iconUrl": "https://images.mindcloud.co/apps/icons/google-sheets-logo-512px_1781814064500.png",
     "websiteUrl": "https://www.google.com/sheets",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "authentication": [
       {
         "type": "oAuth2",
@@ -199926,7 +199998,188 @@
             "required": false
           }
         ],
-        "responseSchema": []
+        "responseSchema": [
+          {
+            "key": "properties.autoRecalc",
+            "dataType": "string",
+            "description": "The recalculation setting of the spreadsheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "properties.defaultFormat.backgroundColor.blue",
+            "dataType": "number",
+            "description": "The blue component of the default background color.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.backgroundColor.green",
+            "dataType": "number",
+            "description": "The green component of the default background color.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.backgroundColor.red",
+            "dataType": "number",
+            "description": "The red component of the default background color.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.backgroundColorStyle.rgbColor.blue",
+            "dataType": "number",
+            "description": "The blue component of the default background color style.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.backgroundColorStyle.rgbColor.green",
+            "dataType": "number",
+            "description": "The green component of the default background color style.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.backgroundColorStyle.rgbColor.red",
+            "dataType": "number",
+            "description": "The red component of the default background color style.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.padding.bottom",
+            "dataType": "number",
+            "description": "The bottom padding of the default cell format, in pixels.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.padding.left",
+            "dataType": "number",
+            "description": "The left padding of the default cell format, in pixels.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.padding.right",
+            "dataType": "number",
+            "description": "The right padding of the default cell format, in pixels.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.padding.top",
+            "dataType": "number",
+            "description": "The top padding of the default cell format, in pixels.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.textFormat.bold",
+            "dataType": "boolean",
+            "description": "Whether the default text is bold.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "properties.defaultFormat.textFormat.fontFamily",
+            "dataType": "string",
+            "description": "The default font family of the spreadsheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "properties.defaultFormat.textFormat.fontSize",
+            "dataType": "number",
+            "description": "The default font size of the spreadsheet.",
+            "mockType": "number"
+          },
+          {
+            "key": "properties.defaultFormat.textFormat.italic",
+            "dataType": "boolean",
+            "description": "Whether the default text is italic.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "properties.defaultFormat.textFormat.strikethrough",
+            "dataType": "boolean",
+            "description": "Whether the default text is struck through.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "properties.defaultFormat.textFormat.underline",
+            "dataType": "boolean",
+            "description": "Whether the default text is underlined.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "properties.defaultFormat.verticalAlignment",
+            "dataType": "string",
+            "description": "The default vertical alignment of cells.",
+            "mockType": "string"
+          },
+          {
+            "key": "properties.defaultFormat.wrapStrategy",
+            "dataType": "string",
+            "description": "The default text wrap strategy of cells.",
+            "mockType": "string"
+          },
+          {
+            "key": "properties.locale",
+            "dataType": "string",
+            "description": "The locale of the spreadsheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "properties.timeZone",
+            "dataType": "string",
+            "description": "The time zone of the spreadsheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "properties.title",
+            "dataType": "string",
+            "description": "The title of the spreadsheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "sheets[].properties.gridProperties.columnCount",
+            "dataType": "number",
+            "description": "The number of columns in the worksheet grid.",
+            "mockType": "number"
+          },
+          {
+            "key": "sheets[].properties.gridProperties.rowCount",
+            "dataType": "number",
+            "description": "The number of rows in the worksheet grid.",
+            "mockType": "number"
+          },
+          {
+            "key": "sheets[].properties.index",
+            "dataType": "number",
+            "description": "The index of the worksheet.",
+            "mockType": "number"
+          },
+          {
+            "key": "sheets[].properties.sheetId",
+            "dataType": "number",
+            "description": "The ID of the worksheet.",
+            "mockType": "number"
+          },
+          {
+            "key": "sheets[].properties.sheetType",
+            "dataType": "string",
+            "description": "The type of the worksheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "sheets[].properties.title",
+            "dataType": "string",
+            "description": "The title of the worksheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "spreadsheetId",
+            "dataType": "string",
+            "description": "The unique identifier of the spreadsheet.",
+            "mockType": "string"
+          },
+          {
+            "key": "spreadsheetUrl",
+            "dataType": "string",
+            "description": "The URL of the spreadsheet.",
+            "mockType": "string"
+          }
+        ]
       },
       {
         "name": "List Spreadsheet Columns",

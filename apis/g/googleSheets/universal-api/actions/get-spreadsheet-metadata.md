@@ -42,7 +42,103 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Google Sheets API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "properties": {
+        "autoRecalc": "string",
+        "defaultFormat": {
+          "backgroundColor": {
+            "blue": 1,
+            "green": 1,
+            "red": 1
+          },
+          "backgroundColorStyle": {
+            "rgbColor": {
+              "blue": 1,
+              "green": 1,
+              "red": 1
+            }
+          },
+          "padding": {
+            "bottom": 1,
+            "left": 1,
+            "right": 1,
+            "top": 1
+          },
+          "textFormat": {
+            "bold": true,
+            "fontFamily": "string",
+            "fontSize": 1,
+            "italic": true,
+            "strikethrough": true,
+            "underline": true
+          },
+          "verticalAlignment": "string",
+          "wrapStrategy": "string"
+        },
+        "locale": "string",
+        "timeZone": "string",
+        "title": "string"
+      },
+      "sheets": [
+        {
+          "properties": {
+            "gridProperties": {
+              "columnCount": 1,
+              "rowCount": 1
+            },
+            "index": 1,
+            "sheetId": 1,
+            "sheetType": "string",
+            "title": "string"
+          }
+        }
+      ],
+      "spreadsheetId": "string",
+      "spreadsheetUrl": "https://example.com"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `properties.autoRecalc` | string | The recalculation setting of the spreadsheet. |
+| `properties.defaultFormat.backgroundColor.blue` | number | The blue component of the default background color. |
+| `properties.defaultFormat.backgroundColor.green` | number | The green component of the default background color. |
+| `properties.defaultFormat.backgroundColor.red` | number | The red component of the default background color. |
+| `properties.defaultFormat.backgroundColorStyle.rgbColor.blue` | number | The blue component of the default background color style. |
+| `properties.defaultFormat.backgroundColorStyle.rgbColor.green` | number | The green component of the default background color style. |
+| `properties.defaultFormat.backgroundColorStyle.rgbColor.red` | number | The red component of the default background color style. |
+| `properties.defaultFormat.padding.bottom` | number | The bottom padding of the default cell format, in pixels. |
+| `properties.defaultFormat.padding.left` | number | The left padding of the default cell format, in pixels. |
+| `properties.defaultFormat.padding.right` | number | The right padding of the default cell format, in pixels. |
+| `properties.defaultFormat.padding.top` | number | The top padding of the default cell format, in pixels. |
+| `properties.defaultFormat.textFormat.bold` | boolean | Whether the default text is bold. |
+| `properties.defaultFormat.textFormat.fontFamily` | string | The default font family of the spreadsheet. |
+| `properties.defaultFormat.textFormat.fontSize` | number | The default font size of the spreadsheet. |
+| `properties.defaultFormat.textFormat.italic` | boolean | Whether the default text is italic. |
+| `properties.defaultFormat.textFormat.strikethrough` | boolean | Whether the default text is struck through. |
+| `properties.defaultFormat.textFormat.underline` | boolean | Whether the default text is underlined. |
+| `properties.defaultFormat.verticalAlignment` | string | The default vertical alignment of cells. |
+| `properties.defaultFormat.wrapStrategy` | string | The default text wrap strategy of cells. |
+| `properties.locale` | string | The locale of the spreadsheet. |
+| `properties.timeZone` | string | The time zone of the spreadsheet. |
+| `properties.title` | string | The title of the spreadsheet. |
+| `sheets[].properties.gridProperties.columnCount` | number | The number of columns in the worksheet grid. |
+| `sheets[].properties.gridProperties.rowCount` | number | The number of rows in the worksheet grid. |
+| `sheets[].properties.index` | number | The index of the worksheet. |
+| `sheets[].properties.sheetId` | number | The ID of the worksheet. |
+| `sheets[].properties.sheetType` | string | The type of the worksheet. |
+| `sheets[].properties.title` | string | The title of the worksheet. |
+| `spreadsheetId` | string | The unique identifier of the spreadsheet. |
+| `spreadsheetUrl` | string | The URL of the spreadsheet. |
 
 ## Native endpoint
 

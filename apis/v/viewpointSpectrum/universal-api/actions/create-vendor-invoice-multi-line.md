@@ -40,63 +40,64 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `APInvoiceDetails[].Amount` | number | no |  |
-| `APInvoiceDetails[].Distribution.Cost_Center` | string | no |  |
-| `APInvoiceDetails[].Distribution.GL_Account` | string | no |  |
-| `APInvoiceDetails[].Equipment.Equipment_Category` | string | no |  |
-| `APInvoiceDetails[].Equipment.Equipment_Code` | string | no |  |
-| `APInvoiceDetails[].Item_Description` | string | no |  |
-| `APInvoiceDetails[].Job` | object | no |  |
-| `APInvoiceDetails[].Job.Cost_Type` | string | no |  |
-| `APInvoiceDetails[].Job.Phase_Code` | string | no |  |
-| `APInvoiceDetails[].Quantity` | number | no |  |
-| `APInvoiceDetails[].Tax_Code` | string | no |  |
-| `APInvoiceDetails[].Unit_Of_Measure` | string | no |  |
-| `APInvoiceDetails[].Work_Order.Component` | string | no |  |
-| `APInvoiceDetails[].Work_Order.Equipment` | string | no |  |
-| `APInvoiceDetails[].Work_Order.Service_Contract` | string | no |  |
-| `APInvoiceDetails[].Work_Order.Unit_Price` | number | no |  |
-| `Images[].Document_ID` | string | no |  |
-| `Images[].Image_Description` | string | no |  |
-| `Images[].Image_File` | string | no | Base64 |
-| `APInvoiceDetails[].Distribution` | object | no |  |
-| `APInvoiceDetails[].Distribution.Company_Code` | string | no |  |
-| `APInvoiceDetails[].Equipment.Equipment_Work_Order` | string | no |  |
-| `APInvoiceDetails[].Job.Job_Number` | string | no |  |
-| `APInvoiceDetails[].Work_Order.WO_Number` | string | no |  |
-| `Images[].Image_Type` | string | no |  |
-| `Invoice_Number` | string | no |  |
-| `APInvoiceDetails[].Item_Code` | string | no |  |
-| `Vendor_Code` | string | no |  |
-| `Approval_Status` | string | no |  |
-| `Invoice_Type_Code` | string | no | I — Invoice [default] C — Credit memo |
-| `Routing_Code` | string | no |  |
-| `GL_Date` | string | no | Eg: 05/15/2017 |
-| `Invoice_Date` | string | no |  |
-| `Invoice_Amount` | number | no |  |
-| `APInvoiceDetails[].Equipment` | object | no |  |
-| `Sales_Tax_Amount` | number | no |  |
-| `APInvoiceDetails[].Work_Order` | object | no |  |
-| `VAT_Code` | string | no |  |
-| `APInvoiceDetails[].Remark` | string | no |  |
-| `Total_VAT_Amount` | string | no |  |
-| `Contract_Number` | string | no |  |
-| `Retention_Amount` | number | no |  |
-| `Batch_Code` | string | no |  |
-| `Payment_Due_Date` | string | no |  |
-| `Discount_Due_Date` | string | no |  |
-| `Discount_Amount` | number | no |  |
-| `Status` | string | no |  |
-| `Payment_Status` | string | no |  |
-| `Bank_Account_Code` | string | no |  |
-| `Check_Number` | string | no |  |
-| `Check_Date` | string | no |  |
-| `Card_Number` | string | no |  |
-| `AP_GL_Account` | string | no |  |
-| `Cost_Center` | string | no |  |
-| `Remarks` | string | no |  |
-| `APInvoiceDetails[]` | array | no |  |
-| `Images[]` | array | no |  |
+| `APInvoices[].APInvoiceDetails[].Amount` | number | no |  |
+| `APInvoices[].APInvoiceDetails[].Distribution.Cost_Center` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Distribution.GL_Account` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Equipment.Equipment_Category` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Equipment.Equipment_Code` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Item_Description` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Job` | object | no |  |
+| `APInvoices[].APInvoiceDetails[].Job.Cost_Type` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Job.Phase_Code` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Quantity` | number | no |  |
+| `APInvoices[].APInvoiceDetails[].Tax_Code` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Unit_Of_Measure` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Work_Order.Component` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Work_Order.Equipment` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Work_Order.Service_Contract` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Work_Order.Unit_Price` | number | no |  |
+| `APInvoices[].Images[].Document_ID` | string | no |  |
+| `APInvoices[].Images[].Image_Description` | string | no |  |
+| `APInvoices[].Images[].Image_File` | string | no | Base64 |
+| `APInvoices[]` | array | no |  |
+| `APInvoices[].APInvoiceDetails[].Distribution` | object | no |  |
+| `APInvoices[].APInvoiceDetails[].Distribution.Company_Code` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Equipment.Equipment_Work_Order` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Job.Job_Number` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Work_Order.WO_Number` | string | no |  |
+| `APInvoices[].Images[].Image_Type` | string | no |  |
+| `APInvoices[].Invoice_Number` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Item_Code` | string | no |  |
+| `APInvoices[].Vendor_Code` | string | no |  |
+| `APInvoices[].Approval_Status` | string | no |  |
+| `APInvoices[].Invoice_Type_Code` | string | no | I — Invoice [default] C — Credit memo |
+| `APInvoices[].Routing_Code` | string | no |  |
+| `APInvoices[].GL_Date` | string | no | Eg: 05/15/2017 |
+| `APInvoices[].Invoice_Date` | string | no |  |
+| `APInvoices[].Invoice_Amount` | number | no |  |
+| `APInvoices[].APInvoiceDetails[].Equipment` | object | no |  |
+| `APInvoices[].Sales_Tax_Amount` | number | no |  |
+| `APInvoices[].APInvoiceDetails[].Work_Order` | object | no |  |
+| `APInvoices[].VAT_Code` | string | no |  |
+| `APInvoices[].APInvoiceDetails[].Remark` | string | no |  |
+| `APInvoices[].Total_VAT_Amount` | string | no |  |
+| `APInvoices[].Contract_Number` | string | no |  |
+| `APInvoices[].Retention_Amount` | number | no |  |
+| `APInvoices[].Batch_Code` | string | no |  |
+| `APInvoices[].Payment_Due_Date` | string | no |  |
+| `APInvoices[].Discount_Due_Date` | string | no |  |
+| `APInvoices[].Discount_Amount` | number | no |  |
+| `APInvoices[].Status` | string | no |  |
+| `APInvoices[].Payment_Status` | string | no |  |
+| `APInvoices[].Bank_Account_Code` | string | no |  |
+| `APInvoices[].Check_Number` | string | no |  |
+| `APInvoices[].Check_Date` | string | no |  |
+| `APInvoices[].Card_Number` | string | no |  |
+| `APInvoices[].AP_GL_Account` | string | no |  |
+| `APInvoices[].Cost_Center` | string | no |  |
+| `APInvoices[].Remarks` | string | no |  |
+| `APInvoices[].APInvoiceDetails[]` | array | no |  |
+| `APInvoices[].Images[]` | array | no |  |
 
 ## Response
 

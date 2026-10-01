@@ -8,19 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/li
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a QuickBooks Online `connectionId` ([setup](../authentication.md)).
 
-This action also supports [filtering](../filtering.md) (`where`).
+This action also supports [pagination](../pagination.md) (`limit`, `offset`), [filtering](../filtering.md) (`where`).
 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?connectionId=$CONNECTION_ID&query=select%20*%20from%20Account%20where%20AccountType%20%3D%20'Expense'" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "query": "select * from Account where AccountType = 'Expense'"
+  limit: '25',
+  offset: '0'
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?${params}`, {
@@ -32,13 +33,7 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/quickBoo
 const { success, data } = await response.json();
 ```
 
-## Inputs
 
-Arguments are sent as query string parameters ([conventions](../arguments.md)).
-
-| Key | Type | Required | Description |
-| --- | --- | --- | --- |
-| `query` | string | yes | QuickBooks SQL-like query. Add a WHERE clause to filter accounts, for example select * from Account where AccountType = 'Expense'. Default: `select * from Account`. Example: `select * from Account where AccountType = 'Expense'`. |
 
 ## Response
 
@@ -80,5 +75,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native QuickBooks Online API, this operation is `GET /query` (base URL `https://:quickbooksEnvironment/v3/company/:realmId`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-accounts.md) for the provider-specific parameters and requirements.
+Through the native QuickBooks Online API, this operation is `GET /query` (base URL `https://:quickbooksEnvironment/v3/company/:realmId`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-accounts.md) for the provider-specific parameters and requirements.
 

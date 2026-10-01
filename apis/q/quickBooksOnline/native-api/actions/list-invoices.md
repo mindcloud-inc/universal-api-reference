@@ -7,6 +7,10 @@
 - **Base URL:** `https://:quickbooksEnvironment/v3/company/:realmId`
 - **Official documentation:** [List Invoices](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/invoice#query-an-invoice)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

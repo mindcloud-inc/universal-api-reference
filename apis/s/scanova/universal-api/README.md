@@ -1,4 +1,4 @@
-# <img src="https://images.mindcloud.co/apps/icons/scanova_1774362517441.png" alt="Scanova logo" width="28" height="28"> Scanova: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/purple-logo-rounded-clean-4096_1790794446158.png" alt="Scanova logo" width="28" height="28"> Scanova: Universal API
 
 Generate, manage, and analyze QR codes programmatically with Scanova, including QR code management, lead lists, user access, and analytics.
 

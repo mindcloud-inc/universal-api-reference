@@ -47,6 +47,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
     {
       "emailId": "ava@example.com",
       "historyId": "string",
+      "htmlContent": "string",
       "labelIds": [
         "string"
       ],
@@ -101,6 +102,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- |
 | `emailId` | string |  |
 | `historyId` | string |  |
+| `htmlContent` | string | Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body. |
 | `labelIds[]` | string |  |
 | `messageLink` | string |  |
 | `originalHeaders.arcAuthenticationResults` | string |  |

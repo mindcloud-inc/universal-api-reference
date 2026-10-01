@@ -1,6 +1,6 @@
 # ADP Universal API Arguments
 
-Arguments are the inputs a ADP action needs. Each [action page](README.md#actions-17) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a ADP action needs. Each [action page](README.md#actions-21) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

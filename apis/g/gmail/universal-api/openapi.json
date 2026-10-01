@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Google Mail Universal API",
-    "version": "0.0.500",
+    "version": "0.0.501",
     "description": "Send email, organize inboxes, search messages, and collaborate faster."
   },
   "servers": [
@@ -1389,6 +1389,10 @@
                           },
                           "historyId": {
                             "type": "string"
+                          },
+                          "htmlContent": {
+                            "type": "string",
+                            "description": "Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body."
                           },
                           "labelIds": {
                             "type": "array",
@@ -2810,6 +2814,10 @@
                           },
                           "historyId": {
                             "type": "string"
+                          },
+                          "htmlContent": {
+                            "type": "string",
+                            "description": "Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body."
                           },
                           "labelIds": {
                             "type": "array",
@@ -5527,7 +5535,9 @@
                 "required": [
                   "connectionId",
                   "to",
-                  "subject"
+                  "subject",
+                  "attachments[].filename",
+                  "attachments[].data"
                 ],
                 "properties": {
                   "connectionId": {
@@ -5546,12 +5556,12 @@
                   },
                   "bodyText": {
                     "type": "string",
-                    "description": "Plain-text email body, if both Body Text and Body Email are used, Body Text will be rendered above Body HTML.",
+                    "description": "Plain-text alternative to Body HTML. Email clients select the supported representation when both are provided.",
                     "example": "Hello,\n\nJust following up..."
                   },
                   "bodyHtml": {
                     "type": "string",
-                    "description": "HTML email body, if both Body Text and Body Email are used, Body Text will be rendered above Body HTML.",
+                    "description": "HTML email body. Map htmlContent from Get Email to retain the original markup.",
                     "example": "<p>Hello from MindCloud</p>"
                   },
                   "attachmentFile": {
@@ -5582,6 +5592,25 @@
                     "type": "string",
                     "description": "Optional Gmail thread ID to reply in an existing thread.",
                     "example": "19c7cd447accadc2"
+                  },
+                  "attachments[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Add one item per attachment. Each item contains Filename, MIME Type, and Base64 Data. For Gmail attachments, use the data returned by Get Email Attachment."
+                  },
+                  "attachments[].filename": {
+                    "type": "string"
+                  },
+                  "attachments[].mimeType": {
+                    "type": "string",
+                    "description": "Defaults to application/octet-stream."
+                  },
+                  "attachments[].data": {
+                    "type": "string",
+                    "description": "File content encoded as base64 or base64url. Accepts the data returned by Get Email Attachment; do not supply a URL or an attachment ID."
                   },
                   "attachmentFilename": {
                     "type": "string",

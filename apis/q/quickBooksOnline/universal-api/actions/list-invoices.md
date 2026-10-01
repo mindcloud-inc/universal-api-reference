@@ -8,16 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/li
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a QuickBooks Online `connectionId` ([setup](../authentication.md)).
 
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-invoices?connectionId=$CONNECTION_ID&query=select%20*%20from%20Invoice%20where%20Metadata.LastUpdatedTime%20%3E%20'2025-01-14T00%3A00%3A00.000Z'%20order%20by%20Metadata.LastUpdatedTime%20DESC" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-invoices?connectionId=$CONNECTION_ID&limit=25&offset=0&query=select%20*%20from%20Invoice%20where%20Metadata.LastUpdatedTime%20%3E%20'2025-01-14T00%3A00%3A00.000Z'%20order%20by%20Metadata.LastUpdatedTime%20DESC" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
+  limit: '25',
+  offset: '0',
   "query": "select * from Invoice where Metadata.LastUpdatedTime > '2025-01-14T00:00:00.000Z' order by Metadata.LastUpdatedTime DESC"
 });
 
@@ -82,5 +86,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native QuickBooks Online API, this operation is `GET /query` (base URL `https://:quickbooksEnvironment/v3/company/:realmId`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-invoices.md) for the provider-specific parameters and requirements.
+Through the native QuickBooks Online API, this operation is `GET /query` (base URL `https://:quickbooksEnvironment/v3/company/:realmId`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-invoices.md) for the provider-specific parameters and requirements.
 

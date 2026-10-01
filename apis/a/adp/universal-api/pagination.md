@@ -21,3 +21,5 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/adp/latest/actions/get-wo
 - [List Workers](actions/get-workers.md)
 - [List Associate Work Locations](actions/list-associate-work-locations.md)
 - [List Business Units](actions/list-business-units.md)
+- [List Payroll Allocation Earnings](actions/list-payroll-allocation-earnings.md)
+- [List Payroll Summary Earnings](actions/list-payroll-summary-earnings.md)

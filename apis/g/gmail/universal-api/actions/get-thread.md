@@ -51,6 +51,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
       "date": "2026-05-07T12:00:00.000Z",
       "emailId": "ava@example.com",
       "historyId": "string",
+      "htmlContent": "string",
       "labelIds": [
         "string"
       ],
@@ -92,6 +93,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `date` | date |  |
 | `emailId` | string |  |
 | `historyId` | string |  |
+| `htmlContent` | string | Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body. |
 | `labelIds[]` | string |  |
 | `messageLink` | string |  |
 | `originalHeaders[].name` | string |  |

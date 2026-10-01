@@ -1,6 +1,6 @@
 # MS SharePoint: Native API Reference
 
-A consolidated summary of MS SharePoint's API configuration and 26 documented operations, with links to official documentation.
+A consolidated summary of MS SharePoint's API configuration and 27 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0
 - **API base URL:** `https://graph.microsoft.com`
@@ -31,7 +31,7 @@ Use `$top` in the query string to set the page size (default 100; minimum 1). Us
 
 Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (26 documented)
+## Endpoints (27 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -43,6 +43,7 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [Download File](actions/download-file.md) | `GET /v1.0/drives/{{driveId}}/items/{{itemId}}/content` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-get-content?view=graph-rest-1.0) |
 | [Get Drive](actions/get-drive.md) | `GET /v1.0/drives/{{driveId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-1.0) |
 | [Get Drive Item](actions/get-drive-item.md) | `GET /v1.0/drives/{{driveId}}/items/{{itemId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0) |
+| [Get Drive Item By Path](actions/get-drive-item-by-path.md) | `GET /v1.0/drives/:driveId/root:/:path` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0) |
 | [Get List](actions/get-list.md) | `GET /v1.0/sites/{{siteId}}/lists/{{listId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/list-get?view=graph-rest-1.0) |
 | [Get List Item](actions/get-list-item.md) | `GET /v1.0/sites/{{siteId}}/lists/{{listId}}/items/{{itemId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/listitem-get?view=graph-rest-1.0) |
 | [Get List Item Fields](actions/get-list-item-fields.md) | `GET /v1.0/sites/{{siteId}}/lists/{{listId}}/items/{{itemId}}/fields` | [docs](https://learn.microsoft.com/en-us/graph/api/listitem-get?view=graph-rest-1.0) |

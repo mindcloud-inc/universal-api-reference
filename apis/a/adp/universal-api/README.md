@@ -4,7 +4,7 @@ Experience better HR and payroll
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/adp/latest
 - **Category:** Human Resources / HRIS
-- **Actions:** 17
+- **Actions:** 21
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.adp.com/
 - **Vendor API docs:** https://developers.adp.com/build/api-explorer
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/adp/latest/actions/list-b
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (17)
+## Actions (21)
 
 ### Employees
 
@@ -51,18 +51,37 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/adp/latest/actions/list-b
 | [Get Worker Pay Statement](actions/list-worker-pay-statement-by-uri.md) | GET |  |
 | [List Worker Pay Statements](actions/list-worker-pay-statements.md) | GET |  |
 
+### Payroll Allocation Earning
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Payroll Allocation Earnings](actions/list-payroll-allocation-earnings.md) | GET |  |
+
 ### Payroll Group Pay Period
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Payroll Groups](actions/list-payroll-groups.md) | GET |  |
 
+### Payroll Group Pay Schedule
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Payroll Group Pay Schedule](actions/get-payroll-group-pay-schedule.md) | GET |  |
+
 ### Payroll Output
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Payroll Earning Allocations](actions/get-payroll-earning-allocations.md) | GET |  |
+| [Get Payroll Output](actions/get-payroll-output.md) | GET |  |
 | [List Payroll Outputs](actions/list-payroll-outputs.md) | GET |  |
+
+### Payroll Summary Earning
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Payroll Summary Earnings](actions/list-payroll-summary-earnings.md) | GET |  |
 
 ### Payrolls
 

@@ -4,7 +4,7 @@ Manage invoices, customers, vendors, bills, reports, and accounting data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/quickBooksOnline/latest
 - **Category:** Commerce / Accounting
-- **Actions:** 32
+- **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://quickbooks.intuit.com/online
 - **Vendor API docs:** https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities
@@ -18,11 +18,11 @@ Read more in [authentication.md](authentication.md).
 For example, to [List Customers](actions/list-customers.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-customers?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-customers?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (32)
+## Actions (35)
 
 ### Accounts
 
@@ -39,6 +39,14 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/a
 | [Create Bill](actions/create-bill.md) | POST |  |
 | [Get Bill](actions/get-bill.md) | GET |  |
 | [List Bills](actions/list-bills.md) | GET |  |
+
+### Budget
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Budget](actions/create-budget.md) | POST |  |
+| [Get Budget](actions/get-budget.md) | GET |  |
+| [List Budgets](actions/list-budgets.md) | GET |  |
 
 ### Customers
 
