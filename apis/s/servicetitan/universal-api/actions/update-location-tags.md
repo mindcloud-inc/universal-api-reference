@@ -42,8 +42,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `body` | string | no |  |
 | `locationId` | string | yes |  |
+| `tagTypeIds` | string | no |  |
 
 ## Response
 

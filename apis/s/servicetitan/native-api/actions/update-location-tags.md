@@ -10,5 +10,5 @@
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `body` | body | `string` | no |
 | `id` | path | `string` | yes |
+| `tagTypeIds` | body | `string` | no |
