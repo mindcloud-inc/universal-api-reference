@@ -48,7 +48,18 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "date": "2026-05-07T12:00:00.000Z",
+      "attachments": [
+        {
+          "attachmentId": "string",
+          "contentId": "string",
+          "filename": "Ava Chen",
+          "inline": true,
+          "mimeType": "string",
+          "partId": "string",
+          "size": 1
+        }
+      ],
+      "date": "string",
       "emailId": "ava@example.com",
       "historyId": "string",
       "htmlContent": "string",
@@ -90,10 +101,17 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `date` | date |  |
+| `attachments[].attachmentId` | string |  |
+| `attachments[].contentId` | string |  |
+| `attachments[].filename` | string |  |
+| `attachments[].inline` | boolean |  |
+| `attachments[].mimeType` | string |  |
+| `attachments[].partId` | string |  |
+| `attachments[].size` | number |  |
+| `date` | string |  |
 | `emailId` | string |  |
 | `historyId` | string |  |
-| `htmlContent` | string | Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body. |
+| `htmlContent` | string |  |
 | `labelIds[]` | string |  |
 | `messageLink` | string |  |
 | `originalHeaders[].name` | string |  |

@@ -45,6 +45,18 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
+      "attachments": [
+        {
+          "attachmentId": "string",
+          "contentId": "string",
+          "filename": "Ava Chen",
+          "inline": true,
+          "mimeType": "string",
+          "partId": "string",
+          "size": 1
+        }
+      ],
+      "date": "string",
       "emailId": "ava@example.com",
       "historyId": "string",
       "htmlContent": "string",
@@ -52,37 +64,23 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
         "string"
       ],
       "messageLink": "https://example.com",
-      "originalHeaders": {
-        "arcAuthenticationResults": "string",
-        "arcMessageSignature": "string",
-        "arcSeal": "string",
-        "authenticationResults": "string",
-        "autoSubmitted": "string",
-        "contentType": "string",
-        "date": "string",
-        "deliveredTo": "string",
-        "dkimSignature": "string",
-        "feedbackId": "string",
-        "from": "string",
-        "inReplyTo": "string",
-        "messageId": "string",
-        "mimeVersion": "string",
-        "received": "string",
-        "receivedSpf": "string",
-        "references": "string",
-        "replyTo": "string",
-        "returnPath": "string",
-        "subject": "string",
-        "to": "string",
-        "xGoogleSmtpSource": "string",
-        "xReceived": "string",
-        "xSesOutgoing": "string",
-        "xSlackMessageId": "string",
-        "xSlackTeamId": "string"
-      },
+      "originalHeaders": [
+        {
+          "name": "Ava Chen",
+          "value": "string"
+        }
+      ],
       "simpleHeaders": {
-        "recipient": "string",
-        "sender": "string",
+        "recipients": [
+          {
+            "email": "ava@example.com",
+            "name": "Ava Chen"
+          }
+        ],
+        "sender": {
+          "email": "ava@example.com",
+          "name": "Ava Chen"
+        },
         "subject": "string",
         "threadTopic": "string"
       },
@@ -100,41 +98,27 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
+| `attachments[].attachmentId` | string |  |
+| `attachments[].contentId` | string |  |
+| `attachments[].filename` | string |  |
+| `attachments[].inline` | boolean |  |
+| `attachments[].mimeType` | string |  |
+| `attachments[].partId` | string |  |
+| `attachments[].size` | number |  |
+| `date` | string |  |
 | `emailId` | string |  |
 | `historyId` | string |  |
-| `htmlContent` | string | Original HTML body decoded from Gmail MIME parts. Empty when the message has no inline HTML body. |
+| `htmlContent` | string |  |
 | `labelIds[]` | string |  |
 | `messageLink` | string |  |
-| `originalHeaders.arcAuthenticationResults` | string |  |
-| `originalHeaders.arcMessageSignature` | string |  |
-| `originalHeaders.arcSeal` | string |  |
-| `originalHeaders.authenticationResults` | string |  |
-| `originalHeaders.autoSubmitted` | string |  |
-| `originalHeaders.contentType` | string |  |
-| `originalHeaders.date` | string |  |
-| `originalHeaders.deliveredTo` | string |  |
-| `originalHeaders.dkimSignature` | string |  |
-| `originalHeaders.feedbackId` | string |  |
-| `originalHeaders.from` | string |  |
-| `originalHeaders.inReplyTo` | string |  |
-| `originalHeaders.messageId` | string |  |
-| `originalHeaders.mimeVersion` | string |  |
-| `originalHeaders.received` | string |  |
-| `originalHeaders.receivedSpf` | string |  |
-| `originalHeaders.references` | string |  |
-| `originalHeaders.replyTo` | string |  |
-| `originalHeaders.returnPath` | string |  |
-| `originalHeaders.subject` | string |  |
-| `originalHeaders.to` | string |  |
-| `originalHeaders.xGoogleSmtpSource` | string |  |
-| `originalHeaders.xReceived` | string |  |
-| `originalHeaders.xSesOutgoing` | string |  |
-| `originalHeaders.xSlackMessageId` | string |  |
-| `originalHeaders.xSlackTeamId` | string |  |
-| `simpleHeaders.recipient` | string |  |
-| `simpleHeaders.sender` | string |  |
+| `originalHeaders[].name` | string |  |
+| `originalHeaders[].value` | string |  |
+| `simpleHeaders.recipients[].email` | string |  |
+| `simpleHeaders.recipients[].name` | string |  |
+| `simpleHeaders.sender.email` | string |  |
+| `simpleHeaders.sender.name` | string |  |
 | `simpleHeaders.subject` | string |  |
-| `simpleHeaders.threadTopic` | string |  |
+| `simpleHeaders.threadTopic` | undefined |  |
 | `snippet` | string |  |
 | `subject` | string |  |
 | `textContent` | string |  |

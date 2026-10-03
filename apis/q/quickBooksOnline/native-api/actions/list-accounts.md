@@ -10,3 +10,9 @@
 ## Capabilities
 
 This operation supports [pagination](../README.md#pagination) and [filtering](../README.md#filtering).
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `query` | query | `string` | yes | QuickBooks SQL-like query. Add a WHERE clause to filter accounts, for example select * from Account where AccountType = 'Expense'. |

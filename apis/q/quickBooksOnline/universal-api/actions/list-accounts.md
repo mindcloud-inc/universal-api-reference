@@ -13,7 +13,7 @@ This action also supports [pagination](../pagination.md) (`limit`, `offset`), [f
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?connectionId=$CONNECTION_ID&limit=25&offset=0&query=select%20*%20from%20Account%20where%20AccountType%20%3D%20'Expense'" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -21,7 +21,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/a
 const params = new URLSearchParams({
   connectionId,
   limit: '25',
-  offset: '0'
+  offset: '0',
+  "query": "select * from Account where AccountType = 'Expense'"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?${params}`, {
@@ -33,7 +34,13 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/quickBoo
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `query` | string | yes | QuickBooks SQL-like query. Add a WHERE clause to filter accounts, for example select * from Account where AccountType = 'Expense'. Default: `select * from Account`. Example: `select * from Account where AccountType = 'Expense'`. |
 
 ## Response
 

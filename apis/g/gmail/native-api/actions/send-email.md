@@ -16,8 +16,10 @@ Sends a Gmail message.
 | `to` | body | `string` | yes | Recipient email address. Use a comma-separated list for multiple recipients. |
 | `subject` | body | `string` | yes | Email subject line. |
 | `bodyText` | body | `string` | no | Plain-text alternative to Body HTML. Email clients select the supported representation when both are provided. |
+| `attachments[].contentId` | body | `string` | no | Optional MIME Content-ID without angle brackets or the cid: prefix. Must match the image reference in Body HTML, for example logo@mindcloud.co for src="cid:logo@mindcloud.co". Enable Inline to display the image in the body. |
 | `bodyHtml` | body | `string` | no | HTML email body. Map htmlContent from Get Email to retain the original markup. |
 | `attachmentFile` | body | `file` | no | Optional single attachment file to include with the email. |
+| `attachments[].inline` | body | `boolean` | no | Display this attachment inside Body HTML using its matching cid: reference. Requires Content-ID and Body HTML. When Content-ID is empty, the file remains a normal attachment. |
 | `cc` | body | `string` | no | Optional CC recipients. Use a comma-separated list. |
 | `bcc` | body | `string` | no | Optional BCC recipients. Use a comma-separated list. |
 | `from` | body | `string` | no | Optional sender header. Must be permitted by Gmail account configuration. |

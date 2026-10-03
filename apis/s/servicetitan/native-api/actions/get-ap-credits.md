@@ -12,3 +12,13 @@ Retrieves AP credits from ServiceTitan.
 ## Capabilities
 
 This operation supports [pagination](../README.md#pagination).
+
+## Parameters
+
+| Parameter | Location | Type | Required |
+| --- | --- | --- | --- |
+| `ids` | query | `string` | no |
+| `createdBefore` | query | `string` | no |
+| `createdOnOrAfter` | query | `string` | no |
+| `modifiedBefore` | query | `string` | no |
+| `modifiedOnOrAfter` | query | `string` | no |

@@ -10,3 +10,9 @@
 ## Capabilities
 
 This operation supports [pagination](../README.md#pagination).
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `query` | query | `string` | yes | Fixed query used to list bills. |

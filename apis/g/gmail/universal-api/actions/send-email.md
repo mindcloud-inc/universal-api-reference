@@ -51,8 +51,10 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `to` | string | yes | Recipient email address. Use a comma-separated list for multiple recipients. Example: `alice@example.com, bob@example.com`. |
 | `subject` | string | yes | Email subject line. Example: `Quick update`. |
 | `bodyText` | string | no | Plain-text alternative to Body HTML. Email clients select the supported representation when both are provided. Example: `Hello,  Just following up...`. |
+| `attachments[].contentId` | string | no | Optional MIME Content-ID without angle brackets or the cid: prefix. Must match the image reference in Body HTML, for example logo@mindcloud.co for src="cid:logo@mindcloud.co". Enable Inline to display the image in the body. |
 | `bodyHtml` | string | no | HTML email body. Map htmlContent from Get Email to retain the original markup. Example: `<p>Hello from MindCloud</p>`. |
 | `attachmentFile` | file | no | Optional single attachment file to include with the email. |
+| `attachments[].inline` | boolean | no | Display this attachment inside Body HTML using its matching cid: reference. Requires Content-ID and Body HTML. When Content-ID is empty, the file remains a normal attachment. |
 | `cc` | string | no | Optional CC recipients. Use a comma-separated list. Example: `manager@example.com`. |
 | `bcc` | string | no | Optional BCC recipients. Use a comma-separated list. Example: `audit@example.com`. |
 | `from` | string | no | Optional sender header. Must be permitted by Gmail account configuration. Example: `me@example.com`. |

@@ -12,7 +12,7 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/actions/list-accounts?connectionId=$CONNECTION_ID&limit=25&offset=0&query=select%20*%20from%20Account%20where%20AccountType%20%3D%20'Expense'" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 

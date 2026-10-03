@@ -17,6 +17,8 @@ A consolidated summary of Sage Intacct's API configuration and 25 documented ope
 - **Sender Password:** `senderPassword` · required
 - **Sender Id:** `senderId` · required
 
+[Official authentication documentation](https://developer.intacct.com/web-services/#authentication)
+
 ## API conventions
 
 Request bodies use XML.

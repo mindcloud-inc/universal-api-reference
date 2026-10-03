@@ -33,7 +33,17 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/servicet
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `ids` | string | no |  |
+| `createdBefore` | string | no |  |
+| `createdOnOrAfter` | string | no |  |
+| `modifiedBefore` | string | no |  |
+| `modifiedOnOrAfter` | string | no |  |
 
 ## Response
 
