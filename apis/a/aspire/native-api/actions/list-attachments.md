@@ -7,6 +7,10 @@
 - **Base URL:** `https://{environment}.youraspire.com/`
 - **Official documentation:** [List Attachments](https://guide.youraspire.com/apidocs/attachments-5)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required |

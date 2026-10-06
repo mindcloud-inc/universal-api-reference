@@ -1,4 +1,4 @@
-# <img src="https://images.mindcloud.co/apps/icons/favicon-docs-browser-use-com-48x48_1777482257185.png" alt="Browser Use logo" width="28" height="28"> Browser Use: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/browser-use-logo-1-vectorized_1791206621449.png" alt="Browser Use logo" width="28" height="28"> Browser Use: Universal API
 
 Browser Use provides managed AI browser automation, persistent browser sessions, profiles, workspaces, files, and account billing APIs.
 

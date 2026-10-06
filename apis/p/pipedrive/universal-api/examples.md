@@ -2,23 +2,22 @@
 
 These examples use the MindCloud API key and Pipedrive connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Activities
+## Get User
 
-Retrieves activities from Pipedrive.
+Retrieves a person from Pipedrive.
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/get-activities?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/get-user?connectionId=$CONNECTION_ID&id=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  limit: '25',
-  offset: '0'
+  "id": "1"
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/get-activities?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/get-user?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -35,38 +34,24 @@ Example response:
   "data": [
     {
       "addTime": "string",
-      "busy": true,
-      "conferenceMeetingClient": {},
-      "conferenceMeetingId": {},
-      "conferenceMeetingUrl": {},
-      "creatorUserId": 1,
-      "dealId": {},
-      "done": true,
-      "dueDate": "string",
-      "dueTime": {},
-      "duration": {},
+      "customFields": {},
+      "firstName": "Ava",
       "id": 1,
       "isDeleted": true,
-      "leadId": {},
-      "location": {},
-      "markedAsDoneTime": {},
-      "note": {},
-      "orgId": {},
+      "lastName": "Chen",
+      "name": "Ava Chen",
+      "orgId": 1,
       "ownerId": 1,
-      "personId": {},
-      "priority": {},
-      "projectId": {},
-      "publicDescription": {},
-      "subject": "string",
-      "type": "string",
-      "updateTime": "string"
+      "pictureId": {},
+      "updateTime": "string",
+      "visibleTo": 1
     }
   ],
   "meta": {}
 }
 ```
 
-See the full [Get Activities action reference](actions/get-activities.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/pipedrive/latest/actions/get-activities).
+See the full [Get User action reference](actions/get-user.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/pipedrive/latest/actions/get-user).
 
 ## Add Activity
 

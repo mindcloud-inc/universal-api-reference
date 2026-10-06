@@ -1,4 +1,4 @@
-# <img src="https://images.mindcloud.co/apps/icons/ramp-icon_1782394333561.jpg" alt="Ramp logo" width="28" height="28"> Ramp: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/ramp-com-logo-1-vectorized-1_1791207720054.png" alt="Ramp logo" width="28" height="28"> Ramp: Universal API
 
 Ramp through the MindCloud Universal API.
 

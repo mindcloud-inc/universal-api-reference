@@ -7,8 +7,12 @@
 - **Base URL:** `https://api.ramp.com/developer/v1/`
 - **Official documentation:** [Get Transaction](https://docs.ramp.com/developer-api/v1/api/transactions#get-developer-v1-transactions-transaction-id)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `transactionId` | path | `string` | no |
+| `transactionId` | path | `string` | yes |

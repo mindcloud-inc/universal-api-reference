@@ -11,4 +11,4 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `customparams` | path | `string` | no | Optional provider-specific query string segment appended after the list route. |
+| `customparams` | query | `string` | no | Optional provider-specific query string segment appended after the list route. |

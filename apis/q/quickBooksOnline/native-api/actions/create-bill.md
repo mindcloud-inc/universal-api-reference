@@ -28,3 +28,4 @@
 | `CurrencyRef` | body | `object` | no | — |
 | `Line[]` | body | `array` | no | — |
 | `CheckPayment` | body | `object` | no | — |
+| `DocNumber` | body | `string` | no | Reference number for the transaction (shown as "Ref no." in QuickBooks). Maximum 21 characters. Must be unique unless the company allows duplicates. Maximum length: 21. |

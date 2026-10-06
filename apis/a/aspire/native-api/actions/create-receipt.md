@@ -14,7 +14,7 @@ Creates a new receipt in your Aspire account.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `ReceiptItems[].itemAllocations[].workTicketID` | body | `list<number>` | no | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |
-| `ReceiptItems[].receiptItemID` | body | `number` | yes | — |
+| `ReceiptItems[].receiptItemID` | body | `number` | no | — |
 | `VendorID` | body | `list<string>` | yes | — |
 | `ReceiptItems[].catalogItemID` | body | `list<number>` | no | — |
 | `ReceiptItems[].itemAllocations[].inventoryLocationID` | body | `list<number>` | yes | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |

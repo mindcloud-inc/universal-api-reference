@@ -15,10 +15,10 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Activities](actions/get-activities.md):
+For example, to [Get User](actions/get-user.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/get-activities?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/get-user?connectionId=$CONNECTION_ID&id=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 

@@ -12,11 +12,12 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/ramp/latest/actions/list-receipts?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/ramp/latest/actions/get-transaction?connectionId=$CONNECTION_ID&limit=25&offset=0&transactionId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## Ramp actions that support pagination
 
+- [Get Transaction](actions/get-transaction.md)
 - [List Receipts](actions/list-receipts.md)
 - [List Transactions](actions/list-transactions.md)

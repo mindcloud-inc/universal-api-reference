@@ -40,7 +40,36 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native EHS Insight API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "resultCode": "string",
+      "rowUID": "string",
+      "entityName": "Ava Chen",
+      "changeToken": "string",
+      "schema": {
+        "fields": [
+          {}
+        ]
+      }
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `resultCode` | string |  |
+| `rowUID` | string |  |
+| `entityName` | string |  |
+| `changeToken` | string |  |
+| `schema` | object |  |
+| `schema.fields` | array<object> |  |
 
 ## Native endpoint
 

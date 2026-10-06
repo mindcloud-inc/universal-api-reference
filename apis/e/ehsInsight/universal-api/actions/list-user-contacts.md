@@ -39,7 +39,91 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native EHS Insight API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "rowUID": "string",
+      "createdDtm": "string",
+      "updatedDtm": "string",
+      "changeToken": "string",
+      "userContactNumber": "string",
+      "userContactType": "string",
+      "inviteSent": 1,
+      "fullName": "Ava Chen",
+      "userContactPhoto": "string",
+      "language": "string",
+      "uIMode": "string",
+      "isEnabled": 1,
+      "firstName": "Ava",
+      "lastName": "Chen",
+      "gender": "string",
+      "birthDate": "string",
+      "homeAddress": "string",
+      "homeCity": "string",
+      "homeState": "string",
+      "homeZip": "string",
+      "phoneNumber": "string",
+      "businessEntity": "string",
+      "position": "string",
+      "employer": "string",
+      "supervisor": "string",
+      "employeeID": "string",
+      "hireDate": "string",
+      "positionStartDate": "string",
+      "industryStartDate": "string",
+      "authProvider": "string",
+      "username": "Ava Chen",
+      "emailAddress": "ava@example.com",
+      "mobilePhoneNumber": "string",
+      "roleAssignmentType": "string",
+      "entityName": "Ava Chen"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `rowUID` | string |  |
+| `createdDtm` | string |  |
+| `updatedDtm` | string |  |
+| `changeToken` | string |  |
+| `userContactNumber` | string |  |
+| `userContactType` | string |  |
+| `inviteSent` | number |  |
+| `fullName` | string |  |
+| `userContactPhoto` | string |  |
+| `language` | string |  |
+| `uIMode` | string |  |
+| `isEnabled` | number |  |
+| `firstName` | string |  |
+| `lastName` | string |  |
+| `gender` | string |  |
+| `birthDate` | string |  |
+| `homeAddress` | string |  |
+| `homeCity` | string |  |
+| `homeState` | string |  |
+| `homeZip` | string |  |
+| `phoneNumber` | string |  |
+| `businessEntity` | string |  |
+| `position` | string |  |
+| `employer` | string |  |
+| `supervisor` | string |  |
+| `employeeID` | string |  |
+| `hireDate` | string |  |
+| `positionStartDate` | string |  |
+| `industryStartDate` | string |  |
+| `authProvider` | string |  |
+| `username` | string |  |
+| `emailAddress` | string |  |
+| `mobilePhoneNumber` | string |  |
+| `roleAssignmentType` | string |  |
+| `entityName` | string |  |
 
 ## Native endpoint
 

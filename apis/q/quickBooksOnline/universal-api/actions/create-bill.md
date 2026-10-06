@@ -59,6 +59,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `CurrencyRef` | object | no |  |
 | `Line[]` | array | no |  |
 | `CheckPayment` | object | no |  |
+| `DocNumber` | string | no | Reference number for the transaction (shown as "Ref no." in QuickBooks). Maximum 21 characters. Must be unique unless the company allows duplicates. |
 
 ## Response
 

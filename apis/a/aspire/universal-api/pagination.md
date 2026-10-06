@@ -28,6 +28,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
 - [List Activity Contacts](actions/list-activity-contacts.md)
 - [List Addresses](actions/list-addresses.md)
 - [List Attachment Types](actions/list-attachment-types.md)
+- [List Attachments](actions/list-attachments.md)
 - [List Bank Deposits](actions/list-bank-deposits.md)
 - [List Branches](actions/list-branches.md)
 - [List Catalog Item Categories](actions/list-catalog-item-categories.md)

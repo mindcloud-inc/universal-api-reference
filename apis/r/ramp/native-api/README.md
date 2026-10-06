@@ -38,7 +38,7 @@ The next-page cursor is read from `page.next`.
 
 ## Pagination
 
-Use `page_size` in the query string to set the page size (default 100; accepted range 2–100). Follow the complete next-page URL returned by the API.
+Use `page_size` in the query string to set the page size (default 100; accepted range 2–100). Use `start` in the query string as the pagination cursor. Follow the complete next-page URL returned by the API.
 
 ## Endpoints (8 documented)
 

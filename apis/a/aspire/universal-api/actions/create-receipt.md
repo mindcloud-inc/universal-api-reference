@@ -16,7 +16,6 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/cr
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "ReceiptItems[].receiptItemID": 1,
   "VendorID": "string",
   "ReceiptItems[].itemAllocations[].inventoryLocationID": 1,
   "ReceiptItems[].itemAllocations[].itemQuantity": 1,
@@ -36,7 +35,6 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/aspire/l
   },
   body: JSON.stringify({
     connectionId,
-    "ReceiptItems[].receiptItemID": 1,
     "VendorID": "string",
     "ReceiptItems[].itemAllocations[].inventoryLocationID": 1,
     "ReceiptItems[].itemAllocations[].itemQuantity": 1,
@@ -57,7 +55,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ReceiptItems[].itemAllocations[].workTicketID` | list<number> | no | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |
-| `ReceiptItems[].receiptItemID` | number | yes |  |
+| `ReceiptItems[].receiptItemID` | number | no |  |
 | `VendorID` | list<string> | yes |  |
 | `ReceiptItems[].catalogItemID` | list<number> | no |  |
 | `ReceiptItems[].itemAllocations[].inventoryLocationID` | list<number> | yes | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |
