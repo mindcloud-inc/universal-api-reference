@@ -1,6 +1,6 @@
 # QuickBooks Online: Native API Reference
 
-A consolidated summary of QuickBooks Online's API configuration and 35 documented operations, with links to official documentation.
+A consolidated summary of QuickBooks Online's API configuration and 36 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities
 - **API base URL:** `https://:quickbooksEnvironment/v3/company/:realmId`
@@ -49,12 +49,13 @@ Send filters in the request body. Supported operators: `between`, `contain`, `co
 
 Wait 10000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (35 documented)
+## Endpoints (36 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Create Account](actions/create-account.md) | `POST /account` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#create-an-account) |
 | [Create Bill](actions/create-bill.md) | `POST /billpayment` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill#create-a-bill) |
+| [Create Bill (Expense Lines)](actions/create-bill-expense-lines.md) | `POST /bill` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill#create-a-bill) |
 | [Create Budget](actions/create-budget.md) | `POST /budget` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/budget) |
 | [Create Customer](actions/create-customer.md) | `POST /customer` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#create-a-customer) |
 | [Create Invoice](actions/create-invoice.md) | `POST /invoice` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#create-an-invoice) |

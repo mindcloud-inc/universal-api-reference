@@ -12,4 +12,4 @@
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `aoid` | path | `string` | yes | The ADP associate object identifier for the worker whose pay statement should be returned. |
-| `pay-statement-id` | path | `string` | yes | The pay statement identifier returned by List Worker Pay Statements. |
+| `payStatementId` | path | `string` | yes | The pay statement identifier returned by List Worker Pay Statements. |

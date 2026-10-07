@@ -1,6 +1,6 @@
 # HubSpot: Native API Reference
 
-A consolidated summary of HubSpot's API configuration and 93 documented operations, with links to official documentation.
+A consolidated summary of HubSpot's API configuration and 94 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
 - **REST - Query Pagination base URL:** `https://api.hubapi.com`
@@ -74,7 +74,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 - **REST - Query Pagination:** Set the sort field with `sort` in the request body. Only one sort field is accepted.
 - **REST - Body Pagination:** Set the sort field with `sort` in the request body. Use `ASCENDING` for ascending order and `DESCENDING` for descending order. Multiple sort fields can be combined.
 
-## Endpoints (93 documented)
+## Endpoints (94 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -135,6 +135,7 @@ Responses from this API use JSON. The next-page cursor is read from `paging.next
 | [List Company Contacts v2026-03](actions/list-company-contacts-v202603.md) | REST - Query Pagination | `GET crm/2026-03/objects/companies/:companyId/associations/contacts` | [docs](https://developers.hubspot.com/docs/guides/api/crm/understanding-the-crm#retrieve-record-associations) |
 | [List Contact Companies](actions/list-contact-companies.md) | REST - Query Pagination | `GET crm/v3/objects/contacts/:contactId/associations/companies` | [docs](https://developers.hubspot.com/docs/guides/api/crm/understanding-the-crm#retrieve-record-associations) |
 | [List Contacts](actions/list-contacts.md) | REST - Query Pagination | `GET crm/v3/objects/contacts` | [docs](https://developers.hubspot.com/docs/api-reference/crm-contacts-v3/basic/get-crm-v3-objects-contacts) |
+| [List Custom Object Records](actions/list-custom-object-records.md) | REST - Query Pagination | `GET crm/v3/objects/:objectTypeId` | [docs](https://developers.hubspot.com/docs/api-reference/legacy/crm/objects/custom-objects/guide) |
 | [List Deal Line Items](actions/list-deal-line-items.md) | REST - Query Pagination | `GET crm/v3/objects/deals/:dealId/associations/line_items` | [docs](https://developers.hubspot.com/docs/api-reference/crm-associations-v3/guide) |
 | [List Deal Quotes](actions/list-deal-quotes.md) | REST - Query Pagination | `GET crm/v3/objects/deals/:dealId/associations/quotes` | [docs](https://developers.hubspot.com/docs/api-reference/crm-associations-v3/guide) |
 | [List Deals](actions/list-deals.md) | REST - Query Pagination | `GET crm/v3/objects/deals` | [docs](https://developers.hubspot.com/docs/api-reference/crm-deals-v3/basic/get-crm-v3-objects-0-3) |

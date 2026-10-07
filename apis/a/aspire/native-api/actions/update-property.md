@@ -48,3 +48,4 @@ Updates a Property in Aspire
 | `IntegrationID` | body | `number` | no |
 | `PropertyTypeID` | body | `list<number>` | no |
 | `ProductionManagerContactID` | body | `list<number>` | no |
+| `PropertyTags` | body | `string` | no |

@@ -16,7 +16,7 @@ Retrieves engagement records from HubSpot in a batch.
 | --- | --- | --- | --- | --- |
 | `engagementType` | path | `list` | yes | The CRM activity object type to batch read, such as notes, tasks, calls, emails, or meetings. Accepted values: `calls`, `communications`, `emails`, `meetings`, `notes`, `postal_mail`, `tasks`. |
 | `inputs[]` | body | `array<object>` | yes | The records to batch read. |
-| `inputs[].id` | body | `string` | yes | The record ID to batch read. |
+| `inputs[].id` | body | `string` | no | The record ID to batch read. |
 | `properties[]` | body | `array<string>` | no | Properties to include in each returned activity record. |
 | `propertiesWithHistory[]` | body | `array<string>` | no | Properties to include with history values in each returned activity record. |
 | `idProperty` | query | `string` | no | The unique property to use instead of the default record ID. |

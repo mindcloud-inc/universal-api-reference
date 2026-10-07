@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "HubSpot Universal API",
-    "version": "0.1.30",
+    "version": "0.1.32",
     "description": "Manage contacts, track deals, run campaigns, and support customers."
   },
   "servers": [
@@ -1356,7 +1356,7 @@
           {
             "name": "inputs[].id",
             "in": "query",
-            "required": true,
+            "required": false,
             "description": "The record ID to batch read.",
             "schema": {
               "type": "string",
@@ -14349,6 +14349,292 @@
         }
       }
     },
+    "/v1/universal/hubspotApp/latest/actions/list-custom-object-records": {
+      "get": {
+        "operationId": "hubspotApp.list-custom-object-records",
+        "summary": "List Custom Object Records",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/hubspotApp/latest/actions/list-custom-object-records"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "objectTypeId",
+            "in": "query",
+            "required": true,
+            "description": "The custom object type ID from this HubSpot account, such as 2-123456. Use the object type ID, not its display label or a record ID.",
+            "schema": {
+              "type": "string",
+              "description": "The custom object type ID from this HubSpot account, such as 2-123456. Use the object type ID, not its display label or a record ID.",
+              "example": "2-123456"
+            }
+          },
+          {
+            "name": "properties",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated internal property names to include in each record. Include the fields needed by your report.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated internal property names to include in each record. Include the fields needed by your report.",
+              "example": "hs_object_id,hs_createdate"
+            }
+          },
+          {
+            "name": "propertiesWithHistory",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated internal property names to return with their current and historical values.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated internal property names to return with their current and historical values.",
+              "example": "hs_lastmodifieddate",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "associations",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated object types whose associated record IDs should be included.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated object types whose associated record IDs should be included.",
+              "example": "contacts,companies",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "archived": {
+                            "type": "boolean",
+                            "description": "Whether the record is archived."
+                          },
+                          "associations": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Associated record IDs grouped by requested object type. Included when requested."
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Record creation timestamp."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "HubSpot record ID."
+                          },
+                          "properties": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Requested custom object properties. Keys vary with the object type and selected properties."
+                          },
+                          "propertiesWithHistory": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "Requested property histories, keyed by property name. Included when requested."
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Record last-update timestamp."
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "URL of this record in HubSpot."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/hubspotApp/latest/actions/list-deal-line-items": {
       "get": {
         "operationId": "hubspotApp.list-deal-line-items",
@@ -22658,7 +22944,36 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                          "archived": {
+                            "type": "boolean",
+                            "description": "Whether the ticket is archived."
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the ticket was created."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The ticket record ID."
+                          },
+                          "properties": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "description": "The returned ticket properties."
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the ticket was last updated."
+                          },
+                          "url": {
+                            "type": "string",
+                            "description": "The HubSpot record URL."
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "meta": {

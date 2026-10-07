@@ -85,6 +85,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `IntegrationID` | number | no |  |
 | `PropertyTypeID` | list<number> | no |  |
 | `productionManagerContactID` | list<number> | no |  |
+| `PropertyTags` | string | no |  |
 
 ## Response
 

@@ -48,7 +48,118 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native ServiceTitan API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "batchId": {},
+      "budgetCodeId": {},
+      "businessUnitId": 1,
+      "createdById": 1,
+      "createdOn": "string",
+      "customFields": [
+        [
+          {}
+        ]
+      ],
+      "date": "string",
+      "id": 1,
+      "inventoryLocationId": 1,
+      "invoiceId": 1,
+      "items": [
+        [
+          {}
+        ]
+      ],
+      "jobId": 1,
+      "modifiedOn": "string",
+      "number": "string",
+      "projectId": 1,
+      "receivedOn": "string",
+      "requiredOn": "string",
+      "sentOn": "string",
+      "shipping": 1,
+      "shipTo": {
+        "city": "string",
+        "country": "string",
+        "state": "string",
+        "street": "string",
+        "unit": {},
+        "zip": "string"
+      },
+      "status": "string",
+      "summary": "string",
+      "tax": 1,
+      "technicianId": 1,
+      "total": 1,
+      "typeId": 1,
+      "vendorDocumentNumber": "string",
+      "vendorId": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `batchId` | object |  |
+| `budgetCodeId` | object |  |
+| `businessUnitId` | number |  |
+| `createdById` | number |  |
+| `createdOn` | string |  |
+| `customFields[]` | array<object> |  |
+| `customFields[].name` | string |  |
+| `customFields[].typeId` | number |  |
+| `customFields[].value` | string |  |
+| `date` | string |  |
+| `id` | number |  |
+| `inventoryLocationId` | number |  |
+| `invoiceId` | number |  |
+| `items[]` | array<object> |  |
+| `items[].budgetCodeId` | object |  |
+| `items[].chargeable` | boolean |  |
+| `items[].cost` | number |  |
+| `items[].createdOn` | string |  |
+| `items[].description` | string |  |
+| `items[].id` | number |  |
+| `items[].modifiedOn` | string |  |
+| `items[].quantity` | number |  |
+| `items[].quantityReceived` | number |  |
+| `items[].serialNumbers` | object |  |
+| `items[].skuCode` | string |  |
+| `items[].skuId` | number |  |
+| `items[].skuName` | string |  |
+| `items[].skuType` | string |  |
+| `items[].status` | string |  |
+| `items[].total` | number |  |
+| `items[].vendorPartNumber` | string |  |
+| `jobId` | number |  |
+| `modifiedOn` | string |  |
+| `number` | string |  |
+| `projectId` | number |  |
+| `receivedOn` | string |  |
+| `requiredOn` | string |  |
+| `sentOn` | string |  |
+| `shipping` | number |  |
+| `shipTo` | object |  |
+| `shipTo.city` | string |  |
+| `shipTo.country` | string |  |
+| `shipTo.state` | string |  |
+| `shipTo.street` | string |  |
+| `shipTo.unit` | object |  |
+| `shipTo.zip` | string |  |
+| `status` | string |  |
+| `summary` | string |  |
+| `tax` | number |  |
+| `technicianId` | number |  |
+| `total` | number |  |
+| `typeId` | number |  |
+| `vendorDocumentNumber` | string |  |
+| `vendorId` | number |  |
 
 ## Native endpoint
 

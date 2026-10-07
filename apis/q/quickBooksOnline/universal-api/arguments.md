@@ -1,6 +1,6 @@
 # QuickBooks Online Universal API Arguments
 
-Arguments are the inputs a QuickBooks Online action needs. Each [action page](README.md#actions-35) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a QuickBooks Online action needs. Each [action page](README.md#actions-36) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 

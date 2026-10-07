@@ -21,6 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 - [List Associations](actions/list-associations.md)
 - [List Companies](actions/list-companies.md)
 - [List Contacts](actions/list-contacts.md)
+- [List Custom Object Records](actions/list-custom-object-records.md)
 - [List Deals](actions/list-deals.md)
 - [List Emails](actions/list-emails.md)
 - [List Owners](actions/list-owners.md)

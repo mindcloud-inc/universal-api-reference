@@ -33,7 +33,45 @@ const { success, data } = await response.json();
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native ADP API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "payCycleCode": {
+        "code": "string"
+      },
+      "payPeriods": [
+        {
+          "expectedPayDate": "string",
+          "payPeriodEndDate": "string",
+          "payPeriodID": "string",
+          "payPeriodStartDate": "string",
+          "payPeriodStatus": {
+            "code": "string"
+          }
+        }
+      ],
+      "payrollGroupCode": "string",
+      "payScheduleID": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `payCycleCode.code` | string |  |
+| `payPeriods[].expectedPayDate` | string |  |
+| `payPeriods[].payPeriodEndDate` | string |  |
+| `payPeriods[].payPeriodID` | string |  |
+| `payPeriods[].payPeriodStartDate` | string |  |
+| `payPeriods[].payPeriodStatus.code` | string |  |
+| `payrollGroupCode` | string |  |
+| `payScheduleID` | string |  |
 
 ## Native endpoint
 

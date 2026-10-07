@@ -12,12 +12,12 @@ A consolidated summary of Acumatica's API configuration and 59 documented operat
 ### Credentials
 
 - **URL:** `uRL` · required · Acumatica instance URL. For example https://yourcompany.acumatica.com
-- **Name:** `name` · optional
-- **Password:** `password` · optional
-- **Tenant:** `tenant` · optional
+- **Name:** `name` · required
+- **Password:** `password` · required
+- **Tenant:** `tenant` · required
 - **Branch:** `branch` · optional
-- **Endpoint Name:** `endpointName` · optional
-- **Endpoint Version:** `endpointVersion` · optional
+- **Endpoint Name:** `endpointName` · required
+- **Endpoint Version:** `endpointVersion` · required
 
 ## API conventions
 

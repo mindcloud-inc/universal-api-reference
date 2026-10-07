@@ -4,7 +4,7 @@ Manage contacts, track deals, run campaigns, and support customers.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hubspotApp/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 93
+- **Actions:** 94
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.hubspot.com/
 - **Vendor API docs:** https://developers.hubspot.com/docs/api-reference/latest/overview
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (93)
+## Actions (94)
 
 ### Account Info
 
@@ -88,6 +88,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [List Custom Object Records](actions/list-custom-object-records.md) | GET |  |
 | [Update Custom Object Record](actions/update-custom-object-record.md) | PUT | Updates a custom object record in HubSpot. |
 
 ### Deal

@@ -14,7 +14,7 @@ Update an existing contact record.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `Contact` | body | `object` | no | — |
-| `Contact.ContactID` | body | `list<number>` | yes | — |
+| `Contact.ContactID` | body | `number` | yes | — |
 | `HomeAddress.AddressLine1` | body | `string` | no | — |
 | `OfficeAddress.AddressLine1` | body | `string` | no | — |
 | `Contact.FirstName` | body | `string` | yes | — |

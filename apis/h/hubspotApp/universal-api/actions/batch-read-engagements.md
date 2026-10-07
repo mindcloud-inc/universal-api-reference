@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a HubSpot 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/batch-read-engagements?connectionId=$CONNECTION_ID&engagementType=notes&inputs%5B%5D=%5Bobject%20Object%5D&inputs%5B%5D.id=21628658812" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/batch-read-engagements?connectionId=$CONNECTION_ID&engagementType=notes&inputs%5B%5D=%5Bobject%20Object%5D" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -19,8 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 const params = new URLSearchParams({
   connectionId,
   "engagementType": "notes",
-  "inputs[]": "[object Object]",
-  "inputs[].id": "21628658812"
+  "inputs[]": "[object Object]"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/batch-read-engagements?${params}`, {
@@ -40,7 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `engagementType` | list | yes | The CRM activity object type to batch read, such as notes, tasks, calls, emails, or meetings. One of: `calls`, `communications`, `emails`, `meetings`, `notes`, `postal_mail`, `tasks`. Example: `notes`. |
 | `inputs[]` | array<object> | yes | The records to batch read. |
-| `inputs[].id` | string | yes | The record ID to batch read. Example: `21628658812`. |
+| `inputs[].id` | string | no | The record ID to batch read. Example: `21628658812`. |
 
 ### Advanced
 

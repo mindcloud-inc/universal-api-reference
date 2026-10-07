@@ -15,4 +15,4 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `output-id` | path | `string` | yes | The payroll output identifier whose associate payment summary earnings should be returned. |
+| `outputId` | path | `string` | yes | The payroll output identifier whose associate payment summary earnings should be returned. |

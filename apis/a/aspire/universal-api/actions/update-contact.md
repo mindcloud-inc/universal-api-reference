@@ -16,7 +16,7 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/upd
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "contact.contactId": 1,
+  "contact.ContactID": 1,
   "contact.firstName": "Ava",
   "contact.lastName": "Chen",
   "contact.contactTypeId": 1
@@ -32,7 +32,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/aspire/l
   },
   body: JSON.stringify({
     connectionId,
-    "contact.contactId": 1,
+    "contact.ContactID": 1,
     "contact.firstName": "Ava",
     "contact.lastName": "Chen",
     "contact.contactTypeId": 1
@@ -49,7 +49,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `contact` | object | no |  |
-| `contact.contactId` | list<number> | yes |  |
+| `contact.ContactID` | number | yes |  |
 | `homeAddress.addressLine1` | string | no |  |
 | `officeAddress.addressLine1` | string | no |  |
 | `contact.firstName` | string | yes |  |
