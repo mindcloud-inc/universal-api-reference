@@ -21,7 +21,7 @@ Register an OAuth application with the provider to obtain client credentials and
 1. Exchange the returned authorization code with a POST request to https://login.microsoftonline.com/{{credentials.tenantId}}/oauth2/v2.0/token.
 2. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
-Requested scopes: `api://5443830c-7ebd-4a64-a8af-c2630298e353/.default`.
+Requested scopes: `{{credentials.applicationIdUri}}/.default`.
 
 A machine-to-machine flow is configured.
 
