@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Loop Returns Universal API",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "description": "Call Loop Returns actions through MindCloud's Universal API."
   },
   "servers": [
@@ -90,6 +90,229 @@
                           }
                         },
                         "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/loopReturns/latest/actions/grade-items": {
+      "put": {
+        "operationId": "loopReturns.grade-items",
+        "summary": "Grade Items",
+        "description": "Grade the condition of return line items.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/loopReturns/latest/actions/grade-items"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "items[].line_item_id",
+                  "items[].description"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "items[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "An array of items to grade.\n\nMax 30 items per request."
+                  },
+                  "items[].line_item_id": {
+                    "type": "number",
+                    "description": "(required) The unique identifier associated with the line item."
+                  },
+                  "items[].description": {
+                    "type": "string",
+                    "description": "The description of the item's condition.\nMax 255 characters."
+                  },
+                  "items[].condition_category": {
+                    "type": "string",
+                    "description": "The condition of the returned item.\n\nAvailable options: `grade_a`, `grade_b`, `grade_c`, `grade_d`, `incorrect_item`, `missing, junk`"
+                  },
+                  "items[].return_processor": {
+                    "type": "string",
+                    "description": "The email address of the warehouse partner used to process returns.\nMax 100 characters."
+                  },
+                  "items[].note": {
+                    "type": "string",
+                    "description": "Any additional notes on the item's condition."
+                  },
+                  "items[].images[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Add up to 5 images to show the items condition.\n\nMax 5 URLs\nMax 2048 characters."
+                  },
+                  "items[].inspected_at": {
+                    "type": "string",
+                    "description": "The date and time at which the item was inspected, using the ISO 8601 date format."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
                       }
                     },
                     "meta": {

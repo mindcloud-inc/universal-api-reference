@@ -311,7 +311,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/get
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Create Property](actions/create-property.md) | POST |  |
+| [Create Property](actions/create-property.md) | POST | Create Property |
 | [Create Property Availability](actions/create-property-availability.md) | POST | Creates a new property availability in your Aspire account. |
 | [Create Property Contact](actions/create-property-contact.md) | POST | Creates a new property contact in your Aspire account. |
 | [List Properties](actions/list-properties.md) | GET | List physical locations where work is performed. Click Property for more information. |

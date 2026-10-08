@@ -1,5 +1,7 @@
 # Create Property with Aspire
 
+Create Property
+
 ## Endpoint
 
 - **Method:** `POST`
@@ -34,3 +36,4 @@
 | `ProductionManagerContactID` | body | `list` | no | — |
 | `CountyID` | body | `number` | no | Use this when Locality is enabled |
 | `Note` | body | `string` | no | — |
+| `PropertyTypeID` | body | `number` | no | — |

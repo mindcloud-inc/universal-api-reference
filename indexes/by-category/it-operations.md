@@ -1,6 +1,6 @@
 # IT Operations apps
 
-393 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+394 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbyy** · [Universal API reference](../../apis/a/abbyy/universal-api) · [Native API reference](../../apis/a/abbyy/native-api) · [Native API docs](https://support.abbyy.com/hc/en-us/articles/360017269420-API-reference)
 - **Abstract IP Intelligence** · [Universal API reference](../../apis/a/abstractIPIntelligence/universal-api) · [Native API reference](../../apis/a/abstractIPIntelligence/native-api) · [Native API docs](https://docs.abstractapi.com/api/ip-intelligence)
@@ -122,6 +122,7 @@
 - **FBI Most Wanted** · [Universal API reference](../../apis/f/fBIMostWanted/universal-api) · [Native API reference](../../apis/f/fBIMostWanted/native-api) · [Native API docs](https://www.fbi.gov/wanted/api)
 - **Feishu Base** · [Universal API reference](../../apis/f/feishuBase/universal-api) · [Native API reference](../../apis/f/feishuBase/native-api) · [Native API docs](https://open.feishu.cn/document/server-docs/docs/bitable-v1/app/get)
 - **Firebase** · [Universal API reference](../../apis/f/firebase/universal-api) · [Native API reference](../../apis/f/firebase/native-api) · [Native API docs](https://firebase.google.com/docs/reference/firebase-management/rest)
+- **Fleetworthy** · [Universal API reference](../../apis/f/fleetworthy/universal-api) · [Native API reference](../../apis/f/fleetworthy/native-api) · [Native API docs](https://developer.fleetworthy.com/api-details)
 - **Flokzu** · [Universal API reference](../../apis/f/flokzu/universal-api) · [Native API reference](../../apis/f/flokzu/native-api) · [Native API docs](https://flokzu.docs.apiary.io/reference/)
 - **Flow Blockchain** · [Universal API reference](../../apis/f/flowBlockchain/universal-api) · [Native API reference](../../apis/f/flowBlockchain/native-api) · [Native API docs](https://developers.flow.com/http-api)
 - **FraudLabs Pro** · [Universal API reference](../../apis/f/fraudLabsPro/universal-api) · [Native API reference](../../apis/f/fraudLabsPro/native-api) · [Native API docs](https://www.fraudlabspro.com/developer/api/screen-order)

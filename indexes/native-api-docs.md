@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3221 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3222 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -998,6 +998,7 @@ The official vendor API documentation for each of the 3221 apps in this repo. Ea
 - [Flatfile](../apis/f/flatfile/native-api) - https://reference.flatfile.com/overview/welcome
 - [Fleetio](../apis/f/fleetio/native-api) - https://developer.fleetio.com/docs/api/fleetio-developer-api
 - [FleetWire](../apis/f/fleetWire/native-api) - https://documenter.getpostman.com/view/263138/Tz5p6dWS
+- [Fleetworthy](../apis/f/fleetworthy/native-api) - https://developer.fleetworthy.com/api-details
 - [Flespi](../apis/f/flespi/native-api) - https://flespi.com/rest-api
 - [FlexiFunnels](../apis/f/flexiFunnels/native-api) - https://bridge.flexifunnels.com/docs
 - [Flexmail](../apis/f/flexmail/native-api) - https://api.flexmail.eu/documentation/

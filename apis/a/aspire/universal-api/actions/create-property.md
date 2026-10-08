@@ -1,6 +1,6 @@
 # Aspire: Create Property
 
-
+Create Property
 
 ```
 POST https://connect.mindcloud.co/v1/universal/aspire/latest/actions/create-property
@@ -67,6 +67,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `ProductionManagerContactID` | list | no |  |
 | `CountyID` | number | no | Use this when Locality is enabled |
 | `Note` | string | no |  |
+| `PropertyTypeID` | number | no |  |
 
 ## Response
 

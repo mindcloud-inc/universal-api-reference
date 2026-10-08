@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3221 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3222 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -974,6 +974,7 @@ Machine-readable API descriptions for 3221 apps. Universal API specifications ar
 | [Flatfile](../apis/f/flatfile) | [OpenAPI 3.1](../apis/f/flatfile/universal-api/openapi.json) | [Provider OpenAPI](https://reference.flatfile.com/openapi.json) |
 | [Fleetio](../apis/f/fleetio) | [OpenAPI 3.1](../apis/f/fleetio/universal-api/openapi.json) |  |
 | [FleetWire](../apis/f/fleetWire) | [OpenAPI 3.1](../apis/f/fleetWire/universal-api/openapi.json) |  |
+| [Fleetworthy](../apis/f/fleetworthy) | [OpenAPI 3.1](../apis/f/fleetworthy/universal-api/openapi.json) |  |
 | [Flespi](../apis/f/flespi) | [OpenAPI 3.1](../apis/f/flespi/universal-api/openapi.json) | [Provider OpenAPI](https://flespi.io/gw/api.json) |
 | [FlexiFunnels](../apis/f/flexiFunnels) | [OpenAPI 3.1](../apis/f/flexiFunnels/universal-api/openapi.json) |  |
 | [Flexmail](../apis/f/flexmail) | [OpenAPI 3.1](../apis/f/flexmail/universal-api/openapi.json) | [Provider OpenAPI](https://api.flexmail.eu/documentation/openapi.json) |

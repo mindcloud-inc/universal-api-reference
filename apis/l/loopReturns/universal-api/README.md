@@ -4,7 +4,7 @@ Loop Returns through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/loopReturns/latest
 - **Category:** Commerce
-- **Actions:** 5
+- **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.loopreturns.com
 - **Vendor API docs:** https://docs.loopreturns.com/api-reference/authentication
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/loopReturns/latest/action
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (5)
+## Actions (6)
 
 ### Flag Return
 
@@ -41,6 +41,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/loopReturns/latest/action
 | Action | Method | Description |
 | --- | --- | --- |
 | [Process Return](actions/process-return.md) | PUT | Process a return in Loop based on the return ID. Processing a return will archive it in Loop and fulfill any remaining outcomes, such as… |
+
+### Return Items
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Grade Items](actions/grade-items.md) | PUT | Grade the condition of return line items. |
 
 ### Returns
 
