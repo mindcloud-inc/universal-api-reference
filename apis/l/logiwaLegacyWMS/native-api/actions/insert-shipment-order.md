@@ -66,12 +66,11 @@
 | `shipmentOrders[].extraNotes` | body | `string` | no | — |
 | `shipmentOrders[].instructions` | body | `string` | no | — |
 | `shipmentOrders[].extraNotes1` | body | `string` | no | — |
-| `shipmentOrders[].extraNotes1` | body | `string` | no | — |
+| `shipmentOrders[].extraNotes2` | body | `string` | no | — |
 | `shipmentOrders[].extraNotes3` | body | `string` | no | — |
 | `shipmentOrders[].extraNotes4` | body | `string` | no | — |
 | `shipmentOrders[].extraNotes5` | body | `string` | no | — |
 | `shipmentOrders[].channel` | body | `string` | no | — |
-| `shipmentOrders[].carrier` | body | `string` | no | — |
 | `shipmentOrders[].shipmentMethod` | body | `string` | no | — |
 | `shipmentOrders[].packingNotes` | body | `string` | no | — |
 | `shipmentOrders[].Details[]` | body | `array<object>` | no | — |

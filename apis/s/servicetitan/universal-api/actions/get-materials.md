@@ -42,6 +42,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `modifiedOnOrAfter` | string | no |  |
 | `createdOnOrAfter` | string | no | Format - date-time (as date-time in RFC3339). Return items created on or after certain date/time (in UTC) |
 | `sort` | string | no | Applies sorting by the specified field: "?sort=+FieldName" for ascending order, "?sort=-FieldName" for descending order. Available fields are: Id, Code, DisplayName, CreatedOn, ModifiedOn, Price, MemberPrice, AddOnPrice, AddOnMemberPrice, MaterialsCost, PrimaryVendor, Cost, Manufacturer, Priority. |
+| `ids` | string | no |  |
 
 ## Response
 

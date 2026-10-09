@@ -97,12 +97,11 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `shipmentOrders[].extraNotes` | string | no |  |
 | `shipmentOrders[].instructions` | string | no |  |
 | `shipmentOrders[].extraNotes1` | string | no |  |
-| `shipmentOrders[].extraNotes1` | string | no |  |
+| `shipmentOrders[].extraNotes2` | string | no |  |
 | `shipmentOrders[].extraNotes3` | string | no |  |
 | `shipmentOrders[].extraNotes4` | string | no |  |
 | `shipmentOrders[].extraNotes5` | string | no |  |
 | `shipmentOrders[].channel` | string | no |  |
-| `shipmentOrders[].carrier` | string | no |  |
 | `shipmentOrders[].shipmentMethod` | string | no |  |
 | `shipmentOrders[].packingNotes` | string | no |  |
 | `shipmentOrders[].details[]` | array<object> | no |  |
