@@ -44,6 +44,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `externalData.applicationGuid` | string | no |  |
 | `externalData.externalData[].value` | string | no |  |
 | `name` | string | no |  |
+| `tags[].tagTypeId` | number | no | ServiceTitan tag type ID. |
 | `vendorContacts[].name` | string | no |  |
 | `active` | boolean | no |  |
 | `address.unit` | string | no |  |
@@ -71,6 +72,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `address` | object | no |  |
 | `id` | string | no |  |
 | `vendorContacts[]` | array | no |  |
+| `tags[]` | array<object> | no | Optional vendor tags. Provide an array of tag objects, each with a tag type ID. |
 
 ## Response
 

@@ -22,6 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/slack/latest/actions/get-
 - [List Channel Messages](actions/list-channel-messages.md)
 - [List Channels](actions/list-channels.md)
 - [List Files](actions/list-files.md)
+- [List Items](actions/list-items.md)
 - [List Scheduled Messages](actions/list-scheduled-messages.md)
 - [List Users](actions/list-users.md)
 - [Search Channels and Users](actions/search-channels-and-users.md)

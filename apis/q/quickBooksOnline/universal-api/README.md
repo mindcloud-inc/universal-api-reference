@@ -4,7 +4,7 @@ Manage invoices, customers, vendors, bills, reports, and accounting data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/quickBooksOnline/latest
 - **Category:** Commerce / Accounting
-- **Actions:** 36
+- **Actions:** 37
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://quickbooks.intuit.com/online
 - **Vendor API docs:** https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/a
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (36)
+## Actions (37)
 
 ### Accounts
 
@@ -40,6 +40,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/quickBooksOnline/latest/a
 | [Create Bill (Expense Lines)](actions/create-bill-expense-lines.md) | POST |  |
 | [Get Bill](actions/get-bill.md) | GET |  |
 | [List Bills](actions/list-bills.md) | GET |  |
+| [Update Bill](actions/update-bill.md) | PUT |  |
 
 ### Budget
 

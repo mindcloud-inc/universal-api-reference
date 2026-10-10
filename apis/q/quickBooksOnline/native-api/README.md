@@ -1,6 +1,6 @@
 # QuickBooks Online: Native API Reference
 
-A consolidated summary of QuickBooks Online's API configuration and 36 documented operations, with links to official documentation.
+A consolidated summary of QuickBooks Online's API configuration and 37 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities
 - **API base URL:** `https://:quickbooksEnvironment/v3/company/:realmId`
@@ -49,7 +49,7 @@ Send filters in the request body. Supported operators: `between`, `contain`, `co
 
 Wait 10000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (36 documented)
+## Endpoints (37 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -86,6 +86,7 @@ Wait 10000 ms before the first retry. Stop after 3 attempts. Multiply the delay 
 | [List Vendors](actions/list-vendors.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) |
 | [Query](actions/query.md) | `GET /query` | [docs](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) |
 | [Send Invoice](actions/send-invoice.md) | `POST /invoice/:invoiceId/send` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#send-an-invoice) |
+| [Update Bill](actions/update-bill.md) | `POST /bill` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill#update-a-bill) |
 | [Update Customer](actions/update-customer.md) | `POST /customer` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#full-update-a-customer) |
 | [Update Invoice](actions/update-invoice.md) | `POST /invoice` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#create-an-invoice) |
 | [Update Sales Receipt](actions/update-sales-receipt.md) | `POST /salesreceipt` | [docs](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder#create-a-purchaseorder) |

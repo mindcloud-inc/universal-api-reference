@@ -40,11 +40,12 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `tags[]` | array | no |  |
 | `address.street` | string | no |  |
 | `externalData.applicationGuid` | string | no |  |
 | `externalData.externalDataList[].key` | string | no |  |
 | `name` | string | no |  |
-| `tags][].tagTypeId` | number | no |  |
+| `tags[].tagTypeId` | number | no |  |
 | `vendorContacts[].name` | string | no |  |
 | `active` | boolean | no |  |
 | `address.unit` | string | no |  |
@@ -71,7 +72,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `vendorContacts[]` | array | no |  |
 | `externalData` | object | no |  |
 | `deliveryOption` | string | no |  |
-| `tags][]` | array | no |  |
 
 ## Response
 

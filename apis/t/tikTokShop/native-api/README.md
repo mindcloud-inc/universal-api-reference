@@ -1,6 +1,6 @@
 # TikTok Shop: Native API Reference
 
-A consolidated summary of TikTok Shop's API configuration and 22 documented operations, with links to official documentation.
+A consolidated summary of TikTok Shop's API configuration and 23 documented operations, with links to official documentation.
 
 - **Official docs:** https://partner.tiktokshop.com/docv2/page/666012dd609d4402cc3be995?external_id=666012dd609d4402cc3be995
 - **API base URL:** `https://open-api.tiktokglobalshop.com/`
@@ -46,7 +46,7 @@ The next-page cursor is read from `data.nextPageToken`. The total page count is 
 
 Use `page_size` in the query string to set the page size (default 20; accepted range 1–100). Use `page_token` in the query string as the pagination cursor.
 
-## Endpoints (22 documented)
+## Endpoints (23 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -67,6 +67,7 @@ Use `page_size` in the query string to set the page size (default 20; accepted r
 | [Get Warehouse Delivery Options](actions/get-warehouse-delivery-options.md) | `GET logistics/202309/warehouses/:warehouse_id/delivery_options` | [docs](https://partner.tiktokshop.com/docv2/page/get-warehouse-delivery-options-202309) |
 | [Get Warehouse List](actions/get-warehouse-list.md) | `GET logistics/202309/warehouses` | [docs](https://partner.tiktokshop.com/docv2/page/get-warehouse-list-202309) |
 | [List Eligible Shipping Service](actions/list-eligible-shipping-service.md) | `POST /fulfillment/202309/orders/:orderId/shipping_services/query` | [docs](https://partner.tiktokshop.com/docv2/page/650aa6b2bace3e02b75dda4e?external_id=650aa6b2bace3e02b75dda4e) |
+| [List Transactions by Order](actions/list-transactions-by-order.md) | `GET /finance/202501/orders/:order_id/statement_transactions` | [docs](https://partner.tiktokshop.com/docv2/page/get-transactions-by-order-202501) |
 | [Mark Package As Shipped](actions/mark-package-as-shipped.md) | `POST fulfillment/202309/orders/:order_id/packages` | [docs](https://partner.tiktokshop.com/docv2/page/mark-package-as-shipped) |
 | [Search Products](actions/search-products.md) | `POST product/202502/products/search` | [docs](https://partner.tiktokshop.com/docv2/page/search-products-202502) |
 | [Ship Package](actions/ship-package.md) | `POST fulfillment/202309/packages/:package_id/ship` | [docs](https://partner.tiktokshop.com/docv2/page/ship-package-202309) |

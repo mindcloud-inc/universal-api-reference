@@ -46,32 +46,38 @@ Example response:
 
 See the full [Get User Profile Info action reference](actions/get-user-profile-info.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/apolloio/latest/actions/get-user-profile-info).
 
-## Bulk Create Accounts
+## Add Records to a List
 
-Creates multiple new accounts in Apollo.
+
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/bulk-create-accounts" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/add-records-to-a-list" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "accounts[]": [
-    {}
-  ]
+  "entityIds[]": [
+    "string"
+  ],
+  "labelNames[]": [
+    "Ava Chen"
+  ],
+  "modality": "accounts"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/bulk-create-accounts', {
-  method: 'POST',
+const response = await fetch('https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/add-records-to-a-list', {
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     connectionId,
-    "accounts[]": [{}]
+    "entityIds[]": ["string"],
+    "labelNames[]": ["Ava Chen"],
+    "modality": "accounts"
   })
 });
 
@@ -85,50 +91,17 @@ Example response:
   "success": true,
   "data": [
     {
-      "createdAccounts": [
-        {
-          "accountStageId": "string",
-          "city": "string",
-          "country": "string",
-          "createdAt": "2026-05-07T12:00:00.000Z",
-          "creatorId": "string",
-          "crmOwnerId": {},
-          "crmRecordUrl": {},
-          "domain": "string",
-          "existenceLevel": "string",
-          "facebookUrl": {},
-          "hubspotId": {},
-          "id": "string",
-          "intentStrength": {},
-          "linkedinUrl": {},
-          "modality": "string",
-          "name": "Ava Chen",
-          "organizationHeadcountSixMonthGrowth": {},
-          "organizationHeadcountTwelveMonthGrowth": {},
-          "organizationHeadcountTwentyFourMonthGrowth": {},
-          "organizationId": "string",
-          "originalSource": "string",
-          "ownerId": "string",
-          "parentAccountId": {},
-          "phone": {},
-          "phoneStatus": "string",
-          "postalCode": "string",
-          "rawAddress": "string",
-          "salesforceId": {},
-          "showIntent": true,
-          "source": "string",
-          "sourceDisplayName": "Ava Chen",
-          "state": "string",
-          "streetAddress": "string",
-          "suggestedFromRuleEngineConfigId": {},
-          "teamId": "string",
-          "twitterUrl": {}
-        }
-      ]
+      "cachedCount": 1,
+      "createdAt": "string",
+      "id": "string",
+      "modality": "string",
+      "name": "Ava Chen",
+      "updatedAt": "string",
+      "userId": "string"
     }
   ],
   "meta": {}
 }
 ```
 
-See the full [Bulk Create Accounts action reference](actions/bulk-create-accounts.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/apolloio/latest/actions/bulk-create-accounts).
+See the full [Add Records to a List action reference](actions/add-records-to-a-list.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/apolloio/latest/actions/add-records-to-a-list).

@@ -1,6 +1,6 @@
 # Other apps
 
-584 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+585 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -380,6 +380,7 @@
 - **PDF Tools by Tachytelic** · [Universal API reference](../../apis/p/pDFToolsByTachytelic/universal-api) · [Native API reference](../../apis/p/pDFToolsByTachytelic/native-api) · [Native API docs](https://learn.microsoft.com/en-us/connectors/pdftoolsbytachytelic/)
 - **PeakIDX** · [Universal API reference](../../apis/p/peakIDX/universal-api) · [Native API reference](../../apis/p/peakIDX/native-api) · [Native API docs](https://docs.peakidx.com/api/)
 - **Peplink** · [Universal API reference](../../apis/p/peplink/universal-api) · [Native API reference](../../apis/p/peplink/native-api)
+- **PestPac** · [Universal API reference](../../apis/p/pestpac/universal-api) · [Native API reference](../../apis/p/pestpac/native-api) · [Native API docs](https://developer.workwave.com/documentation#pestpac)
 - **Pexels** · [Universal API reference](../../apis/p/pexels/universal-api) · [Native API reference](../../apis/p/pexels/native-api) · [Native API docs](https://www.pexels.com/api/documentation/)
 - **Phemex** · [Universal API reference](../../apis/p/phemex/universal-api) · [Native API reference](../../apis/p/phemex/native-api) · [Native API docs](https://phemex-docs.github.io/)
 - **PickFu** · [Universal API reference](../../apis/p/pickFu/universal-api) · [Native API reference](../../apis/p/pickFu/native-api) · [Native API docs](https://www.pickfu.com/docs/api-reference)

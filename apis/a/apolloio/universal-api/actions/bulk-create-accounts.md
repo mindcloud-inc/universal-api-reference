@@ -61,7 +61,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `accounts[].parentAccountId` | string | no | Parent account ID for account hierarchy (BSON::ObjectId format) |
 | `accounts[].accountStageId` | string | no | Account stage/pipeline stage ID (BSON::ObjectId format) |
 | `accounts[].typedCustomFields` | object | no | Custom field values as key-value pairs where key is the field_id and value is the field_value |
-| `accounts[].appendLabelNames[]` | array<string> | no | Label names to apply to the account |
+| `appendLabelNames[]` | array<string> | no | List names applied to all newly created accounts. Existing deduplicated accounts are returned without modification. |
 | `runDedupe` | boolean | no | Enable aggressive deduplication by domain, organization_id, and name. When false (default), only matches by CRM IDs. When true, also matches by domain, organization_id, and name. Existing accounts are returned without modification in both modes |
 
 ## Response
@@ -110,6 +110,15 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
           "teamId": "string",
           "twitterUrl": {}
         }
+      ],
+      "existingAccounts": [
+        {
+          "accountStageId": "string",
+          "domain": "string",
+          "id": "string",
+          "name": "Ava Chen",
+          "organizationId": "string"
+        }
       ]
     }
   ],
@@ -157,6 +166,12 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `createdAccounts[].suggestedFromRuleEngineConfigId` | object |  |
 | `createdAccounts[].teamId` | string |  |
 | `createdAccounts[].twitterUrl` | object |  |
+| `existingAccounts` | array<object> |  |
+| `existingAccounts[].accountStageId` | string |  |
+| `existingAccounts[].domain` | string |  |
+| `existingAccounts[].id` | string |  |
+| `existingAccounts[].name` | string |  |
+| `existingAccounts[].organizationId` | string |  |
 
 ## Native endpoint
 

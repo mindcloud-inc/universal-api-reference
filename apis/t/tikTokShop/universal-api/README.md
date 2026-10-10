@@ -3,7 +3,7 @@
 TikTok Shop through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/tikTokShop/latest
-- **Actions:** 22
+- **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://partner.tiktokshop.com/docv2/page/666012dd609d4402cc3be995?external_id=666012dd609d4402cc3be995
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/tikTokShop/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (22)
+## Actions (23)
 
 ### Authorized Shops
 
@@ -123,4 +123,10 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/tikTokShop/latest/actions
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Package Shipping Document](actions/get-package-shipping-document.md) | GET | For orders shipped by TikTok Shop, this API retrieves the URL of shipping documents (shipping label and packing slip) for a package… |
+
+### Transactions
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Transactions by Order](actions/list-transactions-by-order.md) | GET |  |
 

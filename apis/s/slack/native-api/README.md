@@ -1,6 +1,6 @@
 # Slack: Native API Reference
 
-A consolidated summary of Slack's API configuration and 31 documented operations, with links to official documentation.
+A consolidated summary of Slack's API configuration and 39 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.slack.dev/reference/methods/
 - **API base URL:** `https://slack.com/api/`
@@ -19,7 +19,7 @@ Register an OAuth application with the provider to obtain client credentials and
 2. Exchange the returned authorization code with a POST request to https://slack.com/api/oauth.v2.access.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
-Requested scopes: `channels:manage channels:read channels:join chat:write chat:write.customize chat:write.public commands files:read files:write im:write mpim:write search:read.public search:read.users team:read users.profile:read users:read users:read.email users:write reactions:read reactions:write groups:history groups:read groups:write`.
+Requested scopes: `channels:manage channels:read channels:join chat:write chat:write.customize chat:write.public commands files:read files:write im:write mpim:write search:read.public search:read.users team:read users.profile:read users:read users:read.email users:write reactions:read reactions:write groups:history groups:read groups:write lists:read lists:write`.
 
 The flow supports refresh tokens.
 
@@ -47,17 +47,22 @@ Set the sort field with `sort` in the query string. Set the direction separately
 
 Wait 3000 ms before the first retry. Stop after 5 attempts.
 
-## Endpoints (31 documented)
+## Endpoints (39 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Add Reaction](actions/add-reaction.md) | `POST reactions.add` | [docs](https://docs.slack.dev/reference/methods/reactions.add/) |
 | [Create Channel](actions/create-channel.md) | `POST conversations.create` | [docs](https://docs.slack.dev/reference/methods/conversations.create/) |
+| [Create List](actions/create-list.md) | `POST slackLists.create` | [docs](https://docs.slack.dev/reference/methods/slackLists.create/) |
+| [Create List Item](actions/create-list-item.md) | `POST slackLists.items.create` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.create/) |
 | [Delete File](actions/delete-file.md) | `POST files.delete` | [docs](https://docs.slack.dev/reference/methods/files.delete/) |
+| [Delete List Item](actions/delete-list-item.md) | `POST slackLists.items.delete` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.delete/) |
+| [Delete List Items](actions/delete-list-items.md) | `POST slackLists.items.deleteMultiple` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.deleteMultiple/) |
 | [Delete Message](actions/delete-message.md) | `POST chat.delete` | [docs](https://docs.slack.dev/reference/methods/chat.delete/) |
 | [Delete Scheduled Message](actions/delete-scheduled-message.md) | `POST chat.deleteScheduledMessage` | [docs](https://docs.slack.dev/reference/methods/chat.deleteScheduledMessage/) |
 | [Get Channel Information](actions/get-channel-information.md) | `GET conversations.info` | [docs](https://docs.slack.dev/reference/methods/conversations.info/) |
 | [Get File Information](actions/get-file-information.md) | `GET files.info` | [docs](https://docs.slack.dev/reference/methods/files.info/) |
+| [Get List Item](actions/get-list-item.md) | `POST slackLists.items.info` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.info/) |
 | [Get User Information](actions/get-user-information.md) | `GET users.info` | [docs](https://docs.slack.dev/reference/methods/users.info/) |
 | [Invite User to Channel](actions/invite-user-to-channel.md) | `POST conversations.invite` | [docs](https://docs.slack.dev/reference/methods/conversations.invite/) |
 | [Join Channel](actions/join-channel.md) | `GET conversations.join` | [docs](https://docs.slack.dev/reference/methods/conversations.join/) |
@@ -67,6 +72,7 @@ Wait 3000 ms before the first retry. Stop after 5 attempts.
 | [List Channel Messages](actions/list-channel-messages.md) | `POST conversations.history` | [docs](https://docs.slack.dev/reference/methods/conversations.history/) |
 | [List Channels](actions/list-channels.md) | `GET conversations.list` | [docs](https://docs.slack.dev/reference/methods/conversations.list/) |
 | [List Files](actions/list-files.md) | `GET files.list` | [docs](https://docs.slack.dev/reference/methods/files.list/) |
+| [List Items](actions/list-items.md) | `POST slackLists.items.list` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.list/) |
 | [List Message Reactions](actions/list-message-reactions.md) | `GET reactions.get` | [docs](https://docs.slack.dev/reference/methods/reactions.get/) |
 | [List Message Replies](actions/list-message-replies.md) | `GET conversations.replies` | [docs](https://docs.slack.dev/reference/methods/conversations.replies/) |
 | [List Scheduled Messages](actions/list-scheduled-messages.md) | `POST chat.scheduledMessages.list` | [docs](https://docs.slack.dev/reference/methods/chat.scheduledMessages.list/) |
@@ -81,4 +87,6 @@ Wait 3000 ms before the first retry. Stop after 5 attempts.
 | [Send User Message](actions/send-user-message.md) | `POST chat.postMessage` | [docs](https://docs.slack.dev/reference/methods/chat.postMessage/) |
 | [Set Channel Topic](actions/set-channel-topic.md) | `POST conversations.setTopic` | [docs](https://docs.slack.dev/reference/methods/conversations.setTopic/) |
 | [Set Presence](actions/set-status.md) | `POST users.setPresence` | [docs](https://docs.slack.dev/reference/methods/users.setPresence/) |
+| [Update List](actions/update-list.md) | `POST slackLists.update` | [docs](https://docs.slack.dev/reference/methods/slackLists.update/) |
+| [Update List Item Cells](actions/update-list-item-cells.md) | `POST slackLists.items.update` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.update/) |
 | [Update Message](actions/update-message.md) | `POST chat.update` | [docs](https://docs.slack.dev/reference/methods/chat.update/) |

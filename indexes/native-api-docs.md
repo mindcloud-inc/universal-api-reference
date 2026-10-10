@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3222 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3223 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1996,6 +1996,7 @@ The official vendor API documentation for each of the 3222 apps in this repo. Ea
 - [Permit.io](../apis/p/permitio/native-api) - https://api.permit.io/scalar
 - [Perplexity](../apis/p/perplexity/native-api) - https://docs.perplexity.ai/docs/getting-started/quickstart
 - [Persona](../apis/p/persona/native-api) - https://docs.withpersona.com/api-keys
+- [PestPac](../apis/p/pestpac/native-api) - https://developer.workwave.com/documentation#pestpac
 - [Pexels](../apis/p/pexels/native-api) - https://www.pexels.com/api/documentation/
 - [PhantomBuster](../apis/p/phantomBuster/native-api) - https://hub.phantombuster.com/docs/api
 - [PhantomJsCloud](../apis/p/phantomJsCloud/native-api) - https://phantomjscloud.com/docs/http-api/

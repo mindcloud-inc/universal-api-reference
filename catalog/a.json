@@ -223012,12 +223012,12 @@
     "websiteUrl": "https://www.apollo.io",
     "nativeBaseUrl": "https://app.apollo.io",
     "nativeDocumentationUrl": "https://docs.apollo.io/reference",
-    "version": "0.0.65",
+    "version": "0.0.67",
     "authentication": [
       {
         "type": "oAuth2",
         "name": "OAuth 2.0",
-        "scopes": "read_user_profile app_scopes contacts_search person_read",
+        "scopes": "read_user_profile app_scopes people_bulk_match organizations_bulk_enrich organizations_enrich people_match organizations_job_posting mixed_companies_search organizations_search organization_read person_read mixed_people_organization_top_people mixed_people_api_search opportunity_write opportunities_list opportunity_read opportunity_update contact_write contact_update contacts_bulk_create contacts_bulk_update contacts_search contact_stages_list contact_stages_update contact_owners_update contact_read account_write account_bulk_create account_update accounts_search account_stages_list account_stages_update account_owners_update account_read emailer_campaigns_search emailer_campaigns_add_contact_ids emailer_campaigns_remove_or_stop_contact_ids emailer_messages_search tasks_create tasks_list users_list email_accounts_list tags_list custom_fields_list custom_field_write opportunity_stages_list report_sync lists_add_entities",
         "documentationUrl": "https://docs.apollo.io/docs/use-oauth-20-authorization-flow-to-access-apollo-user-information-partners",
         "oauth": {
           "authorizeUrl": "https://app.apollo.io/#/oauth/authorize",
@@ -223076,6 +223076,135 @@
       }
     ],
     "actions": [
+      {
+        "name": "Add Records to a List",
+        "slug": "add-records-to-a-list",
+        "operation": "update",
+        "method": "PUT",
+        "group": "List",
+        "documentationUrl": "https://docs.apollo.io/reference/add-records-to-a-list",
+        "native": {
+          "method": "POST",
+          "path": "v1/labels/add_entity_ids_to_label_names",
+          "baseUrl": "https://app.apollo.io/api",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "entity_ids[]",
+              "internalKey": "entityIds[]",
+              "name": "Entity IDs",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "label_names[]",
+              "internalKey": "labelNames[]",
+              "name": "List names",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "modality",
+              "name": "Record type",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "enumValues": [
+                "accounts",
+                "contacts"
+              ]
+            },
+            {
+              "key": "async",
+              "name": "Process in background",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "entityIds[]",
+            "name": "Entity IDs",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": true
+          },
+          {
+            "key": "labelNames[]",
+            "name": "List names",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": true
+          },
+          {
+            "key": "modality",
+            "name": "Record type",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "enumValues": [
+              "accounts",
+              "contacts"
+            ]
+          },
+          {
+            "key": "async",
+            "name": "Process in background",
+            "dataType": "boolean",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "cachedCount",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "createdAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "modality",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "updatedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "userId",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
       {
         "name": "Bulk Create Accounts",
         "slug": "bulk-create-accounts",
@@ -223244,14 +223373,14 @@
               "description": "Custom field values as key-value pairs where key is the field_id and value is the field_value"
             },
             {
-              "key": "accounts[].append_label_names[]",
-              "internalKey": "accounts[].appendLabelNames[]",
+              "key": "append_label_names[]",
+              "internalKey": "appendLabelNames[]",
               "name": "Append Label Names",
               "dataType": "array",
               "itemDataType": "string",
               "location": "body",
               "required": false,
-              "description": "Label names to apply to the account"
+              "description": "List names applied to all newly created accounts. Existing deduplicated accounts are returned without modification."
             },
             {
               "key": "run_dedupe",
@@ -223392,12 +223521,12 @@
             "description": "Custom field values as key-value pairs where key is the field_id and value is the field_value"
           },
           {
-            "key": "accounts[].appendLabelNames[]",
+            "key": "appendLabelNames[]",
             "name": "Append Label Names",
             "dataType": "array",
             "itemDataType": "string",
             "required": false,
-            "description": "Label names to apply to the account"
+            "description": "List names applied to all newly created accounts. Existing deduplicated accounts are returned without modification."
           },
           {
             "key": "runDedupe",
@@ -223587,6 +223716,37 @@
             "key": "createdAccounts[].twitterUrl",
             "dataType": "object",
             "mockType": "object"
+          },
+          {
+            "key": "existingAccounts",
+            "dataType": "array",
+            "itemDataType": "object",
+            "mockType": "array"
+          },
+          {
+            "key": "existingAccounts[].accountStageId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "existingAccounts[].domain",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "existingAccounts[].id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "existingAccounts[].name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "existingAccounts[].organizationId",
+            "dataType": "string",
+            "mockType": "string"
           }
         ]
       },
@@ -228142,6 +228302,64 @@
         ]
       },
       {
+        "name": "List Account Stages",
+        "slug": "list-account-stages",
+        "operation": "read",
+        "method": "GET",
+        "group": "Account stage",
+        "documentationUrl": "https://docs.apollo.io/reference/list-account-stages",
+        "native": {
+          "method": "GET",
+          "path": "v1/account_stages",
+          "baseUrl": "https://app.apollo.io/api",
+          "apiName": "REST",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "category",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "defaultExcludeForLeadgen",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "displayName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "displayOrder",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "teamId",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
         "name": "List Contact Stages",
         "slug": "list-contact-stages",
         "operation": "read",
@@ -229343,6 +229561,370 @@
             "key": "partialResultsOnly",
             "dataType": "boolean",
             "mockType": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "People API Search",
+        "slug": "people-api-search",
+        "operation": "read",
+        "method": "GET",
+        "group": "Person",
+        "documentationUrl": "https://docs.apollo.io/reference/people-api-search",
+        "native": {
+          "method": "POST",
+          "path": "v1/mixed_people/api_search",
+          "baseUrl": "https://app.apollo.io/api",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "person_titles[]",
+              "internalKey": "personTitles[]",
+              "name": "Job titles",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "include_similar_titles",
+              "internalKey": "includeSimilarTitles",
+              "name": "Include similar titles",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "organization_ids[]",
+              "internalKey": "organizationIds[]",
+              "name": "Organization IDs",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "q_organization_domains_list[]",
+              "internalKey": "qOrganizationDomainsList[]",
+              "name": "Company domains",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "person_seniorities",
+              "internalKey": "personSeniorities",
+              "name": "Seniority",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "enumValues": [
+                "c_suite",
+                "director",
+                "entry",
+                "founder",
+                "head",
+                "intern",
+                "manager",
+                "owner",
+                "partner",
+                "senior",
+                "vp"
+              ],
+              "multipleValues": {
+                "format": "array"
+              }
+            },
+            {
+              "key": "person_locations[]",
+              "internalKey": "personLocations[]",
+              "name": "Person locations",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "organization_locations[]",
+              "internalKey": "organizationLocations[]",
+              "name": "Company headquarters locations",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "organization_num_employees_ranges[]",
+              "internalKey": "organizationNumEmployeesRanges[]",
+              "name": "Company employee ranges",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "contact_email_status",
+              "internalKey": "contactEmailStatus",
+              "name": "Email status",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "enumValues": [
+                "likely to engage",
+                "unavailable",
+                "unverified",
+                "verified"
+              ],
+              "multipleValues": {
+                "format": "array"
+              }
+            },
+            {
+              "key": "q_person_name",
+              "internalKey": "qPersonName",
+              "name": "Person name",
+              "dataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "currently_using_any_of_technology_uids[]",
+              "internalKey": "currentlyUsingAnyOfTechnologyUids[]",
+              "name": "Uses any of these technologies",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            },
+            {
+              "key": "not_organization_websites_list[]",
+              "internalKey": "notOrganizationWebsitesList[]",
+              "name": "Excluded company domains",
+              "dataType": "array",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "personTitles[]",
+            "name": "Job titles",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "includeSimilarTitles",
+            "name": "Include similar titles",
+            "dataType": "boolean",
+            "required": false
+          },
+          {
+            "key": "organizationIds[]",
+            "name": "Organization IDs",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "qOrganizationDomainsList[]",
+            "name": "Company domains",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "personSeniorities",
+            "name": "Seniority",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "enumValues": [
+              "c_suite",
+              "director",
+              "entry",
+              "founder",
+              "head",
+              "intern",
+              "manager",
+              "owner",
+              "partner",
+              "senior",
+              "vp"
+            ],
+            "multipleValues": {
+              "format": "array"
+            }
+          },
+          {
+            "key": "personLocations[]",
+            "name": "Person locations",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "organizationLocations[]",
+            "name": "Company headquarters locations",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "organizationNumEmployeesRanges[]",
+            "name": "Company employee ranges",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "contactEmailStatus",
+            "name": "Email status",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "enumValues": [
+              "likely to engage",
+              "unavailable",
+              "unverified",
+              "verified"
+            ],
+            "multipleValues": {
+              "format": "array"
+            }
+          },
+          {
+            "key": "qPersonName",
+            "name": "Person name",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "currentlyUsingAnyOfTechnologyUids[]",
+            "name": "Uses any of these technologies",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "notOrganizationWebsitesList[]",
+            "name": "Excluded company domains",
+            "dataType": "array",
+            "itemDataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "firstName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "hasCity",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "hasCountry",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "hasDirectPhone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "hasEmail",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "hasState",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "lastNameObfuscated",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "lastRefreshedAt",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "organization",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "organization.hasCity",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.hasCountry",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.hasEmployeeCount",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.hasIndustry",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.hasPhone",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.hasRevenue",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.hasState",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.hasZipCode",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "organization.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "title",
+            "dataType": "string",
+            "mockType": "string"
           }
         ]
       },

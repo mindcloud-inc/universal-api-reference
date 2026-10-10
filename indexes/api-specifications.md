@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3222 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3223 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1946,6 +1946,7 @@ Machine-readable API descriptions for 3222 apps. Universal API specifications ar
 | [Permit.io](../apis/p/permitio) | [OpenAPI 3.1](../apis/p/permitio/universal-api/openapi.json) | [Provider OpenAPI](https://api.permit.io/v2/openapi.json) |
 | [Perplexity](../apis/p/perplexity) | [OpenAPI 3.1](../apis/p/perplexity/universal-api/openapi.json) |  |
 | [Persona](../apis/p/persona) | [OpenAPI 3.1](../apis/p/persona/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/persona-id/persona-openapi/main/2025-12-08/openapi-bundled.json) |
+| [PestPac](../apis/p/pestpac) | [OpenAPI 3.1](../apis/p/pestpac/universal-api/openapi.json) |  |
 | [Pexels](../apis/p/pexels) | [OpenAPI 3.1](../apis/p/pexels/universal-api/openapi.json) |  |
 | [PhantomBuster](../apis/p/phantomBuster) | [OpenAPI 3.1](../apis/p/phantomBuster/universal-api/openapi.json) |  |
 | [PhantomJsCloud](../apis/p/phantomJsCloud) | [OpenAPI 3.1](../apis/p/phantomJsCloud/universal-api/openapi.json) |  |

@@ -4,7 +4,7 @@ Apollo: Find prospects, enrich contacts, and automate sales outreach
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/apolloio/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 22
+- **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.apollo.io
 - **Vendor API docs:** https://docs.apollo.io/reference
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/g
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (22)
+## Actions (25)
 
 ### Account
 
@@ -31,6 +31,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/g
 | [Bulk Create Accounts](actions/bulk-create-accounts.md) | POST | Creates multiple new accounts in Apollo. |
 | [Search for Accounts](actions/search-for-accounts.md) | GET | Finds accounts in your Apollo account. |
 | [View an Account](actions/view-an-account.md) | GET | Retrieves an account record from Apollo. |
+
+### Account Stage
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Account Stages](actions/list-account-stages.md) | GET |  |
 
 ### Contact Stage
 
@@ -74,6 +80,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/g
 | [Bulk People Enrichment](actions/bulk-people-enrichment.md) | GET | Retrieves enriched data for up to 10 people from Apollo. |
 | [People Enrichment](actions/people-enrichment.md) | GET | Retrieves enriched data for a person from Apollo. |
 
+### List
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Add Records to a List](actions/add-records-to-a-list.md) | PUT |  |
+
 ### Lists
 
 | Action | Method | Description |
@@ -94,6 +106,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/g
 | Action | Method | Description |
 | --- | --- | --- |
 | [Search for Outreach Emails](actions/search-for-outreach-emails.md) | GET | Finds outreach emails in your Apollo account. |
+
+### Person
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [People API Search](actions/people-api-search.md) | GET |  |
 
 ### Users
 

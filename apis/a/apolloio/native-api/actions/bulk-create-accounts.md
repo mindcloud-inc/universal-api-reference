@@ -30,5 +30,5 @@ Creates multiple new accounts in Apollo.
 | `accounts[].parent_account_id` | body | `string` | no | Parent account ID for account hierarchy (BSON::ObjectId format) |
 | `accounts[].account_stage_id` | body | `string` | no | Account stage/pipeline stage ID (BSON::ObjectId format) |
 | `accounts[].typed_custom_fields` | body | `object` | no | Custom field values as key-value pairs where key is the field_id and value is the field_value |
-| `accounts[].append_label_names[]` | body | `array<string>` | no | Label names to apply to the account |
+| `append_label_names[]` | body | `array<string>` | no | List names applied to all newly created accounts. Existing deduplicated accounts are returned without modification. |
 | `run_dedupe` | body | `boolean` | no | Enable aggressive deduplication by domain, organization_id, and name. When false (default), only matches by CRM IDs. When true, also matches by domain, organization_id, and name. Existing accounts are returned without modification in both modes |

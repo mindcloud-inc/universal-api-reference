@@ -4,7 +4,7 @@ Chat in channels, share knowledge, automate workflows, and join huddles.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/slack/latest
 - **Category:** Communication / Team Messaging
-- **Actions:** 31
+- **Actions:** 39
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://slack.com/
 - **Vendor API docs:** https://docs.slack.dev/reference/methods/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/slack/latest/actions/list
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (31)
+## Actions (39)
 
 ### Channel
 
@@ -48,6 +48,24 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/slack/latest/actions/list
 | [Delete File](actions/delete-file.md) | DELETE | Deletes an existing file from Slack. |
 | [Get File Information](actions/get-file-information.md) | GET | Retrieves file details from a Slack workspace. |
 | [List Files](actions/list-files.md) | GET | Retrieves files from a Slack workspace. |
+
+### List Items
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create List Item](actions/create-list-item.md) | POST |  |
+| [Delete List Item](actions/delete-list-item.md) | DELETE |  |
+| [Delete List Items](actions/delete-list-items.md) | DELETE |  |
+| [Get List Item](actions/get-list-item.md) | GET |  |
+| [List Items](actions/list-items.md) | GET |  |
+| [Update List Item Cells](actions/update-list-item-cells.md) | PUT |  |
+
+### Lists
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create List](actions/create-list.md) | POST |  |
+| [Update List](actions/update-list.md) | PUT |  |
 
 ### Message
 

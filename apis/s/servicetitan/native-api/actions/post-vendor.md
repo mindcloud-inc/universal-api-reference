@@ -11,6 +11,7 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| `tags` | body | `array` | no | — |
 | `address.street` | body | `string` | no | — |
 | `externalData.applicationGuid` | body | `string` | no | — |
 | `externalData.externalData[].key` | body | `string` | no | — |
@@ -42,4 +43,3 @@
 | `vendorContacts[]` | body | `array` | no | — |
 | `externalData` | body | `object` | no | — |
 | `deliveryOption` | body | `string` | no | — |
-| `tags[]` | body | `array` | no | — |
