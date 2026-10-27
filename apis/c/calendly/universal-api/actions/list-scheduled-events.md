@@ -61,10 +61,26 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "collection": [
+      "calendarEvent": {},
+      "cancellation": {},
+      "createdAt": "2026-05-07T12:00:00.000Z",
+      "endTime": "2026-05-07T12:00:00.000Z",
+      "eventGuests": [
         {}
       ],
-      "pagination": {}
+      "eventMemberships": [
+        {}
+      ],
+      "eventType": "string",
+      "inviteesCounter": {},
+      "location": {},
+      "meetingNotesHtml": "string",
+      "meetingNotesPlain": "string",
+      "name": "Ava Chen",
+      "startTime": "2026-05-07T12:00:00.000Z",
+      "status": "string",
+      "updatedAt": "2026-05-07T12:00:00.000Z",
+      "uri": "string"
     }
   ],
   "meta": {}
@@ -75,8 +91,22 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `collection` | array<object> | Scheduled event records. |
-| `pagination` | object | Pagination metadata for scheduled events. |
+| `calendarEvent` | object | Linked calendar event details. |
+| `cancellation` | object | Cancellation details for canceled events. |
+| `createdAt` | date | Event creation timestamp. |
+| `endTime` | date | Event end timestamp. |
+| `eventGuests` | array<object> | Guests on the scheduled event. |
+| `eventMemberships` | array<object> | Event membership records for the scheduled event. |
+| `eventType` | string | Event type URI for the scheduled event. |
+| `inviteesCounter` | object | Invitee counter details for the scheduled event. |
+| `location` | object | Event location details. |
+| `meetingNotesHtml` | string | Meeting notes in HTML format. |
+| `meetingNotesPlain` | string | Meeting notes in plain text format. |
+| `name` | string | Scheduled event name. |
+| `startTime` | date | Event start timestamp. |
+| `status` | string | Scheduled event status. |
+| `updatedAt` | date | Event last update timestamp. |
+| `uri` | string | Scheduled event URI. |
 
 ## Native endpoint
 

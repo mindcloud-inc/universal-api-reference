@@ -32,10 +32,10 @@ Use `$top` in the query string to set the page size (default 25; accepted range 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Accept Event](actions/accept-event.md) | `POST /v1.0/me/events/{{eventId}}/accept` | [docs](https://learn.microsoft.com/en-us/graph/api/event-accept?view=graph-rest-1.0) |
-| [Create Event](actions/create-event.md) | `POST /v1.0/me/events` | [docs](https://learn.microsoft.com/en-us/graph/api/user-post-events?view=graph-rest-1.0) |
+| [Create Event](actions/create-event2.md) | `PATCH /v1.0/me/events` | [docs](https://learn.microsoft.com/en-us/graph/api/event-update?view=graph-rest-1.0) |
 | [Delete Event](actions/delete-event.md) | `DELETE /v1.0/me/events/{{eventId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/event-delete?view=graph-rest-1.0) |
 | [Get Event](actions/get-event.md) | `GET /v1.0/me/events/{{eventId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/event-get?view=graph-rest-1.0) |
 | [List Calendar View](actions/list-calendar-view.md) | `GET /v1.0/me/calendarView` | [docs](https://learn.microsoft.com/en-us/graph/api/user-list-calendarview?view=graph-rest-1.0) |
 | [List Calendars](actions/list-calendars.md) | `GET /v1.0/me/calendars` | [docs](https://learn.microsoft.com/en-us/graph/api/user-list-calendars?view=graph-rest-1.0) |
 | [List Events](actions/list-events.md) | `GET /v1.0/me/events` | [docs](https://learn.microsoft.com/en-us/graph/api/user-list-events?view=graph-rest-1.0) |
-| [Update Event](actions/update-event.md) | `PATCH /v1.0/me/events/{{eventId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/event-update?view=graph-rest-1.0) |
+| [Update Event](actions/update-event.md) | `PATCH /v1.0/me/events/:eventId` | [docs](https://learn.microsoft.com/en-us/graph/api/event-update?view=graph-rest-1.0) |

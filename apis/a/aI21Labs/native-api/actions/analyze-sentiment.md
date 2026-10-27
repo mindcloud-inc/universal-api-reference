@@ -14,4 +14,4 @@ Creates a sentiment analysis run in AI21 Labs.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `input` | body | `string` | yes | The text whose sentiment should be analyzed. |
-| `budget` | body | `string` | no | AI21 reasoning budget such as low, medium, or high. Accepted values: `0`, `1`, `2`. |
+| `budget` | body | `list` | no | AI21 reasoning budget such as low, medium, or high. Accepted values: `high`, `low`, `medium`. |

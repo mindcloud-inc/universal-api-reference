@@ -18,3 +18,4 @@
 | `marker` | query | `string` | no | Marker token for the next page of root items. |
 | `sort` | query | `string` | no | Optional secondary sort field for root items. |
 | `direction` | query | `string` | no | Sort direction: ASC or DESC. |
+| `fields` | query | `string` | no | Box fields to request for each item. Defaults to id, type, name, size, and modified_at; this is separate from Universal API response field selection. |

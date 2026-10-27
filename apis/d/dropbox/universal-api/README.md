@@ -4,7 +4,7 @@ Store files, sync folders, share content, and manage links
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dropbox/latest
 - **Category:** Content & Files / Storage
-- **Actions:** 30
+- **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.dropbox.com
 - **Vendor API docs:** https://www.dropbox.com/developers/documentation/http/documentation
@@ -15,14 +15,14 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Continue Folder Listing](actions/continue-folder-listing.md):
+For example, to [Get Current Account](actions/get-current-account.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/dropbox/latest/actions/continue-folder-listing?connectionId=$CONNECTION_ID&cursor=ZtkX9_EHj3x7PMkVuFIhwKYXEpwpLwyxp9vMKomUhllil9q7eWiAu" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/dropbox/latest/actions/get-current-account?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (30)
+## Actions (31)
 
 ### Account
 
@@ -69,6 +69,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/dropbox/latest/actions/co
 | [Restore File Revision](actions/restore-file-revision.md) | PUT | Restores a file revision in Dropbox. |
 | [Revoke Shared Link](actions/revoke-shared-link.md) | DELETE | Deletes an existing shared link from Dropbox. |
 | [Update Shared Link Settings](actions/update-shared-link-settings.md) | PUT | Updates shared link settings in Dropbox. |
+| [Upload Binary File](actions/upload-binary-file.md) | POST |  |
 | [Upload File](actions/upload-file.md) | POST | Uploads a new file to Dropbox. |
 
 ### Folder Cursor

@@ -37,6 +37,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `top` | number | no | Number of events to return. Default: `10`. Example: `10`. |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `select` | string | no | Fixed field selection to keep event results lightweight. Default: `id,subject,bodyPreview,start,end,location,webLink,isAllDay,isCancelled,organizer`. |
+
 ## Response
 
 ```json

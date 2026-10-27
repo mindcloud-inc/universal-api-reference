@@ -4,7 +4,7 @@ Manage deals, activities, contacts, and sales pipelines
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pipedrive/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 36
+- **Actions:** 37
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pipedrive.com
 - **Vendor API docs:** https://developers.pipedrive.com/docs/api/v1
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (36)
+## Actions (37)
 
 ### Activity
 
@@ -83,6 +83,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pipedrive/latest/actions/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Person](actions/add-person.md) | POST | Creates a new person in Pipedrive. |
+| [Find User](actions/find-user.md) | GET | Find Pipedrive users by their name or email address. |
 | [Get Person](actions/get-person.md) | GET | Retrieves a person from Pipedrive. |
 | [Get Persons](actions/get-persons.md) | GET | Retrieves person records from Pipedrive. |
 | [Get User](actions/get-user.md) | GET | Retrieves a person from Pipedrive. |

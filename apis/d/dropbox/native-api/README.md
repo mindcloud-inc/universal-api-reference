@@ -1,6 +1,6 @@
 # Dropbox: Native API Reference
 
-A consolidated summary of Dropbox's API configuration and 30 documented operations, with links to official documentation.
+A consolidated summary of Dropbox's API configuration and 31 documented operations, with links to official documentation.
 
 - **Official docs:** https://www.dropbox.com/developers/documentation/http/documentation
 - **API base URL:** `https://api.dropboxapi.com/2`
@@ -31,7 +31,7 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json` |
 
-## Endpoints (30 documented)
+## Endpoints (31 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -64,4 +64,5 @@ Shared headers:
 | [Search Files and Folders](actions/search-files-and-folders.md) | `POST /files/search_v2` | [docs](https://www.dropbox.com/developers/documentation/http/documentation#files-search_v2) |
 | [Update File Request](actions/update-file-request.md) | `POST /file_requests/update` | [docs](https://www.dropbox.com/developers/documentation/http/documentation#file_requests-update) |
 | [Update Shared Link Settings](actions/update-shared-link-settings.md) | `POST /sharing/modify_shared_link_settings` | [docs](https://www.dropbox.com/developers/documentation/http/documentation#sharing-modify_shared_link_settings) |
+| [Upload Binary File](actions/upload-binary-file.md) | `POST https://content.dropboxapi.com/2/files/upload` | [docs](https://docs.dropboxapi.com/dropbox-api/api-reference/user-endpoints/files/upload) |
 | [Upload File](actions/upload-file.md) | `POST https://content.dropboxapi.com/2/files/upload` | [docs](https://www.dropbox.com/developers/documentation/http/documentation#files-upload) |

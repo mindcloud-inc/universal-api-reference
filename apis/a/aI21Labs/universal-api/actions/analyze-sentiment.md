@@ -43,7 +43,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `input` | string | yes | The text whose sentiment should be analyzed. Example: `Paste the customer feedback, review, message, or text to analyze.`. |
-| `budget` | string | no | AI21 reasoning budget such as low, medium, or high. One of: `0`, `1`, `2`. Default: `low`. |
+| `budget` | list | no | AI21 reasoning budget such as low, medium, or high. One of: `high`, `low`, `medium`. Default: `low`. |
 
 ## Response
 

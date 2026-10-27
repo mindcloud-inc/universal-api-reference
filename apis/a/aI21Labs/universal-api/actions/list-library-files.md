@@ -1,6 +1,6 @@
 # AI21 Labs: List Library Files
 
-Retrieves library files from AI21 Labs.
+Retrieves documents from your AI21 Labs library.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/aI21Labs/latest/actions/list-library-files

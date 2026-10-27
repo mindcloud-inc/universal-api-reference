@@ -4,7 +4,7 @@ Chat in channels, share knowledge, automate workflows, and join huddles.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/slack/latest
 - **Category:** Communication / Team Messaging
-- **Actions:** 39
+- **Actions:** 43
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://slack.com/
 - **Vendor API docs:** https://docs.slack.dev/reference/methods/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/slack/latest/actions/list
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (39)
+## Actions (43)
 
 ### Channel
 
@@ -45,9 +45,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/slack/latest/actions/list
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Complete File Upload](actions/complete-file-upload.md) | POST |  |
 | [Delete File](actions/delete-file.md) | DELETE | Deletes an existing file from Slack. |
 | [Get File Information](actions/get-file-information.md) | GET | Retrieves file details from a Slack workspace. |
+| [Get File Upload URL](actions/get-file-upload-url.md) | POST |  |
 | [List Files](actions/list-files.md) | GET | Retrieves files from a Slack workspace. |
+| [Upload File Bytes](actions/upload-file-bytes.md) | POST |  |
 
 ### List Items
 
@@ -83,6 +86,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/slack/latest/actions/list
 | [List Scheduled Messages](actions/list-scheduled-messages.md) | GET | Retrieves scheduled messages from a Slack workspace. |
 | [Schedule Message](actions/schedule-message.md) | POST | Creates a scheduled message in Slack. |
 | [Send Channel Message](actions/send-channel-message.md) | POST | Creates a new message in a Slack channel. |
+| [Send Channel Message with Blocks](actions/send-channel-message-with-blocks.md) | POST |  |
 | [Send User Message](actions/send-user-message.md) | POST | Creates a new direct message in Slack. |
 | [Update Message](actions/update-message.md) | PUT | Updates an existing message in Slack. |
 

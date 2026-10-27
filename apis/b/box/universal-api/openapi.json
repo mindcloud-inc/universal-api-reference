@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Box Universal API",
-    "version": "0.0.19",
+    "version": "0.0.21",
     "description": "Connect Box to search content, inspect the authenticated user, and work with files and folders through the Box API."
   },
   "servers": [
@@ -2120,9 +2120,13 @@
             "name": "fields",
             "in": "query",
             "required": false,
-            "description": "Comma-separated response fields to include.",
+            "description": "Box fields to request for each item. Defaults to id, type, name, size, and modified_at; this is separate from Universal API response field selection.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "description": "Box fields to request for each item. Defaults to id, type, name, size, and modified_at; this is separate from Universal API response field selection.",
+              "example": "id,type,name,size,modified_at",
+              "default": "id,type,name,size,modified_at",
+              "x-mindcloud-advanced": true
             }
           }
         ],
@@ -2152,7 +2156,30 @@
                             "type": "array",
                             "items": {
                               "type": "object",
-                              "additionalProperties": true
+                              "additionalProperties": false,
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "Box ID of a listed file or folder."
+                                },
+                                "modified_at": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "Box modification timestamp."
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Name of the listed file or folder."
+                                },
+                                "size": {
+                                  "type": "number",
+                                  "description": "Item size in bytes."
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "description": "Box item type, such as file or folder."
+                                }
+                              }
                             },
                             "description": "The root folder items returned for this page."
                           },
@@ -2833,6 +2860,210 @@
                           }
                         },
                         "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/box/latest/actions/upload-file-version": {
+      "put": {
+        "operationId": "box.upload-file-version",
+        "summary": "Upload File Version",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/box/latest/actions/upload-file-version"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "fileId",
+                  "file"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "fileId": {
+                    "type": "string",
+                    "description": "The file ID to upload a new version for.",
+                    "example": "123456789"
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "description": "Optional replacement filename for the uploaded new version.",
+                    "example": "report-v2.pdf"
+                  },
+                  "file": {
+                    "type": "string",
+                    "description": "Paste a plain base64 string, a full data URL, or a public HTTPS file URL. Data URLs are stripped to raw base64 automatically before upload.",
+                    "example": "SG9sYSBCb3ggZGVzZGUgTWluZENsb3VkIQ=="
+                  },
+                  "fields": {
+                    "type": "string",
+                    "description": "Optional comma-separated list of file fields to include in the response.",
+                    "example": "id,type,name,size,parent",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
                       }
                     },
                     "meta": {

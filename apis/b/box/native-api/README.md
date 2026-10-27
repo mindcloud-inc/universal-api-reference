@@ -1,6 +1,6 @@
 # Box: Native API Reference
 
-A consolidated summary of Box's API configuration and 11 documented operations, with links to official documentation.
+A consolidated summary of Box's API configuration and 12 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.box.com/reference
 - **API base URL:** `https://api.box.com/2.0`
@@ -44,7 +44,7 @@ Authorization: Bearer <apiKey>
 
 [Official authentication documentation](https://developer.box.com/guides/authentication/oauth2/oauth2-setup)
 
-## Endpoints (11 documented)
+## Endpoints (12 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -58,4 +58,5 @@ Authorization: Bearer <apiKey>
 | [List Root Folder Items](actions/list-root-folder-items.md) | `GET /folders/:folder_id/items` | [docs](https://developer.box.com/reference/get-folders-id-items) |
 | [Search Folders](actions/search-folders.md) | `GET /search` | [docs](https://developer.box.com/reference/get-search) |
 | [Upload File](actions/upload-file.md) | `POST https://upload.box.com/api/2.0/files/content` | [docs](https://developer.box.com/reference/post-files-content) |
+| [Upload File Version](actions/upload-file-version.md) | `POST https://upload.box.com/api/2.0/files/:file_id/content` | [docs](https://developer.box.com/reference/post-files-id-content) |
 | [Upload Part](actions/upload-part.md) | `PUT https://upload.box.com/api/2.0/files/upload_sessions/:session_id` | [docs](https://developer.box.com/reference/put-files-upload-sessions-id) |

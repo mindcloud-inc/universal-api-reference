@@ -1,6 +1,6 @@
 # Pipedrive: Native API Reference
 
-A consolidated summary of Pipedrive's API configuration and 36 documented operations, with links to official documentation.
+A consolidated summary of Pipedrive's API configuration and 37 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.pipedrive.com/docs/api/v1
 - **API base URL:** `{api_domain}/api`
@@ -44,7 +44,7 @@ Responses from this API use JSON. Response data is read from `data`. The next-pa
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–500). Use `cursor` in the query string as the pagination cursor.
 
-## Endpoints (36 documented)
+## Endpoints (37 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -60,6 +60,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Convert Lead To Deal](actions/convert-lead-to-deal.md) | `POST v2/leads/:id/convert/deal` | [docs](https://developers.pipedrive.com/docs/api/v1/Leads) |
 | [Delete Activity](actions/delete-activity.md) | `DELETE v2/activities/:id` | [docs](https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity) |
 | [Delete Deal](actions/delete-deal.md) | `DELETE v2/deals/:id` | [docs](https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal) |
+| [Find User](actions/find-user.md) | `GET v1/users/find` | [docs](https://developers.pipedrive.com/docs/api/v1/Persons#getPerson) |
 | [Get Activities](actions/get-activities.md) | `GET v2/activities` | [docs](https://developers.pipedrive.com/docs/api/v1/Activities#getActivities) |
 | [Get All Deal Fields](actions/get-all-deal-fields.md) | `GET v2/dealFields` | [docs](https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields) |
 | [Get All Product Fields](actions/get-all-deal-fields-copy.md) | `GET v2/productFields` | [docs](https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields) |

@@ -4,7 +4,7 @@ These examples use the MindCloud API key and AI21 Labs connection described in [
 
 ## List Library Files
 
-Retrieves library files from AI21 Labs.
+Retrieves documents from your AI21 Labs library.
 
 ```bash
 curl -X GET "https://connect.mindcloud.co/v1/universal/aI21Labs/latest/actions/list-library-files?connectionId=$CONNECTION_ID" \

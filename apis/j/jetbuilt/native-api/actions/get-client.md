@@ -12,4 +12,4 @@ Get a Client
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `id` | path | `string` | no | Client Id |
+| `id` | path | `number` | yes | Client Id |

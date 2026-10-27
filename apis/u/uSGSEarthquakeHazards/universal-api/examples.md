@@ -32,35 +32,23 @@ Example response:
   "success": true,
   "data": [
     {
-      "bbox": [
-        1
-      ],
-      "features": [
-        {
-          "geometry": {
-            "coordinates": [
-              1
-            ],
-            "type": "string"
-          },
-          "id": "string",
-          "properties": {
-            "detail": "string",
-            "mag": 1,
-            "place": "string",
-            "status": "string",
-            "time": 1,
-            "title": "string",
-            "updated": 1,
-            "url": "https://example.com"
-          }
-        }
-      ],
-      "metadata": {
-        "count": 1,
-        "generated": 1,
-        "status": 1,
-        "title": "string"
+      "geometry": {
+        "coordinates": [
+          1
+        ],
+        "type": "string"
+      },
+      "id": "string",
+      "properties": {
+        "detail": "string",
+        "mag": 1,
+        "place": "string",
+        "status": "string",
+        "time": 1,
+        "title": "string",
+        "type": "string",
+        "updated": 1,
+        "url": "https://example.com"
       },
       "type": "string"
     }

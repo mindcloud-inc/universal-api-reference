@@ -4,7 +4,7 @@ Access Microsoft Teams collaboration data and actions through Microsoft Graph, i
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftTeams/latest
 - **Category:** Communication / Team Messaging
-- **Actions:** 23
+- **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/microsoft-teams
 - **Vendor API docs:** https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftTeams/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (23)
+## Actions (26)
 
 ### Applications
 
@@ -74,6 +74,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftTeams/latest/act
 | [Reply To Channel Message](actions/reply-to-channel-message.md) | POST | Creates a reply to a Microsoft Teams channel message. |
 | [Send Channel Message](actions/send-channel-message.md) | POST | Creates a new channel message in Microsoft Teams. |
 | [Send Chat Message](actions/send-chat-message.md) | POST | Creates a new chat message in Microsoft Teams. |
+| [Soft Delete Channel Message](actions/soft-delete-channel-message.md) | DELETE |  |
+| [Soft Delete Channel Message Reply](actions/soft-delete-channel-message-reply.md) | DELETE |  |
+| [Soft Delete Chat Message](actions/soft-delete-chat-message.md) | DELETE |  |
 
 ### Teams
 

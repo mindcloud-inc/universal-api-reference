@@ -17,6 +17,7 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| `fields` | query | `string` | no | Drive response field mask. The default includes file links and card metadata. Preserve nextPageToken when overriding to keep pagination available. |
 | `q` | query | `string` | no | — |
 | `parentId` | query | `list<string>` | no | Optionally, return only the folders inside a specified folder. Choose an option from the list or map a 'folderId' here. |
 | `orderBy` | query | `string` | no | — |

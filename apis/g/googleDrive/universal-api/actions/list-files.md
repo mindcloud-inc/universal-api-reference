@@ -43,6 +43,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `parentId` | list<string> | no | Optionally, return only the folders inside a specified folder. Choose an option from the list or map a 'folderId' here. |
 | `orderBy` | string | no | Default: `createdTime`. |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields` | string | no | Drive response field mask. The default includes file links and card metadata. Preserve nextPageToken when overriding to keep pagination available. Default: `kind,nextPageToken,incompleteSearch,files(id,name,kind,mimeType,webViewLink,createdTime,modifiedTime,description)`. |
+
 ## Response
 
 ```json

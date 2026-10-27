@@ -15,6 +15,8 @@ A consolidated summary of MariaDB's API configuration, with links to official do
 - **Database:** `database` · required
 - **User:** `user` · required
 - **Password:** `password` · optional
+- **Use TLS:** `ssl` · optional
+- **TLS CA Certificate (PEM):** `certificate` · optional
 
 Pass these values to the database driver when opening the connection. This is a driver connection rather than HTTP authentication, so there is no `Authorization` header.
 

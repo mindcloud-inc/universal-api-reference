@@ -1,6 +1,6 @@
 # List Library Files with AI21 Labs
 
-Retrieves library files from AI21 Labs.
+Retrieves documents from your AI21 Labs library.
 
 ## Endpoint
 

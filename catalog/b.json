@@ -262102,7 +262102,7 @@
     "websiteUrl": "https://www.box.com/",
     "nativeBaseUrl": "https://api.box.com/2.0",
     "nativeDocumentationUrl": "https://developer.box.com/reference",
-    "version": "0.0.19",
+    "version": "0.0.21",
     "authentication": [
       {
         "type": "oAuth2",
@@ -263441,6 +263441,14 @@
               "location": "query",
               "required": false,
               "description": "Sort direction: ASC or DESC."
+            },
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Box fields to request for each item. Defaults to id, type, name, size, and modified_at; this is separate from Universal API response field selection."
             }
           ]
         },
@@ -263510,6 +263518,16 @@
             "advanced": true,
             "description": "Sort direction: ASC or DESC.",
             "example": "ASC"
+          },
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Box fields to request for each item. Defaults to id, type, name, size, and modified_at; this is separate from Universal API response field selection.",
+            "example": "id,type,name,size,modified_at",
+            "defaultValue": "id,type,name,size,modified_at"
           }
         ],
         "responseSchema": [
@@ -263519,6 +263537,36 @@
             "itemDataType": "object",
             "description": "The root folder items returned for this page.",
             "mockType": "array"
+          },
+          {
+            "key": "entries[].id",
+            "dataType": "string",
+            "description": "Box ID of a listed file or folder.",
+            "mockType": "string"
+          },
+          {
+            "key": "entries[].modified_at",
+            "dataType": "date",
+            "description": "Box modification timestamp.",
+            "mockType": "date"
+          },
+          {
+            "key": "entries[].name",
+            "dataType": "string",
+            "description": "Name of the listed file or folder.",
+            "mockType": "string"
+          },
+          {
+            "key": "entries[].size",
+            "dataType": "number",
+            "description": "Item size in bytes.",
+            "mockType": "number"
+          },
+          {
+            "key": "entries[].type",
+            "dataType": "string",
+            "description": "Box item type, such as file or folder.",
+            "mockType": "string"
           },
           {
             "key": "limit",
@@ -264021,6 +264069,103 @@
             "mockType": "string"
           }
         ]
+      },
+      {
+        "name": "Upload File Version",
+        "slug": "upload-file-version",
+        "operation": "update",
+        "method": "PUT",
+        "model": "fileVersion",
+        "group": "File Version",
+        "documentationUrl": "https://developer.box.com/reference/post-files-id-content",
+        "native": {
+          "method": "POST",
+          "path": "https://upload.box.com/api/2.0/files/:file_id/content",
+          "baseUrl": "https://api.box.com/2.0",
+          "apiType": "rest",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "multipart/form-data"
+            }
+          ],
+          "arguments": [
+            {
+              "key": "file_id",
+              "internalKey": "fileId",
+              "name": "File ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The file ID to upload a new version for."
+            },
+            {
+              "key": "fileName",
+              "name": "File Name",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional replacement filename for the uploaded new version."
+            },
+            {
+              "key": "file",
+              "name": "File Content (Base64 or URL)",
+              "dataType": "file",
+              "location": "body",
+              "required": true,
+              "description": "Paste a plain base64 string, a full data URL, or a public HTTPS file URL. Data URLs are stripped to raw base64 automatically before upload."
+            },
+            {
+              "key": "fields",
+              "name": "Fields",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional comma-separated list of file fields to include in the response."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "fileId",
+            "name": "File ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The file ID to upload a new version for.",
+            "example": "123456789"
+          },
+          {
+            "key": "fileName",
+            "name": "File Name",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional replacement filename for the uploaded new version.",
+            "example": "report-v2.pdf"
+          },
+          {
+            "key": "file",
+            "name": "File Content (Base64 or URL)",
+            "dataType": "file",
+            "required": true,
+            "description": "Paste a plain base64 string, a full data URL, or a public HTTPS file URL. Data URLs are stripped to raw base64 automatically before upload.",
+            "example": "SG9sYSBCb3ggZGVzZGUgTWluZENsb3VkIQ=="
+          },
+          {
+            "key": "fields",
+            "name": "Fields",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional comma-separated list of file fields to include in the response.",
+            "example": "id,type,name,size,parent"
+          }
+        ],
+        "responseSchema": []
       },
       {
         "name": "Upload Part",

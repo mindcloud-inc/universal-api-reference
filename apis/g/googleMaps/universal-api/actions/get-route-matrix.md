@@ -46,8 +46,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `origins[].routeModifiers` | object | no |  |
 | `origins[].routeModifiers.avoidFerries` | boolean | no |  |
 | `origins[].routeModifiers.avoidIndoor` | boolean | no |  |
-| `routingPreference` | list | no |  |
-| `travelMode` | list | no |  |
+| `routingPreference` | list | no | One of: `TRAFFIC_AWARE`, `TRAFFIC_AWARE_OPTIMAL`, `TRAFFIC_UNAWARE`. |
+| `travelMode` | list | no | One of: `BICYCLE`, `DRIVE`, `TRANSIT`, `TWO_WHEELER`, `WALK`. |
 
 ## Response
 

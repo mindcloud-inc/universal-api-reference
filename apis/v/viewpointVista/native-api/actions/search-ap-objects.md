@@ -16,7 +16,7 @@ Search objects found in the Viewpoint® Vista™ Accounts Payable (AP) programs.
 | --- | --- | --- | --- | --- |
 | `modifiedUtcAfter` | body | `date` | no | Specify a datetime against which to filter the results. |
 | `modifiedUtcBefore` | body | `date` | no | Specify a datetime against which to filter the results. |
-| `object` | path | `list<string>` | yes | Specify the type of Object from the Accounts Payable V2 Direct API that you'd like to retrieve. |
+| `object` | path | `list<string>` | yes | Specify the type of Object from the Accounts Payable V2 Direct API that you'd like to retrieve. Accepted values: `company_parameters`, `inv_batch_entries`, `inv_batches`, `invoice_holds`, `invoice_line_details`, `invoices`, `pay_batch_entries`, `pay_batches`, `pay_categories`, `pay_types`, `payment_histories`, `rel_ret_bat_entries`, `rel_retainage_batch`, `unapproved_invoices`, `vendor_compliances`, `vendor_holds`, `vendors`. |
 | `filters[]` | body | `array<object>` | no | — |
 | `filters` | body | `object` | no | — |
 | `filters[].operator` | body | `string` | no | — |

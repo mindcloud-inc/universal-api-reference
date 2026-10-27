@@ -40,7 +40,23 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Amazon Seller API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "response": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `response` | string | Downloaded document body returned by the presigned report URL (base64-encoded raw response). |
 
 ## Native endpoint
 

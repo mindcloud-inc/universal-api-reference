@@ -15,3 +15,13 @@ Creates a new chat message in Microsoft Teams.
 | --- | --- | --- | --- | --- |
 | `chatId` | path | `string` | yes | Microsoft Graph chat ID. |
 | `body.content` | body | `string` | yes | Chat message body content. |
+| `body.contentType` | body | `list<string>` | no | Choose text or HTML. HTML must be supplied explicitly; Markdown is not converted. Accepted values: `html`, `text`. |
+| `body` | body | `object` | no | Message body. Set Content Type to HTML when referencing attachments. |
+| `attachments[]` | body | `array<object>` | no | Files already stored in SharePoint/OneDrive or supported cards. This does not upload file bytes. |
+| `attachments[].id` | body | `string` | no | Match this ID in body.content using <attachment id="ID"></attachment> and choose HTML. |
+| `attachments[].contentType` | body | `string` | no | Use reference for an existing file link, or a documented supported card media type. |
+| `attachments[].contentUrl` | body | `string` | no | Existing file URL or share link accessible to recipients. Mutually exclusive with Content. |
+| `attachments[].content` | body | `string` | no | Serialized card content. Mutually exclusive with Content URL. |
+| `attachments[].name` | body | `string` | no | Attachment display name. |
+| `attachments[].thumbnailUrl` | body | `string` | no | Optional thumbnail image URL. |
+| `attachments[].teamsAppId` | body | `string` | no | Teams app associated with the attachment. |

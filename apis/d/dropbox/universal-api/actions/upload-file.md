@@ -46,7 +46,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `path` | string | yes | Dropbox path where the file will be uploaded. Example: `/MindCloud Dropbox Test/dropbox-stage3-20260306-171004/restore-target.txt`. |
 | `content` | string | yes | UTF-8 file content to upload. Example: `v1`. |
-| `mode` | string | no | Write mode for the upload. Use add to create a new file or overwrite to replace the current content. One of: `0`, `1`. Default: `add`. Example: `add`. |
+| `mode` | list<string> | no | Write mode for the upload. Use add to create a new file or overwrite to replace the current content. One of: `add`, `overwrite`. Default: `add`. Example: `add`. |
 
 ### Advanced
 

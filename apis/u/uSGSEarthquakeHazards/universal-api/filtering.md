@@ -12,5 +12,4 @@ Combine conditions with `;` for AND and `,` for OR. For example, `where=status==
 
 ## USGS Earthquake Hazards actions that support filtering
 
-- [Count Earthquakes](actions/count-earthquakes.md)
 - [Search Earthquakes](actions/search-earthquakes.md)

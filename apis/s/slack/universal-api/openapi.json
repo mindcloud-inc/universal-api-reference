@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Slack Universal API",
-    "version": "0.3.42",
+    "version": "0.3.43",
     "description": "Chat in channels, share knowledge, automate workflows, and join huddles."
   },
   "servers": [
@@ -100,6 +100,252 @@
                       "items": {
                         "type": "object",
                         "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/slack/latest/actions/complete-file-upload": {
+      "post": {
+        "operationId": "slack.complete-file-upload",
+        "summary": "Complete File Upload",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/slack/latest/actions/complete-file-upload"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "files[]",
+                  "files[].id"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "files[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "File IDs from Get File Upload URL, with optional titles."
+                  },
+                  "files[].id": {
+                    "type": "string",
+                    "description": "The file_id returned by Get File Upload URL."
+                  },
+                  "files[].title": {
+                    "type": "string",
+                    "description": "Optional display title for this uploaded file.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "channelId": {
+                    "type": "string",
+                    "description": "Channel where Slack should share the finalized file. Omit to keep private."
+                  },
+                  "threadTs": {
+                    "type": "string",
+                    "description": "Parent message timestamp when sharing in a thread.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "initialComment": {
+                    "type": "string",
+                    "description": "Optional message introducing the file.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "files": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "Finalized Slack file ID."
+                                },
+                                "mimetype": {
+                                  "type": "string",
+                                  "description": "Detected MIME type."
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Finalized file name."
+                                },
+                                "size": {
+                                  "type": "number",
+                                  "description": "Finalized file size in bytes."
+                                }
+                              }
+                            },
+                            "description": "Finalized Slack files."
+                          },
+                          "ok": {
+                            "type": "boolean",
+                            "description": "Whether Slack finalized the upload."
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "meta": {
@@ -3131,6 +3377,211 @@
         }
       }
     },
+    "/v1/universal/slack/latest/actions/get-file-upload-url": {
+      "post": {
+        "operationId": "slack.get-file-upload-url",
+        "summary": "Get File Upload URL",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/slack/latest/actions/get-file-upload-url"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "length",
+                  "filename"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "length": {
+                    "type": "number",
+                    "description": "Exact file size in bytes."
+                  },
+                  "filename": {
+                    "type": "string",
+                    "description": "File name sent to Slack."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "file_id": {
+                            "type": "string",
+                            "description": "Slack file ID to pass to Complete File Upload."
+                          },
+                          "ok": {
+                            "type": "boolean",
+                            "description": "Whether Slack issued an upload URL."
+                          },
+                          "upload_url": {
+                            "type": "string",
+                            "description": "One-time URL for uploading exact file bytes."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/slack/latest/actions/get-list-item": {
       "get": {
         "operationId": "slack.get-list-item",
@@ -5481,20 +5932,18 @@
             "name": "types",
             "in": "query",
             "required": false,
+            "description": "Select one or more conversation types. Slack accepts a comma-separated list: public_channel, private_channel, mpim, im.",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "im",
-                  "mpim",
-                  "private_channel",
-                  "public_channel"
-                ]
-              }
-            },
-            "style": "form",
-            "explode": false
+              "type": "string",
+              "description": "Select one or more conversation types. Slack accepts a comma-separated list: public_channel, private_channel, mpim, im. Pass multiple values separated by `,`.",
+              "enum": [
+                "im",
+                "mpim",
+                "private_channel",
+                "public_channel"
+              ],
+              "default": "public_channel,private_channel"
+            }
           },
           {
             "name": "excludeArchived",
@@ -10036,6 +10485,256 @@
         }
       }
     },
+    "/v1/universal/slack/latest/actions/send-channel-message-with-blocks": {
+      "post": {
+        "operationId": "slack.send-channel-message-with-blocks",
+        "summary": "Send Channel Message with Blocks",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/slack/latest/actions/send-channel-message-with-blocks"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "channel",
+                  "blocks[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "channel": {
+                    "type": "string",
+                    "description": "Slack channel ID for the message."
+                  },
+                  "blocks[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Structured Block Kit array. Supply JSON objects, for example section, context, divider, or table blocks."
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "Fallback text for notifications and screen readers."
+                  },
+                  "threadTimestamp": {
+                    "type": "string",
+                    "description": "Parent message timestamp when posting a reply.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "senderOverride": {
+                    "type": "string",
+                    "description": "Override the connection's default sender for this action.",
+                    "enum": [
+                      "bot",
+                      "user"
+                    ],
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "channel": {
+                            "type": "string",
+                            "description": "Channel ID where the message was posted."
+                          },
+                          "message": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "description": "Slack message resource.",
+                            "properties": {
+                              "blocks": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                "description": "Structured blocks returned by Slack."
+                              },
+                              "text": {
+                                "type": "string",
+                                "description": "Fallback message text."
+                              },
+                              "thread_ts": {
+                                "type": "string",
+                                "description": "Parent message timestamp when this was posted as a reply."
+                              }
+                            }
+                          },
+                          "ok": {
+                            "type": "boolean",
+                            "description": "Whether Slack accepted the message."
+                          },
+                          "ts": {
+                            "type": "string",
+                            "description": "Posted message timestamp and identifier."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/slack/latest/actions/send-user-message": {
       "post": {
         "operationId": "slack.send-user-message",
@@ -11678,6 +12377,197 @@
                           }
                         },
                         "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/slack/latest/actions/upload-file-bytes": {
+      "post": {
+        "operationId": "slack.upload-file-bytes",
+        "summary": "Upload File Bytes",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/slack/latest/actions/upload-file-bytes"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "uploadToken",
+                  "file"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "uploadToken": {
+                    "type": "string",
+                    "description": "Opaque final path segment from the Slack upload_url returned by Get File Upload URL."
+                  },
+                  "file": {
+                    "type": "string",
+                    "description": "Exact file bytes matching the Length sent to Get File Upload URL; accepts base64 or a file URL."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
                       }
                     },
                     "meta": {

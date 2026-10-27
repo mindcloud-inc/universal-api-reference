@@ -13,4 +13,4 @@ Retrieves details for the record fields in NetSuite.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `recordType` | path | `string` | no | NetSuite REST record type name. |
+| `recordType` | path | `list<string>` | yes | NetSuite REST record type name. |

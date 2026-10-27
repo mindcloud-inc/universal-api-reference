@@ -52,6 +52,21 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `channelId` | string | yes | Microsoft Graph channel ID. |
 | `messageId` | string | yes | Microsoft Graph channel message ID. |
 | `body.content` | string | yes | Reply body content. |
+| `body.contentType` | list<string> | no | Choose text or HTML. HTML must be supplied explicitly; Markdown is not converted. One of: `html`, `text`. Default: `text`. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `body` | object | no | Message body. Set Content Type to HTML when referencing attachments. |
+| `attachments[]` | array<object> | no | Files already stored in SharePoint/OneDrive or supported cards. This does not upload file bytes. |
+| `attachments[].id` | string | no | Match this ID in body.content using <attachment id="ID"></attachment> and choose HTML. |
+| `attachments[].contentType` | string | no | Use reference for an existing file link, or a documented supported card media type. |
+| `attachments[].contentUrl` | string | no | Existing file URL or share link accessible to recipients. Mutually exclusive with Content. |
+| `attachments[].content` | string | no | Serialized card content. Mutually exclusive with Content URL. |
+| `attachments[].name` | string | no | Attachment display name. |
+| `attachments[].thumbnailUrl` | string | no | Optional thumbnail image URL. |
+| `attachments[].teamsAppId` | string | no | Teams app associated with the attachment. |
 
 ## Response
 

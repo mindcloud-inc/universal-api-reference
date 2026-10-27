@@ -11,14 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoin
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-ap-objects?connectionId=$CONNECTION_ID&object=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-ap-objects?connectionId=$CONNECTION_ID&object=company_parameters" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "object": "string"
+  "object": "company_parameters"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-ap-objects?${params}`, {
@@ -38,7 +38,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `modifiedUtcAfter` | date | no | Specify a datetime against which to filter the results. |
 | `modifiedUtcBefore` | date | no | Specify a datetime against which to filter the results. |
-| `object` | list<string> | yes | Specify the type of Object from the Accounts Payable V2 Direct API that you'd like to retrieve. |
+| `object` | list<string> | yes | Specify the type of Object from the Accounts Payable V2 Direct API that you'd like to retrieve. One of: `company_parameters`, `inv_batch_entries`, `inv_batches`, `invoice_holds`, `invoice_line_details`, `invoices`, `pay_batch_entries`, `pay_batches`, `pay_categories`, `pay_types`, `payment_histories`, `rel_ret_bat_entries`, `rel_retainage_batch`, `unapproved_invoices`, `vendor_compliances`, `vendor_holds`, `vendors`. |
 | `filters[]` | array<object> | no |  |
 | `filters` | object | no |  |
 | `filters[].operator` | string | no |  |

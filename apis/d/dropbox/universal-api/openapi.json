@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Dropbox Universal API",
-    "version": "0.0.11",
+    "version": "0.0.13",
     "description": "Store files, sync folders, share content, and manage links"
   },
   "servers": [
@@ -7357,6 +7357,256 @@
         }
       }
     },
+    "/v1/universal/dropbox/latest/actions/upload-binary-file": {
+      "post": {
+        "operationId": "dropbox.upload-binary-file",
+        "summary": "Upload Binary File",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/dropbox/latest/actions/upload-binary-file"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "path",
+                  "file"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "path": {
+                    "type": "string",
+                    "example": "/Homework/math/Matrices.pdf"
+                  },
+                  "file": {
+                    "type": "string",
+                    "description": "Base64-encoded file content or an accessible HTTP(S) download URL. Sends the original bytes as the request body. Maximum 100 MiB."
+                  },
+                  "mode": {
+                    "type": "string",
+                    "description": "Add creates a file; overwrite replaces existing content. Revision-conditional update is not supported by this action.",
+                    "enum": [
+                      "add",
+                      "overwrite"
+                    ],
+                    "example": "add",
+                    "default": "add"
+                  },
+                  "autorename": {
+                    "type": "boolean",
+                    "default": false,
+                    "x-mindcloud-advanced": true
+                  },
+                  "mute": {
+                    "type": "boolean",
+                    "default": false,
+                    "x-mindcloud-advanced": true
+                  },
+                  "strictConflict": {
+                    "type": "boolean",
+                    "default": false,
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "clientModified": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "contentHash": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "isDownloadable": {
+                            "type": "boolean"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "pathDisplay": {
+                            "type": "string"
+                          },
+                          "pathLower": {
+                            "type": "string"
+                          },
+                          "rev": {
+                            "type": "string"
+                          },
+                          "serverModified": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "size": {
+                            "type": "number"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/dropbox/latest/actions/upload-file": {
       "post": {
         "operationId": "dropbox.upload-file",
@@ -7400,8 +7650,8 @@
                     "type": "string",
                     "description": "Write mode for the upload. Use add to create a new file or overwrite to replace the current content.",
                     "enum": [
-                      "0",
-                      "1"
+                      "add",
+                      "overwrite"
                     ],
                     "example": "add",
                     "default": "add"

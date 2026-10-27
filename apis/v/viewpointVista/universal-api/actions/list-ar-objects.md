@@ -11,14 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoin
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?connectionId=$CONNECTION_ID&object=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?connectionId=$CONNECTION_ID&object=batch_entries" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "object": "string"
+  "object": "batch_entries"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?${params}`, {
@@ -37,7 +37,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `modifiedUTCSince` | string | no | Specify a datetime against which to filter the results. When specified the result will be ordered oldest __modifiedUTC to newest. Example `2019-12-11T20:16:58.3419275Z`. ( Optional ) If unspecified, all cached objects will be returned. |
-| `object` | list<string> | yes | Specify the type of Object from the Accounts Receivable V2 Direct API that you'd like to retrieve. |
+| `object` | list<string> | yes | Specify the type of Object from the Accounts Receivable V2 Direct API that you'd like to retrieve. One of: `batch_entries`, `batch_entry_lines`, `batches`, `company_parameters`, `credit_notes`, `customers`, `distribution_codes`, `receivable_types`, `transaction_lines`, `transactions`. |
 
 ## Response
 

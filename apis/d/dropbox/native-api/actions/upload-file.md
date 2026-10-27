@@ -23,7 +23,7 @@ Send these additional headers for this operation:
 | --- | --- | --- | --- | --- |
 | `path` | body | `string` | yes | Dropbox path where the file will be uploaded. |
 | `content` | body | `string` | yes | UTF-8 file content to upload. |
-| `mode` | body | `string` | no | Write mode for the upload. Use add to create a new file or overwrite to replace the current content. Accepted values: `0`, `1`. |
+| `mode` | body | `list<string>` | no | Write mode for the upload. Use add to create a new file or overwrite to replace the current content. Accepted values: `add`, `overwrite`. |
 | `autorename` | body | `boolean` | no | Automatically rename the file on conflict. |
 | `mute` | body | `boolean` | no | Suppress notifications for the file update. |
 | `strict_conflict` | body | `boolean` | no | Reject writes unless Dropbox can apply the exact requested mode. |

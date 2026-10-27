@@ -61,35 +61,23 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "bbox": [
-        1
-      ],
-      "features": [
-        {
-          "geometry": {
-            "coordinates": [
-              1
-            ],
-            "type": "string"
-          },
-          "id": "string",
-          "properties": {
-            "detail": "string",
-            "mag": 1,
-            "place": "string",
-            "status": "string",
-            "time": 1,
-            "title": "string",
-            "updated": 1,
-            "url": "https://example.com"
-          }
-        }
-      ],
-      "metadata": {
-        "count": 1,
-        "generated": 1,
-        "status": 1,
-        "title": "string"
+      "geometry": {
+        "coordinates": [
+          1
+        ],
+        "type": "string"
+      },
+      "id": "string",
+      "properties": {
+        "detail": "string",
+        "mag": 1,
+        "place": "string",
+        "status": "string",
+        "time": 1,
+        "title": "string",
+        "type": "string",
+        "updated": 1,
+        "url": "https://example.com"
       },
       "type": "string"
     }
@@ -102,24 +90,20 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `bbox` | array<number> | Bounding box for returned event features. |
-| `features` | array<object> | Earthquake event GeoJSON features. |
-| `features[].geometry.coordinates` | array<number> | Longitude, latitude, and depth coordinates. |
-| `features[].geometry.type` | string | GeoJSON geometry type. |
-| `features[].id` | string | USGS event identifier. |
-| `features[].properties.detail` | string | USGS detail feed URL. |
-| `features[].properties.mag` | number | Event magnitude. |
-| `features[].properties.place` | string | Event place description. |
-| `features[].properties.status` | string | Event review status. |
-| `features[].properties.time` | number | Event time in milliseconds. |
-| `features[].properties.title` | string | Human-readable event title. |
-| `features[].properties.updated` | number | Last update time in milliseconds. |
-| `features[].properties.url` | string | USGS event page URL. |
-| `metadata` | object | USGS feed metadata including generated time, URL, title, status, API version, and count. |
-| `metadata.count` | number | Number of returned features. |
-| `metadata.generated` | number | Generation timestamp in milliseconds. |
-| `metadata.status` | number | HTTP-like status code. |
-| `metadata.title` | string | USGS result title. |
+| `geometry` | object | GeoJSON point geometry. |
+| `geometry.coordinates` | array<number> | Longitude, latitude, and depth coordinates. |
+| `geometry.type` | string | GeoJSON geometry type. |
+| `id` | string | USGS event identifier. |
+| `properties` | object | Earthquake event properties. |
+| `properties.detail` | string | USGS detail feed URL. |
+| `properties.mag` | number | Event magnitude. |
+| `properties.place` | string | Event place description. |
+| `properties.status` | string | Event review status. |
+| `properties.time` | number | Event time in milliseconds. |
+| `properties.title` | string | Human-readable event title. |
+| `properties.type` | string | USGS event type. |
+| `properties.updated` | number | Last update time in milliseconds. |
+| `properties.url` | string | USGS event page URL. |
 | `type` | string | GeoJSON object type. |
 
 ## Native endpoint

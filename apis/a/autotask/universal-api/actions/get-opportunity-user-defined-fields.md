@@ -38,9 +38,23 @@ const { success, data } = await response.json();
   "success": true,
   "data": [
     {
-      "fields": [
+      "defaultValue": "string",
+      "description": "string",
+      "isPickList": true,
+      "isQueryable": true,
+      "isReadOnly": true,
+      "isReference": true,
+      "isRequired": true,
+      "isSupportedWebhookField": true,
+      "label": "string",
+      "length": 1,
+      "name": "Ava Chen",
+      "picklistParentValueField": "string",
+      "picklistValues": [
         {}
-      ]
+      ],
+      "referenceEntityType": "string",
+      "type": "string"
     }
   ],
   "meta": {}
@@ -51,7 +65,21 @@ const { success, data } = await response.json();
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `fields` | array<object> | User-defined field definitions for the Opportunity entity. |
+| `defaultValue` | string | Default value of the user-defined field. |
+| `description` | string | Description of the user-defined field. |
+| `isPickList` | boolean | Whether the user-defined field is a pick list. |
+| `isQueryable` | boolean | Whether the user-defined field can be used in queries. |
+| `isReadOnly` | boolean | Whether the user-defined field is read-only. |
+| `isReference` | boolean | Whether the user-defined field references another entity. |
+| `isRequired` | boolean | Whether the user-defined field is required. |
+| `isSupportedWebhookField` | boolean | Whether the user-defined field is supported by Autotask webhooks. |
+| `label` | string | Display label of the user-defined field. |
+| `length` | number | Maximum length of the user-defined field value. |
+| `name` | string | Internal name of the user-defined field. |
+| `picklistParentValueField` | string | Parent value field for dependent pick lists. |
+| `picklistValues` | array<object> | Allowed pick list values for the user-defined field. |
+| `referenceEntityType` | string | Entity type referenced when the field is a reference field. |
+| `type` | string | Autotask data type of the user-defined field. |
 
 ## Native endpoint
 

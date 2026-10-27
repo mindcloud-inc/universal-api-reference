@@ -48,6 +48,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `marker` | string | no | Marker token for the next page of root items. Example: `AAEAAQ...`. |
 | `sort` | string | no | Optional secondary sort field for root items. Example: `name`. |
 | `direction` | string | no | Sort direction: ASC or DESC. Example: `ASC`. |
+| `fields` | string | no | Box fields to request for each item. Defaults to id, type, name, size, and modified_at; this is separate from Universal API response field selection. Default: `id,type,name,size,modified_at`. Example: `id,type,name,size,modified_at`. |
 
 ## Response
 
@@ -57,7 +58,13 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "data": [
     {
       "entries": [
-        {}
+        {
+          "id": "string",
+          "modified_at": "2026-05-07T12:00:00.000Z",
+          "name": "Ava Chen",
+          "size": 1,
+          "type": "string"
+        }
       ],
       "limit": 1,
       "next_marker": "string",
@@ -74,6 +81,11 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Description |
 | --- | --- | --- |
 | `entries` | array<object> | The root folder items returned for this page. |
+| `entries[].id` | string | Box ID of a listed file or folder. |
+| `entries[].modified_at` | date | Box modification timestamp. |
+| `entries[].name` | string | Name of the listed file or folder. |
+| `entries[].size` | number | Item size in bytes. |
+| `entries[].type` | string | Box item type, such as file or folder. |
 | `limit` | number | The page size limit. |
 | `next_marker` | string | Marker for the next page when marker pagination is active. |
 | `offset` | number | The offset used for this page when offset pagination is active. |

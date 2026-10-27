@@ -13,14 +13,14 @@ This action also supports [filtering](../filtering.md) (`where`).
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-hq-objects?connectionId=$CONNECTION_ID&object=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-hq-objects?connectionId=$CONNECTION_ID&object=company_parameters" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "object": "string"
+  "object": "company_parameters"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/search-hq-objects?${params}`, {
@@ -39,7 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `modifiedUtcAfter` | date | no |  |
-| `object` | list<string> | yes | Specify the type of Object from the Headquarters V2 Direct API that you'd like to retrieve. |
+| `object` | list<string> | yes | Specify the type of Object from the Headquarters V2 Direct API that you'd like to retrieve. One of: `company_parameters`, `compliance_codes`, `compliance_groups`, `contacts`, `countries`, `earn_types`, `escalation_indexes`, `escalation_materials`, `frequency_codes`, `groups`, `hold_codes`, `insurance_codes`, `liability_types`, `material_categories`, `materials`, `payment_terms`, `project_statuses`, `reason_codes`, `reviewer_groups`, `reviewers`, `roles`, `smsa_codes`, `standard_notes`, `tax_codes`, `unit_of_measures`. |
 | `modifiedUtcBefore` | date | no |  |
 
 ## Response

@@ -9,10 +9,6 @@ Counts earthquakes matching a USGS Earthquake Hazards query.
 - **Base URL:** `https://earthquake.usgs.gov`
 - **Official documentation:** [Count Earthquakes](https://earthquake.usgs.gov/fdsnws/event/1/)
 
-## Capabilities
-
-This operation supports [filtering](../README.md#filtering).
-
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

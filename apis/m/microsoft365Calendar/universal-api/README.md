@@ -34,7 +34,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoft365Calendar/late
 | Action | Method | Description |
 | --- | --- | --- |
 | [Accept Event](actions/accept-event.md) | PUT | Accepts an event invitation in Microsoft 365 Calendar. |
-| [Create Event](actions/create-event.md) | POST | Creates a new event in Microsoft 365 Calendar. |
+| [Create Event](actions/create-event2.md) | PUT | Updates an existing event in Microsoft 365 Calendar. |
 | [Delete Event](actions/delete-event.md) | DELETE | Deletes an existing event from Microsoft 365 Calendar. |
 | [Get Event](actions/get-event.md) | GET | Retrieves an event from Microsoft 365 Calendar. |
 | [List Calendar View](actions/list-calendar-view.md) | GET | Retrieves events from Microsoft 365 Calendar for a time range. |

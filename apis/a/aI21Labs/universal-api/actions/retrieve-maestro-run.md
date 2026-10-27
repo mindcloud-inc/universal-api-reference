@@ -1,6 +1,6 @@
 # AI21 Labs: Retrieve Maestro Run
 
-Retrieves a Maestro run by ID from AI21 Labs.
+Retrieves Maestro run status from AI21 Labs by ID.
 
 ```
 GET https://connect.mindcloud.co/v1/universal/aI21Labs/latest/actions/retrieve-maestro-run

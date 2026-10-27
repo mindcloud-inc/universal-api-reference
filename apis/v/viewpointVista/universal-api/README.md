@@ -16,7 +16,7 @@ Read more in [authentication.md](authentication.md).
 For example, to [List AR Objects](actions/list-ar-objects.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?connectionId=$CONNECTION_ID&object=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?connectionId=$CONNECTION_ID&object=batch_entries" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 

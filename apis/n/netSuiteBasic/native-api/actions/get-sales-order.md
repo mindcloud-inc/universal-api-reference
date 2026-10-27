@@ -13,4 +13,4 @@ Retrieves details for the sales order in NetSuite.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `id` | path | `string` | no | Internal NetSuite record ID. |
+| `id` | path | `string` | yes | Internal NetSuite record ID. |

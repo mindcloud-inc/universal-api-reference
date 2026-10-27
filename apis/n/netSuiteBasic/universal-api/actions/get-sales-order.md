@@ -11,13 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a NetSuite
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/actions/get-sales-order?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/actions/get-sales-order?connectionId=$CONNECTION_ID&id=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  "id": "string"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/actions/get-sales-order?${params}`, {
@@ -35,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | string | no | Internal NetSuite record ID. |
+| `id` | string | yes | Internal NetSuite record ID. |
 
 ## Response
 

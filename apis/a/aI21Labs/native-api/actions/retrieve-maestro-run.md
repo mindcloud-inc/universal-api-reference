@@ -1,6 +1,6 @@
 # Retrieve Maestro Run with AI21 Labs
 
-Retrieves a Maestro run by ID from AI21 Labs.
+Retrieves Maestro run status from AI21 Labs by ID.
 
 ## Endpoint
 

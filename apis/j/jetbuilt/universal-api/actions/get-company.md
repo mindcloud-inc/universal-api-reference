@@ -33,7 +33,56 @@ const { success, data } = await response.json();
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Jetbuilt API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "createdAt": "string",
+      "id": 1,
+      "locations": [
+        {
+          "address": "string",
+          "city": "string",
+          "country": "string",
+          "createdAt": "string",
+          "id": 1,
+          "name": "Ava Chen",
+          "productDatabaseId": 1,
+          "state": "string",
+          "timeZone": "string",
+          "updatedAt": "string",
+          "zipcode": "string"
+        }
+      ],
+      "name": "Ava Chen",
+      "updatedAt": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `createdAt` | string |  |
+| `id` | number |  |
+| `locations` | array<object> |  |
+| `locations[].address` | string |  |
+| `locations[].city` | string |  |
+| `locations[].country` | string |  |
+| `locations[].createdAt` | string |  |
+| `locations[].id` | number |  |
+| `locations[].name` | string |  |
+| `locations[].productDatabaseId` | number |  |
+| `locations[].state` | string |  |
+| `locations[].timeZone` | string |  |
+| `locations[].updatedAt` | string |  |
+| `locations[].zipcode` | string |  |
+| `name` | string |  |
+| `updatedAt` | string |  |
 
 ## Native endpoint
 

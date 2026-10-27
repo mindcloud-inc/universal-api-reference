@@ -1,6 +1,6 @@
 # Slack: Native API Reference
 
-A consolidated summary of Slack's API configuration and 39 documented operations, with links to official documentation.
+A consolidated summary of Slack's API configuration and 43 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.slack.dev/reference/methods/
 - **API base URL:** `https://slack.com/api/`
@@ -47,11 +47,12 @@ Set the sort field with `sort` in the query string. Set the direction separately
 
 Wait 3000 ms before the first retry. Stop after 5 attempts.
 
-## Endpoints (39 documented)
+## Endpoints (43 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Add Reaction](actions/add-reaction.md) | `POST reactions.add` | [docs](https://docs.slack.dev/reference/methods/reactions.add/) |
+| [Complete File Upload](actions/complete-file-upload.md) | `POST files.completeUploadExternal` | [docs](https://docs.slack.dev/reference/methods/files.completeUploadExternal/) |
 | [Create Channel](actions/create-channel.md) | `POST conversations.create` | [docs](https://docs.slack.dev/reference/methods/conversations.create/) |
 | [Create List](actions/create-list.md) | `POST slackLists.create` | [docs](https://docs.slack.dev/reference/methods/slackLists.create/) |
 | [Create List Item](actions/create-list-item.md) | `POST slackLists.items.create` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.create/) |
@@ -62,6 +63,7 @@ Wait 3000 ms before the first retry. Stop after 5 attempts.
 | [Delete Scheduled Message](actions/delete-scheduled-message.md) | `POST chat.deleteScheduledMessage` | [docs](https://docs.slack.dev/reference/methods/chat.deleteScheduledMessage/) |
 | [Get Channel Information](actions/get-channel-information.md) | `GET conversations.info` | [docs](https://docs.slack.dev/reference/methods/conversations.info/) |
 | [Get File Information](actions/get-file-information.md) | `GET files.info` | [docs](https://docs.slack.dev/reference/methods/files.info/) |
+| [Get File Upload URL](actions/get-file-upload-url.md) | `POST files.getUploadURLExternal` | [docs](https://docs.slack.dev/reference/methods/files.getUploadURLExternal/) |
 | [Get List Item](actions/get-list-item.md) | `POST slackLists.items.info` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.info/) |
 | [Get User Information](actions/get-user-information.md) | `GET users.info` | [docs](https://docs.slack.dev/reference/methods/users.info/) |
 | [Invite User to Channel](actions/invite-user-to-channel.md) | `POST conversations.invite` | [docs](https://docs.slack.dev/reference/methods/conversations.invite/) |
@@ -84,9 +86,11 @@ Wait 3000 ms before the first retry. Stop after 5 attempts.
 | [Search Channels and Users](actions/search-channels-and-users.md) | `POST assistant.search.context` | [docs](https://docs.slack.dev/reference/methods/assistant.search.context/) |
 | [Search User By Email](actions/search-user-by-email.md) | `GET users.lookupByEmail` | [docs](https://docs.slack.dev/reference/methods/users.lookupByEmail/) |
 | [Send Channel Message](actions/send-channel-message.md) | `POST chat.postMessage` | [docs](https://docs.slack.dev/reference/methods/chat.postMessage/) |
+| [Send Channel Message with Blocks](actions/send-channel-message-with-blocks.md) | `POST chat.postMessage` | [docs](https://docs.slack.dev/reference/methods/chat.postMessage/) |
 | [Send User Message](actions/send-user-message.md) | `POST chat.postMessage` | [docs](https://docs.slack.dev/reference/methods/chat.postMessage/) |
 | [Set Channel Topic](actions/set-channel-topic.md) | `POST conversations.setTopic` | [docs](https://docs.slack.dev/reference/methods/conversations.setTopic/) |
 | [Set Presence](actions/set-status.md) | `POST users.setPresence` | [docs](https://docs.slack.dev/reference/methods/users.setPresence/) |
 | [Update List](actions/update-list.md) | `POST slackLists.update` | [docs](https://docs.slack.dev/reference/methods/slackLists.update/) |
 | [Update List Item Cells](actions/update-list-item-cells.md) | `POST slackLists.items.update` | [docs](https://docs.slack.dev/reference/methods/slackLists.items.update/) |
 | [Update Message](actions/update-message.md) | `POST chat.update` | [docs](https://docs.slack.dev/reference/methods/chat.update/) |
+| [Upload File Bytes](actions/upload-file-bytes.md) | `POST https://files.slack.com/upload/v1/:upload_token` | [docs](https://docs.slack.dev/reference/methods/files.getUploadURLExternal/) |

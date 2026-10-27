@@ -38,6 +38,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `q` | string | no | Search for folders based on specific parameters. Uses `q` param. See more here: https://developers.google.com/drive/api/guides/search-files |
 | `orderBy` | list<string> | no | Choose one or multiple order options to sort the results. One of: `createdTime`, `modifiedByMeTime`, `modifiedTime`, `name`, `name desc`, `recency`, `starred`, `viewedByMeTime`. |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields` | string | no | Drive response field mask. The default includes file links and card metadata. Preserve nextPageToken when overriding to keep pagination available. Default: `kind,nextPageToken,incompleteSearch,files(id,name,kind,mimeType,webViewLink,createdTime,modifiedTime,description)`. |
+
 ## Response
 
 ```json

@@ -44,7 +44,80 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native ADP API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "alternateJobIDs": [
+        {
+          "idValue": "string",
+          "schemeCode": {
+            "shortName": "Ava Chen"
+          }
+        }
+      ],
+      "associatePayments": [
+        {
+          "associateOID": "string",
+          "payments": [
+            {}
+          ]
+        }
+      ],
+      "itemID": "string",
+      "payrollGroupCode": {
+        "codeValue": "string",
+        "shortName": "Ava Chen"
+      },
+      "payrollProcessingJobID": "string",
+      "payrollProcessingJobStatusCode": {
+        "codeValue": "string",
+        "shortName": "Ava Chen"
+      },
+      "payrollRegionCode": {
+        "codeValue": "string"
+      },
+      "payrollScheduleReference": {
+        "payrollRunNumber": "string",
+        "payrollScheduleID": "string",
+        "payrollWeekNumber": "string",
+        "payrollYear": "string",
+        "scheduleEntryID": "string"
+      }
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `alternateJobIDs` | array<object> |  |
+| `alternateJobIDs[].idValue` | string |  |
+| `alternateJobIDs[].schemeCode` | object |  |
+| `alternateJobIDs[].schemeCode.shortName` | string |  |
+| `associatePayments` | array<object> |  |
+| `associatePayments[].associateOID` | string |  |
+| `associatePayments[].payments` | array<object> |  |
+| `itemID` | string |  |
+| `payrollGroupCode` | object |  |
+| `payrollGroupCode.codeValue` | string |  |
+| `payrollGroupCode.shortName` | string |  |
+| `payrollProcessingJobID` | string |  |
+| `payrollProcessingJobStatusCode` | object |  |
+| `payrollProcessingJobStatusCode.codeValue` | string |  |
+| `payrollProcessingJobStatusCode.shortName` | string |  |
+| `payrollRegionCode` | object |  |
+| `payrollRegionCode.codeValue` | string |  |
+| `payrollScheduleReference` | object |  |
+| `payrollScheduleReference.payrollRunNumber` | string |  |
+| `payrollScheduleReference.payrollScheduleID` | string |  |
+| `payrollScheduleReference.payrollWeekNumber` | string |  |
+| `payrollScheduleReference.payrollYear` | string |  |
+| `payrollScheduleReference.scheduleEntryID` | string |  |
 
 ## Native endpoint
 

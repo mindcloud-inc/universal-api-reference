@@ -4,7 +4,7 @@ Connect Box to search content, inspect the authenticated user, and work with fil
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/box/latest
 - **Category:** Content & Files / Storage
-- **Actions:** 11
+- **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.box.com/
 - **Vendor API docs:** https://developer.box.com/reference
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/box/latest/actions/get-cu
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (11)
+## Actions (12)
 
 ### File
 
@@ -30,6 +30,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/box/latest/actions/get-cu
 | --- | --- | --- |
 | [Download File](actions/download-file.md) | GET |  |
 | [Upload File](actions/upload-file.md) | POST |  |
+
+### File Version
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Upload File Version](actions/upload-file-version.md) | PUT |  |
 
 ### Folder
 

@@ -8,8 +8,6 @@ GET https://connect.mindcloud.co/v1/universal/uSGSEarthquakeHazards/latest/actio
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a USGS Earthquake Hazards `connectionId` ([setup](../authentication.md)).
 
-This action also supports [filtering](../filtering.md) (`where`).
-
 ## Example request
 
 ```bash

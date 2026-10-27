@@ -2,22 +2,21 @@
 
 These examples use the MindCloud API key and Dropbox connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Continue Folder Listing
+## Get Current Account
 
-Retrieves more Dropbox folder contents using a cursor.
+Retrieves the current account details from Dropbox.
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/dropbox/latest/actions/continue-folder-listing?connectionId=$CONNECTION_ID&cursor=ZtkX9_EHj3x7PMkVuFIhwKYXEpwpLwyxp9vMKomUhllil9q7eWiAu" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/dropbox/latest/actions/get-current-account?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId,
-  "cursor": "ZtkX9_EHj3x7PMkVuFIhwKYXEpwpLwyxp9vMKomUhllil9q7eWiAu"
+  connectionId
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/dropbox/latest/actions/continue-folder-listing?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/dropbox/latest/actions/get-current-account?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -33,15 +32,36 @@ Example response:
   "success": true,
   "data": [
     {
-      "cursor": "string",
-      "hasMore": true
+      "accountId": "string",
+      "accountType": {
+        "tag": "string"
+      },
+      "country": "string",
+      "disabled": true,
+      "email": "ava@example.com",
+      "emailVerified": true,
+      "isPaired": true,
+      "locale": "string",
+      "name": {
+        "abbreviatedName": "Ava Chen",
+        "displayName": "Ava Chen",
+        "familiarName": "Ava Chen",
+        "givenName": "Ava Chen",
+        "surname": "Ava Chen"
+      },
+      "referralLink": "https://example.com",
+      "rootInfo": {
+        "homeNamespaceId": "Ava Chen",
+        "rootNamespaceId": "Ava Chen",
+        "tag": "string"
+      }
     }
   ],
   "meta": {}
 }
 ```
 
-See the full [Continue Folder Listing action reference](actions/continue-folder-listing.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/dropbox/latest/actions/continue-folder-listing).
+See the full [Get Current Account action reference](actions/get-current-account.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/dropbox/latest/actions/get-current-account).
 
 ## Add File Members
 

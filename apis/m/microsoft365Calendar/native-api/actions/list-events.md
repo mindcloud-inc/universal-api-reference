@@ -14,3 +14,4 @@ Retrieves events from Microsoft 365 Calendar.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `$top` | query | `number` | no | Number of events to return. |
+| `$select` | query | `string` | no | Fixed field selection to keep event results lightweight. |

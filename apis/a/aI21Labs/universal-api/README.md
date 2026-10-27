@@ -28,7 +28,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aI21Labs/latest/actions/l
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [List Library Files](actions/list-library-files.md) | GET | Retrieves library files from AI21 Labs. |
+| [List Library Files](actions/list-library-files.md) | GET | Retrieves documents from your AI21 Labs library. |
 
 ### Maestro Run
 
@@ -57,7 +57,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/aI21Labs/latest/actions/l
 | [Generate Social Post](actions/generate-social-post.md) | POST | Creates a social post run in AI21 Labs. |
 | [Generate Study Guide](actions/generate-study-guide.md) | POST | Creates a study guide run in AI21 Labs. |
 | [Identify Risks](actions/identify-risks.md) | POST | Creates a risk identification run in AI21 Labs. |
-| [Retrieve Maestro Run](actions/retrieve-maestro-run.md) | GET | Retrieves a Maestro run by ID from AI21 Labs. |
+| [Retrieve Maestro Run](actions/retrieve-maestro-run.md) | GET | Retrieves Maestro run status from AI21 Labs by ID. |
 | [Review Document](actions/review-document.md) | POST | Creates a document review run in AI21 Labs. |
 | [Rewrite Text](actions/rewrite-text.md) | POST | Creates a text rewriting run in AI21 Labs. |
 | [Simplify Text](actions/simplify-text.md) | POST | Creates a text simplification run in AI21 Labs. |

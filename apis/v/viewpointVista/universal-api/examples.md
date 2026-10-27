@@ -7,14 +7,14 @@ These examples use the MindCloud API key and Viewpoint Vista connection describe
 Represents data found in Viewpoint® Vista™ AR programs
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?connectionId=$CONNECTION_ID&object=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?connectionId=$CONNECTION_ID&object=batch_entries" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "object": "string"
+  "object": "batch_entries"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/list-ar-objects?${params}`, {

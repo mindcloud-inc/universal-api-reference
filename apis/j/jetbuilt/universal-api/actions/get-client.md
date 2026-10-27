@@ -11,13 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Jetbuilt
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/jetbuilt/latest/actions/get-client?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/jetbuilt/latest/actions/get-client?connectionId=$CONNECTION_ID&id=1" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  "id": "1"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/jetbuilt/latest/actions/get-client?${params}`, {
@@ -35,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | string | no | Client Id |
+| `id` | number | yes | Client Id |
 
 ## Response
 

@@ -11,13 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a NetSuite
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/actions/get-record-fields?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/actions/get-record-fields?connectionId=$CONNECTION_ID&recordType=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  "recordType": "string"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/actions/get-record-fields?${params}`, {
@@ -35,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `recordType` | string | no | NetSuite REST record type name. |
+| `recordType` | list<string> | yes | NetSuite REST record type name. |
 
 ## Response
 
