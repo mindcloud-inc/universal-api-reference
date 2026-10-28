@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3226 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3227 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1090,6 +1090,7 @@ The official vendor API documentation for each of the 3226 apps in this repo. Ea
 - [GenerateBanners.com](../apis/g/generateBannerscom/native-api) - https://www.generatebanners.com/documentation/api
 - [Geoapify Geocode](../apis/g/geoapify/native-api) - https://apidocs.geoapify.com/docs
 - [Geocodio](../apis/g/geocodio/native-api) - https://www.geocod.io/docs/
+- [Geotab](../apis/g/geotab/native-api) - https://developers.geotab.com/myGeotab/introduction/
 - [Geral](../apis/g/geral/native-api) - https://ger.al/api-documentation
 - [Get a Newsletter](../apis/g/getANewsletter/native-api) - https://api.getanewsletter.com/v3/docs/
 - [GetResponse](../apis/g/getResponse/native-api) - https://apireference.getresponse.com/

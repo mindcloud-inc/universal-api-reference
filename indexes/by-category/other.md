@@ -1,6 +1,6 @@
 # Other apps
 
-583 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+584 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -214,6 +214,7 @@
 - **Fun Translations** · [Universal API reference](../../apis/f/funTranslations/universal-api) · [Native API reference](../../apis/f/funTranslations/native-api)
 - **Gainium** · [Universal API reference](../../apis/g/gainium/universal-api) · [Native API reference](../../apis/g/gainium/native-api) · [Native API docs](https://api.gainium.io/api/docs/v2)
 - **Gamalogic** · [Universal API reference](../../apis/g/gamalogic/universal-api) · [Native API reference](../../apis/g/gamalogic/native-api) · [Native API docs](https://docs.gamalogic.com/documentation/introduction)
+- **Geotab** · [Universal API reference](../../apis/g/geotab/universal-api) · [Native API reference](../../apis/g/geotab/native-api) · [Native API docs](https://developers.geotab.com/myGeotab/introduction/)
 - **Giphy** · [Universal API reference](../../apis/g/giphy/universal-api) · [Native API reference](../../apis/g/giphy/native-api) · [Native API docs](https://developers.giphy.com/docs/api)
 - **GNews** · [Universal API reference](../../apis/g/gNews/universal-api) · [Native API reference](../../apis/g/gNews/native-api) · [Native API docs](https://docs.gnews.io)
 - **Golemio API** · [Universal API reference](../../apis/g/golemioAPI/universal-api) · [Native API reference](../../apis/g/golemioAPI/native-api) · [Native API docs](https://operator-ict.gitlab.io/golemio/documentation/en/open-data-api/)

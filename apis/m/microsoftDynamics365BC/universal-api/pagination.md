@@ -39,3 +39,4 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 - [List Sales Invoice Line Items](actions/list-sales-invoice-line-items.md)
 - [List Sales Invoice ODataV4](actions/list-sales-invoice-o-data-v4.md)
 - [List Sales Orders SSI](actions/list-sales-orders-ssi.md)
+- [Patch Sales Invoice Itens ODataV4](actions/patch-sales-invoice-itens-o-data-v4.md)

@@ -1,10 +1,10 @@
 # Create Event with Microsoft 365 Calendar
 
-Updates an existing event in Microsoft 365 Calendar.
+Create a new event in Microsoft 365 Calendar.
 
 ## Endpoint
 
-- **Method:** `PATCH`
+- **Method:** `POST`
 - **Path:** `/v1.0/me/events`
 - **Base URL:** `https://graph.microsoft.com`
 - **Official documentation:** [Create Event](https://learn.microsoft.com/en-us/graph/api/event-update?view=graph-rest-1.0)

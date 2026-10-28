@@ -3,7 +3,7 @@
 Microsoft Dynamics 365 Business Central
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365BC/latest
-- **Actions:** 54
+- **Actions:** 57
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (54)
+## Actions (57)
 
 ### Addresses
 
@@ -85,6 +85,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [Create Credit Memo Itens ODataV4](actions/create-credit-memo-itens-o-data-v4.md) | GET |  |
 | [Create General Journal ODataV4](actions/create-general-journal-o-data-v4.md) | POST |  |
 | [Create Journal Line ODataV4](actions/create-journal-line-o-data-v4.md) | POST |  |
+| [Create Sales Invoice ODataV4](actions/create-sales-invoice-o-data-v4.md) | POST |  |
 | [Create Sales Invoice Using Customer No Only](actions/create-sales-invoice-using-customer-no-only.md) | POST | Removed param Sell_to_Customer_Name |
 | [Get Aged Transactions](actions/get-aged-transactions.md) | GET |  |
 | [List Bank Deposits Line ODataV4](actions/list-bank-deposits-line-o-data-v4.md) | GET |  |
@@ -95,6 +96,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [List Journal Lines Payments ODataV4](actions/list-journal-lines-payments-o-data-v4.md) | GET |  |
 | [List Payroll Journal ODataV4](actions/list-payroll-journal-o-data-v4.md) | GET |  |
 | [List Sales Invoice ODataV4](actions/list-sales-invoice-o-data-v4.md) | GET |  |
+| [Patch Sales Invoice Itens ODataV4](actions/patch-sales-invoice-itens-o-data-v4.md) | GET |  |
+| [Patch Sales Invoice ODataV4](actions/patch-sales-invoice-o-data-v4.md) | POST |  |
 | [Update Customer Payment ODataV4](actions/update-customer-payment-o-data-v4.md) | POST |  |
 
 ### Sales Orders

@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 54 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 57 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (54 documented)
+## Endpoints (57 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -76,6 +76,7 @@ Response data is read from `value`.
 | [Create Project Job Planning Lines ODataV4](actions/create-project-job-planning-lines-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/Job_Planning_Lines` |  |
 | [Create Project Job Task Lines ODataV4](actions/create-project-job-task-lines-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/Job_Task_Lines` |  |
 | [Create Sales Invoice Line Item](actions/create-sales-invoice-line-item.md) | REST | `POST v2.0/companies({{companyId}})/salesInvoices(:invoiceId)/salesInvoiceLines` |  |
+| [Create Sales Invoice ODataV4](actions/create-sales-invoice-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice` |  |
 | [Create Sales Invoice Using Customer No Only](actions/create-sales-invoice-using-customer-no-only.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice` |  |
 | [Create Sales Invoices](actions/create-sales-invoices.md) | REST | `POST v2.0/companies({{companyId}})/salesInvoices` |  |
 | [Create Sales Order](actions/create-sales-order.md) | REST | `POST companies(:id)/salesOrders` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_create) |
@@ -106,6 +107,8 @@ Response data is read from `value`.
 | [List Sales Invoice ODataV4](actions/list-sales-invoice-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice` |  |
 | [List Sales Orders Lines SSI](actions/list-sales-orders-lines-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesLinesSSI` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
 | [List Sales Orders SSI](actions/list-sales-orders-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesHeadersSSI(:id)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
+| [Patch Sales Invoice Itens ODataV4](actions/patch-sales-invoice-itens-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoiceSalesLines(Document_Type=':documentType',Document_No=':documentNo',Line_No=:lineNo)` |  |
+| [Patch Sales Invoice ODataV4](actions/patch-sales-invoice-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice(Document_Type=':documentType',No=':no')` |  |
 | [Post Credit Memo](actions/post-credit-memo.md) | REST | `POST v2.0/companies({{companyId}})/salesCreditMemos({{creditMemoId}})/Microsoft.NAV.post` |  |
 | [Post Journal Lines](actions/post-journal-lines.md) | REST | `POST v2.0/companies({{companyId}})/journals({{journalId}})/Microsoft.NAV.post` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [Post Sales Invoice](actions/post-sales-invoice.md) | REST | `POST v2.0/companies({{companyId}})/salesInvoices({{invoiceId}})/Microsoft.NAV.post` |  |

@@ -37,7 +37,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions
 | [Get Entity Items](actions/get-entity-items.md) | GET |  |
 | [Get Hierarchy List](actions/get-hierarchy-list.md) | GET |  |
 | [Get Single Item](actions/get-single-item.md) | GET |  |
-| [Update Entity](actions/update-entity.md) | POST |  |
+| [Update Entity](actions/update-entity.md) | PUT |  |
 | [Update User Contact](actions/update-user-contact.md) | PUT | Warning: This endpoint doesn't allow partial updates, you need to pass all values to avoid data loss |
 
 ### Users
