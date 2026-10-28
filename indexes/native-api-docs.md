@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3227 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3228 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -2906,6 +2906,7 @@ The official vendor API documentation for each of the 3227 apps in this repo. Ea
 - [UiPath Orchestrator](../apis/u/uiPathOrchestrator/native-api) - https://docs.uipath.com/orchestrator/automation-cloud/latest/api-guide/introduction
 - [UK Bank Holidays](../apis/u/uKBankHolidays/native-api) - https://www.api.gov.uk/gds/bank-holidays/
 - [UK Check VAT](../apis/u/uKCheckVAT/native-api) - https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-registered-companies-api/2.0
+- [UKG Ready](../apis/u/uKGReady/native-api) - https://secure7.saashr.com/ta/docs/rest/public/
 - [Uku](../apis/u/uku/native-api) - https://app.getuku.com/docs/
 - [Umami](../apis/u/umami/native-api) - https://docs.umami.is/docs/api
 - [Umbler Talk](../apis/u/umblerTalk/native-api) - https://app-utalk.umbler.com/api/docs/index.html

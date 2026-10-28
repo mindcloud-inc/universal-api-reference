@@ -11503,6 +11503,2277 @@
     "universalOpenApiPath": "apis/u/uKCheckVAT/universal-api/openapi.json"
   },
   {
+    "name": "UKG Ready",
+    "slug": "uKGReady",
+    "category": "HRIS",
+    "categoryGroup": "Human Resources",
+    "iconUrl": "https://images.mindcloud.co/apps/icons/u-kgready-icon_1782394617480.jpg",
+    "nativeDocumentationUrl": "https://secure7.saashr.com/ta/docs/rest/public/",
+    "version": "0.0.22",
+    "authentication": [
+      {
+        "type": "custom",
+        "name": "Custom",
+        "credentials": [
+          {
+            "key": "user",
+            "name": "User",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "password",
+            "name": "Password",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "apiKey",
+            "name": "Api Key",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "company",
+            "name": "Company",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "hostname",
+            "name": "Hostname",
+            "dataType": "string",
+            "required": true,
+            "description": "The hostname from your UKG Ready login URL, without https:// or a path. The default preserves the server previously used by existing connections; change it if your company uses another server."
+          }
+        ],
+        "requestHeaders": [
+          {
+            "name": "Api-Key",
+            "template": "<apiKey>"
+          }
+        ]
+      },
+      {
+        "type": "oAuth2",
+        "name": "OAuth2 (M2M)",
+        "description": "Connect using your company's UKG Ready hostname and Machine to Machine OAuth application.",
+        "documentationUrl": "https://secure.saashr.com/ta/docs/rest/public/Client_id_and_secret.html",
+        "credentials": [
+          {
+            "key": "companyId",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The API company ID provided by your UKG Ready administrator."
+          },
+          {
+            "key": "hostname",
+            "name": "Hostname",
+            "dataType": "string",
+            "required": true,
+            "description": "Copy the hostname from your UKG Ready login URL, without https:// or any path. Use your own company's server."
+          }
+        ],
+        "oauth": {
+          "accessTokenUrl": "https://{{credentials.hostname}}/ta/rest/v2/companies/{{credentials.companyId}}/oauth2/token",
+          "accessTokenMethod": "POST",
+          "refreshTokens": true,
+          "machineToMachine": true
+        },
+        "setupGuide": {
+          "title": "Connect UKG Ready with machine-to-machine access",
+          "beforeYouBegin": "You need your company's UKG Ready login URL and API company ID, plus an administrator who can manage OAuth Applications.",
+          "docsUrl": "https://secure.saashr.com/ta/docs/rest/public/Client_id_and_secret.html",
+          "steps": [
+            {
+              "title": "Enter your company's hostname and company ID",
+              "description": "From your UKG Ready login URL, copy only the hostname into Hostname in the connection form. Do not include https:// or the path after the hostname. Enter the API company ID supplied by your UKG Ready administrator into Company ID."
+            },
+            {
+              "title": "Open OAuth Applications",
+              "description": "In UKG Ready, open the OAuth Applications widget in Company Setup.",
+              "breadcrumb": [
+                "Settings",
+                "Global Setup",
+                "Company Setup",
+                "OAuth Applications"
+              ]
+            },
+            {
+              "title": "Create a Machine to Machine application",
+              "description": "Choose Machine to Machine as the application type and assign a security profile with permission to access the data your integration needs. Copy its Client ID and Client Secret into the connection form, then click Connect."
+            }
+          ]
+        }
+      }
+    ],
+    "nativeApis": [
+      {
+        "name": "REST",
+        "type": "rest",
+        "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          }
+        ],
+        "responses": [
+          {
+            "parser": "auto",
+            "dataKey": "input.data",
+            "dataRootKey": "input.data"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "name": "Create Time Punches",
+        "slug": "create-time-punches",
+        "operation": "create",
+        "method": "POST",
+        "model": "timesheetEntry",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "POST",
+          "path": "/v2/companies/:cid/time-punches/collection",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "punches[].cost_centers[].index",
+              "name": "index",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].cost_centers[].value.id",
+              "name": "id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].employee",
+              "name": "employee",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].employee.account_id",
+              "name": "account_id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[]",
+              "name": "punches",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].cost_centers[].value",
+              "name": "value",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].employee.badge_id",
+              "name": "badge_id",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].ip",
+              "name": "ip",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].timestamp",
+              "name": "timestamp",
+              "dataType": "date",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "punches[].timestamp_type",
+              "name": "timestamp_type",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].raw_type",
+              "name": "raw_type",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "punches[].latitude",
+              "name": "latitude",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].longitude",
+              "name": "longitude",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].cost_centers[]",
+              "name": "cost_centers",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].device_id",
+              "name": "device_id",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].terminal_id",
+              "name": "terminal_id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "punches[].status",
+              "name": "status",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "punches[].cost_centers[].index",
+            "name": "index",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "punches[].cost_centers[].value.id",
+            "name": "id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "punches[].employee",
+            "name": "employee",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "punches[].employee.account_id",
+            "name": "account_id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "punches[]",
+            "name": "punches",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "punches[].cost_centers[].value",
+            "name": "value",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "punches[].employee.badge_id",
+            "name": "badge_id",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "punches[].ip",
+            "name": "ip",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "punches[].timestamp",
+            "name": "timestamp",
+            "dataType": "date",
+            "required": true
+          },
+          {
+            "key": "punches[].timestamp_type",
+            "name": "timestamp_type",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "punches[].raw_type",
+            "name": "raw_type",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true
+          },
+          {
+            "key": "punches[].latitude",
+            "name": "latitude",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "punches[].longitude",
+            "name": "longitude",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "punches[].cost_centers[]",
+            "name": "cost_centers",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "punches[].device_id",
+            "name": "device_id",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "punches[].terminal_id",
+            "name": "terminal_id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "punches[].status",
+            "name": "status",
+            "dataType": "number",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "employee.accountId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "endDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "startDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].approvalStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].calcTotal",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].value.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].date",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].isCalc",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].isRaw",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].total",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Delete Time Entry",
+        "slug": "delete-time-entry",
+        "operation": "delete",
+        "method": "DELETE",
+        "model": "timesheetEntry",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "DELETE",
+          "path": "/v2/companies/:cid/time-entries/:time_entry_id",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "time_entry_id",
+              "name": "time_entry_id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "time_entry_id",
+            "name": "time_entry_id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "employee.accountId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "endDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "startDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].approvalStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].calcTotal",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].value.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].date",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].isCalc",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].isRaw",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].total",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Get Account Assignments",
+        "slug": "get-account-assignments",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/position/assignments/:accountId",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "accountId",
+              "name": "Account Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "accountId",
+            "name": "Account Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Compensation per company",
+        "slug": "get-compensation-per-company",
+        "operation": "read",
+        "method": "GET",
+        "model": "payment",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/compensation/total",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Employee",
+        "slug": "get-employee",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:aid",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "aid",
+              "internalKey": "accountID",
+              "name": "Account ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "accountID",
+            "name": "Account ID",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "accountExtraFields[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "accountExtraFields[].values[].value",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "address.addressLine1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "address.city",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "address.country",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "address.state",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "address.zip",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "addToNewHireExport",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "costCentersInfo.defaults[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "costCentersInfo.defaults[].value.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "dates.birthday",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "dates.hired",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "dates.seniority",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "dates.started",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "ein.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "employeeId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "firstName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "firstScreen.id",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "forceChangePassword",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "lastName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Links.profiles",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Links.self",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "locked",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "managedCostCentersEnabled",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "managers[].emplRef.accountId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "managers[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "nationalIdNumbers[].primary",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "nationalIdNumbers[].type",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "nationalIdNumbers[].value",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "phones.cellPhone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "phones.cellPhoneCountryCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "phones.cellPhoneCountryId",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "phones.preferredPhone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "primaryEmail",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "secondaryEmail",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "socialSecurity",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timezone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "username",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "useSeparateMailingAddress",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "Get Employee Attendance",
+        "slug": "get-employee-attendance",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId/attendance",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Employee Badges",
+        "slug": "get-employee-badges",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId/badges",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Employee Contact",
+        "slug": "get-employee-contact",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId/contacts",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Employee Demographics",
+        "slug": "get-employee-demographics",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId/demographics",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Employee Detail",
+        "slug": "get-employee-detail",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Employee Pay Info",
+        "slug": "get-employee-pay-info",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId/pay-info",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Employee Profiles",
+        "slug": "get-employee-profiles",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId/profiles",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Get Pay Types",
+        "slug": "get-pay-types",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.payroll",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public/",
+        "native": {
+          "method": "GET",
+          "path": "/v1/employee/accrual-balances",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "payTypes[].id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "payTypes[].name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "payTypes[].orderIndex",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Cost Centers",
+        "slug": "list-cost-centers",
+        "operation": "read",
+        "method": "GET",
+        "model": "branch",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/config/cost-centers",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "tree_index",
+              "name": "Tree Index",
+              "dataType": "number",
+              "location": "query",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "tree_index",
+            "name": "Tree Index",
+            "dataType": "number",
+            "required": false,
+            "defaultValue": "0"
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "List Employee Time Entries",
+        "slug": "list-employee-time-entries",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/employees/:employeeId/time-entries",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "start_date",
+              "internalKey": "startDate",
+              "name": "Start Date",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "minimum date of time entry. Example: 2016-05-01"
+            },
+            {
+              "key": "end_date",
+              "internalKey": "endDate",
+              "name": "End Date",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "maximum date of time entry. Example: 2016-05-30"
+            },
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "is_light",
+              "internalKey": "isLight",
+              "name": "Is Light",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "Use light request containing only raw time entry data, no calculated time."
+            },
+            {
+              "key": "employeeId",
+              "name": "Employee Id",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "startDate",
+            "name": "Start Date",
+            "dataType": "string",
+            "required": false,
+            "description": "minimum date of time entry. Example: 2016-05-01"
+          },
+          {
+            "key": "endDate",
+            "name": "End Date",
+            "dataType": "string",
+            "required": false,
+            "description": "maximum date of time entry. Example: 2016-05-30"
+          },
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "isLight",
+            "name": "Is Light",
+            "dataType": "boolean",
+            "required": false,
+            "description": "Use light request containing only raw time entry data, no calculated time."
+          },
+          {
+            "key": "employeeId",
+            "name": "Employee Id",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "employee.accountId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "endDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "startDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].approvalStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].calcTotal",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].value.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].date",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].isCalc",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].isRaw",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].total",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Employees",
+        "slug": "list-employees",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:resolvedCid/employees/",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false,
+              "description": "Leave blank to use the company from your connection. Enter a Company ID or !short_name to override it."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false,
+            "description": "Leave blank to use the company from your connection. Enter a Company ID or !short_name to override it.",
+            "example": "Uses the connected company",
+            "defaultValue": "{{credentials.companyId}}"
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "List Jobs",
+        "slug": "list-jobs",
+        "operation": "read",
+        "method": "GET",
+        "model": "hris.employee",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/lookup/jobs",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "visible",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "List Time Entries",
+        "slug": "list-time-entries",
+        "operation": "read",
+        "method": "GET",
+        "model": "timesheetEntry",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "GET",
+          "path": "/v2/companies/:cid/time-entries",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "start_date",
+              "internalKey": "startDate",
+              "name": "Start Date",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "minimum date of time entry. Example: 2016-05-01"
+            },
+            {
+              "key": "end_date",
+              "internalKey": "endDate",
+              "name": "End Date",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "maximum date of time entry. Example: 2016-05-30"
+            },
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "is_light",
+              "internalKey": "isLight",
+              "name": "Is Light",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "Use light request containing only raw time entry data, no calculated time."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "startDate",
+            "name": "Start Date",
+            "dataType": "string",
+            "required": false,
+            "description": "minimum date of time entry. Example: 2016-05-01"
+          },
+          {
+            "key": "endDate",
+            "name": "End Date",
+            "dataType": "string",
+            "required": false,
+            "description": "maximum date of time entry. Example: 2016-05-30"
+          },
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "isLight",
+            "name": "Is Light",
+            "dataType": "boolean",
+            "required": false,
+            "description": "Use light request containing only raw time entry data, no calculated time."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "employee.accountId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "endDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "startDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].approvalStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].calcTotal",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].value.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].date",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].isCalc",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].isRaw",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].total",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Update Time Entries",
+        "slug": "update-time-entries",
+        "operation": "update",
+        "method": "PUT",
+        "model": "timesheetEntry",
+        "documentationUrl": "https://secure7.saashr.com/ta/docs/rest/public",
+        "native": {
+          "method": "PUT",
+          "path": "/v2/companies/:cid/time-entries/collection",
+          "baseUrl": "https://{{credentials.hostname}}/ta/rest",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "cid",
+              "internalKey": "companyID",
+              "name": "Company ID",
+              "dataType": "string",
+              "location": "param",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].employee",
+              "name": "employee",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].employee.account_id",
+              "name": "account_id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].cost_centers[].index",
+              "name": "index",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].cost_centers[].value.id",
+              "name": "id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].pay_category.id",
+              "name": "id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].premium_shift.id",
+              "name": "id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].time_off.id",
+              "name": "id",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[]",
+              "name": "time_entry_sets",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].cost_centers[]",
+              "name": "cost_centers",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].cost_centers[].value",
+              "name": "value",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].type",
+              "name": "type",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "partial_update",
+              "name": "partial_update",
+              "dataType": "boolean",
+              "location": "query",
+              "required": false,
+              "description": "Use to update entries within the specified time range, instead of replacing them."
+            },
+            {
+              "key": "time_entry_sets[].end_date",
+              "name": "end_date",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+            },
+            {
+              "key": "time_entry_sets[].start_date",
+              "name": "start_date",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].date",
+              "name": "date",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].start_time",
+              "name": "start_time",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "(date-time)"
+            },
+            {
+              "key": "time_entry_sets[].time_entries[]",
+              "name": "time_entries",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].end_time",
+              "name": "end_time",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "(date-time)"
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].total",
+              "name": "total",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].time_off",
+              "name": "time_off",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].pay_category",
+              "name": "pay_category",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].premium_shift",
+              "name": "premium_shift",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].piecework",
+              "name": "piecework",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].amount",
+              "name": "amount",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].from",
+              "name": "from",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+            },
+            {
+              "key": "time_entry_sets[].time_entries[].to",
+              "name": "to",
+              "dataType": "date",
+              "location": "body",
+              "required": false,
+              "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "companyID",
+            "name": "Company ID",
+            "dataType": "string",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].employee",
+            "name": "employee",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].employee.account_id",
+            "name": "account_id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].cost_centers[].index",
+            "name": "index",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].cost_centers[].value.id",
+            "name": "id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].pay_category.id",
+            "name": "id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].premium_shift.id",
+            "name": "id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].time_off.id",
+            "name": "id",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[]",
+            "name": "time_entry_sets",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].cost_centers[]",
+            "name": "cost_centers",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].cost_centers[].value",
+            "name": "value",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].type",
+            "name": "type",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false
+          },
+          {
+            "key": "partial_update",
+            "name": "partial_update",
+            "dataType": "boolean",
+            "required": false,
+            "description": "Use to update entries within the specified time range, instead of replacing them."
+          },
+          {
+            "key": "time_entry_sets[].end_date",
+            "name": "end_date",
+            "dataType": "date",
+            "required": false,
+            "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+          },
+          {
+            "key": "time_entry_sets[].start_date",
+            "name": "start_date",
+            "dataType": "date",
+            "required": false,
+            "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].date",
+            "name": "date",
+            "dataType": "date",
+            "required": false,
+            "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].start_time",
+            "name": "start_time",
+            "dataType": "date",
+            "required": false,
+            "description": "(date-time)"
+          },
+          {
+            "key": "time_entry_sets[].time_entries[]",
+            "name": "time_entries",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].end_time",
+            "name": "end_time",
+            "dataType": "date",
+            "required": false,
+            "description": "(date-time)"
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].total",
+            "name": "total",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].time_off",
+            "name": "time_off",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].pay_category",
+            "name": "pay_category",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].premium_shift",
+            "name": "premium_shift",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].piecework",
+            "name": "piecework",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].amount",
+            "name": "amount",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].from",
+            "name": "from",
+            "dataType": "date",
+            "required": false,
+            "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+          },
+          {
+            "key": "time_entry_sets[].time_entries[].to",
+            "name": "to",
+            "dataType": "date",
+            "required": false,
+            "description": "Date needs to be in the format yyyy-mm-dd within the 1900-12-31 and 2079-06-05 date range"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "employee.accountId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "endDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "startDate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].approvalStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].calcTotal",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].index",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].costCenters[].value.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].date",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "timeEntries[].id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].isCalc",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].isRaw",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "timeEntries[].total",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "timeEntries[].type",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      }
+    ],
+    "universalOpenApiPath": "apis/u/uKGReady/universal-api/openapi.json"
+  },
+  {
     "name": "Uku",
     "slug": "uku",
     "category": "Project Management",

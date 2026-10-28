@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3227 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3228 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -2827,6 +2827,7 @@ Machine-readable API descriptions for 3227 apps. Universal API specifications ar
 | [UiPath Orchestrator](../apis/u/uiPathOrchestrator) | [OpenAPI 3.1](../apis/u/uiPathOrchestrator/universal-api/openapi.json) |  |
 | [UK Bank Holidays](../apis/u/uKBankHolidays) | [OpenAPI 3.1](../apis/u/uKBankHolidays/universal-api/openapi.json) |  |
 | [UK Check VAT](../apis/u/uKCheckVAT) | [OpenAPI 3.1](../apis/u/uKCheckVAT/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/hmrc/vat-registered-companies-api/main/public/api/conf/2.0/application.yaml) |
+| [UKG Ready](../apis/u/uKGReady) | [OpenAPI 3.1](../apis/u/uKGReady/universal-api/openapi.json) |  |
 | [Uku](../apis/u/uku) | [OpenAPI 3.1](../apis/u/uku/universal-api/openapi.json) | [Provider OpenAPI](https://app.getuku.com/docs/sandbox/api.json) |
 | [Umami](../apis/u/umami) | [OpenAPI 3.1](../apis/u/umami/universal-api/openapi.json) |  |
 | [Umbler Talk](../apis/u/umblerTalk) | [OpenAPI 3.1](../apis/u/umblerTalk/universal-api/openapi.json) | [Provider OpenAPI](https://app-utalk.umbler.com/api/docs/v1/docs.json) |
