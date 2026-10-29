@@ -57,6 +57,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `page` | number | no | Default: `1`. |
 | `modifiedOnOrAfter` | string | no |  |
 | `externalDataApplicationGuid` | string | no |  |
+| `createdOnOrAfter` | string | no |  |
+| `createdBefore` | string | no |  |
+| `modifiedBefore` | string | no |  |
 
 ## Response
 

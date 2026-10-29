@@ -69,7 +69,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions
 | [Batch Upsert Contacts](actions/batch-upsert-contacts.md) | PUT |  |
 | [Delete Contact by ID](actions/delete-contact-by-id.md) | DELETE | Deletes an existing contact from HubSpot. |
 | [Get Contact by ID](actions/get-contact-by-id.md) | GET | Retrieves a contact from HubSpot by ID. |
-| [Get Listing By ID](actions/get-listing-by-id.md) | GET | Retrieves a listing from HubSpot by ID. |
+| [Get Object Record by ID](actions/get-listing-by-id.md) | GET | Retrieves a listing from HubSpot by ID. |
 | [List Company Contacts](actions/list-company-contacts.md) | GET | Retrieves contacts associated with a HubSpot company. |
 | [List Company Contacts v2026-03](actions/list-company-contacts-v202603.md) | GET | Retrieves company contacts from HubSpot using the 2026-03 API. |
 | [List Contacts](actions/list-contacts.md) | GET | Retrieves contacts from HubSpot. |

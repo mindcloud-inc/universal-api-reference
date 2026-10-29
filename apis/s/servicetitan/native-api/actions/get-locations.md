@@ -32,3 +32,6 @@ This operation supports [pagination](../README.md#pagination).
 | `page` | query | `number` | no | — |
 | `modifiedOnOrAfter` | query | `string` | no | — |
 | `externalDataApplicationGuid` | query | `string` | no | — |
+| `createdOnOrAfter` | query | `string` | no | — |
+| `createdBefore` | query | `string` | no | — |
+| `modifiedBefore` | query | `string` | no | — |

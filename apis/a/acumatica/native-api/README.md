@@ -1,6 +1,6 @@
 # Acumatica: Native API Reference
 
-A consolidated summary of Acumatica's API configuration and 59 documented operations, with links to official documentation.
+A consolidated summary of Acumatica's API configuration and 61 documented operations, with links to official documentation.
 
 - **Official docs:** https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
 - **API base URL:** `{uRL}`
@@ -33,10 +33,11 @@ Shared headers:
 
 Use `$top` in the query string to set the page size (default 25; accepted range 1–5000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (59 documented)
+## Endpoints (61 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
+| [Activate Project](actions/activate-project.md) | `PUT /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Project` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Project/Make-a-Project-Active) |
 | [Cancel Sales Order](actions/cancel-sales-order.md) | `POST /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/SalesOrder/CancelSalesOrder` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
 | [Confirm Shipment](actions/confirm-shipment.md) | `POST /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Shipment/ConfirmShipment` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
 | [Correct Shipment](actions/correct-shipment.md) | `POST /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Shipment/CorrectShipment` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
@@ -83,6 +84,7 @@ Use `$top` in the query string to set the page size (default 25; accepted range 
 | [List Vendors](actions/list-vendors.md) | `GET /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Vendor` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-Records-by-Conditions) |
 | [Create Project](actions/new-action1.md) | `PUT /entity/:webServiceEndpoint/:endpointVersion/Project` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Project/Create-a-Project-from-a-Project-Template?contentId=wJATI0KrOKqQ~ad2W48pHQ) |
 | [Prepare Invoice from Shipment](actions/prepare-invoice-from-shipment.md) | `POST /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Shipment/PrepareInvoice` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
+| [Project Budget](actions/project-budget.md) | `PUT /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/ProjectBudget` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/ProjectBudget/Specify-the-Progress-of-a-Project-Task) |
 | [Purchase Receipt](actions/purchase-receipt.md) | `PUT /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/PurchaseReceipt` | [docs](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb) |
 | [Release Payment](actions/release-payment.md) | `POST /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Payment/ReleasePayment` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
 | [Release Purchase Receipt](actions/release-purchase-receipt.md) | `POST /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/PurchaseReceipt/ReleasePurchaseReceipt` | [docs](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb) |

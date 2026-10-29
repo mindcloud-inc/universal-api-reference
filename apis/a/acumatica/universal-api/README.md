@@ -4,7 +4,7 @@ An intuitive Cloud ERP system to power your whole business.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/acumatica/latest
 - **Category:** Commerce / ERP
-- **Actions:** 59
+- **Actions:** 61
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.acumatica.com/
 - **Vendor API docs:** https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (59)
+## Actions (61)
 
 ### Bill
 
@@ -92,6 +92,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 | --- | --- | --- |
 | [Create Payment Link](actions/create-payment-link.md) | POST | Creates a Payment Link for an Sales Order |
 
+### Project Budget
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Project Budget](actions/project-budget.md) | PUT | Update a project budget line’s completion percentage and pending invoice amount in Acumatica. |
+
 ### Project Task
 
 | Action | Method | Description |
@@ -103,6 +109,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Activate Project](actions/activate-project.md) | PUT | Make an existing Acumatica project active by setting Hold to false. |
 | [Get File](actions/get-file.md) | GET | Retrieve a base64 encoded file content using Acumatica the '/files/{id}' Endpoint. |
 | [Get Project Balance](actions/get-project-balance.md) | GET |  |
 | [Get Project by ID](actions/get-project-by-id.md) | GET |  |

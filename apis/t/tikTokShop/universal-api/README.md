@@ -3,7 +3,7 @@
 TikTok Shop through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/tikTokShop/latest
-- **Actions:** 23
+- **Actions:** 33
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://partner.tiktokshop.com/docv2/page/666012dd609d4402cc3be995?external_id=666012dd609d4402cc3be995
 
@@ -20,7 +20,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/tikTokShop/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (23)
+## Actions (33)
+
+### Aftersales Requests
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Search Aftersales Requests](actions/search-aftersales-requests.md) | GET |  |
 
 ### Authorized Shops
 
@@ -29,6 +35,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/tikTokShop/latest/actions
 | [Get Authorized Shops](actions/get-authorized-shops.md) | GET |  |
 | [Get Order Detail](actions/get-order-detail.md) | GET |  |
 | [Get Package Shipping Document (v2)](actions/get-package-shipping-document-v2.md) | GET |  |
+
+### Cancellations
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Search Cancellations](actions/search-cancellations.md) | GET |  |
 
 ### Cash Flow Statement Reports
 
@@ -99,6 +111,29 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/tikTokShop/latest/actions
 | [Create Product](actions/create-product.md) | POST |  |
 | [Get Product](actions/get-product.md) | GET | Retrieve all properties of a product that is in the DRAFT, PENDING, or ACTIVATE status. |
 | [Search Products](actions/search-products.md) | GET |  |
+
+### Refunds
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Calculate Refund](actions/calculate-refund.md) | GET |  |
+
+### Return Merchandise Authorizations
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Search Return Merchandise Authorizations](actions/search-return-merchandise-authorizations.md) | GET |  |
+
+### Returns
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Aftersale Eligibility](actions/get-aftersale-eligibility.md) | GET |  |
+| [Get Available Review Decisions](actions/get-available-review-decisions.md) | GET |  |
+| [Get Decision Eligibility](actions/get-decision-eligibility.md) | GET |  |
+| [Get Reject Reasons](actions/get-reject-reasons.md) | GET |  |
+| [Get Return Records](actions/get-return-records.md) | GET |  |
+| [Search Returns](actions/search-returns.md) | GET |  |
 
 ### Sales Orders
 

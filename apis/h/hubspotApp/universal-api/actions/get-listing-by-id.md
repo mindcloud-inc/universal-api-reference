@@ -1,4 +1,4 @@
-# HubSpot: Get Listing By ID
+# HubSpot: Get Object Record by ID
 
 Retrieves a listing from HubSpot by ID.
 
@@ -11,14 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a HubSpot 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/get-listing-by-id?connectionId=$CONNECTION_ID&objectTypeId=string&objectId=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/hubspotApp/latest/actions/get-listing-by-id?connectionId=$CONNECTION_ID&objectTypeId=2-123456&objectId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
-  "objectTypeId": "string",
+  "objectTypeId": "2-123456",
   "objectId": "string"
 });
 
@@ -37,9 +37,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `objectTypeId` | string | yes | The Object Type ID. |
-| `objectId` | string | yes |  |
-| `properties[]` | array<string> | no |  |
+| `objectTypeId` | string | yes | The object type, for example contacts, companies, or a custom object type ID like 2-123456; also accepts the fully qualified name, like p123456_my_object. Example: `2-123456`. |
+| `objectId` | string | yes | The ID of the record to read. |
+| `properties[]` | array<string> | no | Internal property names to include in the response. |
 
 ## Response
 

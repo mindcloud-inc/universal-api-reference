@@ -27,8 +27,8 @@ Create Property
 | `StateProvinceCode` | body | `string` | no | Enter a US state, US territory, or Canadian province. Use the two-letter UPS code (e.g., "IL" for Illinois, "ON" for Ontario) or enter the full name and we'll convert it to the two-letter code based on the input. Reference this list for available options: https://www.ups.com/worldshiphelp/WSA/ENU/AppHelp/mergedProjects/CORE/Codes/State_Province_Codes.htm |
 | `ZipCode` | body | `string` | no | — |
 | `Active` | body | `boolean` | no | Format: `toggle`. |
-| `PaperlessInvoices` | body | `boolean` | no | Format: `toggle`. |
-| `EmailInvoiceFlag` | body | `boolean` | no | Format: `toggle`. |
+| `SeparateInvoices` | body | `boolean` | no | Format: `toggle`. |
+| `EmailInvoiceFlag` | body | `boolean` | no | Set to true to enable paperless invoices. Format: `toggle`. |
 | `LeadSourceID` | body | `number` | no | — |
 | `IndustryID` | body | `number` | no | — |
 | `BillingContactID` | body | `list<number>` | no | — |

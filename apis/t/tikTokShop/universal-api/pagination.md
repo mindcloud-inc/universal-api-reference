@@ -20,4 +20,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/tikTokShop/latest/actions
 
 - [Get Order List](actions/get-order-list.md)
 - [Get Transactions by Statement](actions/get-transactions-by-statement.md)
+- [Search Aftersales Requests](actions/search-aftersales-requests.md)
+- [Search Cancellations](actions/search-cancellations.md)
 - [Search Products](actions/search-products.md)
+- [Search Return Merchandise Authorizations](actions/search-return-merchandise-authorizations.md)
+- [Search Returns](actions/search-returns.md)

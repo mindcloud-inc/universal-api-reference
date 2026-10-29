@@ -58,8 +58,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `StateProvinceCode` | string | no | Enter a US state, US territory, or Canadian province. Use the two-letter UPS code (e.g., "IL" for Illinois, "ON" for Ontario) or enter the full name and we'll convert it to the two-letter code based on the input. Reference this list for available options: https://www.ups.com/worldshiphelp/WSA/ENU/AppHelp/mergedProjects/CORE/Codes/State_Province_Codes.htm |
 | `ZipCode` | string | no |  |
 | `Active` | boolean | no |  |
-| `PaperlessInvoices` | boolean | no |  |
-| `EmailInvoiceFlag` | boolean | no |  |
+| `separateInvoices` | boolean | no |  |
+| `EmailInvoiceFlag` | boolean | no | Set to true to enable paperless invoices. |
 | `LeadSourceID` | number | no |  |
 | `IndustryID` | number | no |  |
 | `BillingContactID` | list<number> | no |  |

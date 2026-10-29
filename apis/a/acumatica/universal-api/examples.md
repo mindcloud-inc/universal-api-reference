@@ -52,23 +52,22 @@ Example response:
 
 See the full [List Acumatica Endpoints action reference](actions/get-acumatica-erp-endpoints.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/acumatica/latest/actions/get-acumatica-erp-endpoints).
 
-## Cancel Sales Order
+## Activate Project
 
-
+Make an existing Acumatica project active by setting Hold to false.
 
 ```bash
-curl -X PUT "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/cancel-sales-order" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/activate-project" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "entity.OrderType.value": "string",
-  "entity.OrderNbr.value": "string"
+  "projectId.value": "string"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/cancel-sales-order', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/activate-project', {
   method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -76,8 +75,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/acumatic
   },
   body: JSON.stringify({
     connectionId,
-    "entity.OrderType.value": "string",
-    "entity.OrderNbr.value": "string"
+    "projectId.value": "string"
   })
 });
 
@@ -89,13 +87,9 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "success": true
-    }
-  ],
+  "data": [],
   "meta": {}
 }
 ```
 
-See the full [Cancel Sales Order action reference](actions/cancel-sales-order.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/acumatica/latest/actions/cancel-sales-order).
+See the full [Activate Project action reference](actions/activate-project.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/acumatica/latest/actions/activate-project).
