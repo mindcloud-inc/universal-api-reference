@@ -13,6 +13,8 @@ Creates a draft message in Microsoft 365 Outlook.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `toRecipients[].emailAddress.address` | body | `string` | no | The email address to add as the draft recipient. |
+| `toRecipients` | body | `string` | no | Comma-separated email addresses to add as draft recipients. Example: person@example.com, other@example.com |
+| `ccRecipients` | body | `string` | no | Comma-separated email addresses to CC on the draft. Example: person@example.com, other@example.com |
 | `subject` | body | `string` | no | The draft email subject line. |
 | `body.content` | body | `string` | no | The draft email body content. |
+| `body.contentType` | body | `list` | no | The format of the draft body. Set to HTML when the body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text). Accepted values: `HTML`, `Text`. |

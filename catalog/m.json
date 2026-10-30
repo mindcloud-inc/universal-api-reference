@@ -248317,12 +248317,14 @@
   {
     "name": "Microsoft 365 Outlook",
     "slug": "microsoft365Outlook",
+    "category": "Email Communications",
+    "categoryGroup": "Communication",
     "description": "Access Microsoft 365 Outlook mail through Microsoft Graph, including messages, folders, attachments, replies, forwarding, and sending mail for the signed-in user.",
     "iconUrl": "https://images.mindcloud.co/apps/icons/microsoft-icon_1776116500237.png",
     "websiteUrl": "https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook",
     "nativeBaseUrl": "https://graph.microsoft.com",
     "nativeDocumentationUrl": "https://learn.microsoft.com/en-us/graph/use-the-api",
-    "version": "0.0.8",
+    "version": "0.0.11",
     "authentication": [
       {
         "type": "oAuth2",
@@ -248567,12 +248569,20 @@
           "apiType": "rest",
           "arguments": [
             {
-              "key": "toRecipients[].emailAddress.address",
-              "name": "To Email",
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
               "dataType": "string",
               "location": "body",
               "required": false,
-              "description": "The email address to add as the draft recipient."
+              "description": "Comma-separated email addresses to add as draft recipients. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Comma-separated email addresses to CC on the draft. Example: person@example.com, other@example.com"
             },
             {
               "key": "subject",
@@ -248589,6 +248599,18 @@
               "location": "body",
               "required": false,
               "description": "The draft email body content."
+            },
+            {
+              "key": "body.contentType",
+              "name": "Body Type",
+              "dataType": "list",
+              "location": "body",
+              "required": false,
+              "description": "The format of the draft body. Set to HTML when the body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+              "enumValues": [
+                "HTML",
+                "Text"
+              ]
             }
           ]
         },
@@ -248599,12 +248621,20 @@
         },
         "arguments": [
           {
-            "key": "toRecipients[].emailAddress.address",
-            "name": "To Email",
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
             "dataType": "string",
             "required": false,
-            "description": "The email address to add as the draft recipient.",
-            "example": "jamie@mindcloud.co"
+            "description": "Comma-separated email addresses to add as draft recipients. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Comma-separated email addresses to CC on the draft. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           },
           {
             "key": "subject",
@@ -248621,6 +248651,19 @@
             "required": false,
             "description": "The draft email body content.",
             "example": "This is a draft email created by the MindCloud Microsoft 365 Outlook app."
+          },
+          {
+            "key": "body.contentType",
+            "name": "Body Type",
+            "dataType": "list",
+            "required": false,
+            "advanced": true,
+            "description": "The format of the draft body. Set to HTML when the body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+            "defaultValue": "Text",
+            "enumValues": [
+              "HTML",
+              "Text"
+            ]
           }
         ],
         "responseSchema": [
@@ -248634,6 +248677,172 @@
             "key": "id",
             "dataType": "string",
             "description": "The created draft message ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "subject",
+            "dataType": "string",
+            "description": "The draft subject line.",
+            "mockType": "string"
+          },
+          {
+            "key": "webLink",
+            "dataType": "string",
+            "description": "A link to open the draft in Outlook on the web.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Forward Draft",
+        "slug": "create-forward-draft",
+        "operation": "create",
+        "method": "POST",
+        "model": "message",
+        "group": "Messages",
+        "description": "Creates a draft forward of a message in Microsoft 365 Outlook, without sending it. Use Update Draft Message to change recipients, CC, subject, or body, then Send Draft Message to send it.",
+        "documentationUrl": "https://learn.microsoft.com/en-us/graph/api/message-createforward?view=graph-rest-1.0",
+        "native": {
+          "method": "POST",
+          "path": "/v1.0/me/messages/{{messageId}}/createForward",
+          "baseUrl": "https://graph.microsoft.com",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "messageId",
+              "name": "Message ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The ID of the Outlook message to create a forward draft for."
+            },
+            {
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Comma-separated email addresses to forward the draft to. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "comment",
+              "name": "Comment",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional text to include above the forwarded message."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "messageId",
+            "name": "Message ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The ID of the Outlook message to create a forward draft for.",
+            "example": "AAMkAG..."
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": true,
+            "description": "Comma-separated email addresses to forward the draft to. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "comment",
+            "name": "Comment",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional text to include above the forwarded message.",
+            "example": "Forwarding this message from the MindCloud Microsoft 365 Outlook app."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "bodyPreview",
+            "dataType": "string",
+            "description": "A text preview of the draft body.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The created forward draft message ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "subject",
+            "dataType": "string",
+            "description": "The draft subject line.",
+            "mockType": "string"
+          },
+          {
+            "key": "webLink",
+            "dataType": "string",
+            "description": "A link to open the draft in Outlook on the web.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Reply Draft",
+        "slug": "create-reply-draft",
+        "operation": "create",
+        "method": "POST",
+        "model": "message",
+        "group": "Messages",
+        "description": "Creates a draft reply to a message in Microsoft 365 Outlook, without sending it. The draft is pre-addressed to the original sender. Use Update Draft Message to change recipients, CC, subject, or body, then Send Draft Message to send it.",
+        "documentationUrl": "https://learn.microsoft.com/en-us/graph/api/message-createreply?view=graph-rest-1.0",
+        "native": {
+          "method": "POST",
+          "path": "/v1.0/me/messages/{{messageId}}/createReply",
+          "baseUrl": "https://graph.microsoft.com",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "messageId",
+              "name": "Message ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The ID of the Outlook message to create a reply draft for."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "messageId",
+            "name": "Message ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The ID of the Outlook message to create a reply draft for.",
+            "example": "AAMkAG..."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "bodyPreview",
+            "dataType": "string",
+            "description": "A text preview of the draft body.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The created reply draft message ID.",
             "mockType": "string"
           },
           {
@@ -248717,12 +248926,12 @@
               "description": "The ID of the Outlook message to forward."
             },
             {
-              "key": "toRecipients[].emailAddress.address",
-              "name": "To Email",
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
               "dataType": "string",
               "location": "body",
-              "required": false,
-              "description": "The email address to forward the message to."
+              "required": true,
+              "description": "Comma-separated email addresses to forward the message to. Example: person@example.com, other@example.com"
             },
             {
               "key": "comment",
@@ -248750,12 +248959,12 @@
             "example": "AAMkAG..."
           },
           {
-            "key": "toRecipients[].emailAddress.address",
-            "name": "To Email",
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
             "dataType": "string",
-            "required": false,
-            "description": "The email address to forward the message to.",
-            "example": "jamie@mindcloud.co"
+            "required": true,
+            "description": "Comma-separated email addresses to forward the message to. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           },
           {
             "key": "comment",
@@ -249582,6 +249791,24 @@
               "location": "body",
               "required": false,
               "description": "Optional text to include in the reply-all."
+            },
+            {
+              "key": "message.toRecipients",
+              "internalKey": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to override who the reply-all is sent to, instead of the original message's sender/replyTo/recipients. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "message.ccRecipients",
+              "internalKey": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to CC on the reply-all. Example: person@example.com, other@example.com"
             }
           ]
         },
@@ -249607,6 +249834,22 @@
             "required": false,
             "description": "Optional text to include in the reply-all.",
             "example": "Thanks everyone - this is a reply-all test from the MindCloud Microsoft 365 Outlook app."
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to override who the reply-all is sent to, instead of the original message's sender/replyTo/recipients. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to CC on the reply-all. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           }
         ],
         "responseSchema": []
@@ -249641,6 +249884,24 @@
               "location": "body",
               "required": false,
               "description": "Optional text to include in the reply."
+            },
+            {
+              "key": "message.toRecipients",
+              "internalKey": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to override who the reply is sent to, instead of the original message's sender/replyTo. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "message.ccRecipients",
+              "internalKey": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to CC on the reply. Example: person@example.com, other@example.com"
             }
           ]
         },
@@ -249666,6 +249927,22 @@
             "required": false,
             "description": "Optional text to include in the reply.",
             "example": "Thanks - this is a reply test from the MindCloud Microsoft 365 Outlook app."
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to override who the reply is sent to, instead of the original message's sender/replyTo. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to CC on the reply. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           }
         ],
         "responseSchema": []
@@ -249871,6 +250148,34 @@
               "location": "body",
               "required": false,
               "description": "Updated message body content. This is most useful when editing a draft message."
+            },
+            {
+              "key": "body.contentType",
+              "name": "Body Type",
+              "dataType": "list",
+              "location": "body",
+              "required": false,
+              "description": "The format of the updated body. Only set this when you are also changing the body content — leaving it unset preserves the draft's existing format. Set to HTML when the new body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+              "enumValues": [
+                "HTML",
+                "Text"
+              ]
+            },
+            {
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Comma-separated email addresses to set as the draft's recipients, replacing any existing To recipients. This is most useful when editing a draft message."
+            },
+            {
+              "key": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Comma-separated email addresses to set as the draft's CC recipients, replacing any existing CC recipients. This is most useful when editing a draft message."
             }
           ]
         },
@@ -249903,6 +250208,34 @@
             "required": false,
             "description": "Updated message body content. This is most useful when editing a draft message.",
             "example": "Updated message body content"
+          },
+          {
+            "key": "body.contentType",
+            "name": "Body Type",
+            "dataType": "list",
+            "required": false,
+            "advanced": true,
+            "description": "The format of the updated body. Only set this when you are also changing the body content — leaving it unset preserves the draft's existing format. Set to HTML when the new body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+            "enumValues": [
+              "HTML",
+              "Text"
+            ]
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Comma-separated email addresses to set as the draft's recipients, replacing any existing To recipients. This is most useful when editing a draft message.",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Comma-separated email addresses to set as the draft's CC recipients, replacing any existing CC recipients. This is most useful when editing a draft message.",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           }
         ],
         "responseSchema": [
@@ -280829,7 +281162,7 @@
     "iconUrl": "https://images.mindcloud.co/apps/icons/microsoft-exchange-2019-present_1776206436040.png",
     "nativeBaseUrl": "https://outlook.office365.com",
     "nativeDocumentationUrl": "https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0",
-    "version": "0.0.9",
+    "version": "0.0.12",
     "authentication": [
       {
         "type": "oAuth2",
@@ -281203,12 +281536,20 @@
           "apiType": "rest",
           "arguments": [
             {
-              "key": "toRecipients[].emailAddress.address",
-              "name": "To Email",
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
               "dataType": "string",
               "location": "body",
               "required": false,
-              "description": "The email address to add as the draft recipient."
+              "description": "Comma-separated email addresses to add as draft recipients. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Comma-separated email addresses to CC on the draft. Example: person@example.com, other@example.com"
             },
             {
               "key": "subject",
@@ -281225,6 +281566,18 @@
               "location": "body",
               "required": false,
               "description": "The draft email body content."
+            },
+            {
+              "key": "body.contentType",
+              "name": "Body Type",
+              "dataType": "list",
+              "location": "body",
+              "required": false,
+              "description": "The format of the draft body. Set to HTML when the body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+              "enumValues": [
+                "HTML",
+                "Text"
+              ]
             }
           ]
         },
@@ -281235,12 +281588,20 @@
         },
         "arguments": [
           {
-            "key": "toRecipients[].emailAddress.address",
-            "name": "To Email",
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
             "dataType": "string",
             "required": false,
-            "description": "The email address to add as the draft recipient.",
-            "example": "jamie@mindcloud.co"
+            "description": "Comma-separated email addresses to add as draft recipients. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Comma-separated email addresses to CC on the draft. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           },
           {
             "key": "subject",
@@ -281257,6 +281618,19 @@
             "required": false,
             "description": "The draft email body content.",
             "example": "This is a draft email created by the MindCloud Microsoft Exchange app."
+          },
+          {
+            "key": "body.contentType",
+            "name": "Body Type",
+            "dataType": "list",
+            "required": false,
+            "advanced": true,
+            "description": "The format of the draft body. Set to HTML when the body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+            "defaultValue": "Text",
+            "enumValues": [
+              "HTML",
+              "Text"
+            ]
           }
         ],
         "responseSchema": [
@@ -281270,6 +281644,172 @@
             "key": "id",
             "dataType": "string",
             "description": "The created draft message ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "subject",
+            "dataType": "string",
+            "description": "The draft subject line.",
+            "mockType": "string"
+          },
+          {
+            "key": "webLink",
+            "dataType": "string",
+            "description": "A link to open the draft in Outlook on the web.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Forward Draft",
+        "slug": "create-forward-draft",
+        "operation": "create",
+        "method": "POST",
+        "model": "message",
+        "group": "Messages",
+        "description": "Creates a draft forward of a message in Microsoft Exchange, without sending it. Use Update Draft Message to change recipients, CC, subject, or body, then Send Draft Message to send it.",
+        "documentationUrl": "https://learn.microsoft.com/en-us/graph/api/message-createforward?view=graph-rest-1.0",
+        "native": {
+          "method": "POST",
+          "path": "/v1.0/me/messages/{{messageId}}/createForward",
+          "baseUrl": "https://graph.microsoft.com",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "messageId",
+              "name": "Message ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The ID of the Exchange message to create a forward draft for."
+            },
+            {
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Comma-separated email addresses to forward the draft to. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "comment",
+              "name": "Comment",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional text to include above the forwarded message."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "messageId",
+            "name": "Message ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The ID of the Exchange message to create a forward draft for.",
+            "example": "AAMkAG..."
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": true,
+            "description": "Comma-separated email addresses to forward the draft to. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "comment",
+            "name": "Comment",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional text to include above the forwarded message.",
+            "example": "Forwarding this message from the MindCloud Microsoft Exchange app."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "bodyPreview",
+            "dataType": "string",
+            "description": "A text preview of the draft body.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The created forward draft message ID.",
+            "mockType": "string"
+          },
+          {
+            "key": "subject",
+            "dataType": "string",
+            "description": "The draft subject line.",
+            "mockType": "string"
+          },
+          {
+            "key": "webLink",
+            "dataType": "string",
+            "description": "A link to open the draft in Outlook on the web.",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "Create Reply Draft",
+        "slug": "create-reply-draft",
+        "operation": "create",
+        "method": "POST",
+        "model": "message",
+        "group": "Messages",
+        "description": "Creates a draft reply to a message in Microsoft Exchange, without sending it. The draft is pre-addressed to the original sender. Use Update Draft Message to change recipients, CC, subject, or body, then Send Draft Message to send it.",
+        "documentationUrl": "https://learn.microsoft.com/en-us/graph/api/message-createreply?view=graph-rest-1.0",
+        "native": {
+          "method": "POST",
+          "path": "/v1.0/me/messages/{{messageId}}/createReply",
+          "baseUrl": "https://graph.microsoft.com",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "messageId",
+              "name": "Message ID",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "The ID of the Exchange message to create a reply draft for."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "messageId",
+            "name": "Message ID",
+            "dataType": "string",
+            "required": true,
+            "description": "The ID of the Exchange message to create a reply draft for.",
+            "example": "AAMkAG..."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "bodyPreview",
+            "dataType": "string",
+            "description": "A text preview of the draft body.",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "The created reply draft message ID.",
             "mockType": "string"
           },
           {
@@ -281353,12 +281893,12 @@
               "description": "The ID of the Exchange message to forward."
             },
             {
-              "key": "toRecipients[].emailAddress.address",
-              "name": "To Email",
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
               "dataType": "string",
               "location": "body",
-              "required": false,
-              "description": "The email address to forward the message to."
+              "required": true,
+              "description": "Comma-separated email addresses to forward the message to. Example: person@example.com, other@example.com"
             },
             {
               "key": "comment",
@@ -281386,12 +281926,12 @@
             "example": "AAMkAG..."
           },
           {
-            "key": "toRecipients[].emailAddress.address",
-            "name": "To Email",
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
             "dataType": "string",
-            "required": false,
-            "description": "The email address to forward the message to.",
-            "example": "jamie@mindcloud.co"
+            "required": true,
+            "description": "Comma-separated email addresses to forward the message to. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           },
           {
             "key": "comment",
@@ -283562,6 +284102,24 @@
               "location": "body",
               "required": false,
               "description": "Optional text to include in the reply-all."
+            },
+            {
+              "key": "message.toRecipients",
+              "internalKey": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to override who the reply-all is sent to, instead of the original message's sender/replyTo/recipients. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "message.ccRecipients",
+              "internalKey": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to CC on the reply-all. Example: person@example.com, other@example.com"
             }
           ]
         },
@@ -283587,6 +284145,22 @@
             "required": false,
             "description": "Optional text to include in the reply-all.",
             "example": "Thanks everyone - this is a reply-all test from the MindCloud Microsoft Exchange app."
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to override who the reply-all is sent to, instead of the original message's sender/replyTo/recipients. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to CC on the reply-all. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           }
         ],
         "responseSchema": []
@@ -283621,6 +284195,24 @@
               "location": "body",
               "required": false,
               "description": "Optional text to include in the reply."
+            },
+            {
+              "key": "message.toRecipients",
+              "internalKey": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to override who the reply is sent to, instead of the original message's sender/replyTo. Example: person@example.com, other@example.com"
+            },
+            {
+              "key": "message.ccRecipients",
+              "internalKey": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional. Comma-separated email addresses to CC on the reply. Example: person@example.com, other@example.com"
             }
           ]
         },
@@ -283646,6 +284238,22 @@
             "required": false,
             "description": "Optional text to include in the reply.",
             "example": "Thanks - this is a reply test from the MindCloud Microsoft Exchange app."
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to override who the reply is sent to, instead of the original message's sender/replyTo. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Optional. Comma-separated email addresses to CC on the reply. Example: person@example.com, other@example.com",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           }
         ],
         "responseSchema": []
@@ -283806,6 +284414,34 @@
               "location": "body",
               "required": false,
               "description": "Updated message body content. This is most useful when editing a draft message."
+            },
+            {
+              "key": "body.contentType",
+              "name": "Body Type",
+              "dataType": "list",
+              "location": "body",
+              "required": false,
+              "description": "The format of the updated body. Only set this when you are also changing the body content — leaving it unset preserves the draft's existing format. Set to HTML when the new body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+              "enumValues": [
+                "HTML",
+                "Text"
+              ]
+            },
+            {
+              "key": "toRecipients",
+              "name": "To Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Comma-separated email addresses to set as the draft's recipients, replacing any existing To recipients. This is most useful when editing a draft message."
+            },
+            {
+              "key": "ccRecipients",
+              "name": "CC Recipient Emails",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Comma-separated email addresses to set as the draft's CC recipients, replacing any existing CC recipients. This is most useful when editing a draft message."
             }
           ]
         },
@@ -283838,6 +284474,34 @@
             "required": false,
             "description": "Updated message body content. This is most useful when editing a draft message.",
             "example": "Updated message body content"
+          },
+          {
+            "key": "body.contentType",
+            "name": "Body Type",
+            "dataType": "list",
+            "required": false,
+            "advanced": true,
+            "description": "The format of the updated body. Only set this when you are also changing the body content — leaving it unset preserves the draft's existing format. Set to HTML when the new body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+            "enumValues": [
+              "HTML",
+              "Text"
+            ]
+          },
+          {
+            "key": "toRecipients",
+            "name": "To Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Comma-separated email addresses to set as the draft's recipients, replacing any existing To recipients. This is most useful when editing a draft message.",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
+          },
+          {
+            "key": "ccRecipients",
+            "name": "CC Recipient Emails",
+            "dataType": "string",
+            "required": false,
+            "description": "Comma-separated email addresses to set as the draft's CC recipients, replacing any existing CC recipients. This is most useful when editing a draft message.",
+            "example": "jamie@mindcloud.co, other@mindcloud.co"
           }
         ],
         "responseSchema": [

@@ -3,7 +3,8 @@
 Access Microsoft 365 Outlook mail through Microsoft Graph, including messages, folders, attachments, replies, forwarding, and sending mail for the signed-in user.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoft365Outlook/latest
-- **Actions:** 17
+- **Category:** Communication / Email Communications
+- **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook
 - **Vendor API docs:** https://learn.microsoft.com/en-us/graph/use-the-api
@@ -21,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoft365Outlook/lates
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (17)
+## Actions (19)
 
 ### Attachments
 
@@ -48,6 +49,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoft365Outlook/lates
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Draft Message](actions/create-draft-message.md) | POST | Creates a draft message in Microsoft 365 Outlook. |
+| [Create Forward Draft](actions/create-forward-draft.md) | POST | Creates a draft forward of a message in Microsoft 365 Outlook, without sending it. Use Update Draft Message to change recipients, CC,… |
+| [Create Reply Draft](actions/create-reply-draft.md) | POST | Creates a draft reply to a message in Microsoft 365 Outlook, without sending it. The draft is pre-addressed to the original sender. Use… |
 | [Delete Message](actions/delete-message.md) | DELETE | Deletes a message from Microsoft 365 Outlook. |
 | [Forward Message](actions/forward-message.md) | POST | Forwards a message from Microsoft 365 Outlook. |
 | [Get Message](actions/get-message.md) | GET | Retrieves a message from Microsoft 365 Outlook. |

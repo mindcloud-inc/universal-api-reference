@@ -15,3 +15,5 @@ Replies to all recipients of a message in Microsoft Exchange.
 | --- | --- | --- | --- | --- |
 | `messageId` | path | `string` | yes | The ID of the Exchange message to reply-all to. |
 | `comment` | body | `string` | no | Optional text to include in the reply-all. |
+| `message.toRecipients` | body | `string` | no | Optional. Comma-separated email addresses to override who the reply-all is sent to, instead of the original message's sender/replyTo/recipients. Example: person@example.com, other@example.com |
+| `message.ccRecipients` | body | `string` | no | Optional. Comma-separated email addresses to CC on the reply-all. Example: person@example.com, other@example.com |

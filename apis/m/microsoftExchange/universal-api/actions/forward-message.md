@@ -16,7 +16,8 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/microsoftExchange/latest
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "messageId": "AAMkAG..."
+  "messageId": "AAMkAG...",
+  "toRecipients": "jamie@mindcloud.co, other@mindcloud.co"
 }'
 ```
 
@@ -29,7 +30,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/microsof
   },
   body: JSON.stringify({
     connectionId,
-    "messageId": "AAMkAG..."
+    "messageId": "AAMkAG...",
+    "toRecipients": "jamie@mindcloud.co, other@mindcloud.co"
   })
 });
 
@@ -43,7 +45,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `messageId` | string | yes | The ID of the Exchange message to forward. Example: `AAMkAG...`. |
-| `toRecipients[].emailAddress.address` | string | no | The email address to forward the message to. Example: `jamie@mindcloud.co`. |
+| `toRecipients` | string | yes | Comma-separated email addresses to forward the message to. Example: person@example.com, other@example.com Example: `jamie@mindcloud.co, other@mindcloud.co`. |
 | `comment` | string | no | Optional text to include above the forwarded message. Example: `Forwarding this message from the MindCloud Microsoft Exchange app.`. |
 
 ## Response

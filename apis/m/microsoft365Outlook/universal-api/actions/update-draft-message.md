@@ -45,6 +45,14 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `messageId` | string | yes | The ID of the Outlook message to update. Example: `AAMkAG...`. |
 | `subject` | string | no | Updated message subject. This is most useful when editing a draft message. Example: `Updated draft subject`. |
 | `body.content` | string | no | Updated message body content. This is most useful when editing a draft message. Example: `Updated message body content`. |
+| `toRecipients` | string | no | Comma-separated email addresses to set as the draft's recipients, replacing any existing To recipients. This is most useful when editing a draft message. Example: `jamie@mindcloud.co, other@mindcloud.co`. |
+| `ccRecipients` | string | no | Comma-separated email addresses to set as the draft's CC recipients, replacing any existing CC recipients. This is most useful when editing a draft message. Example: `jamie@mindcloud.co, other@mindcloud.co`. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `body.contentType` | list | no | The format of the updated body. Only set this when you are also changing the body content — leaving it unset preserves the draft's existing format. Set to HTML when the new body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text). One of: `HTML`, `Text`. |
 
 ## Response
 

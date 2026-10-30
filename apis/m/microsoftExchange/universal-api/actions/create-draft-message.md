@@ -40,9 +40,16 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `toRecipients[].emailAddress.address` | string | no | The email address to add as the draft recipient. Example: `jamie@mindcloud.co`. |
+| `toRecipients` | string | no | Comma-separated email addresses to add as draft recipients. Example: person@example.com, other@example.com Example: `jamie@mindcloud.co, other@mindcloud.co`. |
+| `ccRecipients` | string | no | Comma-separated email addresses to CC on the draft. Example: person@example.com, other@example.com Example: `jamie@mindcloud.co, other@mindcloud.co`. |
 | `subject` | string | no | The draft email subject line. Example: `MindCloud Exchange draft test`. |
 | `body.content` | string | no | The draft email body content. Example: `This is a draft email created by the MindCloud Microsoft Exchange app.`. |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `body.contentType` | list | no | The format of the draft body. Set to HTML when the body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text). One of: `HTML`, `Text`. Default: `Text`. |
 
 ## Response
 

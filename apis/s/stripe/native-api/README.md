@@ -63,7 +63,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Create Setup Checkout Session – Stripe to Aspire Sync](actions/create-setup-checkout-session-stripe-to-aspire-sync.md) | `POST checkout/sessions` | [docs](https://docs.stripe.com/api/checkout/sessions/create) |
 | [Create Subscription](actions/create-subscription.md) | `POST subscriptions` | [docs](https://docs.stripe.com/api/subscriptions/create) |
 | [Expire Checkout Session](actions/expire-checkout-session.md) | `POST checkout/sessions/:session/expire` | [docs](https://docs.stripe.com/api/checkout/sessions/expire) |
-| [Get Balance Transactions](actions/get-balance-transactions.md) | `GET /balance_transactions?payout={{payoutId}}&limit={{limit}}&expand[]=data.source&expand[]=data.source.charge` |  |
+| [Get Balance Transactions](actions/get-balance-transactions.md) | `GET /balance_transactions` | [docs](https://docs.stripe.com/api/balance_transactions/list) |
 | [Get Payment Intent](actions/get-payment-intent.md) | `GET payment_intents/:intent` | [docs](https://docs.stripe.com/api/payment_intents/retrieve) |
 | [Get Payment Intent sync](actions/get-payment-intent-sync.md) | `GET payment_intents/:intent` | [docs](https://docs.stripe.com/api/payment_intents/retrieve) |
 | [Get Product](actions/get-product.md) | `GET products/:id` | [docs](https://docs.stripe.com/api/products/retrieve) |

@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3228 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3227 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1919,7 +1919,6 @@ The official vendor API documentation for each of the 3228 apps in this repo. Ea
 - [Otiom](../apis/o/otiom/native-api) - https://api.otiom.com/swagger/
 - [OTO](../apis/o/oTO/native-api) - https://help.tryoto.com/en/support/solutions/folders/150000545667
 - [Outlign](../apis/o/outlign/native-api) - https://go.outlign.co/api/docs
-- [Outlook](../apis/o/outlook/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/message
 - [Outseta](../apis/o/outseta/native-api) - https://documenter.getpostman.com/view/3613332/outseta-rest-api-v1/7TNfr6k
 - [Overledger](../apis/o/overledger/native-api) - https://docs.overledger.dev/
 - [Owen Wilson Wow API](../apis/o/owenWilsonWowAPI/native-api) - https://github.com/amamenko/owen-wilson-wow-api

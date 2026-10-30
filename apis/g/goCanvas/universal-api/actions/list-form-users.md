@@ -40,7 +40,31 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native GoCanvas API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "email": "ava@example.com",
+      "firstName": "Ava",
+      "id": 1,
+      "lastName": "Chen",
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `email` | string |  |
+| `firstName` | string |  |
+| `id` | number |  |
+| `lastName` | string |  |
+| `type` | string |  |
 
 ## Native endpoint
 

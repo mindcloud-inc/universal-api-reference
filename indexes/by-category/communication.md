@@ -1,6 +1,6 @@
 # Communication apps
 
-181 apps in the Communication category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+182 apps in the Communication category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **ActivitySmith** · [Universal API reference](../../apis/a/activitySmith/universal-api) · [Native API reference](../../apis/a/activitySmith/native-api) · [Native API docs](https://activitysmith.com/docs)
 - **Agent Mail** · [Universal API reference](../../apis/a/agentMail/universal-api) · [Native API reference](../../apis/a/agentMail/native-api) · [Native API docs](https://docs.agentmail.to/api-reference)
@@ -88,6 +88,7 @@
 - **mails.so** · [Universal API reference](../../apis/m/mailsso/universal-api) · [Native API reference](../../apis/m/mailsso/native-api) · [Native API docs](https://docs.mails.so/intro/)
 - **Meetstream AI** · [Universal API reference](../../apis/m/meetstreamAI/universal-api) · [Native API reference](../../apis/m/meetstreamAI/native-api) · [Native API docs](https://docs.meetstream.ai/api-reference)
 - **MessageBird** · [Universal API reference](../../apis/m/messageBird/universal-api) · [Native API reference](../../apis/m/messageBird/native-api) · [Native API docs](https://docs.bird.com/api)
+- **Microsoft 365 Outlook** · [Universal API reference](../../apis/m/microsoft365Outlook/universal-api) · [Native API reference](../../apis/m/microsoft365Outlook/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/use-the-api)
 - **Microsoft Exchange** · [Universal API reference](../../apis/m/microsoftExchange/universal-api) · [Native API reference](../../apis/m/microsoftExchange/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0)
 - **Microsoft Teams** · [Universal API reference](../../apis/m/microsoftTeams/universal-api) · [Native API reference](../../apis/m/microsoftTeams/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0)
 - **MillionVerifier** · [Universal API reference](../../apis/m/millionVerifier/universal-api) · [Native API reference](../../apis/m/millionVerifier/native-api) · [Native API docs](https://developer.millionverifier.com/)

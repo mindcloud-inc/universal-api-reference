@@ -14,5 +14,5 @@ Forwards a message from Microsoft Exchange.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `messageId` | path | `string` | yes | The ID of the Exchange message to forward. |
-| `toRecipients[].emailAddress.address` | body | `string` | no | The email address to forward the message to. |
+| `toRecipients` | body | `string` | yes | Comma-separated email addresses to forward the message to. Example: person@example.com, other@example.com |
 | `comment` | body | `string` | no | Optional text to include above the forwarded message. |

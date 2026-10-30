@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3228 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3227 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1869,7 +1869,6 @@ Machine-readable API descriptions for 3228 apps. Universal API specifications ar
 | [Otiom](../apis/o/otiom) | [OpenAPI 3.1](../apis/o/otiom/universal-api/openapi.json) | [Provider OpenAPI](https://api.otiom.com/schema/) |
 | [OTO](../apis/o/oTO) | [OpenAPI 3.1](../apis/o/oTO/universal-api/openapi.json) |  |
 | [Outlign](../apis/o/outlign) | [OpenAPI 3.1](../apis/o/outlign/universal-api/openapi.json) |  |
-| [Outlook](../apis/o/outlook) | [OpenAPI 3.1](../apis/o/outlook/universal-api/openapi.json) |  |
 | [Outseta](../apis/o/outseta) | [OpenAPI 3.1](../apis/o/outseta/universal-api/openapi.json) |  |
 | [Overledger](../apis/o/overledger) | [OpenAPI 3.1](../apis/o/overledger/universal-api/openapi.json) |  |
 | [Owen Wilson Wow API](../apis/o/owenWilsonWowAPI) | [OpenAPI 3.1](../apis/o/owenWilsonWowAPI/universal-api/openapi.json) |  |

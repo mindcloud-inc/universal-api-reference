@@ -56,7 +56,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `returnUrl` | string | no | URL to return customers to your site for embedded/custom UI modes. Example: `https://example.com/return`. |
 | `customerEmail` | string | no | Email used to prefill customer data when no customer ID is provided. Example: `customer@example.com`. |
-| `paymentMethodTypes[]` | array<string> | no | Allowed payment method types for this session. Example: `card`. |
+| `paymentMethodTypes[]` | array<string> | no | Allowed payment method types for this session. Example: `["card"]`. |
 | `uiMode` | list<string> | no | Checkout UI mode: hosted, embedded, or custom. One of: `custom`, `embedded`, `hosted`. Example: `hosted`. |
 | `clientReferenceId` | string | no | Reference ID to reconcile session with your internal systems. Example: `order_123`. |
 

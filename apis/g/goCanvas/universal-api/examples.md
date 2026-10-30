@@ -30,7 +30,24 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "companyId": 1,
+      "companyName": "Ava Chen",
+      "country": "string",
+      "createdAt": "string",
+      "defaultDepartmentId": 1,
+      "defaultDepartmentName": "Ava Chen",
+      "defaultDepartmentRole": "string",
+      "enabled": true,
+      "firstName": "Ava",
+      "id": 1,
+      "lastName": "Chen",
+      "login": "string",
+      "phone": "string",
+      "type": "string"
+    }
+  ],
   "meta": {}
 }
 ```

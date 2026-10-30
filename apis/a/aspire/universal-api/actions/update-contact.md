@@ -18,8 +18,7 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/upd
   "connectionId": "$CONNECTION_ID",
   "contact.ContactID": 1,
   "contact.firstName": "Ava",
-  "contact.lastName": "Chen",
-  "contact.contactTypeId": 1
+  "contact.lastName": "Chen"
 }'
 ```
 
@@ -34,8 +33,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/aspire/l
     connectionId,
     "contact.ContactID": 1,
     "contact.firstName": "Ava",
-    "contact.lastName": "Chen",
-    "contact.contactTypeId": 1
+    "contact.lastName": "Chen"
   })
 });
 
@@ -64,7 +62,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `contactTags` | string<string> | no | Accepts multiple values as an array. |
 | `homeAddress.stateProvinceCode` | string | no |  |
 | `officeAddress.stateProvinceCode` | string | no |  |
-| `contact.contactTypeId` | list<number> | yes | Unique identifier for the contact type (integer(int32)) |
+| `contact.contactTypeId` | list<number> | no | Unique identifier for the contact type (integer(int32)) |
 | `homeAddress.zipCode` | string | no |  |
 | `officeAddress.zipCode` | string | no |  |
 | `payScheduleId` | list<number> | no |  |

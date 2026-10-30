@@ -1,6 +1,6 @@
 # Other apps
 
-584 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+582 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -307,7 +307,6 @@
 - **Microsoft 365** · [Universal API reference](../../apis/m/microsoft365/universal-api) · [Native API reference](../../apis/m/microsoft365/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/overview)
 - **Microsoft 365 Calendar** · [Universal API reference](../../apis/m/microsoft365Calendar/universal-api) · [Native API reference](../../apis/m/microsoft365Calendar/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/calendar?view=graph-rest-1.0)
 - **Microsoft 365 Excel** · [Universal API reference](../../apis/m/microsoft365Excel/universal-api) · [Native API reference](../../apis/m/microsoft365Excel/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/excel?view=graph-rest-1.0)
-- **Microsoft 365 Outlook** · [Universal API reference](../../apis/m/microsoft365Outlook/universal-api) · [Native API reference](../../apis/m/microsoft365Outlook/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/use-the-api)
 - **Microsoft 365 People** · [Universal API reference](../../apis/m/microsoft365People/universal-api) · [Native API reference](../../apis/m/microsoft365People/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/)
 - **Microsoft Dynamics 365** · [Universal API reference](../../apis/m/microsoftDynamics365/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365/native-api)
 - **Microsoft Dynamics 365 BC** · [Universal API reference](../../apis/m/microsoftDynamics365BC/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365BC/native-api)
@@ -361,7 +360,6 @@
 - **Order Sender** · [Universal API reference](../../apis/o/orderSender/universal-api) · [Native API reference](../../apis/o/orderSender/native-api) · [Native API docs](https://developer.ordersender.com/)
 - **Orshot** · [Universal API reference](../../apis/o/orshot/universal-api) · [Native API reference](../../apis/o/orshot/native-api) · [Native API docs](https://orshot.com/docs/api-reference)
 - **Otiom** · [Universal API reference](../../apis/o/otiom/universal-api) · [Native API reference](../../apis/o/otiom/native-api) · [Native API docs](https://api.otiom.com/swagger/)
-- **Outlook** · [Universal API reference](../../apis/o/outlook/universal-api) · [Native API reference](../../apis/o/outlook/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/message)
 - **Overledger** · [Universal API reference](../../apis/o/overledger/universal-api) · [Native API reference](../../apis/o/overledger/native-api) · [Native API docs](https://docs.overledger.dev/)
 - **Owen Wilson Wow API** · [Universal API reference](../../apis/o/owenWilsonWowAPI/universal-api) · [Native API reference](../../apis/o/owenWilsonWowAPI/native-api) · [Native API docs](https://github.com/amamenko/owen-wilson-wow-api)
 - **Pachca** · [Universal API reference](../../apis/p/pachca/universal-api) · [Native API reference](../../apis/p/pachca/native-api) · [Native API docs](https://dev.pachca.com/guides/authorization)

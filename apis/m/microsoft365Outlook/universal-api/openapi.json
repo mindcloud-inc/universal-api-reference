@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Microsoft 365 Outlook Universal API",
-    "version": "0.0.8",
+    "version": "0.0.11",
     "description": "Access Microsoft 365 Outlook mail through Microsoft Graph, including messages, folders, attachments, replies, forwarding, and sending mail for the signed-in user."
   },
   "servers": [
@@ -291,10 +291,15 @@
                     "type": "string",
                     "description": "The MindCloud connection ID for this app."
                   },
-                  "toRecipients[].emailAddress.address": {
+                  "toRecipients": {
                     "type": "string",
-                    "description": "The email address to add as the draft recipient.",
-                    "example": "jamie@mindcloud.co"
+                    "description": "Comma-separated email addresses to add as draft recipients. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
+                  },
+                  "ccRecipients": {
+                    "type": "string",
+                    "description": "Comma-separated email addresses to CC on the draft. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
                   },
                   "subject": {
                     "type": "string",
@@ -305,6 +310,16 @@
                     "type": "string",
                     "description": "The draft email body content.",
                     "example": "This is a draft email created by the MindCloud Microsoft 365 Outlook app."
+                  },
+                  "body.contentType": {
+                    "type": "string",
+                    "description": "The format of the draft body. Set to HTML when the body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+                    "enum": [
+                      "HTML",
+                      "Text"
+                    ],
+                    "default": "Text",
+                    "x-mindcloud-advanced": true
                   }
                 },
                 "additionalProperties": false
@@ -341,6 +356,429 @@
                           "id": {
                             "type": "string",
                             "description": "The created draft message ID."
+                          },
+                          "subject": {
+                            "type": "string",
+                            "description": "The draft subject line."
+                          },
+                          "webLink": {
+                            "type": "string",
+                            "description": "A link to open the draft in Outlook on the web."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/microsoft365Outlook/latest/actions/create-forward-draft": {
+      "post": {
+        "operationId": "microsoft365Outlook.create-forward-draft",
+        "summary": "Create Forward Draft",
+        "description": "Creates a draft forward of a message in Microsoft 365 Outlook, without sending it. Use Update Draft Message to change recipients, CC, subject, or body, then Send Draft Message to send it.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/microsoft365Outlook/latest/actions/create-forward-draft"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "messageId",
+                  "toRecipients"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "The ID of the Outlook message to create a forward draft for.",
+                    "example": "AAMkAG..."
+                  },
+                  "toRecipients": {
+                    "type": "string",
+                    "description": "Comma-separated email addresses to forward the draft to. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional text to include above the forwarded message.",
+                    "example": "Forwarding this message from the MindCloud Microsoft 365 Outlook app."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bodyPreview": {
+                            "type": "string",
+                            "description": "A text preview of the draft body."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The created forward draft message ID."
+                          },
+                          "subject": {
+                            "type": "string",
+                            "description": "The draft subject line."
+                          },
+                          "webLink": {
+                            "type": "string",
+                            "description": "A link to open the draft in Outlook on the web."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/microsoft365Outlook/latest/actions/create-reply-draft": {
+      "post": {
+        "operationId": "microsoft365Outlook.create-reply-draft",
+        "summary": "Create Reply Draft",
+        "description": "Creates a draft reply to a message in Microsoft 365 Outlook, without sending it. The draft is pre-addressed to the original sender. Use Update Draft Message to change recipients, CC, subject, or body, then Send Draft Message to send it.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/microsoft365Outlook/latest/actions/create-reply-draft"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "messageId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "The ID of the Outlook message to create a reply draft for.",
+                    "example": "AAMkAG..."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bodyPreview": {
+                            "type": "string",
+                            "description": "A text preview of the draft body."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The created reply draft message ID."
                           },
                           "subject": {
                             "type": "string",
@@ -684,7 +1122,8 @@
                 "type": "object",
                 "required": [
                   "connectionId",
-                  "messageId"
+                  "messageId",
+                  "toRecipients"
                 ],
                 "properties": {
                   "connectionId": {
@@ -696,10 +1135,10 @@
                     "description": "The ID of the Outlook message to forward.",
                     "example": "AAMkAG..."
                   },
-                  "toRecipients[].emailAddress.address": {
+                  "toRecipients": {
                     "type": "string",
-                    "description": "The email address to forward the message to.",
-                    "example": "jamie@mindcloud.co"
+                    "description": "Comma-separated email addresses to forward the message to. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
                   },
                   "comment": {
                     "type": "string",
@@ -2835,6 +3274,16 @@
                     "type": "string",
                     "description": "Optional text to include in the reply-all.",
                     "example": "Thanks everyone - this is a reply-all test from the MindCloud Microsoft 365 Outlook app."
+                  },
+                  "toRecipients": {
+                    "type": "string",
+                    "description": "Optional. Comma-separated email addresses to override who the reply-all is sent to, instead of the original message's sender/replyTo/recipients. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
+                  },
+                  "ccRecipients": {
+                    "type": "string",
+                    "description": "Optional. Comma-separated email addresses to CC on the reply-all. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
                   }
                 },
                 "additionalProperties": false
@@ -3028,6 +3477,16 @@
                     "type": "string",
                     "description": "Optional text to include in the reply.",
                     "example": "Thanks - this is a reply test from the MindCloud Microsoft 365 Outlook app."
+                  },
+                  "toRecipients": {
+                    "type": "string",
+                    "description": "Optional. Comma-separated email addresses to override who the reply is sent to, instead of the original message's sender/replyTo. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
+                  },
+                  "ccRecipients": {
+                    "type": "string",
+                    "description": "Optional. Comma-separated email addresses to CC on the reply. Example: person@example.com, other@example.com",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
                   }
                 },
                 "additionalProperties": false
@@ -3630,6 +4089,25 @@
                     "type": "string",
                     "description": "Updated message body content. This is most useful when editing a draft message.",
                     "example": "Updated message body content"
+                  },
+                  "body.contentType": {
+                    "type": "string",
+                    "description": "The format of the updated body. Only set this when you are also changing the body content — leaving it unset preserves the draft's existing format. Set to HTML when the new body content includes HTML markup, otherwise it is sent as literal text (so HTML tags would show up as visible text).",
+                    "enum": [
+                      "HTML",
+                      "Text"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "toRecipients": {
+                    "type": "string",
+                    "description": "Comma-separated email addresses to set as the draft's recipients, replacing any existing To recipients. This is most useful when editing a draft message.",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
+                  },
+                  "ccRecipients": {
+                    "type": "string",
+                    "description": "Comma-separated email addresses to set as the draft's CC recipients, replacing any existing CC recipients. This is most useful when editing a draft message.",
+                    "example": "jamie@mindcloud.co, other@mindcloud.co"
                   }
                 },
                 "additionalProperties": false

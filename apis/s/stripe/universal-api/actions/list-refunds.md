@@ -42,6 +42,16 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `charge` | string | no | Example: `ch_...`. |
 | `paymentIntent` | string | no | Example: `pi_...`. |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `created` | object | no | Only return records created during this date interval. |
+| `created.gt` | date | no | After this date, exclusive. |
+| `created.gte` | date | no | On or after this date, inclusive. |
+| `created.lt` | date | no | Before this date, exclusive. |
+| `created.lte` | date | no | On or before this date, inclusive. |
+
 ## Response
 
 ```json

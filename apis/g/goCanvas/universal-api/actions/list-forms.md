@@ -39,7 +39,55 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native GoCanvas API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "builderType": "string",
+      "builderVersion": "string",
+      "dispatchEnabled": true,
+      "emailOptions": 1,
+      "id": 1,
+      "imageId": 1,
+      "name": "Ava Chen",
+      "rootVersionId": 1,
+      "rootVersionUpdatedAt": "string",
+      "status": "string",
+      "type": "string",
+      "updatedAt": "string",
+      "version": 1,
+      "viewPdfMobile": true,
+      "webForm": true,
+      "workflowEnabled": true,
+      "workflowId": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `builderType` | string |  |
+| `builderVersion` | string |  |
+| `dispatchEnabled` | boolean |  |
+| `emailOptions` | number |  |
+| `id` | number |  |
+| `imageId` | number |  |
+| `name` | string |  |
+| `rootVersionId` | number |  |
+| `rootVersionUpdatedAt` | string |  |
+| `status` | string |  |
+| `type` | string |  |
+| `updatedAt` | string |  |
+| `version` | number |  |
+| `viewPdfMobile` | boolean |  |
+| `webForm` | boolean |  |
+| `workflowEnabled` | boolean |  |
+| `workflowId` | number |  |
 
 ## Native endpoint
 

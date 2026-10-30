@@ -15,3 +15,5 @@ Replies to a message in Microsoft 365 Outlook.
 | --- | --- | --- | --- | --- |
 | `messageId` | path | `string` | yes | The ID of the Outlook message to reply to. |
 | `comment` | body | `string` | no | Optional text to include in the reply. |
+| `message.toRecipients` | body | `string` | no | Optional. Comma-separated email addresses to override who the reply is sent to, instead of the original message's sender/replyTo. Example: person@example.com, other@example.com |
+| `message.ccRecipients` | body | `string` | no | Optional. Comma-separated email addresses to CC on the reply. Example: person@example.com, other@example.com |

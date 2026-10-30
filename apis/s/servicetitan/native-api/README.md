@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 126 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 130 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -39,11 +39,13 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
+The next-page cursor is read from `continueFrom`. The current page number is read from `page`.
+
 ## Pagination
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (126 documented)
+## Endpoints (130 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -59,6 +61,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Create Job Note](actions/create-job-note.md) | `POST jpm/v2/tenant/{{credentials.tenant}}/jobs/:id/notes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-jpm-v2&operation=Projects_CreateNote) |
 | [Create Location](actions/create-location.md) | `POST crm/v2/tenant/{{credentials.tenant}}/locations` |  |
 | [Create Payment](actions/create-payment.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/payments` |  |
+| [Create Payroll Adjustment](actions/create-payroll-adjustment.md) | `POST payroll/v2/tenant/{{credentials.tenant}}/payroll-adjustments` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/PayrollAdjustments_Create) |
 | [Create Project](actions/create-project.md) | `POST jpm/v2/tenant/{{credentials.tenant}}/projects` | [docs](https://developer.servicetitan.io/apis/) |
 | [Create Project Note](actions/create-project-note.md) | `POST jpm/v2/tenant/{{credentials.tenant}}/projects/:id/notes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-jpm-v2&operation=Projects_CreateNote) |
 | [Create Task](actions/create-task.md) | `POST taskmanagement/v2/tenant/{{credentials.tenant}}/tasks` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-task-management-v2&operation=Tasks_Create) |
@@ -107,6 +110,8 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Get Payment Terms](actions/get-payment-terms.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/payment-terms` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/PaymentTerms_GetList) |
 | [Get Payment Types](actions/get-payment-types.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/payment-types` |  |
 | [Get Payments](actions/get-payments.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/payments` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-accounting-v2&operation=Payments_GetList) |
+| [Get Payroll Adjustment By Id](actions/get-payroll-adjustment-by-id.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/payroll-adjustments/:id` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/PayrollAdjustments_Get) |
+| [Get Payroll Adjustments](actions/get-payroll-adjustments.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/payroll-adjustments` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/PayrollAdjustments_GetList) |
 | [Get Project](actions/get-project.md) | `GET /jpm/v2/tenant/{{credentials.tenant}}/projects/:id` |  |
 | [Get Project Notes](actions/get-project-notes.md) | `GET jpm/v2/tenant/{{credentials.tenant}}/projects/:id/notes` |  |
 | [Get Project Statuses](actions/get-project-statuses.md) | `GET https://api.servicetitan.io/jpm/v2/tenant/{{credentials.tenant}}/project-statuses` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-jpm-v2&operation=ProjectStatuses_GetList) |
@@ -153,6 +158,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [List Technician Skills](actions/list-technician-skills.md) | `GET dispatch/v2/tenant/{{credentials.tenant}}/technician-skills` | [docs](https://developer.servicetitan.io/docs/apis/tenant-dispatch-v2/endpoints) |
 | [List Timesheet Codes](actions/list-timesheet-codes.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/timesheet-codes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-payroll-v2&operation=Payrolls_GetList) |
 | [Mark AP Bills as Exported](actions/mark-ap-bills-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/ap-bills/markasexported` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApBills_MarkAsExported) |
+| [Mark AP Credits as Exported](actions/mark-ap-credits-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/ap-credits/markasexported` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApCredits_MarkAsExported) |
 | [Mark Invoice as Exported](actions/mark-invoice-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/invoices/markasexported` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-accounting-v2&operation=Invoices_GetList) |
 | [Update Payment Custom Fields](actions/new-action2.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/payments/custom-fields` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Payments_UpdateCustomFields) |
 | [Add Vendor](actions/post-vendor.md) | `POST inventory/v2/tenant/{{credentials.tenant}}/vendors` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Vendors_Create) |

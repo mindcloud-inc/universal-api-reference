@@ -4,7 +4,7 @@ Connect to Microsoft Exchange mail through Microsoft Graph.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftExchange/latest
 - **Category:** Communication / Email Communications
-- **Actions:** 24
+- **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftExchange/latest/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (24)
+## Actions (26)
 
 ### Access Token
 
@@ -65,6 +65,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftExchange/latest/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Draft Message](actions/create-draft-message.md) | POST | Creates a draft message in Microsoft Exchange. |
+| [Create Forward Draft](actions/create-forward-draft.md) | POST | Creates a draft forward of a message in Microsoft Exchange, without sending it. Use Update Draft Message to change recipients, CC, subject,… |
+| [Create Reply Draft](actions/create-reply-draft.md) | POST | Creates a draft reply to a message in Microsoft Exchange, without sending it. The draft is pre-addressed to the original sender. Use Update… |
 | [Delete Message](actions/delete-message.md) | DELETE | Deletes a message from Microsoft Exchange. |
 | [Forward Message](actions/forward-message.md) | POST | Forwards a message from Microsoft Exchange. |
 | [Get Message](actions/get-message.md) | GET | Retrieves a message from Microsoft Exchange. |

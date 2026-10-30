@@ -44,6 +44,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `messageId` | string | yes | The ID of the Outlook message to reply-all to. Example: `AAMkAG...`. |
 | `comment` | string | no | Optional text to include in the reply-all. Example: `Thanks everyone - this is a reply-all test from the MindCloud Microsoft 365 Outlook app.`. |
+| `toRecipients` | string | no | Optional. Comma-separated email addresses to override who the reply-all is sent to, instead of the original message's sender/replyTo/recipients. Example: person@example.com, other@example.com Example: `jamie@mindcloud.co, other@mindcloud.co`. |
+| `ccRecipients` | string | no | Optional. Comma-separated email addresses to CC on the reply-all. Example: person@example.com, other@example.com Example: `jamie@mindcloud.co, other@mindcloud.co`. |
 
 ## Response
 

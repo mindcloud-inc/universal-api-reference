@@ -44,6 +44,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `messageId` | string | yes | The ID of the Outlook message to reply to. Example: `AAMkAG...`. |
 | `comment` | string | no | Optional text to include in the reply. Example: `Thanks - this is a reply test from the MindCloud Microsoft 365 Outlook app.`. |
+| `toRecipients` | string | no | Optional. Comma-separated email addresses to override who the reply is sent to, instead of the original message's sender/replyTo. Example: person@example.com, other@example.com Example: `jamie@mindcloud.co, other@mindcloud.co`. |
+| `ccRecipients` | string | no | Optional. Comma-separated email addresses to CC on the reply. Example: person@example.com, other@example.com Example: `jamie@mindcloud.co, other@mindcloud.co`. |
 
 ## Response
 

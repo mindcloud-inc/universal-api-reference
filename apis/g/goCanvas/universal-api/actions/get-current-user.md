@@ -33,7 +33,49 @@ const { success, data } = await response.json();
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native GoCanvas API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "companyId": 1,
+      "companyName": "Ava Chen",
+      "country": "string",
+      "createdAt": "string",
+      "defaultDepartmentId": 1,
+      "defaultDepartmentName": "Ava Chen",
+      "defaultDepartmentRole": "string",
+      "enabled": true,
+      "firstName": "Ava",
+      "id": 1,
+      "lastName": "Chen",
+      "login": "string",
+      "phone": "string",
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `companyId` | number |  |
+| `companyName` | string |  |
+| `country` | string |  |
+| `createdAt` | string |  |
+| `defaultDepartmentId` | number |  |
+| `defaultDepartmentName` | string |  |
+| `defaultDepartmentRole` | string |  |
+| `enabled` | boolean |  |
+| `firstName` | string |  |
+| `id` | number |  |
+| `lastName` | string |  |
+| `login` | string |  |
+| `phone` | string |  |
+| `type` | string |  |
 
 ## Native endpoint
 

@@ -29,7 +29,7 @@ Update an existing contact record.
 | `ContactTags` | body | `string<string>` | no | Send multiple values as a array. |
 | `HomeAddress.StateProvinceCode` | body | `string` | no | — |
 | `OfficeAddress.StateProvinceCode` | body | `string` | no | — |
-| `Contact.ContactTypeID` | body | `list<number>` | yes | Unique identifier for the contact type (integer(int32)) |
+| `Contact.ContactTypeID` | body | `list<number>` | no | Unique identifier for the contact type (integer(int32)) |
 | `HomeAddress.ZipCode` | body | `string` | no | — |
 | `OfficeAddress.ZipCode` | body | `string` | no | — |
 | `PayScheduleID` | body | `list<number>` | no | — |

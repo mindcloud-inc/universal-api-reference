@@ -38,6 +38,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 - [Get Materials](actions/get-materials.md)
 - [Get Payment Types](actions/get-payment-types.md)
 - [Get Payments](actions/get-payments.md)
+- [Get Payroll Adjustments](actions/get-payroll-adjustments.md)
 - [Get Project](actions/get-project.md)
 - [Get Project Statuses](actions/get-project-statuses.md)
 - [Get Project Sub Statuses](actions/get-project-sub-statuses.md)

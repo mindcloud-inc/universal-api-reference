@@ -12,12 +12,13 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/list-charges?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/stripe/latest/actions/get-balance-transactions?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## Stripe actions that support pagination
 
+- [Get Balance Transactions](actions/get-balance-transactions.md)
 - [List Charges](actions/list-charges.md)
 - [List Checkout Session Line Items](actions/list-checkout-session-line-items.md)
 - [List Checkout Sessions](actions/list-checkout-sessions.md)

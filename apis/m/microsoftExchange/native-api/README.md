@@ -1,6 +1,6 @@
 # Microsoft Exchange: Native API Reference
 
-A consolidated summary of Microsoft Exchange's API configuration and 24 documented operations, with links to official documentation.
+A consolidated summary of Microsoft Exchange's API configuration and 26 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0
 - **API base URL:** `https://graph.microsoft.com`
@@ -45,13 +45,15 @@ Authorization: Bearer <custom.accessToken>
 
 Use `$top` in the query string to set the page size (default 25; accepted range 1–999). Use `$skiptoken` in the query string as the pagination cursor. Follow the complete next-page URL returned by the API.
 
-## Endpoints (24 documented)
+## Endpoints (26 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Add File Attachment to Message](actions/add-file-attachment-to-message.md) | `POST /v1.0/me/messages/{{messageId}}/attachments` | [docs](https://learn.microsoft.com/en-us/graph/api/message-post-attachments?view=graph-rest-1.0) |
 | [Authorize Application](actions/authorize-application.md) | `POST https://login.microsoftonline.com/{{credentials.tenantId}}/oauth2/v2.0/token` | [docs](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow) |
 | [Create Draft Message](actions/create-draft-message.md) | `POST /v1.0/me/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/user-post-messages?view=graph-rest-1.0) |
+| [Create Forward Draft](actions/create-forward-draft.md) | `POST /v1.0/me/messages/{{messageId}}/createForward` | [docs](https://learn.microsoft.com/en-us/graph/api/message-createforward?view=graph-rest-1.0) |
+| [Create Reply Draft](actions/create-reply-draft.md) | `POST /v1.0/me/messages/{{messageId}}/createReply` | [docs](https://learn.microsoft.com/en-us/graph/api/message-createreply?view=graph-rest-1.0) |
 | [Delete Message](actions/delete-message.md) | `DELETE /v1.0/me/messages/{{messageId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/message-delete?view=graph-rest-1.0) |
 | [Forward Message](actions/forward-message.md) | `POST /v1.0/me/messages/{{messageId}}/forward` | [docs](https://learn.microsoft.com/en-us/graph/api/message-forward?view=graph-rest-1.0) |
 | [Get Message](actions/get-message.md) | `GET /v1.0/me/messages/{{messageId}}` | [docs](https://learn.microsoft.com/en-us/graph/api/message-get?view=graph-rest-1.0) |

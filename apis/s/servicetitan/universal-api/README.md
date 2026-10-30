@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 126
+- **Actions:** 130
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (126)
+## Actions (130)
 
 ### Access Tokens
 
@@ -49,6 +49,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | --- | --- | --- |
 | [Mark AP Bills as Exported](actions/mark-ap-bills-as-exported.md) | PUT |  |
 | [Update AP Bill Custom Fields](actions/update-ap-bill-custom-fields.md) | PUT |  |
+
+### Ap Credit
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Mark AP Credits as Exported](actions/mark-ap-credits-as-exported.md) | PUT | Marks the specified AP credits as exported in ServiceTitan. |
 
 ### Appointment
 
@@ -250,6 +256,14 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | Action | Method | Description |
 | --- | --- | --- |
 | [Update Payment Custom Fields](actions/new-action2.md) | PUT |  |
+
+### Payroll Adjustment
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Payroll Adjustment](actions/create-payroll-adjustment.md) | POST |  |
+| [Get Payroll Adjustment By Id](actions/get-payroll-adjustment-by-id.md) | GET | Retrieves a payroll adjustment from ServiceTitan by ID. |
+| [Get Payroll Adjustments](actions/get-payroll-adjustments.md) | GET | Retrieves payroll adjustments from ServiceTitan. |
 
 ### Payroll Runs
 
