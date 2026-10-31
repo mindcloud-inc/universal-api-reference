@@ -6,5 +6,5 @@ Retrieves employee dependent records from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/employeedependents`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Employee Dependents](https://documentation.bamboohr.com/reference/get-employee-dependents-2)

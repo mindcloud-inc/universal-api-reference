@@ -6,5 +6,5 @@ Retrieves a list of datasets from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/datasets`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Datasets](https://documentation.bamboohr.com/reference/get-datasets)

@@ -39,6 +39,7 @@ Update an existing contact record.
 | `ResendEmails` | body | `boolean` | no | — |
 | `Contact.OwnerContactName` | body | `string` | no | — |
 | `UpdateTags` | body | `boolean` | no | — |
+| `CompanyID` | body | `number` | no | — |
 | `Contact.Salutation` | body | `string` | no | — |
 | `Contact.ProspectRating` | body | `list<number>` | no | — |
 | `Contact.ProspectRatingName` | body | `string` | no | — |

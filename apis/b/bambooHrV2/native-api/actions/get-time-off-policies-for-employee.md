@@ -6,7 +6,7 @@ Retrieves time off policies for an employee from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/employees/:employeeId/time_off/policies`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Time Off Policies for Employee](https://documentation.bamboohr.com/reference/time-off-list-time-off-policies-for-employee-1)
 
 ## Parameters

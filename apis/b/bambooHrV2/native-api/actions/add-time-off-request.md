@@ -6,7 +6,7 @@ Creates a time off request for an employee in BambooHR.
 
 - **Method:** `PUT`
 - **Path:** `/v1/employees/:employeeId/time_off/request`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Add Time Off Request](https://documentation.bamboohr.com/reference/time-off-add-a-time-off-request)
 
 ## Parameters

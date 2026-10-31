@@ -37,5 +37,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native BambooHR API, this operation is `GET /v1/benefit/company_benefit` (base URL `https://mindcloud.bamboohr.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-company-benefits.md) for the provider-specific parameters and requirements.
+Through the native BambooHR API, this operation is `GET /v1/benefit/company_benefit` (base URL `https://{{credentials.companyDomain}}.bamboohr.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-company-benefits.md) for the provider-specific parameters and requirements.
 

@@ -1,6 +1,6 @@
 # Marketing apps
 
-395 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+396 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Absinthe** · [Universal API reference](../../apis/a/absinthe/universal-api) · [Native API reference](../../apis/a/absinthe/native-api) · [Native API docs](https://api.absinthe.network/doc)
 - **ActiveCampaign** · [Universal API reference](../../apis/a/activeCampaign/universal-api) · [Native API reference](../../apis/a/activeCampaign/native-api) · [Native API docs](https://developers.activecampaign.com/reference/overview)
@@ -123,6 +123,7 @@
 - **GoAffPro** · [Universal API reference](../../apis/g/goAffPro/universal-api) · [Native API reference](../../apis/g/goAffPro/native-api) · [Native API docs](https://api.goaffpro.com/docs/admin/)
 - **Google Ads** · [Universal API reference](../../apis/g/googleAds/universal-api) · [Native API reference](../../apis/g/googleAds/native-api) · [Native API docs](https://developers.google.com/google-ads/api)
 - **Google Forms** · [Universal API reference](../../apis/g/googleForms/universal-api) · [Native API reference](../../apis/g/googleForms/native-api) · [Native API docs](https://developers.google.com/workspace/forms/api/reference/rest)
+- **Google Local Services** · [Universal API reference](../../apis/g/googleLocalServices/universal-api) · [Native API reference](../../apis/g/googleLocalServices/native-api) · [Native API docs](https://developers.google.com/local-services-ads/guides/local-services-api-overview)
 - **GoZen DeepAgent** · [Universal API reference](../../apis/g/goZenDeepAgent/universal-api) · [Native API reference](../../apis/g/goZenDeepAgent/native-api) · [Native API docs](https://docs.gozen.io/deepagent/api-docs)
 - **Growby** · [Universal API reference](../../apis/g/growby/universal-api) · [Native API reference](../../apis/g/growby/native-api) · [Native API docs](https://www.postman.com/growby-documentation/growby-api/documentation/i4ul9w0/growby-api)
 - **Gyazo** · [Universal API reference](../../apis/g/gyazo/universal-api) · [Native API reference](../../apis/g/gyazo/native-api) · [Native API docs](https://gyazo.com/api/docs/user)

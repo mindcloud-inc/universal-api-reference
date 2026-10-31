@@ -6,7 +6,7 @@ Creates a new employee in BambooHR.
 
 - **Method:** `POST`
 - **Path:** `/v1/employees`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Create Employee](https://documentation.bamboohr.com/reference/add-employee-2)
 
 ## Parameters

@@ -1,0 +1,27 @@
+# Update Person Field Values with Bridgit Bench
+
+## Endpoint
+
+- **Method:** `PATCH`
+- **Path:** `/rp/api/v1/accounts/:accountId/persons/:personId/person-field-values`
+- **Base URL:** `https://bench.gobridgit.com`
+- **Official documentation:** [Update Person Field Values](https://developers.gobridgit.com/reference/personfieldvalue_bulkupdatefieldvalues)
+
+## Headers
+
+Send these additional headers for this operation:
+
+| Header | Value |
+| --- | --- |
+| `Content-Type` | `application/json` |
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `accountId` | path | `number` | yes | The Account ID |
+| `personId` | path | `number` | yes | The Person ID |
+| `titleEffectiveDate` | query | `date` | no | — |
+| `payload[]` | body | `array<object>` | yes | — |
+| `payload[].fieldId` | body | `number` | yes | — |
+| `payload[].values[]` | body | `array<string>` | yes | — |

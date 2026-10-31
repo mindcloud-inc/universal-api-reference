@@ -6,5 +6,5 @@ Retrieves time off types from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/meta/time_off/types`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Time Off Types](https://documentation.bamboohr.com/reference/get-time-off-types-1)

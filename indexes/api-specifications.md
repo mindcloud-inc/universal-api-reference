@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3227 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3229 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -304,6 +304,7 @@ Machine-readable API descriptions for 3227 apps. Universal API specifications ar
 | [Brevo](../apis/b/brevo) | [OpenAPI 3.1](../apis/b/brevo/universal-api/openapi.json) |  |
 | [Bridge](../apis/b/bridge) | [OpenAPI 3.1](../apis/b/bridge/universal-api/openapi.json) |  |
 | [Bridge Interactive Platform](../apis/b/bridgeInteractivePlatform) | [OpenAPI 3.1](../apis/b/bridgeInteractivePlatform/universal-api/openapi.json) | [Provider OpenAPI](https://bridgedataoutput.com/tuberat/swagger) |
+| [Bridgit Bench](../apis/b/bridgitBench) | [OpenAPI 3.1](../apis/b/bridgitBench/universal-api/openapi.json) | [Provider OpenAPI](https://bench.gobridgit.com/rp/swagger/v1/swagger.json) |
 | [Brief](../apis/b/brief) | [OpenAPI 3.1](../apis/b/brief/universal-api/openapi.json) |  |
 | [Brosix](../apis/b/brosix) | [OpenAPI 3.1](../apis/b/brosix/universal-api/openapi.json) |  |
 | [Browse AI](../apis/b/browseAI) | [OpenAPI 3.1](../apis/b/browseAI/universal-api/openapi.json) | [Provider OpenAPI](https://api.browse.ai/v2/openapi) |

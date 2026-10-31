@@ -3,23 +3,27 @@
 A consolidated summary of BambooHR's API configuration and 31 documented operations, with links to official documentation.
 
 - **Official docs:** https://documentation.bamboohr.com/docs
-- **API base URL:** `https://mindcloud.bamboohr.com/api`
+- **API base URL:** `https://{companyDomain}.bamboohr.com/api`
 
 ## Authentication
 
 ### OAuth2
 
-Connect BambooHR with OAuth2 for the MindCloud tenant using the Linear-approved BambooHR scope set, excluding stale company:info because BambooHR does not expose it as a valid OAuth scope.
+Connect to your company's BambooHR account with OAuth2 using its Company Subdomain.
+
+### Credentials
+
+- **Company Subdomain:** `companyDomain` · required · Enter only the part before .bamboohr.com. Example: if your address is https://yourcompany.bamboohr.com, enter yourcompany. Do not enter the full address or include .bamboohr.com.
 
 Register an OAuth application with the provider to obtain client credentials and configure its redirect URI.
 
-1. Send the user to https://mindcloud.bamboohr.com/authorize.php to approve access.
-2. Exchange the returned authorization code with a POST request to https://mindcloud.bamboohr.com/token.php.
+1. Send the user to https://{{credentials.companyDomain}}.bamboohr.com/authorize.php to approve access.
+2. Exchange the returned authorization code with a POST request to https://{{credentials.companyDomain}}.bamboohr.com/token.php.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
 Requested scopes: `openid offline_access email employee time_off employee:name employee:job payroll benefit`.
 
-The flow supports refresh tokens. Refresh expired access tokens with a POST request to https://mindcloud.bamboohr.com/token.php.
+The flow supports refresh tokens. Refresh expired access tokens with a POST request to https://{{credentials.companyDomain}}.bamboohr.com/token.php.
 
 [Official authentication documentation](https://documentation.bamboohr.com/docs/getting-started)
 
@@ -31,6 +35,7 @@ Use BambooHR API key authentication for BambooHR endpoints that do not support O
 
 - **Username:** `username` · required
 - **Password:** `password` · required
+- **Company Subdomain:** `companyDomain` · required · Enter only the part before .bamboohr.com. Example: if your address is https://yourcompany.bamboohr.com, enter yourcompany. Do not enter the full address or include .bamboohr.com.
 
 Join the username and password with a colon, Base64-encode the result, and send it with the `Basic` authorization scheme:
 

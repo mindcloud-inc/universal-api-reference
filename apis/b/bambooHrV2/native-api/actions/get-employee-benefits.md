@@ -6,7 +6,7 @@ Retrieves employee benefit enrollments from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/benefit/employee_benefit`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Employee Benefits](https://documentation.bamboohr.com/reference/get-employee-benefit-1)
 
 ## Parameters

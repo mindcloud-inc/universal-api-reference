@@ -19,6 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 ## Microsoft Dynamics 365 BC actions that support pagination
 
 - [Create Credit Memo Itens ODataV4](actions/create-credit-memo-itens-o-data-v4.md)
+- [Create Sales Invoice Itens ODataV4](actions/create-sales-invoice-itens-o-data-v4.md)
 - [Get Aged Transactions](actions/get-aged-transactions.md)
 - [Get Inventory By Location SSI](actions/get-inventory-by-location-ssi.md)
 - [List Bank Deposits Line ODataV4](actions/list-bank-deposits-line-o-data-v4.md)
@@ -26,6 +27,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 - [List Companies](actions/list-companies.md)
 - [List Credit Memo ODataV4](actions/list-credit-memo-o-data-v4.md)
 - [List Customer Ledger Entries ODataV4](actions/list-customer-ledger-entries-o-data-v4.md)
+- [List Customer Payment ODataV4 API V2](actions/list-customer-payment-o-data-v4-apiv2.md)
 - [List Customers](actions/list-customers.md)
 - [List Customers ODataV4](actions/list-customers-o-data-v4.md)
 - [List Customers SSI](actions/list-customers-ssi.md)
@@ -36,6 +38,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 - [List Payroll Journal ODataV4](actions/list-payroll-journal-o-data-v4.md)
 - [List Projects](actions/list-projects.md)
 - [List Sales Invoice](actions/list-sales-invoice.md)
+- [List Sales Invoice Itens ODataV4](actions/list-sales-invoice-itens-o-data-v4.md)
 - [List Sales Invoice Line Items](actions/list-sales-invoice-line-items.md)
 - [List Sales Invoice ODataV4](actions/list-sales-invoice-o-data-v4.md)
 - [List Sales Orders SSI](actions/list-sales-orders-ssi.md)

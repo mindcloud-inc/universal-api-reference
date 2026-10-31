@@ -6,7 +6,7 @@ Retrieves time off requests from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/time_off/requests`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Time Off Requests](https://documentation.bamboohr.com/reference/time-off-get-time-off-requests)
 
 ## Parameters

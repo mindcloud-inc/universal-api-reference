@@ -6,7 +6,7 @@ Retrieves one employee dependent from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/employeedependents/:id`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Employee Dependent](https://documentation.bamboohr.com/reference/get-employee-dependent-2)
 
 ## Parameters

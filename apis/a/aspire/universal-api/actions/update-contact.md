@@ -72,6 +72,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `resendEmails` | boolean | no |  |
 | `contact.ownerContactName` | string | no |  |
 | `UpdateTags` | boolean | no |  |
+| `CompanyID` | number | no |  |
 | `contact.salutation` | string | no |  |
 | `contact.prospectRating` | list<number> | no |  |
 | `contact.prospectRatingName` | string | no |  |

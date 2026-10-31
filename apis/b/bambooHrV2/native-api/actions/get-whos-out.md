@@ -6,7 +6,7 @@ Retrieves who's out entries and holidays from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/time_off/whos_out`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Who's Out](https://documentation.bamboohr.com/reference/get-a-list-of-who-is-out-1)
 
 ## Parameters

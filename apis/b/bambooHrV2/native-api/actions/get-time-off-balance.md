@@ -6,7 +6,7 @@ Retrieves an employee's time off balances from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/employees/:employeeId/time_off/calculator`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Time Off Balance](https://documentation.bamboohr.com/reference/time-off-get-time-off-balance)
 
 ## Parameters

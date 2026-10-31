@@ -6,5 +6,5 @@ Retrieves available custom reports from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/custom-reports`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Reports](https://documentation.bamboohr.com/reference/custom-reports-1)

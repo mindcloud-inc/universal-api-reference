@@ -6,7 +6,7 @@ Retrieves changed employee IDs from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/employees/changed/[:type]`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Changed Employees](https://documentation.bamboohr.com/reference/changed-employee-ids)
 
 ## Parameters

@@ -6,7 +6,7 @@ Retrieves fields for a dataset from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/datasets/:datasetName/fields`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Fields from Dataset](https://documentation.bamboohr.com/reference/get-fields-from-dataset-2)
 
 ## Parameters

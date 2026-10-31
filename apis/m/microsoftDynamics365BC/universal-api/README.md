@@ -3,7 +3,7 @@
 Microsoft Dynamics 365 Business Central
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365BC/latest
-- **Actions:** 57
+- **Actions:** 60
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (57)
+## Actions (60)
 
 ### Addresses
 
@@ -43,6 +43,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [Create Costumer ODataV4](actions/create-costumer-o-data-v4.md) | POST |  |
 | [Create Customer](actions/create-customer.md) | POST |  |
 | [Create Customer SSI](actions/create-customer-ssi.md) | POST |  |
+| [List Customer Payment ODataV4 API V2](actions/list-customer-payment-o-data-v4-apiv2.md) | GET |  |
 | [List Customers](actions/list-customers.md) | GET |  |
 | [List Customers ODataV4](actions/list-customers-o-data-v4.md) | GET |  |
 | [List Customers SSI](actions/list-customers-ssi.md) | GET |  |
@@ -85,6 +86,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [Create Credit Memo Itens ODataV4](actions/create-credit-memo-itens-o-data-v4.md) | GET |  |
 | [Create General Journal ODataV4](actions/create-general-journal-o-data-v4.md) | POST |  |
 | [Create Journal Line ODataV4](actions/create-journal-line-o-data-v4.md) | POST |  |
+| [Create Sales Invoice Itens ODataV4](actions/create-sales-invoice-itens-o-data-v4.md) | GET |  |
 | [Create Sales Invoice ODataV4](actions/create-sales-invoice-o-data-v4.md) | POST |  |
 | [Create Sales Invoice Using Customer No Only](actions/create-sales-invoice-using-customer-no-only.md) | POST | Removed param Sell_to_Customer_Name |
 | [Get Aged Transactions](actions/get-aged-transactions.md) | GET |  |
@@ -95,6 +97,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [List General Journal ODataV4](actions/list-general-journal-o-data-v4.md) | GET |  |
 | [List Journal Lines Payments ODataV4](actions/list-journal-lines-payments-o-data-v4.md) | GET |  |
 | [List Payroll Journal ODataV4](actions/list-payroll-journal-o-data-v4.md) | GET |  |
+| [List Sales Invoice Itens ODataV4](actions/list-sales-invoice-itens-o-data-v4.md) | GET |  |
 | [List Sales Invoice ODataV4](actions/list-sales-invoice-o-data-v4.md) | GET |  |
 | [Patch Sales Invoice Itens ODataV4](actions/patch-sales-invoice-itens-o-data-v4.md) | GET |  |
 | [Patch Sales Invoice ODataV4](actions/patch-sales-invoice-o-data-v4.md) | POST |  |

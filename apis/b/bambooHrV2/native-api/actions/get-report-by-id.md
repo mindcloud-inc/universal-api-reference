@@ -6,7 +6,7 @@ Retrieves a custom report from BambooHR by ID.
 
 - **Method:** `GET`
 - **Path:** `/v1/custom-reports/:reportId`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Report by ID](https://documentation.bamboohr.com/reference/getbyreportid-2)
 
 ## Parameters

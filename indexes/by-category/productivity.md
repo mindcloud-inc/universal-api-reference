@@ -1,6 +1,6 @@
 # Productivity apps
 
-373 apps in the Productivity category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+374 apps in the Productivity category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AbcSubmit** · [Universal API reference](../../apis/a/abcSubmit/universal-api) · [Native API reference](../../apis/a/abcSubmit/native-api) · [Native API docs](https://www.abcsubmit.com/site/api-documentation/)
 - **ACLU** · [Universal API reference](../../apis/a/aCLU/universal-api) · [Native API reference](../../apis/a/aCLU/native-api) · [Native API docs](https://www.thetorturedatabase.org/api)
@@ -36,6 +36,7 @@
 - **Bookingmood** · [Universal API reference](../../apis/b/bookingmood/universal-api) · [Native API reference](../../apis/b/bookingmood/native-api) · [Native API docs](https://www.bookingmood.com/en-US/api-reference)
 - **BrainyQuote** · [Universal API reference](../../apis/b/brainyQuote/universal-api) · [Native API reference](../../apis/b/brainyQuote/native-api) · [Native API docs](https://www.brainyquote.com/feeds/todays_quote)
 - **Breakdance** · [Universal API reference](../../apis/b/breakdance/universal-api) · [Native API reference](../../apis/b/breakdance/native-api) · [Native API docs](https://breakdance.com/documentation/forms/actions-and-integrations/)
+- **Bridgit Bench** · [Universal API reference](../../apis/b/bridgitBench/universal-api) · [Native API reference](../../apis/b/bridgitBench/native-api) · [Native API docs](https://developers.gobridgit.com/reference)
 - **Brief** · [Universal API reference](../../apis/b/brief/universal-api) · [Native API reference](../../apis/b/brief/native-api) · [Native API docs](https://briefhq.ai/docs/mcp-setup/)
 - **BuildBetter** · [Universal API reference](../../apis/b/buildBetter/universal-api) · [Native API reference](../../apis/b/buildBetter/native-api) · [Native API docs](https://docs.buildbetter.ai/pages/api)
 - **ByteForms** · [Universal API reference](../../apis/b/byteForms/universal-api) · [Native API reference](../../apis/b/byteForms/native-api) · [Native API docs](https://forms.bytesuite.io/docs/api)

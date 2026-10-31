@@ -6,7 +6,7 @@ Retrieves details for one employee from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/employees/:id`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Employee](https://documentation.bamboohr.com/reference/get-employee-1)
 
 ## Parameters

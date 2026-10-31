@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3227 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3229 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -311,6 +311,7 @@ The official vendor API documentation for each of the 3227 apps in this repo. Ea
 - [Brevo](../apis/b/brevo/native-api) - https://developers.brevo.com/docs
 - [Bridge](../apis/b/bridge/native-api) - https://docs.bridgeapi.io/reference
 - [Bridge Interactive Platform](../apis/b/bridgeInteractivePlatform/native-api) - https://bridgedataoutput.com/docs
+- [Bridgit Bench](../apis/b/bridgitBench/native-api) - https://developers.gobridgit.com/reference
 - [Brief](../apis/b/brief/native-api) - https://briefhq.ai/docs/mcp-setup/
 - [Brilliant Directories](../apis/b/brilliantDirectories/native-api) - https://support.brilliantdirectories.com/support/solutions/folders/12000019107
 - [Brosix](../apis/b/brosix/native-api) - https://help.brosix.com/notifications-api/
@@ -1144,6 +1145,7 @@ The official vendor API documentation for each of the 3227 apps in this repo. Ea
 - [Google Drive](../apis/g/googleDrive/native-api) - https://developers.google.com/workspace/drive/api/reference/rest/v3
 - [Google Forms](../apis/g/googleForms/native-api) - https://developers.google.com/workspace/forms/api/reference/rest
 - [Google Groups](../apis/g/googleGroups/native-api) - https://developers.google.com/workspace/admin/directory/v1/guides/manage-groups
+- [Google Local Services](../apis/g/googleLocalServices/native-api) - https://developers.google.com/local-services-ads/guides/local-services-api-overview
 - [Google Maps](../apis/g/googleMaps/native-api)
 - [Google PageSpeed Insights](../apis/g/googlePageSpeedInsights/native-api) - https://developers.google.com/speed/docs/insights/v5/get-started
 - [Google Search Console](../apis/g/googleSearchConsole/native-api) - https://developers.google.com/webmaster-tools/v1/api_reference_index

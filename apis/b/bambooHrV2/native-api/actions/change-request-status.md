@@ -6,7 +6,7 @@ Updates a time off request status in BambooHR.
 
 - **Method:** `PUT`
 - **Path:** `/v1/time_off/requests/:requestId/status`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Change Request Status](https://documentation.bamboohr.com/reference/time-off-change-a-request-status)
 
 ## Parameters

@@ -6,7 +6,7 @@ Retrieves a list of employees from BambooHR.
 
 - **Method:** `GET`
 - **Path:** `/v1/employees`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [List Employees](https://documentation.bamboohr.com/reference/get-employees-list)
 
 ## Capabilities

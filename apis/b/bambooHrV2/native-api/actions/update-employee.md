@@ -6,7 +6,7 @@ Updates an existing employee in BambooHR.
 
 - **Method:** `POST`
 - **Path:** `/v1/employees/:employeeId`
-- **Base URL:** `https://mindcloud.bamboohr.com/api`
+- **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Update Employee](https://documentation.bamboohr.com/reference/update-employee-1)
 
 ## Parameters
