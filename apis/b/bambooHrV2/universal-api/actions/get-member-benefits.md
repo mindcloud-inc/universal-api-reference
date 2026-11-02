@@ -8,16 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/bambooHrV2/latest/actions/get-memb
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a BambooHR `connectionId` ([setup](../authentication.md)).
 
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/bambooHrV2/latest/actions/get-member-benefits?connectionId=$CONNECTION_ID&calendarYear=2026" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/bambooHrV2/latest/actions/get-member-benefits?connectionId=$CONNECTION_ID&limit=25&offset=0&calendarYear=2026" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
+  limit: '25',
+  offset: '0',
   "calendarYear": "2026"
 });
 
@@ -44,5 +48,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native BambooHR API, this operation is `GET /v1/benefits/member-benefits` (base URL `https://{{credentials.companyDomain}}.bamboohr.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-member-benefits.md) for the provider-specific parameters and requirements.
+Through the native BambooHR API, this operation is `GET /v1/benefits/member-benefits` (base URL `https://{{credentials.companyDomain}}.bamboohr.com/api`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/get-member-benefits.md) for the provider-specific parameters and requirements.
 

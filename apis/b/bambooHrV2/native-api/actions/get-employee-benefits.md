@@ -14,5 +14,5 @@ Retrieves employee benefit enrollments from BambooHR.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `filters.employeeId` | body | `string` | no | Filter employee benefits by BambooHR employee ID. |
-| `filters.companyBenefitPlanId` | body | `string` | no | Filter employee benefits by BambooHR company benefit plan ID. |
+| `filters.companyBenefitId` | body | `string` | no | Filter by the company benefit ID returned by List Company Benefits. |
 | `filters.enrollmentStatusEffectiveDate` | body | `string` | no | Filter employee benefits by enrollment status effective date. |

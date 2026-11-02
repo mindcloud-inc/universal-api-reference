@@ -9,6 +9,10 @@ Retrieves member benefit enrollments from BambooHR.
 - **Base URL:** `https://{companyDomain}.bamboohr.com/api`
 - **Official documentation:** [Get Member Benefits](https://documentation.bamboohr.com/reference/get-member-benefits)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

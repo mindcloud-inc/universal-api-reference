@@ -36,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `employeeIdFilter` | string | no | Filter employee benefits by BambooHR employee ID. Example: `4`. |
-| `companyBenefitPlanIdFilter` | string | no | Filter employee benefits by BambooHR company benefit plan ID. Example: `35`. |
+| `companyBenefitPlanIdFilter` | string | no | Filter by the company benefit ID returned by List Company Benefits. Example: `35`. |
 | `enrollmentStatusEffectiveDateFilter` | string | no | Filter employee benefits by enrollment status effective date. Example: `2026-01-01`. |
 
 ## Response
