@@ -33,4 +33,4 @@ Shared headers:
 
 ## Pagination
 
-Use `pageSize` in the query string to set the page size (default 1000; accepted range 1000–10000).
+Use `pageSize` in the query string to set the page size (default 1000; accepted range 1–10000).
