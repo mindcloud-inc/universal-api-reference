@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 62 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 65 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (62 documented)
+## Endpoints (65 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -98,12 +98,14 @@ Response data is read from `value`.
 | [List Customers](actions/list-customers.md) | REST (Copy) | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies({{companyId}})/customers` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List Customers ODataV4](actions/list-customers-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudCustomerCard` |  |
 | [List Customers SSI](actions/list-customers-ssi.md) | REST (Copy) | `GET v2.0/companies({{companyId}})/CustomersSSI` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
+| [List Default Dimension by Vendor](actions/list-default-dimension-by-vendor.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies(:company)/vendors(:vendorId)/defaultDimensions` |  |
 | [List Detailed Customer Ledger Entries ODataV4](actions/list-detailed-customer-ledger-entries-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindCloudDetailedCustomerLedgerEntries` |  |
 | [List Employees ODataV4](actions/list-employees-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:companyId)/GravityResources` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List General Journal ODataV4](actions/list-general-journal-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudGeneralJournal` |  |
 | [List Items](actions/list-items.md) | REST | `GET v2.0/companies({{companyId}})/items` |  |
 | [List Journal Line](actions/list-journal-line.md) | REST | `GET v2.0/companies(:company_id)/journals(:journal_id)/journalLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
 | [List Journal Lines Payments ODataV4](actions/list-journal-lines-payments-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/Cash_Receipt_Journals_Excel` |  |
+| [List Payments Terms](actions/list-payments-terms.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies(:company)/paymentTerms` |  |
 | [List Payroll Journal ODataV4](actions/list-payroll-journal-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPayrollJournal` |  |
 | [List Projects](actions/list-projects.md) | REST | `GET v2.0/companies({{companyId}})/projects` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List Sales Invoice](actions/list-sales-invoice.md) | REST | `GET v2.0/companies(:companyId)/salesInvoices` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
@@ -112,6 +114,7 @@ Response data is read from `value`.
 | [List Sales Invoice ODataV4](actions/list-sales-invoice-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice` |  |
 | [List Sales Orders Lines SSI](actions/list-sales-orders-lines-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesLinesSSI` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
 | [List Sales Orders SSI](actions/list-sales-orders-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesHeadersSSI(:id)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
+| [List Vendors](actions/list-vendors.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies(:company)/vendors` |  |
 | [Patch Sales Invoice Itens ODataV4](actions/patch-sales-invoice-itens-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoiceSalesLines(Document_Type=':documentType',Document_No=':documentNo',Line_No=:lineNo)` |  |
 | [Patch Sales Invoice ODataV4](actions/patch-sales-invoice-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice(Document_Type=':documentType',No=':no')` |  |
 | [Post Credit Memo](actions/post-credit-memo.md) | REST | `POST v2.0/companies({{companyId}})/salesCreditMemos({{creditMemoId}})/Microsoft.NAV.post` |  |

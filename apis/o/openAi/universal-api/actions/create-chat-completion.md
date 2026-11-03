@@ -51,7 +51,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `messages[]` | array<object> | yes |  |
 | `messages[].content` | string | yes | Accepts multiple values as an array. |
 | `messages[].role` | list<string> | yes |  |
-| `model` | list<string> | no | Default: `gpt-4o-mini`. |
+| `model` | list<string> | no | Default: `gpt-6-luna`. |
 | `messages[].name` | string | no |  |
 
 ### Advanced
@@ -59,10 +59,10 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `responseFormat.type` | list<string> | no | Default: `text`. |
-| `frequencyPenalty` | date | no | Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. Default: `0`. |
-| `presencePenalty` | date | no | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. Default: `0`. |
+| `frequencyPenalty` | number | no | Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. Default: `0`. |
+| `presencePenalty` | number | no | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. Default: `0`. |
 | `responseFormat` | object | no |  |
-| `temperature` | date | no | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both. Default: `1`. |
+| `temperature` | number | no | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both. Default: `1`. |
 
 ## Response
 

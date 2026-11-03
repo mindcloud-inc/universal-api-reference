@@ -42,22 +42,20 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `input[]` | array<object> | no | Text, image, or file inputs to the model, used to generate a response. |
-| `input[].content[].type` | list<string> | no | Example: `input_text`. |
 | `input[].role` | list<string> | no |  |
-| `input[].content[]` | array<object> | no |  |
-| `input[].content[].text` | string | no | Example: `hello!`. |
 | `model` | list<string> | yes | ID of the model to use for the response (for example, gpt-4.1 or gpt-4o-mini). Example: `gpt-4o-mini`. |
-| `input[].content[].imageUrl` | string | no |  |
+| `input[]` | array<object> | no | Text, image, or file inputs to the model, used to generate a response. |
+| `input[].content[]` | array<object> | no |  |
 | `tools[]` | array<object> | no | Array of objects listing one for each tool |
-| `input[].content[].fileUrl` | string | no |  |
 
 ### Advanced
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `reasoning.effort` | list<string> | no |  |
 | `text.format.type` | list<string> | no |  |
 | `text.format` | object | no |  |
+| `reasoning` | object | no |  |
 | `text` | object | no |  |
 
 ## Response

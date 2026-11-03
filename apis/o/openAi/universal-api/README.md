@@ -3,6 +3,7 @@
 Use OpenAI to generate text, images, audio, embeddings, videos, vector-store workflows, evals, and fine-tuning jobs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/openAi/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 42
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://openai.com/

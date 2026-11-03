@@ -1,6 +1,6 @@
 # Artificial Intelligence apps
 
-204 apps in the Artificial Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+205 apps in the Artificial Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Agent700** · [Universal API reference](../../apis/a/agent700/universal-api) · [Native API reference](../../apis/a/agent700/native-api) · [Native API docs](https://agent700.readme.io/reference/authentication-4)
 - **Agent.ai** · [Universal API reference](../../apis/a/agentai/universal-api) · [Native API reference](../../apis/a/agentai/native-api) · [Native API docs](https://docs.agent.ai/api-reference)
@@ -128,6 +128,7 @@
 - **Nyckel** · [Universal API reference](../../apis/n/nyckel/universal-api) · [Native API reference](../../apis/n/nyckel/native-api) · [Native API docs](https://www.nyckel.com/docs)
 - **OCRSpace** · [Universal API reference](../../apis/o/oCRSpace/universal-api) · [Native API reference](../../apis/o/oCRSpace/native-api) · [Native API docs](https://ocr.space/ocrapi)
 - **Ollama** · [Universal API reference](../../apis/o/ollama/universal-api) · [Native API reference](../../apis/o/ollama/native-api) · [Native API docs](https://docs.ollama.com/api/introduction)
+- **Open AI** · [Universal API reference](../../apis/o/openAi/universal-api) · [Native API reference](../../apis/o/openAi/native-api) · [Native API docs](https://developers.openai.com/api/)
 - **Openlayer** · [Universal API reference](../../apis/o/openlayer/universal-api) · [Native API reference](../../apis/o/openlayer/native-api) · [Native API docs](https://api.openlayer.com/v1/openapi.json)
 - **OpenRouter** · [Universal API reference](../../apis/o/openRouter/universal-api) · [Native API reference](../../apis/o/openRouter/native-api) · [Native API docs](https://openrouter.ai/docs/api/reference/overview)
 - **Orimon** · [Universal API reference](../../apis/o/orimon/universal-api) · [Native API reference](../../apis/o/orimon/native-api) · [Native API docs](https://orimon.gitbook.io/docs/developer-api/getting-started-with-apis)

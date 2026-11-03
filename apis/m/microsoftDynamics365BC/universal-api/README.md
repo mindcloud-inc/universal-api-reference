@@ -3,7 +3,7 @@
 Microsoft Dynamics 365 Business Central
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365BC/latest
-- **Actions:** 62
+- **Actions:** 65
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (62)
+## Actions (65)
 
 ### Addresses
 
@@ -47,8 +47,11 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [List Customers](actions/list-customers.md) | GET |  |
 | [List Customers ODataV4](actions/list-customers-o-data-v4.md) | GET |  |
 | [List Customers SSI](actions/list-customers-ssi.md) | GET |  |
+| [List Default Dimension by Vendor](actions/list-default-dimension-by-vendor.md) | GET |  |
 | [List Employees ODataV4](actions/list-employees-o-data-v4.md) | GET |  |
+| [List Payments Terms](actions/list-payments-terms.md) | GET |  |
 | [List Projects](actions/list-projects.md) | GET |  |
+| [List Vendors](actions/list-vendors.md) | GET |  |
 | [Post Journal Lines](actions/post-journal-lines.md) | PUT |  |
 | [Update Costumer ODataV4](actions/update-costumer-o-data-v4.md) | PUT |  |
 | [Update Costumer SSI](actions/update-costumer-ssi.md) | PUT |  |

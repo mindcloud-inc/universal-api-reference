@@ -1,6 +1,6 @@
 # Other apps
 
-582 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+581 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -348,7 +348,6 @@
 - **One-Time Secret** · [Universal API reference](../../apis/o/oneTimeSecret/universal-api) · [Native API reference](../../apis/o/oneTimeSecret/native-api) · [Native API docs](https://docs.onetimesecret.com/en/rest-api/)
 - **Online-Convert** · [Universal API reference](../../apis/o/onlineConvert/universal-api) · [Native API reference](../../apis/o/onlineConvert/native-api) · [Native API docs](https://www.api2convert.com/documentation)
 - **OOPSpam** · [Universal API reference](../../apis/o/oOPSpam/universal-api) · [Native API reference](../../apis/o/oOPSpam/native-api) · [Native API docs](https://www.oopspam.com/docs/)
-- **Open AI** · [Universal API reference](../../apis/o/openAi/universal-api) · [Native API reference](../../apis/o/openAi/native-api) · [Native API docs](https://developers.openai.com/api/)
 - **Open Data DC** · [Universal API reference](../../apis/o/openDataDC/universal-api) · [Native API reference](../../apis/o/openDataDC/native-api) · [Native API docs](https://datagate.dc.gov/mar/open/swagger/v2.2/swagger.json)
 - **OpenFDA** · [Universal API reference](../../apis/o/openFDA/universal-api) · [Native API reference](../../apis/o/openFDA/native-api) · [Native API docs](https://open.fda.gov/apis/)
 - **openFDA Drug** · [Universal API reference](../../apis/o/openFDADrug/universal-api) · [Native API reference](../../apis/o/openFDADrug/native-api) · [Native API docs](https://open.fda.gov/apis/drug/)
