@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3229 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3230 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -2331,6 +2331,7 @@ The official vendor API documentation for each of the 3229 apps in this repo. Ea
 - [Ringg AI](../apis/r/ringgAI/native-api) - https://docs.ringg.ai/api-reference/quick-start/guide
 - [Ritekit](../apis/r/ritekit/native-api) - https://documenter.getpostman.com/view/2010712/SzS7Qku5?version=latest
 - [Rithum DSCO](../apis/r/rithumDSCOV2/native-api) - https://api.dsco.io/doc/v3/reference/
+- [Rithum for Brands](../apis/r/rithumForBrands/native-api) - https://knowledge.channeladvisor.com/kc?id=kb_category_main&kb_knowledge_base=fdc1945887cf4910b535a7183cbb35bd
 - [RO App](../apis/r/rOApp/native-api) - https://roapp.readme.io/reference
 - [RoboAuditor](../apis/r/roboAuditor/native-api) - https://siteauditor.com/
 - [Robohash](../apis/r/robohash/native-api) - https://github.com/e1ven/Robohash

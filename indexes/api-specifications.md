@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3229 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3230 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -2271,6 +2271,7 @@ Machine-readable API descriptions for 3229 apps. Universal API specifications ar
 | [Ringg AI](../apis/r/ringgAI) | [OpenAPI 3.1](../apis/r/ringgAI/universal-api/openapi.json) | [Provider OpenAPI](https://docs.ringg.ai/api-reference/openapi.json) |
 | [Ritekit](../apis/r/ritekit) | [OpenAPI 3.1](../apis/r/ritekit/universal-api/openapi.json) |  |
 | [Rithum DSCO](../apis/r/rithumDSCOV2) | [OpenAPI 3.1](../apis/r/rithumDSCOV2/universal-api/openapi.json) | [Provider OpenAPI](https://api.dsco.io/doc/v3/dsco-api-spec.yaml) |
+| [Rithum for Brands](../apis/r/rithumForBrands) | [OpenAPI 3.1](../apis/r/rithumForBrands/universal-api/openapi.json) |  |
 | [RO App](../apis/r/rOApp) | [OpenAPI 3.1](../apis/r/rOApp/universal-api/openapi.json) |  |
 | [RoboAuditor](../apis/r/roboAuditor) | [OpenAPI 3.1](../apis/r/roboAuditor/universal-api/openapi.json) |  |
 | [Robohash](../apis/r/robohash) | [OpenAPI 3.1](../apis/r/robohash/universal-api/openapi.json) |  |

@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 60 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 62 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (60 documented)
+## Endpoints (62 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -88,6 +88,7 @@ Response data is read from `value`.
 | [Get Aged Transactions](actions/get-aged-transactions.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/ssi/aapi/v2.0/companies(:companyID)/atsagedAccountsReceivables` |  |
 | [Get Inventory By Location SSI](actions/get-inventory-by-location-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/inventoryQtyByLocationsSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [Get Ship-to Addresses SSI](actions/get-ship-to-addresses-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
+| [List Applied Customer Entries ODataV4](actions/list-applied-customer-entries-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindCloudAppliedCustomerEntries` |  |
 | [List Bank Deposits Line ODataV4](actions/list-bank-deposits-line-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudBankDepositLines` |  |
 | [List Bank Deposits ODataV4](actions/list-bank-deposits-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudBankDepositHeader` |  |
 | [List Companies](actions/list-companies.md) | REST | `GET v2.0/companies` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_company_get) |
@@ -97,6 +98,7 @@ Response data is read from `value`.
 | [List Customers](actions/list-customers.md) | REST (Copy) | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies({{companyId}})/customers` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List Customers ODataV4](actions/list-customers-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudCustomerCard` |  |
 | [List Customers SSI](actions/list-customers-ssi.md) | REST (Copy) | `GET v2.0/companies({{companyId}})/CustomersSSI` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
+| [List Detailed Customer Ledger Entries ODataV4](actions/list-detailed-customer-ledger-entries-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindCloudDetailedCustomerLedgerEntries` |  |
 | [List Employees ODataV4](actions/list-employees-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:companyId)/GravityResources` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List General Journal ODataV4](actions/list-general-journal-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudGeneralJournal` |  |
 | [List Items](actions/list-items.md) | REST | `GET v2.0/companies({{companyId}})/items` |  |
