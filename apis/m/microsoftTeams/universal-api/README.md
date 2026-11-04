@@ -4,7 +4,7 @@ Access Microsoft Teams collaboration data and actions through Microsoft Graph, i
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftTeams/latest
 - **Category:** Communication / Team Messaging
-- **Actions:** 26
+- **Actions:** 27
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/microsoft-teams
 - **Vendor API docs:** https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftTeams/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (26)
+## Actions (27)
 
 ### Applications
 
@@ -30,6 +30,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftTeams/latest/act
 | --- | --- | --- |
 | [List Channel Tabs](actions/list-channel-tabs.md) | GET | Retrieves channel tabs from Microsoft Teams. |
 | [List Team Installed Apps](actions/list-team-installed-apps.md) | GET | Retrieves installed apps for a Microsoft Teams team. |
+
+### Channel Files
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Upload Channel File](actions/upload-channel-file.md) | POST |  |
 
 ### Channels
 

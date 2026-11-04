@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Viewpoint Vista Universal API",
-    "version": "0.0.110",
+    "version": "0.0.112",
     "description": "Call Viewpoint Vista actions through MindCloud's Universal API."
   },
   "servers": [
@@ -4762,6 +4762,10 @@
                     "description": "Optional. If omitted, null will be defaulted."
                   },
                   "MailZip": {
+                    "type": "string",
+                    "description": "Optional. If omitted, null will be defaulted."
+                  },
+                  "MailCountry": {
                     "type": "string",
                     "description": "Optional. If omitted, null will be defaulted."
                   },
@@ -11546,15 +11550,6 @@
             "explode": false
           },
           {
-            "name": "filters",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "additionalProperties": true
-            }
-          },
-          {
             "name": "filters[].operator",
             "in": "query",
             "required": false,
@@ -11584,6 +11579,15 @@
             "required": false,
             "schema": {
               "type": "number"
+            }
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "An RSQL expression used to filter the results.",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -17188,6 +17192,10 @@
                     "type": "string",
                     "description": "Optional. If omitted, null will be defaulted."
                   },
+                  "PRStateCode": {
+                    "type": "string",
+                    "description": "Used in the payroll process to lookup pr/states(PRCo, PRStateCode). This value does not have to exist in pr/states to save this record."
+                  },
                   "JobPhone": {
                     "type": "string",
                     "description": "Optional. If omitted, null will be defaulted."
@@ -17209,6 +17217,10 @@
                     "description": "Optional. If omitted, null will be defaulted."
                   },
                   "MailZip": {
+                    "type": "string",
+                    "description": "Optional. If omitted, null will be defaulted."
+                  },
+                  "MailCountry": {
                     "type": "string",
                     "description": "Optional. If omitted, null will be defaulted."
                   },
@@ -17506,6 +17518,205 @@
                     "type": "object",
                     "additionalProperties": true,
                     "description": "\"__custom_fields\": {\n    \"newKey\": \"New Value\",\n    \"newKey-1\": \"New Value\"\n  }"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/viewpointVista/latest/actions/upsert-ap-invoice-batch": {
+      "post": {
+        "operationId": "viewpointVista.upsert-ap-invoice-batch",
+        "summary": "Upsert AP Invoice Batch",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/viewpointVista/latest/actions/upsert-ap-invoice-batch"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "co",
+                  "mth"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "co": {
+                    "type": "number",
+                    "description": "AR company for the receipt batch."
+                  },
+                  "mth": {
+                    "type": "string",
+                    "description": "Posting month for the receipt batch. Format: YYYY-MM-01."
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "Optional notes for the receipt batch."
+                  },
+                  "__batch": {
+                    "type": "string",
+                    "description": "Batch Custom ID."
                   }
                 },
                 "additionalProperties": false

@@ -1,6 +1,6 @@
 # Other apps
 
-581 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+582 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -526,6 +526,7 @@
 - **Trustmary** · [Universal API reference](../../apis/t/trustmary/universal-api) · [Native API reference](../../apis/t/trustmary/native-api) · [Native API docs](https://help.trustmary.com/api)
 - **TVMaze Schedule** · [Universal API reference](../../apis/t/tVMazeSchedule/universal-api) · [Native API reference](../../apis/t/tVMazeSchedule/native-api) · [Native API docs](https://www.tvmaze.com/api)
 - **UiPath Orchestrator** · [Universal API reference](../../apis/u/uiPathOrchestrator/universal-api) · [Native API reference](../../apis/u/uiPathOrchestrator/native-api) · [Native API docs](https://docs.uipath.com/orchestrator/automation-cloud/latest/api-guide/introduction)
+- **UKG Pro** · [Universal API reference](../../apis/u/ukgPro/universal-api) · [Native API reference](../../apis/u/ukgPro/native-api) · [Native API docs](https://developer.ukg.com/hcm/reference/welcome-to-the-pro-developer-hub)
 - **Umbrella** · [Universal API reference](../../apis/u/umbrella/universal-api) · [Native API reference](../../apis/u/umbrella/native-api) · [Native API docs](https://developer.cisco.com/docs/cloud-security/)
 - **Underdog Protocol** · [Universal API reference](../../apis/u/underdogProtocol/universal-api) · [Native API reference](../../apis/u/underdogProtocol/native-api) · [Native API docs](https://docs.underdogprotocol.com)
 - **United States Securities and Exchange Commission (SEC) EDGAR Database** · [Universal API reference](../../apis/u/unitedStatesSecuritiesAndExchangeCommissionSECEDGARDatabaseAPIAndRSS/universal-api) · [Native API reference](../../apis/u/unitedStatesSecuritiesAndExchangeCommissionSECEDGARDatabaseAPIAndRSS/native-api) · [Native API docs](https://www.sec.gov/search-filings/edgar-application-programming-interfaces)

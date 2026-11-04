@@ -22,12 +22,14 @@ Update a Job based on a contract
 | `LockPhases` | body | `list<string>` | no | Optional. If omitted, N will be defaulted. Allowed: Y, N. Accepted values: `N`, `Y`. |
 | `ProjectMgr` | body | `number` | no | Key to jc/project_managers(JCCo, ProjectMgr). Optional. If omitted, null will be defaulted. |
 | `BidNumber` | body | `string` | no | Optional. If omitted, null will be defaulted. |
+| `PRStateCode` | body | `string` | no | Used in the payroll process to lookup pr/states(PRCo, PRStateCode). This value does not have to exist in pr/states to save this record. |
 | `JobPhone` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `JobFax` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailAddress` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailCity` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailState` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailZip` | body | `string` | no | Optional. If omitted, null will be defaulted. |
+| `MailCountry` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailAddress2` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `ShipAddress` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `ShipCity` | body | `string` | no | Optional. If omitted, null will be defaulted. |

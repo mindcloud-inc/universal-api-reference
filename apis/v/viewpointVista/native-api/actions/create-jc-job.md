@@ -30,6 +30,7 @@ Adds a Job based on a contract
 | `MailCity` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailState` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailZip` | body | `string` | no | Optional. If omitted, null will be defaulted. |
+| `MailCountry` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `MailAddress2` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `ShipAddress` | body | `string` | no | Optional. If omitted, null will be defaulted. |
 | `ShipCity` | body | `string` | no | Optional. If omitted, null will be defaulted. |

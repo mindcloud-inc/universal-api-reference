@@ -8,6 +8,8 @@ GET https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/sear
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoint Vista `connectionId` ([setup](../authentication.md)).
 
+This action also supports [filtering](../filtering.md) (`where`).
+
 ## Example request
 
 ```bash
@@ -40,7 +42,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `modifiedUtcBefore` | date | no | Specify a datetime against which to filter the results. |
 | `object` | list<string> | yes | Specify the type of Object from the Accounts Payable V2 Direct API that you'd like to retrieve. One of: `company_parameters`, `inv_batch_entries`, `inv_batches`, `invoice_holds`, `invoice_line_details`, `invoices`, `pay_batch_entries`, `pay_batches`, `pay_categories`, `pay_types`, `payment_histories`, `rel_ret_bat_entries`, `rel_retainage_batch`, `unapproved_invoices`, `vendor_compliances`, `vendor_holds`, `vendors`. |
 | `filters[]` | array<object> | no |  |
-| `filters` | object | no |  |
 | `filters[].operator` | string | no |  |
 | `filters[].propertyName` | string | no |  |
 | `filters[].value` | string | no |  |

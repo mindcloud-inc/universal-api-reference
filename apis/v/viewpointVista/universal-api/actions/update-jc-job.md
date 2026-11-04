@@ -50,12 +50,14 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `LockPhases` | list<string> | no | Optional. If omitted, N will be defaulted. Allowed: Y, N. One of: `N`, `Y`. |
 | `ProjectMgr` | number | no | Key to jc/project_managers(JCCo, ProjectMgr). Optional. If omitted, null will be defaulted. |
 | `BidNumber` | string | no | Optional. If omitted, null will be defaulted. |
+| `PRStateCode` | string | no | Used in the payroll process to lookup pr/states(PRCo, PRStateCode). This value does not have to exist in pr/states to save this record. |
 | `JobPhone` | string | no | Optional. If omitted, null will be defaulted. |
 | `JobFax` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailAddress` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailCity` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailState` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailZip` | string | no | Optional. If omitted, null will be defaulted. |
+| `MailCountry` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailAddress2` | string | no | Optional. If omitted, null will be defaulted. |
 | `ShipAddress` | string | no | Optional. If omitted, null will be defaulted. |
 | `ShipCity` | string | no | Optional. If omitted, null will be defaulted. |

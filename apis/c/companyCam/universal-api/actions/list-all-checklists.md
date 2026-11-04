@@ -40,6 +40,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `completed` | boolean | no |  |
+| `updatedSince` | string | no |  |
 
 ## Response
 
@@ -48,35 +49,64 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "success": true,
   "data": [
     {
-      "checklistTemplateId": {},
+      "checklistTemplateId": 1,
       "companyId": "string",
-      "completedAt": "2026-05-07T12:00:00.000Z",
-      "createdAt": "2026-05-07T12:00:00.000Z",
+      "completedAt": 1,
+      "createdAt": 1,
       "creatorId": "string",
       "creatorName": "Ava Chen",
       "id": "string",
-      "isPopulating": {},
+      "isPopulating": true,
       "name": "Ava Chen",
       "projectId": "string",
-      "sectionlessTasks": [
+      "sections": [
         {
-          "completedAt": "2026-05-07T12:00:00.000Z",
-          "completedById": "string",
-          "completedByType": {},
-          "createdAt": "2026-05-07T12:00:00.000Z",
+          "createdAt": 1,
           "creatorId": "string",
+          "creatorName": "Ava Chen",
           "creatorType": "string",
-          "details": "string",
           "id": "string",
-          "photoCaptureRequired": true,
           "position": 1,
+          "tasks": [
+            {
+              "completedAt": 1,
+              "completedById": "string",
+              "completedByType": "string",
+              "createdAt": 1,
+              "creatorId": "string",
+              "creatorType": "string",
+              "details": "string",
+              "id": "string",
+              "photoCaptureRequired": true,
+              "position": 1,
+              "subTasks": [
+                {
+                  "answerChoices": [
+                    1
+                  ],
+                  "answerOptions": [
+                    "string"
+                  ],
+                  "answerText": {},
+                  "answerType": "string",
+                  "id": "string",
+                  "label": "string",
+                  "position": 1,
+                  "taskId": 1
+                }
+              ],
+              "title": "string",
+              "todoListId": "string",
+              "todoListSectionId": "string",
+              "updatedAt": 1
+            }
+          ],
           "title": "string",
           "todoListId": "string",
-          "todoListSectionId": "string",
-          "updatedAt": "2026-05-07T12:00:00.000Z"
+          "updatedAt": 1
         }
       ],
-      "updatedAt": "2026-05-07T12:00:00.000Z"
+      "updatedAt": 1
     }
   ],
   "meta": {}
@@ -87,31 +117,48 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `checklistTemplateId` | object |  |
+| `checklistTemplateId` | number |  |
 | `companyId` | string |  |
-| `completedAt` | date |  |
-| `createdAt` | date |  |
+| `completedAt` | number |  |
+| `createdAt` | number |  |
 | `creatorId` | string |  |
 | `creatorName` | string |  |
 | `id` | string |  |
-| `isPopulating` | object |  |
+| `isPopulating` | boolean |  |
 | `name` | string |  |
 | `projectId` | string |  |
-| `sectionlessTasks[].completedAt` | date |  |
-| `sectionlessTasks[].completedById` | string |  |
-| `sectionlessTasks[].completedByType` | object |  |
-| `sectionlessTasks[].createdAt` | date |  |
-| `sectionlessTasks[].creatorId` | string |  |
-| `sectionlessTasks[].creatorType` | string |  |
-| `sectionlessTasks[].details` | string |  |
-| `sectionlessTasks[].id` | string |  |
-| `sectionlessTasks[].photoCaptureRequired` | boolean |  |
-| `sectionlessTasks[].position` | number |  |
-| `sectionlessTasks[].title` | string |  |
-| `sectionlessTasks[].todoListId` | string |  |
-| `sectionlessTasks[].todoListSectionId` | string |  |
-| `sectionlessTasks[].updatedAt` | date |  |
-| `updatedAt` | date |  |
+| `sections[].createdAt` | number |  |
+| `sections[].creatorId` | string |  |
+| `sections[].creatorName` | string |  |
+| `sections[].creatorType` | string |  |
+| `sections[].id` | string |  |
+| `sections[].position` | number |  |
+| `sections[].tasks[].completedAt` | number |  |
+| `sections[].tasks[].completedById` | string |  |
+| `sections[].tasks[].completedByType` | string |  |
+| `sections[].tasks[].createdAt` | number |  |
+| `sections[].tasks[].creatorId` | string |  |
+| `sections[].tasks[].creatorType` | string |  |
+| `sections[].tasks[].details` | string |  |
+| `sections[].tasks[].id` | string |  |
+| `sections[].tasks[].photoCaptureRequired` | boolean |  |
+| `sections[].tasks[].position` | number |  |
+| `sections[].tasks[].subTasks[].answerChoices[]` | number |  |
+| `sections[].tasks[].subTasks[].answerOptions[]` | string |  |
+| `sections[].tasks[].subTasks[].answerText` | object |  |
+| `sections[].tasks[].subTasks[].answerType` | string |  |
+| `sections[].tasks[].subTasks[].id` | string |  |
+| `sections[].tasks[].subTasks[].label` | string |  |
+| `sections[].tasks[].subTasks[].position` | number |  |
+| `sections[].tasks[].subTasks[].taskId` | number |  |
+| `sections[].tasks[].title` | string |  |
+| `sections[].tasks[].todoListId` | string |  |
+| `sections[].tasks[].todoListSectionId` | string |  |
+| `sections[].tasks[].updatedAt` | number |  |
+| `sections[].title` | string |  |
+| `sections[].todoListId` | string |  |
+| `sections[].updatedAt` | number |  |
+| `updatedAt` | number |  |
 
 ## Native endpoint
 

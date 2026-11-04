@@ -1,6 +1,6 @@
 # Microsoft Teams: Native API Reference
 
-A consolidated summary of Microsoft Teams's API configuration and 26 documented operations, with links to official documentation.
+A consolidated summary of Microsoft Teams's API configuration and 27 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0
 - **API base URL:** `https://graph.microsoft.com`
@@ -17,7 +17,7 @@ Register an OAuth application with the provider to obtain client credentials and
 2. Exchange the returned authorization code with a POST request to https://login.microsoftonline.com/common/oauth2/v2.0/token.
 3. Send the resulting access token as `Authorization: Bearer <accessToken>` on API requests.
 
-Requested scopes: `offline_access User.Read Team.ReadBasic.All TeamMember.Read.All Channel.ReadBasic.All ChannelSettings.ReadWrite.All Channel.Create ChannelMember.Read.All Files.Read.All TeamsTab.Read.All TeamsAppInstallation.ReadForTeam ChannelMessage.Read.All ChannelMessage.Send Chat.ReadWrite ChatMessage.Send Chat.Create TeamsAppInstallation.ReadForChat ChannelMessage.ReadWrite`.
+Requested scopes: `offline_access User.Read Team.ReadBasic.All TeamMember.Read.All Channel.ReadBasic.All ChannelSettings.ReadWrite.All Channel.Create ChannelMember.Read.All Files.Read.All TeamsTab.Read.All TeamsAppInstallation.ReadForTeam ChannelMessage.Read.All ChannelMessage.Send Chat.ReadWrite ChatMessage.Send Chat.Create TeamsAppInstallation.ReadForChat ChannelMessage.ReadWrite Files.ReadWrite.All`.
 
 The flow supports refresh tokens. Refresh expired access tokens with a POST request to https://login.microsoftonline.com/common/oauth2/v2.0/token.
 
@@ -43,7 +43,7 @@ Set the sort field with `$orderby` in the query string. Multiple sort fields can
 
 Retry responses with status codes `429,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (26 documented)
+## Endpoints (27 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -73,3 +73,4 @@ Retry responses with status codes `429,503,504`. Wait 1000 ms before the first r
 | [Soft Delete Channel Message Reply](actions/soft-delete-channel-message-reply.md) | `POST /v1.0/teams/:teamId/channels/:channelId/messages/:messageId/replies/:replyId/softDelete` | [docs](https://learn.microsoft.com/en-us/graph/api/chatmessage-softdelete?view=graph-rest-1.0) |
 | [Soft Delete Chat Message](actions/soft-delete-chat-message.md) | `POST /v1.0/users/:userId/chats/:chatId/messages/:messageId/softDelete` | [docs](https://learn.microsoft.com/en-us/graph/api/chatmessage-softdelete?view=graph-rest-1.0) |
 | [Update Channel](actions/update-channel.md) | `PATCH /v1.0/teams/:teamId/channels/:channelId` | [docs](https://learn.microsoft.com/en-us/graph/api/channel-patch?view=graph-rest-1.0) |
+| [Upload Channel File](actions/upload-channel-file.md) | `PUT /v1.0/drives/:driveId/items/:folderId:/:fileName:/content` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-put-content?view=graph-rest-1.0) |

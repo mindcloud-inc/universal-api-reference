@@ -1,6 +1,6 @@
 # Viewpoint Vista: Native API Reference
 
-A consolidated summary of Viewpoint Vista's API configuration and 80 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Vista's API configuration and 81 documented operations, with links to official documentation.
 
 - **Official docs:** https://direct-api.xchange.trimble.com/reference/setup
 - **REST base URL:** `https://api.xchange.trimble.com/connect/`
@@ -53,7 +53,7 @@ Shared headers:
 
 - **REST:** Send filters in the request body.
 
-## Endpoints (80 documented)
+## Endpoints (81 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -131,6 +131,7 @@ Shared headers:
 | [Update Employee](actions/update-employee.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/pr/2/data/employees/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2dataemployeesactionschange) |
 | [Update JC Job](actions/update-jc-job.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/jobs/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd) |
 | [Update Vendor](actions/update-vendor.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/vendors/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaap2datavendorsactionschange) |
+| [Upsert AP Invoice Batch](actions/upsert-ap-invoice-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/inv_batches/actions/upsert` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatchesactionsupsert_receipt) |
 | [Upsert AR Invoice Batch](actions/upsert-ar-invoice-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batches/actions/add_invoice` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatchesactionsadd_invoice) |
 | [Upsert Cost Adjustment Batch](actions/upsert-cost-adjustment-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/cost_adj_batches/actions/upsert` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatchesactionsupsert_receipt) |
 | [Upsert Invoice Batch](actions/upsert-invoice-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batches/actions/upsert_invoice` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionsupsert) |

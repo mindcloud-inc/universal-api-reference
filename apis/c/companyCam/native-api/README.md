@@ -46,7 +46,7 @@ Responses from this API use JSON.
 
 ## Pagination
 
-Use `per_page` in the query string to set the page size (default 25; accepted range 1–100). Use `page` in the query string to choose the page; numbering starts at 1.
+Use `per_page` in the query string to set the page size (default 50; accepted range 1–100). Use `page` in the query string to choose the page; numbering starts at 1.
 
 ## Endpoints (52 documented)
 

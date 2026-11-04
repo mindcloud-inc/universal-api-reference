@@ -66,6 +66,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `MailCity` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailState` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailZip` | string | no | Optional. If omitted, null will be defaulted. |
+| `MailCountry` | string | no | Optional. If omitted, null will be defaulted. |
 | `MailAddress2` | string | no | Optional. If omitted, null will be defaulted. |
 | `ShipAddress` | string | no | Optional. If omitted, null will be defaulted. |
 | `ShipCity` | string | no | Optional. If omitted, null will be defaulted. |
