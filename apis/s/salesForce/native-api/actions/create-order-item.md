@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `/services/data/v64.0/sobjects/OrderItem`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 - **Official documentation:** [Create Order Item](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_orderitem.htm)
 
 ## Parameters

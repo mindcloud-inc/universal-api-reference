@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 130 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 131 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -45,7 +45,7 @@ The next-page cursor is read from `continueFrom`. The current page number is rea
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (130 documented)
+## Endpoints (131 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -126,6 +126,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Get Services by Id](actions/get-service-by-id.md) | `GET pricebook/v2/tenant/{{credentials.tenant}}/services/:id` |  |
 | [Get Services](actions/get-services.md) | `GET pricebook/v2/tenant/{{credentials.tenant}}/services` |  |
 | [Get Tasks](actions/get-tasks.md) | `GET taskmanagement/v2/tenant/{{credentials.tenant}}/tasks` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-task-management-v2&operation=Tasks_GetTasks) |
+| [Get Tax Zones](actions/get-tax-zones.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/tax-zones` | [docs](https://developer.servicetitan.io/docs/api-resources-accounting/) |
 | [Get Technician Payroll Settings](actions/get-technician-payroll-settings.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/technicians/:technician/payroll-settings` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/PayrollSettings_GetTechnicianPayrollSettings) |
 | [Get Technician Skill](actions/get-technician-skill.md) | `GET dispatch/v2/tenant/{{credentials.tenant}}/technician-skills/:id` | [docs](https://developer.servicetitan.io/docs/apis/tenant-dispatch-v2/endpoints) |
 | [Get Technicians](actions/get-technicians.md) | `GET settings/v2/tenant/{{credentials.tenant}}/technicians` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-settings-v2&operation=Technicians_GetList) |

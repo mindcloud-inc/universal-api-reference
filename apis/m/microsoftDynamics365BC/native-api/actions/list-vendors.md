@@ -17,3 +17,4 @@ This operation supports [pagination](../README.md#pagination).
 | --- | --- | --- | --- | --- |
 | `company` | path | `list` | yes | Accepted values: `'Active260127'`, `'Esser%20Plumbing%20%26%20Heating'`. |
 | `$filter` | query | `string` | no | — |
+| `$orderby` | query | `string` | no | — |

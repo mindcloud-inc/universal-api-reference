@@ -102,7 +102,7 @@ Shared headers:
 | [Get Local Services Lead](actions/get-local-services-lead.md) | `POST v23/customers/:customerId/googleAds:search` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search) |
 | [Get Recommendation](actions/get-recommendation.md) | `POST v23/customers/:customerId/googleAds:search` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search) |
 | [Get User List](actions/get-user-list.md) | `POST v23/customers/:customerId/googleAds:search` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search) |
-| [List Accessible Customers](actions/list-accessible-customers.md) | `GET v23/customers:listAccessibleCustomers` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/CustomerService/ListAccessibleCustomers) |
+| [List Accessible Customers](actions/list-accessible-customers.md) | `GET v23/customers:listAccessibleCustomers` | [docs](https://developers.google.com/google-ads/api/docs/account-management/listing-accounts) |
 | [List Account Budget Proposals](actions/list-account-budget-proposals.md) | `POST v23/customers/:customerId/googleAds:search` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search) |
 | [List Account Budgets](actions/list-account-budgets.md) | `POST v23/customers/:customerId/googleAds:search` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search) |
 | [List Account Change Events](actions/list-account-change-events.md) | `POST v23/customers/:customerId/googleAds:search` | [docs](https://developers.google.com/google-ads/api/reference/rpc/v22/GoogleAdsService/Search) |

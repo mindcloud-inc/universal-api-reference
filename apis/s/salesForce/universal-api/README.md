@@ -3,7 +3,7 @@
 Salesforce through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/salesForce/latest
-- **Actions:** 22
+- **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (22)
+## Actions (30)
 
 ### Contacts
 
@@ -28,6 +28,18 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions
 | [Create Customer](actions/create-customer.md) | POST |  |
 | [Get Contact by Email](actions/get-contact-by-email.md) | GET |  |
 | [Get Contacts](actions/get-contacts.md) | GET |  |
+
+### Credit Memos
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Credit Memos](actions/list-credit-memos.md) | GET |  |
+
+### Credit Notes
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Billing Credit Notes](actions/list-billing-credit-notes.md) | GET |  |
 
 ### CRM Accounts
 
@@ -40,6 +52,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Fulfillment Orders](actions/get-fulfillment-orders.md) | GET |  |
+
+### Invoices
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Billing Invoices](actions/list-billing-invoices.md) | GET |  |
+| [List Invoices](actions/list-invoices.md) | GET |  |
 
 ### Order Delivery Group
 
@@ -73,6 +92,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions
 | [Find Product Offer by Product Code](actions/find-product-by-product-code.md) | GET |  |
 | [Update Product](actions/update-product.md) | PUT |  |
 
+### Quote Lines
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Deleted Quote Line Items](actions/get-deleted-quote-line-items.md) | GET |  |
+| [List Quote Line Items](actions/list-quote-line-items.md) | GET |  |
+
+### Quotes
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Quotes](actions/list-quotes.md) | GET |  |
+
 ### Record
 
 | Action | Method | Description |
@@ -94,6 +126,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/salesForce/latest/actions
 | --- | --- | --- |
 | [Create Order](actions/create-order.md) | POST |  |
 | [Find Order by OrderNumber](actions/get-order.md) | GET | Get the ID for a single Order object by its Order Number |
+| [List Orders](actions/list-orders.md) | GET |  |
 
 ### Sobject
 

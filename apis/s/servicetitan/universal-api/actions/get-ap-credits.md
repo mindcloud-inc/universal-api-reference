@@ -44,6 +44,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `createdOnOrAfter` | string | no |  |
 | `modifiedBefore` | string | no |  |
 | `modifiedOnOrAfter` | string | no |  |
+| `syncStatuses` | string | no | Pending - Posted - Exported - PostedAndExported |
 
 ## Response
 

@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 130
+- **Actions:** 131
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (130)
+## Actions (131)
 
 ### Access Tokens
 
@@ -245,6 +245,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Get AP Credits](actions/get-ap-credits.md) | GET | Retrieves AP credits from ServiceTitan. |
 | [Get Credit Memo](actions/get-credit-memo.md) | GET |  |
 | [Get Payment Terms](actions/get-payment-terms.md) | GET | Retrieves payment terms from ServiceTitan. |
+| [Get Tax Zones](actions/get-tax-zones.md) | GET | Retrieves tax zones from ServiceTitan. |
 | [Get Technician Payroll Settings](actions/get-technician-payroll-settings.md) | GET | Retrieves payroll settings from ServiceTitan for a technician. |
 | [List Payroll by Employee ID](actions/list-payroll-by-employee-id.md) | GET | Retrieves payrolls from ServiceTitan for an employee. |
 | [List Payroll by Technician ID](actions/list-payroll-by-technician-id.md) | GET | Retrieves payrolls from ServiceTitan for a technician. |

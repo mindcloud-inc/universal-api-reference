@@ -36626,7 +36626,7 @@
     "name": "Salesforce",
     "slug": "salesForce",
     "iconUrl": "https://images.mindcloud.co/apps/icons/sf-logo_1774370260627.png",
-    "version": "0.0.162",
+    "version": "0.0.163",
     "authentication": [
       {
         "type": "oAuth2",
@@ -36686,6 +36686,68 @@
           "maxAttempts": 50,
           "multiplier": 3
         }
+      },
+      {
+        "name": "REST SOQL Read",
+        "type": "rest",
+        "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "pagination": {
+          "offset": {
+            "type": "cursor",
+            "parameter": "cursor",
+            "location": "query",
+            "useFullUrl": true
+          }
+        },
+        "sorting": {
+          "location": "query",
+          "parameter": "orderBy",
+          "directionParameter": "direction",
+          "ascending": "ASC",
+          "descending": "DESC",
+          "separateDirectionParameter": true
+        },
+        "retry": {
+          "delayMs": 1000,
+          "maxAttempts": 3,
+          "multiplier": 2,
+          "statusCodes": "503"
+        },
+        "responses": [
+          {
+            "parser": "json",
+            "dataKey": "input.data.records",
+            "cursorKey": "input.data.nextRecordsUrl"
+          }
+        ]
+      },
+      {
+        "name": "REST Deleted Records Read",
+        "type": "rest",
+        "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "retry": {
+          "delayMs": 1000,
+          "maxAttempts": 3,
+          "multiplier": 2,
+          "statusCodes": "503"
+        },
+        "responses": [
+          {
+            "parser": "json"
+          }
+        ]
       }
     ],
     "actions": [
@@ -37440,6 +37502,90 @@
         "responseSchema": []
       },
       {
+        "name": "Get Deleted Quote Line Items",
+        "slug": "get-deleted-quote-line-items",
+        "operation": "read",
+        "method": "GET",
+        "model": "quoteLine",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-getdeleted.html",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/sobjects/QuoteLineItem/deleted/",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST Deleted Records Read",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "start",
+              "name": "Start",
+              "dataType": "date",
+              "location": "query",
+              "required": true,
+              "description": "UTC timestamp. Salesforce ignores seconds and only retains recent deletion coverage (up to 15 days)."
+            },
+            {
+              "key": "end",
+              "name": "End",
+              "dataType": "date",
+              "location": "query",
+              "required": true,
+              "description": "UTC timestamp. Salesforce ignores seconds and only retains recent deletion coverage (up to 15 days)."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "start",
+            "name": "Start",
+            "dataType": "date",
+            "required": true,
+            "description": "UTC timestamp. Salesforce ignores seconds and only retains recent deletion coverage (up to 15 days).",
+            "example": "2026-11-01T00:00:00Z"
+          },
+          {
+            "key": "end",
+            "name": "End",
+            "dataType": "date",
+            "required": true,
+            "description": "UTC timestamp. Salesforce ignores seconds and only retains recent deletion coverage (up to 15 days).",
+            "example": "2026-11-01T00:00:00Z"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "deletedRecords",
+            "dataType": "array",
+            "itemDataType": "object",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "deletedRecords[].id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "deletedRecords[].deletedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "earliestDateAvailable",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "latestDateCovered",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
+      },
+      {
         "name": "Get Fulfillment Orders",
         "slug": "get-fulfillment-orders",
         "operation": "read",
@@ -37630,6 +37776,413 @@
         "responseSchema": []
       },
       {
+        "name": "List Billing Credit Notes",
+        "slug": "list-billing-credit-notes",
+        "operation": "read",
+        "method": "GET",
+        "model": "creditNote",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/query",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST SOQL Read",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "status",
+              "name": "Status",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Match the current blng__Status__c value exactly. This does not detect a transition into that status.",
+              "enumValues": [
+                "Cancelled",
+                "Draft",
+                "Posted"
+              ]
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": true
+        },
+        "arguments": [
+          {
+            "key": "status",
+            "name": "Status",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Match the current blng__Status__c value exactly. This does not detect a transition into that status.",
+            "enumValues": [
+              "Cancelled",
+              "Draft",
+              "Posted"
+            ]
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "createdDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "lastModifiedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "blngStatusC",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "blngRelatedInvoiceC",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "blngSubtotalC",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "blngTaxAmountC",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
+      },
+      {
+        "name": "List Billing Invoices",
+        "slug": "list-billing-invoices",
+        "operation": "read",
+        "method": "GET",
+        "model": "invoice",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/query",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST SOQL Read",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "status",
+              "name": "Status",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Match the current blng__InvoiceStatus__c value exactly. This does not detect a transition into that status.",
+              "enumValues": [
+                "Cancelled",
+                "Draft",
+                "Error",
+                "Initiated",
+                "Post In progress",
+                "Posted",
+                "Rebilled"
+              ]
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": true
+        },
+        "arguments": [
+          {
+            "key": "status",
+            "name": "Status",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Match the current blng__InvoiceStatus__c value exactly. This does not detect a transition into that status.",
+            "enumValues": [
+              "Cancelled",
+              "Draft",
+              "Error",
+              "Initiated",
+              "Post In progress",
+              "Posted",
+              "Rebilled"
+            ]
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "createdDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "lastModifiedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "blngInvoiceStatusC",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
+      },
+      {
+        "name": "List Credit Memos",
+        "slug": "list-credit-memos",
+        "operation": "read",
+        "method": "GET",
+        "model": "creditMemo",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/query",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST SOQL Read",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "status",
+              "name": "Status",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Match the current Status value exactly. This does not detect a transition into that status."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": true
+        },
+        "arguments": [
+          {
+            "key": "status",
+            "name": "Status",
+            "dataType": "string",
+            "required": false,
+            "description": "Match the current Status value exactly. This does not detect a transition into that status."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "createdDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "lastModifiedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "creditMemoNumber",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "billingAccountId",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "totalAmount",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
+      },
+      {
+        "name": "List Invoices",
+        "slug": "list-invoices",
+        "operation": "read",
+        "method": "GET",
+        "model": "invoice",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/query",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST SOQL Read",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "status",
+              "name": "Status",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Match the current Status value exactly. This does not detect a transition into that status."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": true
+        },
+        "arguments": [
+          {
+            "key": "status",
+            "name": "Status",
+            "dataType": "string",
+            "required": false,
+            "description": "Match the current Status value exactly. This does not detect a transition into that status."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "createdDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "lastModifiedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "invoiceNumber",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "billingAccountId",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "totalAmount",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
+      },
+      {
+        "name": "List Orders",
+        "slug": "list-orders",
+        "operation": "read",
+        "method": "GET",
+        "model": "salesOrder",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/query",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST SOQL Read",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "status",
+              "name": "Status",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Match the current Status value exactly. This does not detect a transition into that status."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": true
+        },
+        "arguments": [
+          {
+            "key": "status",
+            "name": "Status",
+            "dataType": "string",
+            "required": false,
+            "description": "Match the current Status value exactly. This does not detect a transition into that status."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "createdDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "lastModifiedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "orderNumber",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "accountId",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "totalAmount",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
+      },
+      {
         "name": "List Pricebook",
         "slug": "list-pricebook",
         "operation": "read",
@@ -37670,6 +38223,135 @@
         },
         "arguments": [],
         "responseSchema": []
+      },
+      {
+        "name": "List Quote Line Items",
+        "slug": "list-quote-line-items",
+        "operation": "read",
+        "method": "GET",
+        "model": "quoteLine",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/query",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST SOQL Read",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": true
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "createdDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "lastModifiedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "quoteId",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "quantity",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "unitPrice",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
+      },
+      {
+        "name": "List Quotes",
+        "slug": "list-quotes",
+        "operation": "read",
+        "method": "GET",
+        "model": "quote",
+        "documentationUrl": "https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query",
+        "native": {
+          "method": "GET",
+          "path": "/services/data/v61.0/query",
+          "baseUrl": "https://{{credentials.companyDomainName}}.my.salesforce.com",
+          "apiName": "REST SOQL Read",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "status",
+              "name": "Status",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Match the current Status value exactly. This does not detect a transition into that status."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": true
+        },
+        "arguments": [
+          {
+            "key": "status",
+            "name": "Status",
+            "dataType": "string",
+            "required": false,
+            "description": "Match the current Status value exactly. This does not detect a transition into that status."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "createdDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "lastModifiedDate",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "status",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "accountId",
+            "dataType": "string",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          },
+          {
+            "key": "grandTotal",
+            "dataType": "number",
+            "description": "Provisional documentation-based field; runtime confirmation pending."
+          }
+        ]
       },
       {
         "name": "Org sObjects (Lookup)",
@@ -230048,7 +230730,7 @@
     "description": "ServiceTitan is a cloud-based software platform for home and commercial service businesses that manages customers, jobs, scheduling, dispatching, invoicing, payments, and other field service operations.",
     "iconUrl": "https://images.mindcloud.co/apps/icons/service-titan_1777386591371.png",
     "nativeDocumentationUrl": "https://developer.servicetitan.io/api-details/#api=tenant-crm-v2",
-    "version": "0.0.406",
+    "version": "0.0.408",
     "authentication": [
       {
         "type": "custom",
@@ -234471,6 +235153,14 @@
               "dataType": "string",
               "location": "query",
               "required": false
+            },
+            {
+              "key": "syncStatuses",
+              "name": "Sync Status",
+              "dataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Pending - Posted - Exported - PostedAndExported"
             }
           ]
         },
@@ -234509,6 +235199,13 @@
             "name": "modifiedOnOrAfter",
             "dataType": "string",
             "required": false
+          },
+          {
+            "key": "syncStatuses",
+            "name": "Sync Status",
+            "dataType": "string",
+            "required": false,
+            "description": "Pending - Posted - Exported - PostedAndExported"
           }
         ],
         "responseSchema": []
@@ -242829,6 +243526,110 @@
         "responseSchema": []
       },
       {
+        "name": "Get Tax Zones",
+        "slug": "get-tax-zones",
+        "operation": "read",
+        "method": "GET",
+        "description": "Retrieves tax zones from ServiceTitan.",
+        "documentationUrl": "https://developer.servicetitan.io/docs/api-resources-accounting/",
+        "native": {
+          "method": "GET",
+          "path": "accounting/v2/tenant/{{credentials.tenant}}/tax-zones",
+          "baseUrl": "https://{{credentials.baseUrl}}/",
+          "apiName": "REST",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "id",
+              "name": "id",
+              "dataType": "string",
+              "location": "query",
+              "required": true
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "id",
+            "name": "id",
+            "dataType": "string",
+            "required": true
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "active",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "color",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "createdOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "isMultipleTaxZone",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "isTaxRateSeparated",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "modifiedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "rates[].id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "rates[].salesTaxItem",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "rates[].taxBaseType[]",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "rates[].taxName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "rates[].taxRate",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
         "name": "Get Technician Payroll Settings",
         "slug": "get-technician-payroll-settings",
         "operation": "read",
@@ -243161,22 +243962,6 @@
               }
             },
             {
-              "key": "page",
-              "name": "Page",
-              "dataType": "number",
-              "location": "query",
-              "required": false,
-              "description": "The logical page number to return, starting from 1"
-            },
-            {
-              "key": "pageSize",
-              "name": "Page Size",
-              "dataType": "number",
-              "location": "query",
-              "required": false,
-              "description": "How many records to return (50 by default)"
-            },
-            {
               "key": "includeTotal",
               "name": "Include Total",
               "dataType": "boolean",
@@ -243266,7 +244051,7 @@
           ]
         },
         "supports": {
-          "pagination": false,
+          "pagination": true,
           "filtering": false,
           "sorting": false
         },
@@ -243281,20 +244066,6 @@
               "format": "string",
               "delimiter": ","
             }
-          },
-          {
-            "key": "page",
-            "name": "Page",
-            "dataType": "number",
-            "required": false,
-            "description": "The logical page number to return, starting from 1"
-          },
-          {
-            "key": "pageSize",
-            "name": "Page Size",
-            "dataType": "number",
-            "required": false,
-            "description": "How many records to return (50 by default)"
           },
           {
             "key": "includeTotal",

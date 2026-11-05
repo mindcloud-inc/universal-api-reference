@@ -7,6 +7,7 @@ Get the ID for a single Order object by its Order Number
 - **Method:** `GET`
 - **Path:** `services/data/v61.0/query?q=SELECT+Id+FROM+Order+WHERE+Customer_PO__c=':orderNumber'`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 
 ## Parameters
 

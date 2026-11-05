@@ -41,6 +41,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `modifiedUtcAfter` | date | no |  |
 | `modifiedUtcBefore` | date | no |  |
 | `object` | list<string> | yes | Specify the type of Object from the Accounts Receivable V2 Direct API that you'd like to retrieve. One of: `batch_entries`, `batch_entry_lines`, `batches`, `company_parameters`, `credit_notes`, `customers`, `distribution_codes`, `receivable_types`, `transaction_lines`, `transactions`. |
+| `rawFilters[]` | array<object> | no | Array of Trimble filters, combined with AND. Each item: { "propertyName": "Customer", "operator": "Equal", "value": 10009 }. The value's JSON type must match the property (number for integer fields like Customer/CustGroup, string for text, true/false for booleans, array for In). Operators: Equal, NotEqual, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Like, StartsWith, EndsWith, Contains (strings only), In (array value). Dot-notation is supported for nested properties. Example: `[object Object]`. |
 
 ## Response
 

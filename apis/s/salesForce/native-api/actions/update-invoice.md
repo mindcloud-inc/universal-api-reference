@@ -5,6 +5,7 @@
 - **Method:** `PATCH`
 - **Path:** `services/data/v61.0/sobjects/OrderItem/:id`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 
 ## Parameters
 

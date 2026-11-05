@@ -42,6 +42,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `company` | list | yes | One of: `'Active260127'`, `'Esser%20Plumbing%20%26%20Heating'`. |
 | `$filter` | string | no |  |
+| `$orderby` | string | no |  |
 
 ## Response
 

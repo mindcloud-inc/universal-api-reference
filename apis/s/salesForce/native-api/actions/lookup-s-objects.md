@@ -7,6 +7,7 @@ Returns the authenticated organizations sObjects for Lookup fields.
 - **Method:** `GET`
 - **Path:** `services/data/v61.0/sobjects/`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 - **Official documentation:** [Org sObjects (Lookup)](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm)
 
 ## Parameters

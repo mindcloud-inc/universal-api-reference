@@ -4,7 +4,7 @@ An intuitive Cloud ERP system to power your whole business.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/acumatica/latest
 - **Category:** Commerce / ERP
-- **Actions:** 61
+- **Actions:** 62
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.acumatica.com/
 - **Vendor API docs:** https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (61)
+## Actions (62)
 
 ### Bill
 
@@ -96,7 +96,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Project Budget](actions/project-budget.md) | PUT | Update a project budget line’s completion percentage and pending invoice amount in Acumatica. |
+| [Project Budget](actions/project-budget.md) | PUT | Create or update a project budget line, including account group, cost code, type, description, original budgeted quantity, UOM, original… |
 
 ### Project Task
 
@@ -110,6 +110,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Activate Project](actions/activate-project.md) | PUT | Make an existing Acumatica project active by setting Hold to false. |
+| [Create Revenue Budget](actions/create-revenue-budget.md) | POST | Create an Income project budget line with account group, cost code, description, original budgeted quantity, UOM, and original budgeted… |
 | [Get File](actions/get-file.md) | GET | Retrieve a base64 encoded file content using Acumatica the '/files/{id}' Endpoint. |
 | [Get Project Balance](actions/get-project-balance.md) | GET |  |
 | [Get Project by ID](actions/get-project-by-id.md) | GET |  |

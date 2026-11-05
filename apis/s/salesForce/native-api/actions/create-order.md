@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `/services/data/v64.0/sobjects/Order`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 
 ## Parameters
 

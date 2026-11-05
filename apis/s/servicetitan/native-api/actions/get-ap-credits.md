@@ -15,10 +15,11 @@ This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `ids` | query | `string` | no |
-| `createdBefore` | query | `string` | no |
-| `createdOnOrAfter` | query | `string` | no |
-| `modifiedBefore` | query | `string` | no |
-| `modifiedOnOrAfter` | query | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `ids` | query | `string` | no | — |
+| `createdBefore` | query | `string` | no | — |
+| `createdOnOrAfter` | query | `string` | no | — |
+| `modifiedBefore` | query | `string` | no | — |
+| `modifiedOnOrAfter` | query | `string` | no | — |
+| `syncStatuses` | query | `string` | no | Pending - Posted - Exported - PostedAndExported |

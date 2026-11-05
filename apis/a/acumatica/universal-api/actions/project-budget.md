@@ -1,6 +1,6 @@
 # Acumatica: Project Budget
 
-Update a project budget line’s completion percentage and pending invoice amount in Acumatica.
+Create or update a project budget line, including account group, cost code, type, description, original budgeted quantity, UOM, original budgeted amount, completion percentage, and pending invoice amount.
 
 ```
 PUT https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/project-budget
@@ -40,16 +40,30 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `accountGroup.value` | string | no |  |
 | `completed.value` | number | no |  |
+| `costCode.value` | string | no |  |
+| `description.value` | string | no |  |
 | `inventoryId.value` | string | no |  |
+| `originalBudgetedAmount.value` | number | no |  |
+| `originalBudgetedQty.value` | number | no |  |
 | `pendingInvoiceAmount.value` | number | no |  |
 | `projectId` | object | no |  |
 | `projectId.value` | string | no |  |
 | `projectTaskId.value` | string | no |  |
+| `type.value` | string | no |  |
+| `uom.value` | string | no |  |
 | `projectTaskId` | object | no |  |
 | `inventoryId` | object | no |  |
 | `completed` | object | no |  |
 | `pendingInvoiceAmount` | object | no |  |
+| `accountGroup` | object | no |  |
+| `costCode` | object | no |  |
+| `type` | object | no |  |
+| `description` | object | no |  |
+| `originalBudgetedQty` | object | no |  |
+| `uom` | object | no |  |
+| `originalBudgetedAmount` | object | no |  |
 
 ## Response
 

@@ -9,13 +9,15 @@ Retrieves vendor bills from ServiceTitan.
 - **Base URL:** `https://{baseUrl}/`
 - **Official documentation:** [Get Vendor AP Credits](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApCredits_GetList)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `ids` | query | `string` | no | Comma-separated list of specific AP credit IDs to retrieve Send multiple values as a string separated by `,`. |
-| `page` | query | `number` | no | The logical page number to return, starting from 1 |
-| `pageSize` | query | `number` | no | How many records to return (50 by default) |
 | `includeTotal` | query | `boolean` | no | Whether total count should be returned |
 | `createdBefore` | query | `date` | no | Return items created before certain date/time (in UTC) |
 | `createdOnOrAfter` | query | `date` | no | Return items created on or after certain date/time (in UTC) |

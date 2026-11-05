@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `services/data/v61.0/sobjects/:objectId/`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 
 ## Parameters
 

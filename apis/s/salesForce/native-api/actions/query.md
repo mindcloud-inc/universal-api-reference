@@ -7,6 +7,7 @@ Use raw SOQL syntax to Query your Salesforce Org.
 - **Method:** `GET`
 - **Path:** `services/data/v61.0/query`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 - **Official documentation:** [Query (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select.htm)
 
 ## Parameters

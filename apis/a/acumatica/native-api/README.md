@@ -1,6 +1,6 @@
 # Acumatica: Native API Reference
 
-A consolidated summary of Acumatica's API configuration and 61 documented operations, with links to official documentation.
+A consolidated summary of Acumatica's API configuration and 62 documented operations, with links to official documentation.
 
 - **Official docs:** https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
 - **API base URL:** `{uRL}`
@@ -33,7 +33,7 @@ Shared headers:
 
 Use `$top` in the query string to set the page size (default 25; accepted range 1–5000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (61 documented)
+## Endpoints (62 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -48,6 +48,7 @@ Use `$top` in the query string to set the page size (default 25; accepted range 
 | [Create Payment](actions/create-payment.md) | `PUT /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Payment` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
 | [Create Payment Link](actions/create-payment-link.md) | `POST /entity/:wse/:endpointVersion/SalesOrder/CreateLink` |  |
 | [Create Project Task](actions/create-project-task.md) | `PUT /entity/:wse/:endpointVersion/ProjectTask` | [docs](https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp/blob/6.0/EndpointDefinitions/Default_24.200.001) |
+| [Create Revenue Budget](actions/create-revenue-budget.md) | `PUT /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/ProjectBudget` | [docs](https://github.com/Acumatica/AcumaticaRESTAPIClientForCSharp/blob/6.0/EndpointDefinitions/Default_24.200.001) |
 | [Create/Update Shipment](actions/create-update-shipment.md) | `PUT /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Shipment` | [docs](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb) |
 | [Delete Sales Order](actions/delete-sales-order.md) | `DELETE /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/SalesOrder/:id` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
 | [Get Entity Schema](actions/entity-schema.md) | `GET /entity/Default/:endpointVersion/:entity/$adHocSchema` | [docs](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb) |

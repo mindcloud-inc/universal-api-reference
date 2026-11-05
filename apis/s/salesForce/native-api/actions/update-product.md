@@ -5,6 +5,7 @@
 - **Method:** `PATCH`
 - **Path:** `/services/data/v64.0/sobjects/Product2/:id`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 - **Official documentation:** [Update Product](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_product2.htm)
 
 ## Parameters

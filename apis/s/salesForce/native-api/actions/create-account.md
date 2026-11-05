@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `services/data/v62.0/sobjects/Account`
 - **Base URL:** `https://{companyDomainName}.my.salesforce.com`
+- **API:** REST
 - **Official documentation:** [Create Account](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm)
 
 ## Parameters
