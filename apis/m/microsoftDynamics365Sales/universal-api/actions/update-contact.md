@@ -1,0 +1,78 @@
+# Microsoft Dynamics 365 Sales: Update Contact
+
+
+
+```
+PUT https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales/latest/actions/update-contact
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Microsoft Dynamics 365 Sales `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales/latest/actions/update-contact" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "contactId": "00000000-0000-0000-0000-000000000001"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales/latest/actions/update-contact', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "contactId": "00000000-0000-0000-0000-000000000001"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `contactId` | string | yes | Example: `00000000-0000-0000-0000-000000000001`. |
+| `fields` | object | no | Map an object containing only the columns to change, or fill the individual fields below. Use native column logical names for custom fields. |
+| `fields.firstName` | string | no |  |
+| `fields.lastName` | string | no |  |
+| `fields.middleName` | string | no |  |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `fields.jobTitle` | string | no |  |
+| `fields.emailAddress1` | string | no |  |
+| `fields.mobilePhone` | string | no |  |
+| `fields.telephone1` | string | no |  |
+| `fields.description` | string | no |  |
+| `fields.doNotEmail` | boolean | no |  |
+| `fields.doNotPhone` | boolean | no |  |
+| `fields.birthDate` | date | no |  |
+| `fields.address1Line1` | string | no |  |
+| `fields.address1Line2` | string | no |  |
+| `fields.address1City` | string | no |  |
+| `fields.address1StateOrProvince` | string | no |  |
+| `fields.address1PostalCode` | string | no |  |
+| `fields.address1Country` | string | no |  |
+| `select` | string | no | Comma-separated column logical names to return. Accepts multiple values in one string, delimited by `,`. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Microsoft Dynamics 365 Sales API returns.
+
+## Native endpoint
+
+Through the native Microsoft Dynamics 365 Sales API, this operation is `PATCH /contacts(:contactId)` (base URL `{{credentials.environmentUrl}}/api/data/v9.2`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-contact.md) for the provider-specific parameters and requirements.
+

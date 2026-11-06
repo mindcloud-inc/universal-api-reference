@@ -1191,7 +1191,6 @@ The official vendor API documentation for each of the 3231 apps in this repo. Ea
 - [Gumroad](../apis/g/gumroad/native-api) - https://gumroad.com/api
 - [Gupshup](../apis/g/gupshup/native-api) - https://docs.gupshup.io/reference
 - [Guru](../apis/g/guru/native-api) - https://developer.getguru.com/reference
-- [Gusto](../apis/g/gusto/native-api) - https://docs.gusto.com/app-integrations/reference
 - [Gutendex](../apis/g/gutendex/native-api) - https://gutendex.com/
 - [Gyazo](../apis/g/gyazo/native-api) - https://gyazo.com/api/docs/user
 - [gyfti](../apis/g/gyfti/native-api) - https://developer.gyfti.fr/
@@ -1663,6 +1662,7 @@ The official vendor API documentation for each of the 3231 apps in this repo. Ea
 - [Microsoft Clarity](../apis/m/microsoftClarity/native-api) - https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
 - [Microsoft Dynamics 365](../apis/m/microsoftDynamics365/native-api)
 - [Microsoft Dynamics 365 BC](../apis/m/microsoftDynamics365BC/native-api)
+- [Microsoft Dynamics 365 Sales](../apis/m/microsoftDynamics365Sales/native-api) - https://learn.microsoft.com/en-us/dynamics365/sales/developer/developer-guide
 - [Microsoft Entra](../apis/m/microsoftEntra/native-api) - https://learn.microsoft.com/en-us/graph/api/overview
 - [Microsoft Exchange](../apis/m/microsoftExchange/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview?view=graph-rest-1.0
 - [Microsoft Intune](../apis/m/microsoftIntune/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0

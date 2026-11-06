@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Viewpoint Vista Universal API",
-    "version": "0.0.114",
+    "version": "0.0.116",
     "description": "Call Viewpoint Vista actions through MindCloud's Universal API."
   },
   "servers": [
@@ -4478,6 +4478,78 @@
                   "ARCo": {
                     "type": "number"
                   },
+                  "BillingAddress.BillAddress": {
+                    "type": "string",
+                    "description": "Billing address line 1 (max 60)."
+                  },
+                  "BillingAddress.BillAddress2": {
+                    "type": "string",
+                    "description": "Billing address line 2 (max 60)."
+                  },
+                  "BillingAddress.BillCity": {
+                    "type": "string",
+                    "description": "Billing city (max 30)."
+                  },
+                  "BillingAddress.BillCountry": {
+                    "type": "string",
+                    "description": "Billing country code (2 letters, e.g. US). Defaults to the HQ company default country."
+                  },
+                  "BillingAddress.BillState": {
+                    "type": "string",
+                    "description": "Billing state (max 4). Validated by Vista against the states of the BillCountry."
+                  },
+                  "BillingAddress.BillZip": {
+                    "type": "string",
+                    "description": "Billing ZIP / postal code (max 12)."
+                  },
+                  "CompanyContact.Contact": {
+                    "type": "string",
+                    "description": "Contact name (max 30)."
+                  },
+                  "CompanyContact.ContactExt": {
+                    "type": "string",
+                    "description": "Contact phone extension (max 10)."
+                  },
+                  "CompanyContact.EMail": {
+                    "type": "string",
+                    "description": "Contact email (max 255)."
+                  },
+                  "CompanyContact.Fax": {
+                    "type": "string",
+                    "description": "Contact fax (max 20)."
+                  },
+                  "CompanyContact.Phone": {
+                    "type": "string",
+                    "description": "Contact phone (max 20)."
+                  },
+                  "CompanyContact.URL": {
+                    "type": "string",
+                    "description": "Contact website URL (max 60)."
+                  },
+                  "MailingAddress.Address": {
+                    "type": "string",
+                    "description": "Mailing address line 1 (max 60)."
+                  },
+                  "MailingAddress.Address2": {
+                    "type": "string",
+                    "description": "Mailing address line 2 (max 60)."
+                  },
+                  "MailingAddress.City": {
+                    "type": "string",
+                    "description": "Mailing city (max 30)."
+                  },
+                  "MailingAddress.Country": {
+                    "type": "string",
+                    "description": "Mailing country code (2 letters, e.g. US). Defaults to the HQ company default country."
+                  },
+                  "MailingAddress.State": {
+                    "type": "string",
+                    "description": "Mailing state (max 4). Validated by Vista against the states of the Country."
+                  },
+                  "MailingAddress.Zip": {
+                    "type": "string",
+                    "description": "Mailing ZIP / postal code (max 12)."
+                  },
                   "Customer": {
                     "type": "object",
                     "additionalProperties": true
@@ -4510,6 +4582,18 @@
                   },
                   "TaxCode": {
                     "type": "string"
+                  },
+                  "SortName": {
+                    "type": "string",
+                    "description": "Customer sort name (max 15 characters). If omitted, Vista calculates it from the name and appends trailing digits when the result is not unique."
+                  },
+                  "Status": {
+                    "type": "string",
+                    "description": "Customer status: A = Active, I = Inactive, H = On Hold. Defaults to A when omitted."
+                  },
+                  "DateOpened": {
+                    "type": "string",
+                    "description": "Date the customer was opened, in YYYY-MM-DD format (date only, no time). Defaults to today's date when omitted."
                   }
                 },
                 "additionalProperties": false
@@ -11782,12 +11866,46 @@
             }
           },
           {
+            "name": "rawFilters[].propertyName",
+            "in": "query",
+            "required": false,
+            "description": "Property of the object to filter on, exactly as Trimble returns it (case-sensitive), e.g. Customer, Name, CustGroup. Dot-notation works for nested properties (e.g. __custom_fields.udServiceTitanId), but not for properties inside arrays.",
+            "schema": {
+              "type": "string",
+              "description": "Property of the object to filter on, exactly as Trimble returns it (case-sensitive), e.g. Customer, Name, CustGroup. Dot-notation works for nested properties (e.g. __custom_fields.udServiceTitanId), but not for properties inside arrays.",
+              "example": "Customer"
+            }
+          },
+          {
             "name": "modifiedUtcBefore",
             "in": "query",
             "required": false,
             "schema": {
               "type": "string",
               "format": "date-time"
+            }
+          },
+          {
+            "name": "rawFilters[].operator",
+            "in": "query",
+            "required": false,
+            "description": "Comparison operator. Like, StartsWith, EndsWith and Contains work only on text values. In needs a list value.",
+            "schema": {
+              "type": "string",
+              "description": "Comparison operator. Like, StartsWith, EndsWith and Contains work only on text values. In needs a list value.",
+              "enum": [
+                "Contains",
+                "EndsWith",
+                "Equal",
+                "GreaterThan",
+                "GreaterThanOrEqual",
+                "In",
+                "LessThan",
+                "LessThanOrEqual",
+                "Like",
+                "NotEqual",
+                "StartsWith"
+              ]
             }
           },
           {
@@ -11816,17 +11934,45 @@
             "name": "rawFilters[]",
             "in": "query",
             "required": false,
-            "description": "Array of Trimble filters, combined with AND. Each item: { \"propertyName\": \"Customer\", \"operator\": \"Equal\", \"value\": 10009 }. The value's JSON type must match the property (number for integer fields like Customer/CustGroup, string for text, true/false for booleans, array for In). Operators: Equal, NotEqual, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Like, StartsWith, EndsWith, Contains (strings only), In (array value). Dot-notation is supported for nested properties.",
+            "description": "Trimble search filters, all combined with AND. Add one item per condition: Property Name, Operator, Value and Value Type (Trimble does not convert types, so use Number for integer properties like Customer and a list type for In). Can be combined with the filter builder.",
             "schema": {
               "type": "array",
               "items": {
                 "type": "object",
                 "additionalProperties": true
               },
-              "description": "Array of Trimble filters, combined with AND. Each item: { \"propertyName\": \"Customer\", \"operator\": \"Equal\", \"value\": 10009 }. The value's JSON type must match the property (number for integer fields like Customer/CustGroup, string for text, true/false for booleans, array for In). Operators: Equal, NotEqual, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Like, StartsWith, EndsWith, Contains (strings only), In (array value). Dot-notation is supported for nested properties."
+              "description": "Trimble search filters, all combined with AND. Add one item per condition: Property Name, Operator, Value and Value Type (Trimble does not convert types, so use Number for integer properties like Customer and a list type for In). Can be combined with the filter builder."
             },
             "style": "form",
             "explode": false
+          },
+          {
+            "name": "rawFilters[].value",
+            "in": "query",
+            "required": false,
+            "description": "Value to compare against. For the In operator, pass a comma-separated list (111,10009) or a JSON array ([111,10009]). Set Value Type so it is sent with the JSON type Trimble expects.",
+            "schema": {
+              "type": "string",
+              "description": "Value to compare against. For the In operator, pass a comma-separated list (111,10009) or a JSON array ([111,10009]). Set Value Type so it is sent with the JSON type Trimble expects.",
+              "example": "10009"
+            }
+          },
+          {
+            "name": "rawFilters[].valueType",
+            "in": "query",
+            "required": false,
+            "description": "JSON type Trimble expects for this property (it does not convert types: Customer = \"10009\" as text matches nothing). Number for integer properties such as Customer, CustGroup, KeyID; Text for text properties such as Name, Status, Zip; Boolean for true/false; Number List / Text List for the In operator. Empty = value is sent as received.",
+            "schema": {
+              "type": "string",
+              "description": "JSON type Trimble expects for this property (it does not convert types: Customer = \"10009\" as text matches nothing). Number for integer properties such as Customer, CustGroup, KeyID; Text for text properties such as Name, Status, Zip; Boolean for true/false; Number List / Text List for the In operator. Empty = value is sent as received.",
+              "enum": [
+                "boolean",
+                "number",
+                "numberList",
+                "text",
+                "textList"
+              ]
+            }
           },
           {
             "name": "where",
@@ -16534,8 +16680,56 @@
                   "ARCo": {
                     "type": "number"
                   },
+                  "BillingAddress.BillAddress": {
+                    "type": "string",
+                    "description": "Billing address line 1 (max 60)."
+                  },
+                  "BillingAddress.BillAddress2": {
+                    "type": "string",
+                    "description": "Billing address line 2 (max 60)."
+                  },
+                  "BillingAddress.BillCity": {
+                    "type": "string",
+                    "description": "Billing city (max 30)."
+                  },
+                  "BillingAddress.BillCountry": {
+                    "type": "string",
+                    "description": "Billing country code (2 letters, e.g. US)."
+                  },
+                  "BillingAddress.BillState": {
+                    "type": "string",
+                    "description": "Billing state (max 4). Validated by Vista against the states of the BillCountry."
+                  },
+                  "BillingAddress.BillZip": {
+                    "type": "string",
+                    "description": "Billing ZIP / postal code (max 12)."
+                  },
                   "CompanyContact.Phone": {
                     "type": "string"
+                  },
+                  "MailingAddress.Address": {
+                    "type": "string",
+                    "description": "Mailing address line 1 (max 60)."
+                  },
+                  "MailingAddress.Address2": {
+                    "type": "string",
+                    "description": "Mailing address line 2 (max 60)."
+                  },
+                  "MailingAddress.City": {
+                    "type": "string",
+                    "description": "Mailing city (max 30)."
+                  },
+                  "MailingAddress.Country": {
+                    "type": "string",
+                    "description": "Mailing country code (2 letters, e.g. US)."
+                  },
+                  "MailingAddress.State": {
+                    "type": "string",
+                    "description": "Mailing state (max 4). Validated by Vista against the states of the Country."
+                  },
+                  "MailingAddress.Zip": {
+                    "type": "string",
+                    "description": "Mailing ZIP / postal code (max 12)."
                   },
                   "CompanyContact.Fax": {
                     "type": "string"
@@ -16550,7 +16744,7 @@
                     "type": "number",
                     "description": "Receivable Type key for the AR company. Optional; Vista uses the company default when omitted."
                   },
-                  "CompanyContact.contactExt": {
+                  "CompanyContact.ContactExt": {
                     "type": "string"
                   },
                   "MailingAddress": {
@@ -16579,11 +16773,24 @@
                   },
                   "__key": {
                     "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "description": "Identifies the customer to change. Required. Use exactly one of two forms: { \"KeyID\": 12345 } (surrogate key) or { \"CustGroup\": 1, \"Customer\": 1001 } (natural key; CustGroup must match the one of the ARCo in HQ company parameters). Each form accepts only its own properties."
                   },
                   "__custom_fields": {
                     "type": "object",
                     "additionalProperties": true
+                  },
+                  "SortName": {
+                    "type": "string",
+                    "description": "New customer sort name (max 15 characters). Only sent properties are changed."
+                  },
+                  "Status": {
+                    "type": "string",
+                    "description": "New customer status: A = Active, I = Inactive, H = On Hold. Only sent properties are changed."
+                  },
+                  "DateOpened": {
+                    "type": "string",
+                    "description": "New date opened, in YYYY-MM-DD format (date only, no time). Only sent properties are changed."
                   }
                 },
                 "additionalProperties": false

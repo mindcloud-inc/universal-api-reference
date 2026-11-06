@@ -4,7 +4,7 @@ Access Microsoft Teams collaboration data and actions through Microsoft Graph, i
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftTeams/latest
 - **Category:** Communication / Team Messaging
-- **Actions:** 27
+- **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/microsoft-teams
 - **Vendor API docs:** https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0
@@ -22,13 +22,14 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftTeams/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (27)
+## Actions (30)
 
 ### Applications
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Channel Tabs](actions/list-channel-tabs.md) | GET | Retrieves channel tabs from Microsoft Teams. |
+| [List Chat Installed Apps](actions/list-chat-installed-apps.md) | GET | Retrieves installed apps for a Microsoft Teams chat. |
 | [List Team Installed Apps](actions/list-team-installed-apps.md) | GET | Retrieves installed apps for a Microsoft Teams team. |
 
 ### Channel Files
@@ -47,6 +48,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftTeams/latest/act
 | [List All Team Channels](actions/list-all-team-channels.md) | GET | Retrieves all team channels from Microsoft Teams. |
 | [List Team Channels](actions/list-team-channels.md) | GET | Retrieves team channels from Microsoft Teams. |
 | [Update Channel](actions/update-channel.md) | PUT | Updates an existing channel in Microsoft Teams. |
+
+### Chat Files
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Share File](actions/share-file.md) | PUT |  |
+| [Upload Chat File](actions/upload-chat-file.md) | POST |  |
 
 ### Conversations
 

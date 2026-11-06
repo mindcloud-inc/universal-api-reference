@@ -1,6 +1,6 @@
 # Human Resources apps
 
-80 apps in the Human Resources category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+79 apps in the Human Resources category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **ADP** · [Universal API reference](../../apis/a/adp/universal-api) · [Native API reference](../../apis/a/adp/native-api) · [Native API docs](https://developers.adp.com/build/api-explorer)
 - **Alliance HCM** · [Universal API reference](../../apis/a/allianceHCM/universal-api) · [Native API reference](../../apis/a/allianceHCM/native-api) · [Native API docs](https://api2.hralliance.net/JSONAPIManual.html)
@@ -27,7 +27,6 @@
 - **FlexiFunnels** · [Universal API reference](../../apis/f/flexiFunnels/universal-api) · [Native API reference](../../apis/f/flexiFunnels/native-api) · [Native API docs](https://bridge.flexifunnels.com/docs)
 - **GIRITON** · [Universal API reference](../../apis/g/gIRITON/universal-api) · [Native API reference](../../apis/g/gIRITON/native-api) · [Native API docs](https://rest.giriton.com/apidoc/)
 - **GrassBlade LRS** · [Universal API reference](../../apis/g/grassBladeLRS/universal-api) · [Native API reference](../../apis/g/grassBladeLRS/native-api) · [Native API docs](https://github.com/adlnet/xAPI-Spec/tree/xAPI-1.0.3)
-- **Gusto** · [Universal API reference](../../apis/g/gusto/universal-api) · [Native API reference](../../apis/g/gusto/native-api) · [Native API docs](https://docs.gusto.com/app-integrations/reference)
 - **Hireflix** · [Universal API reference](../../apis/h/hireflix/universal-api) · [Native API reference](../../apis/h/hireflix/native-api) · [Native API docs](https://api.hireflix.com/)
 - **100Hires ATS** · [Universal API reference](../../apis/h/hiresATS/universal-api) · [Native API reference](../../apis/h/hiresATS/native-api) · [Native API docs](https://100hires.com/api)
 - **HoorayHR** · [Universal API reference](../../apis/h/hoorayHR/universal-api) · [Native API reference](../../apis/h/hoorayHR/native-api) · [Native API docs](https://api.hoorayhr.io/documentation/)

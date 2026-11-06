@@ -1,6 +1,6 @@
 # Sales & CRM apps
 
-173 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+174 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AeroLeads** · [Universal API reference](../../apis/a/aeroLeads/universal-api) · [Native API reference](../../apis/a/aeroLeads/native-api) · [Native API docs](https://aeroleads.com/api)
 - **Agendor** · [Universal API reference](../../apis/a/agendor/universal-api) · [Native API reference](../../apis/a/agendor/native-api) · [Native API docs](https://api.agendor.com.br/docs/)
@@ -97,6 +97,7 @@
 - **Lusha Connect** · [Universal API reference](../../apis/l/lushaConnect/universal-api) · [Native API reference](../../apis/l/lushaConnect/native-api) · [Native API docs](https://docs.lusha.com/apis/openapi)
 - **Mapsly** · [Universal API reference](../../apis/m/mapsly/universal-api) · [Native API reference](../../apis/m/mapsly/native-api) · [Native API docs](https://developer.mapsly.com/docs/api/ZG9jOjc1MTcyMDI-introduction-to-mapsly-api)
 - **Mekari Qontak** · [Universal API reference](../../apis/m/mekariQontak/universal-api) · [Native API reference](../../apis/m/mekariQontak/native-api) · [Native API docs](https://documenter.getpostman.com/view/22728681/2sAXxV6A5V)
+- **Microsoft Dynamics 365 Sales** · [Universal API reference](../../apis/m/microsoftDynamics365Sales/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365Sales/native-api) · [Native API docs](https://learn.microsoft.com/en-us/dynamics365/sales/developer/developer-guide)
 - **Monica CRM** · [Universal API reference](../../apis/m/monicaCRM/universal-api) · [Native API reference](../../apis/m/monicaCRM/native-api) · [Native API docs](https://www.monicahq.com/api)
 - **Moskit** · [Universal API reference](../../apis/m/moskit/universal-api) · [Native API reference](../../apis/m/moskit/native-api) · [Native API docs](https://moskit.stoplight.io/docs/api-v2/)
 - **Moxie** · [Universal API reference](../../apis/m/moxie/universal-api) · [Native API reference](../../apis/m/moxie/native-api) · [Native API docs](https://help.withmoxie.com/en/collections/5482062-public-api-endpoints)

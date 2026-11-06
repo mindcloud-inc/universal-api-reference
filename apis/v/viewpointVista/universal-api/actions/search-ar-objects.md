@@ -39,9 +39,13 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `modifiedUtcAfter` | date | no |  |
+| `rawFilters[].propertyName` | string | no | Property of the object to filter on, exactly as Trimble returns it (case-sensitive), e.g. Customer, Name, CustGroup. Dot-notation works for nested properties (e.g. __custom_fields.udServiceTitanId), but not for properties inside arrays. Example: `Customer`. |
 | `modifiedUtcBefore` | date | no |  |
+| `rawFilters[].operator` | list<string> | no | Comparison operator. Like, StartsWith, EndsWith and Contains work only on text values. In needs a list value. One of: `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `In`, `LessThan`, `LessThanOrEqual`, `Like`, `NotEqual`, `StartsWith`. |
 | `object` | list<string> | yes | Specify the type of Object from the Accounts Receivable V2 Direct API that you'd like to retrieve. One of: `batch_entries`, `batch_entry_lines`, `batches`, `company_parameters`, `credit_notes`, `customers`, `distribution_codes`, `receivable_types`, `transaction_lines`, `transactions`. |
-| `rawFilters[]` | array<object> | no | Array of Trimble filters, combined with AND. Each item: { "propertyName": "Customer", "operator": "Equal", "value": 10009 }. The value's JSON type must match the property (number for integer fields like Customer/CustGroup, string for text, true/false for booleans, array for In). Operators: Equal, NotEqual, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Like, StartsWith, EndsWith, Contains (strings only), In (array value). Dot-notation is supported for nested properties. Example: `[object Object]`. |
+| `rawFilters[]` | array<object> | no | Trimble search filters, all combined with AND. Add one item per condition: Property Name, Operator, Value and Value Type (Trimble does not convert types, so use Number for integer properties like Customer and a list type for In). Can be combined with the filter builder. Example: `[object Object]`. |
+| `rawFilters[].value` | string | no | Value to compare against. For the In operator, pass a comma-separated list (111,10009) or a JSON array ([111,10009]). Set Value Type so it is sent with the JSON type Trimble expects. Example: `10009`. |
+| `rawFilters[].valueType` | list<string> | no | JSON type Trimble expects for this property (it does not convert types: Customer = "10009" as text matches nothing). Number for integer properties such as Customer, CustGroup, KeyID; Text for text properties such as Name, Status, Zip; Boolean for true/false; Number List / Text List for the In operator. Empty = value is sent as received. One of: `boolean`, `number`, `numberList`, `text`, `textList`. |
 
 ## Response
 

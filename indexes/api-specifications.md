@@ -1163,7 +1163,6 @@ Machine-readable API descriptions for 3231 apps. Universal API specifications ar
 | [Gumroad](../apis/g/gumroad) | [OpenAPI 3.1](../apis/g/gumroad/universal-api/openapi.json) |  |
 | [Gupshup](../apis/g/gupshup) | [OpenAPI 3.1](../apis/g/gupshup/universal-api/openapi.json) |  |
 | [Guru](../apis/g/guru) |  | [Provider OpenAPI](https://api.getguru.com/api/v1/openapi.json) |
-| [Gusto](../apis/g/gusto) | [OpenAPI 3.1](../apis/g/gusto/universal-api/openapi.json) |  |
 | [Gutendex](../apis/g/gutendex) | [OpenAPI 3.1](../apis/g/gutendex/universal-api/openapi.json) |  |
 | [Gyazo](../apis/g/gyazo) | [OpenAPI 3.1](../apis/g/gyazo/universal-api/openapi.json) |  |
 | [gyfti](../apis/g/gyfti) | [OpenAPI 3.1](../apis/g/gyfti/universal-api/openapi.json) |  |
@@ -1618,6 +1617,7 @@ Machine-readable API descriptions for 3231 apps. Universal API specifications ar
 | [Microsoft Clarity](../apis/m/microsoftClarity) | [OpenAPI 3.1](../apis/m/microsoftClarity/universal-api/openapi.json) |  |
 | [Microsoft Dynamics 365](../apis/m/microsoftDynamics365) | [OpenAPI 3.1](../apis/m/microsoftDynamics365/universal-api/openapi.json) |  |
 | [Microsoft Dynamics 365 BC](../apis/m/microsoftDynamics365BC) | [OpenAPI 3.1](../apis/m/microsoftDynamics365BC/universal-api/openapi.json) |  |
+| [Microsoft Dynamics 365 Sales](../apis/m/microsoftDynamics365Sales) | [OpenAPI 3.1](../apis/m/microsoftDynamics365Sales/universal-api/openapi.json) |  |
 | [Microsoft Entra](../apis/m/microsoftEntra) | [OpenAPI 3.1](../apis/m/microsoftEntra/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml) |
 | [Microsoft Exchange](../apis/m/microsoftExchange) | [OpenAPI 3.1](../apis/m/microsoftExchange/universal-api/openapi.json) |  |
 | [Microsoft Intune](../apis/m/microsoftIntune) | [OpenAPI 3.1](../apis/m/microsoftIntune/universal-api/openapi.json) |  |

@@ -1,6 +1,6 @@
 # Microsoft Teams: Native API Reference
 
-A consolidated summary of Microsoft Teams's API configuration and 27 documented operations, with links to official documentation.
+A consolidated summary of Microsoft Teams's API configuration and 30 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0
 - **API base URL:** `https://graph.microsoft.com`
@@ -43,7 +43,7 @@ Set the sort field with `$orderby` in the query string. Multiple sort fields can
 
 Retry responses with status codes `429,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (27 documented)
+## Endpoints (30 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -59,6 +59,7 @@ Retry responses with status codes `429,503,504`. Wait 1000 ms before the first r
 | [List Channel Message Replies](actions/list-channel-message-replies.md) | `GET /v1.0/teams/:teamId/channels/:channelId/messages/:messageId/replies` | [docs](https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies?view=graph-rest-1.0) |
 | [List Channel Messages](actions/list-channel-messages.md) | `GET /v1.0/teams/:teamId/channels/:channelId/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/channel-list-messages?view=graph-rest-1.0) |
 | [List Channel Tabs](actions/list-channel-tabs.md) | `GET /v1.0/teams/:teamId/channels/:channelId/tabs` | [docs](https://learn.microsoft.com/en-us/graph/api/channel-list-tabs?view=graph-rest-1.0) |
+| [List Chat Installed Apps](actions/list-chat-installed-apps.md) | `GET /v1.0/chats/:chatId/installedApps` | [docs](https://learn.microsoft.com/en-us/graph/api/chat-list-installedapps?view=graph-rest-1.0&tabs=http) |
 | [List Chat Members](actions/list-chat-members.md) | `GET /v1.0/chats/:chatId/members` | [docs](https://learn.microsoft.com/en-us/graph/api/chat-list-members?view=graph-rest-1.0) |
 | [List Chat Messages](actions/list-chat-messages.md) | `GET /v1.0/chats/:chatId/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/chat-list-messages?view=graph-rest-1.0) |
 | [List Chats](actions/list-chats.md) | `GET /v1.0/me/chats` | [docs](https://learn.microsoft.com/en-us/graph/api/chat-list?view=graph-rest-1.0) |
@@ -69,8 +70,10 @@ Retry responses with status codes `429,503,504`. Wait 1000 ms before the first r
 | [Reply To Channel Message](actions/reply-to-channel-message.md) | `POST /v1.0/teams/:teamId/channels/:channelId/messages/:messageId/replies` | [docs](https://learn.microsoft.com/en-us/graph/api/chatmessage-post-replies?view=graph-rest-1.0) |
 | [Send Channel Message](actions/send-channel-message.md) | `POST /v1.0/teams/:teamId/channels/:channelId/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-1.0) |
 | [Send Chat Message](actions/send-chat-message.md) | `POST /v1.0/chats/:chatId/messages` | [docs](https://learn.microsoft.com/en-us/graph/api/chat-post-messages?view=graph-rest-1.0) |
+| [Share File](actions/share-file.md) | `POST /v1.0/drives/:driveId/items/:fileId/invite` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-invite?view=graph-rest-1.0) |
 | [Soft Delete Channel Message](actions/soft-delete-channel-message.md) | `POST /v1.0/teams/:teamId/channels/:channelId/messages/:messageId/softDelete` | [docs](https://learn.microsoft.com/en-us/graph/api/chatmessage-softdelete?view=graph-rest-1.0) |
 | [Soft Delete Channel Message Reply](actions/soft-delete-channel-message-reply.md) | `POST /v1.0/teams/:teamId/channels/:channelId/messages/:messageId/replies/:replyId/softDelete` | [docs](https://learn.microsoft.com/en-us/graph/api/chatmessage-softdelete?view=graph-rest-1.0) |
 | [Soft Delete Chat Message](actions/soft-delete-chat-message.md) | `POST /v1.0/users/:userId/chats/:chatId/messages/:messageId/softDelete` | [docs](https://learn.microsoft.com/en-us/graph/api/chatmessage-softdelete?view=graph-rest-1.0) |
 | [Update Channel](actions/update-channel.md) | `PATCH /v1.0/teams/:teamId/channels/:channelId` | [docs](https://learn.microsoft.com/en-us/graph/api/channel-patch?view=graph-rest-1.0) |
 | [Upload Channel File](actions/upload-channel-file.md) | `PUT /v1.0/drives/:driveId/items/:folderId:/:fileName:/content` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-put-content?view=graph-rest-1.0) |
+| [Upload Chat File](actions/upload-chat-file.md) | `PUT /v1.0/me/drive/root:/:fileName:/content` | [docs](https://learn.microsoft.com/en-us/graph/api/driveitem-put-content?view=graph-rest-1.0) |
