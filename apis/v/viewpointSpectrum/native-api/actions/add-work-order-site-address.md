@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `ws/AddWOSiteAddress`
 - **Base URL:** `{url}:8482/`
+- **API:** REST
 - **Official documentation:** [Add Work Order Site Address](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor-invoices)
 
 ## Headers

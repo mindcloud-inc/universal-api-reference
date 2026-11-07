@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `ws/PreTimeCard`
 - **Base URL:** `{url}:8482/`
+- **API:** REST
 - **Official documentation:** [Send Timesheet (SOAP)](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/add-vendor)
 
 ## Headers

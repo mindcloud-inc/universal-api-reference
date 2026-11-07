@@ -84491,7 +84491,7 @@
     "iconUrl": "https://images.mindcloud.co/apps/icons/v_1744240433900.png",
     "websiteUrl": "https://www.viewpoint.com/resource-library/spectrum",
     "nativeDocumentationUrl": "https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services",
-    "version": "0.0.169",
+    "version": "0.0.172",
     "authentication": [
       {
         "type": "custom",
@@ -84548,6 +84548,22 @@
         "responses": [
           {
             "parser": "auto"
+          }
+        ]
+      },
+      {
+        "name": "RAW Text",
+        "type": "rest",
+        "baseUrl": "{{credentials.url}}:8482/",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          }
+        ],
+        "responses": [
+          {
+            "parser": "text"
           }
         ]
       }
@@ -84945,6 +84961,455 @@
             "name": "Cost Center Header",
             "dataType": "string",
             "required": false
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Add G/L Journal Entry",
+        "slug": "add-gl-journal-entry",
+        "operation": "create",
+        "method": "POST",
+        "model": "journalEntry",
+        "description": "Adds one line to a G/L journal entry batch in Spectrum. Lines sent with the same GUID form one balanced journal.",
+        "documentationUrl": "https://help.trimble.com/doc/spectrum/spectrum/api-web-services/list-of-web-services/general-ledger-services/add-gl-journal-entries",
+        "native": {
+          "method": "POST",
+          "path": "ws/AddGLTrans",
+          "baseUrl": "{{credentials.url}}:8482/",
+          "apiName": "REST",
+          "apiType": "rest",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "text/xml; charset=utf-8"
+            }
+          ],
+          "arguments": [
+            {
+              "key": "GUID",
+              "internalKey": "guid",
+              "name": "GUID",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Use the same GUID on every line of one journal, and a new GUID for the next journal. Spectrum generates one when blank.",
+              "maxLength": 36
+            },
+            {
+              "key": "Company_Code",
+              "internalKey": "companyCode",
+              "name": "Company Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Spectrum company for this journal. Defaults to the connection's company. Every line of one journal must use the same company.",
+              "maxLength": 3
+            },
+            {
+              "key": "Transaction_Date",
+              "internalKey": "transactionDate",
+              "name": "Transaction Date",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "Calendar date as YYYY-MM-DD (or MM/DD/YYYY). Must be within the current G/L processing dates. The first line sets the journal header date."
+            },
+            {
+              "key": "Journal_Desc",
+              "internalKey": "journalDesc",
+              "name": "Journal Description",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "The first record determines the description for the journal header.",
+              "maxLength": 30
+            },
+            {
+              "key": "Journal_Remarks",
+              "internalKey": "journalRemarks",
+              "name": "Journal Remarks",
+              "dataType": "string",
+              "location": "body",
+              "required": true,
+              "description": "The first record determines the remarks for the journal header.",
+              "maxLength": 100
+            },
+            {
+              "key": "GL_Account",
+              "internalKey": "glAccount",
+              "name": "G/L Account",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Enter the G/L account without dashes.",
+              "maxLength": 12
+            },
+            {
+              "key": "GL_Debit_Amount",
+              "internalKey": "glDebitAmount",
+              "name": "G/L Debit Amount",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Positive values only. The complete journal batch must balance.",
+              "maxLength": 14
+            },
+            {
+              "key": "GL_Credit_Amount",
+              "internalKey": "glCreditAmount",
+              "name": "G/L Credit Amount",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Positive values only. The complete journal batch must balance.",
+              "maxLength": 14
+            },
+            {
+              "key": "Cost_Center",
+              "internalKey": "costCenter",
+              "name": "Cost Center",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "For cost center companies, required on the first record for the header and on non-direct G/L account lines.",
+              "maxLength": 10
+            },
+            {
+              "key": "Line_Reference",
+              "internalKey": "lineReference",
+              "name": "Line Reference",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "maxLength": 15
+            },
+            {
+              "key": "Job_Number",
+              "internalKey": "jobNumber",
+              "name": "Job Number",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required for direct job cost accounts.",
+              "maxLength": 10
+            },
+            {
+              "key": "Phase_Code",
+              "internalKey": "phaseCode",
+              "name": "Phase Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Enter the phase code without dashes. Required with Job Number and Cost Type for direct job cost accounts.",
+              "maxLength": 20
+            },
+            {
+              "key": "Cost_Type",
+              "internalKey": "costType",
+              "name": "Cost Type",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required for direct job cost accounts.",
+              "maxLength": 3
+            },
+            {
+              "key": "Equipment_Code",
+              "internalKey": "equipmentCode",
+              "name": "Equipment Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required for direct equipment cost accounts.",
+              "maxLength": 10
+            },
+            {
+              "key": "Equipment_Cost_Category",
+              "internalKey": "equipmentCostCategory",
+              "name": "Equipment Cost Category",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required for direct equipment cost accounts.",
+              "maxLength": 4
+            },
+            {
+              "key": "Equipment_Work_Order",
+              "internalKey": "equipmentWorkOrder",
+              "name": "Equipment Work Order",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required, optional, or disallowed according to the equipment cost category data entry rule.",
+              "maxLength": 10
+            },
+            {
+              "key": "WO_Number",
+              "internalKey": "woNumber",
+              "name": "Work Order Number",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required for direct work order cost accounts. The work order must not be complete.",
+              "maxLength": 10
+            },
+            {
+              "key": "WO_Equipment",
+              "internalKey": "woEquipment",
+              "name": "Work Order Equipment",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required when the work order installation requires equipment for work order transactions.",
+              "maxLength": 8
+            },
+            {
+              "key": "WO_Component",
+              "internalKey": "woComponent",
+              "name": "Work Order Component",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required when the installation requires components and the selected equipment has components.",
+              "maxLength": 2
+            },
+            {
+              "key": "WO_Contract",
+              "internalKey": "woContract",
+              "name": "Work Order Contract",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "maxLength": 10
+            },
+            {
+              "key": "WO_Sellprice",
+              "internalKey": "woSellprice",
+              "name": "Work Order Sell Price",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "maxLength": 14
+            },
+            {
+              "key": "Current_Record_Number",
+              "internalKey": "currentRecordNumber",
+              "name": "Current Record Number",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Defined in AddGLTrans.jws but omitted from the help page. Confirm numbering with your Spectrum developer before batch testing."
+            },
+            {
+              "key": "Total_Record_Count",
+              "internalKey": "totalRecordCount",
+              "name": "Total Record Count",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Defined in AddGLTrans.jws but omitted from the help page. Confirm batch usage with your Spectrum developer."
+            },
+            {
+              "key": "IsBatchFlag",
+              "internalKey": "isBatchFlag",
+              "name": "Batch Flag",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Defined as a string in AddGLTrans.jws. Accepted values are not documented on the help page; confirm them before batch testing."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "guid",
+            "name": "GUID",
+            "dataType": "string",
+            "required": false,
+            "description": "Use the same GUID on every line of one journal, and a new GUID for the next journal. Spectrum generates one when blank.",
+            "example": "550e8400-e29b-41d4-a716-446655440000"
+          },
+          {
+            "key": "companyCode",
+            "name": "Company Code",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Spectrum company for this journal. Defaults to the connection's company. Every line of one journal must use the same company."
+          },
+          {
+            "key": "transactionDate",
+            "name": "Transaction Date",
+            "dataType": "string",
+            "required": true,
+            "description": "Calendar date as YYYY-MM-DD (or MM/DD/YYYY). Must be within the current G/L processing dates. The first line sets the journal header date.",
+            "example": "2026-10-31"
+          },
+          {
+            "key": "journalDesc",
+            "name": "Journal Description",
+            "dataType": "string",
+            "required": true,
+            "description": "The first record determines the description for the journal header."
+          },
+          {
+            "key": "journalRemarks",
+            "name": "Journal Remarks",
+            "dataType": "string",
+            "required": true,
+            "description": "The first record determines the remarks for the journal header."
+          },
+          {
+            "key": "glAccount",
+            "name": "G/L Account",
+            "dataType": "string",
+            "required": false,
+            "description": "Enter the G/L account without dashes."
+          },
+          {
+            "key": "glDebitAmount",
+            "name": "G/L Debit Amount",
+            "dataType": "number",
+            "required": false,
+            "description": "Positive values only. The complete journal batch must balance."
+          },
+          {
+            "key": "glCreditAmount",
+            "name": "G/L Credit Amount",
+            "dataType": "number",
+            "required": false,
+            "description": "Positive values only. The complete journal batch must balance."
+          },
+          {
+            "key": "costCenter",
+            "name": "Cost Center",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "For cost center companies, required on the first record for the header and on non-direct G/L account lines."
+          },
+          {
+            "key": "lineReference",
+            "name": "Line Reference",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "jobNumber",
+            "name": "Job Number",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required for direct job cost accounts."
+          },
+          {
+            "key": "phaseCode",
+            "name": "Phase Code",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Enter the phase code without dashes. Required with Job Number and Cost Type for direct job cost accounts."
+          },
+          {
+            "key": "costType",
+            "name": "Cost Type",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required for direct job cost accounts."
+          },
+          {
+            "key": "equipmentCode",
+            "name": "Equipment Code",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required for direct equipment cost accounts."
+          },
+          {
+            "key": "equipmentCostCategory",
+            "name": "Equipment Cost Category",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required for direct equipment cost accounts."
+          },
+          {
+            "key": "equipmentWorkOrder",
+            "name": "Equipment Work Order",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required, optional, or disallowed according to the equipment cost category data entry rule."
+          },
+          {
+            "key": "woNumber",
+            "name": "Work Order Number",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required for direct work order cost accounts. The work order must not be complete."
+          },
+          {
+            "key": "woEquipment",
+            "name": "Work Order Equipment",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required when the work order installation requires equipment for work order transactions."
+          },
+          {
+            "key": "woComponent",
+            "name": "Work Order Component",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Required when the installation requires components and the selected equipment has components."
+          },
+          {
+            "key": "woContract",
+            "name": "Work Order Contract",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "woSellprice",
+            "name": "Work Order Sell Price",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "currentRecordNumber",
+            "name": "Current Record Number",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Defined in AddGLTrans.jws but omitted from the help page. Confirm numbering with your Spectrum developer before batch testing."
+          },
+          {
+            "key": "totalRecordCount",
+            "name": "Total Record Count",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Defined in AddGLTrans.jws but omitted from the help page. Confirm batch usage with your Spectrum developer."
+          },
+          {
+            "key": "isBatchFlag",
+            "name": "Batch Flag",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Defined as a string in AddGLTrans.jws. Accepted values are not documented on the help page; confirm them before batch testing."
           }
         ],
         "responseSchema": []
@@ -85464,8 +85929,8 @@
       {
         "name": "Create AR Customer Invoice Multi-Line",
         "slug": "create-ar-customer-invoice-multi-line",
-        "operation": "update",
-        "method": "PUT",
+        "operation": "create",
+        "method": "POST",
         "model": "invoice",
         "documentationUrl": "https://help.trimble.com/doc/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/multi-line-customer-invoice",
         "native": {
@@ -91318,6 +91783,45 @@
         ]
       },
       {
+        "name": "Get WSDL",
+        "slug": "get-wsdl",
+        "operation": "read",
+        "method": "GET",
+        "group": "WSDL",
+        "native": {
+          "method": "GET",
+          "path": "wsdls/:WSDL",
+          "baseUrl": "{{credentials.url}}:8482/",
+          "apiName": "RAW Text",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "WSDL",
+              "name": "WSDL",
+              "dataType": "string",
+              "location": "param",
+              "required": false,
+              "description": "Example: WorkOrderHeader.jws"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "WSDL",
+            "name": "WSDL",
+            "dataType": "string",
+            "required": false,
+            "description": "Example: WorkOrderHeader.jws"
+          }
+        ],
+        "responseSchema": []
+      },
+      {
         "name": "List Customers",
         "slug": "list-customers",
         "operation": "read",
@@ -91367,6 +91871,125 @@
             ]
           }
         ],
+        "responseSchema": [
+          {
+            "key": "Address_1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Address_2",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "City",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Company_Code",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Customer_Code",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Email1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Error_Code",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "Error_Column",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "Error_Description",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "First_Name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Last_Name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Phone_Number",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "Price_Level_Material",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "State",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Status",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "Taxable_Flag",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "Zip_Code",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Employee",
+        "slug": "list-employee",
+        "operation": "read",
+        "method": "GET",
+        "model": "accounting.customer",
+        "documentationUrl": "https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers",
+        "native": {
+          "method": "POST",
+          "path": "ws/GetEmployee.jws",
+          "baseUrl": "{{credentials.url}}:8482/",
+          "apiName": "REST",
+          "apiType": "rest",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/xml"
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [],
         "responseSchema": [
           {
             "key": "Address_1",

@@ -3,7 +3,7 @@
 Web-based construction ERP solution with leading-edge tools
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest
-- **Actions:** 21
+- **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.viewpoint.com/resource-library/spectrum
 - **Vendor API docs:** https://help.trimble.com/en/spectrum/spectrum/api-web-services/api-web-services
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (21)
+## Actions (24)
 
 ### Customers
 
@@ -32,6 +32,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 | [Create Vendor (SOAP)](actions/create-vendor-soap.md) | POST |  |
 | [Get Customers](actions/get-customers.md) | GET |  |
 | [List Customers](actions/list-customers.md) | GET |  |
+| [List Employee](actions/list-employee.md) | GET |  |
 | [Update Customer](actions/update-customer.md) | PUT |  |
 | [Upsert Customer Bill-To](actions/upsert-customer-bill-to.md) | POST |  |
 
@@ -40,7 +41,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Work Order Site Address](actions/add-work-order-site-address.md) | POST |  |
-| [Create AR Customer Invoice Multi-Line](actions/create-ar-customer-invoice-multi-line.md) | PUT |  |
+| [Create AR Customer Invoice Multi-Line](actions/create-ar-customer-invoice-multi-line.md) | POST |  |
 | [Create Customer Invoice](actions/create-customer-invoice.md) | POST |  |
 | [Create Vendor Invoice](actions/create-vendor-invoice.md) | POST |  |
 | [Create Work Orders](actions/create-work-orders.md) | POST |  |
@@ -50,6 +51,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Cash Receipts](actions/add-cash-receipts.md) | POST |  |
+
+### Journal Entries
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Add G/L Journal Entry](actions/add-gl-journal-entry.md) | POST | Adds one line to a G/L journal entry batch in Spectrum. Lines sent with the same GUID form one balanced journal. |
 
 ### Other
 
@@ -73,4 +80,10 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/
 | [Send Timesheet (SOAP)](actions/send-timesheet-soap.md) | POST |  |
 | [Update Vendor](actions/update-vendor.md) | PUT |  |
 | [Update Vendor (SOAP)](actions/update-vendor-soap.md) | PUT |  |
+
+### Wsdl
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get WSDL](actions/get-wsdl.md) | GET |  |
 

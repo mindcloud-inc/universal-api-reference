@@ -28,7 +28,6 @@ This operation supports [pagination](../README.md#pagination).
 | `includeTotal` | query | `boolean` | no | — |
 | `externalDataKey` | query | `string` | no | — |
 | `externalDataValues` | query | `string` | no | — |
-| `pageSize` | query | `number` | no | — |
 | `page` | query | `number` | no | — |
 | `modifiedOnOrAfter` | query | `string` | no | — |
 | `externalDataApplicationGuid` | query | `string` | no | — |

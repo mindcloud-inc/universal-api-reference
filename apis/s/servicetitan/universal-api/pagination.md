@@ -34,6 +34,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 - [Get Invoices By Job Id](actions/get-invoices-by-job-id.md)
 - [Get Item Receipts](actions/get-item-receipts.md)
 - [Get Job Types](actions/get-job-types.md)
+- [Get Journal Entries](actions/get-journal-entries.md)
+- [Get Journal Entries Summary](actions/get-journal-entries-summary.md)
 - [Get Locations](actions/get-locations.md)
 - [Get Materials](actions/get-materials.md)
 - [Get Payment Types](actions/get-payment-types.md)

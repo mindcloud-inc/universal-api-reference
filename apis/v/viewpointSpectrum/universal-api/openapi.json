@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Viewpoint Spectrum Universal API",
-    "version": "0.0.169",
+    "version": "0.0.172",
     "description": "Web-based construction ERP solution with leading-edge tools"
   },
   "servers": [
@@ -462,6 +462,303 @@
         }
       }
     },
+    "/v1/universal/viewpointSpectrum/latest/actions/add-gl-journal-entry": {
+      "post": {
+        "operationId": "viewpointSpectrum.add-gl-journal-entry",
+        "summary": "Add G/L Journal Entry",
+        "description": "Adds one line to a G/L journal entry batch in Spectrum. Lines sent with the same GUID form one balanced journal.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest/actions/add-gl-journal-entry"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "transactionDate",
+                  "journalDesc",
+                  "journalRemarks"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "guid": {
+                    "type": "string",
+                    "description": "Use the same GUID on every line of one journal, and a new GUID for the next journal. Spectrum generates one when blank.",
+                    "example": "550e8400-e29b-41d4-a716-446655440000"
+                  },
+                  "companyCode": {
+                    "type": "string",
+                    "description": "Spectrum company for this journal. Defaults to the connection's company. Every line of one journal must use the same company.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "transactionDate": {
+                    "type": "string",
+                    "description": "Calendar date as YYYY-MM-DD (or MM/DD/YYYY). Must be within the current G/L processing dates. The first line sets the journal header date.",
+                    "example": "2026-10-31"
+                  },
+                  "journalDesc": {
+                    "type": "string",
+                    "description": "The first record determines the description for the journal header."
+                  },
+                  "journalRemarks": {
+                    "type": "string",
+                    "description": "The first record determines the remarks for the journal header."
+                  },
+                  "glAccount": {
+                    "type": "string",
+                    "description": "Enter the G/L account without dashes."
+                  },
+                  "glDebitAmount": {
+                    "type": "number",
+                    "description": "Positive values only. The complete journal batch must balance."
+                  },
+                  "glCreditAmount": {
+                    "type": "number",
+                    "description": "Positive values only. The complete journal batch must balance."
+                  },
+                  "costCenter": {
+                    "type": "string",
+                    "description": "For cost center companies, required on the first record for the header and on non-direct G/L account lines.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "lineReference": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
+                  },
+                  "jobNumber": {
+                    "type": "string",
+                    "description": "Required for direct job cost accounts.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "phaseCode": {
+                    "type": "string",
+                    "description": "Enter the phase code without dashes. Required with Job Number and Cost Type for direct job cost accounts.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "costType": {
+                    "type": "string",
+                    "description": "Required for direct job cost accounts.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "equipmentCode": {
+                    "type": "string",
+                    "description": "Required for direct equipment cost accounts.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "equipmentCostCategory": {
+                    "type": "string",
+                    "description": "Required for direct equipment cost accounts.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "equipmentWorkOrder": {
+                    "type": "string",
+                    "description": "Required, optional, or disallowed according to the equipment cost category data entry rule.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "woNumber": {
+                    "type": "string",
+                    "description": "Required for direct work order cost accounts. The work order must not be complete.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "woEquipment": {
+                    "type": "string",
+                    "description": "Required when the work order installation requires equipment for work order transactions.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "woComponent": {
+                    "type": "string",
+                    "description": "Required when the installation requires components and the selected equipment has components.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "woContract": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
+                  },
+                  "woSellprice": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "currentRecordNumber": {
+                    "type": "string",
+                    "description": "Defined in AddGLTrans.jws but omitted from the help page. Confirm numbering with your Spectrum developer before batch testing.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "totalRecordCount": {
+                    "type": "string",
+                    "description": "Defined in AddGLTrans.jws but omitted from the help page. Confirm batch usage with your Spectrum developer.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "isBatchFlag": {
+                    "type": "string",
+                    "description": "Defined as a string in AddGLTrans.jws. Accepted values are not documented on the help page; confirm them before batch testing.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/viewpointSpectrum/latest/actions/add-work-order-site-address": {
       "post": {
         "operationId": "viewpointSpectrum.add-work-order-site-address",
@@ -755,7 +1052,7 @@
       }
     },
     "/v1/universal/viewpointSpectrum/latest/actions/create-ar-customer-invoice-multi-line": {
-      "put": {
+      "post": {
         "operationId": "viewpointSpectrum.create-ar-customer-invoice-multi-line",
         "summary": "Create AR Customer Invoice Multi-Line",
         "externalDocs": {
@@ -4135,6 +4432,197 @@
         }
       }
     },
+    "/v1/universal/viewpointSpectrum/latest/actions/get-wsdl": {
+      "get": {
+        "operationId": "viewpointSpectrum.get-wsdl",
+        "summary": "Get WSDL",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest/actions/get-wsdl"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "WSDL",
+            "in": "query",
+            "required": false,
+            "description": "Example: WorkOrderHeader.jws",
+            "schema": {
+              "type": "string",
+              "description": "Example: WorkOrderHeader.jws"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/viewpointSpectrum/latest/actions/list-customers": {
       "get": {
         "operationId": "viewpointSpectrum.list-customers",
@@ -4167,6 +4655,249 @@
                 "ALL",
                 "I"
               ]
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Address_1": {
+                            "type": "string"
+                          },
+                          "Address_2": {
+                            "type": "string"
+                          },
+                          "City": {
+                            "type": "string"
+                          },
+                          "Company_Code": {
+                            "type": "string"
+                          },
+                          "Customer_Code": {
+                            "type": "string"
+                          },
+                          "Email1": {
+                            "type": "string"
+                          },
+                          "Error_Code": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "Error_Column": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "Error_Description": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "First_Name": {
+                            "type": "string"
+                          },
+                          "Last_Name": {
+                            "type": "string"
+                          },
+                          "Name": {
+                            "type": "string"
+                          },
+                          "Phone_Number": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "Price_Level_Material": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "State": {
+                            "type": "string"
+                          },
+                          "Status": {
+                            "type": "string"
+                          },
+                          "Taxable_Flag": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "Zip_Code": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/viewpointSpectrum/latest/actions/list-employee": {
+      "get": {
+        "operationId": "viewpointSpectrum.list-employee",
+        "summary": "List Employee",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/viewpointSpectrum/latest/actions/list-employee"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
             }
           },
           {

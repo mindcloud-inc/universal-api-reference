@@ -17,7 +17,7 @@ This operation supports [pagination](../README.md#pagination).
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `active` | query | `boolean` | no | — |
+| `active` | query | `list` | no | — |
 | `includeTotal` | query | `boolean` | no | — |
 | `modifiedOnOrAfter` | query | `string` | no | — |
 | `name` | query | `string` | no | — |

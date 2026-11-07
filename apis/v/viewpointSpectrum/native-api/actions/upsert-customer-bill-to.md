@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `ws/CustomerBillto`
 - **Base URL:** `{url}:8482/`
+- **API:** REST
 
 ## Headers
 

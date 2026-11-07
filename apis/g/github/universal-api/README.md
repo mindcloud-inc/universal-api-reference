@@ -4,7 +4,7 @@ GitHub is a developer platform for hosting code, reviewing changes, and automati
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/github/latest
 - **Category:** IT Operations / Developer Tools
-- **Actions:** 30
+- **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://github.com
 - **Vendor API docs:** https://docs.github.com/en/rest
@@ -22,13 +22,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (30)
+## Actions (34)
 
 ### Branches
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Branches](actions/list-branches.md) | GET | Lists branches in a GitHub repository. |
+
+### Check Run
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Check Runs for Ref](actions/list-check-runs-for-ref.md) | GET | Retrieves the check runs for a commit, branch, or tag in GitHub. |
 
 ### Commits
 
@@ -70,6 +76,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 | --- | --- | --- |
 | [List Authenticated User Organizations](actions/list-authenticated-user-organizations.md) | GET | Lists GitHub organizations for the authenticated user. |
 
+### Pull Request Review
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Pull Request Reviews](actions/list-pull-request-reviews.md) | GET | Retrieves the reviews submitted on a GitHub pull request. |
+
 ### Release
 
 | Action | Method | Description |
@@ -99,11 +111,18 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 | [Create or Update File Content](actions/create-or-update-file-content.md) | PUT | Creates or updates a file in a GitHub repository. |
 | [Delete File](actions/delete-file.md) | DELETE | Deletes a file from a GitHub repository. |
 
+### Review Request
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Request Pull Request Reviewers](actions/request-pull-request-reviewers.md) | POST | Requests reviews from users or teams on a GitHub pull request. |
+
 ### Users
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Authenticated User](actions/get-authenticated-user.md) | GET | Retrieves the authenticated user from GitHub. |
+| [List Assignees](actions/list-assignees.md) | GET | Retrieves the users who can be assigned to issues in a GitHub repository. |
 
 ### Workflow Dispatch
 

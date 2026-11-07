@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `ws/AddAPInvoice`
 - **Base URL:** `{url}:8482/`
+- **API:** REST
 - **Official documentation:** [Create Vendor Invoice (SOAP)](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/add-customer)
 
 ## Headers

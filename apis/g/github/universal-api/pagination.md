@@ -19,11 +19,14 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 ## GitHub actions that support pagination
 
 - [Get Authenticated User](actions/get-authenticated-user.md)
+- [List Assignees](actions/list-assignees.md)
 - [List Authenticated User Organizations](actions/list-authenticated-user-organizations.md)
 - [List Authenticated User Repositories](actions/list-authenticated-user-repositories.md)
 - [List Branches](actions/list-branches.md)
+- [List Check Runs for Ref](actions/list-check-runs-for-ref.md)
 - [List Commits](actions/list-commits.md)
 - [List Pull Request Files](actions/list-pull-request-files.md)
+- [List Pull Request Reviews](actions/list-pull-request-reviews.md)
 - [List Pull Requests](actions/list-pull-requests.md)
 - [List Releases](actions/list-releases.md)
 - [List Repository Issues](actions/list-repository-issues.md)

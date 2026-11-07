@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 131 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 134 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -45,7 +45,7 @@ The next-page cursor is read from `continueFrom`. The current page number is rea
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (131 documented)
+## Endpoints (134 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -66,6 +66,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Create Project Note](actions/create-project-note.md) | `POST jpm/v2/tenant/{{credentials.tenant}}/projects/:id/notes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-jpm-v2&operation=Projects_CreateNote) |
 | [Create Task](actions/create-task.md) | `POST taskmanagement/v2/tenant/{{credentials.tenant}}/tasks` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-task-management-v2&operation=Tasks_Create) |
 | [Get Task Management Data](actions/create-task-management-data.md) | `GET taskmanagement/v2/tenant/{{credentials.tenant}}/data` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-task-management-v2&operation=Tasks_Create) |
+| [Create Technician](actions/create-technician.md) | `POST settings/v2/tenant/{{credentials.tenant}}/technicians` | [docs](https://developer.servicetitan.io/docs/apis/tenant-settings-v2/endpoints/Technicians_Create) |
 | [Create Technician Skill](actions/create-technician-skill.md) | `POST dispatch/v2/tenant/{{credentials.tenant}}/technician-skills` | [docs](https://developer.servicetitan.io/docs/apis/tenant-dispatch-v2/endpoints) |
 | [Delete Technician Skill](actions/delete-technician-skill.md) | `DELETE dispatch/v2/tenant/{{credentials.tenant}}/technician-skills/:id` | [docs](https://developer.servicetitan.io/docs/apis/tenant-dispatch-v2/endpoints) |
 | [Export Adjustments](actions/export-adjustments.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/export/adjustments?:from&:includeRecentChanges` |  |
@@ -101,7 +102,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Get Job Types](actions/get-job-types.md) | `GET https://api.servicetitan.io/jpm/v2/tenant/{{credentials.tenant}}/job-types` |  |
 | [Get Journal Entries](actions/get-journal-entries.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/journal-entries` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_GetList) |
 | [Get Journal Entries Details](actions/get-journal-entries-details.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/journal-entries/:id/details` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_GetDetails) |
-| [Get Journal Entries Summary](actions/get-journal-entries-summary.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/journal-entries/:id/details` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_GetSummary) |
+| [Get Journal Entries Summary](actions/get-journal-entries-summary.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/journal-entries/:id/summary` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_GetSummary) |
 | [Get Lead Notes](actions/get-lead-notes.md) | `GET crm/v2/tenant/{{credentials.tenant}}/leads/:leadId/notes` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Leads_GetNotes) |
 | [Get Location By Id](actions/get-location-by-id.md) | `GET crm/v2/tenant/{{credentials.tenant}}/locations/:id` |  |
 | [Get Locations](actions/get-locations.md) | `GET crm/v2/tenant/{{credentials.tenant}}/locations` |  |
@@ -173,10 +174,12 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Update Invoice](actions/update-invoice.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/invoices/:id` | [docs](https://tenant-api-credentials-portal-integration.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Invoices_UpdateInvoice) |
 | [Update Invoice Items](actions/update-invoice-items.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/invoices/:invoiceId/items` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Invoices_UpdateInvoiceItems) |
 | [Update Job](actions/update-job.md) | `PATCH jpm/v2/tenant/{{credentials.tenant}}/jobs/:jobId` | [docs](https://developer.servicetitan.io/docs/apis/tenant-jpm-v2/endpoints/Jobs_Update) |
+| [Update Journal Entry Sync Status](actions/update-journal-entry-sync-status.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/journal-entries/:id/sync` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/JournalEntries_SyncUpdate) |
 | [Update Location Tags](actions/update-location-tags.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/locations/:id` |  |
 | [Update Payment](actions/update-payment.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/payments/{{paymentId}}` |  |
 | [Update Payment Status](actions/update-payment-status.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/payments/status` |  |
 | [Update Purchase Order](actions/update-purchase-order.md) | `PATCH inventory/v2/tenant/{{credentials.tenant}}/purchase-orders/:id` | [docs](https://developer.servicetitan.io/docs/apis/tenant-inventory-v2/endpoints/PurchaseOrders_Update) |
+| [Update Technician](actions/update-technician.md) | `PATCH settings/v2/tenant/{{credentials.tenant}}/technicians/:id` | [docs](https://developer.servicetitan.io/docs/apis/tenant-settings-v2/endpoints/Technicians_Update) |
 | [Update Technician Payroll Settings](actions/update-technician-payroll-settings.md) | `PUT payroll/v2/tenant/{{credentials.tenant}}/technicians/:technician/payroll-settings` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/PayrollSettings_UpdateTechnicianPayrollSettings) |
 | [Update Vendor](actions/update-vendor.md) | `PATCH inventory/v2/tenant/{{credentials.tenant}}/vendors/:id` |  |
 | [Upload Job Attachment](actions/upload-job-attachment.md) | `POST jpm/v2/tenant/{{credentials.tenant}}/jobs/:id/attachments` | [docs](https://developer.servicetitan.io/docs/apis/tenant-forms-v2/endpoints/Jobs_CreateAttachment) |

@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 131
+- **Actions:** 134
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (131)
+## Actions (134)
 
 ### Access Tokens
 
@@ -202,6 +202,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Get Journal Entries](actions/get-journal-entries.md) | GET | Gets a list of journal entries. |
 | [Get Journal Entries Details](actions/get-journal-entries-details.md) | GET | Gets a list of journal entry items aggregated by account, business unit, transaction and pricebook item. |
 | [Get Journal Entries Summary](actions/get-journal-entries-summary.md) | GET | Gets a list of journal entry items aggregated by account and business unit. |
+| [Update Journal Entry Sync Status](actions/update-journal-entry-sync-status.md) | PUT | Updates the sync status of a journal entry, for example marking it Synced after exporting it to an accounting system. |
 
 ### Location
 
@@ -330,7 +331,9 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Technician](actions/create-technician.md) | POST |  |
 | [Get Technicians](actions/get-technicians.md) | GET | Retrieves technicians from ServiceTitan. |
+| [Update Technician](actions/update-technician.md) | PUT |  |
 
 ### Technician Skill
 

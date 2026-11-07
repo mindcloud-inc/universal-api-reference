@@ -39,7 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | boolean | no |  |
+| `active` | list | no |  |
 | `includeTotal` | boolean | no |  |
 | `modifiedOnOrAfter` | string | no |  |
 | `name` | string | no |  |

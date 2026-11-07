@@ -53,7 +53,6 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `includeTotal` | boolean | no |  |
 | `externalDataKey` | string | no |  |
 | `externalDataValues` | string | no |  |
-| `pageSize` | number | no | Default: `50`. |
 | `page` | number | no | Default: `1`. |
 | `modifiedOnOrAfter` | string | no |  |
 | `externalDataApplicationGuid` | string | no |  |

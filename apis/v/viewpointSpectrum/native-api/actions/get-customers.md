@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `ws/GetCustomers`
 - **Base URL:** `{url}:8482/`
+- **API:** REST
 - **Official documentation:** [Get Customers](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-receivable-services/get-customers)
 
 ## Headers

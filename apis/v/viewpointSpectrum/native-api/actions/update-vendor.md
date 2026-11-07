@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `ws/UpdateVendor`
 - **Base URL:** `{url}:8482/`
+- **API:** REST
 - **Official documentation:** [Update Vendor](https://help.trimble.com/en/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/update-vendor)
 
 ## Parameters

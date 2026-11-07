@@ -5,6 +5,7 @@
 - **Method:** `POST`
 - **Path:** `purchaseOrders`
 - **Base URL:** `{url}:8482/`
+- **API:** REST
 - **Official documentation:** [Create Purchase Order](https://help.trimble.com/doc/spectrum/spectrum/api-web-services/list-of-web-services/purchase-order-services/purchase-order-batch)
 
 ## Parameters
