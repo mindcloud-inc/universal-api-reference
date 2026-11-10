@@ -1,4 +1,4 @@
-# <img src="https://images.mindcloud.co/apps/icons/ns-logo_1772827092529.png" alt="NetSuite - Advanced logo" width="28" height="28"> NetSuite - Advanced: Universal API
+# <img src="https://images.mindcloud.co/apps/icons/ns-logo-transparent_1794243192101.png" alt="NetSuite - Advanced logo" width="28" height="28"> NetSuite - Advanced: Universal API
 
 Leading integrated cloud business software suite, including business accounting, ERP, CRM and e-commerce software.
 

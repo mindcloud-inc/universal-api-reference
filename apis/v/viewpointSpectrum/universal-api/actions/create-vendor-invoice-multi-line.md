@@ -101,7 +101,43 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Viewpoint Spectrum API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "companyCode": "string",
+      "vendorCode": "string",
+      "invoiceNumber": "string",
+      "invoiceTypeCode": "string",
+      "invoiceAmount": 1,
+      "salesTaxAmount": 1,
+      "totalVATAmount": 1,
+      "totalAmount": 1,
+      "amountSource": "string",
+      "created": true,
+      "errorMessage": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `companyCode` | string |  |
+| `vendorCode` | string |  |
+| `invoiceNumber` | string |  |
+| `invoiceTypeCode` | string |  |
+| `invoiceAmount` | number |  |
+| `salesTaxAmount` | number |  |
+| `totalVATAmount` | number |  |
+| `totalAmount` | number |  |
+| `amountSource` | string |  |
+| `created` | boolean |  |
+| `errorMessage` | string |  |
 
 ## Native endpoint
 

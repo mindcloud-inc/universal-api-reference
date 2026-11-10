@@ -3,7 +3,7 @@
 EHS Insight through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ehsInsight/latest
-- **Actions:** 11
+- **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -12,14 +12,23 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Hierarchy List](actions/get-hierarchy-list.md):
+For example, to [Get Business Entity](actions/get-business-entity.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-hierarchy-list?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-business-entity?connectionId=$CONNECTION_ID&rowUid=550e8400-e29b-41d4-a716-446655440000" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (11)
+## Actions (14)
+
+### Business Entity
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Business Entity](actions/create-business-entity.md) | POST |  |
+| [Get Business Entity](actions/get-business-entity.md) | GET |  |
+| [List Business Entities](actions/list-business-entities.md) | GET |  |
+| [Update Business Entity](actions/update-business-entity.md) | PUT |  |
 
 ### Entity
 
@@ -35,7 +44,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions
 | [Add Entity](actions/add-entity.md) | POST |  |
 | [Create User Contact](actions/create-user-contact.md) | POST |  |
 | [Get Entity Items](actions/get-entity-items.md) | GET |  |
-| [Get Hierarchy List](actions/get-hierarchy-list.md) | GET |  |
 | [Get Single Item](actions/get-single-item.md) | GET |  |
 | [Update Entity](actions/update-entity.md) | PUT |  |
 | [Update User Contact](actions/update-user-contact.md) | PUT | Warning: This endpoint doesn't allow partial updates, you need to pass all values to avoid data loss |

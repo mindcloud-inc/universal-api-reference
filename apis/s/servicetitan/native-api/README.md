@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 134 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 136 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -45,7 +45,7 @@ The next-page cursor is read from `continueFrom`. The current page number is rea
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (134 documented)
+## Endpoints (136 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -145,6 +145,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [List Customer Contact](actions/list-customer-contact.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers/:customerId/contacts` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_GetContactList) |
 | [List Customers Contacts](actions/list-customers-contacts.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers/contacts` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-crm-v2&operation=Customers_GetContactList) |
 | [List Customers With External Data](actions/list-customers-with-external-data.md) | `GET crm/v2/tenant/{{credentials.tenant}}/customers` | [docs](https://developer.servicetitan.io/docs/apis/tenant-crm-v2/endpoints/Customers_GetList) |
+| [List Deposits](actions/list-deposits.md) | `GET accounting/v2/tenant/{{credentials.tenant}}/bank-deposits` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Deposits_GetList) |
 | [List Dynamic Set Values](actions/list-dynamic-set-values.md) | `GET reporting/v2/tenant/{{credentials.tenant}}/dynamic-value-sets/:dynamicSetId` | [docs](https://developer.servicetitan.io/docs/apis/tenant-reporting-v2/endpoints/DynamicValueSets_GetDynamicSet) |
 | [List Gross Pay Items](actions/list-gross-pay-items.md) | `GET payroll/v2/tenant/{{credentials.tenant}}/gross-pay-items` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/GrossPayItems_GetList) |
 | [List Inventory Adjustments](actions/list-inventory-adjustments.md) | `GET inventory/v2/tenant/{{credentials.tenant}}/adjustments` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Adjustments_GetList) |
@@ -164,6 +165,7 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Mark Invoice as Exported](actions/mark-invoice-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/invoices/markasexported` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-accounting-v2&operation=Invoices_GetList) |
 | [Update Payment Custom Fields](actions/new-action2.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/payments/custom-fields` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Payments_UpdateCustomFields) |
 | [Add Vendor](actions/post-vendor.md) | `POST inventory/v2/tenant/{{credentials.tenant}}/vendors` | [docs](https://developer.servicetitan.io/api-details/#api=tenant-inventory-v2&operation=Vendors_Create) |
+| [Technician Account Action](actions/technician-account-action.md) | `POST settings/v2/tenant/{{credentials.tenant}}/technicians/:id/account-actions` | [docs](https://developer.servicetitan.io/docs/apis/tenant-settings-v2/endpoints/Technicians_AccountActions) |
 | [Update AP Bill Custom Fields](actions/update-ap-bill-custom-fields.md) | `PATCH accounting/v2/tenant/{{credentials.tenant}}/ap-bills/custom-fields` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/ApBills_UpdateCustomFields) |
 | [Update Costumer](actions/update-costumer.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/customers/:customerId` |  |
 | [Update Customer](actions/update-customer.md) | `PATCH crm/v2/tenant/{{credentials.tenant}}/customers/:id` |  |

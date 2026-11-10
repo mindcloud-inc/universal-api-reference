@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 134
+- **Actions:** 136
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (134)
+## Actions (136)
 
 ### Access Tokens
 
@@ -102,6 +102,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [List Customers With External Data](actions/list-customers-with-external-data.md) | GET |  |
 | [Update Costumer](actions/update-costumer.md) | PUT | Updates an existing customer in ServiceTitan. |
 | [Update Customer](actions/update-customer.md) | PUT | Updates an existing customer in ServiceTitan. |
+
+### Deposits
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Deposits](actions/list-deposits.md) | GET | Retrieves bank deposits and their accounting details from ServiceTitan. |
 
 ### Discount And Fees
 
@@ -333,6 +339,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | --- | --- | --- |
 | [Create Technician](actions/create-technician.md) | POST |  |
 | [Get Technicians](actions/get-technicians.md) | GET | Retrieves technicians from ServiceTitan. |
+| [Technician Account Action](actions/technician-account-action.md) | PUT |  |
 | [Update Technician](actions/update-technician.md) | PUT |  |
 
 ### Technician Skill

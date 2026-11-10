@@ -63,6 +63,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 - [List Customer Contact](actions/list-customer-contact.md)
 - [List Customers Contacts](actions/list-customers-contacts.md)
 - [List Customers With External Data](actions/list-customers-with-external-data.md)
+- [List Deposits](actions/list-deposits.md)
 - [List Dynamic Set Values](actions/list-dynamic-set-values.md)
 - [List Gross Pay Items](actions/list-gross-pay-items.md)
 - [List Memberships](actions/list-memberships.md)

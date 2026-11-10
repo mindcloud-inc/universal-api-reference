@@ -2,21 +2,22 @@
 
 These examples use the MindCloud API key and EHS Insight connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Hierarchy List
+## Get Business Entity
 
 
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-hierarchy-list?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-business-entity?connectionId=$CONNECTION_ID&rowUid=550e8400-e29b-41d4-a716-446655440000" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  "rowUid": "550e8400-e29b-41d4-a716-446655440000"
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-hierarchy-list?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-business-entity?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -30,22 +31,12 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "rowUID": "string",
-      "changeToken": "string",
-      "title": "string",
-      "startDate": "string",
-      "endDate": "string",
-      "comments": "string",
-      "parentHierarchyUID": "string"
-    }
-  ],
+  "data": [],
   "meta": {}
 }
 ```
 
-See the full [Get Hierarchy List action reference](actions/get-hierarchy-list.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/get-hierarchy-list).
+See the full [Get Business Entity action reference](actions/get-business-entity.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/get-business-entity).
 
 ## Add Entity
 

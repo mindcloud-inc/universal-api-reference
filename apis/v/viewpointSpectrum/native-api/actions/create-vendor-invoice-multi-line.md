@@ -5,7 +5,8 @@
 - **Method:** `POST`
 - **Path:** `vendor/invoice`
 - **Base URL:** `{url}:8482/`
-- **API:** REST
+- **API:** Vendor Invoice JSON
+- **Official documentation:** [Create Vendor Invoice Multi-Line](https://help.trimble.com/doc/spectrum/spectrum/api-web-services/list-of-web-services/accounts-payable-services/vendor-invoice-multi-line)
 
 ## Headers
 
