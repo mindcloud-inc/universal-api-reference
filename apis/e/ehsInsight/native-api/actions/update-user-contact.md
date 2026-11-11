@@ -1,68 +1,48 @@
 # Update User Contact with EHS Insight
 
-Warning: This endpoint doesn't allow partial updates, you need to pass all values to avoid data loss
-
 ## Endpoint
 
 - **Method:** `POST`
 - **Path:** `/v6/entity/UserContact/update`
 - **Base URL:** `https://{companyName}.ehsinsight.com/api`
-- **Official documentation:** [Update User Contact](https://equixinctest.ehsinsight.com/openapi/viewer?version=6&category=entity)
+- **Official documentation:** [Update User Contact](https://qxobptest.ehsinsight.com/site#/apidocumentation/v6/apidoc_entityapi_update)
 
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `RowUID` | body | `string` | yes | The provider RowUID of the user contact to update. |
-| `ChangeToken` | body | `string` | no | — |
-| `UserContactNumber` | body | `string` | no | — |
-| `UserContactType` | body | `string` | no | — |
+| `RowUID` | body | `string` | yes | RowUID from Get User Contact. |
+| `ChangeToken` | body | `string` | yes | Use the unchanged ChangeToken from the freshly fetched full record. |
+| `UserContactNumber` | body | `string` | no | Preserve the fetched value. |
+| `UserContactType` | body | `string` | no | Preserve the fetched value. Do not reset a user to Contact when an administrator has converted the record. |
 | `FullName` | body | `string` | no | — |
-| `IsEnabled` | body | `number` | no | — |
+| `IsEnabled` | body | `number` | no | Preserve the fetched numeric value unless changing enabled status intentionally. |
 | `FirstName` | body | `string` | no | — |
 | `LastName` | body | `string` | no | — |
 | `Gender` | body | `string` | no | — |
-| `BirthDate` | body | `string` | no | format example: "2026-04-28" |
-| `BusinessEntity` | body | `string` | no | — |
-| `Employer` | body | `string` | no | — |
-| `Position` | body | `string` | no | — |
+| `BirthDate` | body | `date` | no | — |
+| `BusinessEntity` | body | `string` | no | RowUID of the business entity. |
+| `Employer` | body | `string` | no | RowUID from the Employer entity list. |
+| `Position` | body | `string` | no | RowUID from the Position entity list. |
 | `EmployeeID` | body | `string` | no | — |
-| `HireDate` | body | `string` | no | format example: "2026-04-28" |
-| `PositionStartDate` | body | `string` | no | format example: "2026-04-28" |
-| `IndustryStartDate` | body | `string` | no | format example: "2026-04-28" |
+| `HireDate` | body | `date` | no | — |
+| `PositionStartDate` | body | `date` | no | — |
+| `IndustryStartDate` | body | `date` | no | — |
 | `HomeAddress` | body | `string` | no | — |
 | `HomeCity` | body | `string` | no | — |
 | `HomeState` | body | `string` | no | — |
 | `HomeZip` | body | `string` | no | — |
 | `PhoneNumber` | body | `string` | no | — |
+| `AuthProvider` | body | `string` | no | Preserve the fetched authentication provider. API version 6 uses Password for password authentication. |
 | `Username` | body | `string` | no | — |
-| `AuthProvider` | body | `string` | no | — |
 | `EmailAddress` | body | `string` | no | — |
-| `Supervisor` | body | `string` | no | — |
-| `InviteSent` | body | `number` | no | — |
-| `UserContactPhoto` | body | `string` | no | — |
-| `UDFPersonalCellPhone` | body | `string` | no | — |
-| `UDFEmploymentType` | body | `string` | no | — |
-| `Udfcdl` | body | `number` | no | — |
-| `UDFDriversLicense` | body | `string` | no | — |
-| `UDFDriversLicenseExpira` | body | `string` | no | format example: "2026-04-28" |
-| `UDFLCACellPhoneNumber` | body | `string` | no | — |
-| `UDFOfficePhone` | body | `string` | no | — |
-| `UDFTerminationDate` | body | `string` | no | format example: "2026-04-28" |
-| `MobilePhoneNumber` | body | `string` | no | — |
-| `UserContactPhotoAttachmentUID` | body | `string` | no | — |
-| `UserContactPhotoContentType` | body | `string` | no | — |
-| `UserContactPhotoFileSize` | body | `string` | no | — |
-| `Language` | body | `string` | no | — |
-| `LanguageOther` | body | `string` | no | — |
-| `UIMode` | body | `string` | no | — |
-| `UIModeOther` | body | `string` | no | — |
-| `GenderOther` | body | `string` | no | — |
-| `PositionOther` | body | `string` | no | — |
-| `UDFEmploymentTypeOther` | body | `string` | no | — |
-| `EmployerOther` | body | `string` | no | — |
-| `AuthProviderOther` | body | `string` | no | — |
-| `UserContactPhotoPreviousVersions[]` | body | `array` | no | — |
-| `RoleAssignmentType` | body | `string` | no | — |
-| `SecurityGroups[]` | body | `array` | no | — |
-| `UserRoles[]` | body | `array` | no | — |
+| `RoleAssignmentType` | body | `string` | no | Preserve the fetched role assignment mode: DirectAssignment uses User Roles; SecurityGroups uses Security Groups. |
+| `UserRoles[]` | body | `array<object>` | no | Preserve the complete fetched direct-role assignments. |
+| `UserRoles[].RoleUID` | body | `string` | no | — |
+| `UserRoles[].BusinessEntity` | body | `string` | no | Role-scoped Business Entity. Preserve null for roles that apply across all entities. |
+| `SecurityGroups[]` | body | `array<object>` | no | Preserve the complete fetched group assignments and parameters. |
+| `SecurityGroups[].SecurityGroup` | body | `string` | no | — |
+| `SecurityGroups[].Parameters[]` | body | `array<object>` | no | — |
+| `SecurityGroups[].Parameters[].TemplateParameter` | body | `string` | no | — |
+| `SecurityGroups[].Parameters[].BusinessEntities[]` | body | `array<object>` | no | — |
+| `SecurityGroups[].Parameters[].BusinessEntities[].Item` | body | `string` | no | — |

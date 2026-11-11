@@ -40,10 +40,10 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `userContactType` | list | no |  |
+| `userContactType` | list<string> | no | Use User to create a login account or Contact to create a contact. Other types depend on your site's configuration. One of: `Contact`, `Device`, `Guest`, `Kiosk`, `Template`, `Unmanaged`, `User`. |
 | `fullName` | string | no |  |
 | `isEnabled` | number | no |  |
-| `authProvider` | string | no |  |
+| `authProvider` | string | no | Authentication provider for a User account. API version 6 uses Password for password authentication. |
 | `username` | string | no |  |
 | `emailAddress` | string | no |  |
 | `firstName` | string | no |  |
@@ -52,7 +52,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `employer` | string | no |  |
 | `position` | string | no |  |
 | `employeeId` | string | no |  |
-| `roleAssignmentType` | string | no |  |
+| `roleAssignmentType` | string | no | For users, use DirectAssignment with User Roles or SecurityGroups with Security Groups. Supply the matching role or group collection. |
 | `userRoles[]` | array<object> | no |  |
 | `userRoles[].roleUid` | string | no |  |
 | `userRoles[].businessEntity` | string | no |  |

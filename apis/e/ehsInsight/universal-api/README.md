@@ -3,7 +3,7 @@
 EHS Insight through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ehsInsight/latest
-- **Actions:** 14
+- **Actions:** 16
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (14)
+## Actions (16)
 
 ### Business Entity
 
@@ -42,16 +42,23 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Entity](actions/add-entity.md) | POST |  |
-| [Create User Contact](actions/create-user-contact.md) | POST |  |
 | [Get Entity Items](actions/get-entity-items.md) | GET |  |
 | [Get Single Item](actions/get-single-item.md) | GET |  |
 | [Update Entity](actions/update-entity.md) | PUT |  |
-| [Update User Contact](actions/update-user-contact.md) | PUT | Warning: This endpoint doesn't allow partial updates, you need to pass all values to avoid data loss |
+
+### User Contact
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create User Contact](actions/create-user-contact.md) | POST |  |
+| [Delete User Contact](actions/delete-user-contact.md) | DELETE |  |
+| [Get User Contact](actions/get-user-contact.md) | GET |  |
+| [List User Contacts with Parameters](actions/list-user-contacts-with-parameters.md) | GET |  |
+| [Update User Contact](actions/update-user-contact.md) | PUT |  |
 
 ### Users
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Roles](actions/list-roles.md) | GET |  |
-| [List User Contacts](actions/list-user-contacts.md) | GET |  |
 

@@ -3,5 +3,5 @@
 ## Endpoint
 
 - **Method:** `GET`
-- **Path:** `/api/entity/customers`
+- **Path:** `/api/entity/customers/`
 - **Base URL:** `{apiUrl}`

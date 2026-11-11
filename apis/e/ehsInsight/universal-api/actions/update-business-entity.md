@@ -48,6 +48,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `changeToken` | string | yes | Use the unchanged ChangeToken returned by Get Business Entity to protect against conflicting updates. |
 | `title` | string | no |  |
 | `startDate` | date | no | For sites with Business Entity Revisions disabled. Use the effective date on revisions when revisions are enabled. Example: `2026-01-15`. |
+| `endDate` | date | no | Example: `2026-01-15`. |
 | `parentHierarchyUid` | string | no | For sites with revisions disabled; otherwise set the parent on each revision. |
 | `type` | string | no | RowUID from the BusinessEntityType entity list. |
 | `subType` | string | no | RowUID from the BusinessEntitySubType entity list. |
@@ -57,7 +58,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `externalId` | string | no |  |
-| `endDate` | date | no | Example: `2026-01-15`. |
 | `client` | string | no | Client reference, when supported by the site's Business Entity configuration. |
 | `comments` | string | no |  |
 | `latLong` | string | no |  |

@@ -4,7 +4,7 @@ An intuitive Cloud ERP system to power your whole business.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/acumatica/latest
 - **Category:** Commerce / ERP
-- **Actions:** 62
+- **Actions:** 63
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.acumatica.com/
 - **Vendor API docs:** https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (62)
+## Actions (63)
 
 ### Bill
 
@@ -74,6 +74,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/acumatica/latest/actions/
 | --- | --- | --- |
 | [Create or Update Opportunity](actions/create-or-update-opportunity.md) | PUT |  |
 | [Get Opportunity](actions/get-opportunity.md) | GET |  |
+| [Invoke Opportunity Action](actions/invoke-opportunity-action.md) | PUT |  |
 | [List Opportunities](actions/list-opportunities.md) | GET |  |
 
 ### Payment

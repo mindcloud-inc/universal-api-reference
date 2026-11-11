@@ -1,6 +1,6 @@
 # EHS Insight: Update User Contact
 
-Warning: This endpoint doesn't allow partial updates, you need to pass all values to avoid data loss
+
 
 ```
 PUT https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/update-user-contact
@@ -16,7 +16,8 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "rowUid": "string"
+  "rowUid": "string",
+  "changeToken": "string"
 }'
 ```
 
@@ -29,7 +30,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/ehsInsig
   },
   body: JSON.stringify({
     connectionId,
-    "rowUid": "string"
+    "rowUid": "string",
+    "changeToken": "string"
   })
 });
 
@@ -42,59 +44,46 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `rowUid` | string | yes | The provider RowUID of the user contact to update. |
-| `changeToken` | string | no |  |
-| `userContactNumber` | string | no |  |
-| `userContactType` | string | no |  |
+| `rowUid` | string | yes | RowUID from Get User Contact. |
+| `changeToken` | string | yes | Use the unchanged ChangeToken from the freshly fetched full record. |
 | `fullName` | string | no |  |
-| `isEnabled` | number | no |  |
+| `isEnabled` | number | no | Preserve the fetched numeric value unless changing enabled status intentionally. |
 | `firstName` | string | no |  |
 | `lastName` | string | no |  |
-| `gender` | string | no |  |
-| `birthDate` | string | no | format example: "2026-04-28" |
-| `businessEntity` | string | no |  |
-| `employer` | string | no |  |
-| `position` | string | no |  |
+| `businessEntity` | string | no | RowUID of the business entity. |
+| `employer` | string | no | RowUID from the Employer entity list. |
+| `position` | string | no | RowUID from the Position entity list. |
 | `employeeId` | string | no |  |
-| `hireDate` | string | no | format example: "2026-04-28" |
-| `positionStartDate` | string | no | format example: "2026-04-28" |
-| `industryStartDate` | string | no | format example: "2026-04-28" |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `userContactNumber` | string | no | Preserve the fetched value. |
+| `userContactType` | string | no | Preserve the fetched value. Do not reset a user to Contact when an administrator has converted the record. |
+| `gender` | string | no |  |
+| `birthDate` | date | no | Example: `2026-01-15`. |
+| `hireDate` | date | no | Example: `2026-01-15`. |
+| `positionStartDate` | date | no | Example: `2026-01-15`. |
+| `industryStartDate` | date | no | Example: `2026-01-15`. |
 | `homeAddress` | string | no |  |
 | `homeCity` | string | no |  |
 | `homeState` | string | no |  |
 | `homeZip` | string | no |  |
 | `phoneNumber` | string | no |  |
-| `Username` | string | no |  |
-| `AuthProvider` | string | no |  |
-| `EmailAddress` | string | no |  |
-| `Supervisor` | string | no |  |
-| `InviteSent` | number | no |  |
-| `UserContactPhoto` | string | no |  |
-| `UDFPersonalCellPhone` | string | no |  |
-| `UDFEmploymentType` | string | no |  |
-| `Udfcdl` | number | no |  |
-| `UDFDriversLicense` | string | no |  |
-| `UDFDriversLicenseExpira` | string | no | format example: "2026-04-28" |
-| `UDFLCACellPhoneNumber` | string | no |  |
-| `UDFOfficePhone` | string | no |  |
-| `UDFTerminationDate` | string | no | format example: "2026-04-28" |
-| `MobilePhoneNumber` | string | no |  |
-| `UserContactPhotoAttachmentUID` | string | no |  |
-| `UserContactPhotoContentType` | string | no |  |
-| `UserContactPhotoFileSize` | string | no |  |
-| `Language` | string | no |  |
-| `LanguageOther` | string | no |  |
-| `UIMode` | string | no |  |
-| `UIModeOther` | string | no |  |
-| `GenderOther` | string | no |  |
-| `PositionOther` | string | no |  |
-| `UDFEmploymentTypeOther` | string | no |  |
-| `EmployerOther` | string | no |  |
-| `AuthProviderOther` | string | no |  |
-| `UserContactPhotoPreviousVersions[]` | array | no |  |
-| `RoleAssignmentType` | string | no |  |
-| `SecurityGroups[]` | array | no |  |
-| `UserRoles[]` | array | no |  |
+| `authProvider` | string | no | Preserve the fetched authentication provider. API version 6 uses Password for password authentication. |
+| `username` | string | no |  |
+| `emailAddress` | string | no |  |
+| `roleAssignmentType` | string | no | Preserve the fetched role assignment mode: DirectAssignment uses User Roles; SecurityGroups uses Security Groups. |
+| `userRoles[]` | array<object> | no | Preserve the complete fetched direct-role assignments. |
+| `userRoles[].roleUid` | string | no |  |
+| `userRoles[].businessEntity` | string | no | Role-scoped Business Entity. Preserve null for roles that apply across all entities. |
+| `securityGroups[]` | array<object> | no | Preserve the complete fetched group assignments and parameters. |
+| `securityGroups[].securityGroup` | string | no |  |
+| `securityGroups[].parameters[]` | array<object> | no |  |
+| `securityGroups[].parameters[].templateParameter` | string | no |  |
+| `securityGroups[].parameters[].businessEntities[]` | array<object> | no |  |
+| `securityGroups[].parameters[].businessEntities[].item` | string | no |  |
 
 ## Response
 

@@ -1,6 +1,6 @@
 # EHS Insight: Native API Reference
 
-A consolidated summary of EHS Insight's API configuration and 14 documented operations.
+A consolidated summary of EHS Insight's API configuration and 16 documented operations.
 
 - **API base URL:** `https://{companyName}.ehsinsight.com/api`
 
@@ -29,21 +29,23 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
-## Endpoints (14 documented)
+## Endpoints (16 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Add Entity](actions/add-entity.md) | `POST /v4/entity/:entityName/add` |  |
 | [Create Business Entity](actions/create-business-entity.md) | `POST /v6/hierarchy/add` | [docs](https://qxobptest.ehsinsight.com/openapi/viewer?version=6&category=hierarchy#/Business%20Hierarchy/post_hierarchy_add) |
-| [Create User Contact](actions/create-user-contact.md) | `POST /v6/entity/UserContact/add` | [docs](https://equixinctest.ehsinsight.com/openapi/viewer?version=6&category=entity) |
+| [Create User Contact](actions/create-user-contact.md) | `POST /v6/entity/UserContact/add` | [docs](https://qxobptest.ehsinsight.com/site#/apidocumentation/v6/apidoc_entityapi_add) |
+| [Delete User Contact](actions/delete-user-contact.md) | `GET /v6/entity/UserContact/delete/:rowUid` | [docs](https://qxobptest.ehsinsight.com/site#/apidocumentation/v6/apidoc_entityapi_delete) |
 | [Get Business Entity](actions/get-business-entity.md) | `GET /v6/hierarchy/fetch/:rowUid` | [docs](https://qxobptest.ehsinsight.com/openapi/viewer?version=6&category=hierarchy#/Business%20Hierarchy/get_hierarchy_fetch__RowUID_) |
 | [Get Entity Items](actions/get-entity-items.md) | `GET /v4/entity/:entityName/list?:customparams` |  |
 | [Get Single Item](actions/get-single-item.md) | `GET /v4/entity/:entityName/fetch/:rowuid` |  |
+| [Get User Contact](actions/get-user-contact.md) | `GET /v6/entity/UserContact/fetch/:rowUid` | [docs](https://qxobptest.ehsinsight.com/site#/apidocumentation/v6/apidoc_entityapi_fetch) |
 | [List Business Entities](actions/list-business-entities.md) | `GET /v6/hierarchy/list` | [docs](https://qxobptest.ehsinsight.com/openapi/viewer?version=6&category=hierarchy#/Business%20Hierarchy/get_hierarchy_list) |
 | [List Entities](actions/list-entities.md) | `GET /v6/entity/list?:customparams` | [docs](https://equixinctest.ehsinsight.com/openapi/viewer?version=6&category=entity) |
 | [List Roles](actions/list-roles.md) | `GET /v6/role/list?:customparams` | [docs](https://equixinctest.ehsinsight.com/openapi/viewer?version=6&category=entity) |
-| [List User Contacts](actions/list-user-contacts.md) | `GET /v6/entity/UserContact/list?:customparams` | [docs](https://equixinctest.ehsinsight.com/openapi/viewer?version=6&category=entity) |
+| [List User Contacts with Parameters](actions/list-user-contacts-with-parameters.md) | `GET /v6/entity/UserContact/list` | [docs](https://qxobptest.ehsinsight.com/site#/apidocumentation/v6/apidoc_entityapi_list) |
 | [Get Entity Schema](actions/new-action1.md) | `GET /v4/entity/:entityName/schema` |  |
 | [Update Business Entity](actions/update-business-entity.md) | `POST /v6/hierarchy/update` | [docs](https://qxobptest.ehsinsight.com/openapi/viewer?version=6&category=hierarchy#/Business%20Hierarchy/post_hierarchy_update) |
 | [Update Entity](actions/update-entity.md) | `POST /v4/entity/:entityName/update` |  |
-| [Update User Contact](actions/update-user-contact.md) | `POST /v6/entity/UserContact/update` | [docs](https://equixinctest.ehsinsight.com/openapi/viewer?version=6&category=entity) |
+| [Update User Contact](actions/update-user-contact.md) | `POST /v6/entity/UserContact/update` | [docs](https://qxobptest.ehsinsight.com/site#/apidocumentation/v6/apidoc_entityapi_update) |

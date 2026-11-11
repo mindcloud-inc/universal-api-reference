@@ -1,6 +1,6 @@
 # Acumatica: Native API Reference
 
-A consolidated summary of Acumatica's API configuration and 62 documented operations, with links to official documentation.
+A consolidated summary of Acumatica's API configuration and 63 documented operations, with links to official documentation.
 
 - **Official docs:** https://help.acumatica.com/Help?ScreenId=ShowWiki&pageid=91dda8ed-5e92-48a5-a176-9a255506d0d6
 - **API base URL:** `{uRL}`
@@ -33,7 +33,7 @@ Shared headers:
 
 Use `$top` in the query string to set the page size (default 25; accepted range 1–5000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (62 documented)
+## Endpoints (63 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -71,6 +71,7 @@ Use `$top` in the query string to set the page size (default 25; accepted range 
 | [Get Stock Item](actions/get-stock-item.md) | `GET /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/StockItem/:id` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-a-Record-by-ID) |
 | [Get Vendor](actions/get-vendor.md) | `GET /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Vendor/:id` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-a-Record-by-ID) |
 | [Inventory Adjustment](actions/inventory-adjustment.md) | `PUT /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/InventoryAdjustment` | [docs](https://help.acumatica.com/(W(5))/Help?ScreenId=ShowWiki&pageid=56831ee7-14b0-45ef-8207-dace30beb2cb) |
+| [Invoke Opportunity Action](actions/invoke-opportunity-action.md) | `POST /entity/:webServiceEndpoint/:endpointVersion/Opportunity/:actionName` | [docs](https://help.acumatica.com/Wiki/ShowWiki.aspx?PageID=91dda8ed-5e92-48a5-a176-9a255506d0d6&wikiname=HelpRoot_Dev_Integration) |
 | [List Bills](actions/list-bills.md) | `GET /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Bill` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-Records-by-Conditions) |
 | [List Contacts](actions/list-contacts.md) | `GET /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Contact` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-Records-by-Conditions) |
 | [List Customers](actions/list-customers.md) | `GET /entity/{{credentials.endpointName}}/{{credentials.endpointVersion}}/Customer` | [docs](https://beacon.acumatica.com/r/Integration-Development-Guide/REST-API-Examples/Basic-Requests/Retrieve-Records-by-Conditions) |

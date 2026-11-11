@@ -3,7 +3,7 @@
 Microsoft Dynamics 365 Business Central
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365BC/latest
-- **Actions:** 65
+- **Actions:** 84
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (65)
+## Actions (84)
 
 ### Addresses
 
@@ -71,6 +71,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [Post Credit Memo](actions/post-credit-memo.md) | POST |  |
 | [Post Sales Invoice](actions/post-sales-invoice.md) | POST |  |
 
+### Items
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Item](actions/get-item.md) | GET |  |
+
 ### Other
 
 | Action | Method | Description |
@@ -108,6 +114,25 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [Patch Sales Invoice ODataV4](actions/patch-sales-invoice-o-data-v4.md) | POST |  |
 | [Update Customer Payment ODataV4](actions/update-customer-payment-o-data-v4.md) | POST |  |
 
+### Purchase Order Lines
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Purchase Order Lines](actions/list-purchase-order-lines.md) | GET |  |
+
+### Purchase Orders
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Purchase Order](actions/get-purchase-order.md) | GET |  |
+| [List Purchase Orders](actions/list-purchase-orders.md) | GET |  |
+
+### Sales Order Lines
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Sales Order Lines](actions/list-sales-order-lines.md) | GET |  |
+
 ### Sales Orders
 
 | Action | Method | Description |
@@ -115,9 +140,28 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [Create Sales Order](actions/create-sales-order.md) | POST |  |
 | [Create Sales Order SSI](actions/create-sales-order-ssi.md) | POST |  |
 | [Create Sales Order Line](actions/create-sales-orders-lines.md) | POST |  |
+| [Get Sales Order](actions/get-sales-order.md) | GET |  |
 | [List Journal Line](actions/list-journal-line.md) | GET |  |
+| [List Sales Orders](actions/list-sales-orders.md) | GET |  |
 | [List Sales Orders Lines SSI](actions/list-sales-orders-lines-ssi.md) | GET |  |
 | [List Sales Orders SSI](actions/list-sales-orders-ssi.md) | GET |  |
 | [Update Sales Order SSI](actions/update-sales-order-ssi.md) | POST |  |
 | [Update Sales Orders Lines](actions/update-sales-orders-lines.md) | PUT |  |
+
+### Vendor Bills
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Vendor Credit Memo Line ODataV4](actions/create-vendor-credit-memo-line-o-data-v4.md) | POST |  |
+| [Create Vendor Credit Memo ODataV4](actions/create-vendor-credit-memo-o-data-v4.md) | POST |  |
+| [Create Vendor Purchase Invoice Line ODataV4](actions/create-vendor-purchase-invoice-line-o-data-v4.md) | POST |  |
+| [Create Vendor Purchase Invoices ODataV4](actions/create-vendor-purchase-invoices-o-data-v4.md) | POST |  |
+| [Delete Vendor Credit Memo Line ODataV4](actions/delete-vendor-credit-memo-line-o-data-v4.md) | DELETE |  |
+| [Delete Vendor Purchase Invoice Line ODataV4](actions/delete-vendor-purchase-invoice-line-o-data-v4.md) | DELETE |  |
+| [List Vendor Purchase Credit Memo Lines ODataV4](actions/list-vendor-purchase-credit-memo-lines-o-data-v4.md) | GET |  |
+| [List Vendor Purchase Credit Memo ODataV4](actions/list-vendor-purchase-credit-memo-o-data-v4.md) | GET |  |
+| [List Vendor Purchase Invoices Lines ODataV4](actions/list-vendor-purchase-invoices-lines-o-data-v4.md) | GET |  |
+| [List Vendor Purchase Invoices ODataV4](actions/list-vendor-purchase-invoices-o-data-v4.md) | GET |  |
+| [Update Vendor Credit Memo ODataV4](actions/update-vendor-credit-memo-o-data-v4.md) | PUT |  |
+| [Update Vendor Purchase Invoices ODataV4](actions/update-vendor-purchase-invoices-o-data-v4.md) | PUT |  |
 

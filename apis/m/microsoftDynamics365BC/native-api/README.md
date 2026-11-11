@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 65 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 84 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (65 documented)
+## Endpoints (84 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -84,9 +84,18 @@ Response data is read from `value`.
 | [Create Sales Order SSI](actions/create-sales-order-ssi.md) | REST (Copy) | `POST /v2.0/companies(:id)/salesHeadersSSI` | [docs](https://anotepad.com/notes/ccfg4kec) |
 | [Create Sales Order Line](actions/create-sales-orders-lines.md) | REST | `POST v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_create) |
 | [Create Ship-to Addresses SSI](actions/create-ship-to-addresses-ssi.md) | REST (Copy) | `POST v2.0/companies(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
+| [Create Vendor Credit Memo Line ODataV4](actions/create-vendor-credit-memo-line-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemoPurchLines` |  |
+| [Create Vendor Credit Memo ODataV4](actions/create-vendor-credit-memo-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoice` |  |
+| [Create Vendor Purchase Invoice Line ODataV4](actions/create-vendor-purchase-invoice-line-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoicePurchLines` |  |
+| [Create Vendor Purchase Invoices ODataV4](actions/create-vendor-purchase-invoices-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemo` |  |
 | [Delete Sales Invoice Line Item](actions/delete-sales-invoice-line-item.md) | REST | `DELETE v2.0/companies(:companyId)/salesInvoices(:salesInvoiceId)/salesInvoiceLines(:lineItemId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
+| [Delete Vendor Credit Memo Line ODataV4](actions/delete-vendor-credit-memo-line-o-data-v4.md) | REST | `DELETE https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemoPurchLines(Document_Type=:Document_Type,Document_No=:Document_No,Line_No=:Line_No)` |  |
+| [Delete Vendor Purchase Invoice Line ODataV4](actions/delete-vendor-purchase-invoice-line-o-data-v4.md) | REST | `DELETE https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoicePurchLines(Document_Type=:Document_Type,Document_No=:Document_No,Line_No=:Line_No)` |  |
 | [Get Aged Transactions](actions/get-aged-transactions.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/ssi/aapi/v2.0/companies(:companyID)/atsagedAccountsReceivables` |  |
 | [Get Inventory By Location SSI](actions/get-inventory-by-location-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/inventoryQtyByLocationsSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
+| [Get Item](actions/get-item.md) | REST | `GET v2.0/companies(:companyId)/items(:itemId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_item_get) |
+| [Get Purchase Order](actions/get-purchase-order.md) | REST | `GET v2.0/companies(:companyId)/purchaseOrders(:purchaseOrderId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_purchaseorder_get) |
+| [Get Sales Order](actions/get-sales-order.md) | REST | `GET v2.0/companies(:companyId)/salesOrders(:salesOrderId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
 | [Get Ship-to Addresses SSI](actions/get-ship-to-addresses-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [List Applied Customer Entries ODataV4](actions/list-applied-customer-entries-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindCloudAppliedCustomerEntries` |  |
 | [List Bank Deposits Line ODataV4](actions/list-bank-deposits-line-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudBankDepositLines` |  |
@@ -108,12 +117,20 @@ Response data is read from `value`.
 | [List Payments Terms](actions/list-payments-terms.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies(:company)/paymentTerms` |  |
 | [List Payroll Journal ODataV4](actions/list-payroll-journal-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPayrollJournal` |  |
 | [List Projects](actions/list-projects.md) | REST | `GET v2.0/companies({{companyId}})/projects` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
+| [List Purchase Order Lines](actions/list-purchase-order-lines.md) | REST | `GET v2.0/companies(:companyId)/purchaseOrders(:purchaseOrderId)/purchaseOrderLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_purchaseorderline_get) |
+| [List Purchase Orders](actions/list-purchase-orders.md) | REST | `GET v2.0/companies(:companyId)/purchaseOrders` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_purchaseorder) |
 | [List Sales Invoice](actions/list-sales-invoice.md) | REST | `GET v2.0/companies(:companyId)/salesInvoices` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List Sales Invoice Itens ODataV4](actions/list-sales-invoice-itens-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoiceSalesLines` |  |
 | [List Sales Invoice Line Items](actions/list-sales-invoice-line-items.md) | REST | `GET v2.0/companies({{companyId}})/salesInvoices(:salesInvoiceId)/salesInvoiceLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [List Sales Invoice ODataV4](actions/list-sales-invoice-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice` |  |
+| [List Sales Order Lines](actions/list-sales-order-lines.md) | REST | `GET v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_get) |
+| [List Sales Orders](actions/list-sales-orders.md) | REST | `GET v2.0/companies(:companyId)/salesOrders` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_salesorder) |
 | [List Sales Orders Lines SSI](actions/list-sales-orders-lines-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesLinesSSI` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
 | [List Sales Orders SSI](actions/list-sales-orders-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesHeadersSSI(:id)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
+| [List Vendor Purchase Credit Memo Lines ODataV4](actions/list-vendor-purchase-credit-memo-lines-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemoPurchLines` |  |
+| [List Vendor Purchase Credit Memo ODataV4](actions/list-vendor-purchase-credit-memo-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemo` |  |
+| [List Vendor Purchase Invoices Lines ODataV4](actions/list-vendor-purchase-invoices-lines-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoicePurchLines` |  |
+| [List Vendor Purchase Invoices ODataV4](actions/list-vendor-purchase-invoices-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoice` |  |
 | [List Vendors](actions/list-vendors.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/api/v2.0/companies(:company)/vendors` |  |
 | [Patch Sales Invoice Itens ODataV4](actions/patch-sales-invoice-itens-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoiceSalesLines(Document_Type=':documentType',Document_No=':documentNo',Line_No=:lineNo)` |  |
 | [Patch Sales Invoice ODataV4](actions/patch-sales-invoice-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudSalesInvoice(Document_Type=':documentType',No=':no')` |  |
@@ -128,3 +145,5 @@ Response data is read from `value`.
 | [Update Sales Order SSI](actions/update-sales-order-ssi.md) | REST (Copy) | `PATCH /v2.0/companies(:id)/salesHeadersSSI(:salesOrderID)` | [docs](https://anotepad.com/notes/ccfg4kec) |
 | [Update Sales Orders Lines](actions/update-sales-orders-lines.md) | REST | `PATCH v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines(:salesOrderLineId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_create) |
 | [Update Ship-to Addresses SSI](actions/update-ship-to-addresses-ssi.md) | REST (Copy) | `PATCH v2.0/companies(:company_id)/shipToAddressesSSI(CustomerNo=':customerNo',Code=':shipToAddressCode')` | [docs](https://anotepad.com/notes/x8dnaab8) |
+| [Update Vendor Credit Memo ODataV4](actions/update-vendor-credit-memo-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemo(Document_Type=:Document_Type,No=:No)` |  |
+| [Update Vendor Purchase Invoices ODataV4](actions/update-vendor-purchase-invoices-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoice(No=:No,Document_Type=:Document_Type)` |  |

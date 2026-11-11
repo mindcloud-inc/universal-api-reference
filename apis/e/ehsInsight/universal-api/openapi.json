@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "EHS Insight Universal API",
-    "version": "0.0.36",
+    "version": "0.0.40",
     "description": "Call EHS Insight actions through MindCloud's Universal API."
   },
   "servers": [
@@ -491,7 +491,17 @@
                     "description": "The MindCloud connection ID for this app."
                   },
                   "userContactType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Use User to create a login account or Contact to create a contact. Other types depend on your site's configuration.",
+                    "enum": [
+                      "Contact",
+                      "Device",
+                      "Guest",
+                      "Kiosk",
+                      "Template",
+                      "Unmanaged",
+                      "User"
+                    ]
                   },
                   "fullName": {
                     "type": "string"
@@ -500,7 +510,8 @@
                     "type": "number"
                   },
                   "authProvider": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Authentication provider for a User account. API version 6 uses Password for password authentication."
                   },
                   "username": {
                     "type": "string"
@@ -527,7 +538,8 @@
                     "type": "string"
                   },
                   "roleAssignmentType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "For users, use DirectAssignment with User Roles or SecurityGroups with Security Groups. Supply the matching role or group collection."
                   },
                   "userRoles[]": {
                     "type": "array",
@@ -578,6 +590,189 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/ehsInsight/latest/actions/delete-user-contact": {
+      "delete": {
+        "operationId": "ehsInsight.delete-user-contact",
+        "summary": "Delete User Contact",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/delete-user-contact"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowUid",
+            "in": "query",
+            "required": true,
+            "description": "The RowUID of the user or contact to delete. Obtain it from List User Contacts with Parameters or Get User Contact.",
+            "schema": {
+              "type": "string",
+              "description": "The RowUID of the user or contact to delete. Obtain it from List User Contacts with Parameters or Get User Contact.",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response.",
@@ -1543,6 +1738,198 @@
         }
       }
     },
+    "/v1/universal/ehsInsight/latest/actions/get-user-contact": {
+      "get": {
+        "operationId": "ehsInsight.get-user-contact",
+        "summary": "Get User Contact",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/get-user-contact"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowUid",
+            "in": "query",
+            "required": true,
+            "description": "The RowUID of the user or contact.",
+            "schema": {
+              "type": "string",
+              "description": "The RowUID of the user or contact.",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/ehsInsight/latest/actions/list-business-entities": {
       "get": {
         "operationId": "ehsInsight.list-business-entities",
@@ -2106,12 +2493,12 @@
         }
       }
     },
-    "/v1/universal/ehsInsight/latest/actions/list-user-contacts": {
+    "/v1/universal/ehsInsight/latest/actions/list-user-contacts-with-parameters": {
       "get": {
-        "operationId": "ehsInsight.list-user-contacts",
-        "summary": "List User Contacts",
+        "operationId": "ehsInsight.list-user-contacts-with-parameters",
+        "summary": "List User Contacts with Parameters",
         "externalDocs": {
-          "url": "https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/list-user-contacts"
+          "url": "https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/list-user-contacts-with-parameters"
         },
         "security": [
           {
@@ -2129,22 +2516,84 @@
             }
           },
           {
-            "name": "customparams",
-            "in": "query",
-            "required": false,
-            "description": "Optional provider-specific query string segment appended after the list route.",
-            "schema": {
-              "type": "string",
-              "description": "Optional provider-specific query string segment appended after the list route."
-            }
-          },
-          {
             "name": "fields",
             "in": "query",
             "required": false,
-            "description": "Comma-separated response fields to include.",
+            "description": "Comma-separated root-level fields to return. Related captions may be requested with dot notation. This does not fetch the full record.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "description": "Comma-separated root-level fields to return. Related captions may be requested with dot notation. This does not fetch the full record.",
+              "example": "UserContactNumber,FullName,UpdatedDtm"
+            }
+          },
+          {
+            "name": "updatedBefore",
+            "in": "query",
+            "required": false,
+            "description": "Return records modified before this UTC date/time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Return records modified before this UTC date/time.",
+              "example": "2026-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "updatedAfter",
+            "in": "query",
+            "required": false,
+            "description": "Return records modified after this UTC date/time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Return records modified after this UTC date/time.",
+              "example": "2026-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "in": "query",
+            "required": false,
+            "description": "Return records created before this UTC date/time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Return records created before this UTC date/time.",
+              "example": "2026-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "createdAfter",
+            "in": "query",
+            "required": false,
+            "description": "Return records created after this UTC date/time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Return records created after this UTC date/time.",
+              "example": "2026-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "changeTokenBefore",
+            "in": "query",
+            "required": false,
+            "description": "Return records with a change token before this token.",
+            "schema": {
+              "type": "string",
+              "description": "Return records with a change token before this token.",
+              "example": "20160412.2005544641"
+            }
+          },
+          {
+            "name": "changeTokenAfter",
+            "in": "query",
+            "required": false,
+            "description": "Return newer records ordered by change token ascending. Use the last returned token for the next call.",
+            "schema": {
+              "type": "string",
+              "description": "Return newer records ordered by change token ascending. Use the last returned token for the next call.",
+              "example": "20160412.2005544641"
             }
           }
         ],
@@ -2170,53 +2619,47 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "rowUID": {
+                          "authProvider": {
                             "type": "string"
                           },
-                          "createdDtm": {
-                            "type": "string"
+                          "birthDate": {
+                            "type": "string",
+                            "format": "date-time"
                           },
-                          "updatedDtm": {
+                          "businessEntity": {
                             "type": "string"
                           },
                           "changeToken": {
                             "type": "string"
                           },
-                          "userContactNumber": {
+                          "createdDtm": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "emailAddress": {
                             "type": "string"
                           },
-                          "userContactType": {
+                          "employeeID": {
                             "type": "string"
                           },
-                          "inviteSent": {
-                            "type": "number"
-                          },
-                          "fullName": {
+                          "employer": {
                             "type": "string"
                           },
-                          "userContactPhoto": {
+                          "entityName": {
                             "type": "string"
-                          },
-                          "language": {
-                            "type": "string"
-                          },
-                          "uIMode": {
-                            "type": "string"
-                          },
-                          "isEnabled": {
-                            "type": "number"
                           },
                           "firstName": {
                             "type": "string"
                           },
-                          "lastName": {
+                          "fullName": {
                             "type": "string"
                           },
                           "gender": {
                             "type": "string"
                           },
-                          "birthDate": {
-                            "type": "string"
+                          "hireDate": {
+                            "type": "string",
+                            "format": "date-time"
                           },
                           "homeAddress": {
                             "type": "string"
@@ -2230,49 +2673,61 @@
                           "homeZip": {
                             "type": "string"
                           },
-                          "phoneNumber": {
-                            "type": "string"
-                          },
-                          "businessEntity": {
-                            "type": "string"
-                          },
-                          "position": {
-                            "type": "string"
-                          },
-                          "employer": {
-                            "type": "string"
-                          },
-                          "supervisor": {
-                            "type": "string"
-                          },
-                          "employeeID": {
-                            "type": "string"
-                          },
-                          "hireDate": {
-                            "type": "string"
-                          },
-                          "positionStartDate": {
-                            "type": "string"
-                          },
                           "industryStartDate": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "inviteSent": {
+                            "type": "number"
+                          },
+                          "isEnabled": {
+                            "type": "number"
+                          },
+                          "language": {
                             "type": "string"
                           },
-                          "authProvider": {
-                            "type": "string"
-                          },
-                          "username": {
-                            "type": "string"
-                          },
-                          "emailAddress": {
+                          "lastName": {
                             "type": "string"
                           },
                           "mobilePhoneNumber": {
                             "type": "string"
                           },
+                          "phoneNumber": {
+                            "type": "string"
+                          },
+                          "position": {
+                            "type": "string"
+                          },
+                          "positionStartDate": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
                           "roleAssignmentType": {
                             "type": "string"
                           },
-                          "entityName": {
+                          "rowUID": {
+                            "type": "string"
+                          },
+                          "supervisor": {
+                            "type": "string"
+                          },
+                          "uIMode": {
+                            "type": "string"
+                          },
+                          "updatedDtm": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "userContactNumber": {
+                            "type": "string"
+                          },
+                          "userContactPhoto": {
+                            "type": "string"
+                          },
+                          "userContactType": {
+                            "type": "string"
+                          },
+                          "username": {
                             "type": "string"
                           }
                         },
@@ -2672,8 +3127,7 @@
                   "endDate": {
                     "type": "string",
                     "format": "date-time",
-                    "example": "2026-01-15",
-                    "x-mindcloud-advanced": true
+                    "example": "2026-01-15"
                   },
                   "parentHierarchyUid": {
                     "type": "string",
@@ -3083,7 +3537,6 @@
       "put": {
         "operationId": "ehsInsight.update-user-contact",
         "summary": "Update User Contact",
-        "description": "Warning: This endpoint doesn't allow partial updates, you need to pass all values to avoid data loss",
         "externalDocs": {
           "url": "https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/update-user-contact"
         },
@@ -3100,7 +3553,8 @@
                 "type": "object",
                 "required": [
                   "connectionId",
-                  "rowUid"
+                  "rowUid",
+                  "changeToken"
                 ],
                 "properties": {
                   "connectionId": {
@@ -3109,22 +3563,28 @@
                   },
                   "rowUid": {
                     "type": "string",
-                    "description": "The provider RowUID of the user contact to update."
+                    "description": "RowUID from Get User Contact."
                   },
                   "changeToken": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Use the unchanged ChangeToken from the freshly fetched full record."
                   },
                   "userContactNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Preserve the fetched value.",
+                    "x-mindcloud-advanced": true
                   },
                   "userContactType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Preserve the fetched value. Do not reset a user to Contact when an administrator has converted the record.",
+                    "x-mindcloud-advanced": true
                   },
                   "fullName": {
                     "type": "string"
                   },
                   "isEnabled": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Preserve the fetched numeric value unless changing enabled status intentionally."
                   },
                   "firstName": {
                     "type": "string"
@@ -3133,148 +3593,140 @@
                     "type": "string"
                   },
                   "gender": {
-                    "type": "string"
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
                   "birthDate": {
                     "type": "string",
-                    "description": "format example: \"2026-04-28\""
+                    "format": "date-time",
+                    "example": "2026-01-15",
+                    "x-mindcloud-advanced": true
                   },
                   "businessEntity": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "RowUID of the business entity."
                   },
                   "employer": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "RowUID from the Employer entity list."
                   },
                   "position": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "RowUID from the Position entity list."
                   },
                   "employeeId": {
                     "type": "string"
                   },
                   "hireDate": {
                     "type": "string",
-                    "description": "format example: \"2026-04-28\""
+                    "format": "date-time",
+                    "example": "2026-01-15",
+                    "x-mindcloud-advanced": true
                   },
                   "positionStartDate": {
                     "type": "string",
-                    "description": "format example: \"2026-04-28\""
+                    "format": "date-time",
+                    "example": "2026-01-15",
+                    "x-mindcloud-advanced": true
                   },
                   "industryStartDate": {
                     "type": "string",
-                    "description": "format example: \"2026-04-28\""
+                    "format": "date-time",
+                    "example": "2026-01-15",
+                    "x-mindcloud-advanced": true
                   },
                   "homeAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
                   "homeCity": {
-                    "type": "string"
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
                   "homeState": {
-                    "type": "string"
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
                   "homeZip": {
-                    "type": "string"
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
                   "phoneNumber": {
-                    "type": "string"
-                  },
-                  "Username": {
-                    "type": "string"
-                  },
-                  "AuthProvider": {
-                    "type": "string"
-                  },
-                  "EmailAddress": {
-                    "type": "string"
-                  },
-                  "Supervisor": {
-                    "type": "string"
-                  },
-                  "InviteSent": {
-                    "type": "number"
-                  },
-                  "UserContactPhoto": {
-                    "type": "string"
-                  },
-                  "UDFPersonalCellPhone": {
-                    "type": "string"
-                  },
-                  "UDFEmploymentType": {
-                    "type": "string"
-                  },
-                  "Udfcdl": {
-                    "type": "number"
-                  },
-                  "UDFDriversLicense": {
-                    "type": "string"
-                  },
-                  "UDFDriversLicenseExpira": {
                     "type": "string",
-                    "description": "format example: \"2026-04-28\""
+                    "x-mindcloud-advanced": true
                   },
-                  "UDFLCACellPhoneNumber": {
-                    "type": "string"
-                  },
-                  "UDFOfficePhone": {
-                    "type": "string"
-                  },
-                  "UDFTerminationDate": {
+                  "authProvider": {
                     "type": "string",
-                    "description": "format example: \"2026-04-28\""
+                    "description": "Preserve the fetched authentication provider. API version 6 uses Password for password authentication.",
+                    "x-mindcloud-advanced": true
                   },
-                  "MobilePhoneNumber": {
-                    "type": "string"
+                  "username": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
-                  "UserContactPhotoAttachmentUID": {
-                    "type": "string"
+                  "emailAddress": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
-                  "UserContactPhotoContentType": {
-                    "type": "string"
+                  "roleAssignmentType": {
+                    "type": "string",
+                    "description": "Preserve the fetched role assignment mode: DirectAssignment uses User Roles; SecurityGroups uses Security Groups.",
+                    "x-mindcloud-advanced": true
                   },
-                  "UserContactPhotoFileSize": {
-                    "type": "string"
-                  },
-                  "Language": {
-                    "type": "string"
-                  },
-                  "LanguageOther": {
-                    "type": "string"
-                  },
-                  "UIMode": {
-                    "type": "string"
-                  },
-                  "UIModeOther": {
-                    "type": "string"
-                  },
-                  "GenderOther": {
-                    "type": "string"
-                  },
-                  "PositionOther": {
-                    "type": "string"
-                  },
-                  "UDFEmploymentTypeOther": {
-                    "type": "string"
-                  },
-                  "EmployerOther": {
-                    "type": "string"
-                  },
-                  "AuthProviderOther": {
-                    "type": "string"
-                  },
-                  "UserContactPhotoPreviousVersions[]": {
+                  "userRoles[]": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Preserve the complete fetched direct-role assignments.",
+                    "x-mindcloud-advanced": true
                   },
-                  "RoleAssignmentType": {
-                    "type": "string"
+                  "userRoles[].roleUid": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   },
-                  "SecurityGroups[]": {
+                  "userRoles[].businessEntity": {
+                    "type": "string",
+                    "description": "Role-scoped Business Entity. Preserve null for roles that apply across all entities.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "securityGroups[]": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Preserve the complete fetched group assignments and parameters.",
+                    "x-mindcloud-advanced": true
                   },
-                  "UserRoles[]": {
+                  "securityGroups[].securityGroup": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
+                  },
+                  "securityGroups[].parameters[]": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "x-mindcloud-advanced": true
+                  },
+                  "securityGroups[].parameters[].templateParameter": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
+                  },
+                  "securityGroups[].parameters[].businessEntities[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "x-mindcloud-advanced": true
+                  },
+                  "securityGroups[].parameters[].businessEntities[].item": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
                   }
                 },
                 "additionalProperties": false
