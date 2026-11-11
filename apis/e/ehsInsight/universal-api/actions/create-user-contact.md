@@ -40,7 +40,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `userContactType` | list<string> | no | Use User to create a login account or Contact to create a contact. Other types depend on your site's configuration. One of: `Contact`, `Device`, `Guest`, `Kiosk`, `Template`, `Unmanaged`, `User`. |
+| `userContactType` | list<string> | no | Use User to create a login account or Contact to create a contact. Other types depend on your site's configuration. One of: `Contact`, `Device`, `Guest`, `Kiosk`, `Template`, `Unmanaged`, `User`. Default: `User`. |
 | `fullName` | string | no |  |
 | `isEnabled` | number | no |  |
 | `authProvider` | string | no | Authentication provider for a User account. API version 6 uses Password for password authentication. |

@@ -1,9 +1,9 @@
-# EHS Insight: Get Entity Items
+# EHS Insight: List Entity Items
 
 
 
 ```
-GET https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-entity-items
+GET https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/list-entity-items
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a EHS Insight `connectionId` ([setup](../authentication.md)).
@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a EHS Insi
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-entity-items?connectionId=$CONNECTION_ID&entityName=Asset" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/list-entity-items?connectionId=$CONNECTION_ID&entityName=Asset" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -21,7 +21,7 @@ const params = new URLSearchParams({
   "entityName": "Asset"
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-entity-items?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/list-entity-items?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -37,12 +37,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `entityName` | string | yes | Default: `Asset`. |
-
-### Advanced
-
-| Key | Type | Required | Description |
-| --- | --- | --- | --- |
-| `customparams` | string | no | Optional provider-specific query string segment appended after the list route. |
+| `queryParameters[]` | array<object> | no | Optional query parameters. Add one Field/Value row per query parameter. The Field dropdown suggests documented names; custom field names are also accepted. |
+| `queryParameters[].field` | list<string> | no | Select a documented query parameter or supply a custom field name. One of: `ChangeTokenAfter`, `ChangeTokenBefore`, `CreatedAfter`, `CreatedBefore`, `Fields`, `UpdatedAfter`, `UpdatedBefore`. |
+| `queryParameters[].value` | string | no | Value for the selected query parameter. Use UTC date/time text for date parameters and comma-separated names for Fields. Example: `2016-01-01T00:00:00`. |
 
 ## Response
 
@@ -106,5 +103,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native EHS Insight API, this operation is `GET /v4/entity/:entityName/list?:customparams` (base URL `https://{{credentials.companyName}}.ehsinsight.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-entity-items.md) for the provider-specific parameters and requirements.
+Through the native EHS Insight API, this operation is `GET /v6/entity/:entityName/list` (base URL `https://{{credentials.companyName}}.ehsinsight.com/api`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-entity-items.md) for the provider-specific parameters and requirements.
 

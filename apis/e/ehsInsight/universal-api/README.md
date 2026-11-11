@@ -42,8 +42,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add Entity](actions/add-entity.md) | POST |  |
-| [Get Entity Items](actions/get-entity-items.md) | GET |  |
 | [Get Single Item](actions/get-single-item.md) | GET |  |
+| [List Entity Items](actions/list-entity-items.md) | GET |  |
 | [Update Entity](actions/update-entity.md) | PUT |  |
 
 ### User Contact

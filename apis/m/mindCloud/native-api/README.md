@@ -34,6 +34,10 @@ Shared headers:
 
 Response data is read from `data`.
 
+## Pagination
+
+Use `limit` in the query string to set the page size (default 100; accepted range 1–1000). Use `offset` in the query string as the record offset; numbering starts at 0.
+
 ## Endpoints (40 documented)
 
 | Operation | Method & path | Vendor docs |
