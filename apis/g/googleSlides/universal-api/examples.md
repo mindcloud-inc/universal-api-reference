@@ -2,22 +2,21 @@
 
 These examples use the MindCloud API key and Google Slides connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Presentation
+## Get Current User
 
-Retrieves a presentation from Google Slides.
+Retrieves the profile of the Google account that authorized the connection.
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/get-presentation?connectionId=$CONNECTION_ID&presentationId=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/get-current-user?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId,
-  "presentationId": "string"
+  connectionId
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/get-presentation?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/get-current-user?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -33,50 +32,50 @@ Example response:
   "success": true,
   "data": [
     {
-      "layouts": [
-        {}
-      ],
-      "locale": "string",
-      "masters": [
-        {}
-      ],
-      "pageSize": {},
-      "presentationId": "string",
-      "revisionId": "string",
-      "slides": [
-        {}
-      ],
-      "title": "string"
+      "name": "Ava Chen",
+      "email": "ava@example.com",
+      "givenName": "Ava",
+      "familyName": "Chen",
+      "hd": "Ava Chen",
+      "emailVerified": true,
+      "sub": "string",
+      "picture": "string"
     }
   ],
   "meta": {}
 }
 ```
 
-See the full [Get Presentation action reference](actions/get-presentation.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/get-presentation).
+See the full [Get Current User action reference](actions/get-current-user.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/get-current-user).
 
-## Create Presentation
+## Batch Update Presentation
 
-Creates a new presentation in Google Slides.
+Applies one or more batch update requests to a presentation in a single atomic call. Use the dedicated actions for common single changes.
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/create-presentation" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/batch-update-presentation" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "presentationId": "string",
+  "requests[]": [
+    {}
+  ]
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/create-presentation', {
-  method: 'POST',
+const response = await fetch('https://connect.mindcloud.co/v1/universal/googleSlides/latest/actions/batch-update-presentation', {
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "presentationId": "string",
+    "requests[]": [{}]
   })
 });
 
@@ -90,24 +89,18 @@ Example response:
   "success": true,
   "data": [
     {
-      "layouts": [
+      "replies": [
         {}
       ],
-      "locale": "string",
-      "masters": [
-        {}
-      ],
-      "pageSize": {},
       "presentationId": "string",
-      "revisionId": "string",
-      "slides": [
-        {}
-      ],
-      "title": "string"
+      "writeControl": {
+        "requiredRevisionId": "string"
+      },
+      "commentUpdateState": "string"
     }
   ],
   "meta": {}
 }
 ```
 
-See the full [Create Presentation action reference](actions/create-presentation.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/create-presentation).
+See the full [Batch Update Presentation action reference](actions/batch-update-presentation.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/batch-update-presentation).

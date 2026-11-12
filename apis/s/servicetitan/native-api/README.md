@@ -1,6 +1,6 @@
 # ServiceTitan: Native API Reference
 
-A consolidated summary of ServiceTitan's API configuration and 136 documented operations, with links to official documentation.
+A consolidated summary of ServiceTitan's API configuration and 137 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 - **API base URL:** `https://{baseUrl}/`
@@ -45,7 +45,7 @@ The next-page cursor is read from `continueFrom`. The current page number is rea
 
 Use `pageSize` in the query string to set the page size (default 50; accepted range 1–1000). Use `page` in the query string to choose the page; numbering starts at 1.
 
-## Endpoints (136 documented)
+## Endpoints (137 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -185,3 +185,4 @@ Use `pageSize` in the query string to set the page size (default 50; accepted ra
 | [Update Technician Payroll Settings](actions/update-technician-payroll-settings.md) | `PUT payroll/v2/tenant/{{credentials.tenant}}/technicians/:technician/payroll-settings` | [docs](https://developer.servicetitan.io/docs/apis/tenant-payroll-v2/endpoints/PayrollSettings_UpdateTechnicianPayrollSettings) |
 | [Update Vendor](actions/update-vendor.md) | `PATCH inventory/v2/tenant/{{credentials.tenant}}/vendors/:id` |  |
 | [Upload Job Attachment](actions/upload-job-attachment.md) | `POST jpm/v2/tenant/{{credentials.tenant}}/jobs/:id/attachments` | [docs](https://developer.servicetitan.io/docs/apis/tenant-forms-v2/endpoints/Jobs_CreateAttachment) |
+| [Writeback Invoice as Exported](actions/writeback-invoice-as-exported.md) | `POST accounting/v2/tenant/{{credentials.tenant}}/invoices/markasexported` | [docs](https://developer.servicetitan.io/docs/apis/tenant-accounting-v2/endpoints/Invoices_MarkAsExported) |

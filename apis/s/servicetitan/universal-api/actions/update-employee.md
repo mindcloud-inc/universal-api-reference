@@ -16,13 +16,7 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "name": "Ava Chen",
-  "email": "ava@example.com",
-  "accountCreationMethod": "string",
-  "roleId": 1,
-  "positions[]": [
-    "string"
-  ]
+  "name": "Ava Chen"
 }'
 ```
 
@@ -35,11 +29,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/servicet
   },
   body: JSON.stringify({
     connectionId,
-    "name": "Ava Chen",
-    "email": "ava@example.com",
-    "accountCreationMethod": "string",
-    "roleId": 1,
-    "positions[]": ["string"]
+    "name": "Ava Chen"
   })
 });
 
@@ -58,13 +48,12 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `mobilePhoneNumber` | string | no |  |
 | `customFields[].value` | string | no |  |
 | `phoneNumber` | string | no |  |
-| `email` | string | yes |  |
+| `email` | string | no |  |
 | `login` | string | no |  |
 | `password` | string | no |  |
-| `accountCreationMethod` | list<string> | yes |  |
 | `businessUnitId` | number | no |  |
-| `roleId` | number | yes |  |
-| `positions[]` | array<string> | yes |  |
+| `roleId` | number | no |  |
+| `positions[]` | array<string> | no |  |
 | `aadUserId` | string | no |  |
 | `customFields[]` | array | no |  |
 | `id` | string | no |  |

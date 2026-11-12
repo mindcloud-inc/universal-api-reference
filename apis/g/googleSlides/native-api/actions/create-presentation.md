@@ -7,6 +7,7 @@ Creates a new presentation in Google Slides.
 - **Method:** `POST`
 - **Path:** `/v1/presentations`
 - **Base URL:** `https://slides.googleapis.com`
+- **API:** rest
 - **Official documentation:** [Create Presentation](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/create)
 
 ## Parameters

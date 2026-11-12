@@ -1,9 +1,11 @@
 # Google Slides: Native API Reference
 
-A consolidated summary of Google Slides's API configuration and 6 documented operations, with links to official documentation.
+A consolidated summary of Google Slides's API configuration and 21 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.google.com/workspace/slides/api/reference/rest
-- **API base URL:** `https://slides.googleapis.com`
+- **REST API base URL:** `https://slides.googleapis.com`
+- **Google Drive API base URL:** `https://www.googleapis.com`
+- **Google OpenID Connect base URL:** `https://openidconnect.googleapis.com`
 
 ## Authentication
 
@@ -23,6 +25,8 @@ The flow supports refresh tokens. Refresh expired access tokens with a POST requ
 
 ## API conventions
 
+### REST API
+
 Request bodies use JSON.
 
 Shared headers:
@@ -34,13 +38,58 @@ Shared headers:
 
 Responses from this API use JSON.
 
-## Endpoints (6 documented)
+### Google Drive API
 
-| Operation | Method & path | Vendor docs |
-| --- | --- | --- |
-| [Create Presentation](actions/create-presentation.md) | `POST /v1/presentations` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/create) |
-| [Delete Presentation](actions/delete-presentation.md) | `DELETE https://www.googleapis.com/drive/v3/files/:fileId` | [docs](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/delete) |
-| [Get Page](actions/get-page.md) | `GET /v1/presentations/:presentationId/pages/:pageObjectId` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations.pages/get) |
-| [Get Page Thumbnail](actions/get-page-thumbnail.md) | `GET /v1/presentations/:presentationId/pages/:pageObjectId/thumbnail` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations.pages/getThumbnail) |
-| [Get Presentation](actions/get-presentation.md) | `GET /v1/presentations/:presentationId` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/get) |
-| [Update Presentation](actions/update-presentation.md) | `PATCH https://www.googleapis.com/drive/v3/files/:fileId` | [docs](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/update) |
+Request bodies use JSON.
+
+Shared headers:
+
+| Header | Value |
+| --- | --- |
+| `Accept` | `application/json` |
+| `Content-Type` | `application/json` |
+
+Responses from this API use JSON. The next-page cursor is read from `nextPageToken`.
+
+### Google OpenID Connect
+
+Request bodies use JSON.
+
+Shared headers:
+
+| Header | Value |
+| --- | --- |
+| `Accept` | `application/json` |
+| `Content-Type` | `application/json` |
+
+Responses from this API use JSON.
+
+## Pagination
+
+- **Google Drive API:** Use `pageSize` in the query string to set the page size (default 1000; accepted range 1–1000). Use `pageToken` in the query string as the pagination cursor.
+
+## Endpoints (21 documented)
+
+| Operation | API | Method & path | Vendor docs |
+| --- | --- | --- | --- |
+| [Batch Update Presentation](actions/batch-update-presentation.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/batchUpdate) |
+| [Copy Presentation](actions/copy-presentation.md) | Google Drive API | `POST /drive/v3/files/:fileId/copy` | [docs](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/copy) |
+| [Create Image](actions/create-image.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateImageRequest) |
+| [Create Presentation](actions/create-presentation.md) | rest | `POST /v1/presentations` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/create) |
+| [Create Shape](actions/create-shape.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateShapeRequest) |
+| [Create Slide](actions/create-slide.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateSlideRequest) |
+| [Create Table](actions/create-table.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateTableRequest) |
+| [Delete Object](actions/delete-object.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#DeleteObjectRequest) |
+| [Delete Presentation](actions/delete-presentation.md) | Google Drive API | `DELETE /drive/v3/files/:fileId` | [docs](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/delete) |
+| [Delete Text](actions/delete-text.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#DeleteTextRequest) |
+| [Duplicate Object](actions/duplicate-object.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#DuplicateObjectRequest) |
+| [Get Current User](actions/get-current-user.md) | Google OpenID Connect | `GET /v1/userinfo` | [docs](https://developers.google.com/identity/openid-connect/openid-connect) |
+| [Get Page](actions/get-page.md) | rest | `GET /v1/presentations/:presentationId/pages/:pageObjectId` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations.pages/get) |
+| [Get Page Thumbnail](actions/get-page-thumbnail.md) | rest | `GET /v1/presentations/:presentationId/pages/:pageObjectId/thumbnail` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations.pages/getThumbnail) |
+| [Get Presentation](actions/get-presentation.md) | rest | `GET /v1/presentations/:presentationId` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/get) |
+| [Insert Text](actions/insert-text.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#InsertTextRequest) |
+| [List Presentations](actions/list-presentations.md) | Google Drive API | `GET /drive/v3/files` | [docs](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/list) |
+| [Replace All Shapes with Image](actions/replace-all-shapes-with-image.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#ReplaceAllShapesWithImageRequest) |
+| [Replace All Text](actions/replace-all-text.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#ReplaceAllTextRequest) |
+| [Update Presentation](actions/update-presentation.md) | Google Drive API | `PATCH /drive/v3/files/:fileId` | [docs](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/update) |
+| [Update Slides Position](actions/update-slides-position.md) | rest | `POST /v1/presentations/[:presentationId]\:batchUpdate` | [docs](https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#UpdateSlidesPositionRequest) |

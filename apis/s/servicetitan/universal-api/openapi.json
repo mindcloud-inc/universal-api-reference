@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "ServiceTitan Universal API",
-    "version": "0.0.415",
+    "version": "0.0.421",
     "description": "ServiceTitan is a cloud-based software platform for home and commercial service businesses that manages customers, jobs, scheduling, dispatching, invoicing, payments, and other field service operations."
   },
   "servers": [
@@ -34661,11 +34661,7 @@
                 "type": "object",
                 "required": [
                   "connectionId",
-                  "name",
-                  "email",
-                  "accountCreationMethod",
-                  "roleId",
-                  "positions[]"
+                  "name"
                 ],
                 "properties": {
                   "connectionId": {
@@ -34697,9 +34693,6 @@
                     "type": "string"
                   },
                   "password": {
-                    "type": "string"
-                  },
-                  "accountCreationMethod": {
                     "type": "string"
                   },
                   "businessUnitId": {
@@ -38526,6 +38519,224 @@
                       "items": {
                         "type": "object",
                         "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/servicetitan/latest/actions/writeback-invoice-as-exported": {
+      "put": {
+        "operationId": "servicetitan.writeback-invoice-as-exported",
+        "summary": "Writeback Invoice as Exported",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/servicetitan/latest/actions/writeback-invoice-as-exported"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "data[]",
+                  "data[].invoiceId",
+                  "data[].externalId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "data[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Root request array. Add one object per invoice to mark as exported."
+                  },
+                  "data[].invoiceId": {
+                    "type": "number",
+                    "description": "ServiceTitan invoice ID. Required for every array item."
+                  },
+                  "data[].externalId": {
+                    "type": "string",
+                    "description": "External ERP reference, for example Mth=2026-11-01 00:00:00|ARTrans=534."
+                  },
+                  "data[].externalMessage": {
+                    "type": "string",
+                    "description": "Optional export result message stored with the ServiceTitan invoice."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "errorMessage": {
+                            "type": "string",
+                            "description": "Per-invoice error returned by ServiceTitan when success is false."
+                          },
+                          "invoiceId": {
+                            "type": "number",
+                            "description": "ServiceTitan invoice ID processed by the export operation."
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether ServiceTitan marked this invoice as exported."
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "meta": {

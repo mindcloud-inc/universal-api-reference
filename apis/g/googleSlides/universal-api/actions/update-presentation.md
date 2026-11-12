@@ -44,7 +44,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `fileId` | string | yes | The ID of the presentation file to update. |
+| `fileId` | list<string> | yes | The ID of the presentation file to update. |
 | `name` | string | yes | The new file name for the presentation. |
 
 ## Response
@@ -75,5 +75,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Google Slides API, this operation is `PATCH https://www.googleapis.com/drive/v3/files/:fileId` (base URL `https://slides.googleapis.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-presentation.md) for the provider-specific parameters and requirements.
+Through the native Google Slides API, this operation is `PATCH /drive/v3/files/:fileId` (base URL `https://www.googleapis.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-presentation.md) for the provider-specific parameters and requirements.
 

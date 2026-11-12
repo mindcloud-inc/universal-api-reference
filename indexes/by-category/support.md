@@ -1,6 +1,6 @@
 # Support apps
 
-181 apps in the Support category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+182 apps in the Support category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AirPinpoint** · [Universal API reference](../../apis/a/airPinpoint/universal-api) · [Native API reference](../../apis/a/airPinpoint/native-api) · [Native API docs](https://airpinpoint.com/docs/api)
 - **Airzone Cloud** · [Universal API reference](../../apis/a/airzoneCloud/universal-api) · [Native API reference](../../apis/a/airzoneCloud/native-api) · [Native API docs](https://developers.airzonecloud.com/docs/web-api/)
@@ -77,6 +77,7 @@
 - **Intercom** · [Universal API reference](../../apis/i/intercom/universal-api) · [Native API reference](../../apis/i/intercom/native-api) · [Native API docs](https://developers.intercom.com/docs/references/introduction)
 - **InventoryBase** · [Universal API reference](../../apis/i/inventoryBase/universal-api) · [Native API reference](../../apis/i/inventoryBase/native-api) · [Native API docs](https://developer.inventorybase.com/)
 - **Jitbit Helpdesk** · [Universal API reference](../../apis/j/jitbitHelpdesk/universal-api) · [Native API reference](../../apis/j/jitbitHelpdesk/native-api) · [Native API docs](https://www.jitbit.com/docs/api/)
+- **Jobber** · [Universal API reference](../../apis/j/jobber/universal-api) · [Native API reference](../../apis/j/jobber/native-api) · [Native API docs](https://developer.getjobber.com/docs/)
 - **Joonto** · [Universal API reference](../../apis/j/joonto/universal-api) · [Native API reference](../../apis/j/joonto/native-api) · [Native API docs](https://api.joonto.com/docs/index.html)
 - **JustCall** · [Universal API reference](../../apis/j/justCall/universal-api) · [Native API reference](../../apis/j/justCall/native-api) · [Native API docs](https://developer.justcall.io/reference)
 - **Kommunicate** · [Universal API reference](../../apis/k/kommunicate/universal-api) · [Native API reference](../../apis/k/kommunicate/native-api) · [Native API docs](https://docs.kommunicate.io/)

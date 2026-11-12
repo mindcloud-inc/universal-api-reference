@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3231 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3233 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -862,6 +862,7 @@ Machine-readable API descriptions for 3231 apps. Universal API specifications ar
 | [EONET](../apis/e/eONET) | [OpenAPI 3.1](../apis/e/eONET/universal-api/openapi.json) |  |
 | [Epicor Prophet 21](../apis/e/epicorProphet21) | [OpenAPI 3.1](../apis/e/epicorProphet21/universal-api/openapi.json) |  |
 | [Epion](../apis/e/epion) | [OpenAPI 3.1](../apis/e/epion/universal-api/openapi.json) |  |
+| [3E Protect](../apis/e/eProtect) | [OpenAPI 3.1](../apis/e/eProtect/universal-api/openapi.json) | [Provider OpenAPI](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json) |
 | [Eranol](../apis/e/eranol) | [OpenAPI 3.1](../apis/e/eranol/universal-api/openapi.json) |  |
 | [Erase.bg](../apis/e/erasebg) | [OpenAPI 3.1](../apis/e/erasebg/universal-api/openapi.json) |  |
 | [ERPLY Books](../apis/e/eRPLYBooks) | [OpenAPI 3.1](../apis/e/eRPLYBooks/universal-api/openapi.json) |  |
@@ -1065,6 +1066,7 @@ Machine-readable API descriptions for 3231 apps. Universal API specifications ar
 | [GenerateBanners.com](../apis/g/generateBannerscom) | [OpenAPI 3.1](../apis/g/generateBannerscom/universal-api/openapi.json) |  |
 | [Geoapify Geocode](../apis/g/geoapify) | [OpenAPI 3.1](../apis/g/geoapify/universal-api/openapi.json) | [Provider OpenAPI](https://raw.githubusercontent.com/geoapify/geoapify-openapi-specs/refs/heads/main/api-specs/geocoding/forward_geocoding.yaml) |
 | [Geocodio](../apis/g/geocodio) | [OpenAPI 3.1](../apis/g/geocodio/universal-api/openapi.json) | [Provider OpenAPI](https://api.geocod.io/openapi-spec.json) |
+| [Geotab](../apis/g/geotab) | [OpenAPI 3.1](../apis/g/geotab/universal-api/openapi.json) |  |
 | [Geral](../apis/g/geral) | [OpenAPI 3.1](../apis/g/geral/universal-api/openapi.json) |  |
 | [Get a Newsletter](../apis/g/getANewsletter) | [OpenAPI 3.1](../apis/g/getANewsletter/universal-api/openapi.json) |  |
 | [GetResponse](../apis/g/getResponse) | [OpenAPI 3.1](../apis/g/getResponse/universal-api/openapi.json) | [Provider OpenAPI](https://apireference.getresponse.com/open-api.json) |
@@ -1354,6 +1356,7 @@ Machine-readable API descriptions for 3231 apps. Universal API specifications ar
 | [Jitbit Helpdesk](../apis/j/jitbitHelpdesk) | [OpenAPI 3.1](../apis/j/jitbitHelpdesk/universal-api/openapi.json) |  |
 | [JmpTo](../apis/j/jmpTo) | [OpenAPI 3.1](../apis/j/jmpTo/universal-api/openapi.json) |  |
 | [jo4.io](../apis/j/jo4io) | [OpenAPI 3.1](../apis/j/jo4io/universal-api/openapi.json) | [Provider OpenAPI](https://jo4-api.jo4.io/v3/api-docs) |
+| [Jobber](../apis/j/jobber) | [OpenAPI 3.1](../apis/j/jobber/universal-api/openapi.json) |  |
 | [Jobicy](../apis/j/jobicy) | [OpenAPI 3.1](../apis/j/jobicy/universal-api/openapi.json) |  |
 | [Jobsoid](../apis/j/jobsoid) | [OpenAPI 3.1](../apis/j/jobsoid/universal-api/openapi.json) | [Provider OpenAPI](https://apidocs.jobsoid.com/jobsoid.json) |
 | [Jodoo](../apis/j/jodoo) | [OpenAPI 3.1](../apis/j/jodoo/universal-api/openapi.json) |  |

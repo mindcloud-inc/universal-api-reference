@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Google Slides Universal API",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "description": "Create presentations, collaborate on slides, present live, and share recordings."
   },
   "servers": [
@@ -20,6 +20,788 @@
     }
   ],
   "paths": {
+    "/v1/universal/googleSlides/latest/actions/batch-update-presentation": {
+      "put": {
+        "operationId": "googleSlides.batch-update-presentation",
+        "summary": "Batch Update Presentation",
+        "description": "Applies one or more batch update requests to a presentation in a single atomic call. Use the dedicated actions for common single changes.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/batch-update-presentation"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "requests[]"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "requests[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Batch update requests, each an object with one request type (for example createSlide, insertText, replaceAllText). The Request union has 49 request types, so items are passed as raw JSON."
+                  },
+                  "writeControl": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional conditional-write settings.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "writeControl.requiredRevisionId": {
+                    "type": "string",
+                    "description": "Only apply the update when this is still the latest revision of the presentation.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "description": "One reply per request, in request order. Each reply holds the result for its request type, or is empty."
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/copy-presentation": {
+      "post": {
+        "operationId": "googleSlides.copy-presentation",
+        "summary": "Copy Presentation",
+        "description": "Creates a copy of an existing presentation, optionally with a new title.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/copy-presentation"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "fileId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "fileId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to copy."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Title for the new copy. Google names it \"Copy of\" the original title when omitted."
+                  },
+                  "description": {
+                    "type": "string",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The presentation title."
+                          },
+                          "modifiedTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the presentation was last modified."
+                          },
+                          "createdTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the presentation was created."
+                          },
+                          "webViewLink": {
+                            "type": "string",
+                            "description": "Link to open the presentation in Google Slides."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The presentation ID."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/create-image": {
+      "post": {
+        "operationId": "googleSlides.create-image",
+        "summary": "Create Image",
+        "description": "Inserts an image from a public URL onto a slide.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/create-image"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "url",
+                  "elementProperties.pageObjectId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Public PNG, JPEG or GIF URL, at most 2 KB long. The image must be under 50 MB and 25 megapixels.",
+                    "example": "https://example.com/chart.png"
+                  },
+                  "elementProperties": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "elementProperties.pageObjectId": {
+                    "type": "string",
+                    "description": "The object ID of the slide the element is placed on.",
+                    "example": "p"
+                  },
+                  "elementProperties.size": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.width": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.width.magnitude": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.width.unit": {
+                    "type": "string",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.height": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.height.magnitude": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.height.unit": {
+                    "type": "string",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.scaleX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.scaleY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.shearX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.shearY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.translateX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.translateY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.unit": {
+                    "type": "string",
+                    "description": "Units for the translate elements.",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "description": "Optional custom ID for the new object: 5-50 characters, starting with a letter, digit or underscore. Generated when omitted.",
+                    "example": "myObject_01",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "createImage": {
+                                  "type": "object",
+                                  "properties": {
+                                    "objectId": {
+                                      "type": "string",
+                                      "description": "Object ID of the new image."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/googleSlides/latest/actions/create-presentation": {
       "post": {
         "operationId": "googleSlides.create-presentation",
@@ -253,6 +1035,1188 @@
         }
       }
     },
+    "/v1/universal/googleSlides/latest/actions/create-shape": {
+      "post": {
+        "operationId": "googleSlides.create-shape",
+        "summary": "Create Shape",
+        "description": "Creates a shape or text box on a slide. Add text to it afterwards with Insert Text.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/create-shape"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "shapeType",
+                  "elementProperties.pageObjectId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "shapeType": {
+                    "type": "string",
+                    "description": "Shape type from the Slides shape type enum, for example TEXT_BOX, RECTANGLE, ROUND_RECTANGLE, ELLIPSE, TRIANGLE, RIGHT_ARROW, STAR_5, CLOUD or SPEECH.",
+                    "example": "TEXT_BOX"
+                  },
+                  "elementProperties": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "elementProperties.pageObjectId": {
+                    "type": "string",
+                    "description": "The object ID of the slide the element is placed on.",
+                    "example": "p"
+                  },
+                  "elementProperties.size": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "elementProperties.size.width": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "elementProperties.size.width.magnitude": {
+                    "type": "number"
+                  },
+                  "elementProperties.size.width.unit": {
+                    "type": "string",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ]
+                  },
+                  "elementProperties.size.height": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "elementProperties.size.height.magnitude": {
+                    "type": "number"
+                  },
+                  "elementProperties.size.height.unit": {
+                    "type": "string",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ]
+                  },
+                  "elementProperties.transform": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.scaleX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.scaleY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.shearX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.shearY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.translateX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.translateY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.unit": {
+                    "type": "string",
+                    "description": "Units for the translate elements.",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "description": "Optional custom ID for the new object: 5-50 characters, starting with a letter, digit or underscore. Generated when omitted.",
+                    "example": "myObject_01",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "createShape": {
+                                  "type": "object",
+                                  "properties": {
+                                    "objectId": {
+                                      "type": "string",
+                                      "description": "Object ID of the new shape."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/create-slide": {
+      "post": {
+        "operationId": "googleSlides.create-slide",
+        "summary": "Create Slide",
+        "description": "Adds a new slide to a presentation, optionally at a position and with a predefined or existing layout.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/create-slide"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "insertionIndex": {
+                    "type": "number",
+                    "description": "Zero-based position for the new slide. Appends to the end when omitted."
+                  },
+                  "slideLayoutReference": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "slideLayoutReference.predefinedLayout": {
+                    "type": "string",
+                    "description": "Predefined layout from the current master. Not every master contains every layout.",
+                    "enum": [
+                      "BIG_NUMBER",
+                      "BLANK",
+                      "CAPTION_ONLY",
+                      "MAIN_POINT",
+                      "ONE_COLUMN_TEXT",
+                      "PREDEFINED_LAYOUT_UNSPECIFIED",
+                      "SECTION_HEADER",
+                      "SECTION_TITLE_AND_DESCRIPTION",
+                      "TITLE",
+                      "TITLE_AND_BODY",
+                      "TITLE_AND_TWO_COLUMNS",
+                      "TITLE_ONLY"
+                    ],
+                    "default": "BLANK"
+                  },
+                  "slideLayoutReference.layoutId": {
+                    "type": "string",
+                    "description": "Object ID of a layout in the presentation. Use instead of Predefined Layout.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "description": "Optional custom ID for the new object: 5-50 characters, starting with a letter, digit or underscore. Generated when omitted.",
+                    "example": "myObject_01",
+                    "x-mindcloud-advanced": true
+                  },
+                  "placeholderIdMappings[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "Assign your own object IDs to layout placeholders created on the slide, so later actions can target them.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "placeholderIdMappings[].objectId": {
+                    "type": "string",
+                    "description": "Custom ID for the placeholder created on the slide.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "placeholderIdMappings[].layoutPlaceholder": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "placeholderIdMappings[].layoutPlaceholder.type": {
+                    "type": "string",
+                    "enum": [
+                      "BODY",
+                      "CENTERED_TITLE",
+                      "CHART",
+                      "CLIP_ART",
+                      "DATE_AND_TIME",
+                      "DIAGRAM",
+                      "FOOTER",
+                      "HEADER",
+                      "MEDIA",
+                      "NONE",
+                      "OBJECT",
+                      "PICTURE",
+                      "SLIDE_IMAGE",
+                      "SLIDE_NUMBER",
+                      "SUBTITLE",
+                      "TABLE",
+                      "TITLE"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "placeholderIdMappings[].layoutPlaceholder.index": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "placeholderIdMappings[].layoutPlaceholderObjectId": {
+                    "type": "string",
+                    "description": "Object ID of the layout placeholder. Use instead of Layout Placeholder.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "createSlide": {
+                                  "type": "object",
+                                  "properties": {
+                                    "objectId": {
+                                      "type": "string",
+                                      "description": "Object ID of the new slide."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/create-table": {
+      "post": {
+        "operationId": "googleSlides.create-table",
+        "summary": "Create Table",
+        "description": "Creates a table on a slide. Fill cells afterwards with Insert Text and a cell location.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/create-table"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "rows",
+                  "columns",
+                  "elementProperties.pageObjectId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "rows": {
+                    "type": "number",
+                    "example": 3
+                  },
+                  "columns": {
+                    "type": "number",
+                    "example": 4
+                  },
+                  "elementProperties": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "elementProperties.pageObjectId": {
+                    "type": "string",
+                    "description": "The object ID of the slide the element is placed on.",
+                    "example": "p"
+                  },
+                  "elementProperties.size": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.width": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.width.magnitude": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.width.unit": {
+                    "type": "string",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.height": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.height.magnitude": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.size.height.unit": {
+                    "type": "string",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.scaleX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.scaleY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.shearX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.shearY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.translateX": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.translateY": {
+                    "type": "number",
+                    "x-mindcloud-advanced": true
+                  },
+                  "elementProperties.transform.unit": {
+                    "type": "string",
+                    "description": "Units for the translate elements.",
+                    "enum": [
+                      "EMU",
+                      "PT",
+                      "UNIT_UNSPECIFIED"
+                    ],
+                    "x-mindcloud-advanced": true
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "description": "Optional custom ID for the new object: 5-50 characters, starting with a letter, digit or underscore. Generated when omitted.",
+                    "example": "myObject_01",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "createTable": {
+                                  "type": "object",
+                                  "properties": {
+                                    "objectId": {
+                                      "type": "string",
+                                      "description": "Object ID of the new table."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/delete-object": {
+      "delete": {
+        "operationId": "googleSlides.delete-object",
+        "summary": "Delete Object",
+        "description": "Deletes a slide or page element from a presentation.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/delete-object"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "presentationId",
+            "in": "query",
+            "required": true,
+            "description": "The ID of the presentation to update.",
+            "schema": {
+              "type": "string",
+              "description": "The ID of the presentation to update."
+            }
+          },
+          {
+            "name": "objectId",
+            "in": "query",
+            "required": true,
+            "description": "Object ID of the slide or page element to delete.",
+            "schema": {
+              "type": "string",
+              "description": "Object ID of the slide or page element to delete.",
+              "example": "p"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/googleSlides/latest/actions/delete-presentation": {
       "delete": {
         "operationId": "googleSlides.delete-presentation",
@@ -309,6 +2273,711 @@
                       "items": {
                         "type": "object",
                         "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/delete-text": {
+      "put": {
+        "operationId": "googleSlides.delete-text",
+        "summary": "Delete Text",
+        "description": "Deletes all or part of the text in a shape, text box, placeholder, or table cell.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/delete-text"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "objectId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "description": "Object ID of the shape or table to delete text from.",
+                    "example": "i0"
+                  },
+                  "textRange": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "textRange.type": {
+                    "type": "string",
+                    "description": "Fixed Range needs start and end index, From Start Index needs only start index, All needs neither.",
+                    "enum": [
+                      "ALL",
+                      "FIXED_RANGE",
+                      "FROM_START_INDEX",
+                      "RANGE_TYPE_UNSPECIFIED"
+                    ]
+                  },
+                  "textRange.startIndex": {
+                    "type": "number",
+                    "description": "Zero-based start of the range."
+                  },
+                  "textRange.endIndex": {
+                    "type": "number",
+                    "description": "Zero-based exclusive end of the range. Only for Fixed Range."
+                  },
+                  "cellLocation": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Only for table cells; Object ID must then be a table.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "cellLocation.rowIndex": {
+                    "type": "number",
+                    "description": "Zero-based row index.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "cellLocation.columnIndex": {
+                    "type": "number",
+                    "description": "Zero-based column index.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/duplicate-object": {
+      "post": {
+        "operationId": "googleSlides.duplicate-object",
+        "summary": "Duplicate Object",
+        "description": "Duplicates a slide or page element. A duplicated slide is placed right after the original; a duplicated element stays on the same slide.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/duplicate-object"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "objectId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "description": "Object ID of the slide or page element to duplicate.",
+                    "example": "p"
+                  },
+                  "objectIds": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Map of original object IDs to the IDs to use for the duplicates, for example {\"p\": \"slideCopy_01\"}. Unmapped objects get random IDs.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "duplicateObject": {
+                                  "type": "object",
+                                  "properties": {
+                                    "objectId": {
+                                      "type": "string",
+                                      "description": "Object ID of the duplicate."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/get-current-user": {
+      "get": {
+        "operationId": "googleSlides.get-current-user",
+        "summary": "Get Current User",
+        "description": "Retrieves the profile of the Google account that authorized the connection.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/get-current-user"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The user's full display name."
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The user's email address."
+                          },
+                          "givenName": {
+                            "type": "string",
+                            "description": "The user's given name."
+                          },
+                          "familyName": {
+                            "type": "string",
+                            "description": "The user's family name."
+                          },
+                          "hd": {
+                            "type": "string",
+                            "description": "The Google Workspace domain of the account, when it belongs to one."
+                          },
+                          "emailVerified": {
+                            "type": "boolean",
+                            "description": "Whether Google has verified the email address."
+                          },
+                          "sub": {
+                            "type": "string",
+                            "description": "The unique Google account identifier of the user."
+                          },
+                          "picture": {
+                            "type": "string",
+                            "description": "The URL of the user's profile picture."
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "meta": {
@@ -1121,6 +3790,1013 @@
         }
       }
     },
+    "/v1/universal/googleSlides/latest/actions/insert-text": {
+      "put": {
+        "operationId": "googleSlides.insert-text",
+        "summary": "Insert Text",
+        "description": "Inserts text into a shape, text box, placeholder, or table cell on a slide.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/insert-text"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "objectId",
+                  "text"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "description": "Object ID of the shape or table to insert text into.",
+                    "example": "i0"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "Text to insert. A newline starts a new paragraph."
+                  },
+                  "insertionIndex": {
+                    "type": "number",
+                    "description": "Zero-based index, in Unicode code units, where the text is inserted."
+                  },
+                  "cellLocation": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Only for table cells; Object ID must then be a table.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "cellLocation.rowIndex": {
+                    "type": "number",
+                    "description": "Zero-based row index.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "cellLocation.columnIndex": {
+                    "type": "number",
+                    "description": "Zero-based column index.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/list-presentations": {
+      "get": {
+        "operationId": "googleSlides.list-presentations",
+        "summary": "List Presentations",
+        "description": "Lists the Google Slides presentations the connection can access, excluding trashed files.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/list-presentations"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated sort keys: createdTime, folder, modifiedByMeTime, modifiedTime, name, name_natural, quotaBytesUsed, recency, sharedWithMeTime, starred, viewedByMeTime. Append desc to reverse a key.",
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated sort keys: createdTime, folder, modifiedByMeTime, modifiedTime, name, name_natural, quotaBytesUsed, recency, sharedWithMeTime, starred, viewedByMeTime. Append desc to reverse a key.",
+              "example": "modifiedTime desc",
+              "x-mindcloud-advanced": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The presentation title."
+                          },
+                          "modifiedTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the presentation was last modified."
+                          },
+                          "createdTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the presentation was created."
+                          },
+                          "starred": {
+                            "type": "boolean",
+                            "description": "Whether the user starred the presentation."
+                          },
+                          "webViewLink": {
+                            "type": "string",
+                            "description": "Link to open the presentation in Google Slides."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The presentation ID."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/replace-all-shapes-with-image": {
+      "put": {
+        "operationId": "googleSlides.replace-all-shapes-with-image",
+        "summary": "Replace All Shapes with Image",
+        "description": "Replaces every shape that contains a given text with an image, useful for filling image placeholders in templates.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/replace-all-shapes-with-image"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "containsText.text",
+                  "imageUrl"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "containsText": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "containsText.text": {
+                    "type": "string",
+                    "description": "The text to search for in shapes and tables.",
+                    "example": "{{customer_name}}"
+                  },
+                  "containsText.matchCase": {
+                    "type": "boolean",
+                    "description": "Whether the search is case sensitive."
+                  },
+                  "containsText.searchByRegex": {
+                    "type": "boolean",
+                    "description": "Treat the search text as a regular expression; backslashes must be escaped.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "imageUrl": {
+                    "type": "string",
+                    "description": "Public PNG, JPEG or GIF URL, at most 2 KB long. The image must be under 50 MB and 25 megapixels.",
+                    "example": "https://example.com/logo.png"
+                  },
+                  "imageReplaceMethod": {
+                    "type": "string",
+                    "description": "Center Inside fits the image inside the shape keeping its aspect ratio; Center Crop fills the shape and may crop the image.",
+                    "enum": [
+                      "CENTER_CROP",
+                      "CENTER_INSIDE",
+                      "IMAGE_REPLACE_METHOD_UNSPECIFIED"
+                    ],
+                    "default": "CENTER_INSIDE"
+                  },
+                  "pageObjectIds[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Limit the change to these slide IDs. Applies to all slides when empty.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "replaceAllShapesWithImage": {
+                                  "type": "object",
+                                  "properties": {
+                                    "occurrencesChanged": {
+                                      "type": "number",
+                                      "description": "Number of shapes replaced with the image."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/replace-all-text": {
+      "put": {
+        "operationId": "googleSlides.replace-all-text",
+        "summary": "Replace All Text",
+        "description": "Replaces every occurrence of a text or pattern across the presentation, useful for filling template placeholders.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/replace-all-text"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "containsText.text",
+                  "replaceText"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "containsText": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "containsText.text": {
+                    "type": "string",
+                    "description": "The text to search for in shapes and tables.",
+                    "example": "{{customer_name}}"
+                  },
+                  "containsText.matchCase": {
+                    "type": "boolean",
+                    "description": "Whether the search is case sensitive."
+                  },
+                  "containsText.searchByRegex": {
+                    "type": "boolean",
+                    "description": "Treat the search text as a regular expression; backslashes must be escaped.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "replaceText": {
+                    "type": "string",
+                    "description": "Text that replaces each match."
+                  },
+                  "pageObjectIds[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Limit the change to these slide IDs. Applies to all slides when empty.",
+                    "x-mindcloud-advanced": true
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "replies": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "replaceAllText": {
+                                  "type": "object",
+                                  "properties": {
+                                    "occurrencesChanged": {
+                                      "type": "number",
+                                      "description": "Number of occurrences that were replaced."
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/googleSlides/latest/actions/update-presentation": {
       "put": {
         "operationId": "googleSlides.update-presentation",
@@ -1201,6 +4877,226 @@
                           "name": {
                             "type": "string",
                             "description": "The updated file name."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/googleSlides/latest/actions/update-slides-position": {
+      "put": {
+        "operationId": "googleSlides.update-slides-position",
+        "summary": "Update Slides Position",
+        "description": "Moves one or more slides to a new position in the presentation.",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/googleSlides/latest/actions/update-slides-position"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "presentationId",
+                  "slideObjectIds[]",
+                  "insertionIndex"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "presentationId": {
+                    "type": "string",
+                    "description": "The ID of the presentation to update."
+                  },
+                  "slideObjectIds[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "IDs of the slides to move, in their current presentation order, without duplicates."
+                  },
+                  "insertionIndex": {
+                    "type": "number",
+                    "description": "Zero-based position to move the slides to, based on the order before the move. Must be between 0 and the slide count."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "presentationId": {
+                            "type": "string",
+                            "description": "The ID of the presentation that was updated."
+                          },
+                          "writeControl": {
+                            "type": "object",
+                            "properties": {
+                              "requiredRevisionId": {
+                                "type": "string",
+                                "description": "Revision ID of the presentation after the update, usable for conditional writes."
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "commentUpdateState": {
+                            "type": "string",
+                            "description": "Whether the request changed comments."
                           }
                         },
                         "additionalProperties": false

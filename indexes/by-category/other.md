@@ -1,6 +1,6 @@
 # Other apps
 
-582 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+583 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -171,6 +171,7 @@
 - **Encodian - Sign** · [Universal API reference](../../apis/e/encodianSign/universal-api) · [Native API reference](../../apis/e/encodianSign/native-api) · [Native API docs](https://support.encodian.com/hc/en-gb/sections/25624905449116-Power-Automate-Action-Documentation)
 - **Encodian - Utilities** · [Universal API reference](../../apis/e/encodianUtilities/universal-api) · [Native API reference](../../apis/e/encodianUtilities/native-api) · [Native API docs](https://support.encodian.com/hc/en-gb/articles/13253632800284-Direct-API-Integration)
 - **EODHD** · [Universal API reference](../../apis/e/eODHDAPI/universal-api) · [Native API reference](../../apis/e/eODHDAPI/native-api) · [Native API docs](https://eodhd.com/financial-apis/quick-start-with-our-financial-data-apis/)
+- **3E Protect** · [Universal API reference](../../apis/e/eProtect/universal-api) · [Native API reference](../../apis/e/eProtect/native-api) · [Native API docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/index.html)
 - **ESRI** · [Universal API reference](../../apis/e/eSRI/universal-api) · [Native API reference](../../apis/e/eSRI/native-api) · [Native API docs](https://developers.arcgis.com/rest/)
 - **EventGeek** · [Universal API reference](../../apis/e/eventGeek/universal-api) · [Native API reference](../../apis/e/eventGeek/native-api) · [Native API docs](https://docs.circa.co/)
 - **Every.org** · [Universal API reference](../../apis/e/everyorg/universal-api) · [Native API reference](../../apis/e/everyorg/native-api) · [Native API docs](https://docs.every.org/docs/intro)

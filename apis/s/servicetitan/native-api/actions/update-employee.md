@@ -19,13 +19,12 @@ Updates an existing employee in ServiceTitan.
 | `mobilePhoneNumber` | body | `string` | no |
 | `customFields[].value` | body | `string` | no |
 | `phoneNumber` | body | `string` | no |
-| `email` | body | `string` | yes |
+| `email` | body | `string` | no |
 | `login` | body | `string` | no |
 | `password` | body | `string` | no |
-| `accountCreationMethod` | body | `list<string>` | yes |
 | `businessUnitId` | body | `number` | no |
-| `roleId` | body | `number` | yes |
-| `positions[]` | body | `array<string>` | yes |
+| `roleId` | body | `number` | no |
+| `positions[]` | body | `array<string>` | no |
 | `aadUserId` | body | `string` | no |
 | `customFields[]` | body | `array` | no |
 | `id` | path | `string` | no |

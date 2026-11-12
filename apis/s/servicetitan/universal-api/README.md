@@ -4,7 +4,7 @@ ServiceTitan is a cloud-based software platform for home and commercial service 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/servicetitan/latest
 - **Category:** Support / Field Service
-- **Actions:** 136
+- **Actions:** 137
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://developer.servicetitan.io/api-details/#api=tenant-crm-v2
 
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (136)
+## Actions (137)
 
 ### Access Tokens
 
@@ -42,6 +42,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 | [Update GL Account](actions/update-gl-account.md) | PUT |  |
 | [Update Payment](actions/update-payment.md) | PUT | Updates an existing payment in ServiceTitan. |
 | [Update Payment Status](actions/update-payment-status.md) | PUT | Updates a payment status in ServiceTitan. |
+| [Writeback Invoice as Exported](actions/writeback-invoice-as-exported.md) | PUT |  |
 
 ### Ap Bill
 

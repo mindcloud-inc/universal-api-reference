@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3231 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3233 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -884,6 +884,7 @@ The official vendor API documentation for each of the 3231 apps in this repo. Ea
 - [EONET](../apis/e/eONET/native-api) - https://eonet.gsfc.nasa.gov/docs/v3
 - [Epicor Prophet 21](../apis/e/epicorProphet21/native-api) - https://www.epicor.com/en-us/industry-productivity-solutions/distribution/prophet-21/
 - [Epion](../apis/e/epion/native-api) - https://epion.nl/integraties
+- [3E Protect](../apis/e/eProtect/native-api) - https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/index.html
 - [Eranol](../apis/e/eranol/native-api) - https://www.eranol.com/documentation
 - [Erase.bg](../apis/e/erasebg/native-api) - https://www.erase.bg/g/api/remove-background
 - [ERPLY Books](../apis/e/eRPLYBooks/native-api) - https://learn-api.erply.com/requests
@@ -1390,6 +1391,7 @@ The official vendor API documentation for each of the 3231 apps in this repo. Ea
 - [Jitbit Helpdesk](../apis/j/jitbitHelpdesk/native-api) - https://www.jitbit.com/docs/api/
 - [JmpTo](../apis/j/jmpTo/native-api) - https://jmpto.net/developers
 - [jo4.io](../apis/j/jo4io/native-api) - https://jo4-api.jo4.io/swagger-ui/index.html
+- [Jobber](../apis/j/jobber/native-api) - https://developer.getjobber.com/docs/
 - [Jobicy](../apis/j/jobicy/native-api) - https://jobicy.com/jobs-rss-feed
 - [Jobsoid](../apis/j/jobsoid/native-api) - https://apidocs.jobsoid.com/
 - [Jodoo](../apis/j/jodoo/native-api) - https://help.jodoo.com/en/collections/11230973-api

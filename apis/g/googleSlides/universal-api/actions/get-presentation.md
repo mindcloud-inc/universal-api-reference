@@ -36,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `presentationId` | string | yes | The ID of the presentation to retrieve. |
+| `presentationId` | list<string> | yes | The ID of the presentation to retrieve. |
 
 ## Response
 

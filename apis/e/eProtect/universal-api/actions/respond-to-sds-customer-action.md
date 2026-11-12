@@ -1,0 +1,74 @@
+# 3E Protect: Respond to SDS Customer Action
+
+
+
+```
+PUT https://connect.mindcloud.co/v1/universal/eProtect/latest/actions/respond-to-sds-customer-action
+```
+
+Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a 3E Protect `connectionId` ([setup](../authentication.md)).
+
+## Example request
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/eProtect/latest/actions/respond-to-sds-customer-action" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "source": "string",
+  "uniqueId": "string",
+  "obtainmentTypes[]": [
+    {}
+  ],
+  "notes": "string"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/eProtect/latest/actions/respond-to-sds-customer-action', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "source": "string",
+    "uniqueId": "string",
+    "obtainmentTypes[]": [{}],
+    "notes": "string"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+## Inputs
+
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `source` | string | yes | Exact, case-sensitive product identifier source name agreed with 3E. |
+| `uniqueId` | string | yes | Your catalog item identifier value for the selected source. |
+| `obtainmentTypes[]` | array<object> | yes | SDS obtainment (sourcing) targets, each defined by a language and country. |
+| `notes` | string | yes |  |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `obtainmentTypes[].locale` | string | no | Two-letter language code, such as en. Use a language configured in List SDS Requirements. Example: `en`. |
+| `obtainmentTypes[].country` | string | no | Three-letter country code, such as USA. Use a country configured in List SDS Requirements. Example: `USA`. |
+| `fileBytes` | string | no | PDF contents encoded as Base64, a text representation of file bytes. |
+| `fileName` | string | no | PDF file name, including the .pdf extension. |
+
+## Response
+
+The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native 3E Protect API returns.
+
+## Native endpoint
+
+Through the native 3E Protect API, this operation is `PUT /customer-action-notes-file` (base URL `{{credentials.apiBaseUrl}}`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/respond-to-sds-customer-action.md) for the provider-specific parameters and requirements.
+
