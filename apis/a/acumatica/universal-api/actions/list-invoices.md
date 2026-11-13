@@ -46,7 +46,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `select` | string | no | Comma-separated entity fields to return. Example: `ReferenceNbr,Type,Status,Customer`. |
 | `expand` | string | no | Comma-separated detail or linked entities to expand. Example: `Details,Applications`. |
-| `filter` | string | no | Acumatica OData filter expression used to qualify returned records. Example: `Status eq 'Open'`. |
+| `filter` | string | no | Acumatica OData filter expression used to qualify returned invoices. For decimal fields such as Balance, use numeric literals with the m suffix, for example Balance gt 0m to return invoices with a positive balance. Using Balance gt 0 can fail with "Type conversions not supported". Example: `Balance gt 0m`. |
 | `custom` | string | no | Comma-separated custom fields to return. Example: `ReferenceNbr,Status`. |
 
 ## Response

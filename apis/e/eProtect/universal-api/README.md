@@ -3,7 +3,7 @@
 Manage chemical inventory, locations, and Safety Data Sheets
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eProtect/latest
-- **Actions:** 36
+- **Actions:** 37
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.3eco.com/3e-solutions/chemical-workplace-safety/3e-protect/
 - **Vendor API docs:** https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/index.html
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/eProtect/latest/actions/l
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (36)
+## Actions (37)
 
 ### Catalog Item
 
@@ -46,6 +46,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/eProtect/latest/actions/l
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Custom Value Names](actions/list-custom-value-names.md) | GET |  |
+
+### Files
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get File](actions/get-file.md) | GET | Retrieves a file from the https://3eonline.com/ImageServer/ImageViewer.aspx URL |
 
 ### Inventory Assignment
 

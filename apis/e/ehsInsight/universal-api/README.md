@@ -3,7 +3,7 @@
 EHS Insight through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ehsInsight/latest
-- **Actions:** 16
+- **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -12,14 +12,22 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Business Entity](actions/get-business-entity.md):
+For example, to [Get Attachment](actions/get-attachment.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-business-entity?connectionId=$CONNECTION_ID&rowUid=550e8400-e29b-41d4-a716-446655440000" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-attachment?connectionId=$CONNECTION_ID&rowUid=550e8400-e29b-41d4-a716-446655440000" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (16)
+## Actions (19)
+
+### Attachments
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Attachment](actions/get-attachment.md) | GET |  |
+| [Get SDS Community Attachment](actions/get-sds-community-attachment.md) | GET |  |
+| [Upload Attachment](actions/upload-attachment.md) | POST |  |
 
 ### Business Entity
 

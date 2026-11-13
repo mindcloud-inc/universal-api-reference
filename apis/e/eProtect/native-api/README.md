@@ -1,6 +1,6 @@
 # 3E Protect: Native API Reference
 
-A consolidated summary of 3E Protect's API configuration and 36 documented operations, with links to official documentation.
+A consolidated summary of 3E Protect's API configuration and 37 documented operations, with links to official documentation.
 
 - **Official docs:** https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/index.html
 - **OpenAPI specification:** https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json
@@ -61,7 +61,7 @@ Responses from this API use JSON. The current page number is read from `pageNumb
 - **REST API:** Use `page` in the request parameters to choose the page; numbering starts at 1.
 - **REST API:** Use `pageSize` in the request body to set the page size (default 100; minimum 1). Use `pageNumber` in the request body to choose the page; numbering starts at 1.
 
-## Endpoints (36 documented)
+## Endpoints (37 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -80,6 +80,7 @@ Responses from this API use JSON. The current page number is read from `pageNumb
 | [Get Catalog Item](actions/get-catalog-item.md) | `GET /catalog-item/:source/:identifier` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1catalog-item~1{source}~1{identifier}/get) |
 | [Get Catalog Item by GUID](actions/get-catalog-item-by-guid.md) | `GET /catalog-item/guid/:productGuid` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1catalog-item~1guid~1{productGuid}/get) |
 | [Get Catalog Item by Language and Country](actions/get-catalog-item-by-language-and-country.md) | `GET /catalog-item/:source/:identifier/:locale/:country` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1catalog-item~1{source}~1{identifier}~1{locale}~1{country}/get) |
+| [Get File](actions/get-file.md) | `GET https://3eonline.com/ImageServer/ImageViewer.aspx` |  |
 | [Get Location by GUID](actions/get-location-by-guid.md) | `GET /location/guid/:locationGuid` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1location~1guid~1{locationGuid}/get) |
 | [Get Location by ID](actions/get-location-by-id.md) | `GET /location/id/:locationId` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1location~1id~1{locationId}/get) |
 | [Get Location SDS Requirements](actions/get-location-sds-requirements.md) | `GET /location-obtainment/:name` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1location-obtainment~1{name}/get) |

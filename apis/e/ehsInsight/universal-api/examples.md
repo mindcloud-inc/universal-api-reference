@@ -2,12 +2,12 @@
 
 These examples use the MindCloud API key and EHS Insight connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Business Entity
+## Get Attachment
 
 
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-business-entity?connectionId=$CONNECTION_ID&rowUid=550e8400-e29b-41d4-a716-446655440000" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-attachment?connectionId=$CONNECTION_ID&rowUid=550e8400-e29b-41d4-a716-446655440000" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -17,7 +17,7 @@ const params = new URLSearchParams({
   "rowUid": "550e8400-e29b-41d4-a716-446655440000"
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-business-entity?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/ehsInsight/latest/actions/get-attachment?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -36,7 +36,7 @@ Example response:
 }
 ```
 
-See the full [Get Business Entity action reference](actions/get-business-entity.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/get-business-entity).
+See the full [Get Attachment action reference](actions/get-attachment.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/ehsInsight/latest/actions/get-attachment).
 
 ## Add Entity
 

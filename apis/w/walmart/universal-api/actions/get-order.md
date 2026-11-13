@@ -39,6 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `productInfo` | boolean | no |  |
 | `purchaseOrderId` | string | yes | Unique Walmart purchaseOrderId that identifies the purchase order. |
 | `replacementInfo` | boolean | no | Include replacement order attributes (originalCustomerOrderID, orderType) in the response when true. Valid values are true or false. |
+| `incentiveInfo` | boolean | no | Include incentive attributes (incentiveType, originalPrice, walmartFundedIncentive, originalReferralFee, reducedReferralFeeDiscount) in the response when true. Valid values are true or false. |
 
 ### Advanced
 

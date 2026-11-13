@@ -148,7 +148,7 @@ Shared headers:
 | [List Inventory Levels](actions/list-inventory-levels.md) | REST (nextCursor) v2 | `GET /v3/inventories` | [docs](https://developer.walmart.com/us-marketplace/reference/getmultinodeinventoryforallskuandallshipnodes) |
 | [List Items](actions/list-items.md) | REST (nextCursor) | `GET /v3/items` | [docs](https://developer.walmart.com/us-marketplace/reference/getallitems) |
 | [List Items - Simulation](actions/list-items-simulation.md) | REST (nextCursor) | `GET /v1/simulations/items` | [docs](https://developer.walmart.com/us-marketplace/reference/getallitems) |
-| [List Price Incentive Items](actions/list-price-incentive-items.md) | REST | `GET /v3/price/incentives` | [docs](https://developer.walmart.com/global-marketplace/reference/getallincentives) |
+| [List Price Incentive Items](actions/list-price-incentive-items.md) | REST (nextCursor) | `GET /v3/price/incentives` | [docs](https://developer.walmart.com/global-marketplace/reference/getallincentives) |
 | [List Released Orders](actions/list-released-orders.md) | REST | `GET /v3/orders/released` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [List Returns](actions/list-returns.md) | REST | `GET /v3/returns` | [docs](https://developer.walmart.com/us-marketplace/reference/getreturns#:~:text=Utilities-,Returns,-GET) |
 | [List Shipping Templates](actions/list-shipping-templates.md) | REST | `GET /v3/settings/shipping/templates` | [docs](https://developer.walmart.com/us-marketplace/reference/getallshippingtemplates) |

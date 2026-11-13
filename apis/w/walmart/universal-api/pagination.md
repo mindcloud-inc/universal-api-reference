@@ -24,6 +24,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/walmart/latest/actions/ge
 - [List Feed Statuses](actions/list-feed-statuses.md)
 - [List Inbound Shipments](actions/list-inbound-shipments.md)
 - [List Inventory Levels](actions/list-inventory-levels.md)
+- [List Price Incentive Items](actions/list-price-incentive-items.md)
 - [List Released Orders](actions/list-released-orders.md)
 - [List Returns](actions/list-returns.md)
 - [Recon Report](actions/recon-report.md)

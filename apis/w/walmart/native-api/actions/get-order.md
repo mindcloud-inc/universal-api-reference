@@ -18,3 +18,4 @@ Retrieves an order detail for a specific purchaseOrderId
 | `purchaseOrderId` | path | `string` | yes | Unique Walmart purchaseOrderId that identifies the purchase order. |
 | `dynamicSandbox` | path | `boolean` | no | - When Toggled Off and credential is set to 'Sandbox' - this request will return a static Walmart Sandbox Order. - Toggle on to fetch an Order from your Dynamic Sandbox ( created via the SImulations API. ) |
 | `replacementInfo` | query | `boolean` | no | Include replacement order attributes (originalCustomerOrderID, orderType) in the response when true. Valid values are true or false. Format: `toggle`. |
+| `incentiveInfo` | query | `boolean` | no | Include incentive attributes (incentiveType, originalPrice, walmartFundedIncentive, originalReferralFee, reducedReferralFeeDiscount) in the response when true. Valid values are true or false. |

@@ -5,8 +5,12 @@
 - **Method:** `GET`
 - **Path:** `/v3/price/incentives`
 - **Base URL:** `https://{environment}.walmartapis.com`
-- **API:** REST
+- **API:** REST (nextCursor)
 - **Official documentation:** [List Price Incentive Items](https://developer.walmart.com/global-marketplace/reference/getallincentives)
+
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
