@@ -121,8 +121,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/walmart/latest/actions/ge
 | [Cancel Order Lines](actions/cancel-order-lines.md) | PUT | Cancel one or more order lines for a specific `purchaseOrderId`. |
 | [List Orders](actions/get-all-orders.md) | GET | Retrieves details of all orders with optional search criteria. |
 | [Get Order](actions/get-order.md) | GET | Retrieves an order detail for a specific purchaseOrderId |
+| [Get Recon Report](actions/get-recon-report.md) | GET | Retrieves details of all orders with optional search criteria. |
 | [List Released Orders](actions/list-released-orders.md) | GET | Retrieves details of all orders with line items in the "created" status. |
-| [Recon Report](actions/recon-report.md) | GET | Retrieves details of all orders with optional search criteria. |
 | [Ship Order Lines](actions/ship-order-lines.md) | PUT | Marks specified order lines in a single purchase order as shipped. |
 
 ### Price & Promotion Management

@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3233 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3234 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1324,6 +1324,7 @@ The official vendor API documentation for each of the 3233 apps in this repo. Ea
 - [Infobip](../apis/i/infobip/native-api) - https://www.infobip.com/docs/api
 - [Infoplus](../apis/i/infoplus/native-api) - https://developer.infopluscommerce.com/api/reference/v3.0/
 - [Informizely](../apis/i/informizely/native-api) - https://www.informizely.com/help/report-api
+- [Infor ReserveCloud SCS](../apis/i/inforSCS/native-api) - chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.reservecloud.com/web/university/universityDocumentDownloadViewable/50066
 - [Infura Ethereum](../apis/i/infuraEthereum/native-api) - https://docs.metamask.io/services/
 - [Inistate](../apis/i/inistate/native-api) - https://app.swaggerhub.com/apis-docs/Inistate/InistateAPI/1.0.0
 - [Innform](../apis/i/innform/native-api) - https://innform.docs.apiary.io/

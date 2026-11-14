@@ -1,6 +1,6 @@
 # Commerce apps
 
-299 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+305 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -20,6 +20,7 @@
 - **Becon** · [Universal API reference](../../apis/b/becon/universal-api) · [Native API reference](../../apis/b/becon/native-api) · [Native API docs](https://bcon.global/integrations/api/)
 - **Bexio** · [Universal API reference](../../apis/b/bexio/universal-api) · [Native API reference](../../apis/b/bexio/native-api) · [Native API docs](https://docs.bexio.com/)
 - **Big Cartel** · [Universal API reference](../../apis/b/bigCartel/universal-api) · [Native API reference](../../apis/b/bigCartel/native-api) · [Native API docs](https://developers.bigcartel.com/api/v1/)
+- **BigCommerce** · [Universal API reference](../../apis/b/bigcommerce/universal-api) · [Native API reference](../../apis/b/bigcommerce/native-api)
 - **BigCommerce (B2B)** · [Universal API reference](../../apis/b/bigCommerceB2B/universal-api) · [Native API reference](../../apis/b/bigCommerceB2B/native-api) · [Native API docs](https://developer.bigcommerce.com/b2b-edition/apis)
 - **Billage** · [Universal API reference](../../apis/b/billage/universal-api) · [Native API reference](../../apis/b/billage/native-api) · [Native API docs](https://app.getbillage.com/api/documentation.html)
 - **Billforward** · [Universal API reference](../../apis/b/billforward/universal-api) · [Native API reference](../../apis/b/billforward/native-api) · [Native API docs](https://app.billforward.net/#/api/docs/intro)
@@ -48,6 +49,7 @@
 - **ChargeOver** · [Universal API reference](../../apis/c/chargeOver/universal-api) · [Native API reference](../../apis/c/chargeOver/native-api) · [Native API docs](https://developer.chargeover.com/docs/api/chargeover-rest-api/)
 - **Checkout Page** · [Universal API reference](../../apis/c/checkoutPage/universal-api) · [Native API reference](../../apis/c/checkoutPage/native-api) · [Native API docs](https://checkoutpage.com/docs/api)
 - **Cheddar** · [Universal API reference](../../apis/c/cheddar/universal-api) · [Native API reference](../../apis/c/cheddar/native-api) · [Native API docs](https://docs.getcheddar.com/)
+- **Cin7 Core** · [Universal API reference](../../apis/c/cin7core/universal-api) · [Native API reference](../../apis/c/cin7core/native-api) · [Native API docs](https://dearinventory.docs.apiary.io/#)
 - **Cloudprinter.com** · [Universal API reference](../../apis/c/cloudprintercom/universal-api) · [Native API reference](../../apis/c/cloudprintercom/native-api) · [Native API docs](https://docs.cloudprinter.com/client/cloudprinter-core-api-v1-0)
 - **Coast** · [Universal API reference](../../apis/c/coast/universal-api) · [Native API reference](../../apis/c/coast/native-api) · [Native API docs](https://coastpay.com/integrations/)
 - **CoinGate** · [Universal API reference](../../apis/c/coinGate/universal-api) · [Native API reference](../../apis/c/coinGate/native-api) · [Native API docs](https://developer.coingate.com/reference/cryptocurrency-payment-api)
@@ -127,6 +129,7 @@
 - **iDoklad** · [Universal API reference](../../apis/i/iDoklad/universal-api) · [Native API reference](../../apis/i/iDoklad/native-api) · [Native API docs](https://api.idoklad.cz/Help/v3/cs/)
 - **inFlow Inventory** · [Universal API reference](../../apis/i/inFlowInventory/universal-api) · [Native API reference](../../apis/i/inFlowInventory/native-api) · [Native API docs](https://cloudapi.inflowinventory.com/docs/index.html)
 - **Infoplus** · [Universal API reference](../../apis/i/infoplus/universal-api) · [Native API reference](../../apis/i/infoplus/native-api) · [Native API docs](https://developer.infopluscommerce.com/api/reference/v3.0/)
+- **Infor ReserveCloud SCS** · [Universal API reference](../../apis/i/inforSCS/universal-api) · [Native API reference](../../apis/i/inforSCS/native-api) · [Native API docs](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.reservecloud.com/web/university/universityDocumentDownloadViewable/50066)
 - **Sage Intacct** · [Universal API reference](../../apis/i/intacct/universal-api) · [Native API reference](../../apis/i/intacct/native-api) · [Native API docs](https://developer.intacct.com/api/)
 - **InvoiceBerry** · [Universal API reference](../../apis/i/invoiceBerry/universal-api) · [Native API reference](../../apis/i/invoiceBerry/native-api) · [Native API docs](https://www.invoiceberry.com/api-documentation/)
 - **Invoice Ninja** · [Universal API reference](../../apis/i/invoiceNinja/universal-api) · [Native API reference](../../apis/i/invoiceNinja/native-api) · [Native API docs](https://api-docs.invoicing.co/)
@@ -159,6 +162,8 @@
 - **Merit** · [Universal API reference](../../apis/m/merit/universal-api) · [Native API reference](../../apis/m/merit/native-api) · [Native API docs](https://api.merit.ee/merit-aktiva-api/)
 - **Metronome** · [Universal API reference](../../apis/m/metronome/universal-api) · [Native API reference](../../apis/m/metronome/native-api) · [Native API docs](https://docs.metronome.com/api-reference/introduction)
 - **Mews** · [Universal API reference](../../apis/m/mews/universal-api) · [Native API reference](../../apis/m/mews/native-api) · [Native API docs](https://docs.mews.com/connector-api/)
+- **Microsoft Dynamics 365** · [Universal API reference](../../apis/m/microsoftDynamics365/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365/native-api)
+- **Microsoft Dynamics 365 BC** · [Universal API reference](../../apis/m/microsoftDynamics365BC/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365BC/native-api)
 - **MILKEE** · [Universal API reference](../../apis/m/mILKEE/universal-api) · [Native API reference](../../apis/m/mILKEE/native-api) · [Native API docs](https://apidocs.milkee.ch/api/)
 - **Modelry** · [Universal API reference](../../apis/m/modelry/universal-api) · [Native API reference](../../apis/m/modelry/native-api) · [Native API docs](https://files.cgtarsenal.com/api/doc/index.html)
 - **Modern Treasury** · [Universal API reference](../../apis/m/modernTreasury/universal-api) · [Native API reference](../../apis/m/modernTreasury/native-api) · [Native API docs](https://docs.moderntreasury.com/platform/reference)
@@ -171,6 +176,7 @@
 - **Nagaris** · [Universal API reference](../../apis/n/nagaris/universal-api) · [Native API reference](../../apis/n/nagaris/native-api) · [Native API docs](https://core.nagaris.com/api/v1/schema/redoc/)
 - **Nautical** · [Universal API reference](../../apis/n/nautical/universal-api) · [Native API reference](../../apis/n/nautical/native-api) · [Native API docs](https://guide.thetraide.com/docs/api/)
 - **NeetoInvoice** · [Universal API reference](../../apis/n/neetoInvoice/universal-api) · [Native API reference](../../apis/n/neetoInvoice/native-api) · [Native API docs](https://apidocs.neetoinvoice.com/getting-started/introduction)
+- **NetSuite - Advanced** · [Universal API reference](../../apis/n/netsuite/universal-api) · [Native API reference](../../apis/n/netsuite/native-api) · [Native API docs](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/)
 - **NetSuite - Basic** · [Universal API reference](../../apis/n/netSuiteBasic/universal-api) · [Native API reference](../../apis/n/netSuiteBasic/native-api) · [Native API docs](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_1540391670.html)
 - **Nexiopay** · [Universal API reference](../../apis/n/nexiopay/universal-api) · [Native API reference](../../apis/n/nexiopay/native-api) · [Native API docs](https://docs.nexiopay.com/reference)
 - **Oanda** · [Universal API reference](../../apis/o/oanda/universal-api) · [Native API reference](../../apis/o/oanda/native-api) · [Native API docs](https://exchange-rates-api.oanda.com/)

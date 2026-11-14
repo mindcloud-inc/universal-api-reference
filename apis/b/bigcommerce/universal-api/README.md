@@ -3,6 +3,7 @@
 Enterprise eCommerce, simplified.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bigcommerce/latest
+- **Category:** Commerce
 - **Actions:** 65
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

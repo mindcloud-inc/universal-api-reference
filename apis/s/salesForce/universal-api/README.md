@@ -3,6 +3,7 @@
 Salesforce through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/salesForce/latest
+- **Category:** Sales & CRM / CRM
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

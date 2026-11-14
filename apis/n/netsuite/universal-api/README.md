@@ -3,7 +3,7 @@
 Leading integrated cloud business software suite, including business accounting, ERP, CRM and e-commerce software.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/netsuite/latest
-- **Category:** Marketing
+- **Category:** Commerce / ERP
 - **Actions:** 182
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.netsuite.com/portal/home.shtml

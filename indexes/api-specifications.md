@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3233 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3234 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1292,6 +1292,7 @@ Machine-readable API descriptions for 3233 apps. Universal API specifications ar
 | [Infobip](../apis/i/infobip) | [OpenAPI 3.1](../apis/i/infobip/universal-api/openapi.json) | [Provider OpenAPI](https://infobip-cdn-h0h7ekhqhgh4hgau.a02.azurefd.net/api-docs/production/openapi/infobip-openapi-specification.json.gz) |
 | [Infoplus](../apis/i/infoplus) | [OpenAPI 3.1](../apis/i/infoplus/universal-api/openapi.json) | [Provider OpenAPI](https://developer.infopluscommerce.com/api/reference/v3.0/swagger.json) |
 | [Informizely](../apis/i/informizely) | [OpenAPI 3.1](../apis/i/informizely/universal-api/openapi.json) |  |
+| [Infor ReserveCloud SCS](../apis/i/inforSCS) | [OpenAPI 3.1](../apis/i/inforSCS/universal-api/openapi.json) |  |
 | [Infura Ethereum](../apis/i/infuraEthereum) | [OpenAPI 3.1](../apis/i/infuraEthereum/universal-api/openapi.json) |  |
 | [Inistate](../apis/i/inistate) | [OpenAPI 3.1](../apis/i/inistate/universal-api/openapi.json) | [Provider OpenAPI](https://api.swaggerhub.com/apis/Inistate/InistateAPI/1.0.0/swagger.json) |
 | [Innform](../apis/i/innform) | [OpenAPI 3.1](../apis/i/innform/universal-api/openapi.json) |  |

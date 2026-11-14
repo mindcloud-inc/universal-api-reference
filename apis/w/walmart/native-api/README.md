@@ -7,6 +7,7 @@ A consolidated summary of Walmart's API configuration and 90 documented operatio
 - **Simulations base URL:** `https://sandbox.walmartapis.com`
 - **REST (nextCursor) base URL:** `https://{environment}.walmartapis.com`
 - **REST (nextCursor) v2 base URL:** `https://{environment}.walmartapis.com`
+- **REST (Recon Report cursor) base URL:** `https://{environment}.walmartapis.com`
 
 ## Authentication
 
@@ -68,16 +69,28 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
+### REST (Recon Report cursor)
+
+Request bodies use JSON.
+
+Shared headers:
+
+| Header | Value |
+| --- | --- |
+| `Content-Type` | `application/json; charset=utf-8` |
+
 ## Pagination
 
 - **REST:** Use `noOfRecords` in the query string to set the page size (default 100; maximum 200). Use `offset` in the query string as the record offset.
 - **REST (nextCursor):** Use `limit` in the query string to set the page size (default 20; maximum 1000). Use `offset` in the query string as the record offset.
 - **REST (nextCursor) v2:** Use `limit` in the query string to set the page size (default 10; accepted range 1–50). Use `nextCursor` in the query string as the pagination cursor.
+- **REST (Recon Report cursor):** Use `noOfRecords` in the query string to set the page size (default 100; maximum 200). Use `offset` in the query string as the pagination cursor; numbering starts at 0.
 
 ## Filtering
 
 - **REST:** Supported operators: `eq`.
 - **REST (nextCursor) v2:** Supported operators: `eq`.
+- **REST (Recon Report cursor):** Supported operators: `eq`.
 
 ## Endpoints (90 documented)
 
@@ -125,6 +138,7 @@ Shared headers:
 | [Get Order](actions/get-order.md) | REST | `GET /v3/orders/:purchaseOrderId` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Get Partner Configurations](actions/get-partner-configurations.md) | REST | `GET /v3/settings/partnerprofile` | [docs](https://developer.walmart.com/us-marketplace/reference/getpartnerconfigurations) |
 | [Get Promotional Prices](actions/get-promotional-prices.md) | REST | `GET v3/promo/sku/:sku` | [docs](https://developer.walmart.com/global-marketplace/reference/getpromotionalprices) |
+| [Get Recon Report](actions/get-recon-report.md) | REST (Recon Report cursor) | `GET /v3/report/reconreport/reconFileJson` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Get Shipping Configurations](actions/get-shipping-configurations.md) | REST | `GET /v3/settings/shippingprofile` | [docs](https://developer.walmart.com/us-marketplace/reference/getshippingconfigurations) |
 | [Get Shipping Template Activation Status](actions/get-shipping-template-activation-status.md) | REST | `GET /v3/settings/shipping/templates/activationStatus` | [docs](https://developer.walmart.com/us-marketplace/reference/getshippingtemplateactivationstatus) |
 | [Get Shipping Template Details](actions/get-shipping-template-details.md) | REST | `GET /v3/settings/shipping/templates/:templateId` | [docs](https://developer.walmart.com/us-marketplace/reference/getshippingtemplatedetails) |
@@ -155,7 +169,6 @@ Shared headers:
 | [List Subscriptions](actions/list-subscriptions.md) | REST | `GET /v3/webhooks/subscriptions` | [docs](https://developer.walmart.com/us-marketplace/reference/getallsubscriptions) |
 | [List Supported Carriers](actions/list-supported-carriers.md) | REST | `GET /v3/shipping/labels/carriers` | [docs](https://developer.walmart.com/us-marketplace/reference/getcarriers) |
 | [List 3PL Providers](actions/list3-pl-providers.md) | REST | `GET /v3/settings/shipping/3plproviders` | [docs](https://developer.walmart.com/us-marketplace/reference/get3pfulfillmentproviders) |
-| [Recon Report](actions/recon-report.md) | REST | `GET /v3/report/reconreport/reconFileJson` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Refund Order Lines](actions/refund-order-lines.md) | REST | `POST /v3/returns/:returnOrderId/refund` | [docs](https://developer.walmart.com/us-marketplace/reference/issuerefund) |
 | [Retire an Item](actions/retire-an-item.md) | REST | `DELETE /v3/items/:sku` | [docs](https://developer.walmart.com/us-marketplace/reference/retireanitem) |
 | [Search Seller Catalog](actions/search-seller-catalog.md) | REST | `POST /v3/items/catalog/search` | [docs](https://developer.walmart.com/us-marketplace/reference/getsearchresult) |

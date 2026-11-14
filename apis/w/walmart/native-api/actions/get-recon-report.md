@@ -1,4 +1,4 @@
-# Recon Report with Walmart
+# Get Recon Report with Walmart
 
 Retrieves details of all orders with optional search criteria.
 
@@ -7,8 +7,8 @@ Retrieves details of all orders with optional search criteria.
 - **Method:** `GET`
 - **Path:** `/v3/report/reconreport/reconFileJson`
 - **Base URL:** `https://{environment}.walmartapis.com`
-- **API:** REST
-- **Official documentation:** [Recon Report](https://developer.walmart.com/global-marketplace/reference/getallorders)
+- **API:** REST (Recon Report cursor)
+- **Official documentation:** [Get Recon Report](https://developer.walmart.com/global-marketplace/reference/getallorders)
 
 ## Capabilities
 

@@ -3,7 +3,7 @@
 Manage chemical inventory, locations, and Safety Data Sheets
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eProtect/latest
-- **Actions:** 37
+- **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.3eco.com/3e-solutions/chemical-workplace-safety/3e-protect/
 - **Vendor API docs:** https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/index.html
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/eProtect/latest/actions/l
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (37)
+## Actions (38)
 
 ### Catalog Item
 
@@ -40,6 +40,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/eProtect/latest/actions/l
 | [Search Catalog Items](actions/search-catalog-items.md) | GET |  |
 | [Set Catalog Item Custom Values](actions/set-catalog-item-custom-values.md) | PUT |  |
 | [Update Catalog Item](actions/update-catalog-item.md) | PUT |  |
+
+### Catalog Page
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Search Catalog Items Page](actions/search-catalog-items-page.md) | GET |  |
 
 ### Custom Field
 

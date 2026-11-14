@@ -46,6 +46,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `upc` | string | no |  |
 | `condition` | string | no |  |
 | `includeFields` | string | no | Accepts multiple values in one string. |
+| `include` | string | no | A comma-separated list of sub-resources to return with a product object. When you specify options or modifiers, results are limited to 10 per page. |
+| `dateModified` | string | no |  |
 
 ## Response
 

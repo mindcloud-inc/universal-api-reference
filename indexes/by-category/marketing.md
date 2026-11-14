@@ -1,6 +1,6 @@
 # Marketing apps
 
-396 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+395 apps in the Marketing category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Absinthe** · [Universal API reference](../../apis/a/absinthe/universal-api) · [Native API reference](../../apis/a/absinthe/native-api) · [Native API docs](https://api.absinthe.network/doc)
 - **ActiveCampaign** · [Universal API reference](../../apis/a/activeCampaign/universal-api) · [Native API reference](../../apis/a/activeCampaign/native-api) · [Native API docs](https://developers.activecampaign.com/reference/overview)
@@ -207,7 +207,6 @@
 - **Moosend** · [Universal API reference](../../apis/m/moosend/universal-api) · [Native API reference](../../apis/m/moosend/native-api) · [Native API docs](https://docs.moosend.com/api-documentation)
 - **MyEmailVerifier** · [Universal API reference](../../apis/m/myEmailVerifier/universal-api) · [Native API reference](../../apis/m/myEmailVerifier/native-api) · [Native API docs](https://myemailverifier.com/real-time-email-verification)
 - **MyOwnConference** · [Universal API reference](../../apis/m/myOwnConference/universal-api) · [Native API reference](../../apis/m/myOwnConference/native-api) · [Native API docs](https://support.myownconference.com/en/article/myownconference-public-api-o6or9a/)
-- **NetSuite - Advanced** · [Universal API reference](../../apis/n/netsuite/universal-api) · [Native API reference](../../apis/n/netsuite/native-api) · [Native API docs](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/)
 - **NeverBounce** · [Universal API reference](../../apis/n/neverBounce/universal-api) · [Native API reference](../../apis/n/neverBounce/native-api) · [Native API docs](https://developers.neverbounce.com/reference/getting-started)
 - **NiftyImages** · [Universal API reference](../../apis/n/niftyImages/universal-api) · [Native API reference](../../apis/n/niftyImages/native-api) · [Native API docs](https://api.niftyimages.com/)
 - **Ninetailed** · [Universal API reference](../../apis/n/ninetailed/universal-api) · [Native API reference](../../apis/n/ninetailed/native-api) · [Native API docs](https://www.contentful.com/developers/docs/personalization/)

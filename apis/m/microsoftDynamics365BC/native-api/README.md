@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 84 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 86 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (84 documented)
+## Endpoints (86 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -137,11 +137,13 @@ Response data is read from `value`.
 | [Post Credit Memo](actions/post-credit-memo.md) | REST | `POST v2.0/companies({{companyId}})/salesCreditMemos({{creditMemoId}})/Microsoft.NAV.post` |  |
 | [Post Journal Lines](actions/post-journal-lines.md) | REST | `POST v2.0/companies({{companyId}})/journals({{journalId}})/Microsoft.NAV.post` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [Post Sales Invoice](actions/post-sales-invoice.md) | REST | `POST v2.0/companies({{companyId}})/salesInvoices({{invoiceId}})/Microsoft.NAV.post` |  |
+| [Ship and Invoice Order](actions/ship-and-invoice-order.md) | REST | `POST v2.0/companies(:companyId)/salesOrders(:orderId)/Microsoft.NAV.shipAndInvoice` |  |
 | [Update Costumer ODataV4](actions/update-costumer-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:companyId)/MindcloudCustomerCard(':customerId')` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_update) |
 | [Update Costumer SSI](actions/update-costumer-ssi.md) | REST (Copy) | `PATCH v2.0/companies(:companyId)/customersSSI(:customerId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_update) |
 | [Update Customer Payment ODataV4](actions/update-customer-payment-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/Cash_Receipt_Journals_Excel(Journal_Template_Name=':journalTemplateName',Journal_Batch_Name=':journalBatchName',Line_No=:lineNo)` |  |
 | [Update Dimension](actions/update-dimension.md) | REST | `PATCH v2.0/companies({{companyId}})/dimensionValues({{dimensionId}})` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_customer_get) |
 | [Update Project](actions/update-project.md) | REST | `PATCH v2.0/companies({{companyId}})/projects(:projectId)` |  |
+| [Update Sales Order](actions/update-sales-order.md) | REST | `PATCH v2.0/companies(:companyId)/salesOrders(:salesOrderId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_update) |
 | [Update Sales Order SSI](actions/update-sales-order-ssi.md) | REST (Copy) | `PATCH /v2.0/companies(:id)/salesHeadersSSI(:salesOrderID)` | [docs](https://anotepad.com/notes/ccfg4kec) |
 | [Update Sales Orders Lines](actions/update-sales-orders-lines.md) | REST | `PATCH v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines(:salesOrderLineId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_create) |
 | [Update Ship-to Addresses SSI](actions/update-ship-to-addresses-ssi.md) | REST (Copy) | `PATCH v2.0/companies(:company_id)/shipToAddressesSSI(CustomerNo=':customerNo',Code=':shipToAddressCode')` | [docs](https://anotepad.com/notes/x8dnaab8) |

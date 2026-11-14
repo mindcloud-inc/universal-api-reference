@@ -1,6 +1,6 @@
 # 3E Protect: Native API Reference
 
-A consolidated summary of 3E Protect's API configuration and 37 documented operations, with links to official documentation.
+A consolidated summary of 3E Protect's API configuration and 38 documented operations, with links to official documentation.
 
 - **Official docs:** https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/index.html
 - **OpenAPI specification:** https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json
@@ -61,7 +61,7 @@ Responses from this API use JSON. The current page number is read from `pageNumb
 - **REST API:** Use `page` in the request parameters to choose the page; numbering starts at 1.
 - **REST API:** Use `pageSize` in the request body to set the page size (default 100; minimum 1). Use `pageNumber` in the request body to choose the page; numbering starts at 1.
 
-## Endpoints (37 documented)
+## Endpoints (38 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -98,6 +98,7 @@ Responses from this API use JSON. The current page number is read from `pageNumb
 | [Remove Catalog Item from Locations](actions/remove-catalog-item-from-locations.md) | `DELETE /catalog-item-inventory` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1catalog-item-inventory/delete) |
 | [Respond to SDS Customer Action](actions/respond-to-sds-customer-action.md) | `PUT /customer-action-notes-file` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1customer-action-notes-file/put) |
 | [Search Catalog Items](actions/search-catalog-items.md) | `POST /document-search` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/UniversalDocumentSearch/swagger.json#/paths/~1api~1universaldocumentsearch~1v1~1document-search/post) |
+| [Search Catalog Items Page](actions/search-catalog-items-page.md) | `POST {{credentials.documentSearchApiBaseUrl}}/document-search` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/UniversalDocumentSearch/swagger.json#/paths/~1api~1universaldocumentsearch~1v1~1document-search/post) |
 | [Set Catalog Item Custom Values](actions/set-catalog-item-custom-values.md) | `PUT /catalog-item/customvalue/:source/:identifier` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1catalog-item~1customvalue~1{source}~1{identifier}/put) |
 | [Update Catalog Item](actions/update-catalog-item.md) | `PUT /catalog-item` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1catalog-item/put) |
 | [Update Location](actions/update-location.md) | `PUT /location` | [docs](https://secure.3eonline.com/webservices/AccountServicesV2Api/swagger/Universal/swagger.json#/paths/~1api~1universal~1v1~1location/put) |

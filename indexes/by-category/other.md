@@ -1,6 +1,6 @@
 # Other apps
 
-583 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+579 apps in the Other category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbreviations** · [Universal API reference](../../apis/a/abbreviations/universal-api) · [Native API reference](../../apis/a/abbreviations/native-api) · [Native API docs](https://www.abbreviations.com/abbr_api.php)
 - **Abstract Holidays** · [Universal API reference](../../apis/a/abstractHolidays/universal-api) · [Native API reference](../../apis/a/abstractHolidays/native-api) · [Native API docs](https://docs.abstractapi.com/api/holidays)
@@ -43,7 +43,6 @@
 - **BBC Sport - Rugby** · [Universal API reference](../../apis/b/bBCSportRugby/universal-api) · [Native API reference](../../apis/b/bBCSportRugby/native-api) · [Native API docs](https://support.bbc.co.uk/platform/feeds/SportFeeds.htm)
 - **Beatoven AI** · [Universal API reference](../../apis/b/beatovenAI/universal-api) · [Native API reference](../../apis/b/beatovenAI/native-api) · [Native API docs](https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md)
 - **Beds24** · [Universal API reference](../../apis/b/beds24/universal-api) · [Native API reference](../../apis/b/beds24/native-api) · [Native API docs](https://wiki.beds24.com/index.php/API_V2.0)
-- **BigCommerce** · [Universal API reference](../../apis/b/bigcommerce/universal-api) · [Native API reference](../../apis/b/bigcommerce/native-api)
 - **BigDataCloud** · [Universal API reference](../../apis/b/bigDataCloud/universal-api) · [Native API reference](../../apis/b/bigDataCloud/native-api) · [Native API docs](https://www.bigdatacloud.com/support/getting-started)
 - **Bika.ai** · [Universal API reference](../../apis/b/bikaai/universal-api) · [Native API reference](../../apis/b/bikaai/native-api) · [Native API docs](https://bika.ai/help/guide/developer/openapi)
 - **BILL Payables & Receivables** · [Universal API reference](../../apis/b/billcom/universal-api) · [Native API reference](../../apis/b/billcom/native-api) · [Vendor website](https://www.bill.com/)
@@ -309,8 +308,6 @@
 - **Microsoft 365 Calendar** · [Universal API reference](../../apis/m/microsoft365Calendar/universal-api) · [Native API reference](../../apis/m/microsoft365Calendar/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/calendar?view=graph-rest-1.0)
 - **Microsoft 365 Excel** · [Universal API reference](../../apis/m/microsoft365Excel/universal-api) · [Native API reference](../../apis/m/microsoft365Excel/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/excel?view=graph-rest-1.0)
 - **Microsoft 365 People** · [Universal API reference](../../apis/m/microsoft365People/universal-api) · [Native API reference](../../apis/m/microsoft365People/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/)
-- **Microsoft Dynamics 365** · [Universal API reference](../../apis/m/microsoftDynamics365/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365/native-api)
-- **Microsoft Dynamics 365 BC** · [Universal API reference](../../apis/m/microsoftDynamics365BC/universal-api) · [Native API reference](../../apis/m/microsoftDynamics365BC/native-api)
 - **Microsoft Intune** · [Universal API reference](../../apis/m/microsoftIntune/universal-api) · [Native API reference](../../apis/m/microsoftIntune/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0)
 - **Minerstat** · [Universal API reference](../../apis/m/minerstat/universal-api) · [Native API reference](../../apis/m/minerstat/native-api) · [Native API docs](https://api.minerstat.com/)
 - **ModelsLab** · [Universal API reference](../../apis/m/modelsLab/universal-api) · [Native API reference](../../apis/m/modelsLab/native-api) · [Native API docs](https://docs.modelslab.com)
@@ -448,7 +445,6 @@
 - **Robots for Power BI** · [Universal API reference](../../apis/r/robotsForPowerBI/universal-api) · [Native API reference](../../apis/r/robotsForPowerBI/native-api) · [Native API docs](https://docs.pbirobots.powerbitiles.com/guides/api)
 - **SAIA EDI** · [Universal API reference](../../apis/s/sAIAEDI/universal-api) · [Native API reference](../../apis/s/sAIAEDI/native-api) · [Native API docs](https://saiaprodapi.developer.azure-api.net/api-details)
 - **Sales Cookie** · [Universal API reference](../../apis/s/salesCookie/universal-api) · [Native API reference](../../apis/s/salesCookie/native-api) · [Native API docs](https://support2.salescookie.com/portal/en/kb/articles/kb-how-can-i-access-sales-incentive-data-using-api-calls)
-- **Salesforce** · [Universal API reference](../../apis/s/salesForce/universal-api) · [Native API reference](../../apis/s/salesForce/native-api)
 - **Samsara** · [Universal API reference](../../apis/s/samsara/universal-api) · [Native API reference](../../apis/s/samsara/native-api) · [Native API docs](https://developers.samsara.com/reference)
 - **Schiphol Airport** · [Universal API reference](../../apis/s/schipholAirport/universal-api) · [Native API reference](../../apis/s/schipholAirport/native-api) · [Native API docs](https://developer.schiphol.nl/apis/flight-api/v4/quickstarts)
 - **SCOTUSblog** · [Universal API reference](../../apis/s/sCOTUSblog/universal-api) · [Native API reference](../../apis/s/sCOTUSblog/native-api) · [Native API docs](https://www.scotusblog.com/rss-feeds/)

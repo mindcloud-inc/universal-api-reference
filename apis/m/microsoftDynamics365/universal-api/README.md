@@ -3,6 +3,7 @@
 Microsoft Dynamics 365 through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365/latest
+- **Category:** Commerce / ERP
 - **Actions:** 36
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

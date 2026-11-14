@@ -3,7 +3,7 @@
 Cin7 Core Inventory API is part of Cin7 Core Inventory web application at https://inventory.dearsystems.com
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cin7core/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Commerce / Supply Chain
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.cin7.com/solutions/core/

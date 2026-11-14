@@ -3,7 +3,8 @@
 Microsoft Dynamics 365 Business Central
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365BC/latest
-- **Actions:** 84
+- **Category:** Commerce / ERP
+- **Actions:** 86
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (84)
+## Actions (86)
 
 ### Addresses
 
@@ -145,6 +146,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 | [List Sales Orders](actions/list-sales-orders.md) | GET |  |
 | [List Sales Orders Lines SSI](actions/list-sales-orders-lines-ssi.md) | GET |  |
 | [List Sales Orders SSI](actions/list-sales-orders-ssi.md) | GET |  |
+| [Ship and Invoice Order](actions/ship-and-invoice-order.md) | POST |  |
+| [Update Sales Order](actions/update-sales-order.md) | PUT |  |
 | [Update Sales Order SSI](actions/update-sales-order-ssi.md) | POST |  |
 | [Update Sales Orders Lines](actions/update-sales-orders-lines.md) | PUT |  |
 
