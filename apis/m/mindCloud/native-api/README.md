@@ -1,6 +1,6 @@
 # MindCloud: Native API Reference
 
-A consolidated summary of MindCloud's API configuration and 40 documented operations, with links to official documentation.
+A consolidated summary of MindCloud's API configuration and 41 documented operations, with links to official documentation.
 
 - **Official docs:** https://mindcloud.co/docs/api/rest/introduction
 - **OpenAPI specification:** https://connect.mindcloud.co/v2/openapi.json
@@ -38,7 +38,7 @@ Response data is read from `data`.
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–1000). Use `offset` in the query string as the record offset; numbering starts at 0.
 
-## Endpoints (40 documented)
+## Endpoints (41 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -56,6 +56,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Get Role](actions/get-role.md) | `GET /v2/roles/:roleId` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Get Run](actions/get-run.md) | `GET /v2/runs/:runId` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Get Run Step](actions/get-run-step.md) | `GET /v2/runs/:runId/steps/:stepInstanceId` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
+| [Get Step Schema](actions/get-step-schema.md) | `GET /v2/workflows/:workflowId/steps/:stepId/schema` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Get Universal Action](actions/get-universal-action.md) | `GET /v2/universal/apps/:appSlug/actions/:actionSlug` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Get Usage](actions/get-usage.md) | `GET /v2/usage` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Get Workflow](actions/get-workflow.md) | `GET /v2/workflows/:workflowId` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
