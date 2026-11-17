@@ -1,6 +1,6 @@
 # GitHub: Native API Reference
 
-A consolidated summary of GitHub's API configuration and 34 documented operations, with links to official documentation.
+A consolidated summary of GitHub's API configuration and 38 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.github.com/en/rest
 - **OpenAPI specification:** https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
@@ -48,7 +48,7 @@ Send filters in the query string. Supported operators: `eq`, `gt`, `gte`, `lt`, 
 
 Set the sort field with `sort` in the query string. Set the direction separately with `direction`. Use `asc` for ascending order and `desc` for descending order. Only one sort field is accepted.
 
-## Endpoints (34 documented)
+## Endpoints (38 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -73,14 +73,18 @@ Set the sort field with `sort` in the query string. Set the direction separately
 | [List Branches](actions/list-branches.md) | `GET /repos/:owner/:repo/branches` | [docs](https://docs.github.com/en/rest/branches/branches#list-branches) |
 | [List Check Runs for Ref](actions/list-check-runs-for-ref.md) | `GET /repos/:owner/:repo/commits/:ref/check-runs` | [docs](https://docs.github.com/en/rest/checks/runs#list-check-runs-for-a-git-reference) |
 | [List Commits](actions/list-commits.md) | `GET /repos/:owner/:repo/commits` | [docs](https://docs.github.com/en/rest/commits/commits#list-commits) |
+| [List Issue Comments](actions/list-issue-comments.md) | `GET /repos/:owner/:repo/issues/:issue_number/comments` | [docs](https://docs.github.com/en/rest/issues/comments#list-issue-comments) |
 | [List Pull Request Files](actions/list-pull-request-files.md) | `GET /repos/:owner/:repo/pulls/:pull_number/files` | [docs](https://docs.github.com/en/rest/pulls/pulls#list-pull-requests-files) |
 | [List Pull Request Reviews](actions/list-pull-request-reviews.md) | `GET /repos/:owner/:repo/pulls/:pull_number/reviews` | [docs](https://docs.github.com/en/rest/pulls/reviews#list-reviews-for-a-pull-request) |
 | [List Pull Requests](actions/list-pull-requests.md) | `GET /repos/:owner/:repo/pulls` | [docs](https://docs.github.com/en/rest/pulls/pulls#list-pull-requests) |
 | [List Releases](actions/list-releases.md) | `GET /repos/:owner/:repo/releases` | [docs](https://docs.github.com/en/rest/releases/releases#list-releases) |
 | [List Repository Issues](actions/list-repository-issues.md) | `GET /repos/:owner/:repo/issues` | [docs](https://docs.github.com/en/rest/issues/issues#list-repository-issues) |
+| [List Repository Labels](actions/list-repository-labels.md) | `GET /repos/:owner/:repo/labels` | [docs](https://docs.github.com/en/rest/issues/labels#list-labels-for-a-repository) |
 | [List Repository Workflow Runs](actions/list-repository-workflow-runs.md) | `GET /repos/:owner/:repo/actions/runs` | [docs](https://docs.github.com/en/rest/actions/workflow-runs#list-workflow-runs-for-a-repository) |
 | [List Repository Workflows](actions/list-repository-workflows.md) | `GET /repos/:owner/:repo/actions/workflows` | [docs](https://docs.github.com/en/rest/actions/workflows#list-repository-workflows) |
+| [Mark Pull Request Ready for Review](actions/mark-pull-request-ready-for-review.md) | `POST /graphql` | [docs](https://docs.github.com/en/graphql/reference/mutations#markpullrequestreadyforreview) |
 | [Merge Pull Request](actions/merge-pull-request.md) | `PUT /repos/:owner/:repo/pulls/:pull_number/merge` | [docs](https://docs.github.com/en/rest/pulls/pulls#merge-a-pull-request) |
+| [Remove Requested Reviewers](actions/remove-requested-reviewers.md) | `DELETE /repos/:owner/:repo/pulls/:pull_number/requested_reviewers` | [docs](https://docs.github.com/en/rest/pulls/review-requests#remove-requested-reviewers-from-a-pull-request) |
 | [Request Pull Request Reviewers](actions/request-pull-request-reviewers.md) | `POST /repos/:owner/:repo/pulls/:pull_number/requested_reviewers` | [docs](https://docs.github.com/en/rest/pulls/review-requests#request-reviewers-for-a-pull-request) |
 | [Search Issues and Pull Requests](actions/search-issues-and-pull-requests.md) | `GET /search/issues` | [docs](https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-issues-and-pull-requests) |
 | [Search Repositories](actions/search-repositories.md) | `GET /search/repositories` | [docs](https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories) |

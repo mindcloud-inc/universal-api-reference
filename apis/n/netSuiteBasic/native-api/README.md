@@ -1,6 +1,6 @@
 # NetSuite - Basic: Native API Reference
 
-A consolidated summary of NetSuite - Basic's API configuration and 99 documented operations, with links to official documentation.
+A consolidated summary of NetSuite - Basic's API configuration and 100 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_1540391670.html
 - **API base URL:** `https://{accountDomain}.suitetalk.api.netsuite.com/services/rest`
@@ -49,7 +49,7 @@ Use `limit` in the query string to set the page size (default 25; accepted range
 
 Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (99 documented)
+## Endpoints (100 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -57,6 +57,7 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [Create Classification](actions/create-classification.md) | `POST /record/v1/classification` | [docs](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_1558962745.html) |
 | [Create Contact](actions/create-contact.md) | `POST /record/v1/contact` | [docs](https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2025.2/index.html#/definitions/contact) |
 | [Create Customer](actions/create-customer.md) | `POST /record/v1/customer` | [docs](https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2025.2/index.html#/definitions/customer) |
+| [Create Customer Payment](actions/create-customer-payment.md) | `POST /record/v1/customerPayment` | [docs](https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2026.1/index.html#/definitions/customerPayment) |
 | [Create Employee](actions/create-employee.md) | `POST /record/v1/employee` | [docs](https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2025.2/index.html#/definitions/employee) |
 | [Create Location](actions/create-location.md) | `POST /record/v1/location` | [docs](https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2025.2/index.html#/definitions/location) |
 | [Create Purchase Order](actions/create-purchase-order.md) | `POST /record/v1/purchaseOrder` | [docs](https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2025.2/index.html#/definitions/purchaseOrder) |

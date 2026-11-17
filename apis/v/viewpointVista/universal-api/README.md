@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 81
+- **Actions:** 82
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (81)
+## Actions (82)
 
 ### Accounts Payable
 
@@ -52,6 +52,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | [Post PO Purchase Order Batch](actions/post-po-purchase-order-batch.md) | POST | Validate and post an PO Purchase Order Batch |
 | [Upsert AP Invoice Batch](actions/upsert-ap-invoice-batch.md) | POST |  |
 | [Upsert Purchase Order Batch](actions/upsert-purchase-order-batch.md) | POST | Upsert Purchase Order Batch |
+
+### Contract Item
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Update Contract Item](actions/update-contract-item.md) | PUT |  |
 
 ### Contracts
 

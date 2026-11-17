@@ -4,7 +4,7 @@ Connect to Oracle NetSuite SuiteTalk REST Web Services for core ERP, CRM, sales,
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/netSuiteBasic/latest
 - **Category:** Commerce / Accounting
-- **Actions:** 99
+- **Actions:** 100
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.netsuite.com/
 - **Vendor API docs:** https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_1540391670.html
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/acti
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (99)
+## Actions (100)
 
 ### Accounting Periods
 
@@ -210,6 +210,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/netSuiteBasic/latest/acti
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Customer Payment](actions/create-customer-payment.md) | POST | Creates a new customer payment in NetSuite. |
 | [List Customer Deposits](actions/list-customer-deposits.md) | GET | Retrieves a list of customer deposits from NetSuite. |
 | [List Customer Payments](actions/list-customer-payments.md) | GET | Retrieves a list of customer payments from NetSuite. |
 

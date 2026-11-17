@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 BC: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 86 documented operations.
+A consolidated summary of Microsoft Dynamics 365 BC's API configuration and 89 documented operations.
 
 - **REST base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/`
 - **REST (Copy) base URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/ssi/aapi/`
@@ -59,7 +59,7 @@ Response data is read from `value`.
 - **REST:** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string to choose the result range.
 - **REST (Copy):** Use `$top` in the query string to set the page size (default 100; accepted range 1–20000). Use `$skip` in the query string as the record offset.
 
-## Endpoints (86 documented)
+## Endpoints (89 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -83,6 +83,7 @@ Response data is read from `value`.
 | [Create Sales Order](actions/create-sales-order.md) | REST | `POST companies(:id)/salesOrders` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_create) |
 | [Create Sales Order SSI](actions/create-sales-order-ssi.md) | REST (Copy) | `POST /v2.0/companies(:id)/salesHeadersSSI` | [docs](https://anotepad.com/notes/ccfg4kec) |
 | [Create Sales Order Line](actions/create-sales-orders-lines.md) | REST | `POST v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_create) |
+| [Create Ship-To Addresses ODataV4](actions/create-ship-to-addresses-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/shipToAddresses` |  |
 | [Create Ship-to Addresses SSI](actions/create-ship-to-addresses-ssi.md) | REST (Copy) | `POST v2.0/companies(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [Create Vendor Credit Memo Line ODataV4](actions/create-vendor-credit-memo-line-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemoPurchLines` |  |
 | [Create Vendor Credit Memo ODataV4](actions/create-vendor-credit-memo-o-data-v4.md) | REST | `POST https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoice` |  |
@@ -127,6 +128,7 @@ Response data is read from `value`.
 | [List Sales Orders](actions/list-sales-orders.md) | REST | `GET v2.0/companies(:companyId)/salesOrders` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_salesorder) |
 | [List Sales Orders Lines SSI](actions/list-sales-orders-lines-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesLinesSSI` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
 | [List Sales Orders SSI](actions/list-sales-orders-ssi.md) | REST (Copy) | `GET v2.0/companies(:company_id)/salesHeadersSSI(:id)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorder_get) |
+| [List Ship-to Addresses SSI  Odata](actions/list-ship-to-addresses-ssi-odata.md) | REST (Copy) | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company_id)/shipToAddressesSSI` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [List Vendor Purchase Credit Memo Lines ODataV4](actions/list-vendor-purchase-credit-memo-lines-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemoPurchLines` |  |
 | [List Vendor Purchase Credit Memo ODataV4](actions/list-vendor-purchase-credit-memo-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemo` |  |
 | [List Vendor Purchase Invoices Lines ODataV4](actions/list-vendor-purchase-invoices-lines-o-data-v4.md) | REST | `GET https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoicePurchLines` |  |
@@ -147,5 +149,6 @@ Response data is read from `value`.
 | [Update Sales Order SSI](actions/update-sales-order-ssi.md) | REST (Copy) | `PATCH /v2.0/companies(:id)/salesHeadersSSI(:salesOrderID)` | [docs](https://anotepad.com/notes/ccfg4kec) |
 | [Update Sales Orders Lines](actions/update-sales-orders-lines.md) | REST | `PATCH v2.0/companies(:companyId)/salesOrders(:salesOrderId)/salesOrderLines(:salesOrderLineId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/api/dynamics_salesorderline_create) |
 | [Update Ship-to Addresses SSI](actions/update-ship-to-addresses-ssi.md) | REST (Copy) | `PATCH v2.0/companies(:company_id)/shipToAddressesSSI(CustomerNo=':customerNo',Code=':shipToAddressCode')` | [docs](https://anotepad.com/notes/x8dnaab8) |
+| [Update Ship-to Addresses SSI ODataV4](actions/update-ship-to-addresses-ssio-data-v4.md) | REST (Copy) | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company_id)/shipToAddresses` | [docs](https://anotepad.com/notes/x8dnaab8) |
 | [Update Vendor Credit Memo ODataV4](actions/update-vendor-credit-memo-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MindcloudPurchaseCreditMemo(Document_Type=:Document_Type,No=:No)` |  |
 | [Update Vendor Purchase Invoices ODataV4](actions/update-vendor-purchase-invoices-o-data-v4.md) | REST | `PATCH https://api.businesscentral.dynamics.com/v2.0/{{credentials.tenantId}}/{{credentials.environment}}/ODataV4/Company(:company)/MincloudPurchaseInvoice(No=:No,Document_Type=:Document_Type)` |  |

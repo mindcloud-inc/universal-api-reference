@@ -1,6 +1,6 @@
 # Support apps
 
-182 apps in the Support category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+183 apps in the Support category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AirPinpoint** · [Universal API reference](../../apis/a/airPinpoint/universal-api) · [Native API reference](../../apis/a/airPinpoint/native-api) · [Native API docs](https://airpinpoint.com/docs/api)
 - **Airzone Cloud** · [Universal API reference](../../apis/a/airzoneCloud/universal-api) · [Native API reference](../../apis/a/airzoneCloud/native-api) · [Native API docs](https://developers.airzonecloud.com/docs/web-api/)
@@ -47,6 +47,7 @@
 - **Dialpad** · [Universal API reference](../../apis/d/dialpad/universal-api) · [Native API reference](../../apis/d/dialpad/native-api) · [Native API docs](https://developers.dialpad.com/reference)
 - **DocsBot AI** · [Universal API reference](../../apis/d/docsBotAI/universal-api) · [Native API reference](../../apis/d/docsBotAI/native-api) · [Native API docs](https://docsbot.ai/documentation/developer)
 - **Documo** · [Universal API reference](../../apis/d/documo/universal-api) · [Native API reference](../../apis/d/documo/native-api) · [Native API docs](https://docs.documo.com/)
+- **ECI Bolt** · [Universal API reference](../../apis/e/eCIBolt/universal-api) · [Native API reference](../../apis/e/eCIBolt/native-api) · [Native API docs](https://app.bolttech.net/api-docs/index.html)
 - **Ecotrak** · [Universal API reference](../../apis/e/ecotrak/universal-api) · [Native API reference](../../apis/e/ecotrak/native-api) · [Native API docs](https://api-docs.ecotrak.com)
 - **Encircle** · [Universal API reference](../../apis/e/encircle/universal-api) · [Native API reference](../../apis/e/encircle/native-api) · [Native API docs](https://encircleinc.github.io/public-api/)
 - **Eventbrite** · [Universal API reference](../../apis/e/eventbrite/universal-api) · [Native API reference](../../apis/e/eventbrite/native-api) · [Native API docs](https://www.eventbrite.com/platform/api)

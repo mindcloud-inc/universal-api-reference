@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3234 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3236 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -823,6 +823,7 @@ The official vendor API documentation for each of the 3234 apps in this repo. Ea
 - [eCFR](../apis/e/eCFR/native-api) - https://www.ecfr.gov/developers/documentation/api/v1
 - [echowin](../apis/e/echowin/native-api) - https://echo.win/api-docs
 - [EchtPost Postcards](../apis/e/echtPostPostcards/native-api) - https://hilfe.echtpost.de/article/453/postkartenversand-uber-api-programmierschnittstelle
+- [ECI Bolt](../apis/e/eCIBolt/native-api) - https://app.bolttech.net/api-docs/index.html
 - [Ecologi](../apis/e/ecologi/native-api) - https://docs.ecologi.com/
 - [Ecotrak](../apis/e/ecotrak/native-api) - https://api-docs.ecotrak.com
 - [Ecwid](../apis/e/ecwid/native-api) - https://docs.ecwid.com/api-reference
@@ -2079,6 +2080,7 @@ The official vendor API documentation for each of the 3234 apps in this repo. Ea
 - [Platerecognizer](../apis/p/platerecognizer/native-api) - https://guides.platerecognizer.com/
 - [PlatoForms](../apis/p/platoForms/native-api) - https://apidocs.platoforms.com/
 - [Platrum](../apis/p/platrum/native-api) - http://api.docs.platrum.ru
+- [Plaud AI](../apis/p/plaud/native-api) - https://docs.plaud.ai/plaud-mcp-cli/mcp
 - [Plausible Analytics](../apis/p/plausibleAnalytics/native-api) - https://plausible.io/docs
 - [Pledge](../apis/p/pledge/native-api) - https://developer.pledge.to/api/
 - [Pling](../apis/p/pling/native-api) - https://www.opendesktop.org/ocs-api

@@ -4,7 +4,7 @@ Manage leads, contacts, deals, and sales activities
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoCRM/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 44
+- **Actions:** 49
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.zoho.com/crm/
 - **Vendor API docs:** https://www.zoho.com/crm/developer/docs/api/v8/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zohoCRM/latest/actions/ge
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (44)
+## Actions (49)
 
 ### Account
 
@@ -70,6 +70,21 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zohoCRM/latest/actions/ge
 | Action | Method | Description |
 | --- | --- | --- |
 | [Get Records through COQL Query](actions/get-records-through-coql-query.md) | GET | Retrieves records from Zoho CRM using a COQL query. |
+
+### Custom Object
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Custom Objects](actions/list-custom-objects.md) | GET |  |
+
+### Custom Object Record
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Custom Object Record](actions/create-custom-object-record.md) | POST |  |
+| [Get Custom Object Record](actions/get-custom-object-record.md) | GET |  |
+| [Update Custom Object Record](actions/update-custom-object-record.md) | PUT |  |
+| [Upsert Custom Object Record](actions/upsert-custom-object-record.md) | POST |  |
 
 ### Deal
 

@@ -1,6 +1,6 @@
 # Artificial Intelligence apps
 
-205 apps in the Artificial Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+206 apps in the Artificial Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Agent700** · [Universal API reference](../../apis/a/agent700/universal-api) · [Native API reference](../../apis/a/agent700/native-api) · [Native API docs](https://agent700.readme.io/reference/authentication-4)
 - **Agent.ai** · [Universal API reference](../../apis/a/agentai/universal-api) · [Native API reference](../../apis/a/agentai/native-api) · [Native API docs](https://docs.agent.ai/api-reference)
@@ -153,6 +153,7 @@
 - **Picsart** · [Universal API reference](../../apis/p/picsart/universal-api) · [Native API reference](../../apis/p/picsart/native-api) · [Native API docs](https://docs.picsart.io/reference)
 - **Pipeless Recommendations** · [Universal API reference](../../apis/p/pipelessRecommendations/universal-api) · [Native API reference](../../apis/p/pipelessRecommendations/native-api) · [Native API docs](https://docs.pipeless.io/reference)
 - **PlagiarismCheck.org** · [Universal API reference](../../apis/p/plagiarismCheckorg/universal-api) · [Native API reference](../../apis/p/plagiarismCheckorg/native-api) · [Native API docs](https://plagiarismcheck.org/for-developers/)
+- **Plaud AI** · [Universal API reference](../../apis/p/plaud/universal-api) · [Native API reference](../../apis/p/plaud/native-api) · [Native API docs](https://docs.plaud.ai/plaud-mcp-cli/mcp)
 - **Productify.ai** · [Universal API reference](../../apis/p/productifyai/universal-api) · [Native API reference](../../apis/p/productifyai/native-api) · [Native API docs](https://api.productify.ai/docs/)
 - **PromptHub** · [Universal API reference](../../apis/p/promptHub/universal-api) · [Native API reference](../../apis/p/promptHub/native-api) · [Native API docs](https://intercom.help/prompthub/en/articles/8541389-prompthub-api-documentation)
 - **PromptLayer Run Agent** · [Universal API reference](../../apis/p/promptLayerRunAgent/universal-api) · [Native API reference](../../apis/p/promptLayerRunAgent/native-api) · [Native API docs](https://docs.promptlayer.com/reference/introduction)

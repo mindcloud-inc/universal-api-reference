@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3234 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3236 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -802,6 +802,7 @@ Machine-readable API descriptions for 3234 apps. Universal API specifications ar
 | [eCFR](../apis/e/eCFR) | [OpenAPI 3.1](../apis/e/eCFR/universal-api/openapi.json) |  |
 | [echowin](../apis/e/echowin) | [OpenAPI 3.1](../apis/e/echowin/universal-api/openapi.json) |  |
 | [EchtPost Postcards](../apis/e/echtPostPostcards) | [OpenAPI 3.1](../apis/e/echtPostPostcards/universal-api/openapi.json) | [Provider OpenAPI](https://api.echtpost.de/api-docs/v1/swagger.json) |
+| [ECI Bolt](../apis/e/eCIBolt) | [OpenAPI 3.1](../apis/e/eCIBolt/universal-api/openapi.json) | [Provider OpenAPI](https://app.bolttech.net/api-docs/v1/swagger.yaml) |
 | [Ecologi](../apis/e/ecologi) | [OpenAPI 3.1](../apis/e/ecologi/universal-api/openapi.json) |  |
 | [Ecotrak](../apis/e/ecotrak) | [OpenAPI 3.1](../apis/e/ecotrak/universal-api/openapi.json) |  |
 | [Ecwid](../apis/e/ecwid) | [OpenAPI 3.1](../apis/e/ecwid/universal-api/openapi.json) |  |
@@ -2026,6 +2027,7 @@ Machine-readable API descriptions for 3234 apps. Universal API specifications ar
 | [Platerecognizer](../apis/p/platerecognizer) | [OpenAPI 3.1](../apis/p/platerecognizer/universal-api/openapi.json) |  |
 | [PlatoForms](../apis/p/platoForms) | [OpenAPI 3.1](../apis/p/platoForms/universal-api/openapi.json) | [Provider OpenAPI](https://apidocs.platoforms.com/swagger.json) |
 | [Platrum](../apis/p/platrum) | [OpenAPI 3.1](../apis/p/platrum/universal-api/openapi.json) |  |
+| [Plaud AI](../apis/p/plaud) | [OpenAPI 3.1](../apis/p/plaud/universal-api/openapi.json) |  |
 | [Plausible Analytics](../apis/p/plausibleAnalytics) | [OpenAPI 3.1](../apis/p/plausibleAnalytics/universal-api/openapi.json) |  |
 | [Pledge](../apis/p/pledge) | [OpenAPI 3.1](../apis/p/pledge/universal-api/openapi.json) | [Provider OpenAPI](https://developer.pledge.to/api.yaml) |
 | [Pling](../apis/p/pling) | [OpenAPI 3.1](../apis/p/pling/universal-api/openapi.json) |  |

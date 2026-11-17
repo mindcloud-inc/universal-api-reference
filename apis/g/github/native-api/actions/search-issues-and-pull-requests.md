@@ -11,11 +11,14 @@ Finds GitHub issues and pull requests by search query.
 
 ## Capabilities
 
-This operation supports [pagination](../README.md#pagination), [filtering](../README.md#filtering), and [sorting](../README.md#sorting).
+This operation supports [filtering](../README.md#filtering).
 
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `q` | query | `string` | no | Optional free-text GitHub search query. Structured filters are also appended into the final q search string. |
+| `q` | query | `string` | yes | GitHub search query, for example "is:pr is:open review-requested:@me". Include is:issue or is:pr. |
 | `advanced_search` | query | `string` | no | Set true to opt into advanced search syntax when needed. |
+| `per_page` | query | `number` | no | The number of results per page (max 100). |
+| `sort` | query | `string` | no | Sort field: created, updated or comments. Default is best match. Accepted values: `0`, `1`, `2`. |
+| `order` | query | `string` | no | Sort direction: asc or desc. Default is desc. Accepted values: `0`, `1`. |

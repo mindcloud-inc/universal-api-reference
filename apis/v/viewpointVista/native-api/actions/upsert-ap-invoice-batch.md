@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `POST`
-- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ar/2/data/inv_batches/actions/upsert`
+- **Path:** `v1/direct/subscribers/{subscriberCode}/vista/ap/2/data/inv_batches/actions/upsert`
 - **Base URL:** `https://api.xchange.trimble.com/connect/`
 - **API:** REST
 - **Official documentation:** [Upsert AP Invoice Batch](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatchesactionsupsert_receipt)

@@ -50,6 +50,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
 - [List Sales Order Lines](actions/list-sales-order-lines.md)
 - [List Sales Orders](actions/list-sales-orders.md)
 - [List Sales Orders SSI](actions/list-sales-orders-ssi.md)
+- [List Ship-to Addresses SSI  Odata](actions/list-ship-to-addresses-ssi-odata.md)
 - [List Vendor Purchase Credit Memo Lines ODataV4](actions/list-vendor-purchase-credit-memo-lines-o-data-v4.md)
 - [List Vendor Purchase Credit Memo ODataV4](actions/list-vendor-purchase-credit-memo-o-data-v4.md)
 - [List Vendor Purchase Invoices Lines ODataV4](actions/list-vendor-purchase-invoices-lines-o-data-v4.md)

@@ -106,7 +106,7 @@ Responses from this API use JSON.
 | [List Quote Line Items](actions/list-quote-line-items.md) | REST SOQL Read | `GET /services/data/v61.0/query` | [docs](https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query) |
 | [List Quotes](actions/list-quotes.md) | REST SOQL Read | `GET /services/data/v61.0/query` | [docs](https://developer.salesforce.com/docs/platform/api-rest/guide/resources-query) |
 | [Org sObjects (Lookup)](actions/lookup-s-objects.md) | REST | `GET services/data/v61.0/sobjects/` | [docs](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm) |
-| [Query (SOQL)](actions/query.md) | REST | `GET services/data/v61.0/query` | [docs](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select.htm) |
+| [Query (SOQL)](actions/query.md) | REST | `GET services/data/:apiVersion/query` | [docs](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select.htm) |
 | [Query Order Items (test)](actions/query-order-items-test.md) | REST | `GET services/data/v61.0/query` |  |
 | [Update Order Items](actions/update-invoice.md) | REST | `PATCH services/data/v61.0/sobjects/OrderItem/:id` |  |
 | [Update Product](actions/update-product.md) | REST | `PATCH /services/data/v64.0/sobjects/Product2/:id` | [docs](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_product2.htm) |

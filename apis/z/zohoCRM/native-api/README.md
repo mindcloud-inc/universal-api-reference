@@ -1,6 +1,6 @@
 # Zoho CRM: Native API Reference
 
-A consolidated summary of Zoho CRM's API configuration and 44 documented operations, with links to official documentation.
+A consolidated summary of Zoho CRM's API configuration and 49 documented operations, with links to official documentation.
 
 - **Official docs:** https://www.zoho.com/crm/developer/docs/api/v8/
 - **API base URL:** `{api_domain}/crm/v8`
@@ -41,7 +41,7 @@ Use `per_page` in the query string to set the page size (default 200; accepted r
 
 Set the sort field with `sort_by` in the query string. Set the direction separately with `sort_order`. Use `asc` for ascending order and `desc` for descending order. Only one sort field is accepted.
 
-## Endpoints (44 documented)
+## Endpoints (49 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -50,6 +50,7 @@ Set the sort field with `sort_by` in the query string. Set the direction separat
 | [Create Accounts](actions/create-accounts-batch.md) | `POST /Accounts` | [docs](https://www.zoho.com/crm/developer/docs/api/v7/insert-records.html) |
 | [Create Contact](actions/create-contact.md) | `POST /Contacts` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/insert-records.html) |
 | [Create Contacts](actions/create-contacts-batch.md) | `POST /Contacts` | [docs](https://www.zoho.com/crm/developer/docs/api/v7/insert-records.html) |
+| [Create Custom Object Record](actions/create-custom-object-record.md) | `POST /:moduleApiName` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/insert-records.html) |
 | [Create Deal](actions/create-deal.md) | `POST /Deals` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/insert-records.html) |
 | [Create Lead](actions/create-lead.md) | `POST /Leads` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/insert-records.html) |
 | [Create Note for Record](actions/create-note-for-record.md) | `POST /Notes` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/create-notes.html) |
@@ -57,6 +58,7 @@ Set the sort field with `sort_by` in the query string. Set the direction separat
 | [Create Registrations](actions/create-registrations-batch.md) | `POST /Registrations` | [docs](https://www.zoho.com/crm/developer/docs/api/v7/insert-records.html) |
 | [Get Account](actions/get-account.md) | `GET /Accounts` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [Get Contact](actions/get-contact.md) | `GET /Contacts` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
+| [Get Custom Object Record](actions/get-custom-object-record.md) | `GET /:moduleApiName/:recordId` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [Get Deal](actions/get-deal.md) | `GET /Deals` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [Get Fields Metadata](actions/get-fields-metadata.md) | `GET /settings/fields` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/field-meta.html) |
 | [Get Lead](actions/get-lead.md) | `GET /Leads` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
@@ -69,6 +71,7 @@ Set the sort field with `sort_by` in the query string. Set the direction separat
 | [Get Users](actions/get-users.md) | `GET /users` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-users.html) |
 | [List Accounts](actions/list-accounts.md) | `GET /Accounts` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [List Contacts](actions/list-contacts.md) | `GET /Contacts` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
+| [List Custom Objects](actions/list-custom-objects.md) | `GET /settings/modules` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/modules-api.html) |
 | [List Deals](actions/list-deals.md) | `GET /Deals` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [List Leads](actions/list-leads.md) | `GET /Leads` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/get-records.html) |
 | [Search Accounts](actions/search-accounts.md) | `GET /Accounts/search` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/search-records.html) |
@@ -80,6 +83,7 @@ Set the sort field with `sort_by` in the query string. Set the direction separat
 | [Update Accounts](actions/update-accounts-batch.md) | `PUT /Accounts` | [docs](https://www.zoho.com/crm/developer/docs/api/v7/update-records.html) |
 | [Update Contact](actions/update-contact.md) | `PUT /Contacts` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/update-records.html) |
 | [Update Contacts](actions/update-contacts-batch.md) | `PUT /Contacts` | [docs](https://www.zoho.com/crm/developer/docs/api/v7/update-records.html) |
+| [Update Custom Object Record](actions/update-custom-object-record.md) | `PUT /:moduleApiName/:recordId` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/update-records.html) |
 | [Update Deal](actions/update-deal.md) | `PUT /Deals` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/update-records.html) |
 | [Update Lead](actions/update-lead.md) | `PUT /Leads` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/update-records.html) |
 | [Update Note](actions/update-note.md) | `PUT /Notes/:note_id` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/update-notes.html) |
@@ -87,5 +91,6 @@ Set the sort field with `sort_by` in the query string. Set the direction separat
 | [Update Registrations](actions/update-registrations-batch.md) | `PUT /Registrations` | [docs](https://www.zoho.com/crm/developer/docs/api/v7/update-records.html) |
 | [Upsert Account](actions/upsert-account.md) | `POST /Accounts/upsert` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/upsert-records.html) |
 | [Upsert Contact](actions/upsert-contact.md) | `POST /Contacts/upsert` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/upsert-records.html) |
+| [Upsert Custom Object Record](actions/upsert-custom-object-record.md) | `POST /:moduleApiName/upsert` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/upsert-records.html) |
 | [Upsert Deal](actions/upsert-deal.md) | `POST /Deals/upsert` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/upsert-records.html) |
 | [Upsert Lead](actions/upsert-lead.md) | `POST /Leads/upsert` | [docs](https://www.zoho.com/crm/developer/docs/api/v8/upsert-records.html) |

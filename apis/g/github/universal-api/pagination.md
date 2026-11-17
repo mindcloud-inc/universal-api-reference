@@ -32,5 +32,4 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 - [List Repository Issues](actions/list-repository-issues.md)
 - [List Repository Workflow Runs](actions/list-repository-workflow-runs.md)
 - [List Repository Workflows](actions/list-repository-workflows.md)
-- [Search Issues and Pull Requests](actions/search-issues-and-pull-requests.md)
 - [Search Repositories](actions/search-repositories.md)

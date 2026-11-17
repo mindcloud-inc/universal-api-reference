@@ -4,7 +4,7 @@ GitHub is a developer platform for hosting code, reviewing changes, and automati
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/github/latest
 - **Category:** IT Operations / Developer Tools
-- **Actions:** 34
+- **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://github.com
 - **Vendor API docs:** https://docs.github.com/en/rest
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (34)
+## Actions (38)
 
 ### Branches
 
@@ -54,6 +54,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 | Action | Method | Description |
 | --- | --- | --- |
 | [Create Issue Comment](actions/create-issue-comment.md) | POST | Creates an issue comment in GitHub. |
+| [List Issue Comments](actions/list-issue-comments.md) | GET |  |
+
+### Issue Or Pull Request
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Search Issues and Pull Requests](actions/search-issues-and-pull-requests.md) | GET | Finds GitHub issues and pull requests by search query. |
 
 ### Issues
 
@@ -66,15 +73,26 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 | [List Pull Requests](actions/list-pull-requests.md) | GET | Lists pull requests in a GitHub repository. |
 | [List Repository Issues](actions/list-repository-issues.md) | GET | Lists issues in a GitHub repository. |
 | [Merge Pull Request](actions/merge-pull-request.md) | PUT | Merges a pull request into the base branch in GitHub. |
-| [Search Issues and Pull Requests](actions/search-issues-and-pull-requests.md) | GET | Finds GitHub issues and pull requests by search query. |
 | [Update Issue](actions/update-issue.md) | PUT | Updates an issue in a GitHub repository. |
 | [Update Pull Request](actions/update-pull-request.md) | PUT | Updates a pull request in a GitHub repository. |
+
+### Label
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Repository Labels](actions/list-repository-labels.md) | GET |  |
 
 ### Organizations
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Authenticated User Organizations](actions/list-authenticated-user-organizations.md) | GET | Lists GitHub organizations for the authenticated user. |
+
+### Pull Request
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Mark Pull Request Ready for Review](actions/mark-pull-request-ready-for-review.md) | PUT |  |
 
 ### Pull Request Review
 
@@ -115,6 +133,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Remove Requested Reviewers](actions/remove-requested-reviewers.md) | DELETE |  |
 | [Request Pull Request Reviewers](actions/request-pull-request-reviewers.md) | POST | Requests reviews from users or teams on a GitHub pull request. |
 
 ### Users

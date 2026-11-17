@@ -9,5 +9,4 @@ Sortable list actions accept a `sort` query parameter containing a comma-separat
 - [List Authenticated User Repositories](actions/list-authenticated-user-repositories.md)
 - [List Pull Requests](actions/list-pull-requests.md)
 - [List Repository Issues](actions/list-repository-issues.md)
-- [Search Issues and Pull Requests](actions/search-issues-and-pull-requests.md)
 - [Search Repositories](actions/search-repositories.md)

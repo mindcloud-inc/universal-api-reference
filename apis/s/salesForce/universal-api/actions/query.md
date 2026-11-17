@@ -38,6 +38,12 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `query` | string | yes |  |
 
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `apiVersion` | string | no | Salesforce REST API version for this query, including the v prefix (for example, v66.0). Defaults to v61.0 to preserve existing Query behavior. DebitMemo requires v65.0 or later and the appropriate Revenue Cloud Billing license and permissions. Default: `v61.0`. Example: `v66.0`. |
+
 ## Response
 
 ```json
@@ -72,5 +78,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Salesforce API, this operation is `GET services/data/v61.0/query` (base URL `https://{{credentials.companyDomainName}}.my.salesforce.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/query.md) for the provider-specific parameters and requirements.
+Through the native Salesforce API, this operation is `GET services/data/:apiVersion/query` (base URL `https://{{credentials.companyDomainName}}.my.salesforce.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/query.md) for the provider-specific parameters and requirements.
 

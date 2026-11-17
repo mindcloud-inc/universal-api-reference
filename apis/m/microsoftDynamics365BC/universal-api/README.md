@@ -4,7 +4,7 @@ Microsoft Dynamics 365 Business Central
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365BC/latest
 - **Category:** Commerce / ERP
-- **Actions:** 86
+- **Actions:** 89
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -20,16 +20,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365BC/la
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (86)
+## Actions (89)
 
 ### Addresses
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Ship-To Addresses ODataV4](actions/create-ship-to-addresses-o-data-v4.md) | POST |  |
 | [Create Ship-to Addresses SSI](actions/create-ship-to-addresses-ssi.md) | POST |  |
 | [Get Inventory By Location SSI](actions/get-inventory-by-location-ssi.md) | GET |  |
 | [Get Ship-to Addresses SSI](actions/get-ship-to-addresses-ssi.md) | GET |  |
+| [List Ship-to Addresses SSI  Odata](actions/list-ship-to-addresses-ssi-odata.md) | GET |  |
 | [Update Ship-to Addresses SSI](actions/update-ship-to-addresses-ssi.md) | PUT |  |
+| [Update Ship-to Addresses SSI ODataV4](actions/update-ship-to-addresses-ssio-data-v4.md) | POST |  |
 
 ### Company Infos
 

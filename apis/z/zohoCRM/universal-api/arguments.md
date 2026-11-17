@@ -1,6 +1,6 @@
 # Zoho CRM Universal API Arguments
 
-Arguments are the inputs a Zoho CRM action needs. Each [action page](README.md#actions-44) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
+Arguments are the inputs a Zoho CRM action needs. Each [action page](README.md#actions-49) lists its exact keys, types, and required fields. Keys are case-sensitive, and requests with missing or invalid required arguments fail instead of guessing.
 
 ## Request format
 
