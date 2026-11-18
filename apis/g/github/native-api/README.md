@@ -1,6 +1,6 @@
 # GitHub: Native API Reference
 
-A consolidated summary of GitHub's API configuration and 38 documented operations, with links to official documentation.
+A consolidated summary of GitHub's API configuration and 39 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.github.com/en/rest
 - **OpenAPI specification:** https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
@@ -48,7 +48,7 @@ Send filters in the query string. Supported operators: `eq`, `gt`, `gte`, `lt`, 
 
 Set the sort field with `sort` in the query string. Set the direction separately with `direction`. Use `asc` for ascending order and `desc` for descending order. Only one sort field is accepted.
 
-## Endpoints (38 documented)
+## Endpoints (39 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -87,6 +87,7 @@ Set the sort field with `sort` in the query string. Set the direction separately
 | [Remove Requested Reviewers](actions/remove-requested-reviewers.md) | `DELETE /repos/:owner/:repo/pulls/:pull_number/requested_reviewers` | [docs](https://docs.github.com/en/rest/pulls/review-requests#remove-requested-reviewers-from-a-pull-request) |
 | [Request Pull Request Reviewers](actions/request-pull-request-reviewers.md) | `POST /repos/:owner/:repo/pulls/:pull_number/requested_reviewers` | [docs](https://docs.github.com/en/rest/pulls/review-requests#request-reviewers-for-a-pull-request) |
 | [Search Issues and Pull Requests](actions/search-issues-and-pull-requests.md) | `GET /search/issues` | [docs](https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-issues-and-pull-requests) |
+| [Search Pull Request States](actions/search-pull-request-states.md) | `POST /graphql` | [docs](https://docs.github.com/en/graphql/reference/queries#search) |
 | [Search Repositories](actions/search-repositories.md) | `GET /search/repositories` | [docs](https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories) |
 | [Update Issue](actions/update-issue.md) | `PATCH /repos/:owner/:repo/issues/:issue_number` | [docs](https://docs.github.com/en/rest/issues/issues#update-an-issue) |
 | [Update Pull Request](actions/update-pull-request.md) | `PATCH /repos/:owner/:repo/pulls/:pull_number` | [docs](https://docs.github.com/en/rest/pulls/pulls#update-a-pull-request) |

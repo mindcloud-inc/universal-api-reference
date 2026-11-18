@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3236 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3239 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -306,6 +306,7 @@ Machine-readable API descriptions for 3236 apps. Universal API specifications ar
 | [Bridge Interactive Platform](../apis/b/bridgeInteractivePlatform) | [OpenAPI 3.1](../apis/b/bridgeInteractivePlatform/universal-api/openapi.json) | [Provider OpenAPI](https://bridgedataoutput.com/tuberat/swagger) |
 | [Bridgit Bench](../apis/b/bridgitBench) | [OpenAPI 3.1](../apis/b/bridgitBench/universal-api/openapi.json) | [Provider OpenAPI](https://bench.gobridgit.com/rp/swagger/v1/swagger.json) |
 | [Brief](../apis/b/brief) | [OpenAPI 3.1](../apis/b/brief/universal-api/openapi.json) |  |
+| [Brightpearl](../apis/b/brightpearl) | [OpenAPI 3.1](../apis/b/brightpearl/universal-api/openapi.json) |  |
 | [Brosix](../apis/b/brosix) | [OpenAPI 3.1](../apis/b/brosix/universal-api/openapi.json) |  |
 | [Browse AI](../apis/b/browseAI) | [OpenAPI 3.1](../apis/b/browseAI/universal-api/openapi.json) | [Provider OpenAPI](https://api.browse.ai/v2/openapi) |
 | [BrowserAct](../apis/b/browserAct) | [OpenAPI 3.1](../apis/b/browserAct/universal-api/openapi.json) |  |
@@ -2700,6 +2701,7 @@ Machine-readable API descriptions for 3236 apps. Universal API specifications ar
 | [Templated](../apis/t/templated) | [OpenAPI 3.1](../apis/t/templated/universal-api/openapi.json) |  |
 | [TemplateFox](../apis/t/templateFox) | [OpenAPI 3.1](../apis/t/templateFox/universal-api/openapi.json) | [Provider OpenAPI](https://api.templatefox.com/openapi.json) |
 | [Temp Stick](../apis/t/tempStick) | [OpenAPI 3.1](../apis/t/tempStick/universal-api/openapi.json) |  |
+| [Temu](../apis/t/temu) | [OpenAPI 3.1](../apis/t/temu/universal-api/openapi.json) |  |
 | [Tenderplan](../apis/t/tenderplan) |  | [Provider OpenAPI](https://tenderplan.ru/api/doc/app.baf92e31bbaa7955042b.bundle.js) |
 | [Tender Support](../apis/t/tenderSupport) | [OpenAPI 3.1](../apis/t/tenderSupport/universal-api/openapi.json) |  |
 | [TestDome](../apis/t/testDome) | [OpenAPI 3.1](../apis/t/testDome/universal-api/openapi.json) | [Provider OpenAPI](https://api.staging.testdome.com/v3/openapi) |
@@ -2972,6 +2974,7 @@ Machine-readable API descriptions for 3236 apps. Universal API specifications ar
 | [WatermarkRemover.io](../apis/w/watermarkRemoverio) | [OpenAPI 3.1](../apis/w/watermarkRemoverio/universal-api/openapi.json) | [Provider OpenAPI](https://www.pixelbin.io/docs/api-docs/) |
 | [Wati](../apis/w/wati) | [OpenAPI 3.1](../apis/w/wati/universal-api/openapi.json) |  |
 | [Wayback Machine](../apis/w/waybackMachine) | [OpenAPI 3.1](../apis/w/waybackMachine/universal-api/openapi.json) |  |
+| [Wayfair](../apis/w/wayfair) | [OpenAPI 3.1](../apis/w/wayfair/universal-api/openapi.json) |  |
 | [Waze Deep Links](../apis/w/wazeDeepLinks) | [OpenAPI 3.1](../apis/w/wazeDeepLinks/universal-api/openapi.json) |  |
 | [Wbiztool](../apis/w/wbiztool) | [OpenAPI 3.1](../apis/w/wbiztool/universal-api/openapi.json) |  |
 | [Weavely](../apis/w/weavely) | [OpenAPI 3.1](../apis/w/weavely/universal-api/openapi.json) |  |

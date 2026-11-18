@@ -1,6 +1,6 @@
 # Commerce apps
 
-305 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+308 apps in the Commerce category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **aamarPay** · [Universal API reference](../../apis/a/aamarPay/universal-api) · [Native API reference](../../apis/a/aamarPay/native-api) · [Native API docs](https://aamarpay.readme.io/reference/overview)
 - **Ablefy** · [Universal API reference](../../apis/a/ablefy/universal-api) · [Native API reference](../../apis/a/ablefy/native-api) · [Native API docs](https://api.myablefy.com/api/swagger_doc/)
@@ -36,6 +36,7 @@
 - **BoxHero** · [Universal API reference](../../apis/b/boxHero/universal-api) · [Native API reference](../../apis/b/boxHero/native-api) · [Native API docs](https://rest.boxhero-app.com/docs/api)
 - **Braintree** · [Universal API reference](../../apis/b/braintree/universal-api) · [Native API reference](../../apis/b/braintree/native-api) · [Native API docs](https://developer.paypal.com/braintree/graphql/reference/)
 - **Bridge** · [Universal API reference](../../apis/b/bridge/universal-api) · [Native API reference](../../apis/b/bridge/native-api) · [Native API docs](https://docs.bridgeapi.io/reference)
+- **Brightpearl** · [Universal API reference](../../apis/b/brightpearl/universal-api) · [Native API reference](../../apis/b/brightpearl/native-api) · [Native API docs](https://api-docs.brightpearl.com/)
 - **Buy Me a Coffee** · [Universal API reference](../../apis/b/buyMeACoffee/universal-api) · [Native API reference](../../apis/b/buyMeACoffee/native-api) · [Native API docs](https://developers.buymeacoffee.com/)
 - **Campfire** · [Universal API reference](../../apis/c/campfire/universal-api) · [Native API reference](../../apis/c/campfire/native-api) · [Native API docs](https://docs.campfire.ai/)
 - **Cartloom** · [Universal API reference](../../apis/c/cartloom/universal-api) · [Native API reference](../../apis/c/cartloom/native-api) · [Native API docs](https://support.cartloom.com/hc/en-us/sections/115000264307-API)
@@ -265,6 +266,7 @@
 - **Surplus Lines Tax** · [Universal API reference](../../apis/s/surplusLinesTax/universal-api) · [Native API reference](../../apis/s/surplusLinesTax/native-api) · [Native API docs](https://surpluslinesapi.com/docs/)
 - **Swell** · [Universal API reference](../../apis/s/swell/universal-api) · [Native API reference](../../apis/s/swell/native-api) · [Native API docs](https://developers.swell.is/backend-api/introduction)
 - **Swiss QR Invoice** · [Universal API reference](../../apis/s/swissQRInvoice/universal-api) · [Native API reference](../../apis/s/swissQRInvoice/native-api) · [Native API docs](https://magicheidi.ch/qr-invoice-developer-api)
+- **Temu** · [Universal API reference](../../apis/t/temu/universal-api) · [Native API reference](../../apis/t/temu/native-api)
 - **Tenderplan** · [Universal API reference](../../apis/t/tenderplan/universal-api) · [Native API reference](../../apis/t/tenderplan/native-api) · [Native API docs](https://tenderplan.ru/api/doc/)
 - **Thinkific** · [Universal API reference](../../apis/t/thinkific/universal-api) · [Native API reference](../../apis/t/thinkific/native-api) · [Native API docs](https://developers.thinkific.com/api/api-documentation)
 - **Tidely** · [Universal API reference](../../apis/t/tidely/universal-api) · [Native API reference](../../apis/t/tidely/native-api) · [Native API docs](https://faq.tidely.com/de/api-rechnungen)
@@ -287,6 +289,7 @@
 - **Visma eAccounting** · [Universal API reference](../../apis/v/vismaEAccounting/universal-api) · [Native API reference](../../apis/v/vismaEAccounting/native-api) · [Native API docs](https://eaccountingapi.vismaonline.com/scalar/v2)
 - **VosFactures** · [Universal API reference](../../apis/v/vosFactures/universal-api) · [Native API reference](../../apis/v/vosFactures/native-api) · [Native API docs](https://app.vosfactures.fr/api)
 - **Walmart** · [Universal API reference](../../apis/w/walmart/universal-api) · [Native API reference](../../apis/w/walmart/native-api) · [Native API docs](https://developer.walmart.com/us-marketplace/reference)
+- **Wayfair** · [Universal API reference](../../apis/w/wayfair/universal-api) · [Native API reference](../../apis/w/wayfair/native-api) · [Native API docs](https://developer.wayfair.io/posts/introduction)
 - **Webshipper** · [Universal API reference](../../apis/w/webshipper/universal-api) · [Native API reference](../../apis/w/webshipper/native-api) · [Native API docs](https://docs.webshipper.io/)
 - **WeForest** · [Universal API reference](../../apis/w/weForest/universal-api) · [Native API reference](../../apis/w/weForest/native-api) · [Native API docs](https://docs.weforest.org)
 - **WeSupply** · [Universal API reference](../../apis/w/weSupply/universal-api) · [Native API reference](../../apis/w/weSupply/native-api) · [Native API docs](https://documenter.getpostman.com/view/11859344/T17AiAYq)

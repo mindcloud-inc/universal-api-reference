@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3236 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3239 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -313,6 +313,7 @@ The official vendor API documentation for each of the 3236 apps in this repo. Ea
 - [Bridge Interactive Platform](../apis/b/bridgeInteractivePlatform/native-api) - https://bridgedataoutput.com/docs
 - [Bridgit Bench](../apis/b/bridgitBench/native-api) - https://developers.gobridgit.com/reference
 - [Brief](../apis/b/brief/native-api) - https://briefhq.ai/docs/mcp-setup/
+- [Brightpearl](../apis/b/brightpearl/native-api) - https://api-docs.brightpearl.com/
 - [Brilliant Directories](../apis/b/brilliantDirectories/native-api) - https://support.brilliantdirectories.com/support/solutions/folders/12000019107
 - [Brosix](../apis/b/brosix/native-api) - https://help.brosix.com/notifications-api/
 - [Browse AI](../apis/b/browseAI/native-api) - https://developers.browse.ai/v2
@@ -2773,6 +2774,7 @@ The official vendor API documentation for each of the 3236 apps in this repo. Ea
 - [TemplateDocs](../apis/t/templateDocs/native-api) - https://templatedocs.io/docs/api/overview
 - [TemplateFox](../apis/t/templateFox/native-api) - https://templatefox.com/docs
 - [Temp Stick](../apis/t/tempStick/native-api) - https://tempstickapi.com/docs/
+- [Temu](../apis/t/temu/native-api)
 - [Tenderplan](../apis/t/tenderplan/native-api) - https://tenderplan.ru/api/doc/
 - [Tender Support](../apis/t/tenderSupport/native-api) - https://help.tenderapp.com/kb/api/introduction
 - [TerraReach](../apis/t/terraReach/native-api) - https://docs.terrareach.com/api-reference/introduction
@@ -3053,6 +3055,7 @@ The official vendor API documentation for each of the 3236 apps in this repo. Ea
 - [WatermarkRemover.io](../apis/w/watermarkRemoverio/native-api) - https://www.pixelbin.io/docs/api/
 - [Wati](../apis/w/wati/native-api) - https://docs.wati.io/reference
 - [Wayback Machine](../apis/w/waybackMachine/native-api) - https://archive.org/help/wayback_api.php
+- [Wayfair](../apis/w/wayfair/native-api) - https://developer.wayfair.io/posts/introduction
 - [Waze Deep Links](../apis/w/wazeDeepLinks/native-api) - https://developers.google.com/waze/deeplinks
 - [Wbiztool](../apis/w/wbiztool/native-api) - https://wbiztool.com/docs/
 - [Weavely](../apis/w/weavely/native-api) - https://help.weavely.ai/

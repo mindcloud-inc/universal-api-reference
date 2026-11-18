@@ -323177,6 +323177,3665 @@
     "universalOpenApiPath": "apis/b/brief/universal-api/openapi.json"
   },
   {
+    "name": "Brightpearl",
+    "slug": "brightpearl",
+    "category": "ERP",
+    "categoryGroup": "Commerce",
+    "description": "Manage orders, inventory, stock corrections, and warehouse fulfilment",
+    "iconUrl": "https://images.mindcloud.co/apps/icons/brightpearl_1794931950356.png",
+    "websiteUrl": "https://www.brightpearl.com",
+    "nativeDocumentationUrl": "https://api-docs.brightpearl.com/",
+    "version": "0.0.1",
+    "authentication": [
+      {
+        "type": "apiKey",
+        "name": "Access Token",
+        "description": "Use an OAuth access token from your approved Brightpearl integration. Renew the token and API domain manually when it expires.",
+        "documentationUrl": "https://api-docs.brightpearl.com/utilities/oauth-token/post.html",
+        "credentials": [
+          {
+            "key": "apiKey",
+            "name": "Access Token",
+            "dataType": "string",
+            "required": true,
+            "sensitive": true
+          },
+          {
+            "key": "account",
+            "name": "Account Code",
+            "dataType": "string",
+            "required": true,
+            "description": "Brightpearl account code associated with the token."
+          },
+          {
+            "key": "apiDomain",
+            "name": "API Domain",
+            "dataType": "string",
+            "required": true,
+            "description": "Exact api_domain hostname from the token response, without https:// or a path."
+          },
+          {
+            "key": "developerRef",
+            "name": "Developer Reference",
+            "dataType": "string",
+            "required": true,
+            "description": "Developer reference for the approved integration."
+          },
+          {
+            "key": "appRef",
+            "name": "App Reference",
+            "dataType": "string",
+            "required": true,
+            "description": "App reference (client_id) for the approved integration."
+          }
+        ],
+        "setupGuide": {
+          "title": "Connect with a Brightpearl access token",
+          "beforeYouBegin": "Your Brightpearl integration administrator must provide a current OAuth access token and the api_domain returned with it. This connection does not refresh tokens automatically.",
+          "docsUrl": "https://api-docs.brightpearl.com/utilities/oauth-token/post.html",
+          "steps": [
+            {
+              "title": "Obtain an authorized token",
+              "description": "Use your approved Brightpearl integration to authorize the account and obtain an OAuth access token. Keep the token private."
+            },
+            {
+              "title": "Enter the account and integration identifiers",
+              "description": "Enter the Brightpearl account code, developer reference and app reference associated with this token."
+            },
+            {
+              "title": "Enter the API domain and token",
+              "description": "Enter the exact api_domain hostname returned with the token, without https:// or a path. Paste access_token into Access Token, without the Bearer prefix."
+            },
+            {
+              "title": "Keep the connection current",
+              "description": "Before the token expires, refresh it through your approved integration and update both Access Token and API Domain from the new response. Brightpearl can change the API domain during token refresh."
+            }
+          ]
+        },
+        "requestHeaders": [
+          {
+            "name": "brightpearl-app-ref",
+            "template": "<appRef>"
+          },
+          {
+            "name": "brightpearl-dev-ref",
+            "template": "<developerRef>"
+          }
+        ]
+      }
+    ],
+    "nativeApis": [
+      {
+        "type": "rest",
+        "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "pagination": {
+          "limit": {
+            "parameter": "pageSize",
+            "location": "query",
+            "default": "500",
+            "maximum": "500"
+          },
+          "offset": {
+            "type": "offset",
+            "parameter": "firstResult",
+            "location": "query",
+            "pageStartIndex": "1"
+          }
+        },
+        "filtering": {
+          "location": "query",
+          "operators": [
+            "eq"
+          ]
+        },
+        "sorting": {
+          "location": "query",
+          "parameter": "sort",
+          "ascending": "ASC",
+          "descending": "DESC",
+          "delimiter": ".",
+          "multipleFields": true
+        },
+        "responses": [
+          {
+            "parser": "json",
+            "dataKey": "input.data.response"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "name": "Add Goods-Out Note Events",
+        "slug": "add-goods-out-note-events",
+        "operation": "create",
+        "method": "POST",
+        "group": "Goods-Out Note Event",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-out-note%20event/post.html",
+        "native": {
+          "method": "POST",
+          "path": "/warehouse-service/goods-note/goods-out/:goodsOutNoteId/event",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "goodsOutNoteId",
+              "name": "Goods-Out Note ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "lastEventVersion",
+              "name": "Last Event Version",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Use lastEventVersion from Goods-Out Note GET to prevent duplicate events."
+            },
+            {
+              "key": "events[]",
+              "name": "Events",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "events[].eventCode",
+              "name": "Event Code",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "enumValues": [
+                "PAC",
+                "PIC",
+                "PRI",
+                "SHW",
+                "UPA",
+                "UPI",
+                "UPR"
+              ]
+            },
+            {
+              "key": "events[].occured",
+              "name": "Occurred On",
+              "dataType": "date",
+              "location": "body",
+              "required": true,
+              "description": "Brightpearl spells this request field occured."
+            },
+            {
+              "key": "events[].eventOwnerId",
+              "name": "Event Owner ID",
+              "dataType": "number",
+              "location": "body",
+              "required": true
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "goodsOutNoteId",
+            "name": "Goods-Out Note ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "lastEventVersion",
+            "name": "Last Event Version",
+            "dataType": "string",
+            "required": false,
+            "description": "Use lastEventVersion from Goods-Out Note GET to prevent duplicate events."
+          },
+          {
+            "key": "events[]",
+            "name": "Events",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true
+          },
+          {
+            "key": "events[].eventCode",
+            "name": "Event Code",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "enumValues": [
+              "PAC",
+              "PIC",
+              "PRI",
+              "SHW",
+              "UPA",
+              "UPI",
+              "UPR"
+            ]
+          },
+          {
+            "key": "events[].occured",
+            "name": "Occurred On",
+            "dataType": "date",
+            "required": true,
+            "description": "Brightpearl spells this request field occured."
+          },
+          {
+            "key": "events[].eventOwnerId",
+            "name": "Event Owner ID",
+            "dataType": "number",
+            "required": true
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Create Goods-In Note",
+        "slug": "create-goods-in-note",
+        "operation": "create",
+        "method": "POST",
+        "group": "Goods-In Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-in-note/post.html",
+        "native": {
+          "method": "POST",
+          "path": "/warehouse-service/order/:orderId/goods-note/goods-in",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderId",
+              "name": "Order ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "warehouseId",
+              "name": "Warehouse ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[]",
+              "name": "Goods Moved",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[].productId",
+              "name": "Product ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[].purchaseOrderRowId",
+              "name": "Purchase Order Row ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[].quantity",
+              "name": "Quantity",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[].destinationLocationId",
+              "name": "Destination Location ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[].productValue",
+              "name": "Product Value",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[].productValue.currency",
+              "name": "Currency",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "goodsMoved[].productValue.value",
+              "name": "Value",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "transfer",
+              "name": "Transfer",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "receivedOn",
+              "name": "Received On",
+              "dataType": "date",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "userBatchReference",
+              "name": "Batch Reference",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Optional reference that must be unique across goods-in notes."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderId",
+            "name": "Order ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "warehouseId",
+            "name": "Warehouse ID",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "goodsMoved[]",
+            "name": "Goods Moved",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "goodsMoved[].productId",
+            "name": "Product ID",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "goodsMoved[].purchaseOrderRowId",
+            "name": "Purchase Order Row ID",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "goodsMoved[].quantity",
+            "name": "Quantity",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "goodsMoved[].destinationLocationId",
+            "name": "Destination Location ID",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "goodsMoved[].productValue",
+            "name": "Product Value",
+            "dataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "goodsMoved[].productValue.currency",
+            "name": "Currency",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "goodsMoved[].productValue.value",
+            "name": "Value",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "transfer",
+            "name": "Transfer",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "receivedOn",
+            "name": "Received On",
+            "dataType": "date",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "userBatchReference",
+            "name": "Batch Reference",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional reference that must be unique across goods-in notes."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Create Goods-Out Notes",
+        "slug": "create-goods-out-notes",
+        "operation": "create",
+        "method": "POST",
+        "group": "Goods-Out Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-out-note/post.html",
+        "native": {
+          "method": "POST",
+          "path": "/warehouse-service/order/:orderId/goods-note/goods-out",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderId",
+              "name": "Order ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "warehouses[]",
+              "name": "Warehouses",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouses[].warehouseId",
+              "name": "Warehouse ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouses[].products[]",
+              "name": "Products",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouses[].products[].productId",
+              "name": "Product ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouses[].products[].salesOrderRowId",
+              "name": "Sales Order Row ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouses[].products[].quantity",
+              "name": "Quantity",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouses[].releaseDate",
+              "name": "Release Date",
+              "dataType": "date",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouses[].transfer",
+              "name": "Transfer",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "priority",
+              "name": "Priority",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "shippingMethodId",
+              "name": "Shipping Method ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "labelUri",
+              "name": "Label URL",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "maxLength": 512
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderId",
+            "name": "Order ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "warehouses[]",
+            "name": "Warehouses",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "warehouses[].warehouseId",
+            "name": "Warehouse ID",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "warehouses[].products[]",
+            "name": "Products",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false
+          },
+          {
+            "key": "warehouses[].products[].productId",
+            "name": "Product ID",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "warehouses[].products[].salesOrderRowId",
+            "name": "Sales Order Row ID",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "warehouses[].products[].quantity",
+            "name": "Quantity",
+            "dataType": "number",
+            "required": false
+          },
+          {
+            "key": "warehouses[].releaseDate",
+            "name": "Release Date",
+            "dataType": "date",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "warehouses[].transfer",
+            "name": "Transfer",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "priority",
+            "name": "Priority",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "shippingMethodId",
+            "name": "Shipping Method ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "labelUri",
+            "name": "Label URL",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Create Order",
+        "slug": "create-order",
+        "operation": "create",
+        "method": "POST",
+        "model": "order",
+        "group": "Order",
+        "documentationUrl": "https://api-docs.brightpearl.com/order/order/post.html",
+        "native": {
+          "method": "POST",
+          "path": "/order-service/order/",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderTypeCode",
+              "name": "Order Type",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "enumValues": [
+                "PC",
+                "PO",
+                "SC",
+                "SO"
+              ]
+            },
+            {
+              "key": "reference",
+              "name": "Reference",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parentOrderId",
+              "name": "Parent Order ID",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "priceListId",
+              "name": "Price List ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "costPriceListId",
+              "name": "Cost Price List ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "priceModeCode",
+              "name": "Price Mode",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Applies to sales orders and sales credits.",
+              "enumValues": [
+                "EXC",
+                "INC"
+              ]
+            },
+            {
+              "key": "placedOn",
+              "name": "Placed On",
+              "dataType": "date",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "orderStatus",
+              "name": "Order Status",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "orderStatus.orderStatusId",
+              "name": "Order Status ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "delivery",
+              "name": "Delivery",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "delivery.deliveryDate",
+              "name": "Delivery Date",
+              "dataType": "date",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "delivery.shippingMethodId",
+              "name": "Shipping Method ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "invoices[]",
+              "name": "Invoices",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "invoices[].taxDate",
+              "name": "Tax Date",
+              "dataType": "date",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "currency",
+              "name": "Currency",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "currency.orderCurrencyCode",
+              "name": "Order Currency Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "currency.fixedExchangeRate",
+              "name": "Fixed Exchange Rate",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "currency.exchangeRate",
+              "name": "Exchange Rate",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Up to six decimal places. Requires fixed exchange rate."
+            },
+            {
+              "key": "parties",
+              "name": "Parties",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.customer",
+              "name": "Customer",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.customer.contactId",
+              "name": "Contact ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Required for sales orders (SO) and sales credits (SC)."
+            },
+            {
+              "key": "parties.supplier",
+              "name": "Supplier",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.supplier.contactId",
+              "name": "Contact ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Required for purchase orders (PO) and purchase credits (PC)."
+            },
+            {
+              "key": "parties.delivery",
+              "name": "Delivery",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.addressFullName",
+              "name": "Address Full Name",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.companyName",
+              "name": "Company Name",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.addressLine1",
+              "name": "Address Line1",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.addressLine2",
+              "name": "Address Line2",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.addressLine3",
+              "name": "Address Line3",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.addressLine4",
+              "name": "Address Line4",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.postalCode",
+              "name": "Postal Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.countryId",
+              "name": "Country ID",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "When providing a delivery address, supply country ID or country ISO code."
+            },
+            {
+              "key": "parties.delivery.countryIsoCode",
+              "name": "Country ISO Code",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "When providing a delivery address, supply country ID or country ISO code."
+            },
+            {
+              "key": "parties.delivery.telephone",
+              "name": "Telephone",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.mobileTelephone",
+              "name": "Mobile Telephone",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.fax",
+              "name": "Fax",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "parties.delivery.email",
+              "name": "Email",
+              "dataType": "string",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "assignment",
+              "name": "Assignment",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "assignment.current",
+              "name": "Current",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "assignment.current.channelId",
+              "name": "Channel ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "assignment.current.leadSourceId",
+              "name": "Lead Source ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "assignment.current.projectId",
+              "name": "Project ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "assignment.current.staffOwnerContactId",
+              "name": "Staff Owner Contact ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "assignment.current.teamId",
+              "name": "Team ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "warehouseId",
+              "name": "Warehouse ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderTypeCode",
+            "name": "Order Type",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "enumValues": [
+              "PC",
+              "PO",
+              "SC",
+              "SO"
+            ]
+          },
+          {
+            "key": "reference",
+            "name": "Reference",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parentOrderId",
+            "name": "Parent Order ID",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "priceListId",
+            "name": "Price List ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "costPriceListId",
+            "name": "Cost Price List ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "priceModeCode",
+            "name": "Price Mode",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Applies to sales orders and sales credits.",
+            "enumValues": [
+              "EXC",
+              "INC"
+            ]
+          },
+          {
+            "key": "placedOn",
+            "name": "Placed On",
+            "dataType": "date",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "orderStatus",
+            "name": "Order Status",
+            "dataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "orderStatus.orderStatusId",
+            "name": "Order Status ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "delivery",
+            "name": "Delivery",
+            "dataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "delivery.deliveryDate",
+            "name": "Delivery Date",
+            "dataType": "date",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "delivery.shippingMethodId",
+            "name": "Shipping Method ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "invoices[]",
+            "name": "Invoices",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "invoices[].taxDate",
+            "name": "Tax Date",
+            "dataType": "date",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "currency",
+            "name": "Currency",
+            "dataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "currency.orderCurrencyCode",
+            "name": "Order Currency Code",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "currency.fixedExchangeRate",
+            "name": "Fixed Exchange Rate",
+            "dataType": "boolean",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "currency.exchangeRate",
+            "name": "Exchange Rate",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Up to six decimal places. Requires fixed exchange rate."
+          },
+          {
+            "key": "parties",
+            "name": "Parties",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "parties.customer",
+            "name": "Customer",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "parties.customer.contactId",
+            "name": "Contact ID",
+            "dataType": "number",
+            "required": false,
+            "description": "Required for sales orders (SO) and sales credits (SC)."
+          },
+          {
+            "key": "parties.supplier",
+            "name": "Supplier",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "parties.supplier.contactId",
+            "name": "Contact ID",
+            "dataType": "number",
+            "required": false,
+            "description": "Required for purchase orders (PO) and purchase credits (PC)."
+          },
+          {
+            "key": "parties.delivery",
+            "name": "Delivery",
+            "dataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.addressFullName",
+            "name": "Address Full Name",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.companyName",
+            "name": "Company Name",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.addressLine1",
+            "name": "Address Line1",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.addressLine2",
+            "name": "Address Line2",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.addressLine3",
+            "name": "Address Line3",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.addressLine4",
+            "name": "Address Line4",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.postalCode",
+            "name": "Postal Code",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.countryId",
+            "name": "Country ID",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "When providing a delivery address, supply country ID or country ISO code."
+          },
+          {
+            "key": "parties.delivery.countryIsoCode",
+            "name": "Country ISO Code",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "When providing a delivery address, supply country ID or country ISO code."
+          },
+          {
+            "key": "parties.delivery.telephone",
+            "name": "Telephone",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.mobileTelephone",
+            "name": "Mobile Telephone",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.fax",
+            "name": "Fax",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "parties.delivery.email",
+            "name": "Email",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "assignment",
+            "name": "Assignment",
+            "dataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "assignment.current",
+            "name": "Current",
+            "dataType": "object",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "assignment.current.channelId",
+            "name": "Channel ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "assignment.current.leadSourceId",
+            "name": "Lead Source ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "assignment.current.projectId",
+            "name": "Project ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "assignment.current.staffOwnerContactId",
+            "name": "Staff Owner Contact ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "assignment.current.teamId",
+            "name": "Team ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "warehouseId",
+            "name": "Warehouse ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Create Stock Corrections",
+        "slug": "create-stock-corrections",
+        "operation": "create",
+        "method": "POST",
+        "group": "Stock Correction",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/stock-correction/post.html",
+        "native": {
+          "method": "POST",
+          "path": "/warehouse-service/warehouse/:warehouseId/stock-correction",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "warehouseId",
+              "name": "Warehouse ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "corrections[]",
+              "name": "Corrections",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "corrections[].quantity",
+              "name": "Quantity",
+              "dataType": "number",
+              "location": "body",
+              "required": true,
+              "description": "Positive adds stock; negative removes stock."
+            },
+            {
+              "key": "corrections[].productId",
+              "name": "Product ID",
+              "dataType": "number",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "corrections[].reason",
+              "name": "Reason",
+              "dataType": "string",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "corrections[].locationId",
+              "name": "Location ID",
+              "dataType": "number",
+              "location": "body",
+              "required": true,
+              "description": "Use location 2 for standard inventory management."
+            },
+            {
+              "key": "corrections[].cost",
+              "name": "Cost",
+              "dataType": "object",
+              "location": "body",
+              "required": false,
+              "description": "Required when adding stock."
+            },
+            {
+              "key": "corrections[].cost.currency",
+              "name": "Currency",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required when adding stock."
+            },
+            {
+              "key": "corrections[].cost.value",
+              "name": "Value",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Per-item cost. Required when adding stock."
+            },
+            {
+              "key": "corrections[].batchId",
+              "name": "Batch ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false,
+              "description": "Only for removing stock. Omit to use FIFO."
+            },
+            {
+              "key": "corrections[].orderId",
+              "name": "Order ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "warehouseId",
+            "name": "Warehouse ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "corrections[]",
+            "name": "Corrections",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true
+          },
+          {
+            "key": "corrections[].quantity",
+            "name": "Quantity",
+            "dataType": "number",
+            "required": true,
+            "description": "Positive adds stock; negative removes stock."
+          },
+          {
+            "key": "corrections[].productId",
+            "name": "Product ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "corrections[].reason",
+            "name": "Reason",
+            "dataType": "string",
+            "required": true
+          },
+          {
+            "key": "corrections[].locationId",
+            "name": "Location ID",
+            "dataType": "number",
+            "required": true,
+            "description": "Use location 2 for standard inventory management."
+          },
+          {
+            "key": "corrections[].cost",
+            "name": "Cost",
+            "dataType": "object",
+            "required": false,
+            "description": "Required when adding stock."
+          },
+          {
+            "key": "corrections[].cost.currency",
+            "name": "Currency",
+            "dataType": "string",
+            "required": false,
+            "description": "Required when adding stock."
+          },
+          {
+            "key": "corrections[].cost.value",
+            "name": "Value",
+            "dataType": "number",
+            "required": false,
+            "description": "Per-item cost. Required when adding stock."
+          },
+          {
+            "key": "corrections[].batchId",
+            "name": "Batch ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true,
+            "description": "Only for removing stock. Omit to use FIFO."
+          },
+          {
+            "key": "corrections[].orderId",
+            "name": "Order ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Delete Goods-In Note",
+        "slug": "delete-goods-in-note",
+        "operation": "delete",
+        "method": "DELETE",
+        "group": "Goods-In Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-in-note/delete.html",
+        "native": {
+          "method": "DELETE",
+          "path": "/warehouse-service/goods-note/goods-in/:goodsInNoteId",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "goodsInNoteId",
+              "name": "Goods-In Note ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "goodsInNoteId",
+            "name": "Goods-In Note ID",
+            "dataType": "number",
+            "required": true
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Delete Goods-Out Note",
+        "slug": "delete-goods-out-note",
+        "operation": "delete",
+        "method": "DELETE",
+        "group": "Goods-Out Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-out-note/delete.html",
+        "native": {
+          "method": "DELETE",
+          "path": "/warehouse-service/order/:orderId/goods-note/goods-out/:goodsOutNoteId",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderId",
+              "name": "Order ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "goodsOutNoteId",
+              "name": "Goods-Out Note ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderId",
+            "name": "Order ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "goodsOutNoteId",
+            "name": "Goods-Out Note ID",
+            "dataType": "number",
+            "required": true
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Goods-In Notes",
+        "slug": "list-goods-in-notes",
+        "operation": "read",
+        "method": "GET",
+        "group": "Goods-In Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-in-note/search.html",
+        "native": {
+          "method": "GET",
+          "path": "/warehouse-service/goods-in-search",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": true,
+          "sorting": true
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "batchId",
+            "dataType": "number",
+            "description": "Id of the batch which the stock was received on.",
+            "mockType": "number"
+          },
+          {
+            "key": "createdDate",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "currCode",
+            "dataType": "string",
+            "description": "Currency for value.",
+            "mockType": "string"
+          },
+          {
+            "key": "groupingA",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "groupingB",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "groupingC",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "groupingD",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "landedCosts",
+            "dataType": "string",
+            "description": "The landed costs for the stock.",
+            "mockType": "string"
+          },
+          {
+            "key": "locationId",
+            "dataType": "number",
+            "description": "The location ID of the stock.",
+            "mockType": "number"
+          },
+          {
+            "key": "onHand",
+            "dataType": "number",
+            "description": "The quantity on hand for this batch in this location at this price for the product.",
+            "mockType": "number"
+          },
+          {
+            "key": "price",
+            "dataType": "string",
+            "description": "The value for the stock.",
+            "mockType": "string"
+          },
+          {
+            "key": "productId",
+            "dataType": "number",
+            "description": "The product Id.",
+            "mockType": "number"
+          },
+          {
+            "key": "purchaseOrderId",
+            "dataType": "number",
+            "description": "The ID of the purchase order.",
+            "mockType": "number"
+          },
+          {
+            "key": "receivedDate",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "receivedQuantity",
+            "dataType": "number",
+            "description": "The quantity recieved as part of this batch into location for given price.",
+            "mockType": "number"
+          },
+          {
+            "key": "userBatchRef",
+            "dataType": "string",
+            "description": "User supplied reference for the batch.",
+            "mockType": "string"
+          },
+          {
+            "key": "warehouseId",
+            "dataType": "number",
+            "description": "The warehouse Id.",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Goods-In Notes by ID",
+        "slug": "list-goods-in-notes-by-id",
+        "operation": "read",
+        "method": "GET",
+        "group": "Goods-In Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-in-note/get.html",
+        "native": {
+          "method": "GET",
+          "path": "/warehouse-service/order/:orderIds/goods-note/goods-in/:goodsInNoteIds",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderIds",
+              "name": "Order IDs",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Order ID set, maximum 200 IDs. Use * only when supplying specific goods-in note IDs."
+            },
+            {
+              "key": "goodsInNoteIds",
+              "name": "Goods-In Note IDs",
+              "dataType": "string",
+              "location": "param",
+              "required": false,
+              "description": "Optional goods-in note ID set, maximum 200 IDs. Required when Order IDs is *."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderIds",
+            "name": "Order IDs",
+            "dataType": "string",
+            "required": true,
+            "description": "Order ID set, maximum 200 IDs. Use * only when supplying specific goods-in note IDs."
+          },
+          {
+            "key": "goodsInNoteIds",
+            "name": "Goods-In Note IDs",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional goods-in note ID set, maximum 200 IDs. Required when Order IDs is *."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "createdBy",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved",
+            "dataType": "array",
+            "itemDataType": "object",
+            "mockType": "array"
+          },
+          {
+            "key": "goodsMoved[].allocated",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "goodsMoved[].batchGoodsNoteId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].cleared",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "goodsMoved[].createdBy",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].createdOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "goodsMoved[].destinationLocationId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].goodsNoteId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].productId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].productValue",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "goodsMoved[].productValue.currency",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "goodsMoved[].productValue.value",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "goodsMoved[].purchaseOrderRowId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].quantity",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].quarantine",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "goodsMoved[].updatedBy",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].updatedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "goodsMoved[].valueConfirmed",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "goodsMoved[].warehouseId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsNoteId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsNoteStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "orderId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "receivedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "transfer",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "userBatchReference",
+            "dataType": "string",
+            "mockType": "string"
+          }
+        ]
+      },
+      {
+        "name": "List Goods-Out Notes",
+        "slug": "list-goods-out-notes",
+        "operation": "read",
+        "method": "GET",
+        "group": "Goods-Out Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-out-note/search.html",
+        "native": {
+          "method": "GET",
+          "path": "/warehouse-service/goods-note/goods-out-search",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": true,
+          "sorting": true
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "channelId",
+            "dataType": "number",
+            "description": "The Channel ID for the related order",
+            "mockType": "number"
+          },
+          {
+            "key": "createdBy",
+            "dataType": "number",
+            "description": "The ID of the contact that created this goods out note.",
+            "mockType": "number"
+          },
+          {
+            "key": "createdOn",
+            "dataType": "date",
+            "description": "The date the goods out note was created on.",
+            "mockType": "date"
+          },
+          {
+            "key": "goodsOutNoteId",
+            "dataType": "number",
+            "description": "The ID of the goods out note.",
+            "mockType": "number"
+          },
+          {
+            "key": "labelUri",
+            "dataType": "string",
+            "description": "The URL of the shipping label image (optional)",
+            "mockType": "string"
+          },
+          {
+            "key": "orderId",
+            "dataType": "number",
+            "description": "The ID of the order for the goods out note. Can be used to recover information about an order with an Order GET",
+            "mockType": "number"
+          },
+          {
+            "key": "packed",
+            "dataType": "boolean",
+            "description": "Details whether a goods out note has been packed.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "picked",
+            "dataType": "boolean",
+            "description": "Details whether a goods out note has been printed.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "printed",
+            "dataType": "boolean",
+            "description": "Details whether a goods out note has been printed.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "priority",
+            "dataType": "boolean",
+            "description": "The priority of the goods out note.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "releaseDate",
+            "dataType": "date",
+            "description": "The date the goods out note is to be released.",
+            "mockType": "date"
+          },
+          {
+            "key": "shipped",
+            "dataType": "boolean",
+            "description": "Details whether a goods out note has been shipped.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "shippedOn",
+            "dataType": "date",
+            "description": "The date the goods out note was shipped on.",
+            "mockType": "date"
+          },
+          {
+            "key": "shippingMethodId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "transfer",
+            "dataType": "boolean",
+            "description": "Details whether a goods out note is a transfer.",
+            "mockType": "boolean"
+          },
+          {
+            "key": "warehouseId",
+            "dataType": "number",
+            "description": "The ID of the warehouse for the goods out note. Can be used to recover information about a warehouse with a Warehouse GET",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Goods-Out Notes by ID",
+        "slug": "list-goods-out-notes-by-id",
+        "operation": "read",
+        "method": "GET",
+        "group": "Goods-Out Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-out-note/get.html",
+        "native": {
+          "method": "GET",
+          "path": "/warehouse-service/order/:orderIds/goods-note/goods-out/:goodsOutNoteIds",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderIds",
+              "name": "Order IDs",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "Order ID set, maximum 500 IDs. Use * only when supplying specific goods-out note IDs."
+            },
+            {
+              "key": "goodsOutNoteIds",
+              "name": "Goods-Out Note IDs",
+              "dataType": "string",
+              "location": "param",
+              "required": false,
+              "description": "Optional goods-out note ID set, maximum 500 IDs. Required when Order IDs is *."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderIds",
+            "name": "Order IDs",
+            "dataType": "string",
+            "required": true,
+            "description": "Order ID set, maximum 500 IDs. Use * only when supplying specific goods-out note IDs."
+          },
+          {
+            "key": "goodsOutNoteIds",
+            "name": "Goods-Out Note IDs",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Optional goods-out note ID set, maximum 500 IDs. Required when Order IDs is *."
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "createdBy",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "createdOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "events",
+            "dataType": "array",
+            "itemDataType": "object",
+            "mockType": "array"
+          },
+          {
+            "key": "events[].eventCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "events[].eventOwnerId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "events[].occured",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "labelUri",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "lastEventVersion",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "orderId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "orderRows",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "priority",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "releaseDate",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "sequence",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "shipping",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "shipping.boxes",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "shipping.reference",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "shipping.shippingMethodId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "shipping.weight",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "status",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "status.packed",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "status.packedById",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "status.packedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "status.picked",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "status.pickedById",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "status.pickedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "status.printed",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "status.printedById",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "status.printedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "status.shipped",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "status.shippedById",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "status.shippedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "transfer",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "warehouseId",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Orders",
+        "slug": "list-orders",
+        "operation": "read",
+        "method": "GET",
+        "model": "order",
+        "group": "Order",
+        "documentationUrl": "https://api-docs.brightpearl.com/order/order/search.html",
+        "native": {
+          "method": "GET",
+          "path": "/order-service/order-search",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest"
+        },
+        "supports": {
+          "pagination": true,
+          "filtering": true,
+          "sorting": true
+        },
+        "arguments": [],
+        "responseSchema": [
+          {
+            "key": "contactId",
+            "dataType": "number",
+            "description": "The ID of the Contact. Can be used to recover all information about a contact by issuing a Contact GET.",
+            "mockType": "number"
+          },
+          {
+            "key": "createdById",
+            "dataType": "number",
+            "description": "The ID of the Staff member who created this order.",
+            "mockType": "number"
+          },
+          {
+            "key": "createdOn",
+            "dataType": "date",
+            "description": "The date the Order was created.",
+            "mockType": "date"
+          },
+          {
+            "key": "customerRef",
+            "dataType": "string",
+            "description": "The customer reference for the order.",
+            "mockType": "string"
+          },
+          {
+            "key": "deliveryDate",
+            "dataType": "date",
+            "description": "The date the delivery is set for.",
+            "mockType": "date"
+          },
+          {
+            "key": "departmentId",
+            "dataType": "number",
+            "description": "The ID of the department the Order is associated with.",
+            "mockType": "number"
+          },
+          {
+            "key": "externalRef",
+            "dataType": "string",
+            "description": "The external reference for the order",
+            "mockType": "string"
+          },
+          {
+            "key": "installedIntegrationInstanceId",
+            "dataType": "number",
+            "description": "The integration instance this order is associated with",
+            "mockType": "number"
+          },
+          {
+            "key": "orderId",
+            "dataType": "number",
+            "description": "The ID of the Order. Can be used to retrieve all order information using Order Get.",
+            "mockType": "number"
+          },
+          {
+            "key": "orderPaymentStatusId",
+            "dataType": "number",
+            "description": "The payment status ID of the order",
+            "mockType": "number"
+          },
+          {
+            "key": "orderShippingStatusId",
+            "dataType": "number",
+            "description": "The shipping status ID of the order",
+            "mockType": "number"
+          },
+          {
+            "key": "orderStatusId",
+            "dataType": "number",
+            "description": "The ID of the Order status. Description can be found in the report reference data.",
+            "mockType": "number"
+          },
+          {
+            "key": "orderStockStatusId",
+            "dataType": "number",
+            "description": "The ID of the Order stock status. Description can be found in the report reference data.",
+            "mockType": "number"
+          },
+          {
+            "key": "orderTypeId",
+            "dataType": "number",
+            "description": "The ID of the Order Type. See report reference data for description.",
+            "mockType": "number"
+          },
+          {
+            "key": "parentOrderId",
+            "dataType": "number",
+            "description": "The ID of the order's parent. Orders have a parent when they are linked to another order, for example a sales credit linked to a sales order.",
+            "mockType": "number"
+          },
+          {
+            "key": "staffOwnerContactId",
+            "dataType": "number",
+            "description": "The ID of the staff member who is assigned to the order.",
+            "mockType": "number"
+          },
+          {
+            "key": "taxDate",
+            "dataType": "date",
+            "description": "The tax date of the order.",
+            "mockType": "date"
+          },
+          {
+            "key": "updatedOn",
+            "dataType": "date",
+            "description": "The date the Order was updated.",
+            "mockType": "date"
+          },
+          {
+            "key": "warehouseId",
+            "dataType": "number",
+            "description": "The ID of the warehouse. Can be used to retrieve all orders for a given warehouse ID.",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Orders by ID",
+        "slug": "list-orders-by-id",
+        "operation": "read",
+        "method": "GET",
+        "model": "order",
+        "group": "Order",
+        "documentationUrl": "https://api-docs.brightpearl.com/order/order/get.html",
+        "native": {
+          "method": "GET",
+          "path": "/order-service/order/:orderIds",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderIds",
+              "name": "Order IDs",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "One order ID, comma-separated IDs, or ID ranges such as 100-120,130. Request at most 200 orders per call; use Order OPTIONS for larger sets."
+            },
+            {
+              "key": "includeOptional",
+              "name": "Optional Sections",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "description": "Optional comma-separated sections: customFields,nullCustomFields.",
+              "enumValues": [
+                "customFields",
+                "nullCustomFields"
+              ],
+              "multipleValues": {
+                "format": "string",
+                "delimiter": ","
+              }
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderIds",
+            "name": "Order IDs",
+            "dataType": "string",
+            "required": true,
+            "description": "One order ID, comma-separated IDs, or ID ranges such as 100-120,130. Request at most 200 orders per call; use Order OPTIONS for larger sets."
+          },
+          {
+            "key": "includeOptional",
+            "name": "Optional Sections",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "description": "Optional comma-separated sections: customFields,nullCustomFields.",
+            "enumValues": [
+              "customFields",
+              "nullCustomFields"
+            ],
+            "multipleValues": {
+              "format": "string",
+              "delimiter": ","
+            }
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "acknowledged",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "allocationStatusCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "assignment",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "assignment.current",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "assignment.current.channelId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "assignment.current.channeltId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "assignment.current.leadSourceId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "assignment.current.projectId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "assignment.current.staffOwnerContactId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "assignment.current.teamId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "closedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "costPriceListId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "createdById",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "createdOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "currency",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "currency.accountingCurrencyCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "currency.exchangeRate",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "currency.fixedExchangeRate",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "currency.orderCurrencyCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "customFields",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "customFields.PCF_COLOR",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "customFields.PCF_COLOR.id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "customFields.PCF_COLOR.value",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "customFields.PCF_FRETS",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "customFields.PCF_SCALE",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "delivery",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "delivery.deliveryDate",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "delivery.shippingMethodId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "historicalOrder",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "invoices",
+            "dataType": "array",
+            "itemDataType": "object",
+            "mockType": "array"
+          },
+          {
+            "key": "invoices[].dueDate",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "invoices[].invoiceReference",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "invoices[].taxDate",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "isDropship",
+            "dataType": "boolean",
+            "mockType": "boolean"
+          },
+          {
+            "key": "nullCustomFields",
+            "dataType": "array",
+            "itemDataType": "string",
+            "mockType": "array"
+          },
+          {
+            "key": "orderPaymentStatus",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "orderRows",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "orderStatus",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "orderStatus.name",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "orderStatus.orderStatusId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "orderTypeCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parentOrderId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "parties",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parties.billing",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parties.billing.addressFullName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.addressLine1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.addressLine2",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.addressLine3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.addressLine4",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.companyName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.contactId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "parties.billing.country",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.countryId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "parties.billing.countryIsoCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.countryIsoCode3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.email",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.mobileTelephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.postalCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.billing.telephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parties.customer.addressFullName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.addressLine1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.addressLine2",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.addressLine3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.addressLine4",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.companyName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.contactId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "parties.customer.country",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.countryId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "parties.customer.countryIsoCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.countryIsoCode3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.email",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.mobileTelephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.postalCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.customer.telephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parties.delivery.addressFullName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.addressLine1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.addressLine2",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.addressLine3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.addressLine4",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.companyName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.country",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.countryId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "parties.delivery.countryIsoCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.countryIsoCode3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.email",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.mobileTelephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.postalCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.delivery.telephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "parties.supplier.addressFullName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.addressLine1",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.addressLine2",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.addressLine3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.addressLine4",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.companyName",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.contactId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "parties.supplier.country",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.countryIsoCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.countryIsoCode3",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.email",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.mobileTelephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.postalCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "parties.supplier.telephone",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "placedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "priceListId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "priceModeCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "reference",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "shippingStatusCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "state",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "state.tax",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "stockStatusCode",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "tax",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "tax.errors",
+            "dataType": "array",
+            "mockType": "array"
+          },
+          {
+            "key": "totalValue",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "totalValue.baseNet",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "totalValue.baseTaxAmount",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "totalValue.baseTotal",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "totalValue.net",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "totalValue.taxAmount",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "totalValue.total",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "updatedOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "version",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "warehouseId",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "List Product Availability",
+        "slug": "list-product-availability",
+        "operation": "read",
+        "method": "GET",
+        "model": "inventory",
+        "group": "Product Availability",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/product-availability/get.html",
+        "native": {
+          "method": "GET",
+          "path": "/warehouse-service/product-availability/:productIds",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "productIds",
+              "name": "Product IDs",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "A single ID, comma-separated IDs, or ranges."
+            },
+            {
+              "key": "includeOptional",
+              "name": "Optional Sections",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "query",
+              "required": false,
+              "enumValues": [
+                "allocatedOrders",
+                "allocatedTransfers",
+                "breakDownByLocation",
+                "onOrder"
+              ],
+              "multipleValues": {
+                "format": "string",
+                "delimiter": ","
+              }
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "productIds",
+            "name": "Product IDs",
+            "dataType": "string",
+            "required": true,
+            "description": "A single ID, comma-separated IDs, or ranges.",
+            "example": "100-120,130"
+          },
+          {
+            "key": "includeOptional",
+            "name": "Optional Sections",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": false,
+            "enumValues": [
+              "allocatedOrders",
+              "allocatedTransfers",
+              "breakDownByLocation",
+              "onOrder"
+            ],
+            "multipleValues": {
+              "format": "string",
+              "delimiter": ","
+            }
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "allocatedToOrders",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "allocatedToTransfers",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "id",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "total",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "total.allocated",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "total.inStock",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "total.inTransit",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "total.onHand",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "total.onOrder",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "total.onOrder.shipped",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "total.onOrder.total",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "warehouses",
+            "dataType": "object",
+            "mockType": "object"
+          }
+        ]
+      },
+      {
+        "name": "List Stock Corrections by ID",
+        "slug": "list-stock-corrections-by-id",
+        "operation": "read",
+        "method": "GET",
+        "group": "Stock Correction",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/stock-correction/get.html",
+        "native": {
+          "method": "GET",
+          "path": "/warehouse-service/warehouse/:warehouseId/stock-correction/:stockCorrectionIds",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "warehouseId",
+              "name": "Warehouse ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "stockCorrectionIds",
+              "name": "Stock Correction IDs",
+              "dataType": "string",
+              "location": "param",
+              "required": true,
+              "description": "A single ID, comma-separated IDs, or ranges. Maximum 200 IDs."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "warehouseId",
+            "name": "Warehouse ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "stockCorrectionIds",
+            "name": "Stock Correction IDs",
+            "dataType": "string",
+            "required": true,
+            "description": "A single ID, comma-separated IDs, or ranges. Maximum 200 IDs.",
+            "example": "100-120,130"
+          }
+        ],
+        "responseSchema": [
+          {
+            "key": "goodsMoved",
+            "dataType": "array",
+            "itemDataType": "object",
+            "mockType": "array"
+          },
+          {
+            "key": "goodsMoved[].batchGoodsNoteId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].createdBy",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].createdOn",
+            "dataType": "date",
+            "mockType": "date"
+          },
+          {
+            "key": "goodsMoved[].destinationLocationId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].productId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].productValue",
+            "dataType": "object",
+            "mockType": "object"
+          },
+          {
+            "key": "goodsMoved[].productValue.currency",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "goodsMoved[].productValue.value",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsMoved[].quantity",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "goodsNoteId",
+            "dataType": "number",
+            "mockType": "number"
+          },
+          {
+            "key": "reason",
+            "dataType": "string",
+            "mockType": "string"
+          },
+          {
+            "key": "warehouseId",
+            "dataType": "number",
+            "mockType": "number"
+          }
+        ]
+      },
+      {
+        "name": "Update Goods-Out Note",
+        "slug": "update-goods-out-note",
+        "operation": "update",
+        "method": "PUT",
+        "group": "Goods-Out Note",
+        "documentationUrl": "https://api-docs.brightpearl.com/warehouse/goods-out-note/put.html",
+        "native": {
+          "method": "PUT",
+          "path": "/warehouse-service/goods-note/goods-out/:goodsOutNoteId",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "goodsOutNoteId",
+              "name": "Goods-Out Note ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "priority",
+              "name": "Priority",
+              "dataType": "boolean",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "shipping",
+              "name": "Shipping",
+              "dataType": "object",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "shipping.shippingMethodId",
+              "name": "Shipping Method ID",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "shipping.reference",
+              "name": "Reference",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "maxLength": 64
+            },
+            {
+              "key": "shipping.boxes",
+              "name": "Boxes",
+              "dataType": "number",
+              "location": "body",
+              "required": false
+            },
+            {
+              "key": "shipping.weight",
+              "name": "Weight",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Total weight, at most 999999.99."
+            },
+            {
+              "key": "labelUri",
+              "name": "Label URL",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "maxLength": 512
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "goodsOutNoteId",
+            "name": "Goods-Out Note ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "priority",
+            "name": "Priority",
+            "dataType": "boolean",
+            "required": false
+          },
+          {
+            "key": "shipping",
+            "name": "Shipping",
+            "dataType": "object",
+            "required": false
+          },
+          {
+            "key": "shipping.shippingMethodId",
+            "name": "Shipping Method ID",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "shipping.reference",
+            "name": "Reference",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "shipping.boxes",
+            "name": "Boxes",
+            "dataType": "number",
+            "required": false,
+            "advanced": true
+          },
+          {
+            "key": "shipping.weight",
+            "name": "Weight",
+            "dataType": "string",
+            "required": false,
+            "advanced": true,
+            "description": "Total weight, at most 999999.99."
+          },
+          {
+            "key": "labelUri",
+            "name": "Label URL",
+            "dataType": "string",
+            "required": false,
+            "advanced": true
+          }
+        ],
+        "responseSchema": []
+      },
+      {
+        "name": "Update Order",
+        "slug": "update-order",
+        "operation": "update",
+        "method": "PUT",
+        "model": "order",
+        "group": "Order",
+        "documentationUrl": "https://api-docs.brightpearl.com/order/order/patch.html",
+        "native": {
+          "method": "PATCH",
+          "path": "/order-service/order/:orderId",
+          "baseUrl": "https://{{credentials.apiDomain}}/public-api/{{credentials.account}}",
+          "apiType": "rest",
+          "arguments": [
+            {
+              "key": "orderId",
+              "name": "Order ID",
+              "dataType": "number",
+              "location": "param",
+              "required": true
+            },
+            {
+              "key": "operations[]",
+              "name": "Operations",
+              "dataType": "array",
+              "itemDataType": "object",
+              "location": "body",
+              "required": true
+            },
+            {
+              "key": "operations[].op",
+              "name": "Operation",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "enumValues": [
+                "remove",
+                "replace"
+              ]
+            },
+            {
+              "key": "operations[].path",
+              "name": "Field Path",
+              "dataType": "list",
+              "itemDataType": "string",
+              "location": "body",
+              "required": true,
+              "enumValues": [
+                "/delivery/deliveryDate",
+                "/delivery/shippingMethodId",
+                "/parties/billing/contactId",
+                "/parties/customer/contactId",
+                "/reference",
+                "/warehouseId"
+              ]
+            },
+            {
+              "key": "operations[].value",
+              "name": "Value",
+              "dataType": "string",
+              "location": "body",
+              "required": false,
+              "description": "Required for replace; omit for remove. IDs are accepted as strings in the documented PATCH examples."
+            }
+          ]
+        },
+        "supports": {
+          "pagination": false,
+          "filtering": false,
+          "sorting": false
+        },
+        "arguments": [
+          {
+            "key": "orderId",
+            "name": "Order ID",
+            "dataType": "number",
+            "required": true
+          },
+          {
+            "key": "operations[]",
+            "name": "Operations",
+            "dataType": "array",
+            "itemDataType": "object",
+            "required": true
+          },
+          {
+            "key": "operations[].op",
+            "name": "Operation",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "enumValues": [
+              "remove",
+              "replace"
+            ]
+          },
+          {
+            "key": "operations[].path",
+            "name": "Field Path",
+            "dataType": "list",
+            "itemDataType": "string",
+            "required": true,
+            "enumValues": [
+              "/delivery/deliveryDate",
+              "/delivery/shippingMethodId",
+              "/parties/billing/contactId",
+              "/parties/customer/contactId",
+              "/reference",
+              "/warehouseId"
+            ]
+          },
+          {
+            "key": "operations[].value",
+            "name": "Value",
+            "dataType": "string",
+            "required": false,
+            "description": "Required for replace; omit for remove. IDs are accepted as strings in the documented PATCH examples."
+          }
+        ],
+        "responseSchema": []
+      }
+    ],
+    "universalOpenApiPath": "apis/b/brightpearl/universal-api/openapi.json"
+  },
+  {
     "name": "Brilliant Directories",
     "slug": "brilliantDirectories",
     "description": "Brilliant Directories lets you manage directory users on the configured Brilliant Directories site via the official v2 API.",

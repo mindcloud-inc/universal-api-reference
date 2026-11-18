@@ -39,7 +39,60 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native TikTok Shop API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "address": {
+        "addressLine1": "string",
+        "city": "string",
+        "contactPerson": "string",
+        "distict": "string",
+        "fullAddress": "string",
+        "phoneNumber": "string",
+        "postalCode": "string",
+        "region": "string",
+        "regionCode": "string",
+        "state": "string",
+        "town": "string"
+      },
+      "effectStatus": "string",
+      "entityId": "string",
+      "id": "string",
+      "isDefault": true,
+      "name": "Ava Chen",
+      "subType": "string",
+      "type": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `address` | object |  |
+| `address.addressLine1` | string |  |
+| `address.city` | string |  |
+| `address.contactPerson` | string |  |
+| `address.distict` | string |  |
+| `address.fullAddress` | string |  |
+| `address.phoneNumber` | string |  |
+| `address.postalCode` | string |  |
+| `address.region` | string |  |
+| `address.regionCode` | string |  |
+| `address.state` | string |  |
+| `address.town` | string |  |
+| `effectStatus` | string |  |
+| `entityId` | string |  |
+| `id` | string |  |
+| `isDefault` | boolean |  |
+| `name` | string |  |
+| `subType` | string |  |
+| `type` | string |  |
 
 ## Native endpoint
 

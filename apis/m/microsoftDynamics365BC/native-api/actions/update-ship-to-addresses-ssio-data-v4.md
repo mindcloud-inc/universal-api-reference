@@ -3,7 +3,7 @@
 ## Endpoint
 
 - **Method:** `PATCH`
-- **URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/ODataV4/Company(:company_id)/shipToAddresses`
+- **URL:** `https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/ODataV4/Company(:company_id)/shipToAddresses(Customer_No=':Customer_No',Code=':Code')`
 - **API:** REST (Copy)
 - **Official documentation:** [Update Ship-to Addresses SSI ODataV4](https://anotepad.com/notes/x8dnaab8)
 
@@ -11,11 +11,11 @@
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `Customer_No` | body | `string` | no |
+| `Customer_No` | path | `string` | no |
 | `Name` | body | `string` | no |
 | `Post_Code` | body | `string` | no |
 | `company_id` | path | `list` | no |
-| `Code` | body | `string` | no |
+| `Code` | path | `string` | no |
 | `Address` | body | `string` | no |
 | `Address_2` | body | `string` | no |
 | `City` | body | `string` | no |
