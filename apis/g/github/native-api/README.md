@@ -1,6 +1,6 @@
 # GitHub: Native API Reference
 
-A consolidated summary of GitHub's API configuration and 39 documented operations, with links to official documentation.
+A consolidated summary of GitHub's API configuration and 40 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.github.com/en/rest
 - **OpenAPI specification:** https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json
@@ -48,10 +48,11 @@ Send filters in the query string. Supported operators: `eq`, `gt`, `gte`, `lt`, 
 
 Set the sort field with `sort` in the query string. Set the direction separately with `direction`. Use `asc` for ascending order and `desc` for descending order. Only one sort field is accepted.
 
-## Endpoints (39 documented)
+## Endpoints (40 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
+| [Compare Two Commits](actions/compare-commits.md) | `GET /repos/:owner/:repo/compare/:basehead` | [docs](https://docs.github.com/en/rest/commits/commits#compare-two-commits) |
 | [Create Issue](actions/create-issue.md) | `POST /repos/:owner/:repo/issues` | [docs](https://docs.github.com/en/rest/issues/issues#create-an-issue) |
 | [Create Issue Comment](actions/create-issue-comment.md) | `POST /repos/:owner/:repo/issues/:issue_number/comments` | [docs](https://docs.github.com/en/rest/issues/comments#create-an-issue-comment) |
 | [Create or Update File Content](actions/create-or-update-file-content.md) | `PUT /repos/:owner/:repo/contents/:path` | [docs](https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents) |

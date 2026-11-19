@@ -4,7 +4,7 @@ Manage inventory, sales orders, purchasing, and manufacturing
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sOSInventory/latest
 - **Category:** Commerce
-- **Actions:** 38
+- **Actions:** 47
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.sosinventory.com
 - **Vendor API docs:** https://developer.sosinventory.com/apidoc/
@@ -22,7 +22,19 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actio
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (38)
+## Actions (47)
+
+### Adjustment
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Adjustments](actions/list-adjustments.md) | GET |  |
+
+### Builds
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Builds](actions/list-builds.md) | GET |  |
 
 ### Customer
 
@@ -73,11 +85,23 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actio
 | [List Items](actions/list-items.md) | GET | Retrieves items from SOS Inventory. |
 | [Update Item](actions/update-item.md) | PUT | Updates an existing item in SOS Inventory. |
 
+### Item Receipts
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Item Receipt](actions/get-item-receipt.md) | GET |  |
+
 ### Location
 
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Locations](actions/list-locations.md) | GET | Retrieves locations from SOS Inventory. |
+
+### Lot
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Lots](actions/list-lots.md) | GET |  |
 
 ### Other
 
@@ -86,6 +110,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actio
 | [Create Transfer](actions/create-transfer.md) | POST | Creates a transfer in SOS Inventory. |
 | [Get Transfer](actions/get-transfer.md) | GET | Retrieves a transfer from SOS Inventory. |
 | [Update Transfer](actions/update-transfer.md) | PUT | Updates an existing transfer in SOS Inventory. |
+
+### Pick Ticket
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Pick Tickets](actions/list-pick-tickets.md) | GET |  |
 
 ### Purchase Order
 
@@ -96,6 +126,18 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actio
 | [List Purchase Orders](actions/list-purchase-orders.md) | GET | Retrieves purchase orders from SOS Inventory. |
 | [Update Purchase Order](actions/update-purchase-order.md) | PUT | Updates an existing purchase order in SOS Inventory. |
 
+### Return To Vendor
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Returns to Vendors](actions/list-returns-to-vendors.md) | GET |  |
+
+### Returns
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Returns](actions/list-returns.md) | GET |  |
+
 ### Sales Order
 
 | Action | Method | Description |
@@ -104,6 +146,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actio
 | [Get Sales Order](actions/get-sales-order.md) | GET | Retrieves a sales order from SOS Inventory. |
 | [List Sales Orders](actions/list-sales-orders.md) | GET | Retrieves sales orders from SOS Inventory. |
 | [Update Sales Order](actions/update-sales-order.md) | PUT | Updates an existing sales order in SOS Inventory. |
+
+### Sales Receipts
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Sales Receipts](actions/list-sales-receipts.md) | GET |  |
 
 ### Shipment
 
@@ -121,4 +169,10 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actio
 | [Get Vendor](actions/get-vendor.md) | GET | Retrieves a vendor from SOS Inventory. |
 | [List Vendors](actions/list-vendors.md) | GET | Retrieves vendors from SOS Inventory. |
 | [Update Vendor](actions/update-vendor.md) | PUT | Updates an existing vendor in SOS Inventory. |
+
+### Work Orders
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Work Orders](actions/list-work-orders.md) | GET |  |
 

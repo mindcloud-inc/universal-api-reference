@@ -524,22 +524,23 @@ Example response:
 
 See the full [Get My Profile action reference](actions/get-my-profile.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/zohoDesk/latest/actions/get-my-profile).
 
-## Create Account
+## Associate Tag
 
-
+This API adds a single tag or multiple tags to a ticket.
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/zohoDesk/latest/actions/create-account" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/zohoDesk/latest/actions/associate-tag" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "accountName": "Ava Chen"
+  "ticketId": "string",
+  "tags": "string"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/zohoDesk/latest/actions/create-account', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/zohoDesk/latest/actions/associate-tag', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
@@ -547,7 +548,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/zohoDesk
   },
   body: JSON.stringify({
     connectionId,
-    "accountName": "Ava Chen"
+    "ticketId": "string",
+    "tags": "string"
   })
 });
 
@@ -559,20 +561,9 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [
-    {
-      "accountName": "Ava Chen",
-      "createdTime": "2026-05-07T12:00:00.000Z",
-      "email": "ava@example.com",
-      "id": "string",
-      "modifiedTime": "2026-05-07T12:00:00.000Z",
-      "phone": "string",
-      "website": "string",
-      "webUrl": "https://example.com"
-    }
-  ],
+  "data": [],
   "meta": {}
 }
 ```
 
-See the full [Create Account action reference](actions/create-account.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/zohoDesk/latest/actions/create-account).
+See the full [Associate Tag action reference](actions/associate-tag.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/zohoDesk/latest/actions/associate-tag).

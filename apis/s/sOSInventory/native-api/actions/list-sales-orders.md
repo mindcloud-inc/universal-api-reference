@@ -9,6 +9,10 @@ Retrieves sales orders from SOS Inventory.
 - **Base URL:** `https://api.sosinventory.com`
 - **Official documentation:** [List Sales Orders](https://developer.sosinventory.com/apidoc/SalesOrder)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

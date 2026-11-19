@@ -43,7 +43,7 @@ See the full [Get Bill of Lading action reference](actions/get-bill-of-lading.md
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/accept-order" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/accept-order" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -53,7 +53,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/a
 
 ```js
 const response = await fetch('https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/accept-order', {
-  method: 'POST',
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'

@@ -33,7 +33,18 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/plaud/la
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `scanPage` | number | no | Optional verified scan page. Allows a workflow to save progress only after destination verification. |
 
 ## Response
 

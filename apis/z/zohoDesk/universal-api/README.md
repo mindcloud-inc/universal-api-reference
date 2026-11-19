@@ -4,7 +4,7 @@ Manage Zoho Desk tickets, contacts, accounts, departments, organization metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoDesk/latest
 - **Category:** Support / Ticketing
-- **Actions:** 27
+- **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.zoho.com/desk/
 - **Vendor API docs:** https://desk.zoho.com/DeskAPIDocument
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zohoDesk/latest/actions/g
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (27)
+## Actions (32)
 
 ### Accounts
 
@@ -87,6 +87,16 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zohoDesk/latest/actions/g
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Threads](actions/list-threads.md) | GET |  |
+
+### Ticket Tags
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Associate Tag](actions/associate-tag.md) | POST | This API adds a single tag or multiple tags to a ticket. |
+| [Dissociate Tag](actions/dissociate-tag.md) | POST | This API removes a single tag or multiple tags from a ticket. |
+| [List Tags on a Ticket](actions/list-tags-on-a-ticket.md) | GET | This API lists tags associated with a ticket. |
+| [Search Tags](actions/search-tags.md) | GET | This API searches for tags added in your help desk portal |
+| [List Ticket Tags](actions/search-tags-copy.md) | GET | This API searches for tags added in your help desk portal |
 
 ### Tickets
 

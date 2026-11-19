@@ -9,6 +9,10 @@ Retrieves items from SOS Inventory.
 - **Base URL:** `https://api.sosinventory.com`
 - **Official documentation:** [List Items](https://developer.sosinventory.com/apidoc/Item)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

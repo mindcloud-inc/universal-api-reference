@@ -12,15 +12,28 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actions/list-customers?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/sOSInventory/latest/actions/list-adjustments?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## SOS Inventory actions that support pagination
 
+- [List Adjustments](actions/list-adjustments.md)
+- [List Builds](actions/list-builds.md)
 - [List Customers](actions/list-customers.md)
+- [List Estimates](actions/list-estimates.md)
 - [List Invoices](actions/list-invoices.md)
+- [List Item Receipts](actions/list-item-receipts.md)
+- [List Items](actions/list-items.md)
 - [List Locations](actions/list-locations.md)
+- [List Lots](actions/list-lots.md)
+- [List Pick Tickets](actions/list-pick-tickets.md)
 - [List Purchase Orders](actions/list-purchase-orders.md)
+- [List Returns](actions/list-returns.md)
+- [List Returns to Vendors](actions/list-returns-to-vendors.md)
+- [List Sales Orders](actions/list-sales-orders.md)
+- [List Sales Receipts](actions/list-sales-receipts.md)
 - [List Shipments](actions/list-shipments.md)
+- [List Transfers](actions/list-transfers.md)
 - [List Vendors](actions/list-vendors.md)
+- [List Work Orders](actions/list-work-orders.md)

@@ -11,3 +11,9 @@
 ## Capabilities
 
 This operation supports [pagination](../README.md#pagination).
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `scanPage` | body | `number` | no | Optional verified scan page. Allows a workflow to save progress only after destination verification. |

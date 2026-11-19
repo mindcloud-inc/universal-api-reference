@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 82
+- **Actions:** 83
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (82)
+## Actions (83)
 
 ### Accounts Payable
 
@@ -172,6 +172,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add AR Contract Invoice V1](actions/add-ar-contract-invoice-v1.md) | POST | Adds a Contract based invoice. |
+| [Add Credit Memo](actions/add-credit-memo.md) | POST | Adds a Non-Contract based invoice. |
 | [Add Many for the Cost Adjustment Batch Entries](actions/add-many-for-the-cost-adjustment-batch-entries.md) | POST |  |
 | [Add Many Time Batch Entries](actions/add-many-payroll-timecard-entries.md) | POST | Add an array of time batch entries |
 | [Add Non-Contract Invoice](actions/add-non-contract-invoice.md) | POST | Adds a Non-Contract based invoice. |

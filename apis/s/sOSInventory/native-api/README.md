@@ -1,6 +1,6 @@
 # SOS Inventory: Native API Reference
 
-A consolidated summary of SOS Inventory's API configuration and 38 documented operations, with links to official documentation.
+A consolidated summary of SOS Inventory's API configuration and 47 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.sosinventory.com/apidoc/
 - **API base URL:** `https://api.sosinventory.com`
@@ -38,7 +38,11 @@ Response data is read from `data`.
 
 Use `maxresults` in the query string to set the page size (default 200; accepted range 1–200). Use `start` in the query string as the record offset; numbering starts at 0.
 
-## Endpoints (38 documented)
+## Retry behavior
+
+Retry responses with status codes `429,500,502,503,504`. Wait 2000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
+
+## Endpoints (47 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -55,22 +59,31 @@ Use `maxresults` in the query string to set the page size (default 200; accepted
 | [Get Estimate](actions/get-estimate.md) | `GET /api/v2/estimate/:id` | [docs](https://developer.sosinventory.com/apidoc/Estimate) |
 | [Get Invoice](actions/get-invoice.md) | `GET /api/v2/invoice/:id` | [docs](https://developer.sosinventory.com/apidoc/Invoice) |
 | [Get Item](actions/get-item.md) | `GET /api/v2/item/:id` | [docs](https://developer.sosinventory.com/apidoc/Item) |
+| [Get Item Receipt](actions/get-item-receipt.md) | `GET /api/v2/itemreceipt/:id` | [docs](https://developer.sosinventory.com/apidoc/ItemReceipt) |
 | [Get Purchase Order](actions/get-purchase-order.md) | `GET /api/v2/purchaseorder/:id` | [docs](https://developer.sosinventory.com/apidoc/PurchaseOrder) |
 | [Get Sales Order](actions/get-sales-order.md) | `GET /api/v2/salesorder/:id` | [docs](https://developer.sosinventory.com/apidoc/SalesOrder) |
 | [Get Shipment](actions/get-shipment.md) | `GET /api/v2/shipment/:id` | [docs](https://developer.sosinventory.com/apidoc/Shipment) |
 | [Get Transfer](actions/get-transfer.md) | `GET /api/v2/transfer/:id` | [docs](https://developer.sosinventory.com/apidoc/Transfer) |
 | [Get Vendor](actions/get-vendor.md) | `GET /api/v2/vendor/:id` | [docs](https://developer.sosinventory.com/apidoc/Vendor) |
+| [List Adjustments](actions/list-adjustments.md) | `GET /api/v2/adjustment` | [docs](https://developer.sosinventory.com/apidoc/Adjustment) |
+| [List Builds](actions/list-builds.md) | `GET /api/v2/build` | [docs](https://developer.sosinventory.com/apidoc/Build) |
 | [List Customers](actions/list-customers.md) | `GET /api/v2/customer` | [docs](https://developer.sosinventory.com/apidoc/Customer) |
 | [List Estimates](actions/list-estimates.md) | `GET /api/v2/estimate` | [docs](https://developer.sosinventory.com/apidoc/Estimate) |
 | [List Invoices](actions/list-invoices.md) | `GET /api/v2/invoice` | [docs](https://developer.sosinventory.com/apidoc/Invoice) |
 | [List Item Receipts](actions/list-item-receipts.md) | `GET /api/v2/itemreceipt` | [docs](https://developer.sosinventory.com/apidoc/ItemReceipt) |
 | [List Items](actions/list-items.md) | `GET /api/v2/item` | [docs](https://developer.sosinventory.com/apidoc/Item) |
 | [List Locations](actions/list-locations.md) | `GET /api/v2/location` | [docs](https://developer.sosinventory.com/apidoc/Configuration) |
+| [List Lots](actions/list-lots.md) | `GET /api/v2/lot` | [docs](https://developer.sosinventory.com/apidoc/Lot) |
+| [List Pick Tickets](actions/list-pick-tickets.md) | `GET /api/v2/pickticket` | [docs](https://developer.sosinventory.com/apidoc/PickTicket) |
 | [List Purchase Orders](actions/list-purchase-orders.md) | `GET /api/v2/purchaseorder` | [docs](https://developer.sosinventory.com/apidoc/PurchaseOrder) |
+| [List Returns](actions/list-returns.md) | `GET /api/v2/return` | [docs](https://developer.sosinventory.com/apidoc/Return) |
+| [List Returns to Vendors](actions/list-returns-to-vendors.md) | `GET /api/v2/returntovendor` | [docs](https://developer.sosinventory.com/apidoc/ReturnToVendor) |
 | [List Sales Orders](actions/list-sales-orders.md) | `GET /api/v2/salesorder` | [docs](https://developer.sosinventory.com/apidoc/SalesOrder) |
+| [List Sales Receipts](actions/list-sales-receipts.md) | `GET /api/v2/salesreceipt` | [docs](https://developer.sosinventory.com/apidoc/SalesReceipt) |
 | [List Shipments](actions/list-shipments.md) | `GET /api/v2/shipment` | [docs](https://developer.sosinventory.com/apidoc/Shipment) |
 | [List Transfers](actions/list-transfers.md) | `GET /api/v2/transfer` | [docs](https://developer.sosinventory.com/apidoc/Transfer) |
 | [List Vendors](actions/list-vendors.md) | `GET /api/v2/vendor` | [docs](https://developer.sosinventory.com/apidoc/Vendor) |
+| [List Work Orders](actions/list-work-orders.md) | `GET /api/v2/workorder` | [docs](https://developer.sosinventory.com/apidoc/WorkOrder) |
 | [Update Customer](actions/update-customer.md) | `PUT /api/v2/customer/:id` | [docs](https://developer.sosinventory.com/apidoc/Customer) |
 | [Update Estimate](actions/update-estimate.md) | `PUT /api/v2/estimate/:id` | [docs](https://developer.sosinventory.com/apidoc/Estimate) |
 | [Update Invoice](actions/update-invoice.md) | `PUT /api/v2/invoice/:id` | [docs](https://developer.sosinventory.com/apidoc/Invoice) |

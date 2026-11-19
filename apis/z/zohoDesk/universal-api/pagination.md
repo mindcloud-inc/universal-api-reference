@@ -19,7 +19,10 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/zohoDesk/latest/actions/l
 ## Zoho Desk actions that support pagination
 
 - [List Layouts](actions/list-layouts.md)
+- [List Tags on a Ticket](actions/list-tags-on-a-ticket.md)
 - [List Tickets](actions/list-tickets.md)
 - [Search Accounts](actions/search-accounts.md)
 - [Search Contacts](actions/search-contacts.md)
+- [Search Tags](actions/search-tags.md)
+- [List Ticket Tags](actions/search-tags-copy.md)
 - [Search Tickets](actions/search-tickets.md)

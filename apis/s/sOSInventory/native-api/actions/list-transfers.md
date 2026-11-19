@@ -8,3 +8,7 @@ Retrieves transfers from SOS Inventory.
 - **Path:** `/api/v2/transfer`
 - **Base URL:** `https://api.sosinventory.com`
 - **Official documentation:** [List Transfers](https://developer.sosinventory.com/apidoc/Transfer)
+
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).

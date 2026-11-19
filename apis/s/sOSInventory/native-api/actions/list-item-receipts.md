@@ -8,3 +8,7 @@ Retrieves item receipts from SOS Inventory.
 - **Path:** `/api/v2/itemreceipt`
 - **Base URL:** `https://api.sosinventory.com`
 - **Official documentation:** [List Item Receipts](https://developer.sosinventory.com/apidoc/ItemReceipt)
+
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).

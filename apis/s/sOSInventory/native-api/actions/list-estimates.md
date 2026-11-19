@@ -9,6 +9,10 @@ Retrieves estimates from SOS Inventory.
 - **Base URL:** `https://api.sosinventory.com`
 - **Official documentation:** [List Estimates](https://developer.sosinventory.com/apidoc/Estimate)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

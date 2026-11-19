@@ -1,6 +1,6 @@
 # Zoho Desk: Native API Reference
 
-A consolidated summary of Zoho Desk's API configuration and 27 documented operations, with links to official documentation.
+A consolidated summary of Zoho Desk's API configuration and 32 documented operations, with links to official documentation.
 
 - **Official docs:** https://desk.zoho.com/DeskAPIDocument
 - **API base URL:** `https://desk.zoho.com/api/v1`
@@ -36,14 +36,16 @@ Use `limit` in the query string to set the page size (default 10; accepted range
 
 Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (27 documented)
+## Endpoints (32 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
+| [Associate Tag](actions/associate-tag.md) | `POST /tickets/:ticketId/associateTag` | [docs](https://desk.zoho.com/DeskAPIDocument#TicketTags#TicketTags_Getticketcountbytag) |
 | [Create Account](actions/create-account.md) | `POST /accounts` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Account.json) |
 | [Create Contact](actions/create-contact.md) | `POST /contacts` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Contact.json) |
 | [Create Ticket](actions/create-ticket.md) | `POST /tickets` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Ticket.json) |
 | [Create Ticket Comment](actions/create-ticket-comment.md) | `POST /tickets/[:ticketId]/comments` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/TicketComment.json) |
+| [Dissociate Tag](actions/dissociate-tag.md) | `POST /tickets/:ticketId/dissociateTag` | [docs](https://desk.zoho.com/DeskAPIDocument#TicketTags_DissociateTag) |
 | [Get Account](actions/get-account.md) | `GET /accounts/[:accountId]` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Account.json) |
 | [Get Contact](actions/get-contact.md) | `GET /contacts/[:contactId]` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Contact.json) |
 | [Get Department](actions/get-department.md) | `GET /departments/[:departmentId]` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Department.json) |
@@ -56,6 +58,7 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [List Layouts](actions/list-layouts.md) | `GET layouts` | [docs](https://desk.zoho.com/DeskAPIDocument#Layouts#Layouts_ListLayouts) |
 | [List Organization Fields In Module](actions/list-organization-fields-in-module.md) | `GET /organizationFields` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Field.json) |
 | [List Organizations](actions/list-organizations.md) | `GET /organizations` | [docs](https://desk.zoho.com/DeskAPIDocument#Organizations_Getallorganizations) |
+| [List Tags on a Ticket](actions/list-tags-on-a-ticket.md) | `GET /tickets/:ticketId/tags` | [docs](https://desk.zoho.com/DeskAPIDocument#TicketTags#TicketTags_Listtickettags) |
 | [List Threads](actions/list-threads.md) | `GET /tickets/[:ticketId]/threads` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Thread.json) |
 | [List Ticket Comments](actions/list-ticket-comments.md) | `GET /tickets/[:ticketId]/comments` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/TicketComment.json) |
 | [List Tickets](actions/list-tickets.md) | `GET /tickets` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Ticket.json) |
@@ -63,6 +66,8 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [Move Ticket](actions/move-ticket.md) | `POST /tickets/[:ticketId]/move` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Ticket.json) |
 | [Search Accounts](actions/search-accounts.md) | `GET /accounts/search` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Search.json) |
 | [Search Contacts](actions/search-contacts.md) | `GET /contacts/search` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Search.json) |
+| [Search Tags](actions/search-tags.md) | `GET /tags/search` | [docs](https://desk.zoho.com/DeskAPIDocument#TicketTags#TicketTags_Searchtags) |
+| [List Ticket Tags](actions/search-tags-copy.md) | `GET /ticketTags` | [docs](https://desk.zoho.com/DeskAPIDocument#TicketTags#TicketTags_Listtickettags) |
 | [Search Tickets](actions/search-tickets.md) | `GET /tickets/search` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Search.json) |
 | [Update Account](actions/update-account.md) | `PATCH /accounts/[:accountId]` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Account.json) |
 | [Update Contact](actions/update-contact.md) | `PATCH /contacts/[:contactId]` | [docs](https://github.com/zoho/zohodesk-oas/blob/master/v1.0/Contact.json) |

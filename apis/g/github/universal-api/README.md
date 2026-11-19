@@ -4,7 +4,7 @@ GitHub is a developer platform for hosting code, reviewing changes, and automati
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/github/latest
 - **Category:** IT Operations / Developer Tools
-- **Actions:** 39
+- **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://github.com
 - **Vendor API docs:** https://docs.github.com/en/rest
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (39)
+## Actions (40)
 
 ### Branches
 
@@ -87,6 +87,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/github/latest/actions/get
 | Action | Method | Description |
 | --- | --- | --- |
 | [List Authenticated User Organizations](actions/list-authenticated-user-organizations.md) | GET | Lists GitHub organizations for the authenticated user. |
+
+### Other
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Compare Two Commits](actions/compare-commits.md) | GET |  |
 
 ### Pull Request
 

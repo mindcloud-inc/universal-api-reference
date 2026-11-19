@@ -23,22 +23,47 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/ge
 
 ## Actions (14)
 
+### Bills
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Bill of Lading](actions/get-bill-of-lading.md) | GET |  |
+
+### Inventory Items
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Update Item List Inventory](actions/update-inventory-list.md) | PUT |  |
+
+### Labels
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Packing Slip](actions/get-packing-slip.md) | GET |  |
+| [Get Shipping Label](actions/get-shipping-label.md) | GET |  |
+
+### Orders
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Accept Order](actions/accept-order.md) | PUT |  |
+| [Acknowledge Castle Gate Order](actions/acknowledge-castle-gate-order.md) | PUT |  |
+| [Get CastleGate Orders](actions/get-castle-gate-orders.md) | GET |  |
+| [Get Dropship Orders](actions/get-dropship-orders.md) | GET |  |
+| [Register Order](actions/register-order.md) | PUT | Register purchase order items for shipment |
+
 ### Other
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Accept Order](actions/accept-order.md) | POST |  |
-| [Acknowledge Castle Gate Order](actions/acknowledge-castle-gate-order.md) | POST |  |
-| [Acknowledge CastleGate Shipping Advice](actions/acknowledge-castle-gate-shipping-advice.md) | POST |  |
-| [Get Bill of Lading](actions/get-bill-of-lading.md) | GET |  |
-| [Get CastleGate Orders](actions/get-castle-gate-orders.md) | GET |  |
-| [Get CastleGate Orders Shipping Advice](actions/get-castle-gate-shipping-advice.md) | POST |  |
-| [Get Dropship Orders](actions/get-dropship-orders.md) | POST |  |
-| [Get Packing Slip](actions/get-packing-slip.md) | GET |  |
-| [Get Shipping Label](actions/get-shipping-label.md) | GET |  |
 | [GraphQL](actions/graph-ql.md) | POST |  |
-| [Register Order](actions/register-order.md) | POST | Register purchase order items for shipment |
-| [Send Shipment Notice](actions/send-shipment-notice.md) | POST |  |
 | [test](actions/test.md) | GET |  |
-| [Update Item List Inventory](actions/update-inventory-list.md) | POST |  |
+
+### Shipments
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Acknowledge CastleGate Shipping Advice](actions/acknowledge-castle-gate-shipping-advice.md) | PUT |  |
+| [Get CastleGate Orders Shipping Advice](actions/get-castle-gate-shipping-advice.md) | GET |  |
+| [Send Shipment Notice](actions/send-shipment-notice.md) | PUT |  |
 

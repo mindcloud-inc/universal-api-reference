@@ -3,7 +3,7 @@
 
 
 ```
-POST https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/send-shipment-notice
+PUT https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/send-shipment-notice
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Wayfair `connectionId` ([setup](../authentication.md)).
@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Wayfair 
 ## Example request
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/send-shipment-notice" \
+curl -X PUT "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/send-shipment-notice" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -21,7 +21,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/s
 
 ```js
 const response = await fetch('https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/send-shipment-notice', {
-  method: 'POST',
+  method: 'PUT',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
