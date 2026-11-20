@@ -1,7 +1,5 @@
 # Add Credit Memo with Viewpoint Vista
 
-Adds a Non-Contract based invoice.
-
 ## Endpoint
 
 - **Method:** `POST`
@@ -15,8 +13,12 @@ Adds a Non-Contract based invoice.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `Co` | body | `number` | yes | Vista PR company. |
+| `LineItems[].ARLine` | body | `number` | no | — |
+| `LineItems[].LineType` | body | `string` | no | — |
 | `Mth` | body | `string` | yes | Posting month for the batch. Format: YYYY-MM-DD. |
 | `BatchId` | body | `number` | yes | — |
+| `LineItems[].__BaseAmount` | body | `string` | no | — |
+| `LineItems[].GLAcct` | body | `string` | no | — |
 | `TransDate` | body | `string` | yes | — |
 | `Invoice` | body | `string` | no | — |
 | `CustRef` | path | `string` | no | — |
@@ -28,7 +30,3 @@ Adds a Non-Contract based invoice.
 | `__custom_fields` | body | `object` | no | — |
 | `AppliedMth` | body | `string` | no | — |
 | `AppliedTrans` | body | `number` | no | — |
-| `ARLine` | body | `number` | no | — |
-| `LineType` | body | `string` | no | — |
-| `__BaseAmount` | body | `string` | no | — |
-| `GLAcct` | body | `string` | no | — |

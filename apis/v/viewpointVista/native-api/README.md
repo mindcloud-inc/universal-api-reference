@@ -1,6 +1,6 @@
 # Viewpoint Vista: Native API Reference
 
-A consolidated summary of Viewpoint Vista's API configuration and 83 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Vista's API configuration and 85 documented operations, with links to official documentation.
 
 - **Official docs:** https://direct-api.xchange.trimble.com/reference/setup
 - **REST base URL:** `https://api.xchange.trimble.com/connect/`
@@ -53,7 +53,7 @@ Shared headers:
 
 - **REST:** Send filters in the request body.
 
-## Endpoints (83 documented)
+## Endpoints (85 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -81,6 +81,8 @@ Shared headers:
 | [Get Customer by RyvitId](actions/get-customer-by-ryvit-id.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/sm/2/data/customers/cache/__ryvitId/:ryvitId_value` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache__ryvitidryvitid_value) |
 | [Get Customer by SMCo, CustGroup, Customer](actions/get-customer-by-sm-co-cust-group-customer.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/sm/2/data/customers/cache/natural/:SMCo/:CustGroup/:Customer` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datacustomerscachesearchsearch) |
 | [Get Customer by SMCustomerID](actions/get-customer-by-sm-customer-id.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/sm/2/data/customers/cache/id/:SMCustomerID` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datacustomerscachesearchsearch) |
+| [Get Employee by PRCo and Employee](actions/get-employee-by-pr-co-and-employee.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/pr/2/data/employees/cache/natural/:PRCo/:Employee` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapr2datatime_batchesactionscancel) |
+| [Get Resource by HRCo and HRRef](actions/get-resource-by-hr-co-and-hr-ref.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/hr/2/data/resources/cache/natural/:HRCo/:HRRef` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistahr2dataresourcescachenaturalhrcohrref) |
 | [Get Service Site by SMServiceSiteID](actions/get-service-site-by-sm-service-site-id.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/sm/2/data/service_sites/cache/id/:SMServiceSiteID` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datacustomerscachesearchsearch) |
 | [Get Timecard Batch by Ryvit ID](actions/get-timecard-batch-by-ryvit-id.md) | REST | `GET v1/direct/subscribers/{{credentials.subscriberCode}}/vista/pr/2/data/time_batches/cache/:ryvitId_value` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistapr2datatime_batchescacheryvitid_value) |
 | [List AP Objects](actions/list-ap-objects.md) | REST | `GET v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/cache` | [docs](https://direct-api.xchange.trimble.com/reference/get-directsubscriberssubscriber_codevistasm2datacustomerscache) |

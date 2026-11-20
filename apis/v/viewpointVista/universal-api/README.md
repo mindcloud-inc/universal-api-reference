@@ -3,7 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
-- **Actions:** 83
+- **Actions:** 85
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup
 
@@ -20,7 +20,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (83)
+## Actions (85)
 
 ### Accounts Payable
 
@@ -78,6 +78,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | Action | Method | Description |
 | --- | --- | --- |
 | [Update Employee](actions/update-employee.md) | PUT |  |
+
+### Employees
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Employee by PRCo and Employee](actions/get-employee-by-pr-co-and-employee.md) | GET |  |
 
 ### Equipment Management
 
@@ -172,7 +178,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | Action | Method | Description |
 | --- | --- | --- |
 | [Add AR Contract Invoice V1](actions/add-ar-contract-invoice-v1.md) | POST | Adds a Contract based invoice. |
-| [Add Credit Memo](actions/add-credit-memo.md) | POST | Adds a Non-Contract based invoice. |
+| [Add Credit Memo](actions/add-credit-memo.md) | POST |  |
 | [Add Many for the Cost Adjustment Batch Entries](actions/add-many-for-the-cost-adjustment-batch-entries.md) | POST |  |
 | [Add Many Time Batch Entries](actions/add-many-payroll-timecard-entries.md) | POST | Add an array of time batch entries |
 | [Add Non-Contract Invoice](actions/add-non-contract-invoice.md) | POST | Adds a Non-Contract based invoice. |
@@ -207,6 +213,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointVista/latest/act
 | [Add PO Purchase Order](actions/add-po-purchase-order.md) | POST | Adds a Purchase Order |
 | [List PO Objects](actions/list-po-objects.md) | GET | Represents data found in Viewpoint® Vista™ PO programs. |
 | [Search PO Objects](actions/search-po-objects.md) | GET | Search objects found in Viewpoint® Vista™ Search (PO) programs. |
+
+### Resource Allocations
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Resource by HRCo and HRRef](actions/get-resource-by-hr-co-and-hr-ref.md) | GET |  |
 
 ### Service Management
 

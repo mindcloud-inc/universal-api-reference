@@ -57,7 +57,7 @@ Responses from this API use JSON.
 | [List Pipeline Stages](actions/list-pipeline-stages.md) | `GET /action/pipelineStages/list` | [docs](https://help.withmoxie.com/en/articles/8260232-list-pipeline-stages) |
 | [List Project Task Stages](actions/list-project-task-stages.md) | `GET /action/taskStages/list` | [docs](https://help.withmoxie.com/en/articles/8260242-list-project-task-stages) |
 | [List Vendor Names](actions/list-vendor-names.md) | `GET /action/vendors/list` | [docs](https://help.withmoxie.com/en/articles/8260220-list-vendor-names) |
-| [List Workspace Users](actions/list-workspace-users.md) | `GET /action/users/list` | [docs](https://help.withmoxie.com/en/articles/8260260-list-workspace-users) |
+| [List Workspace Users](actions/list-workspace-users.md) | `GET /action/users/list` | [docs](https://api-docs.withmoxie.com/reference/users-list/) |
 | [Search Clients](actions/search-clients.md) | `GET /action/clients/search` | [docs](https://help.withmoxie.com/en/articles/8163928-search-clients) |
 | [Search Contacts](actions/search-contacts.md) | `GET /action/contacts/search` | [docs](https://help.withmoxie.com/en/articles/8259974-search-contacts) |
 | [Search Payable Invoices](actions/search-payable-invoices.md) | `GET /action/payableInvoices/search` | [docs](https://help.withmoxie.com/en/articles/8260252-search-payable-invoices) |

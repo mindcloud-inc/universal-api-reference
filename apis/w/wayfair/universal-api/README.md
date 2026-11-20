@@ -23,6 +23,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/ge
 
 ## Actions (14)
 
+### Activities
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [GraphQL](actions/graph-ql.md) | POST |  |
+
 ### Bills
 
 | Action | Method | Description |
@@ -56,7 +62,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/wayfair/latest/actions/ge
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [GraphQL](actions/graph-ql.md) | POST |  |
 | [test](actions/test.md) | GET |  |
 
 ### Shipments

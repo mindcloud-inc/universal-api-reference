@@ -14,3 +14,4 @@
 | `wsaIds` | body | `string` | no |
 | `hasResponse` | body | `string` | no |
 | `fromDate` | body | `string` | no |
+| `poNumbers` | body | `string` | no |

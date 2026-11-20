@@ -42,6 +42,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `stringSearch` | string | no | Search by a person's identifying text. |
 | `entitySearch[]` | array<string> | no | Limit the search to Fleetworthy location IDs. |
 | `isActive` | boolean | no | Return active people when enabled. Default: `true`. |
+| `sortBy[]` | array<string> | no |  |
 
 ### Advanced
 

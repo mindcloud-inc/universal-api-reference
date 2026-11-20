@@ -9,6 +9,10 @@ Retrieves payrolls from ServiceTitan for an employee.
 - **Base URL:** `https://{baseUrl}/`
 - **Official documentation:** [List Payroll by Employee ID](https://developer.servicetitan.io/api-details/#api=tenant-payroll-v2&operation=Payrolls_GetList)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

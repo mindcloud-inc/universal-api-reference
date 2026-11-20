@@ -27,3 +27,4 @@ Send these additional headers for this operation:
 | `entitySearch[]` | body | `array<string>` | no | Limit the search to Fleetworthy location IDs. |
 | `isActive` | body | `boolean` | no | Return active people when enabled. |
 | `advancedFilter` | body | `object` | no | Optional Fleetworthy person filter object, such as firstName, lastName, email, or SocialSecurityNumberLastFour. |
+| `sortBy[]` | body | `array<string>` | no | — |

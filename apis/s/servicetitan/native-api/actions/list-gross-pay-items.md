@@ -15,16 +15,17 @@ This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `employeeId` | query | `number` | no |
-| `sort` | query | `string` | no |
-| `payrollIds` | query | `string` | no |
-| `pageSize` | query | `number` | no |
-| `dateOnOrAfter` | query | `string` | no |
-| `dateOnOrBefore` | query | `string` | no |
-| `createdOnOrAfter` | query | `string` | no |
-| `createdBefore` | query | `string` | no |
-| `modifiedOnOrAfter` | query | `string` | no |
-| `modifiedOnOrBefore` | query | `string` | no |
-| `modifiedBefore` | query | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `employeeId` | query | `number` | no | — |
+| `sort` | query | `string` | no | — |
+| `payrollIds` | query | `string` | no | — |
+| `pageSize` | query | `number` | no | — |
+| `dateOnOrAfter` | query | `string` | no | — |
+| `dateOnOrBefore` | query | `string` | no | — |
+| `createdOnOrAfter` | query | `string` | no | — |
+| `createdBefore` | query | `string` | no | — |
+| `modifiedOnOrAfter` | query | `string` | no | — |
+| `modifiedOnOrBefore` | query | `string` | no | — |
+| `modifiedBefore` | query | `string` | no | — |
+| `employeeType` | query | `list` | no | Return pay items for technicians or for office employees. ServiceTitan returns technician pay items when this is not set. Accepted values: `Employee`, `Technician`. |

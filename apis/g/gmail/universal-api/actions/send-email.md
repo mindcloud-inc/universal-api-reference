@@ -71,6 +71,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `attachmentFilename` | string | no | Optional attachment filename override. Defaults to the uploaded file name when available. |
 | `attachmentMimeType` | string | no | Optional attachment MIME type override. Defaults to application/octet-stream when unknown. |
+| `rawBase64` | string | no | Optional override. Provide a fully formed RFC 2822 MIME message encoded with base64url; this is sent directly as Message.raw. Example: `RnJvbTogbWUuLi4NClRvOiBqYW5lQGV4YW1wbGUuY29tLi4u`. |
 
 ## Response
 

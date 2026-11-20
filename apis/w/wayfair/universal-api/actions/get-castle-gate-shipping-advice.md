@@ -39,6 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `wsaIds` | string | no |  |
 | `hasResponse` | string | no |  |
 | `fromDate` | string | no |  |
+| `poNumbers` | string | no |  |
 
 ## Response
 

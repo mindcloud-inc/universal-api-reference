@@ -68,6 +68,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/servicetitan/latest/actio
 - [List Gross Pay Items](actions/list-gross-pay-items.md)
 - [List Memberships](actions/list-memberships.md)
 - [List Payroll](actions/list-payroll.md)
+- [List Payroll by Employee ID](actions/list-payroll-by-employee-id.md)
 - [List Purchase Order Types](actions/list-purchase-order-types.md)
 - [List Report Categories](actions/list-report-categories.md)
 - [List Reports](actions/list-reports.md)

@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3239 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3240 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -13,6 +13,7 @@ The official vendor API documentation for each of the 3239 apps in this repo. Ea
 - [Abstract IP Intelligence](../apis/a/abstractIPIntelligence/native-api) - https://docs.abstractapi.com/api/ip-intelligence
 - [Abstract VAT Validator](../apis/a/abstractVATValidator/native-api) - https://docs.abstractapi.com/api/vat-validation
 - [Abyssale](../apis/a/abyssale/native-api) - https://developers.abyssale.com/
+- [Accurate](../apis/a/accurate/native-api) - https://accurate.readme.io/reference
 - [AccuWeather](../apis/a/accuWeather/native-api) - https://developer.accuweather.com/documentation/overview
 - [ACLU](../apis/a/aCLU/native-api) - https://www.thetorturedatabase.org/api
 - [Acronis](../apis/a/acronis/native-api) - https://developer.acronis.com/doc/outbound/apis/index.html

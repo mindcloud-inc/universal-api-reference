@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 Sales: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 Sales's API configuration and 20 documented operations, with links to official documentation.
+A consolidated summary of Microsoft Dynamics 365 Sales's API configuration and 24 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/dynamics365/sales/developer/developer-guide
 - **API base URL:** `{environmentUrl}/api/data/v9.2`
@@ -59,10 +59,14 @@ Set the sort field with `$orderby` in the query string. Use `asc` for ascending 
 
 Retry responses with status codes `429`. Wait 60000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (20 documented)
+## Endpoints (24 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
+| [Create Account](actions/create-account.md) | `POST /accounts` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/create-entity-web-api) |
+| [Create Contact](actions/create-contact.md) | `POST /contacts` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/create-entity-web-api) |
+| [Create Opportunity](actions/create-opportunity.md) | `POST /opportunities` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/create-entity-web-api) |
+| [Create Property](actions/create-property.md) | `POST /grny_properties` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/create-entity-web-api) |
 | [Get Account](actions/get-account.md) | `GET /accounts(:accountId)` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/reference/entities/account) |
 | [Get Contact](actions/get-contact.md) | `GET /contacts(:contactId)` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/reference/entities/contact) |
 | [Get Current User](actions/get-current-user.md) | `GET /WhoAmI` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/whoami?view=dataverse-latest) |

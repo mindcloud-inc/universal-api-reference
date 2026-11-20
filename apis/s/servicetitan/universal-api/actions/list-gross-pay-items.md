@@ -50,6 +50,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | `modifiedOnOrAfter` | string | no |  |
 | `modifiedOnOrBefore` | string | no |  |
 | `modifiedBefore` | string | no |  |
+| `employeeType` | list | no | Return pay items for technicians or for office employees. ServiceTitan returns technician pay items when this is not set. One of: `Employee`, `Technician`. |
 
 ## Response
 

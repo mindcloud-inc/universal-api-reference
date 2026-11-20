@@ -31,3 +31,4 @@ Sends a Gmail message.
 | `attachments[].data` | body | `string` | yes | File content encoded as base64 or base64url. Accepts the data returned by Get Email Attachment; do not supply a URL or an attachment ID. |
 | `attachmentFilename` | body | `string` | no | Optional attachment filename override. Defaults to the uploaded file name when available. |
 | `attachmentMimeType` | body | `string` | no | Optional attachment MIME type override. Defaults to application/octet-stream when unknown. |
+| `rawBase64` | body | `string` | no | Optional override. Provide a fully formed RFC 2822 MIME message encoded with base64url; this is sent directly as Message.raw. |

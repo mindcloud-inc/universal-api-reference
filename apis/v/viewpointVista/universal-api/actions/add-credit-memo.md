@@ -1,6 +1,6 @@
 # Viewpoint Vista: Add Credit Memo
 
-Adds a Non-Contract based invoice.
+
 
 ```
 POST https://connect.mindcloud.co/v1/universal/viewpointVista/latest/actions/add-credit-memo
@@ -49,8 +49,12 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `co` | number | yes | Vista PR company. |
+| `LineItems[].ARLine` | number | no |  |
+| `LineItems[].LineType` | string | no |  |
 | `mth` | string | yes | Posting month for the batch. Format: YYYY-MM-DD. Example: `2026-05-01`. |
 | `BatchId` | number | yes |  |
+| `LineItems[].__BaseAmount` | string | no |  |
+| `LineItems[].GLAcct` | string | no |  |
 | `TransDate` | string | yes |  |
 | `Invoice` | string | no |  |
 | `CustRef` | string | no |  |
@@ -62,10 +66,6 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `__custom_fields` | object | no |  |
 | `AppliedMth` | string | no |  |
 | `AppliedTrans` | number | no |  |
-| `ARLine` | number | no |  |
-| `LineType` | string | no |  |
-| `__BaseAmount` | string | no |  |
-| `GLAcct` | string | no |  |
 
 ## Response
 

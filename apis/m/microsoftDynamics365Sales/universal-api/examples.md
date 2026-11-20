@@ -37,30 +37,30 @@ Example response:
 
 See the full [Get Current User action reference](actions/get-current-user.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/microsoftDynamics365Sales/latest/actions/get-current-user).
 
-## Update Account
+## Create Account
 
 
 
 ```bash
-curl -X PUT "https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales/latest/actions/update-account" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales/latest/actions/create-account" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "accountId": "00000000-0000-0000-0000-000000000001"
+  "fields": {}
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales/latest/actions/update-account', {
-  method: 'PUT',
+const response = await fetch('https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales/latest/actions/create-account', {
+  method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     connectionId,
-    "accountId": "00000000-0000-0000-0000-000000000001"
+    "fields": {}
   })
 });
 
@@ -72,9 +72,13 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "accountid": "string"
+    }
+  ],
   "meta": {}
 }
 ```
 
-See the full [Update Account action reference](actions/update-account.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/microsoftDynamics365Sales/latest/actions/update-account).
+See the full [Create Account action reference](actions/create-account.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/microsoftDynamics365Sales/latest/actions/create-account).

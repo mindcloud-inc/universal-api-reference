@@ -15,7 +15,7 @@ Send these additional headers for this operation:
 
 | Header | Value |
 | --- | --- |
-| `Content-Type` | `multipart/form-data` |
+| `Content-Type` | `text/csv` |
 
 ## Parameters
 

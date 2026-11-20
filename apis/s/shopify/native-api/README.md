@@ -13,13 +13,15 @@ A consolidated summary of Shopify's API configuration and 27 documented operatio
 ### Credentials
 
 - **API Key:** `apiKey` · required
-- **Store Name:** `storeName` · optional
+- **Store Name:** `storeName` · required · Enter your store's myshopify.com subdomain only. For example, enter example-store for example-store.myshopify.com; omit https:// and .myshopify.com.
 
 Send these headers with each API request:
 
 ```http
 Authorization: Bearer <apiKey>
 ```
+
+[Official authentication documentation](https://shopify.dev/docs/apps/build/authentication-authorization/legacy/admin-custom-apps)
 
 ### OAuth 2.0
 
