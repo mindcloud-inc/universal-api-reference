@@ -54,7 +54,10 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/gmail/latest/actions/batc
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "ids[]": [
+    "string"
+  ]
 }'
 ```
 
@@ -66,7 +69,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/gmail/la
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "ids[]": ["string"]
   })
 });
 

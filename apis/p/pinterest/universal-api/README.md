@@ -4,7 +4,7 @@ Pinterest is a visual discovery and social commerce platform for creating and ma
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pinterest/latest
 - **Category:** Marketing / Social Media
-- **Actions:** 39
+- **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pinterest.com
 - **Vendor API docs:** https://developers.pinterest.com/docs/api/v5/introduction/
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pinterest/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (39)
+## Actions (40)
 
 ### Ad Account
 
@@ -130,6 +130,12 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pinterest/latest/actions/
 | [Get Catalog Items](actions/get-catalog-items.md) | GET | Retrieves catalog items from Pinterest. |
 | [List Products By Product Group](actions/list-products-by-product-group.md) | GET | Retrieves product pins from a Pinterest product group. |
 | [Operate On Product Pins](actions/operate-on-product-pins.md) | PUT | Operates on Pinterest catalog items in batch. |
+
+### Reports
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Ad Account Analytics](actions/list-ad-account-analytics.md) | GET | Retrieves paid ad spend and click metrics for a Pinterest ad account. |
 
 ### User Profiles
 

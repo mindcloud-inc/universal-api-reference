@@ -15,7 +15,10 @@ curl -X PUT "https://connect.mindcloud.co/v1/universal/gmail/latest/actions/batc
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "ids[]": [
+    "string"
+  ]
 }'
 ```
 
@@ -27,14 +30,23 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/gmail/la
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "ids[]": ["string"]
   })
 });
 
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `ids[]` | array<string> | yes | The IDs of the messages to modify. Gmail accepts at most 1,000 IDs per request. |
+| `addLabelIds` | list<string> | no | A list of label IDs to add to the messages. Accepts multiple values as an array. |
+| `removeLabelIds` | list<string> | no | A list of label IDs to remove from the messages. Accepts multiple values as an array. |
 
 ## Response
 

@@ -3,7 +3,7 @@
 Connect Facebook Pages, Meta Business assets, and advertising data to workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/facebook/latest
-- **Actions:** 16
+- **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.facebook.com/business
 - **Vendor API docs:** https://developers.facebook.com/docs/
@@ -21,7 +21,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/l
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (16)
+## Actions (20)
 
 ### Accounts
 
@@ -41,6 +41,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/l
 | Action | Method | Description |
 | --- | --- | --- |
 | [Ad Account Ads Query](actions/ad-account-ads-query.md) | GET |  |
+| [List Daily Ad Insights](actions/list-daily-ad-insights.md) | GET | Retrieves daily spend, clicks, and conversion events for Meta ads. |
 
 ### Instagram Media
 
@@ -71,6 +72,24 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/l
 | --- | --- | --- |
 | [Get Page](actions/get-page.md) | GET |  |
 | [List Pages](actions/list-pages.md) | GET | List pages you manage/own |
+
+### Page Photo
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Page Photo](actions/create-page-photo.md) | POST |  |
+
+### Page Post
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Page Post](actions/create-page-post.md) | POST |  |
+
+### Page Video
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Create Page Video](actions/create-page-video.md) | POST |  |
 
 ### Pages
 

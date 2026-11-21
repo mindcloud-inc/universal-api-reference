@@ -44,5 +44,5 @@ The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `
 
 ## Native endpoint
 
-Through the native Pinterest API, this operation is `GET catalogs/items/batch/:batchId` (base URL `https://api.pinterest.com/v5`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-catalog-item-batch-status.md) for the provider-specific parameters and requirements.
+Through the native Pinterest API, this operation is `GET catalogs/items/batch/:id` (base URL `https://api.pinterest.com/v5`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-catalog-item-batch-status.md) for the provider-specific parameters and requirements.
 

@@ -19,4 +19,5 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/facebook/latest/actions/l
 ## Facebook actions that support pagination
 
 - [List Ad Accounts](actions/list-ad-accounts.md)
+- [List Daily Ad Insights](actions/list-daily-ad-insights.md)
 - [List Pages](actions/list-pages.md)

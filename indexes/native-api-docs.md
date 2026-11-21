@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3240 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3239 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -1738,7 +1738,6 @@ The official vendor API documentation for each of the 3240 apps in this repo. Ea
 - [Mozilla Observatory](../apis/m/mozillaObservatory/native-api) - https://developer.mozilla.org/en-US/observatory/docs/faq
 - [MQTT](../apis/m/mQTT/native-api) - https://docs.hivemq.com/hivemq-cloud/rest-api.html
 - [MRPeasy](../apis/m/mrpeasy/native-api) - https://www.mrpeasy.com/resources/api/
-- [MS SharePoint](../apis/m/mSSharePoint/native-api) - https://learn.microsoft.com/en-us/graph/api/resources/sharepoint?view=graph-rest-1.0
 - [Microsoft SQL](../apis/m/mssql/native-api) - https://learn.microsoft.com/en-us/sql/
 - [Muna](../apis/m/muna/native-api) - https://docs.muna.ai/
 - [Mural](../apis/m/mural/native-api) - https://developers.mural.co/public/reference/intro

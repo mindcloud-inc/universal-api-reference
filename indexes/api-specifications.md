@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3240 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3239 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -1692,7 +1692,6 @@ Machine-readable API descriptions for 3240 apps. Universal API specifications ar
 | [Mozilla Observatory](../apis/m/mozillaObservatory) | [OpenAPI 3.1](../apis/m/mozillaObservatory/universal-api/openapi.json) |  |
 | [MQTT](../apis/m/mQTT) | [OpenAPI 3.1](../apis/m/mQTT/universal-api/openapi.json) | [Provider OpenAPI](https://docs.hivemq.com/hivemq-cloud/rest-api/specification/public-saas-openapi.yml) |
 | [MRPeasy](../apis/m/mrpeasy) | [OpenAPI 3.1](../apis/m/mrpeasy/universal-api/openapi.json) |  |
-| [MS SharePoint](../apis/m/mSSharePoint) | [OpenAPI 3.1](../apis/m/mSSharePoint/universal-api/openapi.json) |  |
 | [Muna](../apis/m/muna) | [OpenAPI 3.1](../apis/m/muna/universal-api/openapi.json) |  |
 | [Mural](../apis/m/mural) | [OpenAPI 3.1](../apis/m/mural/universal-api/openapi.json) | [Provider OpenAPI](https://developers.mural.co/public/openapi/60959cbc7ff8b600451a3da6) |
 | [Murf Core](../apis/m/murfCore) | [OpenAPI 3.1](../apis/m/murfCore/universal-api/openapi.json) |  |

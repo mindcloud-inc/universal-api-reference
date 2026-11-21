@@ -1,6 +1,6 @@
 # Pinterest: Native API Reference
 
-A consolidated summary of Pinterest's API configuration and 39 documented operations, with links to official documentation.
+A consolidated summary of Pinterest's API configuration and 40 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.pinterest.com/docs/api/v5/introduction/
 - **OpenAPI specification:** https://raw.githubusercontent.com/pinterest/api-description/main/v5/openapi.json
@@ -42,7 +42,7 @@ Use `page_size` in the query string to set the page size (default 50; accepted r
 
 Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (39 documented)
+## Endpoints (40 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -55,7 +55,7 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [Delete Pin](actions/delete-pin.md) | `DELETE pins/:pinId` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/pins/delete) |
 | [Get Ad Account](actions/get-ad-account.md) | `GET ad_accounts/:adAccountId` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/ad_accounts/get) |
 | [Get Board](actions/get-board.md) | `GET boards/:boardId` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/boards/get) |
-| [Get Catalog Item Batch Status](actions/get-catalog-item-batch-status.md) | `GET catalogs/items/batch/:batchId` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/items_batch/get) |
+| [Get Catalog Item Batch Status](actions/get-catalog-item-batch-status.md) | `GET catalogs/items/batch/:id` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/items_batch/get) |
 | [Get Catalog Items](actions/get-catalog-items.md) | `POST catalogs/items` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/items/post) |
 | [Get Media Upload](actions/get-media-upload.md) | `GET media/:mediaId` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/media/get) |
 | [Get Pin](actions/get-pin.md) | `GET pins/:pinId` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/pins/get) |
@@ -64,6 +64,7 @@ Retry responses with status codes `429,500,502,503,504`. Wait 1000 ms before the
 | [Get Top Video Pins Analytics](actions/get-top-video-pins-analytics.md) | `GET user_account/analytics/top_video_pins` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/user_account/analytics/top_video_pins) |
 | [Get User Account](actions/get-user-account.md) | `GET user_account` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/user_account/get) |
 | [Get User Account Analytics](actions/get-user-account-analytics.md) | `GET user_account/analytics` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/user_account/analytics) |
+| [List Ad Account Analytics](actions/list-ad-account-analytics.md) | `GET ad_accounts/:adAccountId/analytics` | [docs](https://developers.pinterest.com/docs/api/v5/ad_account-analytics/) |
 | [List Ad Accounts](actions/list-ad-accounts.md) | `GET ad_accounts` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/ad_accounts/list) |
 | [List Ad Groups](actions/list-ad-groups.md) | `GET ad_accounts/:adAccountId/ad_groups` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/ad_groups/list) |
 | [List Ads](actions/list-ads.md) | `GET ad_accounts/:adAccountId/ads` | [docs](https://developers.pinterest.com/docs/api/v5/#operation/ads/list) |
