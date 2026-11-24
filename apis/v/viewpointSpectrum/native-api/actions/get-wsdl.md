@@ -11,4 +11,4 @@
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `WSDL` | path | `string` | no | Example: WorkOrderHeader.jws |
+| `WSDL` | path | `string` | yes | Example: WorkOrderHeader.jws |

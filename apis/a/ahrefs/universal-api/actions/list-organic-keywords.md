@@ -44,7 +44,31 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Ahrefs API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "bestPosition": 1,
+      "keyword": "string",
+      "keywordDifficulty": 1,
+      "sumTraffic": 1,
+      "volume": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `bestPosition` | number | The target's best ranking position for the keyword. |
+| `keyword` | string | The organic keyword phrase. |
+| `keywordDifficulty` | number | Ahrefs Keyword Difficulty score (0-100) for the keyword. |
+| `sumTraffic` | number | Estimated monthly organic traffic the keyword brings to the target. |
+| `volume` | number | Estimated monthly search volume for the keyword. |
 
 ## Native endpoint
 

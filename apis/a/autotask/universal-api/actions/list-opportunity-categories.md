@@ -49,7 +49,33 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Autotask API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "displayColorRGB": 1,
+      "id": 1,
+      "isActive": true,
+      "isGlobalDefault": true,
+      "name": "Ava Chen",
+      "nickname": "Ava Chen"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `displayColorRGB` | number | RGB color value used to display the opportunity category. |
+| `id` | number | Unique opportunity category identifier. |
+| `isActive` | boolean | Whether the opportunity category is active. |
+| `isGlobalDefault` | boolean | Whether the opportunity category is the global default. |
+| `name` | string | Opportunity category name. |
+| `nickname` | string | Opportunity category nickname. |
 
 ## Native endpoint
 

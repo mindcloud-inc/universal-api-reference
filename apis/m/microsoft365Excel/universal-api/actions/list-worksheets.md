@@ -8,16 +8,20 @@ GET https://connect.mindcloud.co/v1/universal/microsoft365Excel/latest/actions/l
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Microsoft 365 Excel `connectionId` ([setup](../authentication.md)).
 
+This action also supports [pagination](../pagination.md) (`limit`, `offset`).
+
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/microsoft365Excel/latest/actions/list-worksheets?connectionId=$CONNECTION_ID&driveItemId=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/microsoft365Excel/latest/actions/list-worksheets?connectionId=$CONNECTION_ID&limit=25&offset=0&driveItemId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
   connectionId,
+  limit: '25',
+  offset: '0',
   "driveItemId": "string"
 });
 
@@ -70,5 +74,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Microsoft 365 Excel API, this operation is `GET /v1.0/me/drive/items/:driveItemId/workbook/worksheets` (base URL `https://graph.microsoft.com`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/list-worksheets.md) for the provider-specific parameters and requirements.
+Through the native Microsoft 365 Excel API, this operation is `GET /v1.0/me/drive/items/:driveItemId/workbook/worksheets` (base URL `https://graph.microsoft.com`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-worksheets.md) for the provider-specific parameters and requirements.
 

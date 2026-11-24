@@ -9,6 +9,10 @@ Finds outreach emails in your Apollo account.
 - **Base URL:** `https://app.apollo.io/api`
 - **Official documentation:** [Search for Outreach Emails](https://docs.apollo.io/reference/search-for-outreach-emails)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

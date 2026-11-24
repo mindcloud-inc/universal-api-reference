@@ -43,7 +43,29 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Ahrefs API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "allTime": 1,
+      "allTimeRefdomains": 1,
+      "live": 1,
+      "liveRefdomains": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `allTime` | number | Total number of backlinks pointing to the target, all time. |
+| `allTimeRefdomains` | number | Total number of referring domains linking to the target, all time. |
+| `live` | number | Number of live backlinks pointing to the target. |
+| `liveRefdomains` | number | Number of live referring domains linking to the target. |
 
 ## Native endpoint
 

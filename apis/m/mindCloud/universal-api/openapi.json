@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "MindCloud Universal API",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "description": "Manage MindCloud workflows, runs, connections, members, roles, environments, API keys, usage, and Universal API metadata."
   },
   "servers": [
@@ -4657,6 +4657,302 @@
         }
       }
     },
+    "/v1/universal/mindCloud/latest/actions/list-failed-runs": {
+      "get": {
+        "operationId": "mindCloud.list-failed-runs",
+        "summary": "List Failed Runs",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mindCloud/latest/actions/list-failed-runs"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "workflowId",
+            "in": "query",
+            "required": false,
+            "description": "Only runs of this workflow.",
+            "schema": {
+              "type": "string",
+              "description": "Only runs of this workflow.",
+              "example": "Wq3kZ8pLx2Nb"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "Only runs that started at or after this time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Only runs that started at or after this time.",
+              "example": "2026-11-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "Only runs that started before this time. Leave empty for runs up to now.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Only runs that started before this time. Leave empty for runs up to now.",
+              "example": "2026-11-23T00:00:00Z"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "activeStepId": {
+                            "type": "string",
+                            "description": "The step the run stopped at."
+                          },
+                          "durationMs": {
+                            "type": "number",
+                            "description": "How long the run took, in milliseconds."
+                          },
+                          "endUserId": {
+                            "type": "string",
+                            "description": "The embedded end user the run belongs to, if any."
+                          },
+                          "environmentId": {
+                            "type": "string",
+                            "description": "The environment the run targeted."
+                          },
+                          "environmentName": {
+                            "type": "string",
+                            "description": "That environment's name."
+                          },
+                          "finishedOn": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the run stopped."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "Unique id of the run."
+                          },
+                          "installationId": {
+                            "type": "string",
+                            "description": "The embedded installation the run belongs to, if any."
+                          },
+                          "operations": {
+                            "type": "number",
+                            "description": "How many tasks the run used before it stopped."
+                          },
+                          "startedOn": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the run started."
+                          },
+                          "summary": {
+                            "type": "string",
+                            "description": "Why the run stopped: the step name and the error it returned."
+                          },
+                          "version": {
+                            "type": "string",
+                            "description": "The workflow version that ran, or draft."
+                          },
+                          "workflowId": {
+                            "type": "string",
+                            "description": "The workflow this run belongs to."
+                          },
+                          "workflowName": {
+                            "type": "string",
+                            "description": "The workflow's current name."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/mindCloud/latest/actions/list-members": {
       "get": {
         "operationId": "mindCloud.list-members",
@@ -6072,6 +6368,283 @@
                           "success": {
                             "type": "boolean",
                             "description": "Whether the request succeeded."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/mindCloud/latest/actions/list-workflow-activity": {
+      "get": {
+        "operationId": "mindCloud.list-workflow-activity",
+        "summary": "List Workflow Activity",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/mindCloud/latest/actions/list-workflow-activity"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": true,
+            "description": "The MindCloud connection ID for this app.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "workflowId",
+            "in": "query",
+            "required": false,
+            "description": "Only rows of this workflow.",
+            "schema": {
+              "type": "string",
+              "description": "Only rows of this workflow.",
+              "example": "Wq3kZ8pLx2Nb"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "First day of the window, as YYYY-MM-DD (UTC). Defaults to 29 days before To.",
+            "schema": {
+              "type": "string",
+              "description": "First day of the window, as YYYY-MM-DD (UTC). Defaults to 29 days before To.",
+              "example": "2026-11-01"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "Last day of the window, as YYYY-MM-DD (UTC), included. Defaults to today. A window covers at most 92 days.",
+            "schema": {
+              "type": "string",
+              "description": "Last day of the window, as YYYY-MM-DD (UTC), included. Defaults to today. A window covers at most 92 days.",
+              "example": "2026-11-23"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of records to return.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Number of records to skip before returning results.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated response fields to include.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "The UTC day the runs started."
+                          },
+                          "failedRuns": {
+                            "type": "number",
+                            "description": "How many of those runs failed."
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "A stable key for this row: one workflow on one day."
+                          },
+                          "recordsCreated": {
+                            "type": "number",
+                            "description": "Records those runs logged as created."
+                          },
+                          "recordsDeleted": {
+                            "type": "number",
+                            "description": "Records those runs logged as deleted."
+                          },
+                          "recordsRead": {
+                            "type": "number",
+                            "description": "Records those runs logged as read."
+                          },
+                          "recordsUpdated": {
+                            "type": "number",
+                            "description": "Records those runs logged as updated."
+                          },
+                          "runs": {
+                            "type": "number",
+                            "description": "Runs of the workflow that started that day."
+                          },
+                          "workflowId": {
+                            "type": "string",
+                            "description": "The workflow."
+                          },
+                          "workflowName": {
+                            "type": "string",
+                            "description": "The workflow's current name."
                           }
                         },
                         "additionalProperties": false

@@ -15,6 +15,6 @@ Retrieves publication channels from Shopify.
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `variables` | body | `object` | no | Container for Shopify GraphQL variables used by this action. |
-| `variables.catalogType` | body | `string` | no | Optional Shopify catalog type filter. Accepted values: `0`, `1`, `2`. |
+| `variables.catalogType` | body | `list` | no | Optional Shopify catalog type filter. Accepted values: `APP`, `COMPANY_LOCATION`, `MARKET`. |
 | `variables.first` | body | `number` | no | Max publication channels to return in a single call. |
 | `variables.after` | body | `string` | no | Optional cursor for manually fetching the next page. |

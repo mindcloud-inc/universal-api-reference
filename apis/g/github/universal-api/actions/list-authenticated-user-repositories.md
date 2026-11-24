@@ -39,9 +39,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `visibility` | string | no | Repository visibility to return. One of: `0`, `1`, `2`. |
-| `affiliation` | string | no | Repository affiliation values to include. One of: `0`, `1`, `2`. Accepts multiple values in one string, delimited by `,`. |
-| `type` | string | no | Repository type to return. GitHub ignores this parameter when visibility or affiliation is supplied. One of: `0`, `1`, `2`, `3`, `4`. |
+| `visibility` | list<string> | no | Repository visibility to return. One of: `all`, `private`, `public`. |
+| `affiliation` | list<string> | no | Repository affiliation values to include. One of: `collaborator`, `organization_member`, `owner`. Accepts multiple values in one string, delimited by `,`. |
+| `type` | list<string> | no | Repository type to return. GitHub ignores this parameter when visibility or affiliation is supplied. One of: `all`, `member`, `owner`, `private`, `public`. |
 
 ### Advanced
 

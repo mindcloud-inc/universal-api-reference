@@ -1,6 +1,6 @@
 # MindCloud: Native API Reference
 
-A consolidated summary of MindCloud's API configuration and 41 documented operations, with links to official documentation.
+A consolidated summary of MindCloud's API configuration and 43 documented operations, with links to official documentation.
 
 - **Official docs:** https://mindcloud.co/docs/api/rest/introduction
 - **OpenAPI specification:** https://connect.mindcloud.co/v2/openapi.json
@@ -38,7 +38,7 @@ Response data is read from `data`.
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–1000). Use `offset` in the query string as the record offset; numbering starts at 0.
 
-## Endpoints (41 documented)
+## Endpoints (43 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -65,6 +65,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [List API Keys](actions/list-api-keys.md) | `GET /v2/api-keys` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Connections](actions/list-connections.md) | `GET /v2/connections` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Environments](actions/list-environments.md) | `GET /v2/environments` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
+| [List Failed Runs](actions/list-failed-runs.md) | `GET /v2/failed-runs` | [docs](https://mindcloud.co/docs/api/rest/actions/list-failed-runs) |
 | [List Members](actions/list-members.md) | `GET /v2/members` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Platform Companies](actions/list-platform-companies.md) | `GET /v2/companies` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Roles](actions/list-roles.md) | `GET /v2/roles` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
@@ -72,6 +73,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [List Run Steps](actions/list-run-steps.md) | `GET /v2/runs/:runId/steps` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Universal Actions](actions/list-universal-actions.md) | `GET /v2/universal/apps/:appSlug/actions` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Universal Apps](actions/list-universal-apps.md) | `GET /v2/universal/apps` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
+| [List Workflow Activity](actions/list-workflow-activity.md) | `GET /v2/workflow-activity` | [docs](https://mindcloud.co/docs/api/rest/actions/list-workflow-activity) |
 | [List Workflow Runs](actions/list-workflow-runs.md) | `GET /v2/workflows/:workflowId/runs` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Workflows](actions/list-workflows.md) | `GET /v2/workflows` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Remove Member](actions/remove-member.md) | `DELETE /v2/members/:userId` | [docs](https://connect.mindcloud.co/v2/openapi.json) |

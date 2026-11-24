@@ -11,13 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Viewpoin
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/get-wsdl?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/get-wsdl?connectionId=$CONNECTION_ID&WSDL=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  "WSDL": "string"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/viewpointSpectrum/latest/actions/get-wsdl?${params}`, {
@@ -35,11 +36,27 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `WSDL` | string | no | Example: WorkOrderHeader.jws |
+| `WSDL` | string | yes | Example: WorkOrderHeader.jws |
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Viewpoint Spectrum API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "response": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `response` | string | WSDL document text returned by the provider. |
 
 ## Native endpoint
 

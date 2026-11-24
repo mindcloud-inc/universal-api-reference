@@ -4,7 +4,7 @@ Manage leads, opportunities, accounts, contacts, and sales records in Microsoft 
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftDynamics365Sales/latest
 - **Category:** Sales & CRM / CRM
-- **Actions:** 24
+- **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/en-us/dynamics-365/products/sales
 - **Vendor API docs:** https://learn.microsoft.com/en-us/dynamics365/sales/developer/developer-guide
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (24)
+## Actions (26)
 
 ### Accounts
 
@@ -72,6 +72,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/microsoftDynamics365Sales
 | [Create Account](actions/create-account.md) | POST |  |
 | [Create Contact](actions/create-contact.md) | POST |  |
 | [Create Property](actions/create-property.md) | POST |  |
+| [Lose Opportunity](actions/lose-opportunity.md) | PUT |  |
+| [Win Opportunity](actions/win-opportunity.md) | PUT |  |
 
 ### Table Definitions
 

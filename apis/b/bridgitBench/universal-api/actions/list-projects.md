@@ -55,7 +55,83 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Bridgit Bench API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Ava Chen",
+      "colour": "string",
+      "startDate": "string",
+      "endDate": "string",
+      "startTime": "string",
+      "endTime": "string",
+      "workDays": [
+        1
+      ],
+      "hoursPerWeek": 1,
+      "state": "string",
+      "winPercent": 1,
+      "unfilledRoles": 1,
+      "totalRoles": 1,
+      "unfilledHourlyRoles": 1,
+      "totalHourlyRoles": 1,
+      "totalTasks": 1,
+      "unfilledTaskRoles": 1,
+      "totalTaskRoles": 1,
+      "issuesCount": 1,
+      "lastModifiedOn": "string",
+      "type": "string",
+      "currentPhases": [
+        {}
+      ],
+      "phases": [
+        {}
+      ],
+      "groupings": [
+        1
+      ],
+      "description": "string",
+      "truncatedDescription": "string",
+      "externalId": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `id` | number |  |
+| `name` | string |  |
+| `colour` | string |  |
+| `startDate` | string |  |
+| `endDate` | string |  |
+| `startTime` | string |  |
+| `endTime` | string |  |
+| `workDays` | array<number> |  |
+| `hoursPerWeek` | number |  |
+| `state` | string |  |
+| `winPercent` | number |  |
+| `unfilledRoles` | number |  |
+| `totalRoles` | number |  |
+| `unfilledHourlyRoles` | number |  |
+| `totalHourlyRoles` | number |  |
+| `totalTasks` | number |  |
+| `unfilledTaskRoles` | number |  |
+| `totalTaskRoles` | number |  |
+| `issuesCount` | number |  |
+| `lastModifiedOn` | string |  |
+| `type` | string |  |
+| `currentPhases` | array<object> |  |
+| `phases` | array<object> |  |
+| `groupings` | array<number> |  |
+| `description` | string |  |
+| `truncatedDescription` | string |  |
+| `externalId` | string |  |
 
 ## Native endpoint
 

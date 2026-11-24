@@ -29,7 +29,7 @@ Responses from this API use JSON.
 
 ## Pagination
 
-Use `$top` in the query string to set the page size (default 25; accepted range 1–999). Use `$skiptoken` in the query string as the pagination cursor. Follow the complete next-page URL returned by the API.
+Use `$top` in the query string to set the page size (default 25; accepted range 1–999). Use `$skip` in the query string as the record offset; numbering starts at 0.
 
 ## Endpoints (23 documented)
 

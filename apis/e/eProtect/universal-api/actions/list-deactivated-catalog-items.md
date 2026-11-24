@@ -33,7 +33,33 @@ const { success, data } = await response.json();
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native 3E Protect API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "products": [
+        [
+          {}
+        ]
+      ],
+      "totalCount": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `products[]` | array<object> |  |
+| `products[].productUID` | string |  |
+| `products[].productName` | string |  |
+| `products[].manufacturerName` | string |  |
+| `products[].manufacturerPartNumber` | string |  |
+| `totalCount` | number |  |
 
 ## Native endpoint
 

@@ -50,6 +50,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
   "data": [
     {
       "bodyPreview": "string",
+      "categories": [
+        "string"
+      ],
       "from": {
         "emailAddress": {
           "address": "ava@example.com"
@@ -73,6 +76,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Description |
 | --- | --- | --- |
 | `bodyPreview` | string | A text preview of the message body. |
+| `categories` | array<string> | The categories (tags) assigned to the message. |
 | `from.emailAddress.address` | string | The sender email address. |
 | `hasAttachments` | boolean | Whether the message has attachments. |
 | `id` | string | The Microsoft Graph message ID. |

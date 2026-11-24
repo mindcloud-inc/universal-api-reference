@@ -33,7 +33,32 @@ const { success, data } = await response.json();
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Geotab API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "credentials": {
+        "database": "string",
+        "sessionId": "string",
+        "userName": "Ava Chen"
+      },
+      "path": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `credentials` | object |  |
+| `credentials.database` | string |  |
+| `credentials.sessionId` | string |  |
+| `credentials.userName` | string |  |
+| `path` | string |  |
 
 ## Native endpoint
 

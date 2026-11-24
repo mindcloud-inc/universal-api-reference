@@ -39,7 +39,25 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Salesforce API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "label": "string",
+      "name": "Ava Chen"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `label` | string |  |
+| `name` | string |  |
 
 ## Native endpoint
 

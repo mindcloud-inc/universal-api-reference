@@ -20,3 +20,4 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/apolloio/latest/actions/p
 
 - [People API Search](actions/people-api-search.md)
 - [Search for Contacts](actions/search-for-contacts.md)
+- [Search for Outreach Emails](actions/search-for-outreach-emails.md)

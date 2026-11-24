@@ -36,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `variables` | object | no | Container for Shopify GraphQL variables used by this action. |
-| `variables.catalogType` | string | no | Optional Shopify catalog type filter. One of: `0`, `1`, `2`. |
+| `variables.catalogType` | list | no | Optional Shopify catalog type filter. One of: `APP`, `COMPANY_LOCATION`, `MARKET`. |
 | `variables.first` | number | no | Max publication channels to return in a single call. Default: `20`. |
 
 ### Advanced

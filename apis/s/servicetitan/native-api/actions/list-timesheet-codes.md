@@ -13,5 +13,5 @@ Retrieves timesheet codes from ServiceTitan.
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `active` | query | `list` | no | What kind of items should be returned (only active items will be returned by default) Values: [True, Any, False] |
+| `active` | query | `list` | no | What kind of items should be returned (only active items will be returned by default) Values: [True, Any, False] Accepted values: `Any`, `False`, `True`. |
 | `pageSize` | query | `number` | no | How many records to return (50 by default) |

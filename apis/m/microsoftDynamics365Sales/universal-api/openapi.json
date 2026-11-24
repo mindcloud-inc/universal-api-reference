@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "Microsoft Dynamics 365 Sales Universal API",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Manage leads, opportunities, accounts, contacts, and sales records in Microsoft Dynamics 365 Sales."
   },
   "servers": [
@@ -4089,6 +4089,239 @@
         }
       }
     },
+    "/v1/universal/microsoftDynamics365Sales/latest/actions/lose-opportunity": {
+      "put": {
+        "operationId": "microsoftDynamics365Sales.lose-opportunity",
+        "summary": "Lose Opportunity",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/microsoftDynamics365Sales/latest/actions/lose-opportunity"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "opportunityId": {
+                    "type": "string",
+                    "description": "Dynamics Opportunity GUID; provide this or Aspire Opportunity ID."
+                  },
+                  "aspireOpportunityId": {
+                    "type": "number",
+                    "description": "Aspire ID resolved by Dynamics alternate key grny_aspireid; provide this or Opportunity ID."
+                  },
+                  "status": {
+                    "type": "number",
+                    "description": "Win: 3. Lose: 4 (Canceled) or 5 (Out-Sold).",
+                    "default": 4
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Opportunity Close activity subject.",
+                    "default": "Lost"
+                  },
+                  "actualEnd": {
+                    "type": "string",
+                    "description": "Calendar date exactly as YYYY-MM-DD; no timezone conversion."
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Optional close description."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "ALREADY_CLOSED when Dynamics reports the Opportunity is already closed."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Provider error message when the action fails."
+                          },
+                          "opportunityId": {
+                            "type": "string",
+                            "description": "Dynamics GUID or Aspire ID used to identify the Opportunity."
+                          },
+                          "state": {
+                            "type": "string",
+                            "description": "Won or Lost."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "Dynamics status reason."
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the close action completed."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/microsoftDynamics365Sales/latest/actions/update-account": {
       "put": {
         "operationId": "microsoftDynamics365Sales.update-account",
@@ -5215,6 +5448,243 @@
                       "items": {
                         "type": "object",
                         "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/microsoftDynamics365Sales/latest/actions/win-opportunity": {
+      "put": {
+        "operationId": "microsoftDynamics365Sales.win-opportunity",
+        "summary": "Win Opportunity",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/microsoftDynamics365Sales/latest/actions/win-opportunity"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "opportunityId": {
+                    "type": "string",
+                    "description": "Dynamics Opportunity GUID; provide this or Aspire Opportunity ID."
+                  },
+                  "aspireOpportunityId": {
+                    "type": "number",
+                    "description": "Aspire ID resolved by Dynamics alternate key grny_aspireid; provide this or Opportunity ID."
+                  },
+                  "status": {
+                    "type": "number",
+                    "description": "Win: 3. Lose: 4 (Canceled) or 5 (Out-Sold).",
+                    "default": 3
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Opportunity Close activity subject.",
+                    "default": "Won"
+                  },
+                  "actualEnd": {
+                    "type": "string",
+                    "description": "Calendar date exactly as YYYY-MM-DD; no timezone conversion."
+                  },
+                  "actualRevenue": {
+                    "type": "number",
+                    "description": "Won revenue, including zero."
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Optional close description."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "ALREADY_CLOSED when Dynamics reports the Opportunity is already closed."
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Provider error message when the action fails."
+                          },
+                          "opportunityId": {
+                            "type": "string",
+                            "description": "Dynamics GUID or Aspire ID used to identify the Opportunity."
+                          },
+                          "state": {
+                            "type": "string",
+                            "description": "Won or Lost."
+                          },
+                          "status": {
+                            "type": "number",
+                            "description": "Dynamics status reason."
+                          },
+                          "success": {
+                            "type": "boolean",
+                            "description": "Whether the close action completed."
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "meta": {

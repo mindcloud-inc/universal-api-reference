@@ -17,8 +17,8 @@ This operation supports [pagination](../README.md#pagination) and [sorting](../R
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `visibility` | query | `string` | no | Repository visibility to return. Accepted values: `0`, `1`, `2`. |
-| `affiliation` | query | `string` | no | Repository affiliation values to include. Accepted values: `0`, `1`, `2`. Send multiple values as a string separated by `,`. |
-| `type` | query | `string` | no | Repository type to return. GitHub ignores this parameter when visibility or affiliation is supplied. Accepted values: `0`, `1`, `2`, `3`, `4`. |
+| `visibility` | query | `list<string>` | no | Repository visibility to return. Accepted values: `all`, `private`, `public`. |
+| `affiliation` | query | `list<string>` | no | Repository affiliation values to include. Accepted values: `collaborator`, `organization_member`, `owner`. Send multiple values as a string separated by `,`. |
+| `type` | query | `list<string>` | no | Repository type to return. GitHub ignores this parameter when visibility or affiliation is supplied. Accepted values: `all`, `member`, `owner`, `private`, `public`. |
 | `since` | query | `string` | no | Only show repositories updated after this time (ISO 8601). |
 | `before` | query | `string` | no | Only show repositories updated before this time (ISO 8601). |

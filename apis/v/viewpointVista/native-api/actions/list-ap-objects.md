@@ -15,4 +15,4 @@ Represents data found in Viewpoint® Vista™ AP programs
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `modifiedUTCSince` | query | `string` | no | Specify a datetime against which to filter the results.  When specified the result will be ordered oldest __modifiedUTC to newest.  Example `2019-12-11T20:16:58.3419275Z`.  ( Optional ) If unspecified, all cached objects will be returned. |
-| `object` | path | `list<string>` | yes | Specify the type of Object from the Accounts Payable V2 Direct API that you'd like to retrieve. |
+| `object` | path | `list<string>` | yes | Specify the type of Object from the Accounts Payable V2 Direct API that you'd like to retrieve. Accepted values: `company_parameters`, `inv_batch_entries`, `inv_batches`, `invoice_holds`, `invoice_line_details`, `invoices`, `pay_batch_entries`, `pay_batches`, `pay_categories`, `pay_types`, `payment_histories`, `rel_ret_bat_entries`, `rel_retainage_batch`, `unapproved_invoices`, `vendor_compliances`, `vendor_holds`, `vendors`. |

@@ -11,13 +11,14 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a PestPac 
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/pestpac/latest/actions/list-unpaid-invoices-by-location-id?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/pestpac/latest/actions/list-unpaid-invoices-by-location-id?connectionId=$CONNECTION_ID&locationId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId
+  connectionId,
+  "locationId": "string"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/pestpac/latest/actions/list-unpaid-invoices-by-location-id?${params}`, {
@@ -35,7 +36,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `locationId` | string | no |  |
+| `locationId` | string | yes |  |
 
 ## Response
 

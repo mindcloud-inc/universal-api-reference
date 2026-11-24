@@ -35,7 +35,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `companyID` | string | no |  |
+| `companyID` | string | no | Company ID to query. Leave blank to use the company from your connection. Default: `{{credentials.companyId}}`. Example: `Uses the connected company`. |
 
 ## Response
 

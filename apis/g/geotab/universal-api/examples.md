@@ -30,7 +30,16 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "credentials": {
+        "database": "string",
+        "sessionId": "string",
+        "userName": "Ava Chen"
+      },
+      "path": "string"
+    }
+  ],
   "meta": {}
 }
 ```

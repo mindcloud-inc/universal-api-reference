@@ -17,12 +17,13 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/cr
   -d '{
   "connectionId": "$CONNECTION_ID",
   "VendorID": "string",
-  "ReceiptItems[].itemAllocations[].inventoryLocationID": 1,
   "ReceiptItems[].itemAllocations[].itemQuantity": 1,
   "ReceiptItems[].ItemName": "Ava Chen",
   "ReceiptItems[].ItemQuantity": 1,
   "ReceiptItems[].ItemUnitCost": 1,
-  "ReceiptItems[].ItemType": "string"
+  "ReceiptItems[].ItemType": "string",
+  "receiptExtraCosts[].extraCostType": "string",
+  "receiptExtraCosts[].extraCost": 1
 }'
 ```
 
@@ -36,12 +37,13 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/aspire/l
   body: JSON.stringify({
     connectionId,
     "VendorID": "string",
-    "ReceiptItems[].itemAllocations[].inventoryLocationID": 1,
     "ReceiptItems[].itemAllocations[].itemQuantity": 1,
     "ReceiptItems[].ItemName": "Ava Chen",
     "ReceiptItems[].ItemQuantity": 1,
     "ReceiptItems[].ItemUnitCost": 1,
-    "ReceiptItems[].ItemType": "string"
+    "ReceiptItems[].ItemType": "string",
+    "receiptExtraCosts[].extraCostType": "string",
+    "receiptExtraCosts[].extraCost": 1
   })
 });
 
@@ -58,7 +60,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `ReceiptItems[].receiptItemID` | number | no |  |
 | `VendorID` | list<string> | yes |  |
 | `ReceiptItems[].catalogItemID` | list<number> | no |  |
-| `ReceiptItems[].itemAllocations[].inventoryLocationID` | list<number> | yes | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |
+| `ReceiptItems[].itemAllocations[].inventoryLocationID` | list<number> | no | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |
 | `WorkTicketID` | list<number> | no |  |
 | `ReceiptItems[].catalogItemCategoryID` | list<number> | no |  |
 | `ReceiptNote` | string | no |  |
@@ -77,6 +79,14 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `ReceivedDate` | string | no |  |
 | `ReceiptItems[].itemAllocations[]` | array<object> | no |  |
 | `receiptID` | number | no |  |
+
+### Advanced
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `receiptExtraCosts[]` | array<object> | no |  |
+| `receiptExtraCosts[].extraCostType` | string | yes |  |
+| `receiptExtraCosts[].extraCost` | number | yes |  |
 
 ## Response
 

@@ -10,4 +10,4 @@
 
 | Parameter | Location | Type | Required |
 | --- | --- | --- | --- |
-| `locationId` | path | `string` | no |
+| `locationId` | path | `string` | yes |

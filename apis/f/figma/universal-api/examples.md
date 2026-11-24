@@ -2,22 +2,21 @@
 
 These examples use the MindCloud API key and Figma connection described in [authentication.md](authentication.md). Replace `$CONNECTION_ID` with the connection ID you copied from the Connections page.
 
-## Get Component
+## Get Current User
 
-Retrieves a component from Figma by key.
+Retrieves the authenticated user from Figma.
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/figma/latest/actions/get-component?connectionId=$CONNECTION_ID&key=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/figma/latest/actions/get-current-user?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ```js
 const params = new URLSearchParams({
-  connectionId,
-  "key": "string"
+  connectionId
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/figma/latest/actions/get-component?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/figma/latest/actions/get-current-user?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -33,16 +32,17 @@ Example response:
   "success": true,
   "data": [
     {
-      "error": true,
-      "meta": {},
-      "status": 1
+      "email": "ava@example.com",
+      "handle": "string",
+      "id": "string",
+      "imgUrl": "https://example.com"
     }
   ],
   "meta": {}
 }
 ```
 
-See the full [Get Component action reference](actions/get-component.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/figma/latest/actions/get-component).
+See the full [Get Current User action reference](actions/get-current-user.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/figma/latest/actions/get-current-user).
 
 ## Create File Comment
 

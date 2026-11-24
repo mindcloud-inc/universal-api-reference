@@ -30,7 +30,27 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "dates": {
+        "hired": "string",
+        "started": "string",
+        "terminated": "string"
+      },
+      "einName": "Ava Chen",
+      "employeeId": "string",
+      "firstName": "Ava",
+      "id": 1,
+      "lastName": "Chen",
+      "Links": {
+        "badges": "https://example.com",
+        "self": "https://example.com"
+      },
+      "primaryAccountId": 1,
+      "status": "string",
+      "username": "Ava Chen"
+    }
+  ],
   "meta": {}
 }
 ```

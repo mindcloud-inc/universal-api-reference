@@ -9,6 +9,6 @@
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `cid` | path | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `cid` | path | `string` | no | Company ID to query. Leave blank to use the company from your connection. |

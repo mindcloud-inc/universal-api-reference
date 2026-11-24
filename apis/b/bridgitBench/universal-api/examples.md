@@ -32,7 +32,24 @@ Example response:
 ```json
 {
   "success": true,
-  "data": [],
+  "data": [
+    {
+      "id": 1,
+      "name": "Ava Chen",
+      "logoUrl": "https://example.com",
+      "status": "string",
+      "numProjects": 1,
+      "numPeople": 1,
+      "numMembers": 1,
+      "expiryDate": "string",
+      "totalPeopleAttachmentBytes": 1,
+      "useMetricUnits": true,
+      "organizationId": "string",
+      "isDemo": true,
+      "companyType": "string",
+      "marketSegment": "string"
+    }
+  ],
   "meta": {}
 }
 ```

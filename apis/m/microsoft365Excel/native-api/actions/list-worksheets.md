@@ -9,6 +9,10 @@ Retrieves worksheets from a Microsoft 365 Excel workbook.
 - **Base URL:** `https://graph.microsoft.com`
 - **Official documentation:** [List Worksheets](https://learn.microsoft.com/en-us/graph/api/worksheet-list?view=graph-rest-1.0)
 
+## Capabilities
+
+This operation supports [pagination](../README.md#pagination).
+
 ## Parameters
 
 | Parameter | Location | Type | Required | Description |

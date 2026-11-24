@@ -40,7 +40,29 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native 3E Protect API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "locationUID": "string",
+      "locationName": "Ava Chen",
+      "locationID": 1,
+      "deactivated": true
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `locationUID` | string |  |
+| `locationName` | string |  |
+| `locationID` | number |  |
+| `deactivated` | boolean |  |
 
 ## Native endpoint
 

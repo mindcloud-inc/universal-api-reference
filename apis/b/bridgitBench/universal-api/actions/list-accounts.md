@@ -37,7 +37,49 @@ const { success, data } = await response.json();
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Bridgit Bench API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Ava Chen",
+      "logoUrl": "https://example.com",
+      "status": "string",
+      "numProjects": 1,
+      "numPeople": 1,
+      "numMembers": 1,
+      "expiryDate": "string",
+      "totalPeopleAttachmentBytes": 1,
+      "useMetricUnits": true,
+      "organizationId": "string",
+      "isDemo": true,
+      "companyType": "string",
+      "marketSegment": "string"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `id` | number |  |
+| `name` | string |  |
+| `logoUrl` | string |  |
+| `status` | string |  |
+| `numProjects` | number |  |
+| `numPeople` | number |  |
+| `numMembers` | number |  |
+| `expiryDate` | string |  |
+| `totalPeopleAttachmentBytes` | number |  |
+| `useMetricUnits` | boolean |  |
+| `organizationId` | string |  |
+| `isDemo` | boolean |  |
+| `companyType` | string |  |
+| `marketSegment` | string |  |
 
 ## Native endpoint
 

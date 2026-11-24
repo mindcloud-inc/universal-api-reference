@@ -13,10 +13,10 @@ This operation supports [pagination](../README.md#pagination).
 
 ## Parameters
 
-| Parameter | Location | Type | Required |
-| --- | --- | --- | --- |
-| `sortBy` | query | `list<string>` | no |
-| `created_at_min` | query | `string` | no |
-| `excluded_states` | query | `string` | no |
-| `ship_after_max` | query | `string` | no |
-| `updated_at_min` | query | `string` | no |
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `sortBy` | query | `list<string>` | no | Accepted values: `CREATED_AT`, `UPDATED_AT`. |
+| `created_at_min` | query | `string` | no | — |
+| `excluded_states` | query | `string` | no | — |
+| `ship_after_max` | query | `string` | no | — |
+| `updated_at_min` | query | `string` | no | — |

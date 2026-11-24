@@ -1,6 +1,6 @@
 # Microsoft Dynamics 365 Sales: Native API Reference
 
-A consolidated summary of Microsoft Dynamics 365 Sales's API configuration and 24 documented operations, with links to official documentation.
+A consolidated summary of Microsoft Dynamics 365 Sales's API configuration and 26 documented operations, with links to official documentation.
 
 - **Official docs:** https://learn.microsoft.com/en-us/dynamics365/sales/developer/developer-guide
 - **API base URL:** `{environmentUrl}/api/data/v9.2`
@@ -59,7 +59,7 @@ Set the sort field with `$orderby` in the query string. Use `asc` for ascending 
 
 Retry responses with status codes `429`. Wait 60000 ms before the first retry. Stop after 3 attempts. Multiply the delay by 2 after each failed attempt.
 
-## Endpoints (24 documented)
+## Endpoints (26 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -82,8 +82,10 @@ Retry responses with status codes `429`. Wait 60000 ms before the first retry. S
 | [List Table Columns](actions/list-table-columns.md) | `GET /EntityDefinitions(LogicalName=':logicalName')/Attributes` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-metadata-web-api) |
 | [List Tables](actions/list-tables.md) | `GET /EntityDefinitions` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-metadata-web-api) |
 | [List Users](actions/list-users.md) | `GET /systemusers` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/systemuser?view=dataverse-latest) |
+| [Lose Opportunity](actions/lose-opportunity.md) | `POST /LoseOpportunity` | [docs](https://learn.microsoft.com/en-us/dynamics365/developer/reference/mcp-tools/close_opportunity) |
 | [Update Account](actions/update-account.md) | `PATCH /accounts(:accountId)` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/reference/entities/account) |
 | [Update Contact](actions/update-contact.md) | `PATCH /contacts(:contactId)` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/reference/entities/contact) |
 | [Update Custom Record](actions/update-custom-record.md) | `PATCH /:entitySetName(:recordId)` | [docs](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/update-delete-entities-using-web-api) |
 | [Update Lead](actions/update-lead.md) | `PATCH /leads(:leadId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/developer/reference/entities/lead) |
 | [Update Opportunity](actions/update-opportunity.md) | `PATCH /opportunities(:opportunityId)` | [docs](https://learn.microsoft.com/en-us/dynamics365/developer/reference/entities/opportunity) |
+| [Win Opportunity](actions/win-opportunity.md) | `POST /WinOpportunity` | [docs](https://learn.microsoft.com/en-us/dynamics365/developer/reference/mcp-tools/close_opportunity) |

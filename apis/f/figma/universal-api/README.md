@@ -14,10 +14,10 @@ Every action below is called through one REST interface, authenticated with a Mi
 
 Read more in [authentication.md](authentication.md).
 
-For example, to [Get Component](actions/get-component.md):
+For example, to [Get Current User](actions/get-current-user.md):
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/figma/latest/actions/get-component?connectionId=$CONNECTION_ID&key=string" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/figma/latest/actions/get-current-user?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 

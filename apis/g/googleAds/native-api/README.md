@@ -40,6 +40,8 @@ Shared headers:
 | --- | --- |
 | `Content-Type` | `application/json; charset=utf-8` |
 
+The next-page cursor is read from `nextPageToken`.
+
 ### REST API
 
 Request bodies use JSON.
@@ -49,6 +51,10 @@ Shared headers:
 | Header | Value |
 | --- | --- |
 | `Content-Type` | `application/json` |
+
+## Pagination
+
+- **REST:** Use `pageToken` in the request body as the pagination cursor.
 
 ## Retry behavior
 

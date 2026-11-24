@@ -43,7 +43,31 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native Ahrefs API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "date": "2026-05-07T12:00:00.000Z",
+      "orgTraffic": 1,
+      "orgCost": 1,
+      "paidTraffic": 1,
+      "paidCost": 1
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `date` | date | History period date. |
+| `orgTraffic` | number | Estimated monthly organic search traffic. |
+| `orgCost` | number | Estimated monthly organic traffic value in USD cents. |
+| `paidTraffic` | number | Estimated monthly paid search traffic. |
+| `paidCost` | number | Estimated monthly paid traffic cost in USD cents. |
 
 ## Native endpoint
 

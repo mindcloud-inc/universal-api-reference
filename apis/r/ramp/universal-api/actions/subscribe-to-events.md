@@ -43,7 +43,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `endpointURL` | string | yes | This is MindCloud's Webhook URL |
-| `eventTypes[]` | array<string> | no | The event type IDs that the webhook subscribes to. Ref: https://docs.ramp.com/developer-api/v1/webhooks#available-events Default: `[\"transactions.ready_to_sync\"]`. |
+| `eventTypes[]` | array<string> | no | The event type IDs that the webhook subscribes to. Ref: https://docs.ramp.com/developer-api/v1/webhooks#available-events |
 
 ## Response
 

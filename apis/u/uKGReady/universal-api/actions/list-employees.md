@@ -39,7 +39,51 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Response
 
-The response envelope is `{ "success": true, "data": [...], "meta": {} }`. The `data` schema for this action is dynamic; it mirrors what the native UKG Ready API returns.
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "dates": {
+        "hired": "string",
+        "started": "string",
+        "terminated": "string"
+      },
+      "einName": "Ava Chen",
+      "employeeId": "string",
+      "firstName": "Ava",
+      "id": 1,
+      "lastName": "Chen",
+      "Links": {
+        "badges": "https://example.com",
+        "self": "https://example.com"
+      },
+      "primaryAccountId": 1,
+      "status": "string",
+      "username": "Ava Chen"
+    }
+  ],
+  "meta": {}
+}
+```
+
+### Response fields
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `dates.hired` | string |  |
+| `dates.started` | string |  |
+| `dates.terminated` | string |  |
+| `einName` | string |  |
+| `employeeId` | string |  |
+| `firstName` | string |  |
+| `id` | number |  |
+| `lastName` | string |  |
+| `Links.badges` | string |  |
+| `Links.self` | string |  |
+| `primaryAccountId` | number |  |
+| `status` | string |  |
+| `username` | string |  |
 
 ## Native endpoint
 

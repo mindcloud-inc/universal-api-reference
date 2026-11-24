@@ -17,7 +17,7 @@ Creates a new receipt in your Aspire account.
 | `ReceiptItems[].receiptItemID` | body | `number` | no | — |
 | `VendorID` | body | `list<string>` | yes | — |
 | `ReceiptItems[].catalogItemID` | body | `list<number>` | no | — |
-| `ReceiptItems[].itemAllocations[].inventoryLocationID` | body | `list<number>` | yes | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |
+| `ReceiptItems[].itemAllocations[].inventoryLocationID` | body | `list<number>` | no | Item allocations require either a WorkTicketID or an InventoryLocationID, can't have both. |
 | `WorkTicketID` | body | `list<number>` | no | — |
 | `ReceiptItems[].catalogItemCategoryID` | body | `list<number>` | no | — |
 | `ReceiptNote` | body | `string` | no | — |
@@ -36,3 +36,6 @@ Creates a new receipt in your Aspire account.
 | `ReceivedDate` | body | `string` | no | — |
 | `ReceiptItems[].itemAllocations[]` | body | `array<object>` | no | — |
 | `receiptID` | body | `number` | no | — |
+| `ReceiptExtraCosts[]` | body | `array<object>` | no | — |
+| `ReceiptExtraCosts[].ExtraCostType` | body | `string` | yes | — |
+| `ReceiptExtraCosts[].ExtraCost` | body | `number` | yes | — |

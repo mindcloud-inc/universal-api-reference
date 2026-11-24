@@ -35,7 +35,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | list | no | What kind of items should be returned (only active items will be returned by default) Values: [True, Any, False] Default: `Any`. |
+| `active` | list | no | What kind of items should be returned (only active items will be returned by default) Values: [True, Any, False] One of: `Any`, `False`, `True`. Default: `Any`. |
 | `pageSize` | number | no | How many records to return (50 by default) |
 
 ## Response
