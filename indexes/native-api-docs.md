@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3239 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3240 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -393,6 +393,7 @@ The official vendor API documentation for each of the 3239 apps in this repo. Ea
 - [CATS](../apis/c/cATS/native-api) - https://docs.catsone.com/api/v3/
 - [CDC Content Services](../apis/c/cDCContentServices/native-api) - https://tools.cdc.gov/api/docs/info.aspx
 - [CDR Platform](../apis/c/cDRPlatform/native-api) - https://cdrplatform.com/docs/open-api-schema
+- [Celigo](../apis/c/celigo/native-api) - https://developer.celigo.com/api
 - [Census Bureau](../apis/c/censusBureau/native-api) - https://www.census.gov/data/developers/guidance/api-user-guide.html
 - [Centerpoint](../apis/c/centerpoint/native-api) - https://api-portal.centerpointconnect.io/portal/catalogue-products/centerpoint-api-1
 - [Centers for Disease Control and Prevention](../apis/c/centersForDiseaseControlAndPrevention/native-api) - https://tools.cdc.gov/api/docs/info.aspx

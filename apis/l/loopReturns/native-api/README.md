@@ -1,6 +1,6 @@
 # Loop Returns: Native API Reference
 
-A consolidated summary of Loop Returns's API configuration and 7 documented operations, with links to official documentation.
+A consolidated summary of Loop Returns's API configuration and 8 documented operations, with links to official documentation.
 
 - **Official docs:** https://docs.loopreturns.com/api-reference/authentication
 - **API base URL:** `https://api.loopreturns.com/api/v1`
@@ -39,14 +39,15 @@ Use `pageSize` in the query string to set the page size (default 500; accepted r
 
 Retry responses with status codes `429, 500, 502, 503, 524`. Wait 5000 ms before the first retry. Stop after 5 attempts. Multiply the delay by 3 after each failed attempt.
 
-## Endpoints (7 documented)
+## Endpoints (8 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
 | [Flag Return](actions/flag-return.md) | `POST https://api.loopreturns.com/api/v1/warehouse/return/{{return_id}}/flag` | [docs](https://docs.loopreturns.com/api-reference/latest/return-actions/flag-return) |
+| [Get Happy Returns Shipment Items](actions/get-happy-returns-shipment-items.md) | `GET /happy-returns/shipments/:shipmentId/items` | [docs](https://docs.loopreturns.com/api-reference/latest/happy-returns-shipment-items/get-shipment-items) |
+| [Get Happy Returns Shipments](actions/get-happy-returns-shipments.md) | `GET /happy-returns/shipments` | [docs](https://docs.loopreturns.com/api-reference/latest/happy-returns-shipment/get-shipments) |
 | [Grade Items](actions/grade-items.md) | `POST https://api.loopreturns.com/api/v1/dispositioning/grade` | [docs](https://docs.loopreturns.com/api-reference/latest/item-grading-and-disposition/grade-items) |
 | [List Destinations](actions/list-destinations.md) | `GET /destinations` | [docs](https://docs.loopreturns.com/api-reference/latest/destinations/get-all-destinations) |
 | [Get Return Details](actions/list-return-details.md) | `GET /warehouse/return/details` | [docs](https://docs.loopreturns.com/api-reference/latest/return-data/get-return-details) |
 | [List Returns](actions/list-returns.md) | `GET /warehouse/return/list` | [docs](https://docs.loopreturns.com/api-reference/latest/return-data/detailed-returns-list) |
-| [Get Happy Returns Shipments](actions/new-action1.md) | `GET /happy-returns/shipments` | [docs](https://docs.loopreturns.com/api-reference/latest/happy-returns-shipment/get-shipments) |
 | [Process Return](actions/process-return.md) | `POST https://api.loopreturns.com/api/v1/warehouse/return/{{return_id}}/process` | [docs](https://docs.loopreturns.com/api-reference/latest/return-actions/process-return) |

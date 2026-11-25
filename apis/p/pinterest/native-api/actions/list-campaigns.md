@@ -12,3 +12,9 @@ Retrieves campaigns from a Pinterest ad account.
 ## Capabilities
 
 This operation supports [pagination](../README.md#pagination).
+
+## Parameters
+
+| Parameter | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `adAccountId` | path | `string` | yes | Use the ID returned by List Ad Accounts. |

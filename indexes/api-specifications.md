@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3239 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3240 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -383,6 +383,7 @@ Machine-readable API descriptions for 3239 apps. Universal API specifications ar
 | [CATS](../apis/c/cATS) | [OpenAPI 3.1](../apis/c/cATS/universal-api/openapi.json) |  |
 | [CDC Content Services](../apis/c/cDCContentServices) | [OpenAPI 3.1](../apis/c/cDCContentServices/universal-api/openapi.json) |  |
 | [CDR Platform](../apis/c/cDRPlatform) | [OpenAPI 3.1](../apis/c/cDRPlatform/universal-api/openapi.json) | [Provider OpenAPI](https://api.cdrplatform.com/schema/?format=json) |
+| [Celigo](../apis/c/celigo) | [OpenAPI 3.1](../apis/c/celigo/universal-api/openapi.json) |  |
 | [Census Bureau](../apis/c/censusBureau) | [OpenAPI 3.1](../apis/c/censusBureau/universal-api/openapi.json) |  |
 | [Centerpoint](../apis/c/centerpoint) | [OpenAPI 3.1](../apis/c/centerpoint/universal-api/openapi.json) |  |
 | [Centers for Disease Control and Prevention](../apis/c/centersForDiseaseControlAndPrevention) | [OpenAPI 3.1](../apis/c/centersForDiseaseControlAndPrevention/universal-api/openapi.json) |  |

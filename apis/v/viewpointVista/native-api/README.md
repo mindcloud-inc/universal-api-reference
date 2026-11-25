@@ -1,6 +1,6 @@
 # Viewpoint Vista: Native API Reference
 
-A consolidated summary of Viewpoint Vista's API configuration and 85 documented operations, with links to official documentation.
+A consolidated summary of Viewpoint Vista's API configuration and 86 documented operations, with links to official documentation.
 
 - **Official docs:** https://direct-api.xchange.trimble.com/reference/setup
 - **REST base URL:** `https://api.xchange.trimble.com/connect/`
@@ -53,7 +53,7 @@ Shared headers:
 
 - **REST:** Send filters in the request body.
 
-## Endpoints (85 documented)
+## Endpoints (86 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -71,6 +71,7 @@ Shared headers:
 | [Add Receipt Batch Entry](actions/add-receipt-batch-entry.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/ar/2/data/batch_entries/actions/add_receipt` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2databatch_entriesactionsadd_receipt) |
 | [Add SM Customer](actions/add-sm-customer.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/customers/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistaar2datacustomersactionsadd) |
 | [Add SM Work Order](actions/add-sm-work-order.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datawork_ordersactionsadd) |
+| [Cancel Change Order Batch](actions/cancel-change-order-batch.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/po/2/data/co_batches/actions/cancel` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistapo2dataco_batchesactionscancel) |
 | [Change SM Customer](actions/change-sm-customer.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/customers/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datacustomersactionschange) |
 | [Change SM Work Order](actions/change-sm-work-order.md) | REST | `POST v1/direct/subscribers/:subscriber_code/vista/:api/2/data/:object/actions/change` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistasm2datawork_ordersactionschange) |
 | [Create Contract](actions/create-contract.md) | REST | `POST v1/direct/subscribers/{{credentials.subscriberCode}}/vista/jc/2/data/contracts/actions/add` | [docs](https://direct-api.xchange.trimble.com/reference/post-directsubscriberssubscriber_codevistajc2datajobsactionsadd) |

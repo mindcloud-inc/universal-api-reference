@@ -24,3 +24,6 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/epicorProphet21/latest/ac
 - [List Quotes](actions/list-quotes.md)
 - [List Sales Orders](actions/list-sales-orders.md)
 - [Query Data View](actions/query-data-view.md)
+- [Query Manifest Collection](actions/query-manifest-collection.md)
+- [Query OData Table](actions/query-odata-table.md)
+- [Query OData View](actions/query-odata-view.md)

@@ -1,6 +1,6 @@
 # IT Operations apps
 
-394 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+395 apps in the IT Operations category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Abbyy** · [Universal API reference](../../apis/a/abbyy/universal-api) · [Native API reference](../../apis/a/abbyy/native-api) · [Native API docs](https://support.abbyy.com/hc/en-us/articles/360017269420-API-reference)
 - **Abstract IP Intelligence** · [Universal API reference](../../apis/a/abstractIPIntelligence/universal-api) · [Native API reference](../../apis/a/abstractIPIntelligence/native-api) · [Native API docs](https://docs.abstractapi.com/api/ip-intelligence)
@@ -57,6 +57,7 @@
 - **2Captcha** · [Universal API reference](../../apis/c/captcha/universal-api) · [Native API reference](../../apis/c/captcha/native-api) · [Native API docs](https://2captcha.com/api-docs)
 - **Carbone.io** · [Universal API reference](../../apis/c/carboneio/universal-api) · [Native API reference](../../apis/c/carboneio/native-api) · [Native API docs](https://carbone.io/documentation/developer/http-api/introduction.html)
 - **Caspio** · [Universal API reference](../../apis/c/caspio/universal-api) · [Native API reference](../../apis/c/caspio/native-api) · [Native API docs](https://d2hbw900.caspio.com/integrations/rest/swagger)
+- **Celigo** · [Universal API reference](../../apis/c/celigo/universal-api) · [Native API reference](../../apis/c/celigo/native-api) · [Native API docs](https://developer.celigo.com/api)
 - **Chainstream** · [Universal API reference](../../apis/c/chainstream/universal-api) · [Native API reference](../../apis/c/chainstream/native-api) · [Native API docs](https://docs.chainstream.io/en/api-reference)
 - **ChartLy** · [Universal API reference](../../apis/c/chartLy/universal-api) · [Native API reference](../../apis/c/chartLy/native-api) · [Native API docs](https://docs.chartly.dev/api)
 - **Checkly** · [Universal API reference](../../apis/c/checkly/universal-api) · [Native API reference](../../apis/c/checkly/native-api) · [Native API docs](https://www.checklyhq.com/docs/api-reference/overview/)

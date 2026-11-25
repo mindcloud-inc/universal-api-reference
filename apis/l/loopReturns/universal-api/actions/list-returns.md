@@ -39,6 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `cursor` | string | no | To continue a paged read, pass meta.cursor from the previous response (or the cursor token from Loop's nextPageUrl). Keep the same filters and limit, and omit offset. Omit this field for the first page. |
 | `state` | list<string> | no | Only include returns in a particular state. If left blank, the response may include __open__, __closed__, and __expired__ returns. Available options: `open`, `closed`, `cancelled`, `expired`, `review` |
 | `from` | date | no |  |
 | `to` | date | no |  |

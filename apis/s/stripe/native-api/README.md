@@ -30,6 +30,22 @@ const response = await fetch(url, {
 
 [Official authentication documentation](https://docs.stripe.com/keys)
 
+### API Key
+
+Enter a Stripe API key from Developers → API keys. Use a sandbox key for test data or a live key for live data. For reporting, use a restricted key with read access to the Stripe resources you need.
+
+### Credentials
+
+- **API Key:** `apiKey` · required
+
+Send these headers with each API request:
+
+```http
+Authorization: Bearer <apiKey>
+```
+
+[Official authentication documentation](https://docs.stripe.com/api/authentication)
+
 ## API conventions
 
 Request bodies use URL-encoded form data.

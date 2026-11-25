@@ -13,7 +13,7 @@ This action also supports [pagination](../pagination.md) (`limit`, `offset`).
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/pinterest/latest/actions/list-campaigns?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/pinterest/latest/actions/list-campaigns?connectionId=$CONNECTION_ID&limit=25&offset=0&adAccountId=string" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -21,7 +21,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/pinterest/latest/actions/
 const params = new URLSearchParams({
   connectionId,
   limit: '25',
-  offset: '0'
+  offset: '0',
+  "adAccountId": "string"
 });
 
 const response = await fetch(`https://connect.mindcloud.co/v1/universal/pinterest/latest/actions/list-campaigns?${params}`, {
@@ -33,7 +34,13 @@ const response = await fetch(`https://connect.mindcloud.co/v1/universal/pinteres
 const { success, data } = await response.json();
 ```
 
+## Inputs
 
+Arguments are sent as query string parameters ([conventions](../arguments.md)).
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| `adAccountId` | string | yes | Use the ID returned by List Ad Accounts. |
 
 ## Response
 

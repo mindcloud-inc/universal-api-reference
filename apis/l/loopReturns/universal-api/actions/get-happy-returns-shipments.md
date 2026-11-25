@@ -3,7 +3,7 @@
 
 
 ```
-GET https://connect.mindcloud.co/v1/universal/loopReturns/latest/actions/new-action1
+GET https://connect.mindcloud.co/v1/universal/loopReturns/latest/actions/get-happy-returns-shipments
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Loop Returns `connectionId` ([setup](../authentication.md)).
@@ -11,7 +11,7 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Loop Ret
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/loopReturns/latest/actions/new-action1?connectionId=$CONNECTION_ID" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/loopReturns/latest/actions/get-happy-returns-shipments?connectionId=$CONNECTION_ID" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
@@ -20,7 +20,7 @@ const params = new URLSearchParams({
   connectionId
 });
 
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/loopReturns/latest/actions/new-action1?${params}`, {
+const response = await fetch(`https://connect.mindcloud.co/v1/universal/loopReturns/latest/actions/get-happy-returns-shipments?${params}`, {
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
   }
@@ -93,5 +93,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Loop Returns API, this operation is `GET /happy-returns/shipments` (base URL `https://api.loopreturns.com/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/new-action1.md) for the provider-specific parameters and requirements.
+Through the native Loop Returns API, this operation is `GET /happy-returns/shipments` (base URL `https://api.loopreturns.com/api/v1`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-happy-returns-shipments.md) for the provider-specific parameters and requirements.
 

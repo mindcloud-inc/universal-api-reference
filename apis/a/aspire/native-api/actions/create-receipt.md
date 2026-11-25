@@ -37,5 +37,5 @@ Creates a new receipt in your Aspire account.
 | `ReceiptItems[].itemAllocations[]` | body | `array<object>` | no | — |
 | `receiptID` | body | `number` | no | — |
 | `ReceiptExtraCosts[]` | body | `array<object>` | no | — |
-| `ReceiptExtraCosts[].ExtraCostType` | body | `string` | yes | — |
-| `ReceiptExtraCosts[].ExtraCost` | body | `number` | yes | — |
+| `ReceiptExtraCosts[].ExtraCostType` | body | `string` | no | — |
+| `ReceiptExtraCosts[].ExtraCost` | body | `number` | no | — |

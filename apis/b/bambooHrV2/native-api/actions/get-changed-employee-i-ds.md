@@ -11,7 +11,7 @@ Retrieves changed employee i ds from BambooHR.
 
 ## Requirements
 
-- **OAuth scopes:** `public.integration public.user`
+- **OAuth scopes:** `public.user`
 - **scope:** `public.integration, public.user` — BambooHR documents these OAuth scopes for this endpoint; access also follows the connected user permissions.
 
 ## Parameters

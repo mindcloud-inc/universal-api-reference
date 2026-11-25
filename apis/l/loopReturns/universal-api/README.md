@@ -4,7 +4,7 @@ Loop Returns through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/loopReturns/latest
 - **Category:** Commerce
-- **Actions:** 7
+- **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.loopreturns.com
 - **Vendor API docs:** https://docs.loopreturns.com/api-reference/authentication
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/loopReturns/latest/action
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (7)
+## Actions (8)
 
 ### Flag Return
 
@@ -55,9 +55,15 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/loopReturns/latest/action
 | [Get Return Details](actions/list-return-details.md) | GET | Get the details of a specific return based on a return’s ID, an order name, or a Shopify order ID. |
 | [List Returns](actions/list-returns.md) | GET | Pull a detailed list of returns created within a given timeframe. |
 
+### Shipment Items
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Happy Returns Shipment Items](actions/get-happy-returns-shipment-items.md) | GET |  |
+
 ### Shipments
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Get Happy Returns Shipments](actions/new-action1.md) | GET |  |
+| [Get Happy Returns Shipments](actions/get-happy-returns-shipments.md) | GET |  |
 

@@ -21,9 +21,7 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/aspire/latest/actions/cr
   "ReceiptItems[].ItemName": "Ava Chen",
   "ReceiptItems[].ItemQuantity": 1,
   "ReceiptItems[].ItemUnitCost": 1,
-  "ReceiptItems[].ItemType": "string",
-  "receiptExtraCosts[].extraCostType": "string",
-  "receiptExtraCosts[].extraCost": 1
+  "ReceiptItems[].ItemType": "string"
 }'
 ```
 
@@ -41,9 +39,7 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/aspire/l
     "ReceiptItems[].ItemName": "Ava Chen",
     "ReceiptItems[].ItemQuantity": 1,
     "ReceiptItems[].ItemUnitCost": 1,
-    "ReceiptItems[].ItemType": "string",
-    "receiptExtraCosts[].extraCostType": "string",
-    "receiptExtraCosts[].extraCost": 1
+    "ReceiptItems[].ItemType": "string"
   })
 });
 
@@ -85,8 +81,8 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `receiptExtraCosts[]` | array<object> | no |  |
-| `receiptExtraCosts[].extraCostType` | string | yes |  |
-| `receiptExtraCosts[].extraCost` | number | yes |  |
+| `receiptExtraCosts[].extraCostType` | string | no |  |
+| `receiptExtraCosts[].extraCost` | number | no |  |
 
 ## Response
 
