@@ -3,7 +3,7 @@
 Manage balances, beneficiaries, transfers, and payment links
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/airwallex/latest
-- **Category:** Commerce / Accounting
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.airwallex.com

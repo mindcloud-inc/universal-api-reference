@@ -3,7 +3,7 @@
 Manage projects, track tasks, chat with teams, and automate work.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clickUp/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 28
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://clickup.com

@@ -3,7 +3,7 @@
 Manage PDF templates, fill requests, signatures, and document workflows
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pdfFiller/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Productivity / Legal & Contracts
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pdffiller.com

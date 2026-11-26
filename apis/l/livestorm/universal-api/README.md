@@ -3,7 +3,7 @@
 Livestorm: manage webinars, virtual events, sessions, registrants, people, hosts, and webhooks from the Livestorm Public API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/livestorm/latest
-- **Category:** Marketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://livestorm.co

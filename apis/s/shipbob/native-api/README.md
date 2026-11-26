@@ -1,6 +1,6 @@
 # ShipBob: Native API Reference
 
-A consolidated summary of ShipBob's API configuration and 14 documented operations.
+A consolidated summary of ShipBob's API configuration and 16 documented operations.
 
 - **REST base URL:** `https://{apiSubdomain}.shipbob.com/`
 - **REST - Cursor base URL:** `https://{apiSubdomain}.shipbob.com/`
@@ -63,10 +63,12 @@ Shared headers:
 
 - **REST - Cursor:** Set the sort field with `Sortby` in the query string. Set the direction separately with `SortOrder`. Use `Asc` for ascending order and `Desc` for descending order. Only one sort field is accepted.
 
-## Endpoints (14 documented)
+## Endpoints (16 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
+| [Create Return Order](actions/create-return-order.md) | REST | `POST 2026-07/return` | [docs](https://developer.shipbob.com/api/returns/create-return-order) |
+| [Edit Return Order](actions/edit-return-order.md) | REST | `PUT 2026-07/return/:id` | [docs](https://developer.shipbob.com/api/returns/edit-return-order) |
 | [Get Fulfillment Centers](actions/get-fulfillment-centers.md) | REST | `GET 2026-07/fulfillment-center` |  |
 | [Get Inventory Level](actions/get-inventory-level.md) | REST | `GET /2026-07/inventory-level/{{inventoryId}}/locations` |  |
 | [Get Multiple Products](actions/get-multiple-products.md) | REST | `GET 2026-07/product` |  |

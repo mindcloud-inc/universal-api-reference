@@ -3,7 +3,7 @@
 Retrieve official GSA continental U.S. per diem lodging and meals and incidental expense rates by city, state, ZIP code, or fiscal year.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gSAPerDiem/latest
-- **Category:** Business Intelligence / Data Warehouse
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.gsa.gov/travel/plan-a-trip/per-diem-rates

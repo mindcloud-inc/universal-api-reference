@@ -3,7 +3,7 @@
 Manage Workflowy nodes, search lists, and organize content
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/workflowy/latest
-- **Category:** Content & Files / Storage
+- **Category:** Productivity / Knowledge Management
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://workflowy.com

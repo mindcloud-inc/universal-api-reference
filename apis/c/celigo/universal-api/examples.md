@@ -64,3 +64,45 @@ Example response:
 ```
 
 See the full [Get Token Info action reference](actions/get-token-info.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/celigo/latest/actions/get-token-info).
+
+## Cancel Job
+
+
+
+```bash
+curl -X PUT "https://connect.mindcloud.co/v1/universal/celigo/latest/actions/cancel-job" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "$CONNECTION_ID",
+  "jobId": "6798e7a330f8f5fb4c2ee2fb"
+}'
+```
+
+```js
+const response = await fetch('https://connect.mindcloud.co/v1/universal/celigo/latest/actions/cancel-job', {
+  method: 'PUT',
+  headers: {
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "jobId": "6798e7a330f8f5fb4c2ee2fb"
+  })
+});
+
+const { success, data } = await response.json();
+```
+
+Example response:
+
+```json
+{
+  "success": true,
+  "data": [],
+  "meta": {}
+}
+```
+
+See the full [Cancel Job action reference](actions/cancel-job.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/celigo/latest/actions/cancel-job).

@@ -3,6 +3,7 @@
 Create, manage, and share Canva designs, folders, and assets
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/canva/latest
+- **Category:** Marketing
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.canva.com

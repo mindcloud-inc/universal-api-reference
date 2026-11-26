@@ -3,7 +3,7 @@
 SMS.to: Send, manage, and track SMS, Viber, and campaign messages
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sMSto/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://sms.to

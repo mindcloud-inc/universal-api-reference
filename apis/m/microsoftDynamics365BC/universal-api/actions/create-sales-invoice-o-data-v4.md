@@ -81,6 +81,7 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | `Class_Code` | string | no |  |
 | `External_Document_No` | string | no |  |
 | `Shortcut_Dimension_2_Code` | string | no |  |
+| `Ship_to_Code` | string | no |  |
 
 ## Response
 

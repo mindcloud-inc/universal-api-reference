@@ -3,6 +3,7 @@
 Browse Tampa events, news, meetings, and public service feeds
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cityOfTampaFlorida/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.tampa.gov/

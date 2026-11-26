@@ -3,7 +3,7 @@
 Capture tasks, organize lists, track deadlines, and manage work anywhere.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/googleTasks/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Productivity / Project Management
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developers.google.com/workspace/tasks

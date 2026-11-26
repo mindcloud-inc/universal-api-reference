@@ -3,6 +3,7 @@
 Cloud-based human capital management (HCM) system that provides integrated payroll, human resources (HR), and talent management solutions, allowing businesses to manage their HR and payroll data in one place
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/paycom/latest
+- **Category:** Human Resources / HRIS
 - **Actions:** 16
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.paycom.com/

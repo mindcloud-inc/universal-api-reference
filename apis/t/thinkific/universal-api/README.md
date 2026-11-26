@@ -3,7 +3,7 @@
 Manage Thinkific courses, users, enrollments, and commerce data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/thinkific/latest
-- **Category:** Commerce
+- **Category:** Human Resources / Learning (LMS)
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.thinkific.com

@@ -3,7 +3,7 @@
 Send SMS, manage contacts, and monitor messaging activity
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/textMagic/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Vendor website:** https://www.textmagic.com/
 - **Vendor API docs:** https://docs.textmagic.com/
 

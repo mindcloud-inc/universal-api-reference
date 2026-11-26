@@ -3,7 +3,7 @@
 Create events, manage attendees, orders, venues, and organizers
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eventbrite/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.eventbrite.com

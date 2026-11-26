@@ -3,7 +3,7 @@
 Transcribe speech, generate audio, analyze text, and manage voice agents
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/deepgram/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.deepgram.com

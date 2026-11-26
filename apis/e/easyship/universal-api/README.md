@@ -3,7 +3,7 @@
 Easyship shipping and logistics platform for rates, shipments, pickups, tracking, shipping rules, and fulfillment operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/easyship/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.easyship.com

@@ -54,3 +54,4 @@
 | `Class_Code` | body | `string` | no |
 | `External_Document_No` | body | `string` | no |
 | `Shortcut_Dimension_2_Code` | body | `string` | no |
+| `Ship_to_Code` | body | `string` | no |

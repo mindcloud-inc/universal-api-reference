@@ -3,7 +3,7 @@
 Manage customers, users, and service data in GorillaDesk.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gorillaDesk/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Support / Field Service
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://gorilladesk.com

@@ -3,6 +3,7 @@
 Chargebee is a subscription billing and revenue management platform for managing customers, subscriptions, invoices, credit notes, payments, events, products, and catalog data through Chargebee's REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/chargeBee/latest
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.chargebee.com

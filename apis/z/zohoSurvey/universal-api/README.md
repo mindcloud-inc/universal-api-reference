@@ -3,7 +3,7 @@
 Send Zoho Survey email invitations using trigger-based distributions
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoSurvey/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://survey.zoho.com

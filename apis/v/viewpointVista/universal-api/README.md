@@ -3,6 +3,7 @@
 Viewpoint Vista through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/viewpointVista/latest
+- **Category:** Commerce / ERP
 - **Actions:** 86
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://direct-api.xchange.trimble.com/reference/setup

@@ -3,7 +3,7 @@
 Send and manage SMS messaging through Mobile Text Alerts using a bearer API key.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mobileTextAlerts/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mobile-text-alerts.com

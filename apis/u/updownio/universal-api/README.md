@@ -3,6 +3,7 @@
 Monitor websites, manage checks, alert recipients, monitoring nodes, and status pages in updown.io.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/updownio/latest
+- **Category:** IT Operations / Observability
 - **Actions:** 18
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://updown.io

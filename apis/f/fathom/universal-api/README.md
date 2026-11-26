@@ -3,7 +3,7 @@
 Record meetings, generate summaries, sync notes, and track follow-ups.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fathom/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Communication / Video Communications
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://fathom.video

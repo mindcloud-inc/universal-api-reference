@@ -3,7 +3,7 @@
 Organize work with boards, track cards, manage tasks, and collaborate.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trello/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trello.com/

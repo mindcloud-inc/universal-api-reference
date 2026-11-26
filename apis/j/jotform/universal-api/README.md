@@ -3,7 +3,7 @@
 Build forms, collect submissions, accept payments, and manage responses.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/jotform/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 33
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.jotform.com

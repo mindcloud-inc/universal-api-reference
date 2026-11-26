@@ -3,7 +3,7 @@
 Create, manage, and automate image and video generation
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bannerbear/latest
-- **Category:** Marketing
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 29
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bannerbear.com/

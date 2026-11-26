@@ -3,7 +3,7 @@
 SMS marketing and messaging for contacts, groups, conversations, media, reports, and webhooks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eZTexting/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.eztexting.com/

@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "ShipBob Universal API",
-    "version": "0.0.40",
+    "version": "0.0.41",
     "description": "Call ShipBob actions through MindCloud's Universal API."
   },
   "servers": [
@@ -20,6 +20,511 @@
     }
   ],
   "paths": {
+    "/v1/universal/shipbob/latest/actions/create-return-order": {
+      "post": {
+        "operationId": "shipbob.create-return-order",
+        "summary": "Create Return Order",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/shipbob/latest/actions/create-return-order"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "fulfillmentCenter",
+                  "fulfillmentCenter.id",
+                  "inventory[]",
+                  "inventory[].id",
+                  "inventory[].quantity",
+                  "inventory[].requestedAction",
+                  "referenceId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "fulfillmentCenter": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "The fulfillment center that will process the return."
+                  },
+                  "fulfillmentCenter.id": {
+                    "type": "string",
+                    "description": "The ShipBob fulfillment center ID."
+                  },
+                  "inventory[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "The physical inventory items included in this return."
+                  },
+                  "inventory[].id": {
+                    "type": "string",
+                    "description": "The ShipBob inventory item ID."
+                  },
+                  "inventory[].quantity": {
+                    "type": "number",
+                    "description": "The quantity of this inventory item being returned."
+                  },
+                  "inventory[].requestedAction": {
+                    "type": "string",
+                    "description": "How ShipBob should handle the returned item: Default, Restock, Quarantine, or Dispose.",
+                    "enum": [
+                      "Default",
+                      "Dispose",
+                      "Quarantine",
+                      "Restock"
+                    ]
+                  },
+                  "inventory[].lotDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The lot date for a lot-tracked inventory item.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "inventory[].lotNumber": {
+                    "type": "string",
+                    "description": "The lot number for a lot-tracked inventory item.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "referenceId": {
+                    "type": "string",
+                    "description": "A unique external reference or RMA number for this return.",
+                    "example": "RETURN101"
+                  },
+                  "originalShipmentId": {
+                    "type": "number",
+                    "description": "The shipment from which the returned items originated.",
+                    "example": 104458283
+                  },
+                  "trackingNumber": {
+                    "type": "string",
+                    "description": "The tracking number for the return shipment.",
+                    "example": "1Z9999W99999999999"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/universal/shipbob/latest/actions/edit-return-order": {
+      "put": {
+        "operationId": "shipbob.edit-return-order",
+        "summary": "Edit Return Order",
+        "externalDocs": {
+          "url": "https://mindcloud.co/docs/universal/rest/shipbob/latest/actions/edit-return-order"
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "connectionId",
+                  "id",
+                  "fulfillmentCenter",
+                  "fulfillmentCenter.id",
+                  "inventory[]",
+                  "inventory[].id",
+                  "inventory[].quantity",
+                  "inventory[].requestedAction",
+                  "referenceId"
+                ],
+                "properties": {
+                  "connectionId": {
+                    "type": "string",
+                    "description": "The MindCloud connection ID for this app."
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "The ShipBob return order ID to edit.",
+                    "example": 123456
+                  },
+                  "fulfillmentCenter": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "The fulfillment center receiving the return."
+                  },
+                  "fulfillmentCenter.id": {
+                    "type": "string",
+                    "description": "The ShipBob fulfillment center that will receive the return."
+                  },
+                  "inventory[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "description": "The returned inventory items and requested handling actions."
+                  },
+                  "inventory[].id": {
+                    "type": "string",
+                    "description": "The ShipBob inventory item being returned."
+                  },
+                  "inventory[].quantity": {
+                    "type": "number",
+                    "description": "The quantity of this inventory item being returned.",
+                    "example": 1
+                  },
+                  "inventory[].requestedAction": {
+                    "type": "string",
+                    "description": "How ShipBob should handle this returned inventory item.",
+                    "enum": [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ]
+                  },
+                  "inventory[].lotDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The lot date for this inventory item, when applicable.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "inventory[].lotNumber": {
+                    "type": "string",
+                    "description": "The lot number for this inventory item, when applicable.",
+                    "x-mindcloud-advanced": true
+                  },
+                  "referenceId": {
+                    "type": "string",
+                    "description": "Your unique reference for this return order.",
+                    "example": "RETURN101"
+                  },
+                  "originalShipmentId": {
+                    "type": "number",
+                    "description": "The original ShipBob shipment ID, when available.",
+                    "example": 104458283
+                  },
+                  "trackingNumber": {
+                    "type": "string",
+                    "description": "The carrier tracking number for the return package.",
+                    "example": "1Z999AA10123456784"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The MindCloud API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The API key or connection cannot access this action.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The action failed unexpectedly.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success",
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/universal/shipbob/latest/actions/get-fulfillment-centers": {
       "get": {
         "operationId": "shipbob.get-fulfillment-centers",

@@ -3,7 +3,7 @@
 
 
 ```
-GET https://connect.mindcloud.co/v1/universal/celigo/latest/actions/ping-connection
+PUT https://connect.mindcloud.co/v1/universal/celigo/latest/actions/ping-connection
 ```
 
 Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Celigo `connectionId` ([setup](../authentication.md)).
@@ -11,20 +11,25 @@ Authenticate with `Authorization: Bearer $MINDCLOUD_API_KEY` and pass a Celigo `
 ## Example request
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/celigo/latest/actions/ping-connection?connectionId=$CONNECTION_ID&connectionId=string" \
-  -H "Authorization: Bearer $MINDCLOUD_API_KEY"
+curl -X PUT "https://connect.mindcloud.co/v1/universal/celigo/latest/actions/ping-connection" \
+  -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "connectionId": "string"
+}'
 ```
 
 ```js
-const params = new URLSearchParams({
-  connectionId,
-  "connectionId": "string"
-});
-
-const response = await fetch(`https://connect.mindcloud.co/v1/universal/celigo/latest/actions/ping-connection?${params}`, {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/celigo/latest/actions/ping-connection', {
+  method: 'PUT',
   headers: {
-    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`
-  }
+    Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    connectionId,
+    "connectionId": "string"
+  })
 });
 
 const { success, data } = await response.json();
@@ -32,7 +37,7 @@ const { success, data } = await response.json();
 
 ## Inputs
 
-Arguments are sent as query string parameters ([conventions](../arguments.md)).
+Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |

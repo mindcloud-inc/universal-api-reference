@@ -3,7 +3,7 @@
 Connect Asana to read and manage workspaces, projects, tasks, users, and teams through the official Asana REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/asanaNew/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 168
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://asana.com/

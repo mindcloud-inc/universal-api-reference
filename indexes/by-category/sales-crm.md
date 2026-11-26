@@ -1,6 +1,6 @@
 # Sales & CRM apps
 
-174 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+171 apps in the Sales & CRM category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **AeroLeads** · [Universal API reference](../../apis/a/aeroLeads/universal-api) · [Native API reference](../../apis/a/aeroLeads/native-api) · [Native API docs](https://aeroleads.com/api)
 - **Agendor** · [Universal API reference](../../apis/a/agendor/universal-api) · [Native API reference](../../apis/a/agendor/native-api) · [Native API docs](https://api.agendor.com.br/docs/)
@@ -24,7 +24,6 @@
 - **CentralStationCRM** · [Universal API reference](../../apis/c/centralStationCRM/universal-api) · [Native API reference](../../apis/c/centralStationCRM/native-api) · [Native API docs](https://api.centralstationcrm.net/api-docs/index.html)
 - **Cliengo** · [Universal API reference](../../apis/c/cliengo/universal-api) · [Native API reference](../../apis/c/cliengo/native-api) · [Native API docs](https://developers.cliengo.com/reference)
 - **Client Commander** · [Universal API reference](../../apis/c/clientCommander/universal-api) · [Native API reference](../../apis/c/clientCommander/native-api) · [Native API docs](https://docs.clientcommander.com/api-reference/introduction)
-- **Clio Manage** · [Universal API reference](../../apis/c/clio/universal-api) · [Native API reference](../../apis/c/clio/native-api) · [Native API docs](https://docs.developers.clio.com/api-docs/clio-manage/)
 - **Clio Grow** · [Universal API reference](../../apis/c/clioGrow/universal-api) · [Native API reference](../../apis/c/clioGrow/native-api) · [Native API docs](https://docs.developers.clio.com/clio-grow/api-reference/)
 - **Close** · [Universal API reference](../../apis/c/close/universal-api) · [Native API reference](../../apis/c/close/native-api) · [Native API docs](https://developer.close.com/)
 - **CloudContactAI** · [Universal API reference](../../apis/c/cloudContactAI/universal-api) · [Native API reference](../../apis/c/cloudContactAI/native-api) · [Native API docs](https://developer.cloudcontactai.com/reference)
@@ -68,8 +67,6 @@
 - **GetSales.io** · [Universal API reference](../../apis/g/getSalesio/universal-api) · [Native API reference](../../apis/g/getSalesio/native-api) · [Native API docs](https://api.getsales.io/)
 - **GoDaddy CRM** · [Universal API reference](../../apis/g/goDaddyCRM/universal-api) · [Native API reference](../../apis/g/goDaddyCRM/native-api) · [Native API docs](https://developer.godaddy.com/doc)
 - **Google Contacts** · [Universal API reference](../../apis/g/googleContacts/universal-api) · [Native API reference](../../apis/g/googleContacts/native-api) · [Native API docs](https://developers.google.com/people/api/rest)
-- **Google Tasks** · [Universal API reference](../../apis/g/googleTasks/universal-api) · [Native API reference](../../apis/g/googleTasks/native-api) · [Native API docs](https://developers.google.com/workspace/tasks/reference/rest)
-- **GorillaDesk** · [Universal API reference](../../apis/g/gorillaDesk/universal-api) · [Native API reference](../../apis/g/gorillaDesk/native-api) · [Native API docs](https://api.gorilladesk.com)
 - **Guestmeter** · [Universal API reference](../../apis/g/guestmeter/universal-api) · [Native API reference](../../apis/g/guestmeter/native-api) · [Native API docs](https://www.guestmeter.com/docs/api)
 - **HelloLeads** · [Universal API reference](../../apis/h/helloLeads/universal-api) · [Native API reference](../../apis/h/helloLeads/native-api) · [Native API docs](https://app.helloleads.io/index.php/app/account/layout#/apisettings)
 - **Hubflo** · [Universal API reference](../../apis/h/hubflo/universal-api) · [Native API reference](../../apis/h/hubflo/native-api) · [Native API docs](https://hubflo.readme.io/reference/the-hubflo-api)
@@ -123,6 +120,7 @@
 - **Pipedrive** · [Universal API reference](../../apis/p/pipedrive/universal-api) · [Native API reference](../../apis/p/pipedrive/native-api) · [Native API docs](https://developers.pipedrive.com/docs/api/v1)
 - **Pipeline CRM** · [Universal API reference](../../apis/p/pipelineCRM/universal-api) · [Native API reference](../../apis/p/pipelineCRM/native-api) · [Native API docs](https://app.pipelinecrm.com/docs)
 - **Pipeliner Cloud** · [Universal API reference](../../apis/p/pipelinerCloud/universal-api) · [Native API reference](../../apis/p/pipelinerCloud/native-api) · [Native API docs](https://pipelinercrm.eu.apidog.com/)
+- **Planning Center** · [Universal API reference](../../apis/p/planningCenter/universal-api) · [Native API reference](../../apis/p/planningCenter/native-api) · [Native API docs](https://api.planningcenteronline.com/docs/apps)
 - **PlumDocs** · [Universal API reference](../../apis/p/plumDocs/universal-api) · [Native API reference](../../apis/p/plumDocs/native-api) · [Native API docs](https://plumdocs.com/api-docs)
 - **Powrbot** · [Universal API reference](../../apis/p/powrbot/universal-api) · [Native API reference](../../apis/p/powrbot/native-api) · [Native API docs](https://powrbot.com/cpages/docs/)
 - **PreCallAI** · [Universal API reference](../../apis/p/preCallAI/universal-api) · [Native API reference](../../apis/p/preCallAI/native-api) · [Native API docs](https://docs.precallai.com/api-reference/introduction)
@@ -160,7 +158,6 @@
 - **SynergyCRM** · [Universal API reference](../../apis/s/synergyCRM/universal-api) · [Native API reference](../../apis/s/synergyCRM/native-api) · [Native API docs](https://api.synergycrm.ru/)
 - **Teamgate** · [Universal API reference](../../apis/t/teamgate/universal-api) · [Native API reference](../../apis/t/teamgate/native-api) · [Native API docs](https://developers.teamgate.com/)
 - **The Org** · [Universal API reference](../../apis/t/theOrg/universal-api) · [Native API reference](../../apis/t/theOrg/native-api) · [Native API docs](https://developers.theorg.com/api)
-- **Todoist** · [Universal API reference](../../apis/t/todoist/universal-api) · [Native API reference](../../apis/t/todoist/native-api) · [Native API docs](https://developer.todoist.com/api/v1/)
 - **Tomba** · [Universal API reference](../../apis/t/tomba/universal-api) · [Native API reference](../../apis/t/tomba/native-api) · [Native API docs](https://docs.tomba.io/api)
 - **Twenty** · [Universal API reference](../../apis/t/twenty/universal-api) · [Native API reference](../../apis/t/twenty/native-api) · [Native API docs](https://docs.twenty.com/developers/extend/api)
 - **U-ON** · [Universal API reference](../../apis/u/uON/universal-api) · [Native API reference](../../apis/u/uON/native-api) · [Native API docs](https://api.u-on.travel/doc)

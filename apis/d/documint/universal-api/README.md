@@ -3,7 +3,7 @@
 Generate documents from Documint templates, list and manage templates, and merge data into downloadable documents.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/documint/latest
-- **Category:** Productivity / Legal & Contracts
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://documint.me/

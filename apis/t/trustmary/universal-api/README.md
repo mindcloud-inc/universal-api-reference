@@ -3,6 +3,7 @@
 Trustmary Integration API for contacts, surveys, reviews, and webhooks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trustmary/latest
+- **Category:** Marketing
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trustmary.com

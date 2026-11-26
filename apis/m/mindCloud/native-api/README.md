@@ -1,6 +1,6 @@
 # MindCloud: Native API Reference
 
-A consolidated summary of MindCloud's API configuration and 43 documented operations, with links to official documentation.
+A consolidated summary of MindCloud's API configuration and 44 documented operations, with links to official documentation.
 
 - **Official docs:** https://mindcloud.co/docs/api/rest/introduction
 - **OpenAPI specification:** https://connect.mindcloud.co/v2/openapi.json
@@ -38,7 +38,7 @@ Response data is read from `data`.
 
 Use `limit` in the query string to set the page size (default 100; accepted range 1–1000). Use `offset` in the query string as the record offset; numbering starts at 0.
 
-## Endpoints (43 documented)
+## Endpoints (44 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
@@ -62,6 +62,7 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 | [Get Workflow](actions/get-workflow.md) | `GET /v2/workflows/:workflowId` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Get Workflow Usage](actions/get-workflow-usage.md) | `GET /v2/usage/workflows` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [Invite Members](actions/invite-members.md) | `POST /v2/members` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
+| [List All Runs](actions/list-all-runs.md) | `GET /v2/runs` | [docs](https://mindcloud.co/docs/api/rest/actions/list-all-runs) |
 | [List API Keys](actions/list-api-keys.md) | `GET /v2/api-keys` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Connections](actions/list-connections.md) | `GET /v2/connections` | [docs](https://connect.mindcloud.co/v2/openapi.json) |
 | [List Environments](actions/list-environments.md) | `GET /v2/environments` | [docs](https://connect.mindcloud.co/v2/openapi.json) |

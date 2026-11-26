@@ -3,6 +3,7 @@
 Manage feedback boards, posts, comments, votes, and users
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/canny/latest
+- **Category:** Support / Customer Success
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://canny.io

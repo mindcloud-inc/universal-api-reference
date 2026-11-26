@@ -3,7 +3,7 @@
 ClickMeeting: Create, host, and manage webinars, meetings, and recordings
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clickMeeting/latest
-- **Category:** IT Operations / Integration & Automation
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://clickmeeting.com

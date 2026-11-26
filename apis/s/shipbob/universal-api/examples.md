@@ -58,28 +58,44 @@ Example response:
 
 See the full [List Inventory Levels by Location action reference](actions/list-inventory-levels-by-location.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/shipbob/latest/actions/list-inventory-levels-by-location).
 
-## Post Product
+## Create Return Order
 
 
 
 ```bash
-curl -X POST "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/post-product" \
+curl -X POST "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/create-return-order" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "connectionId": "$CONNECTION_ID"
+  "connectionId": "$CONNECTION_ID",
+  "fulfillmentCenter": {},
+  "fulfillmentCenter.id": 1,
+  "inventory[]": [
+    {}
+  ],
+  "inventory[].id": 1,
+  "inventory[].quantity": 1,
+  "inventory[].requestedAction": "Default",
+  "referenceId": "RETURN101"
 }'
 ```
 
 ```js
-const response = await fetch('https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/post-product', {
+const response = await fetch('https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/create-return-order', {
   method: 'POST',
   headers: {
     Authorization: `Bearer ${process.env.MINDCLOUD_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    connectionId
+    connectionId,
+    "fulfillmentCenter": {},
+    "fulfillmentCenter.id": 1,
+    "inventory[]": [{}],
+    "inventory[].id": 1,
+    "inventory[].quantity": 1,
+    "inventory[].requestedAction": "Default",
+    "referenceId": "RETURN101"
   })
 });
 
@@ -96,4 +112,4 @@ Example response:
 }
 ```
 
-See the full [Post Product action reference](actions/post-product.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/shipbob/latest/actions/post-product).
+See the full [Create Return Order action reference](actions/create-return-order.md), or [try it interactively](https://mindcloud.co/docs/universal/rest/shipbob/latest/actions/create-return-order).

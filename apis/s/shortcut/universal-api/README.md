@@ -3,7 +3,7 @@
 Manage stories, epics, projects, and workflows
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/shortcut/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://shortcut.com

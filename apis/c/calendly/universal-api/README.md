@@ -3,7 +3,7 @@
 Schedule meetings, share booking links, automate reminders, and route invitees.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/calendly/latest
-- **Category:** Marketing
+- **Category:** Productivity / Scheduling
 - **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developer.calendly.com/api-docs/4b402d5ab3edd-calendly-developer

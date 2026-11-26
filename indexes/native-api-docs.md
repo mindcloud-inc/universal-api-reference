@@ -1,6 +1,6 @@
 # Native API documentation by app
 
-The official vendor API documentation for each of the 3240 apps in this repo. Each app name links to our normalized reference for it.
+The official vendor API documentation for each of the 3241 apps in this repo. Each app name links to our normalized reference for it.
 
 - [aamarPay](../apis/a/aamarPay/native-api) - https://aamarpay.readme.io/reference/overview
 - [Abbreviations](../apis/a/abbreviations/native-api) - https://www.abbreviations.com/abbr_api.php
@@ -821,6 +821,7 @@ The official vendor API documentation for each of the 3240 apps in this repo. Ea
 - [Easy Projects](../apis/e/easyProjects/native-api) - https://help.birdviewpsa.com/hc/en-us/articles/115001797351-Birdview-API
 - [Easy Redmine](../apis/e/easyRedmine/native-api) - https://www.easy8.com/documentation-of-easy8/article/rest-api-specification
 - [Easyship](../apis/e/easyship/native-api) - https://developers.easyship.com/reference
+- [eBay](../apis/e/ebay/native-api) - https://developer.ebay.com/api-docs/static/gs_ebay-rest-getting-started-landing.html
 - [EbulkSMS](../apis/e/ebulkSMS/native-api) - https://www.ebulksms.com/pages/api-docs
 - [ECAL](../apis/e/eCAL/native-api) - https://docs.ecal.com/reference/apiv2.html
 - [eCFR](../apis/e/eCFR/native-api) - https://www.ecfr.gov/developers/documentation/api/v1

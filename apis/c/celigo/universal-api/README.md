@@ -4,7 +4,7 @@ Celigo: Monitor, run, and troubleshoot integration flows, jobs, and errors
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/celigo/latest
 - **Category:** IT Operations / Integration & Automation
-- **Actions:** 17
+- **Actions:** 21
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.celigo.com
 - **Vendor API docs:** https://developer.celigo.com/api
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/celigo/latest/actions/get
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (17)
+## Actions (21)
 
 ### Audit Log
 
@@ -41,7 +41,13 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/celigo/latest/actions/get
 
 | Action | Method | Description |
 | --- | --- | --- |
-| [Ping Connection](actions/ping-connection.md) | GET |  |
+| [Ping Connection](actions/ping-connection.md) | PUT |  |
+
+### Execution Log Entry
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [List Flow Run Execution Logs](actions/list-flow-run-execution-logs.md) | GET |  |
 
 ### Export
 
@@ -92,8 +98,16 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/celigo/latest/actions/get
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Cancel Job](actions/cancel-job.md) | PUT |  |
+| [Get Job](actions/get-job.md) | GET |  |
 | [List Jobs](actions/list-jobs.md) | GET |  |
 | [List Latest Flow Jobs](actions/list-latest-flow-jobs.md) | GET |  |
+
+### Job Family
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Get Job Family](actions/get-job-family.md) | GET |  |
 
 ### Token Info
 

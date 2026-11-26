@@ -3,7 +3,7 @@
 Look up postal codes, places, and nearby locations
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zippopotamus/latest
-- **Category:** Business Intelligence / Data Warehouse
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://zippopotam.us

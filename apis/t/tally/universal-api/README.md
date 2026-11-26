@@ -3,7 +3,7 @@
 Build forms, collect payments, capture submissions, and automate follow-ups.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/tally/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 18
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://tally.so/

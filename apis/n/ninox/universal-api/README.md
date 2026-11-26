@@ -3,6 +3,7 @@
 Manage Ninox workspaces, databases, tables, records, and files
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ninox/latest
+- **Category:** IT Operations / Database
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ninox.com

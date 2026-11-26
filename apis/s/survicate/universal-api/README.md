@@ -3,7 +3,7 @@
 Access Survicate Data Export API surveys, responses, respondents, and personal-data endpoints from MindCloud.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/survicate/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://survicate.com/

@@ -3,7 +3,7 @@
 Process PDFs, extract content, and manage digital signature requests
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/iLovePDF/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ilovepdf.com

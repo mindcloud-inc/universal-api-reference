@@ -1,6 +1,6 @@
 # Walmart: Native API Reference
 
-A consolidated summary of Walmart's API configuration and 90 documented operations, with links to official documentation.
+A consolidated summary of Walmart's API configuration and 94 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.walmart.com/us-marketplace/reference
 - **REST base URL:** `https://{environment}.walmartapis.com`
@@ -92,7 +92,7 @@ Shared headers:
 - **REST (nextCursor) v2:** Supported operators: `eq`.
 - **REST (Recon Report cursor):** Supported operators: `eq`.
 
-## Endpoints (90 documented)
+## Endpoints (94 documented)
 
 | Operation | API | Method & path | Vendor docs |
 | --- | --- | --- | --- |
@@ -111,7 +111,9 @@ Shared headers:
 | [Cancel Inbound Shipment](actions/cancel-inbound-shipment.md) | REST | `DELETE /v3/fulfillment/inbound-shipments/:inboundOrderId` | [docs](https://developer.walmart.com/global-marketplace/reference/cancelshipment) |
 | [Cancel Order Lines](actions/cancel-order-lines.md) | REST | `POST /v3/orders/:purchaseOrderId/cancel` | [docs](https://developer.walmart.com/us-marketplace/reference/acknowledgeorders) |
 | [Check Eligibility of Items](actions/check-eligibility-of-items.md) | REST | `POST v3/advertising/sem/items/eligibility` | [docs](https://developer.walmart.com/us-marketplace/reference/getcampaigndetails) |
+| [Check Settlement Report Request Status](actions/check-settlement-report-request-status.md) | REST | `GET https://marketplace.walmartapis.com/v3/reports/reportRequests/:requestId` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Create Campaign](actions/create-campaign.md) | REST | `POST v3/advertising/sem/campaigns` | [docs](https://developer.walmart.com/us-marketplace/reference/createcampaign) |
+| [Create Report Request](actions/create-report-request.md) | REST | `POST https://marketplace.walmartapis.com/v3/reports/reportRequests` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Create Subscription](actions/create-subscription.md) | REST | `POST /v3/webhooks/subscriptions` | [docs](https://developer.walmart.com/us-marketplace/reference/getallsubscriptions) |
 | [Create 3rd Party Fulfillment Center Association](actions/create3rd-party-fulfillment-center-association.md) | REST | `POST /v3/settings/shipping/3plshipnodes` | [docs](https://developer.walmart.com/us-marketplace/reference/associate3pfulfillmentcenter) |
 | [Delete Campaign](actions/delete-campaign.md) | REST | `DELETE v3/advertising/sem/campaigns/:campaignId` | [docs](https://developer.walmart.com/us-marketplace/reference/getcampaigndetails) |
@@ -119,6 +121,7 @@ Shared headers:
 | [Delete Subscription](actions/delete-subscription.md) | REST | `DELETE v3/webhooks/subscriptions/:subscriptionId` | [docs](https://developer.walmart.com/us-marketplace/reference/deletesubscription) |
 | [Discard Label](actions/discard-label.md) | REST | `DELETE /v3/shipping/labels/carriers/:carrierShortName/trackings/:trackingNo` | [docs](https://developer.walmart.com/us-marketplace/reference/discardlabel) |
 | [Download Label](actions/download-label.md) | REST | `GET /v3/shipping/labels/carriers/:carrierShortName/trackings/:trackingNo` | [docs](https://developer.walmart.com/us-marketplace/reference/getlabelbytrackingandcarrier) |
+| [Download Requested Settlement Report](actions/download-requested-settlement-report.md) | REST | `GET https://marketplace.walmartapis.com/v3/reports/downloadReport` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Get Account Settings](actions/get-account-settings.md) | REST | `GET /v3/settings/shipping/account` | [docs](https://developer.walmart.com/us-marketplace/reference/getaccountlevelsettings) |
 | [List Orders](actions/get-all-orders.md) | REST | `GET /v3/orders` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Get Campaign Details](actions/get-campaign-details.md) | REST | `GET v3/advertising/sem/campaigns/:campaignId` | [docs](https://developer.walmart.com/us-marketplace/reference/getcampaigndetails) |
@@ -170,6 +173,7 @@ Shared headers:
 | [List Supported Carriers](actions/list-supported-carriers.md) | REST | `GET /v3/shipping/labels/carriers` | [docs](https://developer.walmart.com/us-marketplace/reference/getcarriers) |
 | [List 3PL Providers](actions/list3-pl-providers.md) | REST | `GET /v3/settings/shipping/3plproviders` | [docs](https://developer.walmart.com/us-marketplace/reference/get3pfulfillmentproviders) |
 | [Refund Order Lines](actions/refund-order-lines.md) | REST | `POST /v3/returns/:returnOrderId/refund` | [docs](https://developer.walmart.com/us-marketplace/reference/issuerefund) |
+| [Request a settlement report](actions/request-a-settlement-report.md) | REST | `POST https://marketplace.walmartapis.com/v3/reports/reportRequests?reportType=SETTLEMENT&reportVersion=v1` | [docs](https://developer.walmart.com/global-marketplace/reference/getallorders) |
 | [Retire an Item](actions/retire-an-item.md) | REST | `DELETE /v3/items/:sku` | [docs](https://developer.walmart.com/us-marketplace/reference/retireanitem) |
 | [Search Seller Catalog](actions/search-seller-catalog.md) | REST | `POST /v3/items/catalog/search` | [docs](https://developer.walmart.com/us-marketplace/reference/getsearchresult) |
 | [Search Walmart Catalog](actions/search-walmart-catalog.md) | REST | `GET /v3/items/walmart/search` | [docs](https://developer.walmart.com/us-marketplace/reference/getsearchresult) |

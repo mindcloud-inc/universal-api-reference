@@ -3,7 +3,7 @@
 Create campaigns, measure performance, and optimize Google ad spend.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/googleAds/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Actions:** 93
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ads.google.com/

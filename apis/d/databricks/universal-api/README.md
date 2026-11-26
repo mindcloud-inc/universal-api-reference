@@ -3,7 +3,7 @@
 Manage Databricks account and workspace resources through official Databricks REST APIs using OAuth 2.0 service-principal credentials.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/databricks/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Warehouse
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.databricks.com/

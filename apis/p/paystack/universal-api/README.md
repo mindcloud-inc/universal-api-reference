@@ -3,7 +3,7 @@
 Paystack: Accept payments, manage customers, subscriptions, products, payment pages, and payment requests
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/paystack/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://paystack.com/

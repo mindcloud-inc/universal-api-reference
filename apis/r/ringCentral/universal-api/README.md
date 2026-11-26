@@ -3,6 +3,7 @@
 RingCentral through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ringCentral/latest
+- **Category:** Support / Contact Center
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

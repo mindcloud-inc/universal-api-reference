@@ -3,7 +3,7 @@
 Search property records, valuations, listings, and market statistics
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/rentCast/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://rentcast.io

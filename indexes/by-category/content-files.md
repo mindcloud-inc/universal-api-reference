@@ -1,10 +1,9 @@
 # Content & Files apps
 
-73 apps in the Content & Files category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+71 apps in the Content & Files category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Acronis** · [Universal API reference](../../apis/a/acronis/universal-api) · [Native API reference](../../apis/a/acronis/native-api) · [Native API docs](https://developer.acronis.com/doc/outbound/apis/index.html)
 - **Adafruit IO** · [Universal API reference](../../apis/a/adafruitIO/universal-api) · [Native API reference](../../apis/a/adafruitIO/native-api) · [Native API docs](https://io.adafruit.com/api/docs/)
-- **Airtable** · [Universal API reference](../../apis/a/airtable/universal-api) · [Native API reference](../../apis/a/airtable/native-api) · [Native API docs](https://airtable.com/developers/web/api)
 - **Aspera on Cloud** · [Universal API reference](../../apis/a/asperaOnCloud/universal-api) · [Native API reference](../../apis/a/asperaOnCloud/native-api) · [Native API docs](https://developer.ibm.com/apis/catalog/aspera--aspera-on-cloud-api/Introduction)
 - **Audome** · [Universal API reference](../../apis/a/audome/universal-api) · [Native API reference](../../apis/a/audome/native-api) · [Native API docs](https://app.audome.com/api-documentation)
 - **Bitport** · [Universal API reference](../../apis/b/bitport/universal-api) · [Native API reference](../../apis/b/bitport/native-api) · [Native API docs](https://bitport.io/api)
@@ -69,7 +68,6 @@
 - **VisionFly** · [Universal API reference](../../apis/v/visionFly/universal-api) · [Native API reference](../../apis/v/visionFly/native-api) · [Native API docs](https://api.visionfly.ai/docs)
 - **Vooplayer** · [Universal API reference](../../apis/v/vooplayer/universal-api) · [Native API reference](../../apis/v/vooplayer/native-api) · [Native API docs](https://app.spotlightr.com/docs/api/)
 - **Wasabi** · [Universal API reference](../../apis/w/wasabi/universal-api) · [Native API reference](../../apis/w/wasabi/native-api) · [Native API docs](https://docs.wasabi.com/apidocs/wasabi-api)
-- **Workflowy** · [Universal API reference](../../apis/w/workflowy/universal-api) · [Native API reference](../../apis/w/workflowy/native-api) · [Native API docs](https://beta.workflowy.com/api-reference/)
 - **Workiom** · [Universal API reference](../../apis/w/workiom/universal-api) · [Native API reference](../../apis/w/workiom/native-api) · [Native API docs](https://api.workiom.com/swagger/)
 - **Zip Archive API app** · [Universal API reference](../../apis/z/zipArchiveAPIApp/universal-api) · [Native API reference](../../apis/z/zipArchiveAPIApp/native-api) · [Native API docs](https://archiveapi.com/rest-api/)
 - **Zoho Sheet** · [Universal API reference](../../apis/z/zohoSheet/universal-api) · [Native API reference](../../apis/z/zohoSheet/native-api) · [Native API docs](https://www.zoho.com/sheet/help/api/v2/)

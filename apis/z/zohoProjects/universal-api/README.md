@@ -3,7 +3,7 @@
 Manage Zoho Projects portals, projects, task lists, tasks, issues, and users through the Zoho Projects V3 API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoProjects/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.zoho.com/projects/

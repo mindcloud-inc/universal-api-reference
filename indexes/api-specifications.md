@@ -1,6 +1,6 @@
 # API specifications
 
-Machine-readable API descriptions for 3240 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
+Machine-readable API descriptions for 3241 apps. Universal API specifications are generated from the same action definitions as this reference; Native API links point to specifications published by each provider.
 
 | App | Universal API | Native API |
 | --- | --- | --- |
@@ -799,6 +799,7 @@ Machine-readable API descriptions for 3240 apps. Universal API specifications ar
 | [Easy Projects](../apis/e/easyProjects) | [OpenAPI 3.1](../apis/e/easyProjects/universal-api/openapi.json) | [Provider OpenAPI](https://api.go.easyprojects.net/api/v1) |
 | [Easy Redmine](../apis/e/easyRedmine) | [OpenAPI 3.1](../apis/e/easyRedmine/universal-api/openapi.json) | [Provider OpenAPI](https://3f73561b8b.bigus-e5.easy8.com/easy_swagger.yml) |
 | [Easyship](../apis/e/easyship) | [OpenAPI 3.1](../apis/e/easyship/universal-api/openapi.json) |  |
+| [eBay](../apis/e/ebay) | [OpenAPI 3.1](../apis/e/ebay/universal-api/openapi.json) |  |
 | [EbulkSMS](../apis/e/ebulkSMS) | [OpenAPI 3.1](../apis/e/ebulkSMS/universal-api/openapi.json) |  |
 | [ECAL](../apis/e/eCAL) | [OpenAPI 3.1](../apis/e/eCAL/universal-api/openapi.json) |  |
 | [eCFR](../apis/e/eCFR) | [OpenAPI 3.1](../apis/e/eCFR/universal-api/openapi.json) |  |

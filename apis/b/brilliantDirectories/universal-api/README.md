@@ -3,6 +3,7 @@
 Brilliant Directories lets you manage directory users on the configured Brilliant Directories site via the official v2 API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/brilliantDirectories/latest
+- **Category:** Website & App Building / CMS
 - **Vendor website:** https://www.brilliantdirectories.com/
 - **Vendor API docs:** https://support.brilliantdirectories.com/support/solutions/folders/12000019107
 

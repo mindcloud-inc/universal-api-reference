@@ -3,7 +3,7 @@
 Manage Crisp conversations, contacts, websites, and helpdesk content
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/crisp/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://crisp.chat

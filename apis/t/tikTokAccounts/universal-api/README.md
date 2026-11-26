@@ -3,6 +3,7 @@
 Read TikTok account profile information for authenticated users through TikTok Login Kit and Display API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/tikTokAccounts/latest
+- **Category:** Marketing / Social Media
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.tiktok.com

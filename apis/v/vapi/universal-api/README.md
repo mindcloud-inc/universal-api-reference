@@ -3,6 +3,7 @@
 Manage Vapi assistants, calls, chats, tools, files, sessions, squads, and campaigns with the Vapi management API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/vapi/latest
+- **Category:** Support / Contact Center
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://vapi.ai

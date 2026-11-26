@@ -3,7 +3,7 @@
 ClickSend SMS is a messaging API for sending, receiving, and managing global SMS workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clickSendSMS/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 29
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.clicksend.com

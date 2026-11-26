@@ -3,7 +3,7 @@
 Send SMS campaigns and manage contacts, forms, and webhooks
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sakariSMS/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://sakari.io

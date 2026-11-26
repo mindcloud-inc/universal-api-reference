@@ -3,7 +3,7 @@
 Automate chargebacks, alerts, disputes, webhooks, evidence generation, and Chargeflow Connect account operations through the Chargeflow public API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/chargeflow/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.chargeflow.io/

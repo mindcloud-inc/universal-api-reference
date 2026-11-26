@@ -3,7 +3,7 @@
 Create and share calendar links, subscription calendars, and RSVPs
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/calendarLink/latest
-- **Category:** Marketing / Events & Webinars
+- **Category:** Productivity / Scheduling
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://calendarlink.com

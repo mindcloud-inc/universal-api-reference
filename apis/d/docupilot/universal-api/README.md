@@ -3,6 +3,7 @@
 Generate documents, manage templates, deliveries, content blocks, and e-signature envelopes in Docupilot.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/docupilot/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.docupilot.app/

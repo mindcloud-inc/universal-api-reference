@@ -3,7 +3,7 @@
 Convert, extract, and automate PDF and document workflows
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pDFApp/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://pdf-app.net/

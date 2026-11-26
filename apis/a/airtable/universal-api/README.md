@@ -3,7 +3,7 @@
 Build apps, organize data, automate workflows, and collaborate across teams.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/airtable/latest
-- **Category:** Content & Files / Storage
+- **Category:** IT Operations / Database
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://airtable.com/developers/web/api/

@@ -3,7 +3,7 @@
 Google Workspace Admin SDK scaffold for user directory automation.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/googleWorkspaceAdmin/latest
-- **Category:** IT Operations / Developer Tools
+- **Category:** IT Operations / Security & Identity
 - **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://workspace.google.com/

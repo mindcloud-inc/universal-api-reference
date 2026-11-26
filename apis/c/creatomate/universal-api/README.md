@@ -3,6 +3,7 @@
 Create, render, and manage automated videos and images
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/creatomate/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://creatomate.com

@@ -3,6 +3,7 @@
 Build spreadsheets, analyze data, collaborate in real time, and visualize insights.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/googleSheets/latest
+- **Category:** IT Operations / Database
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.google.com/sheets

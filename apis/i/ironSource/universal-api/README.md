@@ -3,7 +3,7 @@
 Build automations and reporting workflows for Unity LevelPlay / ironSource Ads, including applications, monetization reports, ad units, mediation groups, network instances, placements, impression-level revenue reports, and Ad Quality raw-data report URLs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ironSource/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Actions:** 21
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.is.com/

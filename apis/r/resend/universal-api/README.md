@@ -3,7 +3,7 @@
 The best way to reach humans instead of spam folders.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/resend/latest
-- **Category:** Marketing
+- **Category:** Communication / Email Communications
 - **Actions:** 36
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://resend.com

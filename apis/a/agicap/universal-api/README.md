@@ -3,6 +3,7 @@
 Agicap is a cash flow, treasury, payments, accounts payable, and accounts receivable platform. Its public API supports Treasury Bank Journal exports and organization entity lookup.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/agicap/latest
+- **Category:** Commerce / Accounting
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://agicap.com

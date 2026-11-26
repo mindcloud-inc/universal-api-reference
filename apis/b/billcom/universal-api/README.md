@@ -3,6 +3,7 @@
 The intelligent way to create and pay bills, send invoices, manage expenses, control budgets, and access the credit your business needs to grow—all on one platform.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/billcom/latest
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bill.com/

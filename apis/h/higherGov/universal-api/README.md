@@ -3,6 +3,7 @@
 Access HigherGov government market intelligence data, including opportunities, contract and grant awards, awardees, agencies, documents, people, pursuits, and reference data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/higherGov/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.highergov.com/

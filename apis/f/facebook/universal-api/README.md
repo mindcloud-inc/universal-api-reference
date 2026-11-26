@@ -3,6 +3,7 @@
 Connect Facebook Pages, Meta Business assets, and advertising data to workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/facebook/latest
+- **Category:** Marketing / Social Media
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.facebook.com/business

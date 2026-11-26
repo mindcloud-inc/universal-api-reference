@@ -3,6 +3,7 @@
 Connect Resource Guru to read and manage accounts, resources, bookings, clients, projects, time off, timesheets, custom fields, reports, and webhooks through the official OAuth2 API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/resourceGuru/latest
+- **Category:** Productivity / Scheduling
 - **Actions:** 52
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://resourceguruapp.com

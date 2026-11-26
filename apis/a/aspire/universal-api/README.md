@@ -3,7 +3,7 @@
 Field service software to drive growth
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aspire/latest
-- **Category:** Human Resources / HRIS
+- **Category:** Support / Field Service
 - **Actions:** 154
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.youraspire.com/

@@ -3,7 +3,7 @@
 Create tasks, organize projects, and track work
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/todoist/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Productivity / Project Management
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://todoist.com

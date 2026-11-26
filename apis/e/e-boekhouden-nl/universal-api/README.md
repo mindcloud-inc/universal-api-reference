@@ -3,7 +3,7 @@
 Dutch bookkeeping and accounting platform for invoices, relations, ledgers, and financial administration.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/e-boekhouden-nl/latest
-- **Category:** Commerce / ERP
+- **Category:** Commerce / Accounting
 - **Actions:** 36
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.e-boekhouden.nl/

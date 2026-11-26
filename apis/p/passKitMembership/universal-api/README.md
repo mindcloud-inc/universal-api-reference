@@ -3,6 +3,7 @@
 PassKit Membership lets teams issue and manage digital membership passes, members, tiers, balances, and member events through PassKit's membership APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/passKitMembership/latest
+- **Category:** Marketing
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://passkit.com

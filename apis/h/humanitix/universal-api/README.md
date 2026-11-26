@@ -3,7 +3,7 @@
 The Humanitix Public API for fetching event, order, ticket, or tag information.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/humanitix/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://humanitix.com

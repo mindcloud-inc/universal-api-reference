@@ -3,7 +3,7 @@
 Generate Human Design and astrology chart data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bodyGraph/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bodygraph.com

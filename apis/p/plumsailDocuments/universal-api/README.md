@@ -3,6 +3,7 @@
 Generate, convert, and protect documents and PDFs
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/plumsailDocuments/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://plumsail.com/documents/

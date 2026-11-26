@@ -3,7 +3,7 @@
 Effortless time tracking app with leave management, a physical time tracker, and automatic tracking.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eARLY/latest
-- **Category:** Human Resources / HRIS
+- **Category:** Productivity / Project Management
 - **Actions:** 48
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://early.app

@@ -3,7 +3,7 @@
 Design websites, manage CMS content, publish pages, and optimize SEO.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/webflow/latest
-- **Category:** Marketing
+- **Category:** Website & App Building / CMS
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://webflow.com

@@ -3,6 +3,7 @@
 UKG Pro through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ukgPro/latest
+- **Category:** Human Resources / HRIS
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ukg.com/

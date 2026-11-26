@@ -3,7 +3,7 @@
 Capture tasks, plan schedules, track habits, and manage lists.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/tickTick/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ticktick.com

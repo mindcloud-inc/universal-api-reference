@@ -3,7 +3,7 @@
 HappyScribe API integration for uploads, transcription orders, exports, translations, glossaries, and style guides.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/happyScribe/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.happyscribe.com

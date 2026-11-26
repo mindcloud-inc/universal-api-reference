@@ -3,6 +3,6 @@
 Retrieve Google Local Services Ads account performance and lead reports.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/googleLocalServices/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Vendor API docs:** https://developers.google.com/local-services-ads/guides/local-services-api-overview
 

@@ -4,7 +4,7 @@ Walmart through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/walmart/latest
 - **Category:** Commerce
-- **Actions:** 90
+- **Actions:** 94
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://seller.walmart.com/
 - **Vendor API docs:** https://developer.walmart.com/us-marketplace/reference
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/walmart/latest/actions/ge
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (90)
+## Actions (94)
 
 ### Advertising
 
@@ -134,6 +134,15 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/walmart/latest/actions/ge
 | [Bulk Update Promotional Price](actions/bulk-update-promotional-price.md) | PUT | Create, update, or delete promotional prices for multiple SKUs. |
 | [Get Promotional Prices](actions/get-promotional-prices.md) | GET | Retrieves a list of promotional prices for a single SKU. |
 | [List Price Incentive Items](actions/list-price-incentive-items.md) | GET |  |
+
+### Recon Report
+
+| Action | Method | Description |
+| --- | --- | --- |
+| [Check Settlement Report Request Status](actions/check-settlement-report-request-status.md) | GET | Status values: RECEIVED, INPROGRESS, READY, ERROR. |
+| [Create Report Request](actions/create-report-request.md) | POST | Use this report to review detailed itemization of Walmart Fulfillment Services (WFS) and Multichannel Solutions (MCS) fees and credits for… |
+| [Download Requested Settlement Report](actions/download-requested-settlement-report.md) | POST |  |
+| [Request a settlement report](actions/request-a-settlement-report.md) | POST | Use this report to review detailed itemization of Walmart Fulfillment Services (WFS) and Multichannel Solutions (MCS) fees and credits for… |
 
 ### Returns Management
 

@@ -3,7 +3,7 @@
 Access U.S. Census Bureau demographic, economic, business, geography, and survey datasets through the Census Data API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/censusBureau/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.census.gov

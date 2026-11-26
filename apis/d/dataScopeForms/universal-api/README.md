@@ -3,7 +3,7 @@
 Access DataScope form answers, metadata, locations, lists, task assignments, notifications, and generated files through the public DataScope API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dataScopeForms/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.mydatascope.com/

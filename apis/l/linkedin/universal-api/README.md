@@ -3,7 +3,7 @@
 Manage organization posts, comments, images, and profile data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/linkedin/latest
-- **Category:** Human Resources / Recruiting
+- **Category:** Marketing / Social Media
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.linkedin.com

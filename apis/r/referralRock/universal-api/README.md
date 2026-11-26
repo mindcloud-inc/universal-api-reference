@@ -3,7 +3,7 @@
 Manage referral programs, members, referrals, rewards, and payouts
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/referralRock/latest
-- **Category:** Commerce / Payments & Billing
+- **Category:** Marketing
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://referralrock.com

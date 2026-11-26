@@ -3,7 +3,7 @@
 ShipBob through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/shipbob/latest
-- **Actions:** 14
+- **Actions:** 16
 - **OpenAPI specification:** [openapi.json](openapi.json)
 
 ## Quickstart
@@ -19,7 +19,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/li
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (14)
+## Actions (16)
 
 ### Inventories
 
@@ -51,6 +51,8 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/shipbob/latest/actions/li
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [Create Return Order](actions/create-return-order.md) | POST |  |
+| [Edit Return Order](actions/edit-return-order.md) | PUT |  |
 | [Get Return Order](actions/get-return-order.md) | GET |  |
 | [List Return Orders](actions/list-return-orders.md) | GET |  |
 

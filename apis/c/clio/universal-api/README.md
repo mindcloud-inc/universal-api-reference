@@ -3,7 +3,7 @@
 Manage contacts, matters, tasks, notes, and calendar entries
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clio/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Productivity / Legal & Contracts
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.clio.com/manage/

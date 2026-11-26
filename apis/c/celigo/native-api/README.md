@@ -1,6 +1,6 @@
 # Celigo: Native API Reference
 
-A consolidated summary of Celigo's API configuration and 17 documented operations, with links to official documentation.
+A consolidated summary of Celigo's API configuration and 21 documented operations, with links to official documentation.
 
 - **Official docs:** https://developer.celigo.com/api
 - **API base URL:** `https://{apiHost}/v1`
@@ -45,19 +45,23 @@ Use `limit` in the query string to set the page size (default 100; accepted rang
 
 Retry responses with status codes `429`. Wait 1000 ms before the first retry. Stop after 5 attempts. Multiply the delay by 1 after each failed attempt.
 
-## Endpoints (17 documented)
+## Endpoints (21 documented)
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
+| [Cancel Job](actions/cancel-job.md) | `PUT /jobs/:jobId/cancel` | [docs](https://developer.celigo.com/api/api-reference/monitoring/jobs) |
 | [Get Connection](actions/get-connection.md) | `GET /connections/:connectionId` | [docs](https://developer.celigo.com/api/api-reference/connections-and-http-connectors/connections) |
 | [Get Flow](actions/get-flow.md) | `GET /flows/:flowId` | [docs](https://developer.celigo.com/api/api-reference/integrations-and-flows/flows) |
 | [Get Flow Error Summary](actions/get-flow-error-summary.md) | `GET /flows/:flowId/errors` | [docs](https://developer.celigo.com/api/api-reference/integrations-and-flows/flows) |
 | [Get Integration](actions/get-integration.md) | `GET /integrations/:integrationId` | [docs](https://developer.celigo.com/api/api-reference/integrations-and-flows/integrations) |
 | [Get Integration Error Summary](actions/get-integration-error-summary.md) | `GET /integrations/:integrationId/errors` | [docs](https://developer.celigo.com/api/api-reference/integrations-and-flows/integrations) |
+| [Get Job](actions/get-job.md) | `GET /jobs/:jobId` | [docs](https://developer.celigo.com/api/api-reference/monitoring/jobs) |
+| [Get Job Family](actions/get-job-family.md) | `GET /jobs/:jobId/family` | [docs](https://developer.celigo.com/api/api-reference/monitoring/jobs) |
 | [Get Token Info](actions/get-token-info.md) | `GET /tokenInfo` | [docs](https://developer.celigo.com/api/api-reference/account-and-admin/account) |
 | [List Audit Logs](actions/list-audit-logs.md) | `GET /audit` | [docs](https://developer.celigo.com/api/api-reference/monitoring/audit-logs) |
 | [List Connections](actions/list-connections.md) | `GET /connections` | [docs](https://developer.celigo.com/api/api-reference/connections-and-http-connectors/connections) |
 | [List Exports](actions/list-exports.md) | `GET /exports` | [docs](https://developer.celigo.com/api/api-reference/exports-imports-and-tools/exports) |
+| [List Flow Run Execution Logs](actions/list-flow-run-execution-logs.md) | `GET /flows/:flowId/jobs/:jobId/logs` | [docs](https://developer.celigo.com/api/api-reference/integrations-and-flows/flows) |
 | [List Flows](actions/list-flows.md) | `GET /flows` | [docs](https://developer.celigo.com/api/api-reference/integrations-and-flows/flows) |
 | [List Imports](actions/list-imports.md) | `GET /imports` | [docs](https://developer.celigo.com/api/api-reference/exports-imports-and-tools/imports) |
 | [List Integrations](actions/list-integrations.md) | `GET /integrations` | [docs](https://developer.celigo.com/api/api-reference/integrations-and-flows/integrations) |

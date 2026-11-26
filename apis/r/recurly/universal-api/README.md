@@ -3,7 +3,7 @@
 Subscription billing and recurring revenue platform for managing accounts, subscriptions, invoices, transactions, plans, and pricing.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/recurly/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://recurly.com/

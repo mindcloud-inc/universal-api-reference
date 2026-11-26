@@ -1,6 +1,6 @@
 # Artificial Intelligence apps
 
-206 apps in the Artificial Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+210 apps in the Artificial Intelligence category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **Agent700** · [Universal API reference](../../apis/a/agent700/universal-api) · [Native API reference](../../apis/a/agent700/native-api) · [Native API docs](https://agent700.readme.io/reference/authentication-4)
 - **Agent.ai** · [Universal API reference](../../apis/a/agentai/universal-api) · [Native API reference](../../apis/a/agentai/native-api) · [Native API docs](https://docs.agent.ai/api-reference)
@@ -50,6 +50,7 @@
 - **Datumbox** · [Universal API reference](../../apis/d/datumbox/universal-api) · [Native API reference](../../apis/d/datumbox/native-api) · [Native API docs](https://www.datumbox.com/files/API-Documentation-1.0v.pdf)
 - **deAPI** · [Universal API reference](../../apis/d/deAPI/universal-api) · [Native API reference](../../apis/d/deAPI/native-api) · [Native API docs](https://docs.deapi.ai/api/overview)
 - **DeepAI** · [Universal API reference](../../apis/d/deepAI/universal-api) · [Native API reference](../../apis/d/deepAI/native-api) · [Native API docs](https://api.deepai.org/docs)
+- **Deepgram** · [Universal API reference](../../apis/d/deepgram/universal-api) · [Native API reference](../../apis/d/deepgram/native-api) · [Native API docs](https://developers.deepgram.com/reference/deepgram-api-overview)
 - **DeepImage** · [Universal API reference](../../apis/d/deepImage/universal-api) · [Native API reference](../../apis/d/deepImage/native-api) · [Native API docs](https://documentation.deep-image.ai/)
 - **Deep Infra** · [Universal API reference](../../apis/d/deepInfra/universal-api) · [Native API reference](../../apis/d/deepInfra/native-api) · [Native API docs](https://docs.deepinfra.com/)
 - **DeepSeek** · [Universal API reference](../../apis/d/deepSeek/universal-api) · [Native API reference](../../apis/d/deepSeek/native-api) · [Native API docs](https://api-docs.deepseek.com)
@@ -92,6 +93,7 @@
 - **Graphor** · [Universal API reference](../../apis/g/graphor/universal-api) · [Native API reference](../../apis/g/graphor/native-api) · [Native API docs](https://docs.graphorlm.com/)
 - **Grok** · [Universal API reference](../../apis/g/grok/universal-api) · [Native API reference](../../apis/g/grok/native-api) · [Native API docs](https://docs.x.ai/developers/rest-api-reference/inference)
 - **Groq** · [Universal API reference](../../apis/g/groq/universal-api) · [Native API reference](../../apis/g/groq/native-api) · [Native API docs](https://console.groq.com/docs/api-reference)
+- **HappyScribe** · [Universal API reference](../../apis/h/happyScribe/universal-api) · [Native API reference](../../apis/h/happyScribe/native-api) · [Native API docs](https://dev.happyscribe.com/sections/product/)
 - **HeyGen** · [Universal API reference](../../apis/h/heyGen/universal-api) · [Native API reference](../../apis/h/heyGen/native-api) · [Native API docs](https://docs.heygen.com/reference)
 - **Higgsfield AI** · [Universal API reference](../../apis/h/higgsfieldAI/universal-api) · [Native API reference](../../apis/h/higgsfieldAI/native-api) · [Native API docs](https://docs.higgsfield.ai/how-to/introduction)
 - **Hume AI** · [Universal API reference](../../apis/h/humeAI/universal-api) · [Native API reference](../../apis/h/humeAI/native-api) · [Native API docs](https://dev.hume.ai/)
@@ -111,6 +113,7 @@
 - **LLM as a Service** · [Universal API reference](../../apis/l/lLMAsAService/universal-api) · [Native API reference](../../apis/l/lLMAsAService/native-api) · [Native API docs](https://help.llmasaservice.io/docs/category/developers/)
 - **LLMLayer** · [Universal API reference](../../apis/l/lLMLayer/universal-api) · [Native API reference](../../apis/l/lLMLayer/native-api) · [Native API docs](https://docs.llmlayer.ai/api-reference/introduction)
 - **LMNT** · [Universal API reference](../../apis/l/lMNT/universal-api) · [Native API reference](../../apis/l/lMNT/native-api) · [Native API docs](https://docs.lmnt.com)
+- **Manus** · [Universal API reference](../../apis/m/manus/universal-api) · [Native API reference](../../apis/m/manus/native-api) · [Native API docs](https://open.manus.ai/docs/v1/overview)
 - **1minAI** · [Universal API reference](../../apis/m/minAI/universal-api) · [Native API reference](../../apis/m/minAI/native-api) · [Native API docs](https://docs.1min.ai/docs/api/intro)
 - **Mindee** · [Universal API reference](../../apis/m/mindee/universal-api) · [Native API reference](../../apis/m/mindee/native-api) · [Native API docs](https://docs.mindee.com/integrations/api-reference)
 - **MindStudio** · [Universal API reference](../../apis/m/mindStudio/universal-api) · [Native API reference](../../apis/m/mindStudio/native-api) · [Native API docs](https://university.mindstudio.ai/docs/developers/api-reference)
@@ -161,6 +164,7 @@
 - **ProxyAPI** · [Universal API reference](../../apis/p/proxyAPI/universal-api) · [Native API reference](../../apis/p/proxyAPI/native-api) · [Native API docs](https://proxyapi.ru/docs)
 - **Recombee** · [Universal API reference](../../apis/r/recombee/universal-api) · [Native API reference](../../apis/r/recombee/native-api) · [Native API docs](https://docs.recombee.com/api)
 - **Reka AI** · [Universal API reference](../../apis/r/rekaAI/universal-api) · [Native API reference](../../apis/r/rekaAI/native-api) · [Native API docs](https://docs.reka.ai/overview)
+- **Remove.bg** · [Universal API reference](../../apis/r/removebg/universal-api) · [Native API reference](../../apis/r/removebg/native-api) · [Native API docs](https://www.remove.bg/api)
 - **Resemble** · [Universal API reference](../../apis/r/resemble/universal-api) · [Native API reference](../../apis/r/resemble/native-api) · [Native API docs](https://docs.resemble.ai/welcome)
 - **Runway** · [Universal API reference](../../apis/r/runway/universal-api) · [Native API reference](../../apis/r/runway/native-api) · [Native API docs](https://docs.dev.runwayml.com/api/)
 - **Sapling** · [Universal API reference](../../apis/s/sapling/universal-api) · [Native API reference](../../apis/s/sapling/native-api) · [Native API docs](https://sapling.ai/docs/api/)

@@ -3,6 +3,7 @@
 Bitbucket Cloud is Atlassian's Git repository hosting and collaboration platform for repositories, pull requests, pipelines, projects, snippets, and workspace administration.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bitbucket/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 52
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bitbucket.org/

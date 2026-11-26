@@ -3,7 +3,7 @@
 Monitor endpoints, manage tickets, customers, contacts, and alerts
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/atera/latest
-- **Category:** Support / Ticketing
+- **Category:** IT Operations / IT Service Management
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.atera.com

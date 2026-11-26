@@ -3,7 +3,7 @@
 Manage ChatBot stories, users, training, and conversation data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/chatBot/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.chatbot.com

@@ -3,6 +3,7 @@
 Cloud BOT is a fully cloud-based RPA service that records browser operations and exposes BOT execution, job, subscription, file, and contract APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudBOT/latest
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.c-bot.pro/en/

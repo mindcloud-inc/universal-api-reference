@@ -3,7 +3,7 @@
 PrintNode: Manage printers, print jobs, computers, and client downloads
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/printNode/latest
-- **Category:** Support / Field Service
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.printnode.com

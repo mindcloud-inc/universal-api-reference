@@ -3,6 +3,7 @@
 Read and manage Inoreader subscriptions, streams, tags, unread counts, and article state through the official Inoreader developer API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/inoreader/latest
+- **Category:** Productivity / Knowledge Management
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.inoreader.com/

@@ -3,6 +3,7 @@
 OOPSpam is an anti-spam API for classifying form submissions, reporting false positives/negatives, and checking domain reputation.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/oOPSpam/latest
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.oopspam.com/

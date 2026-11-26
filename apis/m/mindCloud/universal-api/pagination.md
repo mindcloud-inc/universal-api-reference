@@ -12,12 +12,13 @@ Start with `offset=0`, add `limit` to the offset after each page, and stop when 
 ## Example
 
 ```bash
-curl -X GET "https://connect.mindcloud.co/v1/universal/mindCloud/latest/actions/list-failed-runs?connectionId=$CONNECTION_ID&limit=25&offset=0" \
+curl -X GET "https://connect.mindcloud.co/v1/universal/mindCloud/latest/actions/list-all-runs?connectionId=$CONNECTION_ID&limit=25&offset=0" \
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
 ## MindCloud actions that support pagination
 
+- [List All Runs](actions/list-all-runs.md)
 - [List Failed Runs](actions/list-failed-runs.md)
 - [List Run Operations](actions/list-run-operations.md)
 - [List Workflow Activity](actions/list-workflow-activity.md)

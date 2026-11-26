@@ -3,7 +3,7 @@
 Accept and manage recurring payments, one-time payments, and payment forms
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/moonClerk/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Vendor website:** https://www.moonclerk.com
 - **Vendor API docs:** https://github.com/moonclerk/developer/blob/main/api/README.md
 

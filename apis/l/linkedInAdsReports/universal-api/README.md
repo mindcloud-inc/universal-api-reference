@@ -3,7 +3,7 @@
 Retrieve LinkedIn Ads reporting, campaign structure, and related marketing analytics data from LinkedIn Marketing APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/linkedInAdsReports/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.linkedin.com

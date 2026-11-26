@@ -3,7 +3,7 @@
 Get your API access token in Rakuten by opening Applications, clicking Generate Token, entering your numerical publisher SID in Token Scope (sid), and copying the generated bearer token here. Do not use APIs > Manage Tokens.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/rakutenAdvertising/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://rakutenadvertising.com/

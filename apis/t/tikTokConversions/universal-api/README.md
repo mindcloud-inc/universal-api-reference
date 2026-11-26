@@ -3,7 +3,7 @@
 Track TikTok conversion events and customer match data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/tikTokConversions/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://business.tiktok.com/

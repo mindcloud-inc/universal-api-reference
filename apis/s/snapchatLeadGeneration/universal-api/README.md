@@ -3,7 +3,7 @@
 Create and manage Snapchat lead generation forms, webhook integrations, lead generation creatives, and lead generation ads through the Snapchat Marketing API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/snapchatLeadGeneration/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://forbusiness.snapchat.com

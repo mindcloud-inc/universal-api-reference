@@ -3,7 +3,7 @@
 Manage wallets, customers, payins, payouts, and refunds
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/finmo/latest
-- **Category:** Commerce / Accounting
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.finmo.net

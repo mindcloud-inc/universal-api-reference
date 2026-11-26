@@ -3,7 +3,7 @@
 Generate and convert documents from templates, manage template assets, and retrieve rendered outputs through the Carbone Cloud API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/carboneio/latest
-- **Category:** IT Operations / Integration & Automation
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://carbone.io

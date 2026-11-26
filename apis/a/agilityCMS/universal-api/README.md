@@ -3,6 +3,7 @@
 Agility CMS is a headless CMS content fetch integration for retrieving pages, content models, lists, items, galleries, redirects, and sync feeds from Agility instances.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/agilityCMS/latest
+- **Category:** Website & App Building / CMS
 - **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://agilitycms.com

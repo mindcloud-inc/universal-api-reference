@@ -3,7 +3,7 @@
 Create forms, collect responses, share surveys, and analyze results.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/googleForms/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://docs.google.com/forms/

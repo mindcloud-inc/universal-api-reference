@@ -3,7 +3,7 @@
 Printful is a print-on-demand and warehousing platform. Use this app to manage stores, products, product templates, orders, files, shipping estimates, webhooks, warehouse products, and reporting through the Printful API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/printful/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Commerce
 - **Actions:** 55
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.printful.com

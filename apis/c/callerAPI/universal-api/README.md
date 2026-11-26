@@ -3,7 +3,7 @@
 Look up phone reputation, porting, identity, and spam reports
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/callerAPI/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://callerapi.com

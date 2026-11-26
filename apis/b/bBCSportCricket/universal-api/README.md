@@ -3,7 +3,7 @@
 Read BBC Sport cricket headlines and score updates
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bBCSportCricket/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bbc.co.uk/sport/cricket

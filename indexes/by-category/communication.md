@@ -1,6 +1,6 @@
 # Communication apps
 
-182 apps in the Communication category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
+179 apps in the Communication category, with MindCloud's generated Universal API reference and the vendor's native documentation where available.
 
 - **ActivitySmith** · [Universal API reference](../../apis/a/activitySmith/universal-api) · [Native API reference](../../apis/a/activitySmith/native-api) · [Native API docs](https://activitysmith.com/docs)
 - **Agent Mail** · [Universal API reference](../../apis/a/agentMail/universal-api) · [Native API reference](../../apis/a/agentMail/native-api) · [Native API docs](https://docs.agentmail.to/api-reference)
@@ -32,10 +32,8 @@
 - **ClearBounce** · [Universal API reference](../../apis/c/clearBounce/universal-api) · [Native API reference](../../apis/c/clearBounce/native-api) · [Native API docs](https://docs.clearbounce.net/api-reference/authentication)
 - **Clearout** · [Universal API reference](../../apis/c/clearout/universal-api) · [Native API reference](../../apis/c/clearout/native-api) · [Native API docs](https://docs.clearout.io/developers/api/overview)
 - **Click2Mail** · [Universal API reference](../../apis/c/click2Mail/universal-api) · [Native API reference](../../apis/c/click2Mail/native-api) · [Native API docs](https://developers.click2mail.com/reference)
-- **ClickSend SMS** · [Universal API reference](../../apis/c/clickSendSMS/universal-api) · [Native API reference](../../apis/c/clickSendSMS/native-api) · [Native API docs](https://developers.clicksend.com/docs)
 - **Cocoonmail** · [Universal API reference](../../apis/c/cocoonmail/universal-api) · [Native API reference](../../apis/c/cocoonmail/native-api) · [Native API docs](https://kb.cocoonmail.com/api-view/api-introduction)
 - **Colossyan** · [Universal API reference](../../apis/c/colossyan/universal-api) · [Native API reference](../../apis/c/colossyan/native-api) · [Native API docs](https://docs.colossyan.com)
-- **Crisp** · [Universal API reference](../../apis/c/crisp/universal-api) · [Native API reference](../../apis/c/crisp/native-api) · [Native API docs](https://docs.crisp.chat/references/rest-api/v1/)
 - **CRM Messaging** · [Universal API reference](../../apis/c/cRMMessaging/universal-api) · [Native API reference](../../apis/c/cRMMessaging/native-api) · [Native API docs](https://crm-messaging.cloud/docs-category/api-documentation/)
 - **D7 Messaging** · [Universal API reference](../../apis/d/d7Messaging/universal-api) · [Native API reference](../../apis/d/d7Messaging/native-api) · [Native API docs](https://d7networks.com/docs/)
 - **Digital Samba** · [Universal API reference](../../apis/d/digitalSamba/universal-api) · [Native API reference](../../apis/d/digitalSamba/native-api) · [Native API docs](https://docs.digitalsamba.com/reference/rest-api)
@@ -51,6 +49,7 @@
 - **Eranol** · [Universal API reference](../../apis/e/eranol/universal-api) · [Native API reference](../../apis/e/eranol/native-api) · [Native API docs](https://www.eranol.com/documentation)
 - **ExpertTexting** · [Universal API reference](../../apis/e/expertTexting/universal-api) · [Native API reference](../../apis/e/expertTexting/native-api) · [Native API docs](https://www.experttexting.com/appv2/documentation/index/)
 - **Eyeson** · [Universal API reference](../../apis/e/eyeson/universal-api) · [Native API reference](../../apis/e/eyeson/native-api) · [Native API docs](https://docs.eyeson.com/docs/rest/eyeson-api)
+- **Fathom** · [Universal API reference](../../apis/f/fathom/universal-api) · [Native API reference](../../apis/f/fathom/native-api) · [Native API docs](https://developers.fathom.ai/api-overview)
 - **GatewayAPI SMS** · [Universal API reference](../../apis/g/gatewayAPISMS/universal-api) · [Native API reference](../../apis/g/gatewayAPISMS/native-api) · [Native API docs](https://gatewayapi.com/docs/)
 - **Get a Newsletter** · [Universal API reference](../../apis/g/getANewsletter/universal-api) · [Native API reference](../../apis/g/getANewsletter/native-api) · [Native API docs](https://api.getanewsletter.com/v3/docs/)
 - **Google Mail** · [Universal API reference](../../apis/g/gmail/universal-api) · [Native API reference](../../apis/g/gmail/native-api) · [Native API docs](https://developers.google.com/workspace/gmail/api/reference/rest)
@@ -93,7 +92,6 @@
 - **Microsoft Teams** · [Universal API reference](../../apis/m/microsoftTeams/universal-api) · [Native API reference](../../apis/m/microsoftTeams/native-api) · [Native API docs](https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0)
 - **MillionVerifier** · [Universal API reference](../../apis/m/millionVerifier/universal-api) · [Native API reference](../../apis/m/millionVerifier/native-api) · [Native API docs](https://developer.millionverifier.com/)
 - **Missive** · [Universal API reference](../../apis/m/missive/universal-api) · [Native API reference](../../apis/m/missive/native-api) · [Native API docs](https://missiveapp.com/docs/developers/rest-api)
-- **Mobile Text Alerts** · [Universal API reference](../../apis/m/mobileTextAlerts/universal-api) · [Native API reference](../../apis/m/mobileTextAlerts/native-api) · [Native API docs](https://developers.mobile-text-alerts.com/)
 - **Mocean API** · [Universal API reference](../../apis/m/moceanAPI/universal-api) · [Native API reference](../../apis/m/moceanAPI/native-api) · [Native API docs](https://moceanapi.com/docs)
 - **MojoTxt** · [Universal API reference](../../apis/m/mojoTxt/universal-api) · [Native API reference](../../apis/m/mojoTxt/native-api) · [Native API docs](https://app.mojotxt.com/api/docs/v1/)
 - **Mx Toolbox** · [Universal API reference](../../apis/m/mxToolbox/universal-api) · [Native API reference](../../apis/m/mxToolbox/native-api) · [Native API docs](https://knowledgebase.mxtoolbox.com/home/api)
@@ -123,6 +121,7 @@
 - **Realcrux** · [Universal API reference](../../apis/r/realcrux/universal-api) · [Native API reference](../../apis/r/realcrux/native-api) · [Vendor website](https://www.realcrux.com/)
 - **Rebump** · [Universal API reference](../../apis/r/rebump/universal-api) · [Native API reference](../../apis/r/rebump/native-api) · [Native API docs](https://www.rebump.cc/docs/api)
 - **Recallai** · [Universal API reference](../../apis/r/recallai/universal-api) · [Native API reference](../../apis/r/recallai/native-api) · [Native API docs](https://docs.recall.ai/docs/getting-started)
+- **Resend** · [Universal API reference](../../apis/r/resend/universal-api) · [Native API reference](../../apis/r/resend/native-api) · [Native API docs](https://resend.com/docs/api-reference)
 - **respond.io** · [Universal API reference](../../apis/r/respondio/universal-api) · [Native API reference](../../apis/r/respondio/native-api) · [Native API docs](https://developers.respond.io/)
 - **Restream** · [Universal API reference](../../apis/r/restream/universal-api) · [Native API reference](../../apis/r/restream/native-api) · [Native API docs](https://developers.restream.io)
 - **Routee** · [Universal API reference](../../apis/r/routee/universal-api) · [Native API reference](../../apis/r/routee/native-api) · [Native API docs](https://docs.routee.net/)
@@ -152,12 +151,10 @@
 - **Tarvent** · [Universal API reference](../../apis/t/tarvent/universal-api) · [Native API reference](../../apis/t/tarvent/native-api) · [Native API docs](https://developer.tarvent.com)
 - **Teletype App** · [Universal API reference](../../apis/t/teletypeApp/universal-api) · [Native API reference](../../apis/t/teletypeApp/native-api) · [Native API docs](https://teletype.app/help/api/)
 - **TextingHouse** · [Universal API reference](../../apis/t/textingHouse/universal-api) · [Native API reference](../../apis/t/textingHouse/native-api) · [Native API docs](https://www.textinghouse.com/en/api-sms-http/api-documentation/)
-- **TextMagic** · [Universal API reference](../../apis/t/textMagic/universal-api) · [Native API reference](../../apis/t/textMagic/native-api) · [Native API docs](https://docs.textmagic.com/)
 - **Teyuto** · [Universal API reference](../../apis/t/teyuto/universal-api) · [Native API reference](../../apis/t/teyuto/native-api) · [Native API docs](https://apidocs.teyuto.com/)
 - **TimelinesAI** · [Universal API reference](../../apis/t/timelinesAI/universal-api) · [Native API reference](../../apis/t/timelinesAI/native-api) · [Native API docs](https://timelinesai.mintlify.app/public-api-reference/overview)
 - **tl:dv** · [Universal API reference](../../apis/t/tldv/universal-api) · [Native API reference](../../apis/t/tldv/native-api) · [Native API docs](https://doc.tldv.io/index.html)
 - **turboSMTP** · [Universal API reference](../../apis/t/turboSMTP/universal-api) · [Native API reference](../../apis/t/turboSMTP/native-api) · [Native API docs](https://serversmtp.com/turbo-api/)
-- **Twilio** · [Universal API reference](../../apis/t/twilio/universal-api) · [Native API reference](../../apis/t/twilio/native-api) · [Native API docs](https://www.twilio.com/docs)
 - **Twist** · [Universal API reference](../../apis/t/twist/universal-api) · [Native API reference](../../apis/t/twist/native-api) · [Native API docs](https://developer.twist.com/v3/)
 - **Typebot** · [Universal API reference](../../apis/t/typebot/universal-api) · [Native API reference](../../apis/t/typebot/native-api) · [Native API docs](https://docs.typebot.io/api-reference)
 - **Uchat** · [Universal API reference](../../apis/u/uchat/universal-api) · [Native API reference](../../apis/u/uchat/native-api) · [Native API docs](https://uchat.io/doc/2/API)

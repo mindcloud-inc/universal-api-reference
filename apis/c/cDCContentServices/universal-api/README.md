@@ -3,6 +3,7 @@
 Access CDC Content Services resources, including syndicated media, topics, tags, audiences, languages, organizations, and source metadata from the public CDC Content Services API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cDCContentServices/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://tools.cdc.gov/api/docs/info.aspx

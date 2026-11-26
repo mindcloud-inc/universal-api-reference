@@ -3,7 +3,7 @@
 Manage inventory catalog, contacts, sales orders, packages, shipments, and invoices
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoInventory/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.zoho.com/inventory/

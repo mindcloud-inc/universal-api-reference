@@ -3,6 +3,7 @@
 Access Sympla organizer data including events, orders, participants, check-ins, and affiliates via the public organizer API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sympla/latest
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.sympla.com.br/

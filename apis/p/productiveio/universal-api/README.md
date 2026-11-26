@@ -3,6 +3,7 @@
 Manage projects, people, time tracking, deals, budgets, and financial operations in Productive.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/productiveio/latest
+- **Category:** Productivity / Project Management
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://productive.io/

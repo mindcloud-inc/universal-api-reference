@@ -3,7 +3,7 @@
 Generate documented Apple Maps links for map framing, search, place cards, Look Around, directions, guides, reports, and legacy map-link formats.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/appleMapLinks/latest
-- **Category:** Support / Field Service
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://maps.apple.com

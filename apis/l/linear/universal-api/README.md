@@ -3,7 +3,7 @@
 Manage issues, plan projects, track cycles, and ship product faster.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/linear/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** http://linear.app/

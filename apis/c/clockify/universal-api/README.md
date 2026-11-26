@@ -3,7 +3,7 @@
 Track time, manage projects, approve timesheets, and analyze team costs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clockify/latest
-- **Category:** Human Resources / HRIS
+- **Category:** Productivity / Project Management
 - **Actions:** 154
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://clockify.me/

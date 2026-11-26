@@ -3,7 +3,7 @@
 Create and manage Manus projects, tasks, files, and webhooks
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/manus/latest
-- **Category:** Productivity / Project Management
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://manus.im

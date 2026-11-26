@@ -3,6 +3,7 @@
 Remove backgrounds, check credits, and submit improvement samples
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/removebg/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.remove.bg

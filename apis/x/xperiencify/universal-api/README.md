@@ -3,7 +3,7 @@
 Manage courses, students, tags, and reward points
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/xperiencify/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Human Resources / Learning (LMS)
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://xperiencify.com

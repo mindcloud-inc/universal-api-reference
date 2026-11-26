@@ -3,6 +3,7 @@
 Create, manage, and report on Snapchat advertising objects including organizations, ad accounts, campaigns, ad squads, ads, creatives, media, targeting, pixels, and performance stats through the Snapchat Marketing API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/snapchatAdsApi/latest
+- **Category:** Marketing / Advertising
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://forbusiness.snapchat.com/advertising

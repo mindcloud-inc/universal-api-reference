@@ -3,6 +3,7 @@
 Manage Trafft bookings, customers, services, and staff
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trafft/latest
+- **Category:** Productivity / Scheduling
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trafft.com/

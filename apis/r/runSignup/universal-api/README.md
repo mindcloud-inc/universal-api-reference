@@ -3,7 +3,7 @@
 RunSignup is a race-registration and event-operations platform with APIs for race data, participants, results, fundraising, and related race-management workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/runSignup/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://runsignup.com

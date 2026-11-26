@@ -3,7 +3,7 @@
 Schedule posts, manage tags, and track social media analytics
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/postpone/latest
-- **Category:** Marketing
+- **Category:** Marketing / Social Media
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.postpone.app

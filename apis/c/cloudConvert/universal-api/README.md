@@ -3,6 +3,7 @@
 Convert files, documents, images, video, audio, and PDFs through CloudConvert jobs and tasks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudConvert/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudconvert.com

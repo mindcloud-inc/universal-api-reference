@@ -3,7 +3,7 @@
 Send email, organize inboxes, search messages, and collaborate faster.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gmail/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Communication / Email Communications
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mail.google.com/

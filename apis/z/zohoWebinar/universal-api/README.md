@@ -3,7 +3,7 @@
 Manage webinars, registrations, attendees, and engagement reports
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoWebinar/latest
-- **Category:** Marketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://webinar.zoho.com/

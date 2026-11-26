@@ -4,7 +4,7 @@ Manage MindCloud workflows, runs, connections, members, roles, environments, API
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mindCloud/latest
 - **Category:** IT Operations / Integration & Automation
-- **Actions:** 43
+- **Actions:** 44
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mindcloud.co
 - **Vendor API docs:** https://mindcloud.co/docs/api/rest/introduction
@@ -22,7 +22,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/mindCloud/latest/actions/
   -H "Authorization: Bearer $MINDCLOUD_API_KEY"
 ```
 
-## Actions (43)
+## Actions (44)
 
 ### Api Key
 
@@ -137,6 +137,7 @@ curl -X GET "https://connect.mindcloud.co/v1/universal/mindCloud/latest/actions/
 
 | Action | Method | Description |
 | --- | --- | --- |
+| [List All Runs](actions/list-all-runs.md) | GET |  |
 | [List Failed Runs](actions/list-failed-runs.md) | GET |  |
 | [List Workflow Activity](actions/list-workflow-activity.md) | GET |  |
 

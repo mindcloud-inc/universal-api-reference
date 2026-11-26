@@ -3,7 +3,7 @@
 Inventory and order management for products, customers, vendors, purchasing, and stock movement in inFlow Inventory.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/inFlowInventory/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.inflowinventory.com

@@ -3,6 +3,7 @@
 Organize ministries, coordinate events, plan services, and connect your congregation
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/planningCenter/latest
+- **Category:** Sales & CRM / CRM
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.planningcenter.com

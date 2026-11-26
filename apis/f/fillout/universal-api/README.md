@@ -3,6 +3,7 @@
 Connect Fillout forms and Zite databases to list forms, manage submissions, and work with databases, tables, fields, and records through the Fillout REST APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fillout/latest
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.fillout.com/
