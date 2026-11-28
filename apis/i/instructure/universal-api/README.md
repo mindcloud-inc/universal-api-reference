@@ -3,6 +3,7 @@
 Canvas LMS by Instructure. Access users, courses, assignments, modules, pages, files, enrollments, calendar events, announcements, and discussion topics through the Canvas REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/instructure/latest
+- **Category:** Human Resources / Learning (LMS)
 - **Actions:** 115
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.instructure.com/canvas

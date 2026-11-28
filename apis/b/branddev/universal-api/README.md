@@ -3,7 +3,7 @@
 Extract brand, website, and product data from company domains
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/branddev/latest
-- **Category:** Artificial Intelligence / AI / ML
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://brand.dev

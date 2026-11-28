@@ -3,6 +3,7 @@
 Extract text, structured content, tables, and Markdown from PDF documents using Nutrient DWS Processor API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nutrientExtractFromPDF/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nutrient.io

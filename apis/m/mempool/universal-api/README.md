@@ -3,6 +3,7 @@
 Explore Bitcoin blockchain, mempool, fee, mining, address, transaction, and block data using the public Mempool API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mempool/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mempool.space

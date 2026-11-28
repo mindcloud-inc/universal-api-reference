@@ -3,7 +3,7 @@
 Send, sign, and manage documents, reusable templates, and signature workflows with RightSignature.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/rightSignature/latest
-- **Category:** Content & Files / Storage
+- **Category:** Productivity / Legal & Contracts
 - **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.sharefile.com/rightsignature

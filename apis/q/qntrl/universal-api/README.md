@@ -3,6 +3,7 @@
 Qntrl: Manage cards, forms, blueprints, and workflow activity
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/qntrl/latest
+- **Category:** Productivity / Project Management
 - **Actions:** 42
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.zoho.com/qntrl/

@@ -3,7 +3,7 @@
 Send texts, manage subscribers, and track donations and lists
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mojoTxt/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mojotxt.com

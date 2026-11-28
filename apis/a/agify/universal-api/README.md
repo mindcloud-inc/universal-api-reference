@@ -3,6 +3,7 @@
 Predict a statistical age estimate from a first or full name, optionally scoped to a country.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/agify/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://agify.io/

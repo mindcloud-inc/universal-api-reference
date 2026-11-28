@@ -3,6 +3,7 @@
 Memory layer for AI agents and applications, with APIs for storing, searching, updating, exporting, and managing user-scoped memories, organizations, projects, and webhooks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mem0/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 33
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mem0.ai

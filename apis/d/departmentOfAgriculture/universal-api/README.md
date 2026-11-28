@@ -3,7 +3,7 @@
 Access USDA Economic Research Service Agricultural Resource Management Survey data, including states, years, reports, variables, farm types, categories, and survey result records.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/departmentOfAgriculture/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ers.usda.gov/

@@ -3,7 +3,7 @@
 Send and manage SMS, voice calls, number lookups, contacts, numbers, subaccounts, and webhooks with seven.io.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/seven/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://seven.io

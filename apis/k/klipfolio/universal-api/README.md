@@ -3,6 +3,7 @@
 Manage Klipfolio users, groups, roles, dashboards, klips, datasources, and tags with your Klipfolio API key.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/klipfolio/latest
+- **Category:** Business Intelligence / Analytics & BI
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.klipfolio.com

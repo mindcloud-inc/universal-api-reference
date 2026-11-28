@@ -3,6 +3,7 @@
 Explore Ice and Fire books, characters, and houses
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/iceAndFireGameOfThrones/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://anapioficeandfire.com/

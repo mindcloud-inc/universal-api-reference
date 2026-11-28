@@ -3,7 +3,7 @@
 Query federal regulatory dockets, documents, and public comments from Regulations.gov.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gSAPublicComment/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.regulations.gov

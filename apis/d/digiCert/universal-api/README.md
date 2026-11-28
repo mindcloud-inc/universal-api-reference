@@ -3,6 +3,7 @@
 DigiCert lets you manage CertCentral accounts, domains, organizations, certificate orders, users, products, webhooks, finance, and related Services API resources from one integration.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/digiCert/latest
+- **Category:** IT Operations / Security & Identity
 - **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.digicert.com/

@@ -3,6 +3,7 @@
 Browse astronomy pictures with NASA APOD metadata.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nASAAPOD/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://apod.nasa.gov/apod/

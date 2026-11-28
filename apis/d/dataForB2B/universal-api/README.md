@@ -3,6 +3,7 @@
 Access DataForB2B's real-time company, people, enrichment, typeahead, webhook, and account APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dataForB2B/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://dataforb2b.ai

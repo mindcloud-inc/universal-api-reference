@@ -3,6 +3,7 @@
 Document AI: Extract text, fields, tables, and summaries
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/documentAI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 18
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudmersive.com/document-ai-api

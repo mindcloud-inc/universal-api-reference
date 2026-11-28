@@ -3,7 +3,7 @@
 Create Trak QR-code events, add attendees, register event partners, and check partner attendee balance through the Trak Events Partner API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trakQrAutomation/latest
-- **Category:** Marketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trak.codes

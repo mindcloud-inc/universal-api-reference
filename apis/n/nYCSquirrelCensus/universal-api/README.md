@@ -3,6 +3,7 @@
 Read historical 2018 Central Park squirrel sightings from the NYC Open Data Socrata dataset.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nYCSquirrelCensus/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw

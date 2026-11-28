@@ -6,7 +6,7 @@ Updates an existing stock item in Booqable.
 
 - **Method:** `PUT`
 - **Path:** `/stock_items/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Update Stock Item](https://developers.booqable.com/#stock-items-update-a-stock_item)
 
 ## Parameters

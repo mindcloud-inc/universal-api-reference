@@ -3,6 +3,7 @@
 Famulor AI - Voice Agent lets teams manage AI phone assistants, calls, campaigns, leads, knowledge bases, phone numbers, chat conversations, SMS, SIP trunks, WhatsApp messaging, and account data through Famulor's REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/famulorAIVoiceAgent/latest
+- **Category:** Support / Contact Center
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.famulor.io/en

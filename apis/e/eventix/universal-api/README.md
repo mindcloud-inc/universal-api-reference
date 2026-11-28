@@ -3,7 +3,7 @@
 Eventix is an event ticketing platform for managing events, shops, tickets, products, orders, coupons, and related reporting through the Weeztix API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eventix/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.eventix.io

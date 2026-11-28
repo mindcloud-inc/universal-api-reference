@@ -3,7 +3,7 @@
 Manage HiveMQ Cloud MQTT credentials, permissions, roles, clients, and cluster authentication settings through the HiveMQ Cloud REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mQTT/latest
-- **Category:** IT Operations / Security & Identity
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.hivemq.com/products-platforms/cloud/

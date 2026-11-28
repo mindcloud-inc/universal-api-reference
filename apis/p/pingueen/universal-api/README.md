@@ -3,7 +3,7 @@
 Manage WhatsApp clients, messages, and templates
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pingueen/latest
-- **Category:** Support / Contact Center
+- **Category:** Communication / Team Messaging
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://pingup.ai

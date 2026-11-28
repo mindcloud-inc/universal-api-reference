@@ -3,6 +3,7 @@
 Converts documents, spreadsheets, presentations, PDFs, HTML, emails, and images between common formats using Cloudmersive Document Convert APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudmersiveDocumentConversion/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudmersive.com

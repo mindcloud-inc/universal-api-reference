@@ -3,6 +3,7 @@
 Convert files, documents, media, and structured data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/conversionTools/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://conversiontools.io

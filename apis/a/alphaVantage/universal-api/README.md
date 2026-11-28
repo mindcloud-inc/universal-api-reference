@@ -3,6 +3,7 @@
 Alpha Vantage provides market data, technical indicators, fundamentals, macroeconomic datasets, news sentiment, analytics, and options data through a REST API for equities, ETFs, mutual funds, forex, crypto, commodities, indexes, and macro indicators.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/alphaVantage/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 124
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.alphavantage.co/

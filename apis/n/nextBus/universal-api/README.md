@@ -3,6 +3,7 @@
 Access public transit agencies, routes, stops, and predictions
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nextBus/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://webservices.nextbus.com/

@@ -3,6 +3,7 @@
 Are.na is a platform for collecting and connecting blocks of content in channels, with API access to users, channels, blocks, comments, connections, groups, and search.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/are-na/latest
+- **Category:** Productivity / Knowledge Management
 - **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.are.na

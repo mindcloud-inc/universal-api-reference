@@ -3,6 +3,7 @@
 Vibrato provides an API for managing AI phone calls, contacts, reusable task templates, and calling campaigns.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/vibrato/latest
+- **Category:** Support / Contact Center
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://getvibrato.com

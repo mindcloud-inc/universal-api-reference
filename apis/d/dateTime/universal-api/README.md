@@ -3,6 +3,7 @@
 Read public IFTTT Date & Time service metadata, trigger definitions, and public applet catalog data from IFTTT’s official public GraphQL surface. This app documents the Date & Time service; it does not execute schedules itself.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dateTime/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ifttt.com/date_and_time

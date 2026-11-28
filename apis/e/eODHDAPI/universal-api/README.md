@@ -3,6 +3,7 @@
 Financial market data APIs for EOD prices, live quotes, fundamentals, corporate actions, calendars, news, screeners, technical indicators, macro indicators, and exchange reference data from EODHD.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eODHDAPI/latest
+- **Category:** Business Intelligence / Analytics & BI
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://eodhd.com

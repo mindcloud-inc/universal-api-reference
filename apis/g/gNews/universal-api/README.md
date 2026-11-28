@@ -3,6 +3,7 @@
 Search news articles and track top headlines
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gNews/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://gnews.io

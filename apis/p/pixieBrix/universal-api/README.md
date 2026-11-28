@@ -3,6 +3,7 @@
 Build and manage PixieBrix teams, packages, deployments, databases, records, and related admin resources through the PixieBrix Developer API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pixieBrix/latest
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pixiebrix.com

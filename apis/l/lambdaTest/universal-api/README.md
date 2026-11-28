@@ -3,6 +3,7 @@
 Manage LambdaTest web automation builds, sessions, tunnels, files, logs, concurrency, supported platforms, resolutions, geolocation IPs, and auto-heal test insights through the official LambdaTest Automation API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/lambdaTest/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 47
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.lambdatest.com

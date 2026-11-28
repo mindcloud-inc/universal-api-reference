@@ -3,6 +3,7 @@
 Historical public COVID-19 case, death, recovery, daily report, location lookup, and correction data from the Johns Hopkins University Center for Systems Science and Engineering GitHub repository. JHU CSSE ceased collecting and reporting this dataset on March 10, 2023, so actions return archived historical data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cOVID19JHUCSSE/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://systems.jhu.edu/research/public-health/ncov/

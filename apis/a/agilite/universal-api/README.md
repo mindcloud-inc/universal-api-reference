@@ -3,6 +3,7 @@
 Agilit-e centralizes business logic and processes as API-accessible microservices, including keywords, BPM workflows, roles, templates, connectors, data mapping, numbering, files, and utility services.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/agilite/latest
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://agilite.io

@@ -39,7 +39,9 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `fields` | object | no |  |
 | `filter` | object | no | Search filter object using direct field filters, for example `filter.status.eq = draft`. In runtime testing, the grouped `conditions` shape returned a provider validation error. Example: `[object Object]`. |
+| `meta` | object | no |  |
 
 ### Advanced
 
@@ -77,5 +79,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Booqable API, this operation is `POST /orders/search` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/search-orders.md) for the provider-specific parameters and requirements.
+Through the native Booqable API, this operation is `POST /orders/search` (base URL `https://{{credentials.companySlug}}.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/search-orders.md) for the provider-specific parameters and requirements.
 

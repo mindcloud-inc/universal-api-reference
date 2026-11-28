@@ -3,7 +3,7 @@
 Track time, manage projects, and log leave
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trackabi/latest
-- **Category:** Human Resources / HRIS
+- **Category:** Productivity / Project Management
 - **Actions:** 27
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trackabi.com

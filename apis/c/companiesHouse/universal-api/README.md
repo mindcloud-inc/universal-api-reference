@@ -3,6 +3,7 @@
 Read-only wrapper for the Companies House Public Data API, covering company search and retrieval endpoints for public UK company information.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/companiesHouse/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 33
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developer.company-information.service.gov.uk/

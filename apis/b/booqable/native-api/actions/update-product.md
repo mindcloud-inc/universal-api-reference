@@ -6,7 +6,7 @@ Updates an existing product in Booqable.
 
 - **Method:** `PUT`
 - **Path:** `/products/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Update Product](https://developers.booqable.com/#products-update-a-product)
 
 ## Parameters

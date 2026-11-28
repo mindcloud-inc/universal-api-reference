@@ -3,6 +3,7 @@
 Paperless lets you create, send, track, and manage digital documents, templates, submissions, blobs, and webhook subscriptions.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/paperless/latest
+- **Category:** Productivity / Legal & Contracts
 - **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.paperless.io

@@ -3,6 +3,7 @@
 Browse Los Angeles Times RSS feeds and retrieve the latest published stories by section.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/losAngelesTimes/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.latimes.com

@@ -3,6 +3,7 @@
 Search and retrieve French company legal, financial, officer, and document data from Société.com.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/socitcom/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.societe.com/

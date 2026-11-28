@@ -3,6 +3,7 @@
 Aquaforest PDF automates PDF workflows for Office 365 and Power Automate, including text extraction, barcode extraction, PDF splitting, page extraction, OCR, searchable PDF generation, and PDF property inspection.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aquaforestPDF/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.aquaforest.com/en/aquaforest-connector.asp

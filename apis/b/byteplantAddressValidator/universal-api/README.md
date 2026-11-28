@@ -3,6 +3,7 @@
 Validate, autocomplete, geocode, and bulk-check postal addresses
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/byteplantAddressValidator/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.byteplant.com/address-validator/

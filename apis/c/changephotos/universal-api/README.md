@@ -3,6 +3,7 @@
 change.photos is an API for transforming images at scale, including resizing, conversion, compression, rotation, flipping, grayscale, blur, sharpening, quality adjustment, and tint operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/changephotos/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.change.photos

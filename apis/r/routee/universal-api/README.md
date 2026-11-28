@@ -3,7 +3,7 @@
 Routee is a communication platform for SMS, verification, failover, contact, lookup, validation, URL, and account workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/routee/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 188
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://routee.net

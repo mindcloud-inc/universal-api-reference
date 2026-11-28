@@ -3,6 +3,7 @@
 Countly is a product analytics and customer experience platform for querying apps, users, events, dashboards, funnels, campaigns, and operational analytics through its REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/countly/latest
+- **Category:** Business Intelligence / Analytics & BI
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://count.ly

@@ -3,7 +3,7 @@
 Manage projects, tasks, comments, and time tracking
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/freelo/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.freelo.io

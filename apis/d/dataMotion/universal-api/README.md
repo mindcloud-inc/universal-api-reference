@@ -3,6 +3,7 @@
 DataMotion Secure Message Delivery lets teams send, track, and retract encrypted secure messages through DataMotion's hosted delivery API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dataMotion/latest
+- **Category:** Communication / Email Communications
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://datamotion.com/

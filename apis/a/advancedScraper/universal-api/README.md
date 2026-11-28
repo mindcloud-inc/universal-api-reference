@@ -3,6 +3,7 @@
 Scrape remote URLs through APILayer Advanced Scraper with rotating IPs, browser rendering, CSS selectors, form submission, and JavaScript execution.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/advancedScraper/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://marketplace.apilayer.com/adv_scraper-api

@@ -3,7 +3,7 @@
 Send and retrieve SMS and WhatsApp messages, manage messaging workflows, and track message activity with TopMessage.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/topMessage/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://topmessage.com/

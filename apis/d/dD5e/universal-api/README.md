@@ -3,6 +3,7 @@
 D&D 5e through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dD5e/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

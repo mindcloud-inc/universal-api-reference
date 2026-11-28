@@ -3,6 +3,7 @@
 MealDB through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mealDB/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

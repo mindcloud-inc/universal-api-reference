@@ -3,6 +3,7 @@
 Orderry is a field service and business operations platform for repair shops and service businesses. This app exposes Orderry's public API for contacts, orders, estimates, bookings, inventory, tasks, payments, and settings.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/orderry/latest
+- **Category:** Support / Field Service
 - **Actions:** 45
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://orderry.com

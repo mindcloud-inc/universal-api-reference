@@ -3,7 +3,7 @@
 Gyazo is an image and screen capture sharing service. Connect Gyazo to list, search, upload, inspect, and delete images from a user account.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gyazo/latest
-- **Category:** Marketing / Social Media
+- **Category:** Content & Files / Storage
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://gyazo.com

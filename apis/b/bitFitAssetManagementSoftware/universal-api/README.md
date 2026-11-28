@@ -3,6 +3,7 @@
 BitFit Asset Management Software integrates with the BitFit asset management API for assets, locations, users, service requests, attachments, widgets, and related inventory data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bitFitAssetManagementSoftware/latest
+- **Category:** IT Operations / IT Service Management
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://assets.bitfit.com/

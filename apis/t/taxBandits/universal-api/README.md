@@ -3,6 +3,7 @@
 TaxBandits API for tax filing workflows, business management, form status, and related compliance operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/taxBandits/latest
+- **Category:** Commerce / Accounting
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.taxbandits.com/

@@ -3,6 +3,7 @@
 Trust Public API for workspaces, campaigns, contacts, media uploads, testimonials, and widgets.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trust/latest
+- **Category:** Marketing
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://usetrust.io

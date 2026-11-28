@@ -3,7 +3,7 @@
 Build chatbots that answer questions, capture leads, and book meetings
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/instabot/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.instabot.io

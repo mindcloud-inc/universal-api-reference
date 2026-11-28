@@ -3,7 +3,7 @@
 Manage Zoho Sprints workspaces, projects, sprints, items, comments, attachments, and workflow status through the official Zoho Sprints API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoSprints/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://sprints.zoho.com/

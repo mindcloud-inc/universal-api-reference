@@ -3,6 +3,7 @@
 Build and manage PickFu surveys, audience targeting traits, projects, tags, playbooks, and survey responses from MindCloud.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pickFu/latest
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 16
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pickfu.com

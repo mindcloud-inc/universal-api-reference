@@ -3,7 +3,7 @@
 Public UK National Energy System Operator carbon intensity and generation mix data for national and regional forecasting.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/carbonIntensity/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://api.carbonintensity.org.uk/

@@ -3,7 +3,7 @@
 Climatiq calculates carbon emissions and CO2e estimates from activity data, energy use, freight, procurement spend, industry classifications, and emission-factor reference data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/climatiq/latest
-- **Category:** Support / Field Service
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.climatiq.io

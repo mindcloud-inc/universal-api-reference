@@ -3,6 +3,7 @@
 Veryfi OCR provides OCR and data extraction APIs for receipts, invoices, checks, business cards, contracts, bank statements, tax forms, generic documents, classification, webhooks, and document-to-markdown workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/veryfiOCR/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 76
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.veryfi.com/

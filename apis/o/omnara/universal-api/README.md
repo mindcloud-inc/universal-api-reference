@@ -3,6 +3,7 @@
 Omnara is a coding-agent orchestration platform for managing users, sessions, workspaces, machines, and worktrees over a REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/omnara/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 49
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://omnara.com

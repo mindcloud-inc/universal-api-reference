@@ -3,6 +3,7 @@
 Diffbot extracts structured web content, queries the Knowledge Graph, enriches person and organization records, and manages crawl and bulk extraction jobs through the official Diffbot APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/diffbot/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 33
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.diffbot.com/

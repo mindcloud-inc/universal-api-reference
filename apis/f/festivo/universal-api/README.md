@@ -3,6 +3,7 @@
 Festivo provides a public holidays API for retrieving country holiday calendars, supported countries, regional observances, substitute holidays, and localized holiday metadata.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/festivo/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://getfestivo.com

@@ -6,7 +6,7 @@ Retrieves a customer from Booqable.
 
 - **Method:** `GET`
 - **Path:** `/customers/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Get Customer](https://developers.booqable.com/#customers-fetch-a-customer)
 
 ## Parameters

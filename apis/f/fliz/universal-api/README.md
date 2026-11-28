@@ -3,6 +3,7 @@
 Fliz is an AI video creation platform for generating, listing, retrieving, translating, and managing videos programmatically.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fliz/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://fliz.ai/

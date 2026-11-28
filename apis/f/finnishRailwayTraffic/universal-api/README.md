@@ -3,6 +3,7 @@
 Open railway traffic data for Finland from Fintraffic's Digitraffic service, including live trains, timetables, train locations, passenger information messages, route sets, compositions, track work and traffic restriction notifications, and railway metadata.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/finnishRailwayTraffic/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.digitraffic.fi/en/railway-traffic/

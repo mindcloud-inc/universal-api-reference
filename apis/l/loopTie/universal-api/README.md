@@ -3,6 +3,7 @@
 Loop & Tie is a corporate gifting platform API for managing teams, collections, designs, gifts, surveys, templates, packaging bundles, and webhooks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/loopTie/latest
+- **Category:** Commerce
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.loopandtie.com

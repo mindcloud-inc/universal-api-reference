@@ -3,7 +3,7 @@
 BlueSnap is a global payment platform for processing card and alternative payments through the BlueSnap Payment API and related merchant services.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/blueSnap/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bluesnap.com/

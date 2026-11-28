@@ -3,7 +3,7 @@
 Access Drag'n Survey surveys, collectors, respondents, reports, questions, and webhooks through the official Drag'n Survey REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dragnSurvey/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.dragnsurvey.com

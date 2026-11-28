@@ -3,7 +3,7 @@
 Access EPA Air Quality System (AQS) metadata, monitor inventory, ambient air sample measurements, summary data, and quality assurance records.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/environmentalProtectionAgency/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.epa.gov

@@ -3,7 +3,7 @@
 ReachMail is an email marketing platform for managing audiences, recipients, mailings, automations, reports, tags, and webhook-driven engagement workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/reachMail/latest
-- **Category:** Communication / Email Communications
+- **Category:** Marketing
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://reachmail.com

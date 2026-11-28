@@ -3,7 +3,7 @@
 Verify addresses, locations, emails, and phone numbers
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/addressfinder/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://addressfinder.com

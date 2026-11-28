@@ -3,7 +3,7 @@
 Store data, run queries, build applications, and analyze workloads.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mssql/latest
-- **Category:** Content & Files / Storage
+- **Category:** IT Operations / Database
 - **Vendor website:** https://www.microsoft.com/es-es/sql-server/sql-server-downloads
 - **Vendor API docs:** https://learn.microsoft.com/en-us/sql/
 

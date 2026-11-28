@@ -3,6 +3,7 @@
 Build, manage, and message stateful Letta agents with persistent memory.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/letta/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.letta.com

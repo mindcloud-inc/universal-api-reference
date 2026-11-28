@@ -3,6 +3,7 @@
 Encodian Flowr General provides Power Automate-compatible actions for AI document processing, translation, archive creation and extraction, email processing, file search/replace, and subscription status checks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/encodianGeneral/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.encodian.com/product/flowr/

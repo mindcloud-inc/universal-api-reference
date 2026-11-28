@@ -3,6 +3,7 @@
 Diabolocom AI APIs for submitting text and audio analysis jobs and retrieving asynchronous job results.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/diabolocom/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.diabolocom.com/

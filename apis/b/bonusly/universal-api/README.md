@@ -3,6 +3,7 @@
 Bonusly is an employee recognition and rewards platform for peer-to-peer recognition, incentives, and engagement.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bonusly/latest
+- **Category:** Human Resources / HRIS
 - **Actions:** 46
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bonusly.com/

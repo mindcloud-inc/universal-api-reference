@@ -3,7 +3,7 @@
 Search German companies and retrieve company, financial, and event data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/implisenseAPI/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://implisense.com/en/products/german-company-data-api

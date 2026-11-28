@@ -3,6 +3,7 @@
 Datelist is an online scheduling platform API for calendars, products, booked slots, and webhooks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/datelist/latest
+- **Category:** Productivity / Scheduling
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://datelist.io

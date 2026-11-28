@@ -3,6 +3,7 @@
 PassKit Event Tickets lets teams create, manage, validate, redeem, and analyze PassKit event productions, venues, ticket types, events, and tickets through PassKit's Event Ticketing APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/passKitEventTickets/latest
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 45
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://passkit.com

@@ -3,7 +3,7 @@
 Cryptlex is a software licensing and entitlement management platform for products, licenses, activations, releases, users, and webhooks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cryptlex/latest
-- **Category:** Commerce
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cryptlex.com

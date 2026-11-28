@@ -3,6 +3,7 @@
 edatalia Sign Online provides REST APIs for creating and managing digital signature envelopes, retrieving signed documents and evidence, applying server-side electronic signatures and timestamps, and validating signed PDFs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/edataliaSignOnline/latest
+- **Category:** Productivity / Legal & Contracts
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://firmar.online/

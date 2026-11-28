@@ -3,7 +3,7 @@
 Production-ready Mercado Pago wrapper centered on notification-topic readbacks and the checkout/payment resources that emit those notifications.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mercadoPago/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.mercadopago.com/

@@ -3,7 +3,7 @@
 Infer gender and validate phone numbers from names, emails, and usernames
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/genderAPIio/latest
-- **Category:** Artificial Intelligence / AI / ML
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.genderapi.io/

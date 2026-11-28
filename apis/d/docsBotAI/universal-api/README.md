@@ -3,7 +3,7 @@
 Build and manage DocsBot teams, bots, sources, webhooks, leads, research jobs, and analytics through the DocsBot Admin API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/docsBotAI/latest
-- **Category:** Support / Ticketing
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://docsbot.ai

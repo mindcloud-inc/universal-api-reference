@@ -3,7 +3,7 @@
 Create and manage fynk documents, templates, metadata, signatories, parties, file storage, comments, and document stage transitions.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fynk/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Productivity / Legal & Contracts
 - **Actions:** 39
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://fynk.com

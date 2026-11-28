@@ -3,6 +3,7 @@
 Create, generate, and manage branded designs and image exports
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/abyssale/latest
+- **Category:** Marketing
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.abyssale.com

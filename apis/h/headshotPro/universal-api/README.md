@@ -3,7 +3,7 @@
 HeadshotPro lets organizations manage team invites, teams, team members, models, headshots, favorites, and whitelabel onboarding through the HeadshotPro organization API. This draft is built from the public API docs at https://www.headshotpro.com/api and validated against a live tenant API key.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/headshotPro/latest
-- **Category:** Marketing
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.headshotpro.com

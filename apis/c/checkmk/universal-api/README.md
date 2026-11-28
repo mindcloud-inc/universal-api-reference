@@ -3,6 +3,7 @@
 Checkmk is an infrastructure and application monitoring platform. This app wraps the Checkmk REST API for host, service, folder, group, downtime, acknowledgement, comment, metric, audit log, activation, and discovery workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/checkmk/latest
+- **Category:** IT Operations / Observability
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://checkmk.com/

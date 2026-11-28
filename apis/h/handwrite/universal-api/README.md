@@ -3,6 +3,7 @@
 Handwrite lets you automate handwritten letters by listing available handwriting and stationery options, sending letters, and checking order status through the Handwrite REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/handwrite/latest
+- **Category:** Marketing
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.handwrite.io/

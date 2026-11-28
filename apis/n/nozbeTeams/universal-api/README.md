@@ -3,7 +3,7 @@
 Manage Nozbe Teams teams, projects, tasks, comments, reminders, tags, and related collaboration resources through the official Nozbe API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nozbeTeams/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://nozbe.com/teams/

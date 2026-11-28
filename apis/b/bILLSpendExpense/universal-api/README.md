@@ -3,6 +3,7 @@
 Manage BILL Spend & Expense budgets, users, cards, transactions, and reimbursements.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bILLSpendExpense/latest
+- **Category:** Commerce / Procurement
 - **Actions:** 21
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bill.com/

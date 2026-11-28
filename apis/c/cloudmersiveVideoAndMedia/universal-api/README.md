@@ -3,6 +3,7 @@
 Convert, resize, edit, and inspect audio and video
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudmersiveVideoAndMedia/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudmersive.com/video-and-media-services-api

@@ -3,7 +3,7 @@
 Mailtrap operational API wrapper for sending domains, stats, contacts, contact lists, and templates.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mailtrap/latest
-- **Category:** Marketing
+- **Category:** Communication / Email Communications
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mailtrap.io

@@ -6,7 +6,7 @@ Retrieves an existing or new order for the current employee in Booqable.
 
 - **Method:** `GET`
 - **Path:** `/orders/new`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Get New Order](https://developers.booqable.com/#orders-new-order)
 
 ## Parameters

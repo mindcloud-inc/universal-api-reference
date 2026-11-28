@@ -3,6 +3,7 @@
 Official College Football Data API for teams, games, rankings, recruiting, ratings, play-by-play, advanced metrics, and live college football data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/collegeFootballData/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 60
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://collegefootballdata.com

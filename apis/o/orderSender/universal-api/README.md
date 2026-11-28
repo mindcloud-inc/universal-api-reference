@@ -3,6 +3,7 @@
 Order Sender Business API wrapper for exporting, importing, and deleting business data such as orders, products, customers, suppliers, discounts, quotes, and price lists.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/orderSender/latest
+- **Category:** Commerce
 - **Actions:** 28
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developer.ordersender.com/

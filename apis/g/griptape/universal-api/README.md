@@ -3,7 +3,7 @@
 Operate Griptape Cloud resources including threads, rulesets, assistants, structures, tools, knowledge bases, data sources, and bucket assets.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/griptape/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.griptape.ai/

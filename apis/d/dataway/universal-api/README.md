@@ -3,6 +3,7 @@
 Dataway vendor API for service discovery, balance checks, biller validation, vending, and transaction lookup using vendor keys.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dataway/latest
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://datawayapp.com

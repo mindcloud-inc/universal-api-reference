@@ -3,6 +3,7 @@
 Trigger Botmother external events to launch a configured bot screen or message for platform users, Botmother users, or everyone.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/botmother/latest
+- **Category:** Communication / Team Messaging
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://botmother.com

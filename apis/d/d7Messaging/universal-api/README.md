@@ -3,7 +3,7 @@
 D7 Messaging lets teams send SMS, OTP, WhatsApp, and Viber messages, fetch pricing, and track delivery/status through D7's messaging APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/d7Messaging/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://d7networks.com

@@ -3,6 +3,7 @@
 Process audio productions, manage presets, and integrate external workflows
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/auphonic/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://auphonic.com

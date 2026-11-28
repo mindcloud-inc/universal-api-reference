@@ -3,6 +3,7 @@
 Convert, generate, OCR, watermark, secure, archive, and render documents with Nutrient DWS Processor APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nutrientDocumentConverter/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nutrient.io/

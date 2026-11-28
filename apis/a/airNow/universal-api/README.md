@@ -3,7 +3,7 @@
 Access AirNow air quality forecasts, current observations, historical observations, and monitoring-site data for reporting areas across the United States.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/airNow/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://docs.airnowapi.org/

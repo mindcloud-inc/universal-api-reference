@@ -3,6 +3,7 @@
 Access the public Crime Junkie Podcast RSS feed and WordPress JSON API to read episodes, posts, pages, media, taxonomies, authors, and site metadata from the official site.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/crimeJunkiePodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 58
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://crimejunkiepodcast.com/

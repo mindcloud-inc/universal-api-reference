@@ -3,6 +3,7 @@
 Retrieve the next MCU production and its following production from the public MCU Countdown API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mCUCountdown/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

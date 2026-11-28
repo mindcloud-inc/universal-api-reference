@@ -3,6 +3,7 @@
 Access Recooty public job listings with an API key and candidate endpoints with a personal access token.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/recooty/latest
+- **Category:** Human Resources / Recruiting
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://recooty.com/

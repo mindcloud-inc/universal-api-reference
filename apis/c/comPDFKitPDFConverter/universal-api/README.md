@@ -3,7 +3,7 @@
 Convert PDFs to and from Office, image, text, HTML, CSV, JSON, and Markdown formats with ComPDFKit Cloud conversion APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/comPDFKitPDFConverter/latest
-- **Category:** Content & Files / Storage
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.compdf.com/

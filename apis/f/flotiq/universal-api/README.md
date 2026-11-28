@@ -3,6 +3,7 @@
 Manage content types, content objects, media, search, and GraphQL access in Flotiq headless CMS.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/flotiq/latest
+- **Category:** Website & App Building / CMS
 - **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://flotiq.com/

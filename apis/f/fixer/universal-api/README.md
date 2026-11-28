@@ -3,7 +3,7 @@
 Get live and historical foreign exchange rates, convert amounts, and inspect currency metadata from Fixer.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fixer/latest
-- **Category:** Commerce / Accounting
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://fixer.io

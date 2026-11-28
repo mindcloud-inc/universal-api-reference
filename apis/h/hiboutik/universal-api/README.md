@@ -3,6 +3,7 @@
 Hiboutik is a cloud point-of-sale platform for retail and hospitality businesses. Use this app to manage catalog data, customers, inventory, sales, kitchen operations, reporting, and store settings through the Hiboutik REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hiboutik/latest
+- **Category:** Commerce
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.hiboutik.com/

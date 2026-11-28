@@ -3,6 +3,7 @@
 Fivetran is a managed data movement platform for programmatically managing accounts, destinations, connections, schemas, transformations, webhooks, and operational sync workflows through the Fivetran REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fivetran/latest
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.fivetran.com/

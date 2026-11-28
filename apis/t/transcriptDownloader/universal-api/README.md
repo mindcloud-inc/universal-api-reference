@@ -3,7 +3,7 @@
 Extract transcripts, audio, and profile metadata from YouTube and Instagram
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/transcriptDownloader/latest
-- **Category:** Marketing / Social Media
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://transcriptdownloader.com

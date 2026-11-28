@@ -3,6 +3,7 @@
 Beatoven AI lets you generate AI music tracks from text prompts and check composition task status through Beatoven's public API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/beatovenAI/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://beatoven.ai

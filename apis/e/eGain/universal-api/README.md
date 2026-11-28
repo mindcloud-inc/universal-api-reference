@@ -3,6 +3,7 @@
 eGain Conversation Manager APIs for managing authentications, client applications, participants, channels, orchestrations, and accounts through eGain's server-to-server OAuth2 contract.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eGain/latest
+- **Category:** Support / Contact Center
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.egain.com

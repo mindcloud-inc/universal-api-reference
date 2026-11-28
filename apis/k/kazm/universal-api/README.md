@@ -3,6 +3,7 @@
 Kazm, now operating on the current Lightning Rod platform contract, lets teams generate datasets, manage files and file sets, run transform and training jobs, evaluate outputs, inspect organization balance, and call Lightning Rod's OpenAI-compatible endpoints.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/kazm/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.lightningrod.ai/

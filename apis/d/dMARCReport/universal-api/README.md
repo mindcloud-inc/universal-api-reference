@@ -3,6 +3,7 @@
 DMARC Report lets teams monitor DMARC, forensic, MTA-STS, domain, account, and Postmaster reporting data through the DMARC Report API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dMARCReport/latest
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://dmarcreport.com/

@@ -3,6 +3,7 @@
 Calculate valid working days, next working days, month boundaries, and working-day offsets using Mightora's free Calculate Working Day API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/calculateWorkingDay/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mightora.io/calculate-working-day/

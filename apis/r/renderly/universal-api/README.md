@@ -3,6 +3,7 @@
 Create videos, manage templates, upload media, and track renders
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/renderly/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://renderly.video

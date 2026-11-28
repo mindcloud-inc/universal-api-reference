@@ -3,6 +3,7 @@
 Fraser Direct warehouse management and fulfillment API for orders, shipment lookups, inventory, purchase orders, and inventory adjustments.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fraserDirect/latest
+- **Category:** Commerce / Supply Chain
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.fraserdirect.ca/

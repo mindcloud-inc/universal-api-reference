@@ -3,7 +3,7 @@
 Create, send, and analyze newsletters and subscriber data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/getANewsletter/latest
-- **Category:** Communication / Email Communications
+- **Category:** Marketing
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://getanewsletter.com

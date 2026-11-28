@@ -3,6 +3,7 @@
 Insult API through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/insultAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

@@ -3,7 +3,7 @@
 WhatsApp automation platform with JSON-RPC API support for contacts, templates, and outbound messaging.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eZContact/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Communication / Team Messaging
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ezcontact.ai

@@ -3,6 +3,7 @@
 Access FDIC BankFind Suite public banking data for insured institutions, branch locations, structure history, financials, summary data, failures, Summary of Deposits, and demographics.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fDIC/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.fdic.gov/resources/data-tools/

@@ -3,7 +3,7 @@
 Get exchange rates, convert amounts, and inspect currency metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/currencyAPI/latest
-- **Category:** Commerce / Accounting
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://currencyapi.com

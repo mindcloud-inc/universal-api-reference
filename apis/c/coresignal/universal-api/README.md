@@ -3,6 +3,7 @@
 Coresignal provides company, employee, and job intelligence APIs for search, enrichment, and bulk export workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/coresignal/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 48
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://coresignal.com

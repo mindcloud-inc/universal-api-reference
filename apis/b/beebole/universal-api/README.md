@@ -3,7 +3,7 @@
 Track project time, manage approvals, and analyze costs and billing
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/beebole/latest
-- **Category:** Human Resources / HRIS
+- **Category:** Productivity / Project Management
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://beebole.com

@@ -3,7 +3,7 @@
 Typlog is a blogging and podcast hosting platform for managing sites, posts, episodes, pages, subscribers, metrics, and webhooks through the Typlog API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/typlog/latest
-- **Category:** Marketing
+- **Category:** Website & App Building / CMS
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://typlog.com

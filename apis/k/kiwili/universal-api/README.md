@@ -3,6 +3,7 @@
 Kiwili is an ERP and business management platform for small businesses, covering enterprises, contacts, invoices, expenses, projects, time, products, services, and related finance operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/kiwili/latest
+- **Category:** Commerce / ERP
 - **Actions:** 54
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.kiwili.com

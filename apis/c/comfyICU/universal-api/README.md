@@ -3,6 +3,7 @@
 Run ComfyUI workflows on Comfy.ICU and retrieve run status and generated outputs through the Comfy.ICU REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/comfyICU/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://comfy.icu

@@ -3,6 +3,7 @@
 AdvantShop store API wrapper for orders, customers, catalog, products, categories, leads, bonus cards, and storefront data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/advantShop/latest
+- **Category:** Commerce
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.advantshop.net

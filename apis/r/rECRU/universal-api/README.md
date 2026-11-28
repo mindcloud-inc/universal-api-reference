@@ -3,6 +3,7 @@
 Recruiting software for managing candidates, hiring workflows, and backoffice recruiting operations in RECRU.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/rECRU/latest
+- **Category:** Human Resources / Recruiting
 - **Actions:** 21
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.recruhr.com/

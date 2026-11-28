@@ -46,6 +46,19 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `administrationId` | string | yes | Moneybird administration ID. |
 | `estimateId` | string | yes | Moneybird estimate ID. |
+| `estimate` | object | no |  |
+| `estimate.contactId` | string | no |  |
+| `estimate.reference` | string | no |  |
+| `estimate.currency` | string | no |  |
+| `estimate.pricesAreInclTax` | boolean | no |  |
+| `estimate.detailsAttributes[]` | array<object> | no |  |
+| `estimate.detailsAttributes[].description` | string | no |  |
+| `estimate.detailsAttributes[].amount` | number | no |  |
+| `estimate.detailsAttributes[].price` | number | no |  |
+| `estimate.detailsAttributes[].taxRateId` | string | no |  |
+| `estimate.detailsAttributes[].ledgerAccountId` | string | no |  |
+| `estimate.detailsAttributes[].id` | string | no |  |
+| `estimate.detailsAttributes[].destroy` | boolean | no |  |
 
 ## Response
 

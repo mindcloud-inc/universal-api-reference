@@ -3,6 +3,7 @@
 Generate intentionally insulting/offensive phrases in a selected supported language and response format.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/evilInsult/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://evilinsult.com/

@@ -3,6 +3,7 @@
 Access authoritative National Park Service data and content about parks, alerts, campgrounds, visitor centers, events, articles, media, and trip-planning resources.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nationalParkService/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nps.gov/subjects/developer/

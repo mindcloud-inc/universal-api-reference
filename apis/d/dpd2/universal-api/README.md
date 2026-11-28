@@ -3,7 +3,7 @@
 Access your DPD account data, including storefronts, products, purchases, subscribers, and customers, with support for purchase reactivation.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dpd2/latest
-- **Category:** IT Operations / IT Service Management
+- **Category:** Commerce
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://getdpd.com

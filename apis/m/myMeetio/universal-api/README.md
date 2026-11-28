@@ -3,6 +3,7 @@
 Appointment scheduling and booking platform for managing meeting topics, availability, and public booking pages.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/myMeetio/latest
+- **Category:** Productivity / Scheduling
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mymeet.io

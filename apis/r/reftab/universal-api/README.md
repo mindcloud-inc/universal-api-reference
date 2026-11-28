@@ -3,7 +3,7 @@
 Asset management and equipment tracking platform.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/reftab/latest
-- **Category:** IT Operations / Integration & Automation
+- **Category:** IT Operations / IT Service Management
 - **Vendor website:** https://www.reftab.com
 - **Vendor API docs:** https://www.reftab.com/api-docs/
 

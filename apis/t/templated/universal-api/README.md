@@ -3,7 +3,7 @@
 Generate images, videos, and PDFs from dynamic templates with Templated's API-first editor.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/templated/latest
-- **Category:** Marketing
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://templated.io/

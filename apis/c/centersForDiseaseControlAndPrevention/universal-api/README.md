@@ -3,7 +3,7 @@
 Search and retrieve CDC public health content
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/centersForDiseaseControlAndPrevention/latest
-- **Category:** Website & App Building / CMS
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.cdc.gov

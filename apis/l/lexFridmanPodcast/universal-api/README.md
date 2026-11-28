@@ -3,6 +3,7 @@
 Read Lex Fridman podcast posts, pages, media, and site metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/lexFridmanPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://lexfridman.com

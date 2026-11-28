@@ -3,6 +3,7 @@
 Zoho Assist is Zoho's remote support and unattended access platform for starting support sessions, managing unattended devices and groups, and retrieving session reports.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zohoAssist/latest
+- **Category:** IT Operations / IT Service Management
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://assist.zoho.com/

@@ -3,6 +3,7 @@
 File conversion API for creating conversion jobs, managing inputs, outputs, presets, contracts, statuses, and usage statistics.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/api2Convert/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.api2convert.com

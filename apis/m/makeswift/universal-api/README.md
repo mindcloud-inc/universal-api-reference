@@ -3,7 +3,7 @@
 Makeswift app for managing sites, pages, locales, and routes through the official Makeswift REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/makeswift/latest
-- **Category:** Marketing
+- **Category:** Website & App Building / CMS
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.makeswift.com/

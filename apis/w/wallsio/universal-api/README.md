@@ -3,6 +3,7 @@
 Manage Walls.io wall content and moderation via the Walls.io API, including posts, analytics, ads, and user moderation controls.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/wallsio/latest
+- **Category:** Marketing / Social Media
 - **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://walls.io

@@ -3,6 +3,7 @@
 Retrieve one or more random dog facts from Dog API v2.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dogFacts/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://dogapi.dog/

@@ -3,6 +3,7 @@
 Create, edit, and automate image and PDF assets
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/picnie/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 18
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://picnie.com

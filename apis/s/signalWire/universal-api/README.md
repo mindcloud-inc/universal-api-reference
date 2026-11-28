@@ -3,7 +3,7 @@
 Manage SignalWire calling, datasphere, fabric, fax, messaging, and voice resources from your SignalWire space.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/signalWire/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 120
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://signalwire.com

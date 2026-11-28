@@ -3,7 +3,7 @@
 Send SMS, manage contacts, and run text campaigns
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/txtSync/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://txtsync.com/

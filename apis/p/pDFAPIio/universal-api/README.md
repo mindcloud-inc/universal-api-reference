@@ -3,6 +3,7 @@
 Generate PDF documents and manage templates
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pDFAPIio/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://pdf-api.io

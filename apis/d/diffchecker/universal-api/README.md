@@ -3,6 +3,7 @@
 Diffchecker compares text, PDF documents, images, and spreadsheets through a REST API with JSON, HTML, and image-based diff outputs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/diffchecker/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.diffchecker.com

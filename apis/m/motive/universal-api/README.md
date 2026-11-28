@@ -3,6 +3,7 @@
 Motive fleet management endpoints for the Kendall job-backed data pulls: assets, vehicles, users, driver performance events, scorecard summary, driver utilization, and vehicle utilization.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/motive/latest
+- **Category:** Commerce / Supply Chain
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://gomotive.com/

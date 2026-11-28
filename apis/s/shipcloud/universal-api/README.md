@@ -3,7 +3,7 @@
 Create shipments, manifests, pickup requests, trackers, addresses, orders, shipment documents, and webhooks in Shipcloud.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/shipcloud/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 33
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://shipcloud.io/

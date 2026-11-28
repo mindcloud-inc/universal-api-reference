@@ -3,6 +3,7 @@
 Read random bunny metadata and media from the public Bunnies.io API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bunniesio/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bunnies.io/

@@ -3,7 +3,7 @@
 Send, receive, and manage SMS, MMS, fax, and address book workflows with Notifyre's public API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/notifyreSMS/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 29
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://notifyre.com

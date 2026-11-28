@@ -3,6 +3,7 @@
 Crawlbase provides crawling, scraping, screenshot, storage, account usage, and structured data extraction APIs for retrieving web data through Crawlbase infrastructure.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/crawlbase/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://crawlbase.com

@@ -3,6 +3,7 @@
 WebAutomation.io REST API wrapper for extractors, sessions, scraping, and extractor configuration using HTTP Basic auth.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/webAutomationio/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://webautomation.io

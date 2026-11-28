@@ -3,7 +3,7 @@
 Dynamic Mockups generates product mockups and print assets from templates and PSD files via API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dynamicMockups/latest
-- **Category:** Commerce
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://dynamicmockups.com

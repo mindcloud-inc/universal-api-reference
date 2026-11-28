@@ -3,6 +3,7 @@
 Browse random emojis and lists by category, group, or search
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/emojiHub/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://github.com/cheatsnake/emojihub

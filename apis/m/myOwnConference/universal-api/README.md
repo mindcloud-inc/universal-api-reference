@@ -3,7 +3,7 @@
 MyOwnConference is a webinar platform for scheduling webinars, managing attendees and moderators, and controlling webinar automation through the MyOwnConference public API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/myOwnConference/latest
-- **Category:** Marketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://myownconference.com

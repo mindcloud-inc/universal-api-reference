@@ -3,6 +3,7 @@
 Access the Electronic Code of Federal Regulations, including title metadata, agency metadata, search results, corrections, version history, structure, ancestry, and full title content from the public eCFR API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eCFR/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ecfr.gov

@@ -3,7 +3,7 @@
 Verify email addresses, inspect usage, and manage MailCop filters from TrueMail.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trueMail/latest
-- **Category:** Marketing
+- **Category:** Communication / Email Communications
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mailcop.net

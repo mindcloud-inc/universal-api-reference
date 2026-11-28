@@ -3,7 +3,7 @@
 Manage Hightouch sources, models, syncs, and event contracts
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hightouch/latest
-- **Category:** Marketing
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 36
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://hightouch.com

@@ -3,6 +3,7 @@
 Retrieve random, tagged, and captioned cat media plus Cataas cat metadata and tags.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cataas/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cataas.com/

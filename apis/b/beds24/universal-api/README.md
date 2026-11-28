@@ -3,6 +3,7 @@
 Beds24 API v2 integration for properties, bookings, inventory, accounts, channel settings, and channel operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/beds24/latest
+- **Category:** Productivity / Scheduling
 - **Actions:** 51
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.beds24.com

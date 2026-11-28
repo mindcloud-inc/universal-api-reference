@@ -3,6 +3,7 @@
 Monitor cyber risk across vendors, assets, and workforce
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/upGuard/latest
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.upguard.com

@@ -6,7 +6,7 @@ Retrieves a product from Booqable.
 
 - **Method:** `GET`
 - **Path:** `/products/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Get Product](https://developers.booqable.com/#products-fetch-a-product)
 
 ## Parameters

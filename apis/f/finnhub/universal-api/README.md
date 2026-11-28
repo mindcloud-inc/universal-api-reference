@@ -3,7 +3,7 @@
 Access stock, forex, crypto, company fundamentals, news, calendars, and market data from Finnhub.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/finnhub/latest
-- **Category:** Commerce / Accounting
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://finnhub.io

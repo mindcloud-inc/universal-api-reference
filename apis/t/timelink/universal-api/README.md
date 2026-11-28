@@ -3,7 +3,7 @@
 Time tracking software for managing time entries, clients, projects, services, and users across Timelink's desktop, mobile, and web experiences.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/timelink/latest
-- **Category:** Human Resources / HRIS
+- **Category:** Productivity / Project Management
 - **Actions:** 39
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://timelink.io

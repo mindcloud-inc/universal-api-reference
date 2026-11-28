@@ -3,7 +3,7 @@
 Read Apple Developer news feeds, Apple Newsroom posts, and public Apple media catalog results through Apple’s public RSS surfaces and iTunes Search and Lookup API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/appleNewsAndMusic/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 65
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.apple.com

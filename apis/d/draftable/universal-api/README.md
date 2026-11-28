@@ -3,6 +3,7 @@
 Compare documents and export review-ready PDFs
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/draftable/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://draftable.com

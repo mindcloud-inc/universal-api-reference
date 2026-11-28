@@ -3,7 +3,7 @@
 GrooveHQ customer support and help desk platform for tickets, messages, customers, agents, groups, and knowledge base content.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/grooveHQ/latest
-- **Category:** Support / Contact Center
+- **Category:** Support / Ticketing
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.groovehq.com/

@@ -3,6 +3,7 @@
 PDF, image, and e-signature automation for iLoveAPI/iLovePDF tasks, including task creation, task history, and signature request management.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/iLovePDFv2/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 39
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.iloveapi.com

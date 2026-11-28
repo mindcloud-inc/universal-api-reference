@@ -3,6 +3,7 @@
 FireHydrant is an alerting and incident management platform for declaring incidents, coordinating responders, automating response work, and reviewing reliability events.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fireHydrant/latest
+- **Category:** IT Operations / IT Service Management
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://firehydrant.com

@@ -3,6 +3,7 @@
 Liveblocks REST API for rooms, comments, notifications, groups, users, and related collaboration resources.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/liveblocks/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 57
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://liveblocks.io

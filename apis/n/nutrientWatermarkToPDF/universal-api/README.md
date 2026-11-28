@@ -3,6 +3,7 @@
 Add configurable text or image watermarks to PDF files using Nutrient DWS Processor API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nutrientWatermarkToPDF/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nutrient.io

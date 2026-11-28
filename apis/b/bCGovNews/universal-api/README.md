@@ -3,7 +3,7 @@
 Read BC government news releases, factsheets, and ministry or topic RSS feeds from the official BC Gov News site.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bCGovNews/latest
-- **Category:** Website & App Building / CMS
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://news.gov.bc.ca/

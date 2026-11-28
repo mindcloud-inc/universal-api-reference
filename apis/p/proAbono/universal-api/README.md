@@ -3,7 +3,7 @@
 Automate billing and manage self-service subscriptions for SaaS companies with ProAbono's customer, usage, offer, subscription, quote, and invoice APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/proAbono/latest
-- **Category:** Commerce / Accounting
+- **Category:** Commerce / Payments & Billing
 - **Vendor website:** https://www.proabono.com
 - **Vendor API docs:** https://docs.proabono.com/api/
 

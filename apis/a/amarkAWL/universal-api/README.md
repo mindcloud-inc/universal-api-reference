@@ -3,6 +3,7 @@
 Manage logistics orders, products, receipts, and suppliers
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/amarkAWL/latest
+- **Category:** Commerce / Supply Chain
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

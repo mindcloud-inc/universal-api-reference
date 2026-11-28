@@ -3,7 +3,7 @@
 LiveWebinar wrapper for webinar hosting, users, webinars, registrants, participants, presenters, invites, personal rooms, and forms.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/liveWebinar/latest
-- **Category:** Marketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://app.livewebinar.com

@@ -3,6 +3,7 @@
 Retrieve publicly available recall records from the U.S. Consumer Product Safety Commission recall database via the official CPSC Recall Retrieval REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cPSCRecallsRetrieval/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.cpsc.gov/Recalls/CPSC-Recalls-Application-Program-Interface-API-Information?language=en

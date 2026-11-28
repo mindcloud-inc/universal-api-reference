@@ -3,7 +3,7 @@
 FRED is the Federal Reserve Bank of St. Louis API for querying Federal Reserve Economic Data and ALFRED economic time series over HTTPS in XML or JSON.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/federalReserveEconomicData/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://fred.stlouisfed.org

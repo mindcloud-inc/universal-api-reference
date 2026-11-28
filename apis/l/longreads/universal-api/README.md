@@ -3,7 +3,7 @@
 Read Longreads stories, pages, authors, metadata, and recommendations
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/longreads/latest
-- **Category:** Website & App Building / CMS
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://longreads.com/

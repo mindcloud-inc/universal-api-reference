@@ -3,6 +3,7 @@
 Fetch random dad jokes, retrieve jokes by ID, and search the icanhazdadjoke catalog.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/icanhazdadjoke/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://icanhazdadjoke.com

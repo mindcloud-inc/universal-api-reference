@@ -3,6 +3,7 @@
 Verify single emails, launch bulk email verification tasks, fetch bulk verification results, check account credits, and find likely business email addresses through the documented EmailVerify.io API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/emailVerifyio/latest
+- **Category:** Communication / Email Communications
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.emailverify.io/

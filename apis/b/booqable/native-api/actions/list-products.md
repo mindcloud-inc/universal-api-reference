@@ -6,7 +6,7 @@ Retrieves product records from Booqable.
 
 - **Method:** `GET`
 - **Path:** `/products`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [List Products](https://developers.booqable.com/#products-list-products)
 
 ## Capabilities
@@ -17,5 +17,5 @@ This operation supports [pagination](../README.md#pagination) and [sorting](../R
 
 | Parameter | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `filter` | query | `object` | no | Hash of product filters using documented field/operator keys. |
+| `filter` | query | `string` | no | Booqable filters as a JSON object, for example {"archived":{"eq":false}}. |
 | `include` | query | `string` | no | Comma-separated relationships to sideload, for example barcode,inventory_levels,photo. |

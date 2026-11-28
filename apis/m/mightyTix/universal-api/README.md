@@ -3,7 +3,7 @@
 Admin GraphQL wrapper for managing accounts, events, sessions, ticket types, venues, users, and orders in Mighty Tix.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mightyTix/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 41
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mightytix.com

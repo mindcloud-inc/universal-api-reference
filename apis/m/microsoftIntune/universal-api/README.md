@@ -3,6 +3,7 @@
 Manage Microsoft Intune device, app, configuration, and policy resources through Microsoft Graph.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoftIntune/latest
+- **Category:** IT Operations / IT Service Management
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft.com/security/business/microsoft-intune

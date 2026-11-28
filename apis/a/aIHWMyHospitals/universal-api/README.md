@@ -3,6 +3,7 @@
 Access current Australian hospital data from the Australian Institute of Health and Welfare MyHospitals Data API, including measures, reported measures, datasets, reporting units, and flat data extracts.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aIHWMyHospitals/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.aihw.gov.au/reports-data/myhospitals

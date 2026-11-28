@@ -3,7 +3,7 @@
 SingleStore Flow on Helios Ingest wrapper for configuring source and destination database connections, schedules, table selection, and ingest operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/singleStore/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** IT Operations / Database
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.singlestore.com/

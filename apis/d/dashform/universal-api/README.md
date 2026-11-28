@@ -3,6 +3,7 @@
 Build and manage AI-native forms with Dashform, including authenticated form administration through the Dashform API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dashform/latest
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://getaiform.com/

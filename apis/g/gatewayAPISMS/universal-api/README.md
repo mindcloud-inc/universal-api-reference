@@ -3,7 +3,7 @@
 Send and track SMS messages with GatewayAPI
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gatewayAPISMS/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://gatewayapi.com

@@ -3,7 +3,7 @@
 DateX connects to Wavelength/SKU warehouse and fulfillment APIs for read-only operational data such as sales orders, shipments, inventory, materials, carriers, owners, and warehouses.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dateX/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 16
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://datexcorp.com/

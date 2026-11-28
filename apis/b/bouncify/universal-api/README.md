@@ -3,6 +3,7 @@
 Verify individual emails, upload and manage Bouncify bulk verification jobs, and download bulk verification results.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bouncify/latest
+- **Category:** Communication / Email Communications
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bouncify.io

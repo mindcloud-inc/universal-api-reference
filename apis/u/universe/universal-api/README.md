@@ -3,7 +3,7 @@
 Universe GraphQL integration for hosts, events, attendees, orders, discount codes, access keys, rates, categories, countries, and check-in workflows. The app includes 34 actions with live-validated QA coverage plus clearly documented in-development endpoints that still require account permissions or fixture data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/universe/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.universe.com/

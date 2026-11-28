@@ -3,6 +3,7 @@
 Disney API through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/disneyAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

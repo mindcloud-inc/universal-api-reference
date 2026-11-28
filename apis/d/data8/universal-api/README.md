@@ -3,7 +3,7 @@
 Validate, cleanse, and enrich address, email, phone, location, name, country, and bank data with Data8 web services.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/data8/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.data-8.co.uk

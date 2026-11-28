@@ -3,7 +3,7 @@
 Connect GanttPRO to read and manage projects, tasks, resources, comments, attachments, links, roles, and time logs through the official GanttPRO REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ganttPRO/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ganttpro.com/

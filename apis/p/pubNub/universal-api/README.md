@@ -3,7 +3,7 @@
 PubNub is a real-time messaging and event-streaming platform for building chat, live collaboration, alerts, and multi-tenant communication systems.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pubNub/latest
-- **Category:** Communication / Team Messaging
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pubnub.com

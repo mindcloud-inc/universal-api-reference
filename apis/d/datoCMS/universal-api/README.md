@@ -3,7 +3,7 @@
 Manage content models, publish assets, localize content, and ship updates.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/datoCMS/latest
-- **Category:** Marketing
+- **Category:** Website & App Building / CMS
 - **Actions:** 50
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.datocms.com/

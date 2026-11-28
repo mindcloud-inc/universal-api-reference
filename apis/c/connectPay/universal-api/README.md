@@ -3,6 +3,7 @@
 ConnectPay banking APIs for BaaS clients, accounts, payments, cards, merchant payments, and related payment operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/connectPay/latest
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://connectpay.com

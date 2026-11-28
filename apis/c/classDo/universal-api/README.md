@@ -3,7 +3,7 @@
 ClassDo GraphQL API integration for rooms, members, invitations, and recording workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/classDo/latest
-- **Category:** IT Operations / Developer Tools
+- **Category:** Human Resources / Learning (LMS)
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.classdo.com

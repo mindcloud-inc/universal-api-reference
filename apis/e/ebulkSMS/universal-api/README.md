@@ -3,7 +3,7 @@
 Send SMS and WhatsApp messages, check balance, and track delivery
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ebulkSMS/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ebulksms.com/

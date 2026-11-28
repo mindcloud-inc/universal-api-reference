@@ -3,6 +3,7 @@
 Browse archived AmiiboAPI catalog and metadata. Provider host is currently unavailable; retest before use.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/amiiboAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://github.com/N3evin/AmiiboAPI

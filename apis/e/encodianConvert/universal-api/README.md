@@ -3,6 +3,7 @@
 Encodian Flowr Convert provides file and data conversion actions for documents, PDFs, images, HTML, JSON, email, CAD, and Microsoft Office formats.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/encodianConvert/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.encodian.com/product/flowr/

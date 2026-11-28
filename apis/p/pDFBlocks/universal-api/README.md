@@ -3,7 +3,7 @@
 Process PDFs by merging, protecting, watermarking, and editing pages
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/pDFBlocks/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.pdfblocks.com

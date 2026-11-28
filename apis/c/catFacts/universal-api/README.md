@@ -3,6 +3,7 @@
 Retrieve cat facts and browse cat breed details from the Cat Fact API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/catFacts/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://catfact.ninja

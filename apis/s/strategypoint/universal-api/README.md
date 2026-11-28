@@ -3,6 +3,7 @@
 ClearPoint Strategy API access for scorecards, objectives, measures, initiatives, action items, risks, reports, users, and related strategic planning resources.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/strategypoint/latest
+- **Category:** Business Intelligence / Analytics & BI
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.clearpointstrategy.com/

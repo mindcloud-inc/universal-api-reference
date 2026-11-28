@@ -3,6 +3,7 @@
 Excuser through the MindCloud Universal API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/excuser/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

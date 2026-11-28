@@ -3,6 +3,7 @@
 Public transit feeds for King County Metro, including the static GTFS schedule dataset and GTFS-Realtime trip updates, vehicle positions, and service alerts.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/kingCountyMetro/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Vendor website:** https://kingcounty.gov/en/dept/metro
 - **Vendor API docs:** https://kingcounty.gov/en/dept/metro/rider-tools/mobile-and-web-apps#toc-developer-resources
 

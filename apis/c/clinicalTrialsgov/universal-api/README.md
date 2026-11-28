@@ -3,7 +3,7 @@
 ClinicalTrials.gov is the U.S. National Library of Medicine's public registry and results database for clinical studies. This app wraps the modernized ClinicalTrials.gov REST API v2 for study search, record retrieval, metadata, search areas, enums, and statistics.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clinicalTrialsgov/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://clinicaltrials.gov/

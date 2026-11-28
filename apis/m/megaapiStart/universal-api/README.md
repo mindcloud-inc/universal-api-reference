@@ -3,7 +3,7 @@
 Send WhatsApp messages, manage instances, webhooks, chats, and groups
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/megaapiStart/latest
-- **Category:** Support / Contact Center
+- **Category:** Communication / Team Messaging
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://megaapi.io

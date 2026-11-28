@@ -3,7 +3,7 @@
 Track Caltrain routes, stops, service alerts, and live train data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/caltrain/latest
-- **Category:** Productivity / Scheduling
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.caltrain.com

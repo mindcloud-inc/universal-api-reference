@@ -39,7 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `columns` | string | no | Select the Jobber invoice fields to return. Default: `["id","invoiceNumber","invoiceStatus","subject","message","createdAt","updatedAt","dueDate","issuedDate","receivedDate","jobberWebUri","client.id","client.name","client.firstName","client.lastName","jobs.nodes.id","jobs.nodes.jobNumber","properties.nodes.id"]`. |
+| `columns` | string | no | Select the Jobber invoice fields to return. Default: `["id","invoiceNumber","invoiceStatus","subject","message","createdAt","updatedAt","dueDate","issuedDate","receivedDate","jobberWebUri","client.id","client.name","client.firstName","client.lastName"]`. |
 | `createdAfter` | date | no | Only return invoices created after this timestamp (ISO 8601). Maps to filter.createdAt.after on the Jobber invoices query. Example: `2026-04-01T00:00:00.000Z`. |
 | `createdBefore` | date | no | Only return invoices created before this timestamp (ISO 8601). Maps to filter.createdAt.before on the Jobber invoices query. |
 | `clientId` | string | no | Only return invoices for the specified Jobber client id. |

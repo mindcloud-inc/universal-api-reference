@@ -3,6 +3,7 @@
 Manipulate, transform, optimize, watermark, inspect, and extract text from images using Encodian Flowr Image actions.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/encodianImage/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.encodian.com/product/flowr/

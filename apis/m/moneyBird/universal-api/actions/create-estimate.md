@@ -16,7 +16,8 @@ curl -X POST "https://connect.mindcloud.co/v1/universal/moneyBird/latest/actions
   -H "Content-Type: application/json" \
   -d '{
   "connectionId": "$CONNECTION_ID",
-  "administrationId": "string"
+  "administrationId": "string",
+  "estimate.contactId": "string"
 }'
 ```
 
@@ -29,7 +30,8 @@ const response = await fetch('https://connect.mindcloud.co/v1/universal/moneyBir
   },
   body: JSON.stringify({
     connectionId,
-    "administrationId": "string"
+    "administrationId": "string",
+    "estimate.contactId": "string"
   })
 });
 
@@ -43,6 +45,17 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `administrationId` | string | yes | Moneybird administration ID. |
+| `estimate` | object | no |  |
+| `estimate.contactId` | string | yes |  |
+| `estimate.reference` | string | no |  |
+| `estimate.currency` | string | no |  |
+| `estimate.pricesAreInclTax` | boolean | no |  |
+| `estimate.detailsAttributes[]` | array<object> | no |  |
+| `estimate.detailsAttributes[].description` | string | no |  |
+| `estimate.detailsAttributes[].amount` | number | no |  |
+| `estimate.detailsAttributes[].price` | number | no |  |
+| `estimate.detailsAttributes[].taxRateId` | string | no |  |
+| `estimate.detailsAttributes[].ledgerAccountId` | string | no |  |
 
 ## Response
 

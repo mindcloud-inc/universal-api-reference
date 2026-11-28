@@ -3,7 +3,7 @@
 Search and retrieve public NSF award records, funding metadata, and project outcomes.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nationalScienceFoundation/latest
-- **Category:** Content & Files / Storage
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nsf.gov

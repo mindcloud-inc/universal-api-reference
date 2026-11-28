@@ -3,7 +3,7 @@
 Manage PayWhirl customers, plans, subscriptions, invoices, charges, and saved cards through the official PayWhirl API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/payWhirl/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 41
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.paywhirl.com

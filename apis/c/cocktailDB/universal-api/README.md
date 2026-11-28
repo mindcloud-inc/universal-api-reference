@@ -3,6 +3,7 @@
 Search cocktail recipes, look up drinks and ingredients, and filter the CocktailDB catalog using a production API key.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cocktailDB/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.thecocktaildb.com/

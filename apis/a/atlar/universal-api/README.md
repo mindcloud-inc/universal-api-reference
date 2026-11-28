@@ -3,6 +3,7 @@
 Atlar is a treasury management platform API for payments, financial data, bank connections, accounts, transactions, entities, audit logs, forecasts, and regulatory reporting.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/atlar/latest
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 175
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.atlar.com/

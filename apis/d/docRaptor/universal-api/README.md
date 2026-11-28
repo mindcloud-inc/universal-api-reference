@@ -3,6 +3,7 @@
 DocRaptor converts HTML into PDF, XLS, and XLSX documents through a REST API, including synchronous, asynchronous, and hosted document workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/docRaptor/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://docraptor.com

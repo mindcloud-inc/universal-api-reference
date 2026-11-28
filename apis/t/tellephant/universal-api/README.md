@@ -3,6 +3,7 @@
 Tellephant provides WhatsApp messaging, OTP, contact tagging, unsubscribe, log, and webhook management APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/tellephant/latest
+- **Category:** Communication / Team Messaging
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.tellephant.com

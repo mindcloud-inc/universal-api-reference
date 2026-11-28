@@ -3,7 +3,7 @@
 Generate PDFs, manage templates, and store Eledo document files
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eledo/latest
-- **Category:** Content & Files / Storage
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://eledo.online

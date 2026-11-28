@@ -3,6 +3,7 @@
 Get random, typed, and identified jokes from the Official Joke API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/officialJokeAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://github.com/15Dkatz/official_joke_api

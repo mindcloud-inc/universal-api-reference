@@ -3,6 +3,7 @@
 LeadBoxer is a lead data platform for lead identification, qualification, website visitor intelligence, and lead management across website, email, and enrichment data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/leadboxer/latest
+- **Category:** Marketing
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.leadboxer.com

@@ -3,6 +3,7 @@
 Parse and format United States addresses
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/addressLabs/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Vendor website:** https://addresslabs.com/
 - **Vendor API docs:** https://github.com/addresslabs/api-docs
 

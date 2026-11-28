@@ -3,6 +3,7 @@
 Sendcrux is an email marketing and cold outreach platform for managing lists, subscribers, campaigns, delivery events, and related account resources through its REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sendcrux/latest
+- **Category:** Marketing
 - **Actions:** 29
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://sendcrux.com

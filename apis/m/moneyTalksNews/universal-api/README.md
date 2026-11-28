@@ -3,7 +3,7 @@
 Reads syndicated article items from the Money Talks News RSS feed URL supplied in the selected connection.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/moneyTalksNews/latest
-- **Category:** Website & App Building / CMS
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.moneytalksnews.com

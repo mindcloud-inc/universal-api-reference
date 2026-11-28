@@ -3,6 +3,7 @@
 Convert files, check formats, and track conversion jobs
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/convertHub/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 16
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://converthub.com

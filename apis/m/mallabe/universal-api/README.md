@@ -3,6 +3,7 @@
 Process images, upload files, inspect websites, convert currencies, and parse user agents
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mallabe/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.mallabe.com

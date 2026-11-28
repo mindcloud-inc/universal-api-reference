@@ -3,7 +3,7 @@
 Greip - Fraud Prevention provides IP intelligence, validation, and fraud-scoring APIs for geolocation, reputation checks, email and phone verification, domain and BIN/IBAN lookup, and payment risk analysis.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/greip/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://greip.io

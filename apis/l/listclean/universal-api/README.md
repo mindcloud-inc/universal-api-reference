@@ -3,6 +3,7 @@
 Listclean helps validate individual email addresses, verify email batches, manage uploaded verification lists, download list-cleaning results, and monitor account credits through its REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/listclean/latest
+- **Category:** Communication / Email Communications
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://listclean.xyz/

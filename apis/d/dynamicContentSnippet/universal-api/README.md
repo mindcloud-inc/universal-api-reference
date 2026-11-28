@@ -3,6 +3,7 @@
 ContentSnip lets users manage URL-specific HTML snippets through a provider-hosted REST API and JavaScript snippet.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dynamicContentSnippet/latest
+- **Category:** Website & App Building / CMS
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://contentsnip.com/

@@ -3,6 +3,7 @@
 Geolocate IPs and enrich location, network, phone, and email data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bigDataCloud/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 26
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bigdatacloud.com/

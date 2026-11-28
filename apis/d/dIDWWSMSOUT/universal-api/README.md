@@ -3,7 +3,7 @@
 Send outbound SMS messages through a DIDWW HTTP OUT trunk and verify HTTP OUT credentials without delivering a real message.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dIDWWSMSOUT/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.didww.com/

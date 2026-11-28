@@ -39,6 +39,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
+| `fields` | object | no |  |
 | `fields.customers` | string | no | Comma-separated customer fields to include instead of the default field set. |
 | `filter` | object | no | Advanced customer search filter object using Booqable's logical conditions syntax. |
 | `include` | string | no | Comma-separated relationships to sideload. |
@@ -97,5 +98,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Booqable API, this operation is `POST /customers/search` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/search-customers.md) for the provider-specific parameters and requirements.
+Through the native Booqable API, this operation is `POST /customers/search` (base URL `https://{{credentials.companySlug}}.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/search-customers.md) for the provider-specific parameters and requirements.
 

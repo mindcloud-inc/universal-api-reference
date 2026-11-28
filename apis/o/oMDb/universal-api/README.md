@@ -3,6 +3,7 @@
 Search movies, series, and episodes by title or IMDb ID
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/oMDb/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.omdbapi.com

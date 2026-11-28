@@ -6,7 +6,7 @@ Retrieves an item from Booqable.
 
 - **Method:** `GET`
 - **Path:** `/items/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Get Item](https://developers.booqable.com/#items-fetch-an-item)
 
 ## Parameters

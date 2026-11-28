@@ -6,7 +6,7 @@ Retrieves a stock item from Booqable.
 
 - **Method:** `GET`
 - **Path:** `/stock_items/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Get Stock Item](https://developers.booqable.com/#stock-items-fetch-a-stock_item)
 
 ## Parameters

@@ -3,7 +3,7 @@
 Manage contacts, calls, agents, and knowledge in echowin
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/echowin/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Support / Contact Center
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://echo.win

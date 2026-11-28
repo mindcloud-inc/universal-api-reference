@@ -3,6 +3,7 @@
 Coordinate people across teams and initiatives
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/meisterplan/latest
+- **Category:** Productivity / Project Management
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://meisterplan.com

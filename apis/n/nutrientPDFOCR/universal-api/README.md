@@ -3,6 +3,7 @@
 Extract text from scanned PDFs and images by creating searchable PDF outputs with Nutrient DWS Processor OCR.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nutrientPDFOCR/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nutrient.io

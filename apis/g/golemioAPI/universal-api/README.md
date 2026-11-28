@@ -3,6 +3,7 @@
 Access real-time and open data from the Golemio Prague Data Platform, including city infrastructure, mobility, parking, waste, environmental, and public-service datasets.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/golemioAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.golemio.cz/

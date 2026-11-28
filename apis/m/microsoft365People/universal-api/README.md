@@ -3,6 +3,7 @@
 Work with Microsoft 365 people and Outlook contacts through Microsoft Graph.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoft365People/latest
+- **Category:** Sales & CRM / CRM
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.microsoft365.com

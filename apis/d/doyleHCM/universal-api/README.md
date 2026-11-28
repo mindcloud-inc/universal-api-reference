@@ -3,6 +3,7 @@
 Doyle HCM provides payroll and HR services for U.S. employers through white-label employer and employee payroll portals backed by Worklio.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/doyleHCM/latest
+- **Category:** Human Resources / HRIS
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://doylehcm.com

@@ -3,6 +3,7 @@
 Retrieve number, math, year, date, and random trivia facts from Numbers API. The official public API uses HTTP only; do not send sensitive data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/numbersAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

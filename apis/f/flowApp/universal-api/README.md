@@ -3,7 +3,7 @@
 Webinar platform for managing Flow events, registrants, operators, surveys, and event reports via the official Flow REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/flowApp/latest
-- **Category:** Marketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.flowapp.com

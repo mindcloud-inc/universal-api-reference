@@ -3,6 +3,7 @@
 Create, reveal, track, and burn self-destructing secret links with Onetime Secret's current JSON API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/oneTimeSecret/latest
+- **Category:** IT Operations / Security & Identity
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://onetimesecret.com

@@ -3,6 +3,7 @@
 Chicago Transit Authority developer app for official CTA Train Tracker, route status, and detailed service alerts APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/chicagoTransitAuthority/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.transitchicago.com/

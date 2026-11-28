@@ -3,7 +3,7 @@
 Generate PDFs and images, manage templates, and merge PDFs
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aPITemplate/latest
-- **Category:** IT Operations / Integration & Automation
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://apitemplate.io/

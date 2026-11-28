@@ -3,6 +3,7 @@
 Read the latest Consider This from NPR episodes and episode metadata from the public podcast feed.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/considerThisPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.npr.org

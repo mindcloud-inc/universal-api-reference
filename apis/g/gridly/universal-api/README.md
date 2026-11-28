@@ -3,7 +3,7 @@
 Gridly is a localization and structured content platform for managing projects, databases, grids, views, records, glossaries, translation memories, automations, and delivery workflows through a REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gridly/latest
-- **Category:** IT Operations / IT Service Management
+- **Category:** Website & App Building / CMS
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.gridly.com

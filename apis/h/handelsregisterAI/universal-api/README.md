@@ -3,7 +3,7 @@
 Search German commercial-register organizations, fetch company details, and retrieve official registry documents.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/handelsregisterAI/latest
-- **Category:** IT Operations / Database
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://handelsregister.ai/

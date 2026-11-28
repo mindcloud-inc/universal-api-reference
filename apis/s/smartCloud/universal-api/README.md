@@ -3,6 +3,7 @@
 2Smart Cloud is a cloud platform for connecting and supporting Internet of Things devices, including vendor-side product, firmware, layout, dashboard, statistics, and notification management.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/smartCloud/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 236
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://2smart.com/

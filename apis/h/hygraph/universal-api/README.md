@@ -3,7 +3,7 @@
 Hygraph is a headless CMS for creating, managing, and delivering structured content through GraphQL APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hygraph/latest
-- **Category:** Marketing
+- **Category:** Website & App Building / CMS
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://hygraph.com

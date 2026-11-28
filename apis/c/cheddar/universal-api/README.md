@@ -3,7 +3,7 @@
 Cheddar handles subscription billing with pricing plans, customer subscriptions, tracked usage, invoices, charges, refunds, and promotions.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cheddar/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://getcheddar.com

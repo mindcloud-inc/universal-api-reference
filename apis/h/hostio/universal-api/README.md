@@ -3,7 +3,7 @@
 Analyze domains, DNS, related domains, and web metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hostio/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://host.io

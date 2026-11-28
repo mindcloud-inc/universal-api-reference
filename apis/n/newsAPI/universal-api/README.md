@@ -3,7 +3,7 @@
 Search breaking news headlines, source metadata, and historical articles from News API's REST endpoints.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/newsAPI/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://newsapi.org

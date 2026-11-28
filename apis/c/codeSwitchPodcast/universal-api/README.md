@@ -3,6 +3,7 @@
 Official NPR Code Switch podcast RSS feed.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/codeSwitchPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.npr.org/podcasts/510312/codeswitch

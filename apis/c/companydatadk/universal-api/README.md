@@ -3,7 +3,7 @@
 Search Danish companies, financials, and reference data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/companydatadk/latest
-- **Category:** IT Operations / Database
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://companydata.dk

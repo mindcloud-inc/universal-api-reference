@@ -3,6 +3,7 @@
 NetLicensing is a license management and software monetization platform for managing products, licensees, licenses, tokens, transactions, bundles, and related licensing resources through a REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/netLicensing/latest
+- **Category:** Commerce
 - **Actions:** 42
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://netlicensing.io

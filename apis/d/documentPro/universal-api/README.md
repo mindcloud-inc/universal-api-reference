@@ -3,6 +3,7 @@
 DocumentPro extracts structured data from documents and manages extraction workflows over the DocumentPro REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/documentPro/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://documentpro.ai

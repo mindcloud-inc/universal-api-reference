@@ -3,7 +3,7 @@
 Look up IP geolocation, domain WHOIS, and hosted domains by IP with IP2Location.io and IP2WHOIS. Bulk IP geolocation is available on supported provider plans.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/iP2LocationioIPGeolocationAPI/latest
-- **Category:** IT Operations / Security & Identity
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ip2location.io

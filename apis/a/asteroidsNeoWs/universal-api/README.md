@@ -3,6 +3,7 @@
 NASA Asteroids NeoWs (Near Earth Object Web Service) provides near-Earth asteroid information, including close-approach date searches, asteroid lookup by NASA JPL small body ID, and browsing the overall near-Earth object dataset.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/asteroidsNeoWs/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Vendor website:** https://api.nasa.gov/
 - **Vendor API docs:** https://api.nasa.gov/
 

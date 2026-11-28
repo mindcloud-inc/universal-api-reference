@@ -3,7 +3,7 @@
 Access FCC Public Inspection Files APIs for broadcast and cable facility data, contours, public file folders, files, search, history, and supported entity-management operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/federalCommunicationsCommission/latest
-- **Category:** Content & Files / Storage
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://publicfiles.fcc.gov/

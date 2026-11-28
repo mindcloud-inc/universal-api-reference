@@ -3,6 +3,7 @@
 Get daily, weekly, and monthly horoscope readings
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/horoscope/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://freehoroscopeapi.com/

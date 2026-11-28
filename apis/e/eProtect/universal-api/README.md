@@ -3,6 +3,7 @@
 Manage chemical inventory, locations, and Safety Data Sheets
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eProtect/latest
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 38
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.3eco.com/3e-solutions/chemical-workplace-safety/3e-protect/

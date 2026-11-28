@@ -3,6 +3,7 @@
 Extract clean text, Markdown, or HTML from webpage and YouTube URLs using URLtoText.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/uRLToText/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://urltotext.com/

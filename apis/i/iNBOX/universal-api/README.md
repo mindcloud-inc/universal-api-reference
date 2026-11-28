@@ -3,7 +3,7 @@
 INBOX is an email marketing platform API for managing campaigns, newsletters, senders, contacts, contact lists, groups, custom fields, and segments.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/iNBOX/latest
-- **Category:** Communication / Email Communications
+- **Category:** Marketing
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://useinbox.com/

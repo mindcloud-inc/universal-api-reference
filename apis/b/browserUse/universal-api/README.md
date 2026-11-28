@@ -3,6 +3,7 @@
 Browser Use provides managed AI browser automation, persistent browser sessions, profiles, workspaces, files, and account billing APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/browserUse/latest
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://browser-use.com

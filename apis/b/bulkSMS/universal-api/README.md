@@ -3,7 +3,7 @@
 BulkSMS.com provides a JSON REST API for sending and receiving SMS messages, managing message webhooks and blocked numbers, viewing account profile information, transferring credits, and preparing SMS attachment uploads.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bulkSMS/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bulksms.com/

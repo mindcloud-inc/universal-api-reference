@@ -3,6 +3,7 @@
 Moorcheh provides REST APIs for namespaces, semantic search, text/vector data ingestion, document retrieval, file upload URLs, deletion, and AI answer generation.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/moorcheh/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://moorcheh.ai

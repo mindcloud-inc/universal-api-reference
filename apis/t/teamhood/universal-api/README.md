@@ -3,7 +3,7 @@
 Manage Teamhood workspaces, boards, rows, items, attachments, users, logs, and timelogs through the Teamhood REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/teamhood/latest
-- **Category:** Support / Ticketing
+- **Category:** Productivity / Project Management
 - **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://teamhood.com

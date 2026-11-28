@@ -3,7 +3,7 @@
 Access U.S. Energy Information Administration open energy datasets, including electricity, fuel, emissions, forecasts, state energy data, international statistics, and nuclear outage data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/energyInformationAdministration/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 53
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.eia.gov/

@@ -3,6 +3,7 @@
 Generate Bacon Ipsum placeholder text as JSON paragraphs or sentences.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/baconIpsum/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://baconipsum.com/

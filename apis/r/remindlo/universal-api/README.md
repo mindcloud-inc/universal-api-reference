@@ -3,7 +3,7 @@
 SMS reminder platform for managing reminder campaigns, contacts, one-time messages, and webhook endpoints.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/remindlo/latest
-- **Category:** Productivity / Scheduling
+- **Category:** Support / Contact Center
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.remindlo.co.uk

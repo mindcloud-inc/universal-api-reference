@@ -3,6 +3,7 @@
 Convert Office documents, images, HTML, Markdown, URLs, and archival documents into PDF outputs with Nutrient DWS Processor API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nutrientConvertToPDF/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nutrient.io

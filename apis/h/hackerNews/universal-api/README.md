@@ -3,6 +3,7 @@
 Read Hacker News stories, comments, users, and live update feeds from the public Hacker News API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hackerNews/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 50
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://news.ycombinator.com/

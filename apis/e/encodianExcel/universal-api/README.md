@@ -3,6 +3,7 @@
 Encodian Flowr Excel connector for creating, merging, securing, parsing, and manipulating Microsoft Excel and CSV files through Encodian's document automation API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/encodianExcel/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.encodian.com/product/flowr/

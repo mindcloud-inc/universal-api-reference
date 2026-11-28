@@ -3,7 +3,7 @@
 Generate PDFs and inspect template metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudFill/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.cloudfill.io

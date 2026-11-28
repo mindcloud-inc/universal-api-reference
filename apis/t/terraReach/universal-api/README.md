@@ -3,7 +3,7 @@
 Send transactional and bulk SMS and retrieve message stats with TerraReach.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/terraReach/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Vendor website:** https://www.terrareach.com
 - **Vendor API docs:** https://docs.terrareach.com/api-reference/introduction
 

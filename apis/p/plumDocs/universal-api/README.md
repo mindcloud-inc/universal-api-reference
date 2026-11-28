@@ -3,7 +3,7 @@
 Generate and manage documents from Google Docs templates
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/plumDocs/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://plumdocs.com/

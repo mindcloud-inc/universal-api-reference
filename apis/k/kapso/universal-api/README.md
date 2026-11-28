@@ -3,6 +3,7 @@
 Kapso is a WhatsApp API platform for developers to manage phone numbers, contacts, conversations, messages, broadcasts, and webhooks through project-scoped APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/kapso/latest
+- **Category:** Communication / Team Messaging
 - **Vendor website:** https://kapso.ai
 - **Vendor API docs:** https://docs.kapso.ai/llms.txt
 

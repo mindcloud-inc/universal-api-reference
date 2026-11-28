@@ -3,7 +3,7 @@
 Messaggio is a multichannel messaging platform for SMS and Viber delivery.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/messaggio/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://messaggio.com/

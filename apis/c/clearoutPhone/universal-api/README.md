@@ -3,6 +3,7 @@
 Validate phone numbers worldwide and retrieve carrier, line type, location, and credit availability with the ClearoutPhone REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clearoutPhone/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://clearoutphone.io/

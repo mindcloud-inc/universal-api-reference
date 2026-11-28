@@ -3,6 +3,7 @@
 Habitica API integration for tasks, tags, user profile, and related productivity workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/habitica/latest
+- **Category:** Productivity / Project Management
 - **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://habitica.com

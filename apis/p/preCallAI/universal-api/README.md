@@ -3,7 +3,7 @@
 PreCallAI helps teams build, manage, and run AI voice-call workflows with assistants, dialers, segments, campaigns, and call playground tooling.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/preCallAI/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Support / Contact Center
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://precallai.com

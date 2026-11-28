@@ -3,6 +3,7 @@
 Cisco Umbrella provides cloud-delivered DNS-layer security and exposes APIs for managing users, roles, alert rules, alerts, integrations, and organization lookups through the Umbrella and Cisco SSE admin APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/umbrella/latest
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.cisco.com/site/us/en/products/security/umbrella/index.html

@@ -3,7 +3,7 @@
 Send SMS messages, check account balance, and manage messaging operations through LabsMobile's SMS API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/labsMobile/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.labsmobile.com/

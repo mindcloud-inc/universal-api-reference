@@ -3,7 +3,7 @@
 Ticket Generator helps teams generate secure event tickets with QR codes, ticket images, and direct delivery through its API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ticketGenerator/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ticket-generator.com

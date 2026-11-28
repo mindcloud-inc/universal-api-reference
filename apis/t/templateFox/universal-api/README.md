@@ -3,7 +3,7 @@
 Generate PDFs from templates, inspect account credits, and manage TemplateFox templates through the API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/templateFox/latest
-- **Category:** IT Operations / Integration & Automation
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://templatefox.com

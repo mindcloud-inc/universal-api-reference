@@ -3,7 +3,7 @@
 Access Zyte Stats API reports through curated analytics actions over the official stats endpoint.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/zyte/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 31
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://zyte.com/

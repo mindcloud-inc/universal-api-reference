@@ -3,6 +3,7 @@
 Public Harry Potter API with character, house, student, staff, and spell lookup actions.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/harryPotter/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://hp-api.onrender.com/

@@ -3,7 +3,7 @@
 Manage Click2Mail addresses, documents, proofs, cost estimates, and mail jobs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/click2Mail/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Marketing
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developers.click2mail.com/

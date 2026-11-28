@@ -3,7 +3,7 @@
 Upload, transform, and generate responsive image source sets with VisionFly's image optimization API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/visionFly/latest
-- **Category:** Content & Files / Storage
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 12
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://visionfly.ai

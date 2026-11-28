@@ -3,7 +3,7 @@
 Public RSS feed wrapper for The New York Times Hard Fork podcast. Use it to read the latest published episodes and episode metadata from the official Simplecast feed.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hardForkPodcast/latest
-- **Category:** Website & App Building / CMS
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nytimes.com/column/hard-fork

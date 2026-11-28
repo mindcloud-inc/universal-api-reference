@@ -3,6 +3,7 @@
 Dungeon Fighter Online is a multiplayer action RPG. This MindCloud app wraps Neople Developers' Dungeon & Fighter Open API for read-only game metadata such as server, character, auction, item, and job information.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/dungeonFighterOnline/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.dfoneople.com/

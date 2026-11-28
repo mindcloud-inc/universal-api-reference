@@ -3,7 +3,7 @@
 Public IMF DataMapper API for indicators, countries, regions, analytical groups, and time-series macroeconomic data published by the International Monetary Fund.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/internationalMonetaryFund/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.imf.org/en/Data

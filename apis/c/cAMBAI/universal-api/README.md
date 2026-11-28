@@ -3,7 +3,7 @@
 Generate speech, translations, dubbing, and audio content
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cAMBAI/latest
-- **Category:** IT Operations / Developer Tools
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://camb.ai

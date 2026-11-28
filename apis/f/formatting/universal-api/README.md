@@ -3,6 +3,7 @@
 Pipedream Formatting Components for transforming and parsing text, URLs, dates, numbers, JSON, HTML, and markdown.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/formatting/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://pipedream.com/apps/formatting

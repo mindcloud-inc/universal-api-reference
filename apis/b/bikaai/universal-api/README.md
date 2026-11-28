@@ -3,6 +3,7 @@
 Bika.ai is an AI workflow automation and database platform for spaces, databases, records, attachments, automations, and webhooks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bikaai/latest
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bika.ai/

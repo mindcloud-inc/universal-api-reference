@@ -3,7 +3,7 @@
 SMS Manager by BulkSMS.com.au provides a REST API for validating API keys, checking account context, managing SMS account resources, and sending SMS through the SMS Manager v2 platform.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sMSManagerByBulkSMScomau/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 39
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://smsmanager.com.au/

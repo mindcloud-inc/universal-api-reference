@@ -3,6 +3,7 @@
 Browse Kennedy-Mighell Report episodes and show feed metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/kennedyMighellReportPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Vendor website:** https://legaltalknetwork.com/podcasts/kennedy-mighell-report/
 - **Vendor API docs:** https://legaltalknetwork.com/podcasts/kennedy-mighell-report/
 

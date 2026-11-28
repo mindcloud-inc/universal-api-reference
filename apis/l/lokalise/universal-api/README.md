@@ -3,6 +3,7 @@
 Manage Lokalise translation projects, keys, files, and localization workflows from MindCloud.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/lokalise/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://lokalise.com

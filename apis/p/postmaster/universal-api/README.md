@@ -3,7 +3,7 @@
 Postmaster+ provides team-scoped email deliverability monitoring, email intelligence, blocklist scanning, and screenshot capture APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/postmaster/latest
-- **Category:** Marketing
+- **Category:** Communication / Email Communications
 - **Actions:** 14
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://postmasterplus.app

@@ -3,6 +3,7 @@
 Aviation data API for real-time flights, schedules, flight details, airports, airlines, routes, fleets, countries, time zones, tax codes, nearby airport lookup, and destination suggestions.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/airlabs/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 18
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://airlabs.co/

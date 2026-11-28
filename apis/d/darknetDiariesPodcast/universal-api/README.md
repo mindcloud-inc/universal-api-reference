@@ -3,6 +3,7 @@
 Browse Darknet Diaries episodes and podcast metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/darknetDiariesPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://darknetdiaries.com

@@ -3,6 +3,7 @@
 Send physical postcards through EchtPost, inspect existing cards, contacts, and templates, and check or top up account credits.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/echtPostPostcards/latest
+- **Category:** Marketing
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://echtpost.de

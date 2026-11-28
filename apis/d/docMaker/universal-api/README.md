@@ -3,6 +3,7 @@
 Create, fill, and render PDFs from templates and webpages
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/docMaker/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://docmaker.co

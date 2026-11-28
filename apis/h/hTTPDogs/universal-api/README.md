@@ -3,6 +3,7 @@
 Read HTTP status dog representations as JPEG, WebP, JXL, AVIF, or JSON.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hTTPDogs/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://http.dog/

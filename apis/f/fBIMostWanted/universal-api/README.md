@@ -3,7 +3,7 @@
 Access public wanted-person and case records from the FBI Wanted program through the official FBI Wanted API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fBIMostWanted/latest
-- **Category:** IT Operations / Database
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.fbi.gov/wanted

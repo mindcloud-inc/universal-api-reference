@@ -3,6 +3,7 @@
 FlowFast is a kanban-first project and work management platform for boards, columns, lanes, cards, comments, files, tags, and documents.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/flowFast/latest
+- **Category:** Productivity / Project Management
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.flowfast.io

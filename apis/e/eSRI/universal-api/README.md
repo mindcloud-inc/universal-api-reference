@@ -3,6 +3,7 @@
 ESRI wraps ArcGIS location services for geocoding, places, routing, and portal metadata workflows with an ArcGIS API key.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eSRI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.esri.com/

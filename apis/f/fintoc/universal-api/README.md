@@ -3,7 +3,7 @@
 Fintoc API integration for payments, transfers, direct debit, and bank movement data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fintoc/latest
-- **Category:** Commerce / Accounting
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.fintoc.com

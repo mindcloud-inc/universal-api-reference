@@ -3,6 +3,7 @@
 Manage Inistate modules, entries, and workflow activities
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/inistate/latest
+- **Category:** IT Operations / Integration & Automation
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://inistate.com/

@@ -44,10 +44,10 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `fields.orders` | string | no | Comma-separated order fields to include instead of the default fields. Example: `created_at,updated_at,number`. |
+| `fieldsOrders` | string | no | Comma-separated order fields to include instead of the default fields. Example: `created_at,updated_at,number`. |
 | `include` | string | no | Comma-separated relationships to sideload. Example: `customer,coupon,start_location`. |
-| `filter` | object | no | Raw filter object using Booqable filter[field][operator]=value semantics. Example: `[object Object]`. |
-| `meta.total[]` | array<string> | no | Aggregations to include in meta.total. Example: `count`. |
+| `filter` | string | no | Booqable filters as a JSON object, for example {"archived":{"eq":false}}. Example: `[object Object]`. |
+| `metaTotal` | string<string> | no | Aggregations to include in meta.total. Accepts multiple values as an array. Example: `count`. |
 
 ## Response
 
@@ -77,5 +77,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Booqable API, this operation is `GET /orders` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-orders.md) for the provider-specific parameters and requirements.
+Through the native Booqable API, this operation is `GET /orders` (base URL `https://{{credentials.companySlug}}.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/list-orders.md) for the provider-specific parameters and requirements.
 

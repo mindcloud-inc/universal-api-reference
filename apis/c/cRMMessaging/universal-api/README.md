@@ -3,7 +3,7 @@
 Send SMS, WhatsApp, voice calls, and manage contacts
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cRMMessaging/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://crm-messaging.cloud

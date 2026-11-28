@@ -3,6 +3,7 @@
 Manage contacts, assignments, service agreements, and account data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/previsto/latest
+- **Category:** Support / Field Service
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://previsto.com

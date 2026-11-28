@@ -3,7 +3,7 @@
 Review and approval workspace for managing Filestage projects, files, reviewer groups, reviews, and comments.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/filestage/latest
-- **Category:** Content & Files / Storage
+- **Category:** Productivity / Project Management
 - **Actions:** 81
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://filestage.io

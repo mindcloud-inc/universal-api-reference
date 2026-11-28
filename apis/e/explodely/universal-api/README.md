@@ -3,7 +3,7 @@
 Manage Explodely affiliates, payouts, contracts, and rebills
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/explodely/latest
-- **Category:** Commerce
+- **Category:** Marketing / Advertising
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://explodely.com/

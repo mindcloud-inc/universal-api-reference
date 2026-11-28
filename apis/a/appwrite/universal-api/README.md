@@ -3,6 +3,7 @@
 Appwrite official server API wrapper built from the Appwrite 1.8.x OpenAPI.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/appwrite/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 375
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://appwrite.io

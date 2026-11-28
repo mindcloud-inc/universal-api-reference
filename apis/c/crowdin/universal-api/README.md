@@ -3,6 +3,7 @@
 Crowdin: Localize software, apps, websites, and content
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/crowdin/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://crowdin.com

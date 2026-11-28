@@ -3,6 +3,7 @@
 Access worldwide live and historical news articles and news-source metadata from Mediastack's REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mediastack/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mediastack.com

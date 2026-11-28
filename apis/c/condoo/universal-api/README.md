@@ -3,7 +3,7 @@
 Manage analytics websites, visitors, goals, and reporting
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/condoo/latest
-- **Category:** Marketing
+- **Category:** Business Intelligence / Analytics & BI
 - **Actions:** 34
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trk.condoo.systems/en/

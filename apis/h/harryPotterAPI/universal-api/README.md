@@ -3,6 +3,7 @@
 Get Harry Potter characters and spells
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/harryPotterAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor API docs:** https://hp-api.onrender.com/

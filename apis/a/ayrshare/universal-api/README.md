@@ -3,7 +3,7 @@
 Unified social media API for publishing posts, managing post history, validating content, generating AI social copy, managing media, profiles, RSS feeds, webhooks, and retrieving social analytics across Ayrshare-supported networks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ayrshare/latest
-- **Category:** Marketing
+- **Category:** Marketing / Social Media
 - **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ayrshare.com

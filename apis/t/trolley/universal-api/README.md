@@ -3,7 +3,7 @@
 Trolley payout and invoice management API integration.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trolley/latest
-- **Category:** Commerce / Accounting
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 32
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trolley.com

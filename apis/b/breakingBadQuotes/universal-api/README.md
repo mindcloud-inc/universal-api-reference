@@ -3,6 +3,7 @@
 Read public random Breaking Bad quotes and their authors from the unofficial Breaking Bad Quotes API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/breakingBadQuotes/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://breakingbadquotes.xyz/

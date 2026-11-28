@@ -3,6 +3,7 @@
 ActivityInfo is an information management platform for monitoring and evaluation, reporting, case management, and data collection workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/activityInfo/latest
+- **Category:** Productivity / Project Management
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.activityinfo.org

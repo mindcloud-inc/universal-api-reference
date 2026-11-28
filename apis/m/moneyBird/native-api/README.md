@@ -27,7 +27,7 @@ The flow supports refresh tokens. Refresh expired access tokens with a POST requ
 
 | Operation | Method & path | Vendor docs |
 | --- | --- | --- |
-| [Create Contact](actions/create-contact.md) | `POST /:administrationId/contacts.json` | [docs](https://developer.moneybird.com/api/contacts) |
+| [Create Contact](actions/create-contact.md) | `POST /:administrationId/contacts.json` | [docs](https://developer.moneybird.com/api/contacts/) |
 | [Create Estimate](actions/create-estimate.md) | `POST /:administrationId/estimates.json` | [docs](https://developer.moneybird.com/api/estimates/) |
 | [Create General Document](actions/create-general-document.md) | `POST /:administrationId/documents/general_documents.json` | [docs](https://developer.moneybird.com/api/documents-general-documents/) |
 | [Create Product](actions/create-product.md) | `POST /:administrationId/products.json` | [docs](https://developer.moneybird.com/api/products) |
@@ -50,7 +50,7 @@ The flow supports refresh tokens. Refresh expired access tokens with a POST requ
 | [List Webhooks](actions/list-webhooks.md) | `GET /:administrationId/webhooks.json` | [docs](https://developer.moneybird.com/api/webhooks/) |
 | [Send Estimate](actions/send-estimate.md) | `PATCH /:administrationId/estimates/:estimateId/send_estimate.json` | [docs](https://developer.moneybird.com/api/estimates/) |
 | [Send Sales Invoice](actions/send-sales-invoice.md) | `PATCH /:administrationId/sales_invoices/:salesInvoiceId/send_invoice.json` | [docs](https://developer.moneybird.com/api/sales-invoices/) |
-| [Update Contact](actions/update-contact.md) | `PATCH /:administrationId/contacts/:contactId.json` | [docs](https://developer.moneybird.com/api/contacts) |
+| [Update Contact](actions/update-contact.md) | `PATCH /:administrationId/contacts/:contactId.json` | [docs](https://developer.moneybird.com/api/contacts/) |
 | [Update Estimate](actions/update-estimate.md) | `PATCH /:administrationId/estimates/:estimateId.json` | [docs](https://developer.moneybird.com/api/estimates/) |
 | [Update Product](actions/update-product.md) | `PATCH /:administrationId/products/:productId.json` | [docs](https://developer.moneybird.com/api/products) |
 | [Update Sales Invoice](actions/update-sales-invoice.md) | `PATCH /:administrationId/sales_invoices/:salesInvoiceId.json` | [docs](https://developer.moneybird.com/api/sales-invoices/) |

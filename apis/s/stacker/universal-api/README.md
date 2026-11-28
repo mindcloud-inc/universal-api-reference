@@ -3,7 +3,7 @@
 Manage Stacker accounts, stacks, objects, fields, and records
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/stacker/latest
-- **Category:** IT Operations / IT Service Management
+- **Category:** IT Operations / Database
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://stackerhq.com

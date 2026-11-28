@@ -3,6 +3,7 @@
 Use Airiam AI to manage workspaces, models, AI experts, and chat workflows from the Airiam REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/airiamAI/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ai.airiam.com

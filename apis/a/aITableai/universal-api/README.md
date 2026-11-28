@@ -3,6 +3,7 @@
 AITable.ai is a spreadsheet-database platform for managing spaces, datasheets, records, fields, views, files, teams, and roles through the AITable Fusion API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aITableai/latest
+- **Category:** IT Operations / Database
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://aitable.ai

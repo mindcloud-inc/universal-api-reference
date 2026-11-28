@@ -3,6 +3,7 @@
 ModelsLab provides AI APIs for image generation, video generation, audio and voice workflows, 3D generation, image editing, and related account utilities.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/modelsLab/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://modelslab.com

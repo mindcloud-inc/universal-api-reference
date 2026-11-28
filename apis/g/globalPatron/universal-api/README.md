@@ -3,7 +3,7 @@
 Manage Global Patron forms, submissions, datalists, users, and webhooks through the documented GlobalPatron API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/globalPatron/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 36
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.globalpatron.com

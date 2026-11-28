@@ -3,6 +3,7 @@
 Retrieve a random developer excuse in the default English or documented French locale. Data is supplied by the Dev Excuses API project.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/devExcuses/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

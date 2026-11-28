@@ -3,6 +3,7 @@
 Retrieve Cloudmersive currency exchange rates, list supported currencies, and convert prices between currency pairs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudmersiveCurrency/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudmersive.com/currency-api

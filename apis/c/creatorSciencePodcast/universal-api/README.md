@@ -3,6 +3,7 @@
 List Creator Science podcast episodes
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/creatorSciencePodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://podcast.creatorscience.com

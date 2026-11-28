@@ -3,6 +3,7 @@
 Validate emails, domains, URLs, IP addresses, addresses, phone numbers, VAT numbers, names, and text inputs using the Cloudmersive Data Validation API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudmersiveDataValidation/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudmersive.com/validate-api

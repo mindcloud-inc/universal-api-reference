@@ -3,7 +3,7 @@
 Create surveys, collect responses, and analyze customer feedback
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/refiner/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://refiner.io

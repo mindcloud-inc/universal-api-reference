@@ -3,6 +3,7 @@
 Generate Metaphorpsum placeholder paragraphs or sentences.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/metaphorpsum/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://lorum.casjay.vercel.app/

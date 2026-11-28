@@ -3,7 +3,7 @@
 Generate PDF and DOCX documents from Word templates, manage templates, and automate document creation with the TemplateDocs API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/templateDocs/latest
-- **Category:** IT Operations / Integration & Automation
+- **Category:** IT Operations / Developer Tools
 - **Vendor website:** https://templatedocs.io/
 - **Vendor API docs:** https://templatedocs.io/docs/api/overview
 

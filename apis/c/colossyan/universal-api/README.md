@@ -3,7 +3,7 @@
 Create and manage Colossyan video-generation jobs, generated videos, avatars, voices, and draft generation from knowledge inputs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/colossyan/latest
-- **Category:** Communication / Video Communications
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.colossyan.com

@@ -40,7 +40,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `fields.orders` | string | no | Comma-separated order fields to include instead of the default fields. Example: `created_at,updated_at,number`. |
+| `fieldsOrders` | string | no | Comma-separated order fields to include instead of the default fields. Example: `created_at,updated_at,number`. |
 | `include` | string | no | Comma-separated relationships to sideload. Example: `barcode,coupon,customer`. |
 
 ## Response
@@ -71,5 +71,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Booqable API, this operation is `GET /orders/new` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-new-order.md) for the provider-specific parameters and requirements.
+Through the native Booqable API, this operation is `GET /orders/new` (base URL `https://{{credentials.companySlug}}.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-new-order.md) for the provider-specific parameters and requirements.
 

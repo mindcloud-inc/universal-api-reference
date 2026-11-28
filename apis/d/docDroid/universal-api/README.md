@@ -3,7 +3,7 @@
 Upload, share, manage, analyze, and subscribe to document webhooks in DocDroid.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/docDroid/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Content & Files / Storage
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.docdroid.com/

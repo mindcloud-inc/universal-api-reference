@@ -3,7 +3,7 @@
 Send SMS campaigns and manage contacts, templates, and responses
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/avoSMS/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.avosms.com/en

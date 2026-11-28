@@ -3,6 +3,7 @@
 AI-powered call management, contact, recording, scheduling, calendar, billing, and speaker-identification API integration for CallKeeper.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/callKeeper/latest
+- **Category:** Support / Contact Center
 - **Actions:** 36
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://callkeeper.ai

@@ -3,7 +3,7 @@
 Access planned and real-time public transportation data from BKK Futar for Budapest, including stops, arrivals, departures, schedules, vehicles, alerts, references, and bicycle rental stations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bKKFutar/latest
-- **Category:** Support / Field Service
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://opendata.bkk.hu/data-sources

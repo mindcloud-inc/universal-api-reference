@@ -3,7 +3,7 @@
 Accept cryptocurrency payments, manage refunds and billing, run payouts, and inspect ledger activity in CoinGate.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/coinGate/latest
-- **Category:** Commerce
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://coingate.com

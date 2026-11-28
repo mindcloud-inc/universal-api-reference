@@ -3,7 +3,7 @@
 Send SMS campaigns, manage contacts, and track delivery performance
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sMSEdge/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://smsedge.com

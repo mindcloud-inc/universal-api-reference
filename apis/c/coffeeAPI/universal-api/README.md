@@ -3,6 +3,7 @@
 Get random coffee images and image URLs
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/coffeeAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://coffee.alexflipnote.dev/

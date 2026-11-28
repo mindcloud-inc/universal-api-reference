@@ -3,7 +3,7 @@
 Send SMSGlobal messages and manage contacts, groups, and account settings
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sMSGlobal/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.smsglobal.com

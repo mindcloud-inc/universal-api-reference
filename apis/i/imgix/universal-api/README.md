@@ -3,6 +3,7 @@
 Programmatic access to the imgix Management API for sources, assets, reports, purges, and upload-session workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/imgix/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 21
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.imgix.com

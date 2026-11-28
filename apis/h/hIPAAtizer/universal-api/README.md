@@ -3,7 +3,7 @@
 HIPAAtizer API for HIPAA-compliant forms, submissions, appointments, and related operations for healthcare workflows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/hIPAAtizer/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 11
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.hipaatizer.com

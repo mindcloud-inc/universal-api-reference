@@ -3,6 +3,7 @@
 Generate random corporate buzzwords and jargon
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/corporateBuzzwordGenerator/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://corporatebs-generator.sameerkumar.website

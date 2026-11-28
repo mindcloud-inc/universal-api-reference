@@ -3,7 +3,7 @@
 SmartSurvey API provides access to survey data, from listing all surveys to getting all the responses for a survey.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/smartSurvey/latest
-- **Category:** Marketing
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.smartsurvey.co.uk

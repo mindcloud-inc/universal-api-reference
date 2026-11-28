@@ -3,6 +3,7 @@
 Megaplan API v3 integration for CRM, tasks, employees, documents, offers, invoices, projects, and related account resources.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/megaplan/latest
+- **Category:** Sales & CRM / CRM
 - **Actions:** 60
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://megaplan.ru

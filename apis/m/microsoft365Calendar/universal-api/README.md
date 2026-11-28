@@ -3,6 +3,7 @@
 Access Microsoft 365 calendar data through Microsoft Graph, including calendars, events, and calendar views for the signed-in user.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/microsoft365Calendar/latest
+- **Category:** Productivity / Scheduling
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://outlook.office.com/calendar/

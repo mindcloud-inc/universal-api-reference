@@ -3,7 +3,7 @@
 Track ComEd hourly and 5-minute electricity prices
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/comEd/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://hourlypricing.comed.com/

@@ -3,6 +3,7 @@
 Find events, races, camps, and classes on ACTIVE
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/activeNetwork/latest
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.active.com

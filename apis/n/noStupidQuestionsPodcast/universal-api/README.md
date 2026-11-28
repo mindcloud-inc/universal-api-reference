@@ -3,6 +3,7 @@
 Read public episode and show metadata from the No Stupid Questions podcast RSS feed.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/noStupidQuestionsPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://freakonomics.com/series/nsq/

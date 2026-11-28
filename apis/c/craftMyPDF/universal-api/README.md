@@ -3,6 +3,7 @@
 Create PDFs and images, manage templates, and edit documents
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/craftMyPDF/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://craftmypdf.com

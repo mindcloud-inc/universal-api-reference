@@ -3,7 +3,7 @@
 Access BEA published economic statistics and metadata, including national, regional, international, and industry account datasets.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bureauOfEconomicAnalysis/latest
-- **Category:** Business Intelligence / Analytics & BI
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bea.gov

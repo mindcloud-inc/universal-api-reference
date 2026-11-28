@@ -3,6 +3,7 @@
 NEXT lets you query and create customer-feedback data within your teamspace, including accounts, highlights, playlists, projects, recordings, AI artifacts, automations, integrations, tags, users, views, and related tenant resources.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nEXT/latest
+- **Category:** Support / Customer Success
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.nextapp.co/

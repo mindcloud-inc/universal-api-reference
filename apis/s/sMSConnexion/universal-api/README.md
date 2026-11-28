@@ -3,7 +3,7 @@
 Send SMS, manage campaigns, and track messaging delivery across channels
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sMSConnexion/latest
-- **Category:** Marketing
+- **Category:** Support / Contact Center
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://sms.cx/

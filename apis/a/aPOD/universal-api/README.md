@@ -3,7 +3,7 @@
 Retrieve NASA astronomy images and metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/aPOD/latest
-- **Category:** Website & App Building / CMS
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://apod.nasa.gov/apod/astropix.html

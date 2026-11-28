@@ -3,6 +3,7 @@
 Access NOAA NCEI Climate Data Online datasets, locations, stations, data types, and observed climate data through the CDO Web Services API v2.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nCEIClimateData/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 13
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.ncei.noaa.gov/cdo-web/

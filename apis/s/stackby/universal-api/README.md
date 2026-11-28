@@ -3,6 +3,7 @@
 Use Stackby's public API to manage workspaces, stacks, tables, columns, views, files, and rows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/stackby/latest
+- **Category:** IT Operations / Database
 - **Actions:** 17
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://stackby.com/

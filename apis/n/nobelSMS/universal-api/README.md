@@ -3,7 +3,7 @@
 Send campaigns, automate notifications, and manage SMS delivery with NobelSMS
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nobelSMS/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://nobelsms.com

@@ -3,6 +3,7 @@
 Retrieve congressional legislation, members, committees, and records
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/congressgov/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.congress.gov

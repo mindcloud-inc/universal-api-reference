@@ -3,7 +3,7 @@
 Run FFmpeg and FFprobe jobs through Rendi's cloud API with asynchronous polling and hosted file outputs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/rendi/latest
-- **Category:** Business Intelligence / Data Extraction
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.rendi.dev

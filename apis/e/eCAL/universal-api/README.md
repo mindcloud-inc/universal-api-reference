@@ -3,7 +3,7 @@
 ECAL provides API access for managing calendars, events, private subscriber events, subscribers, and partner sub-accounts.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eCAL/latest
-- **Category:** Marketing
+- **Category:** Productivity / Scheduling
 - **Actions:** 29
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://ecal.com

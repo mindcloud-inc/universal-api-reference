@@ -3,6 +3,7 @@
 PDF document automation tools from Cross Service Solutions, including PDF merge, compression, conversion, protection, unlocking, metadata removal, flattening, and AI question answering.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/xSSPDFSolutions/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://login.cross-service-solutions.com

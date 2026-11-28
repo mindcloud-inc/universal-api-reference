@@ -3,6 +3,7 @@
 Read All Things Considered stories and audio links
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/allThingsConsideredPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.npr.org/programs/all-things-considered

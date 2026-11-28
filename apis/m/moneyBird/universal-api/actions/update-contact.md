@@ -46,6 +46,18 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 | --- | --- | --- | --- |
 | `administrationId` | string | yes | Moneybird administration ID. |
 | `contactId` | string | yes | Moneybird contact ID. |
+| `contact` | object | no |  |
+| `contact.companyName` | string | no |  |
+| `contact.firstName` | string | no |  |
+| `contact.lastName` | string | no |  |
+| `contact.email` | string | no |  |
+| `contact.phone` | string | no |  |
+| `contact.address1` | string | no |  |
+| `contact.address2` | string | no |  |
+| `contact.zipcode` | string | no |  |
+| `contact.city` | string | no |  |
+| `contact.country` | string | no |  |
+| `contact.customerId` | string | no |  |
 
 ## Response
 

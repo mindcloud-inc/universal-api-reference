@@ -3,7 +3,7 @@
 Manage inventory, products, orders, and sales channels
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/stockpilot/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://stockpilot.com

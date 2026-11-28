@@ -6,7 +6,7 @@ Creates a new product in Booqable.
 
 - **Method:** `POST`
 - **Path:** `/products`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Create Product](https://developers.booqable.com/#products-create-a-product)
 
 ## Parameters

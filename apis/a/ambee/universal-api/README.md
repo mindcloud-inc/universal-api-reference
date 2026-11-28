@@ -3,6 +3,7 @@
 Access climate, air quality, pollen, weather, wildfire, disaster, geocoding, and elevation data from Ambee.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/ambee/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 19
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.getambee.com/

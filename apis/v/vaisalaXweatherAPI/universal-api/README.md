@@ -3,6 +3,7 @@
 Get weather, forecast, alert, air quality, lightning, maritime, road weather, and environmental data from the Vaisala Xweather Weather API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/vaisalaXweatherAPI/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.xweather.com/

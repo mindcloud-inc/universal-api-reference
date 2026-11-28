@@ -3,7 +3,7 @@
 Send and manage SMS, email, and 2FA messaging with Infobip.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/infobip/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.infobip.com/

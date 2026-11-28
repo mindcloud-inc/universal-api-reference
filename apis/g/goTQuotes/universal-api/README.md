@@ -3,6 +3,7 @@
 Read fan-maintained Game of Thrones quotes and related character and house reference data. Use quote content only in ways that respect applicable franchise rights.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/goTQuotes/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 

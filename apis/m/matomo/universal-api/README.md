@@ -3,6 +3,7 @@
 Matomo analytics and administration API for querying visitor, acquisition, content, event, goal, ecommerce, and site configuration data from a Matomo Cloud instance.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/matomo/latest
+- **Category:** Business Intelligence / Analytics & BI
 - **Actions:** 584
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://matomo.org/

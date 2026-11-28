@@ -3,7 +3,7 @@
 Use the Bulk24SMS public API for profile lookup, user administration, and balance checks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bulk24SMS/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bulk24sms.com/

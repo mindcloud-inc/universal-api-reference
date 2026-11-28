@@ -3,6 +3,7 @@
 Manage Clustdoc teams, contacts, templates, applications, forms, portals, tags, and custom data fields through the Clustdoc REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clustDoc/latest
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 41
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://clustdoc.com

@@ -3,6 +3,7 @@
 PeakIDX real-estate search and lead-management API covering search criteria, saved-search results, and lead synchronization for tenant websites.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/peakIDX/latest
+- **Category:** Sales & CRM / CRM
 - **Actions:** 4
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.peakidx.com/

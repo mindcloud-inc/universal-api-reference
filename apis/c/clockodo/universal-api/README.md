@@ -3,7 +3,7 @@
 Clockodo time tracking and work-time API wrapper.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/clockodo/latest
-- **Category:** Human Resources / HRIS
+- **Category:** Productivity / Project Management
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.clockodo.com/

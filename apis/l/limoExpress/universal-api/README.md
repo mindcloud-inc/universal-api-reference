@@ -3,7 +3,7 @@
 LimoExpress dispatch and booking platform API for bookings, vehicles, clients, invoices, and related transportation operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/limoExpress/latest
-- **Category:** IT Operations / IT Service Management
+- **Category:** Commerce / Supply Chain
 - **Actions:** 39
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.limoexpress.me/

@@ -3,6 +3,7 @@
 Generate images and videos from reusable templates
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/duply/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://duply.co/

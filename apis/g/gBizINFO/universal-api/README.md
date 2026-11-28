@@ -3,7 +3,7 @@
 Search and monitor Japanese corporate records and filings
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gBizINFO/latest
-- **Category:** IT Operations / Database
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://info.gbiz.go.jp

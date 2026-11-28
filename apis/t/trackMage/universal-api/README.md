@@ -3,7 +3,7 @@
 TrackMage helps teams manage workspaces, orders, shipments, shipment items, products, product variants, and workflows through a REST API delivered as JSON and LD+JSON over HTTPS.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/trackMage/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://trackmage.com

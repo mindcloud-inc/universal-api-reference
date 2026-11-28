@@ -50,8 +50,8 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
-| `fields.availabilities` | string | no | Comma-separated availability fields to include instead of the default fields. Example: `subject_type,subject_id,date,status,available`. |
-| `meta.total[]` | array<string> | no | Aggregations to include in meta.total. Example: `count`. |
+| `fieldsAvailabilities` | string | no | Comma-separated availability fields to include instead of the default fields. Example: `subject_type,subject_id,date,status,available`. |
+| `metaTotal` | string<string> | no | Aggregations to include in meta.total. Accepts multiple values as an array. Example: `count`. |
 | `day` | number | no | Day of the month for time-based availability. Example: `10`. |
 | `startsAt` | date | no | Start timestamp for time-based availability. Example: `2026-04-10 09:00:00`. |
 | `durationPeriod` | string | no | Time-slot duration period for day views. Example: `day`. |
@@ -85,5 +85,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Booqable API, this operation is `GET /availabilities` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/get-product-availability.md) for the provider-specific parameters and requirements.
+Through the native Booqable API, this operation is `GET /availabilities` (base URL `https://{{credentials.companySlug}}.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication and pagination. See the [native action reference](../../native-api/actions/get-product-availability.md) for the provider-specific parameters and requirements.
 

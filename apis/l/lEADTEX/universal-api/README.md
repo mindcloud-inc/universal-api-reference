@@ -3,6 +3,7 @@
 LEADTEX chatbot constructor API for managing account information, messages, contacts, balances, tags, custom variables, lists, and media links.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/lEADTEX/latest
+- **Category:** Communication / Team Messaging
 - **Actions:** 51
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://leadteh.ru

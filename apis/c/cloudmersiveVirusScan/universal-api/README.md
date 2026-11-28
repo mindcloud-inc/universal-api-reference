@@ -3,6 +3,7 @@
 Scan files, websites, and content with Cloudmersive Virus Scan to detect viruses, malware, and related security threats.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudmersiveVirusScan/latest
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudmersive.com/virus-api

@@ -3,6 +3,7 @@
 Read BBC Sport rugby headlines and article links
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bBCSportRugby/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 20
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bbc.co.uk/sport

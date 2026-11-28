@@ -3,7 +3,7 @@
 Send guest satisfaction surveys and retrieve guest feedback data through Guestmeter's REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/guestmeter/latest
-- **Category:** Sales & CRM / CRM
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.guestmeter.com/

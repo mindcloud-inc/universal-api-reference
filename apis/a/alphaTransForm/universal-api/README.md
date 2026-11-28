@@ -3,6 +3,7 @@
 Manage TransForm forms, submissions, users, and workflows
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/alphaTransForm/latest
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://transform.alphasoftware.com

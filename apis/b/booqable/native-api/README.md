@@ -3,7 +3,7 @@
 A consolidated summary of Booqable's API configuration and 23 documented operations, with links to official documentation.
 
 - **Official docs:** https://developers.booqable.com/
-- **API base URL:** `https://mindcloud.booqable.com/api/4`
+- **API base URL:** `https://{companySlug}.booqable.com/api/4`
 
 ## Authentication
 
@@ -14,6 +14,7 @@ Authenticate Booqable requests with a personal access token.
 ### Credentials
 
 - **API Key:** `apiKey` · required
+- **Company Subdomain:** `companySlug` · required · Enter the part before .booqable.com in your company URL.
 
 Send these headers with each API request:
 

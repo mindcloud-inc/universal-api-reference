@@ -3,6 +3,7 @@
 Create and scan QR codes with goQR.me
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/goQRme/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://goqr.me/

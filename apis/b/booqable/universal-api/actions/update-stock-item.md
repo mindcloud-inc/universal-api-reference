@@ -93,5 +93,5 @@ Arguments are sent as JSON body fields ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Booqable API, this operation is `PUT /stock_items/:id` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-stock-item.md) for the provider-specific parameters and requirements.
+Through the native Booqable API, this operation is `PUT /stock_items/:id` (base URL `https://{{credentials.companySlug}}.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/update-stock-item.md) for the provider-specific parameters and requirements.
 

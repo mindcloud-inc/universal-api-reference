@@ -6,7 +6,7 @@ Updates an existing order in Booqable.
 
 - **Method:** `PUT`
 - **Path:** `/orders/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Update Order](https://developers.booqable.com/#orders-update-an-order)
 
 ## Parameters

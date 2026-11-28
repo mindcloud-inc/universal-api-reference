@@ -3,6 +3,7 @@
 Generate and retrieve banner images, templates, and set renders from Bannertize.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bannertize/latest
+- **Category:** Marketing
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bannertize.com

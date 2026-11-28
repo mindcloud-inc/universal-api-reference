@@ -3,7 +3,7 @@
 Connect Callexa Feedback to read survey statistics and replies, create recipients and replies, and manage webhook subscriptions through the official REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/callexaFeedback/latest
-- **Category:** IT Operations / Developer Tools
+- **Category:** Productivity / Forms & Surveys
 - **Vendor website:** https://www.callexa.com/en/
 - **Vendor API docs:** https://www.callexa.com/api/doc/index.html
 

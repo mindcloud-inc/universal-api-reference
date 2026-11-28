@@ -3,6 +3,7 @@
 Build BotHelp integrations for subscribers, flows, sequences, bot steps, custom fields, tags, and outbound messages through the official BotHelp Open API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/botHelp/latest
+- **Category:** Communication / Team Messaging
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://bothelp.io

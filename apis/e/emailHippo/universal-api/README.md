@@ -3,7 +3,7 @@
 Email Hippo MORE email verification and quota APIs for validating email addresses and checking remaining license usage.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/emailHippo/latest
-- **Category:** IT Operations / Security & Compliance
+- **Category:** Communication / Email Communications
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.emailhippo.com/

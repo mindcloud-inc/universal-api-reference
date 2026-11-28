@@ -3,6 +3,7 @@
 Access forecasts, alerts, observations, and weather data
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nationalWeatherService/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.weather.gov

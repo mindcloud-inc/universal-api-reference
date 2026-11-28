@@ -3,6 +3,7 @@
 Retrieve botanical and nutritional data for fruits, measured per 100 grams.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/fruityvice/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.fruityvice.com/

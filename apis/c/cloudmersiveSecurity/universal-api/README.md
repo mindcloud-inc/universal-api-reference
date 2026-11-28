@@ -3,6 +3,7 @@
 Detects and blocks security threats in strings, URLs, and IP addresses using Cloudmersive Security Threat Detection APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cloudmersiveSecurity/latest
+- **Category:** IT Operations / Security & Compliance
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://cloudmersive.com/security-threat-detection-api

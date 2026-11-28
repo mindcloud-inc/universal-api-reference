@@ -3,7 +3,7 @@
 Build, run, and manage Toolhouse AI agents and agent runs through the Toolhouse API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/toolhouse/latest
-- **Category:** IT Operations / IT Service Management
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://toolhouse.ai

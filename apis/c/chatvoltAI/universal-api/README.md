@@ -3,7 +3,7 @@
 Manage Chatvolt agents, conversations, contacts, dispatches, datastores, artifacts, CRM workflows, and messaging endpoints through the official Chatvolt API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/chatvoltAI/latest
-- **Category:** Support / Ticketing
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 107
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://chatvolt.ai

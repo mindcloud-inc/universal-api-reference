@@ -3,6 +3,7 @@
 Access Businesslogic.online calculator metadata and execute calculator inputs through the public describe and execute API endpoints.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/businesslogiconline/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 2
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.businesslogic.online

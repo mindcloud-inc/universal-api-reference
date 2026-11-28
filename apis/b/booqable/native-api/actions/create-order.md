@@ -6,7 +6,7 @@ Creates a new order in Booqable.
 
 - **Method:** `POST`
 - **Path:** `/orders`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Create Order](https://developers.booqable.com/#orders-create-an-order)
 
 ## Parameters

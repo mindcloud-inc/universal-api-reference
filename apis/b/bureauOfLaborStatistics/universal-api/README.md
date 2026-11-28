@@ -3,6 +3,7 @@
 Access public U.S. Bureau of Labor Statistics time-series data, popular series, and survey metadata through the BLS Public Data API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/bureauOfLaborStatistics/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.bls.gov/

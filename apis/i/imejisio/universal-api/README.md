@@ -3,6 +3,7 @@
 Template-based image generation API for creating branded images from reusable designs and JSON data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/imejisio/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.imejis.io/

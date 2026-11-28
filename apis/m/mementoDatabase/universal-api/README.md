@@ -3,6 +3,7 @@
 Manage Memento libraries and records.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/mementoDatabase/latest
+- **Category:** IT Operations / Database
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://mementodatabase.com

@@ -3,6 +3,7 @@
 Calendarific provides worldwide holiday and observance data across countries, states, regions, and languages.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/calendarific/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 3
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://calendarific.com/

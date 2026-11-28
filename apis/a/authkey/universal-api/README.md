@@ -3,6 +3,7 @@
 Send and verify messages across SMS, voice, email, and WhatsApp
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/authkey/latest
+- **Category:** Support / Contact Center
 - **Actions:** 22
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://authkey.io

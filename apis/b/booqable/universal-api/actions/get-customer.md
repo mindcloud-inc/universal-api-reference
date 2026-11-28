@@ -37,7 +37,7 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 | Key | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | string | yes | Customer ID. |
-| `fields.customers` | string | no | Comma-separated customer fields to include instead of the default field set. |
+| `fieldsCustomers` | string | no | Comma-separated customer fields to include instead of the default field set. |
 | `include` | string | no | Comma-separated relationships to sideload. |
 
 ## Response
@@ -94,5 +94,5 @@ Arguments are sent as query string parameters ([conventions](../arguments.md)).
 
 ## Native endpoint
 
-Through the native Booqable API, this operation is `GET /customers/:id` (base URL `https://mindcloud.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-customer.md) for the provider-specific parameters and requirements.
+Through the native Booqable API, this operation is `GET /customers/:id` (base URL `https://{{credentials.companySlug}}.booqable.com/api/4`). The Universal API call above is translated to it by MindCloud, including authentication. See the [native action reference](../../native-api/actions/get-customer.md) for the provider-specific parameters and requirements.
 

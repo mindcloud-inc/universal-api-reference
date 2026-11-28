@@ -3,6 +3,7 @@
 Public JSON API for Project Gutenberg ebook metadata and catalog search via Gutendex.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/gutendex/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 15
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://gutendex.com/

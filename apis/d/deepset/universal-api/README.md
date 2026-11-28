@@ -3,6 +3,7 @@
 Build production-grade retrieval, search, pipeline, workspace, job, feedback, and administration automations for deepset Haystack Enterprise Platform.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/deepset/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.deepset.ai/

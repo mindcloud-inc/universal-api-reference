@@ -3,6 +3,7 @@
 Copperx API for managing organizations, payment settings, customers, invoices, payment links, checkout sessions, products, prices, tax rates, subscriptions, webhooks, and related payment operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/copperx/latest
+- **Category:** Commerce / Payments & Billing
 - **Actions:** 35
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.copperx.io

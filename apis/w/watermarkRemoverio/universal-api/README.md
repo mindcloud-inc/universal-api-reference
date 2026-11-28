@@ -3,6 +3,7 @@
 WatermarkRemover.io removes watermarks and related visual artifacts from images using PixelBin-powered transformation APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/watermarkRemoverio/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 24
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.watermarkremover.io

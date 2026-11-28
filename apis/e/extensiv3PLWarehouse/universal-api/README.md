@@ -3,7 +3,7 @@
 Manage Extensiv 3PL Warehouse Manager customers, items, inventory, receivers, purchase orders, orders, shipments, packages, locations, and warehouse reference data through the 3PL Central REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/extensiv3PLWarehouse/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Vendor website:** https://www.extensiv.com/3pl/products/3pl-warehouse-manager
 - **Vendor API docs:** https://developer.3plcentral.com/#34586810-c20c-410d-9295-9ae07aa10c54
 

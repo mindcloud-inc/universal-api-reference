@@ -3,6 +3,7 @@
 Official AccuWeather API integration for locations, current conditions, forecasts, alerts, alarms, imagery, tropical, translations, and MinuteCast data.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/accuWeather/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 64
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://developer.accuweather.com

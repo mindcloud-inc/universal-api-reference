@@ -3,7 +3,7 @@
 Search and retrieve NASA images, videos, audio, and metadata
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/nASAImageAndVideoLibrary/latest
-- **Category:** Content & Files / Storage
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://images.nasa.gov

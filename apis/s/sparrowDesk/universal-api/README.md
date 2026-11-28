@@ -3,7 +3,7 @@
 SparrowDesk helpdesk REST API for contacts, conversations, members, tags, and conversation-field management.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/sparrowDesk/latest
-- **Category:** Support / Contact Center
+- **Category:** Support / Ticketing
 - **Actions:** 21
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://sparrowdesk.com

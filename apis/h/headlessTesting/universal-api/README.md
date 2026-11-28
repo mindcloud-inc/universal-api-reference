@@ -3,6 +3,7 @@
 TestingBot API integration for managing testing resources over the documented REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/headlessTesting/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 59
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://headlesstesting.com

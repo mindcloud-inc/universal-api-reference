@@ -3,6 +3,7 @@
 Circa API integration for managing events, contacts, companies, teams, event staffing, expenses, exports, and customization fields.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/eventGeek/latest
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://circa.co

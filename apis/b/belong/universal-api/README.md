@@ -3,7 +3,7 @@
 Belong is a token-gated events, memberships, and venue engagement platform with APIs for events, hubs, notes, addresses, QR pass workflows, and on-chain collection flows.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/belong/latest
-- **Category:** Support / Ticketing
+- **Category:** Marketing / Events & Webinars
 - **Actions:** 10
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://belong.net

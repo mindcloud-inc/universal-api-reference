@@ -3,7 +3,7 @@
 ExpertTexting lets users send SMS and MMS messages, check delivery status, read unread inbox replies, and view account balance through the provider's published REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/expertTexting/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.experttexting.com

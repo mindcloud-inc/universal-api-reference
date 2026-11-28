@@ -3,6 +3,7 @@
 Access IntakeQ tenant data for questionnaires, clients, appointments, notes, invoices, claims, and files through the official IntakeQ REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/intakeQ/latest
+- **Category:** Productivity / Forms & Surveys
 - **Actions:** 45
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://intakeq.com

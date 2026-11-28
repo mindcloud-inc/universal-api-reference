@@ -3,6 +3,7 @@
 Connect to Frappe sites to manage DocTypes, documents, file uploads, and whitelisted method calls through the official REST and RPC APIs.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/frappe/latest
+- **Category:** Commerce / ERP
 - **Actions:** 46
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://frappe.io/framework

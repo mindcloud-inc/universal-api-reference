@@ -6,7 +6,7 @@ Retrieves an order from Booqable.
 
 - **Method:** `GET`
 - **Path:** `/orders/:id`
-- **Base URL:** `https://mindcloud.booqable.com/api/4`
+- **Base URL:** `https://{companySlug}.booqable.com/api/4`
 - **Official documentation:** [Get Order](https://developers.booqable.com/#orders-fetch-an-order)
 
 ## Parameters

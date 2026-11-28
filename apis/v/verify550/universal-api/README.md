@@ -3,7 +3,7 @@
 Verify emails, validate lists, and export verification results
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/verify550/latest
-- **Category:** IT Operations / IT Service Management
+- **Category:** Communication / Email Communications
 - **Actions:** 7
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://verify550.com

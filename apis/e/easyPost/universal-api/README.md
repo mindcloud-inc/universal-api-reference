@@ -3,6 +3,7 @@
 EasyPost provides shipping APIs for rates, labels, tracking, customs, pickups, batches, refunds, and related shipping operations.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/easyPost/latest
+- **Category:** Commerce / Supply Chain
 - **Actions:** 40
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.easypost.com

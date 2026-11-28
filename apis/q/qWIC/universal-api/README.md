@@ -3,6 +3,7 @@
 Automate sales, support, and marketing conversations with AI chatbots
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/qWIC/latest
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 23
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.qwic.ai

@@ -3,6 +3,7 @@
 Use the Devolens/Cryptolens Web API 3 to manage software licensing products, license keys, customers, users, resellers, messages, data objects, subscriptions, analytics, and license templates.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/cryptolens/latest
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 55
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://devolens.com

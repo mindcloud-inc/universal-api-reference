@@ -3,7 +3,7 @@
 Transloadit is a file and media processing platform for uploads, transformations, encoding, and delivery through its API-driven Assembly workflow.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/transloadit/latest
-- **Category:** Content & Files / Storage
+- **Category:** IT Operations / Developer Tools
 - **Actions:** 18
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://transloadit.com

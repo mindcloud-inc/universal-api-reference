@@ -3,7 +3,7 @@
 Daily quote feeds from BrainyQuote, including today's, art, funny, love, and nature quote feeds.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/brainyQuote/latest
-- **Category:** Productivity / Knowledge Management
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 5
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.brainyquote.com

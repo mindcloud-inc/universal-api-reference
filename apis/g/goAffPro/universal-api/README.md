@@ -3,7 +3,7 @@
 Manage affiliates, orders, payouts, and referral activity
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/goAffPro/latest
-- **Category:** Marketing
+- **Category:** Marketing / Advertising
 - **Actions:** 25
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://goaffpro.com/

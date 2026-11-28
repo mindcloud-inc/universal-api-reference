@@ -3,7 +3,7 @@
 Audome is an audio collaboration and project management platform for producers, engineers, and clients, centralizing file delivery, feedback, and version tracking.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/audome/latest
-- **Category:** Content & Files / Storage
+- **Category:** Productivity / Project Management
 - **Actions:** 9
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://audome.com

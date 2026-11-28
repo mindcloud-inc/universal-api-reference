@@ -3,7 +3,7 @@
 Extensiv Order Manager, formerly Skubana, manages ecommerce orders, shipments, inventory, listings, and fulfillment operations through the Order Manager API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/extensiv/latest
-- **Category:** Commerce
+- **Category:** Commerce / Supply Chain
 - **Actions:** 8
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.extensiv.com/extensiv-order-manager

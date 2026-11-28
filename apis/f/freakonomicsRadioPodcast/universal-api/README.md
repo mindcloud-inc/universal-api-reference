@@ -3,6 +3,7 @@
 Read public episode and show metadata from the official Freakonomics Radio RSS feed.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/freakonomicsRadioPodcast/latest
+- **Category:** Business Intelligence / Data Extraction
 - **Actions:** 1
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://freakonomics.com

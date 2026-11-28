@@ -3,7 +3,7 @@
 Manage AI agents, knowledge bases, and support conversations
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/chaindesk/latest
-- **Category:** Support / Ticketing
+- **Category:** Artificial Intelligence / AI / ML
 - **Actions:** 30
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.chaindesk.ai

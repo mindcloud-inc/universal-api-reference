@@ -3,6 +3,7 @@
 Classe365 is a school management platform and student information system for managing academics, students, staff, attendance, grading, invoicing, CRM, agents, and tasks.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/classe365/latest
+- **Category:** Human Resources / Learning (LMS)
 - **Actions:** 41
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://www.classe365.com

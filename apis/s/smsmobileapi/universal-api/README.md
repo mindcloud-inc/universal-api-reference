@@ -3,7 +3,7 @@
 SMSMobileAPI turns connected mobile phones into SMS, call, notification, and messaging gateways that you can automate through a dashboard and REST API.
 
 - **Interactive docs:** https://mindcloud.co/docs/universal/rest/smsmobileapi/latest
-- **Category:** Communication / Team Messaging
+- **Category:** Support / Contact Center
 - **Actions:** 6
 - **OpenAPI specification:** [openapi.json](openapi.json)
 - **Vendor website:** https://smsmobileapi.com/
